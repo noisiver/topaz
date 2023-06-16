@@ -26,6 +26,18 @@ zones[tpz.zone.SILVER_SEA_ROUTE_TO_NASHMAU] =
     },
     mob =
     {
+        SEA_CREATURES =
+        {
+            17014791,   -- Sea Monk 1
+            17014792,   -- Sea Crab 1
+            17014793,   -- Sea Crab 2
+            17014794,   -- Sea Pugil 1
+            17014795,   -- Sea Pugil 2
+            17014796,   -- Sea Monk 2
+            17014798,
+        },
+        UTUKKU = 17014797,
+        PROTEUS = 17014801,
     },
     npc =
     {

@@ -4,25 +4,23 @@
 --
 -----------------------------------
 local ID = require("scripts/zones/Open_sea_route_to_Al_Zahbi/IDs")
+require("scripts/globals/sea_creatures")
 -----------------------------------
-local mobList = {
-    16965640,
-    16965641,
-    16965642,
-    16965643,
-    16965644,
-}
-
 function onInitialize(zone)
-    -- 5% Chance to spawn a random mob from table when boat trip begins
-	if math.random(1,100) <= 5 then 
-        GetMobByID(mobList[math.random(#mobList)]):spawn()
-    end
+    zone:addListener("TRANSPORTZONE_END", "MHAURA_TRANSPORTZONE_END", function(transportZone)
+        if GetMobByID(ID.mob.REVENANT):isSpawned() then
+            DespawnMob(ID.mob.REVENANT)
+        end
+        tpz.sea_creatures.despawn(ID)
+    end)
 
-    -- Despawn previous boat rides mobs
-    for v = 16965640, 16965644, 1 do
-        DespawnMob(v)
-    end
+    zone:addListener("TRANSPORTZONE_START", "MHAURA_TRANSPORTZONE_START", function(transportZone)
+        tpz.sea_creatures.checkSpawns(ID, 5, 1) -- 5 percent on init
+    end)
+
+    zone:addListener("TRANSPORTZONE_UPDATE", "MHAURA_TRANSPORTZONE_UPDATE", function(transportZone, tripTime)
+        tpz.sea_creatures.checkSpawns(ID, 1, 2) -- 1 percent per vana minute, 2 total mobs
+    end)
 end
 
 function onZoneIn(player, prevZone)
@@ -37,18 +35,16 @@ end
 function onTransportEvent(player, transport)
     player:startEvent(1028)
     player:messageSpecial(ID.text.DOCKING_IN_AL_ZAHBI)
-    -- Despawn previous boat rides mobs
-    for v = 16965640, 16965644, 1 do
-        DespawnMob(v)
-    end
 end
 
 function onGameHour(zone)
-    -- 5% Chance to spawn a random mob from table every hour
-    if VanadielHour() % 1 == 0 then
-		if math.random(1,100) <= 5 then 
-            GetMobByID(mobList[math.random(#mobList)]):spawn()
+    local hour = VanadielHour()
+    if hour >= 20 or hour < 4 then
+        if math.random() < 0.20 and not GetMobByID(ID.mob.REVENANT):isSpawned() then
+            GetMobByID(ID.mob.REVENANT):spawn()
         end
+    elseif GetMobByID(ID.mob.REVENANT):isSpawned() then
+        DespawnMob(ID.mob.REVENANT)
     end
 end
 

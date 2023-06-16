@@ -24,6 +24,15 @@ zones[tpz.zone.OPEN_SEA_ROUTE_TO_MHAURA] =
     },
     mob =
     {
+        SEA_CREATURES =
+        {
+            16969736,   -- Sea Monk 1
+            16969737,   -- Sea Crab 1
+            16969738,   -- Sea Crab 2
+            16969739,   -- Sea Pugil 1
+            16969740,   -- Sea Pugil 2
+        },
+        REVENANT = 16969741,
     },
     npc =
     {

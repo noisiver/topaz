@@ -24,6 +24,15 @@ zones[tpz.zone.OPEN_SEA_ROUTE_TO_AL_ZAHBI] =
     },
     mob =
     {
+        SEA_CREATURES =
+        {
+            16965640,   -- Sea Monk 1
+            16965641,   -- Sea Crab 1
+            16965642,   -- Sea Crab 2
+            16965643,   -- Sea Pugil 1
+            16965644,   -- Sea Pugil 2
+        },
+        REVENANT = 16965645,
     },
     npc =
     {

@@ -2244,7 +2244,7 @@ INSERT INTO `mob_groups` VALUES (1468,2906,46,'Northern_Piranu',0,128,9058,15000
 INSERT INTO `mob_groups` VALUES (1469,2935,46,'Ocean_Jagil',0,128,37,0,0,34,36,0);
 INSERT INTO `mob_groups` VALUES (1470,2936,46,'Ocean_Kraken',0,128,290,0,0,41,43,0);
 INSERT INTO `mob_groups` VALUES (1471,3102,46,'Passage_Crab',0,128,0,0,0,35,35,0);
-INSERT INTO `mob_groups` VALUES (1472,3358,46,'Revenant',960,1,2091,0,0,36,36,0);
+INSERT INTO `mob_groups` VALUES (1472,3358,46,'Revenant',0,128,2091,0,0,36,36,0);
 INSERT INTO `mob_groups` VALUES (1473,3912,46,'Thunder_Elemental',960,4,2410,0,0,39,40,0);
 INSERT INTO `mob_groups` VALUES (1474,4309,46,'Water_Elemental',960,4,2629,0,0,39,39,0);
 
@@ -2259,7 +2259,7 @@ INSERT INTO `mob_groups` VALUES (1478,1839,47,'Gugru_Orobon',0,128,0,0,0,63,63,0
 INSERT INTO `mob_groups` VALUES (1479,2935,47,'Ocean_Jagil',0,128,37,0,0,34,36,0);
 INSERT INTO `mob_groups` VALUES (1480,2936,47,'Ocean_Kraken',0,128,290,0,0,44,44,0);
 INSERT INTO `mob_groups` VALUES (1481,3102,47,'Passage_Crab',0,128,0,0,0,35,35,0);
-INSERT INTO `mob_groups` VALUES (1482,3358,47,'Revenant',960,1,2091,0,0,36,36,0);
+INSERT INTO `mob_groups` VALUES (1482,3358,47,'Revenant',0,128,2091,0,0,36,36,0);
 INSERT INTO `mob_groups` VALUES (1483,3708,47,'Southern_Piranu',0,128,9059,15000,0,85,85,0); -- Fished up
 INSERT INTO `mob_groups` VALUES (1484,3912,47,'Thunder_Elemental',960,4,2410,0,0,39,40,0);
 INSERT INTO `mob_groups` VALUES (1485,4309,47,'Water_Elemental',960,4,2629,0,0,39,40,0);
@@ -2863,7 +2863,7 @@ INSERT INTO `mob_groups` VALUES (1995,3207,58,'Proteus',0,128,2025,15000,0,85,85
 INSERT INTO `mob_groups` VALUES (1996,3805,58,'Submarine_Nipper',0,128,93,0,0,52,53,0);
 INSERT INTO `mob_groups` VALUES (1997,3885,58,'Thalassic_Pugil',0,128,37,0,0,52,54,0);
 INSERT INTO `mob_groups` VALUES (1998,3912,58,'Thunder_Elemental',960,4,2410,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (1999,4112,58,'Utukku',960,1,2091,0,0,55,56,0);
+INSERT INTO `mob_groups` VALUES (1999,4112,58,'Utukku',0,128,2091,0,0,55,56,0);
 
 -- ------------------------------------------------------------
 -- Silver_Sea_route_to_Al_Zahbi (Zone 59)
@@ -2883,7 +2883,7 @@ INSERT INTO `mob_groups` VALUES (2010,3059,59,'Orobon',0,128,969,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (2011,3805,59,'Submarine_Nipper',0,128,93,0,0,52,53,0);
 INSERT INTO `mob_groups` VALUES (2012,3885,59,'Thalassic_Pugil',0,128,37,0,0,52,54,0);
 INSERT INTO `mob_groups` VALUES (2013,3912,59,'Thunder_Elemental',960,4,2410,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (2014,4112,59,'Utukku',960,1,2091,0,0,55,56,0);
+INSERT INTO `mob_groups` VALUES (2014,4112,59,'Utukku',0,128,2091,0,0,55,56,0);
 
 -- ------------------------------------------------------------
 -- The_Ashu_Talif (Zone 60)
