@@ -7651,9 +7651,10 @@ INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,11286,240); -- Avalon breastpla
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,16178,240); -- Avalon shield
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,12924,50); -- Magic cuisses
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,13189,50); -- Speed belt
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,1000);	-- (King Arthro Present) Square of damascene cloth
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,240); -- Square of damascene cloth
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13748,240);	-- (King Arthro Present) Vermillion Cloak(Was Square of damascene cloth)
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13749,100); -- Royal Cloak
+-- INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,240); -- Square of damascene cloth
+-- INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,100); -- Square of damascene cloth
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4172,1000); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4174,1000); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,12924,1000); -- Magic cuisses
@@ -11255,7 +11256,8 @@ INSERT INTO `mob_droplist` VALUES (2110,0,0,1000,4400,240);
 INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,881,240);
 INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,1193,50);
 INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,4400,240);
-INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,658,100);	-- (Roc) Damascus Ingot
+INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,12555,100);	-- (Roc) Haubergeon(Was Damascus Ingot)
+INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,13735,50);	  -- Haubergeon +1 
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4172,240);	  -- Reraiser 
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4174,240); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,16822,1000);	-- Crimson Blade
@@ -11690,7 +11692,8 @@ INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,19213,240); -- White tathlum
 INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,12348,50); -- Serket shield
 INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,13552,50); -- Serket ring
 INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,16767,50); -- Triple dagger
-INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,901,150);	-- (Serket - Present) Venomous claw
+INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,12579,150);	-- (Serket - Present) Scorpion Harness(was Venomous claw)
+INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,13734,50); -- Scorpion Harness +1
 INSERT INTO `mob_droplist` VALUES (2203,1,5,150,4175,500); -- Vile Elixir +1
 INSERT INTO `mob_droplist` VALUES (2203,1,5,150,4174,500); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2203,1,6,150,4173,500); -- Hi-Reraiser
@@ -11896,7 +11899,8 @@ INSERT INTO `mob_droplist` VALUES (2253,0,0,1000,12833,50);
 INSERT INTO `mob_droplist` VALUES (2253,0,0,1000,12961,30);
 INSERT INTO `mob_droplist` VALUES (2254,2,0,1000,750,0);
 --INSERT INTO `mob_droplist` VALUES (2254,0,0,1000,1533,50); -- Garrison
-INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,658,100); -- (Simurgh) Damascus ingot
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,12556,100); -- (Simurgh) Hauberk(was Damascus ingot)
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,13793,50); -- Hauberk +1
 INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4172,240); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4174,240); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,15736,50);	-- Trotter Boots
