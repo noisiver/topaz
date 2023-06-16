@@ -28,8 +28,8 @@ CREATE TABLE `fishing_fish` (
   `min_skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0', -- skill level to catch
   `skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0', -- skill cap to skill up
   `size` tinyint(3) unsigned NOT NULL,
-  `base_delay` tinyint(2) unsigned NOT NULL,
-  `base_move` tinyint(2) unsigned NOT NULL,
+  `base_delay` tinyint(2) unsigned NOT NULL,    -- Difficulty
+  `base_move` tinyint(2) unsigned NOT NULL,     -- Difficulty
   `min_length` smallint(5) unsigned NOT NULL DEFAULT '1',
   `max_length` smallint(5) unsigned NOT NULL DEFAULT '1',
   `size_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -93,7 +93,7 @@ INSERT INTO `fishing_fish` VALUES (5447,'Denizanasi',0,5,28,5,0,1,1,0,0,255,255,
 INSERT INTO `fishing_fish` VALUES (5457,'Dil',0,96,33,2,2,1,1,0,0,255,255,0,0,0,0,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4290,'Elshimo Frog',0,30,16,6,13,1,1,0,0,255,255,0,0,0,0,1,350,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4579,'Elshimo Newt',0,60,16,8,11,1,1,0,0,255,255,0,0,0,0,1,350,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4454,'Emperor Fish',0,91,36,1,4,64,179,1,0,255,255,0,0,0,0,1,200,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4454,'Emperor Fish',0,91,36,1,1,64,179,1,0,255,255,0,0,0,0,1,200,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4501,'Fat Greedie',0,23,18,10,8,1,1,0,1,255,255,0,0,0,0,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (12316,'Fish Scale Shield',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,10,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4289,'Forest Carp',0,20,21,9,11,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
@@ -109,7 +109,7 @@ INSERT INTO `fishing_fish` VALUES (4427,'Gold Carp',0,56,18,10,14,1,1,0,0,255,25
 INSERT INTO `fishing_fish` VALUES (4383,'Gold Lobster',0,46,35,4,3,1,1,0,0,255,255,1,0,0,0,1,200,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4500,'Greedie',0,14,10,7,14,1,1,0,1,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4304,'Grimmonite',0,90,31,4,4,57,144,1,0,255,255,0,0,0,0,1,450,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4480,'Gugru Tuna',0,41,16,6,13,39,121,1,1,255,255,16,0,0,0,1,450,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4480,'Gugru Tuna',0,41,16,2,2,39,121,1,1,255,255,16,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5127,'Gugrusaurus',90,140,39,6,5,149,423,1,1,255,255,0,1,7,0,1,200,1977,'',0);
 INSERT INTO `fishing_fish` VALUES (5132,'Gurnard',0,16,14,11,9,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5449,'Hamsi',0,9,21,11,6,1,1,0,0,255,255,1,0,0,0,3,600,0,'',0);
