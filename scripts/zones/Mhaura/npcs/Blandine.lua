@@ -16,7 +16,7 @@ function onTrigger(player, npc)
     local TheSandCharm = player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.THE_SAND_CHARM)
 
     if (Z <= 29 or Z >= 38 or X <= 16 or X >= 32) then
-        if (if TheSandCharm == QUEST_AVAILABLE) then
+        if (TheSandCharm == QUEST_AVAILABLE) then
             player:startEvent(125) -- Start quest "The Sand Charm"
         elseif (player:getCharVar("theSandCharmVar") == 2) then
             player:startEvent(124) -- During quest "The Sand Charm" - 2nd dialog
