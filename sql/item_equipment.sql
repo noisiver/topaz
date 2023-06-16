@@ -7345,7 +7345,7 @@ INSERT INTO `item_equipment` VALUES (17613,'beetle_knife_+1',56,0,474849,180,0,0
 INSERT INTO `item_equipment` VALUES (17614,'stun_kukri_+1',69,0,464033,174,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17615,'chicken_knife',58,0,32,159,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17616,'dagger_of_trials',71,0,333617,164,0,0,3,0);
-INSERT INTO `item_equipment` VALUES (17617,'mst.cst._knife',71,0,474849,180,0,0,3,0);
+INSERT INTO `item_equipment` VALUES (17617,'mst.cst._knife',71,0,474865,180,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17618,'kidney_dagger',56,0,1605625,169,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17619,'daylight_dagger',70,0,1605625,170,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17620,'misericorde_+1',71,0,1605625,163,0,0,3,0);

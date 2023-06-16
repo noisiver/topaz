@@ -1149,7 +1149,7 @@ INSERT INTO `item_weapon` VALUES (17504,'pagures',1,0,0,0,0,4,2,586,14,0);
 INSERT INTO `item_weapon` VALUES (17505,'narasimhas_cesti',1,0,0,0,0,4,1,480,6,0);
 INSERT INTO `item_weapon` VALUES (17506,'vishnus_cesti',1,0,0,0,0,4,1,480,7,0);
 INSERT INTO `item_weapon` VALUES (17507,'knuckles_of_trials',1,0,0,0,0,4,1,576,16,300);
-INSERT INTO `item_weapon` VALUES (17508,'mst.cst.baghnakhs',1,0,0,0,0,4,1,546,15,0);
+INSERT INTO `item_weapon` VALUES (17508,'mst.cst.baghnakhs',1,0,0,0,0,4,1,528,18,0);
 INSERT INTO `item_weapon` VALUES (17509,'destroyers',1,0,0,0,0,4,1,528,5,500);
 INSERT INTO `item_weapon` VALUES (17510,'vampiric_claws',1,0,0,0,0,2,1,540,8,0);
 INSERT INTO `item_weapon` VALUES (17511,'indra_katars',1,0,0,0,0,4,1,564,19,0);

@@ -988,16 +988,16 @@ INSERT INTO `item_latents` VALUES(14015, 110, 5, 53, 0);    -- Parrying skill +5
 -- -------------------------------------------------------
 -- Master Caster's Mitts
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14016, 11, 2, 53, 0);     -- AGI +2 in areas outside own nation's control
-INSERT INTO `item_latents` VALUES(14016, 108, 10, 53, 0);   -- EVA skill +10 in areas outside own nation's control
+INSERT INTO `item_latents` VALUES(14016, 11, 2, 61, 2);     -- Windurst Citizens: AGI +2
+INSERT INTO `item_latents` VALUES(14016, 108, 15, 61, 2);   -- Windurst Citizens: EVA skill +15 
 
 -- -------------------------------------------------------
 -- Master Caster's Bracelets
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14017, 12, 1, 53, 0);     -- INT +1 in areas outside own nation's control
-INSERT INTO `item_latents` VALUES(14017, 13, 1, 53, 0);     -- MND +1 in areas outside own nation's control
-INSERT INTO `item_latents` VALUES(14017, 114, 7, 53, 0);    -- Enfeeb +7 in areas outside own nation's control
-INSERT INTO `item_latents` VALUES(14017, 115, 7, 53, 0);    -- element +7 in areas outside own nation's control
+INSERT INTO `item_latents` VALUES(14017, 12, 1, 61, 2);     -- Windurst Citizens: INT +1
+INSERT INTO `item_latents` VALUES(14017, 13, 1, 61, 2);     -- Windurst Citizens: MND +1
+INSERT INTO `item_latents` VALUES(14017, 114, 7, 61, 2);    -- Windurst Citizens: Enfeebling magic skill +7
+INSERT INTO `item_latents` VALUES(14017, 115, 7, 61, 2);    -- Windurst Citizens: elemental magic skill +7
 
 INSERT INTO `item_latents` VALUES(14026, 25, 9, 52, 6);     -- Hailstorm Tekko: Accuracy +9 in Water weather
 INSERT INTO `item_latents` VALUES(14027, 25, 10, 52, 6);    -- Hailstorm Tekko +1: Accuracy +10 in Water weather
@@ -1299,6 +1299,26 @@ INSERT INTO `item_latents` VALUES(14430, 169, 12, 54, 21);
 
 INSERT INTO `item_latents` VALUES(14432, 68, 2, 29, 0);
 INSERT INTO `item_latents` VALUES(14432, 68, 2, 31, 0);
+
+-- -------------------------------------------------------
+-- Master Caster's Knife
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17617, 302, 5, 61, 2);     -- Windurst Citizens: Triple Attack +5%
+
+-- -------------------------------------------------------
+-- Master Caster's Bow
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(18145, 841, 10, 61, 2);     -- Windurst Citizens: Weaponskill damage +10%
+
+-- -------------------------------------------------------
+-- Master Caster's Baghnakhs
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17508, 173, 5, 61, 2);     -- Windurst Citizens: Martial Arts +5
+
+-- -------------------------------------------------------
+-- Master Caster's Pole
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17530, 71, 11, 61, 2);     -- Windurst Citizens: MP recovered while healing +11
 
 -- -------------------------------------------------------
 -- Vampire Cloak
