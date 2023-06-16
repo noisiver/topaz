@@ -27,7 +27,7 @@ CREATE TABLE `fishing_fish` (
   `name` varchar(64) NOT NULL,
   `min_skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0', -- skill level to catch
   `skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0', -- skill cap to skill up
-  `size` tinyint(3) unsigned NOT NULL,
+  `size` tinyint(3) unsigned NOT NULL, -- used to calculate rod break chance
   `base_delay` tinyint(2) unsigned NOT NULL,    -- Difficulty
   `base_move` tinyint(2) unsigned NOT NULL,     -- Difficulty
   `min_length` smallint(5) unsigned NOT NULL DEFAULT '1',
@@ -78,7 +78,7 @@ INSERT INTO `fishing_fish` VALUES (5474,'Ca Cuong',0,73,16,12,6,12,1,0,0,255,255
 INSERT INTO `fishing_fish` VALUES (5465,'Caedarva Frog',0,30,17,6,13,1,1,0,0,255,255,0,0,0,0,1,350,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4309,'Cave Cherax',90,130,36,7,4,118,232,1,0,255,255,0,1,0,0,1,150,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4379,'Cheval Salmon',0,21,21,7,7,1,1,0,0,255,255,0,0,0,0,1,400,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4443,'Cobalt Jellyfish',0,28,5,13,0,1,1,0,0,255,255,0,0,0,1,1,750,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4443,'Cobalt Jellyfish',0,5,28,13,0,1,1,0,0,255,255,0,0,0,1,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5128,'Cone Calamary',0,48,40,10,5,1,1,0,0,255,255,1,0,0,0,3,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4515,'Copper Frog',0,16,22,8,4,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (13454,'Copper ring',0,3,40,13,2,1,1,0,0,255,255,1,0,0,1,1,100,0,'',0);
@@ -132,7 +132,7 @@ INSERT INTO `fishing_fish` VALUES (5468,'Matsya',90,110,40,1,1,163,331,1,0,255,2
 INSERT INTO `fishing_fish` VALUES (5467,'Megalodon',0,87,34,10,11,446,625,1,0,255,255,0,0,0,0,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5454,'Mercanbaligi',0,86,31,4,3,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5330, 'Mithra Snare', 0, 1, 1, 3, 2, 1, 1, 0, 0, 4, 90, 0, 0, 0, 1, 1, 0, 0, '', 0);
-INSERT INTO `fishing_fish` VALUES (4401,'Moat Carp',0,16,11,10,9,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4401,'Moat Carp',0,11,11,10,9,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1638,'Moblin Mask',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5134,'Mola Mola',90,135,16,1,1,130,184,1,1,255,255,16,1,0,0,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4462,'Monke-Onke',0,51,17,11,9,49,115,1,0,255,255,0,0,0,0,1,200,0,'',0);
@@ -141,7 +141,7 @@ INSERT INTO `fishing_fish` VALUES (5462,'Morinabaligi',0,94,36,4,13,1,1,0,0,255,
 INSERT INTO `fishing_fish` VALUES (5126,'Muddy Siredon',0,18,23,12,11,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (16451,'Mythril Dagger',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,50,0,'',0);
 INSERT INTO `fishing_fish` VALUES (16537,'Mythril Sword',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,50,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4361,'Nebimonite',0,30,27,9,5,1,1,0,1,255,255,0,0,0,0,1,450,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4361,'Nebimonite',0,27,23,9,5,1,1,0,1,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4485,'Noble Lady',0,66,30,7,10,1,1,0,1,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1135,'Norg Shell',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4482,'Nosteau Herring',0,39,21,7,8,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
