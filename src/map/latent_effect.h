@@ -88,9 +88,10 @@ enum LATENT
     LATENT_IN_ASSAULT               = 58, // is in an Instance battle in a TOAU zone
     LATENT_VS_ECOSYSTEM             = 59, // Vs. Specific Ecosystem ID (e.g. Vs. Birds: Accuracy+3)
     LATENT_VS_FAMILY                = 60, // Vs. Specific Family ID (e.g. Vs. Apkallu: Accuracy+3)
+    LATENT_CITIZEN_OF               = 61, // Citizen of Nation SANDY = 0, BASTOK = 1, WINDURST = 2
 };
 
-#define MAX_LATENTEFFECTID    61
+#define MAX_LATENTEFFECTID    999
 
 /************************************************************************
 *																		*
