@@ -10846,6 +10846,7 @@ INSERT INTO `item_equipment` VALUES (21973,'eletta_tachi',99,119,6144,155,0,0,1,
 INSERT INTO `item_equipment` VALUES (21974,'kaja_tachi',99,119,6144,844,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (21975,'hachimonji',99,119,6144,844,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (21976,'voluspa_tachi',99,119,2048,154,0,0,1,0);
+INSERT INTO `item_equipment` VALUES (21977,'mutsunokami',1,0,4194303,791,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (21980,'zanmato_+2',99,119,2048,788,0,0,1,0); -- TODO: capture model from retail (using Zanmato +1 model)
 INSERT INTO `item_equipment` VALUES (22004,'soulflayers_wand',1,0,4194303,823,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (22006,'voluspa_hammer',99,119,1048580,112,0,0,3,0);
@@ -11785,6 +11786,8 @@ INSERT INTO `item_equipment` VALUES (25764,'taliah_manteel',99,119,147712,160,0,
 INSERT INTO `item_equipment` VALUES (25765,'taliah_manteel_+1',99,119,147712,160,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (25766,'hjarrandi_breast',99,119,8385,199,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (25767,'sacro_breastplate',99,119,10689,457,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (25774,'fancy_gilet',1,0,4194303,447,0,0,32,64);
+INSERT INTO `item_equipment` VALUES (25775,'fancy_top',1,0,4194303,448,0,0,32,64);
 INSERT INTO `item_equipment` VALUES (25776,'bl._chocobo_suit',1,0,4194303,449,0,0,32,448);
 INSERT INTO `item_equipment` VALUES (25779,'flamma_korazin',99,119,10433,195,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (25780,'flamma_korazin_+1',99,119,10433,195,0,0,32,0);
@@ -11827,6 +11830,8 @@ INSERT INTO `item_equipment` VALUES (25819,'flam._manopolas_+1',99,119,10433,195
 INSERT INTO `item_equipment` VALUES (25820,'mummu_wrists',99,119,332834,196,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (25821,'mummu_wrists_+1',99,119,332834,196,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (25822,'mallquis_cuffs',99,119,1572872,197,0,0,64,0);
+INSERT INTO `item_equipment` VALUES (25838,'fancy_trunks',1,0,4194303,447,0,0,128,256);
+INSERT INTO `item_equipment` VALUES (25839,'fancy_shorts',1,0,4194303,448,0,0,128,256);
 INSERT INTO `item_equipment` VALUES (25823,'mallquis_cuffs_+1',99,119,1572872,197,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (25824,'regal_gauntlets',99,119,2097216,276,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (25825,'regal_cpt._gloves',99,119,133251,0,0,0,64,0);
