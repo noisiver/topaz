@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- func: giveitem <player> <itemId> <amount> <aug1> <v1> <aug2> <v2> <aug3> <v3> <aug4> <v4>
+-- func: giveitembyid <player> <itemId> <amount> <aug1> <v1> <aug2> <v2> <aug3> <v3> <aug4> <v4>
 -- desc: Gives an item to the target player.
 ---------------------------------------------------------------------------------------------------
 
@@ -21,10 +21,10 @@ function onTrigger(player, target, name, quantity, aug0, aug0val, aug1, aug1val,
         return
     end
 
-    local itemId = GetItemIDByName(name)
-    
-    if itemId == 0 or itemId == nil then
-        error(player, "Invalid ID.")
+    -- validate itemId
+    if (itemId == nil or tonumber(itemId) == nil or tonumber(itemId) == 0) then
+        error(player, "Invalid itemId.")
+        return
     end
     
     if quantity == nil or quantity == 0 then
