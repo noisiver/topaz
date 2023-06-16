@@ -535,6 +535,7 @@ class CBattleEntity;
 class CTrustEntity;
 class CTreasurePool;
 class CZoneEntities;
+class CAIEventHandler;
 
 typedef std::list<CRegion*> regionList_t;
 typedef std::list<zoneLine_t*> zoneLineList_t;
@@ -564,6 +565,8 @@ public:
     uint8           GetBackgroundMusicDay();
     uint8           GetBackgroundMusicNight();
     zoneLine_t*     GetZoneLine(uint32 zoneLineID);
+
+    CZoneEntities* m_zoneEntities;
 
     virtual CCharEntity*    GetCharByName(int8* name);                              // finds the player if exists in zone
     virtual CCharEntity*    GetCharByID(uint32 id);
@@ -633,6 +636,7 @@ public:
     CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID);
     virtual ~CZone();
 
+    CAIEventHandler* PEventHandler;
     CBattlefieldHandler* m_BattlefieldHandler;  // BCNM Instances in this zone
 
     uint8 m_fameType; // the fame type applied the the entire area, used for item appraisal when selling items to an NPC in this zone
@@ -654,7 +658,6 @@ private:
 
     WEATHER         m_Weather;              // Current Weather
     uint32          m_WeatherChangeTime;    // current weather start time
-    CZoneEntities*  m_zoneEntities;
 
     uint16          m_tax;                  // налог в bazaar
     uint16          m_miscMask;             // битовое поле, описывающее возможности использования в зоне определенных умений

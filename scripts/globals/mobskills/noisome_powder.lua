@@ -20,7 +20,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ATTACK_DOWN
     if not target:hasStatusEffect(tpz.effect.ATTACK_DOWN) then
-        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 40, 0, 300))
+        skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, 40, 0, 30, 0, 0, 0))
     else
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     end

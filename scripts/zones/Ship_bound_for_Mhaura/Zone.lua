@@ -4,26 +4,29 @@
 --
 -----------------------------------
 local ID = require("scripts/zones/Ship_bound_for_Mhaura/IDs")
+require("scripts/globals/sea_creatures")
 -----------------------------------
-local mobList = {
-    17682438,
-    17682439,
-    17682440,
-    17682441,
-    17682442,
-    17682446,
-}
-
 function onInitialize(zone)
-    -- 5% Chance to spawn a random mob from table when boat trip begins
-	if math.random(1,100) <= 5 then 
-        GetMobByID(mobList[math.random(#mobList)]):spawn()
-    end
+    zone:addListener("TRANSPORTZONE_END", "MHAURA_TRANSPORTZONE_END", function(transportZone)
+        if GetMobByID(ID.mob.PHANTOM):isSpawned() then
+            DespawnMob(ID.mob.PHANTOM)
+        end
+        if GetMobByID(ID.mob.SEA_HORROR):isSpawned() then
+            DespawnMob(ID.mob.SEA_HORROR)
+        end
+        tpz.sea_creatures.despawn(ID)
+    end)
 
-    -- Despawn previous boat rides mobs
-    for v = 17682438, 17682446, 1 do
-        DespawnMob(v)
-    end
+    zone:addListener("TRANSPORTZONE_START", "MHAURA_TRANSPORTZONE_START", function(transportZone)
+        if GetMobByID(ID.mob.SEA_HORROR):isSpawned() then -- make sure we dont have horror from previous or docked zone
+            DespawnMob(ID.mob.SEA_HORROR)
+        end
+        tpz.sea_creatures.checkSpawns(ID, 5, 1) -- 5 percent on init
+    end)
+
+    zone:addListener("TRANSPORTZONE_UPDATE", "MHAURA_TRANSPORTZONE_UPDATE", function(transportZone, tripTime)
+        tpz.sea_creatures.checkSpawns(ID, 1, 2) -- 1 percent per vana minute, 2 total mobs
+    end)
 end
 
 function onZoneIn(player, prevZone)
@@ -35,21 +38,25 @@ function onZoneIn(player, prevZone)
     return cs
 end
 
-function onTransportEvent(player, transport)
-    player:startEvent(512)
-    -- Despawn previous boat rides mobs
-    for v = 17682438, 17682446, 1 do
-        DespawnMob(v)
+function onGameHour(zone)
+    local hour = VanadielHour()
+    if hour >= 20 or hour < 4 then
+        if math.random() < 0.20 and not GetMobByID(ID.mob.PHANTOM):isSpawned() then
+            GetMobByID(ID.mob.PHANTOM):spawn()
+        end
+    elseif GetMobByID(ID.mob.PHANTOM):isSpawned() then
+        DespawnMob(ID.mob.PHANTOM)
+    end
+
+    local mob = GetMobByID(ID.mob.SEA_HORROR)
+    -- 3% chance per game hour (if not spawned, and min repop time)
+    if math.random(0, 100) < 3 and not mob:isSpawned() and os.time() > mob:getLocalVar("respawnTime") then
+        mob:spawn()
     end
 end
 
-function onGameHour(zone)
-    -- 5% Chance to spawn a random mob from table every hour
-    if VanadielHour() % 1 == 0 then
-		if math.random(1,100) <= 5 then 
-            GetMobByID(mobList[math.random(#mobList)]):spawn()
-        end
-    end
+function onTransportEvent(player, transport)
+    player:startEvent(512)
 end
 
 function onEventUpdate(player, csid, option)

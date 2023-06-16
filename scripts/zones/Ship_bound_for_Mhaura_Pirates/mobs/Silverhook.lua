@@ -1,4 +1,3 @@
-
 -----------------------------------
 -- Area: Ship bound for Mhaura (Pirates)
 --  Mob: Silverhook

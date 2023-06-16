@@ -7394,9 +7394,9 @@ INSERT INTO `mob_groups` VALUES (58,2637,103,'Metaquadav_Dark_Knight',0,128,0,0,
 INSERT INTO `mob_groups` VALUES (59,1718,103,'Goblin_Swordmaker',0,128,0,0,0,30,35,0);
 INSERT INTO `mob_groups` VALUES (60,1667,103,'Goblin_Gaoler',0,128,0,0,0,30,35,0);
 INSERT INTO `mob_groups` VALUES (61,1717,103,'Goblin_Swindler',0,128,0,0,0,35,35,0);
-INSERT INTO `mob_groups` VALUES (62,1994,103,'Houu_the_Shoalwader',0,0,0,0,0,0,0,0);
-INSERT INTO `mob_groups` VALUES (63,379,103,'Beach_Monk',0,128,0,0,0,20,20,0);
-INSERT INTO `mob_groups` VALUES (64,1915,103,'Heike_Crab',0,128,0,0,0,20,20,0);
+INSERT INTO `mob_groups` VALUES(62, 1994, 103, 'Houu_the_Shoalwader', 0, 128, 0, 500, 0, 20, 20, 0);
+INSERT INTO `mob_groups` VALUES(63, 379, 103, 'Beach_Monk', 0, 128, 0, 450, 0, 20, 20, 0);
+INSERT INTO `mob_groups` VALUES(64, 1915, 103, 'Heike_Crab', 0, 128, 0, 450, 0, 20, 20, 0);
 INSERT INTO `mob_groups` VALUES (65,3148,103,'Pixie',0,128,2001,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (66,479,103,'Blue_Bascinet',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (67,4693,103,'Ig-Alima',0,128,0,0,9999,115,115,0);
@@ -8195,7 +8195,7 @@ INSERT INTO `mob_groups` VALUES (18,4448,115,'Yagudo_Scribe',330,0,2761,0,0,3,5,
 INSERT INTO `mob_groups` VALUES (19,332,115,'Balloon',330,8,216,0,0,8,10,0);
 INSERT INTO `mob_groups` VALUES (20,2472,115,'Mad_Fox',330,1,1562,0,0,5,6,0); -- added higher level group
 INSERT INTO `mob_groups` VALUES (21,2475,115,'Magicked_Bones',330,1,769,0,0,5,6,0); -- added higher level group
-INSERT INTO `mob_groups` VALUES (22,831,115,'Crawler',330,0,530,0,0,7,8,0); -- higher level group
+INSERT INTO `mob_groups` VALUES (22,831,115,'Crawler',330,0,694,0,0,7,8,0); -- Starfall Hillock 
 INSERT INTO `mob_groups` VALUES (23,1524,115,'Giant_Bee',330,0,965,0,0,4,5,0); -- added higher level group
 INSERT INTO `mob_groups` VALUES (24,3947,115,'Tom_Tit_Tat',3600,0,2427,513,0,9,10,0);
 INSERT INTO `mob_groups` VALUES (25,2921,115,'Nunyenunc',3600,0,1829,350,0,11,12,0);
@@ -13626,7 +13626,7 @@ INSERT INTO `mob_groups` VALUES (7,3127,220,'Phantom',960,1,1993,0,0,22,25,0);
 INSERT INTO `mob_groups` VALUES (8,3912,220,'Thunder_Elemental',960,4,2415,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9,4309,220,'Water_Elemental',960,4,2629,0,0,27,29,0);
 INSERT INTO `mob_groups` VALUES (10,3522,220,'Sea_Horror',0,128,2186,10000,0,60,62,0);
-INSERT INTO `mob_groups` VALUES (11,1213,220,'Enagakure',0,128,1993,0,0,55,55,0);
+INSERT INTO `mob_groups` VALUES (11,1213,220,'Enagakure',0,128,1993,6000,0,55,55,0);
 INSERT INTO `mob_groups` VALUES (12,3523,220,'Sea_Monk',0,128,0,0,0,21,29,0);
 
 -- ------------------------------------------------------------
@@ -13669,11 +13669,11 @@ INSERT INTO `mob_groups` VALUES (4,3138,227,'Pirate_Pugil',0,128,147,0,0,20,22,0
 INSERT INTO `mob_groups` VALUES (5,3523,227,'Sea_Monk',0,128,2188,0,0,21,29,0);
 INSERT INTO `mob_groups` VALUES (6,3520,227,'Sea_Crab',0,128,2184,0,0,10,20,0);
 INSERT INTO `mob_groups` VALUES (7,3127,227,'Phantom',0,128,1993,0,0,22,25,0);
-INSERT INTO `mob_groups` VALUES (8,5878,227,'Crossbones',45,0,537,0,0,28,31,0);
-INSERT INTO `mob_groups` VALUES (9,844,227,'Crossbones',45,0,537,0,0,28,31,0);
-INSERT INTO `mob_groups` VALUES (10,3605,227,'Ship_Wight',45,0,0,0,0,36,39,0);
-INSERT INTO `mob_groups` VALUES (11,428,227,'Blackbeard',0,128,282,0,0,68,70,0);
-INSERT INTO `mob_groups` VALUES (12,1213,227,'Enagakure',0,128,0,0,0,55,55,0);
+INSERT INTO `mob_groups` VALUES (8,5878,227,'Crossbones',300,128,537,0,0,28,31,0);
+INSERT INTO `mob_groups` VALUES (9,844,227,'Crossbones',300,128,537,0,0,28,31,0);
+INSERT INTO `mob_groups` VALUES (10,3605,227,'Ship_Wight',300,128,0,0,0,36,39,0);
+INSERT INTO `mob_groups` VALUES (11,428,227,'Blackbeard',0,128,282,9000,0,68,70,0);
+INSERT INTO `mob_groups` VALUES (12,1213,227,'Enagakure',0,128,1993,6000,0,55,55,0);
 
 -- ------------------------------------------------------------
 -- Ship_bound_for_Mhaura_Pirates (Zone 228)
@@ -13686,10 +13686,10 @@ INSERT INTO `mob_groups` VALUES (4,3138,228,'Pirate_Pugil',0,128,147,0,0,20,22,0
 INSERT INTO `mob_groups` VALUES (5,3523,228,'Sea_Monk',0,128,2188,0,0,21,29,0);
 INSERT INTO `mob_groups` VALUES (6,3520,228,'Sea_Crab',0,128,2184,0,0,10,20,0);
 INSERT INTO `mob_groups` VALUES (7,3127,228,'Phantom',0,128,1993,0,0,22,25,0);
-INSERT INTO `mob_groups` VALUES (8,5878,228,'Crossbones',45,0,537,0,0,28,31,0);
-INSERT INTO `mob_groups` VALUES (9,844,228,'Crossbones',45,0,537,0,0,28,31,0);
-INSERT INTO `mob_groups` VALUES (10,3605,228,'Ship_Wight',45,0,2239,0,0,36,39,0);
-INSERT INTO `mob_groups` VALUES (11,3626,228,'Silverhook',0,128,2249,0,0,68,70,0);
+INSERT INTO `mob_groups` VALUES (8,5878,228,'Crossbones',300,128,537,0,0,28,31,0);
+INSERT INTO `mob_groups` VALUES (9,844,228,'Crossbones',300,128,537,0,0,28,31,0);
+INSERT INTO `mob_groups` VALUES (10,3605,228,'Ship_Wight',300,128,2239,0,0,36,39,0);
+INSERT INTO `mob_groups` VALUES (11,3626,228,'Silverhook',0,128,2249,9000,0,68,70,0);
 
 -- ------------------------------------------------------------
 -- Abyssea-Uleguerand (Zone 253)

@@ -935,6 +935,45 @@ inline int32 CLuaBaseEntity::entityAnimationPacket(lua_State* L)
 }
 
 /************************************************************************
+*  Function: sendNpcEmote()
+*  Purpose : Makes an NPC entity emit an emote.
+*  Example : taru:sendEmote(target, tpz.emote.PANIC, tpz.emoteMode.MOTION)
+*  Notes   : Originally added for Pirate / Brigand chart events
+             target parameter can be nil
+************************************************************************/
+inline int32 CLuaBaseEntity::sendNpcEmote(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_NPC)
+    TPZ_DEBUG_BREAK_IF(!lua_isnil(L, 1) && !lua_isuserdata(L, 1)); // nil or entity allowed
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 2) || !lua_isnumber(L, 2));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 3) || !lua_isnumber(L, 3));
+    // 4th parameter is optional
+    const auto PNpc = dynamic_cast<CNpcEntity*>(m_PBaseEntity);
+    uint32 EntityId = 0;
+    uint16 EntityIndex = 0;
+    uint16 extra = 0;
+    if (!lua_isnil(L, 1) && lua_isuserdata(L, 1))
+    {
+        const auto PTarget = Lunar<CLuaBaseEntity>::check(L, 1);
+        EntityId = PTarget->GetBaseEntity()->id;
+        EntityIndex = PTarget->GetBaseEntity()->targid;
+    }
+    if (!lua_isnil(L, 4) && lua_isnumber(L, 4))
+    {
+        extra = lua_tointeger(L, 4);
+    }
+    if (PNpc)
+    {
+        const auto emoteID = static_cast<Emote>(lua_tointeger(L, 2));
+        const auto emoteMode = static_cast<EmoteMode>(lua_tointeger(L, 3));
+        PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CCharEmotionPacket(PNpc, EntityId, EntityIndex, emoteID, emoteMode, extra));
+    }
+    return 0;
+}
+
+
+/************************************************************************
 *  Function: startEvent()
 *  Purpose : Starts an event (cutscene)
 *  Example : player:startEvent(4)
@@ -5036,6 +5075,77 @@ inline int32 CLuaBaseEntity::setAnimation(lua_State *L)
     }
     return 0;
 }
+
+/************************************************************************
+ *  Function: setAnimPath()
+ *  Purpose : Updates an animation path for NPC
+ *  Example : GetNPCByID(Door_Offset+12):setAnimPath(1)
+ ************************************************************************/
+inline int32 CLuaBaseEntity::setAnimPath(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+    uint8 animPath = (uint8)lua_tointeger(L, 1);
+    if (m_PBaseEntity->animPath != animPath)
+    {
+        m_PBaseEntity->animPath = animPath;
+    }
+    return 0;
+}
+/************************************************************************
+ *  Function: setAnimStart()
+ *  Purpose : Initializes NPC start frames
+ *  Example : GetNPCByID(Door_Offset+12):setAnimStart(1724234413)
+ ************************************************************************/
+inline int32 CLuaBaseEntity::setAnimStart(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isboolean(L, 1));
+    bool animStart = (bool)lua_toboolean(L, 1);
+    m_PBaseEntity->animStart = animStart;
+    return 0;
+}
+/************************************************************************
+ *  Function: setAnimBegin()
+ *  Purpose : Updates an animation start time for NPC
+ *  Example : GetNPCByID(Door_Offset+12):setAnimStart(1724234413)
+ ************************************************************************/
+inline int32 CLuaBaseEntity::setAnimBegin(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+    uint32 animBegin = (uint32)lua_tointeger(L, 1);
+    if (animBegin > 0)
+    {
+        m_PBaseEntity->animBegin = animBegin;
+    }
+    return 0;
+}
+/************************************************************************
+ *  Function: sendUpdateToZoneCharsInRange()
+ *  Purpose : Sends an entity update packet to all players in range within the zone
+ ************************************************************************/
+inline int32 CLuaBaseEntity::sendUpdateToZoneCharsInRange(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    EntityList_t charList = m_PBaseEntity->loc.zone->m_zoneEntities->GetCharList();
+    float maxDistance = 0.0f;
+    bool checkDistance = !lua_isnil(L, 1) && lua_isnumber(L, 1);
+    if (checkDistance)
+    {
+        maxDistance = (float)lua_tonumber(L, 1);
+    }
+    for (EntityList_t::const_iterator it = charList.begin(); it != charList.end(); ++it)
+    {
+        CCharEntity* PChar = (CCharEntity*)it->second;
+        if (!checkDistance || distance(PChar->loc.p, m_PBaseEntity->loc.p) < maxDistance)
+        {
+            PChar->pushPacket(new CEntityUpdatePacket(m_PBaseEntity, ENTITY_SPAWN, UPDATE_ALL_MOB));
+        }
+    }
+    return 0;
+}
+
 
 /************************************************************************
 *  Function: AnimationSub()
@@ -9864,7 +9974,8 @@ inline int32 CLuaBaseEntity::checkKillCredit(lua_State *L)
     int maxDiff = (!lua_isnil(L, 2) && lua_isnumber(L, 2)) ? (int)lua_tonumber(L, 2) : 15;
     float range = (!lua_isnil(L, 3) && lua_isnumber(L, 3)) ? (float)lua_tonumber(L, 3) : 100;
 
-    if (charutils::CheckMob(PMob->m_HiPCLvl, PMob->GetMLevel()) > EMobDifficulty::TooWeak && distance(PMob->loc.p, PChar->loc.p) < range && lvlDiff < maxDiff)
+    if (charutils::CheckMob(PMob->m_HiPCLvl, PMob->GetMLevel()) > EMobDifficulty::TooWeak && distance(PMob->loc.p, PChar->loc.p) < range && lvlDiff < maxDiff &&
+        PMob->m_giveExp)
     {
         if (PChar->PParty && PChar->PParty->GetSyncTarget())
         {
@@ -15896,6 +16007,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,injectActionPacket),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,entityVisualPacket),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,entityAnimationPacket),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,sendNpcEmote),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,startEvent),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,startEventString),
@@ -16057,7 +16169,13 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getAnimation),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setAnimation),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setAnimPath),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setAnimStart),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setAnimBegin),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,sendUpdateToZoneCharsInRange),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,AnimationSub),
+ 
+
 
     // Player Status
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getNation),

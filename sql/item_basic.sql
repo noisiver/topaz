@@ -10842,7 +10842,7 @@ INSERT INTO `item_basic` VALUES (13548,0,'astral_ring','astral_ring',1,2052,25,0
 INSERT INTO `item_basic` VALUES (13549,0,'ether_ring','ether_ring',1,34820,25,0,1025);
 INSERT INTO `item_basic` VALUES (13550,0,'crossbowmans_ring','crossbowman_ring',1,34820,25,0,1000);
 INSERT INTO `item_basic` VALUES (13551,0,'kshama_ring_no.8','kshama_ring_no.8',1,59476,0,1,0);
-INSERT INTO `item_basic` VALUES (13552,0,'serket_ring','serket_ring',1,34820,25,0,4375);
+INSERT INTO `item_basic` VALUES (13552,0,'serket_ring','serket_ring',1,63572,25,0,4375);
 INSERT INTO `item_basic` VALUES (13553,0,'blitz_ring','blitz_ring',1,34820,25,0,2030);
 INSERT INTO `item_basic` VALUES (13554,0,'aegis_ring','aegis_ring',1,34820,25,0,1960);
 INSERT INTO `item_basic` VALUES (13555,0,'peace_ring','peace_ring',1,34820,25,0,3850);

@@ -56,7 +56,7 @@ end
 
 function onEventFinish(player, csid, option)
     if csid == 200 then
-        if GetServerVariable("Selbina_Destination") > 84 then
+        if GetServerVariable("Selbina_Destination") > 80 then
             player:setPos(0, 0, 0, 0, tpz.zone.SHIP_BOUND_FOR_MHAURA_PIRATES)
         else
             player:setPos(0, 0, 0, 0, tpz.zone.SHIP_BOUND_FOR_MHAURA)

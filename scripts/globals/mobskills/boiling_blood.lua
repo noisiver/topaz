@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
         power = 100
         powerTwo = 2500
     end
-    MobBuffMove(mob, typeEffect, power, 0, 300)
-    skill:setMsg(MobBuffMove(mob, typeEffectTwo, powerTwo, 0, 300)) 
+    MobBuffMoveSub(mob, typeEffect, power, 0, 180, 0, 70, 0)
+    skill:setMsg(MobBuffMove(mob, typeEffectTwo, powerTwo, 0, 180)) 
     return typeEffectTwo
 end

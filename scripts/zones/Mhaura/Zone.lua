@@ -76,7 +76,7 @@ function onEventFinish(player, csid, option)
     if csid == 200 then
         local DepartureTime = VanadielHour()
         if DepartureTime % 8 == 0 then
-            if GetServerVariable("Mhaura_Destination") > 84 then
+            if GetServerVariable("Mhaura_Destination") > 80 then
                 player:setPos(0, 0, 0, 0, tpz.zone.SHIP_BOUND_FOR_SELBINA_PIRATES)
             else
                 player:setPos(0, 0, 0, 0, tpz.zone.SHIP_BOUND_FOR_SELBINA)

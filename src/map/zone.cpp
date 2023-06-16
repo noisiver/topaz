@@ -71,6 +71,8 @@
 #include "utils/petutils.h"
 #include "utils/zoneutils.h"
 
+#include "ai/helpers/event_handler.h"
+
 
 /************************************************************************
 *                                                                       *
@@ -185,6 +187,7 @@ CZone::CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID)
     m_WeatherChangeTime = 0;
     m_navMesh = nullptr;
     m_zoneEntities = new CZoneEntities(this);
+    PEventHandler = new CAIEventHandler;
 
     // settings should load first
     LoadZoneSettings();
@@ -202,6 +205,7 @@ bool CZone::HasReducedVerticalAggro()
 CZone::~CZone()
 {
     delete m_zoneEntities;
+    delete PEventHandler;
 }
 
 /************************************************************************

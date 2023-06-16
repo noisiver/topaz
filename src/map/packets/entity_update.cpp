@@ -213,6 +213,30 @@ void CEntityUpdatePacket::updateWith(CBaseEntity* PEntity, ENTITYUPDATE type, ui
 
             ref<uint16>(0x30) = PEntity->look.size;
             memcpy(data + (0x34), PEntity->GetName(), (PEntity->name.size() > 12 ? 12 : PEntity->name.size()));
+            if (PEntity->animPath > 0)
+            {
+                this->size = 0x20;
+                if (PEntity->animStart)
+                {
+                    ref<uint16>(0x18) = 0x8007;
+                    ref<uint8>(0x1A) = PEntity->animStart ? 0x01 : 0;
+                    ref<uint8>(0x1F) = PEntity->animation;
+                    PEntity->animStart = false;
+                }
+                else
+                {
+                    std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>(server_clock::now().time_since_epoch());
+                    uint16 msCount = ms.count() % 1000;
+                    uint32 msFrames = (uint32)std::round((msCount * 60) / 1000);
+                    uint32 diff = CVanaTime::getInstance()->getVanaTime() - PEntity->animBegin;
+                    uint32 frameCount = 0x8006 + (diff * 60) + msFrames;
+                    ref<uint32>(0x18) = frameCount;
+                }
+
+                ref<uint32>(0x34) = PEntity->animPath;
+                uint32 timestamp = ((CNpcEntity*)PEntity)->animBegin;
+                ref<uint32>(0x38) = timestamp;
+            }
         }
         break;
     }

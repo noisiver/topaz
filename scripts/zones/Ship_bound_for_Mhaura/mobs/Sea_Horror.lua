@@ -1,11 +1,15 @@
 -----------------------------------
 -- Area: Ship bound for Mhaura
---   NM: Sea Horror
-mixins = {require("scripts/mixins/job_special")}
+--  Mob: Sea Horror
 -----------------------------------
-
-function onMobDeath(mob, player, isKiller)
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.SLEEPRES, 100)
 end
 
-function onMobDespawn(mob)
+function onMobDeath(mob, player)
+
+end
+
+function onMobDespawn(mob, player)
+    mob:setLocalVar("respawnTime", os.time() + 60)
 end
