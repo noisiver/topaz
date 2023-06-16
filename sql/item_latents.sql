@@ -3817,6 +3817,30 @@ INSERT INTO `item_latents` VALUES(15132, 1308, 10, 13, 57); -- Warrior's Calliga
 INSERT INTO `item_latents` VALUES(15665, 1308, 12, 13, 57); -- Warrior's Calligae Defender: Blood Rage +12%
 INSERT INTO `item_latents` VALUES(10730, 1308, 15, 13, 57); -- Warrior's Calligae Defender: Blood Rage +15%
 
+-- -------------------------------------------------------
+-- Trial Mythic Weapons
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(18492, 355, 90, 47, 0);   -- Sturdy Axe
+INSERT INTO `item_latents` VALUES(18753, 355, 11, 47, 0);   -- Burning FIsts
+INSERT INTO `item_latents` VALUES(18851, 355, 171, 47, 0);  -- Werebuster
+INSERT INTO `item_latents` VALUES(18589, 355, 186, 47, 0);  -- Mage's Staff
+INSERT INTO `item_latents` VALUES(17742, 355, 44, 47, 0);   -- Vorpal Sword
+INSERT INTO `item_latents` VALUES(18003, 355, 27, 47, 0);   -- Swordbreaker
+INSERT INTO `item_latents` VALUES(17744, 355, 45, 47, 0);   -- Brave Blade
+INSERT INTO `item_latents` VALUES(18944, 355, 106, 47, 0);  -- Death Sickle
+INSERT INTO `item_latents` VALUES(17956, 355, 74, 47, 0);   -- Double Axe
+INSERT INTO `item_latents` VALUES(18034, 355, 28, 47, 0);   -- Dancing Dagger
+INSERT INTO `item_latents` VALUES(18719, 355, 217, 47, 0);  -- Killer Bow
+INSERT INTO `item_latents` VALUES(18443, 355, 154, 47, 0);  -- Windslicer
+INSERT INTO `item_latents` VALUES(18426, 355, 138, 47, 0);  -- Sasuke Katana
+INSERT INTO `item_latents` VALUES(18120, 355, 122, 47, 0);  -- Radiant Lance
+INSERT INTO `item_latents` VALUES(18590, 355, 187, 47, 0);  -- Scepter Staff
+INSERT INTO `item_latents` VALUES(17743, 355, 46, 47, 0);   -- Wightslayer
+INSERT INTO `item_latents` VALUES(18720, 355, 218, 47, 0);  -- Quicksilver
+INSERT INTO `item_latents` VALUES(18754, 355, 12, 47, 0);   -- Inferno Claws
+INSERT INTO `item_latents` VALUES(19102, 355, 29, 47, 0);   -- Main Gauche
+INSERT INTO `item_latents` VALUES(18592, 355, 188, 47, 0);  -- Elder Staff
+
 
 --  `itemId` smallint(5) unsigned NOT NULL,
 --  `modId` smallint(5) unsigned NOT NULL,
