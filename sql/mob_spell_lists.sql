@@ -5384,6 +5384,39 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,248,95,255); -- Aspir 
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,253,20,40);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,259,41,255);
 
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,320,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,321,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,322,85,255); -- katon_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,323,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,324,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,325,85,255); -- hyoton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,326,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,327,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,328,85,255); -- huton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,329,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,330,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,331,85,255); -- doton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,332,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,333,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,334,85,255); -- raiton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,335,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,336,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,337,85,255); -- suiton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,338,12,36);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,339,37,89); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,340,90,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,341,30,54); -- jubaku_ichi
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,342,55,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,344,23,47);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,345,48,72); -- hojo_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,346,73,255); -- hojo_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,347,19,43);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,348,44,89); -- kurayami_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,349,90,255); -- kurayami_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,350,27,55);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,351,56,89); -- dokumori_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,352,90,255); -- dokumori_san
+
 -- NEXT 1020
 -- NEXT 2080(Custom)
 

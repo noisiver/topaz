@@ -3,12 +3,10 @@
 --   NM: Eldritch Edge
 ------------------------------
 require("scripts/globals/hunts")
+require("scripts/globals/mobs")
 ------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
+    SetGenericNMStats(mob)
 end
 
 function onMobFight(mob, target)
