@@ -10,14 +10,14 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = CalculateAdditionalEffectChance(player, 10)
-    if math.random(0, 95) >= chance then
+    if math.random(0, 95) <= chance then
         local rng = math.random(3)
         if (rng == 1) then
-            PoisonProc(player, target)
+            return PoisonProc(player, target)
         elseif (rng == 2) then
-            ParaProc(player, target)
+            return ParaProc(player, target)
         elseif (rng == 3) then
-            BindProc(player, target)
+            return BindProc(player, target)
         end
     end
 end
