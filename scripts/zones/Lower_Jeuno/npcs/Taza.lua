@@ -278,10 +278,11 @@ function onTrade(player, npc, trade)
     if (type(augment) == 'table') and (augment.Item ~= nil) and (#augment.Augments > 1) then
         DistributeAugment(player, augment);
     else
-        player:PrintToPlayer("I can't do anything with those items",0,"Taza");
+        player:PrintToPlayer("I can't do anything with those items.",0,"Taza");
     end
 end
 
 function onTrigger(player, npc)
-	player:PrintToPlayer("Do you have magical items you would like to augment? I can help!",0,"Taza")
+	player:PrintToPlayer("I can unlock the magical properties of the following items:",0,"Taza")
+    player:PrintToPlayer("Dark Cuirass Set, Shade Harness Set, Tiger Jerkin Set, Silk Robe Set",0xF,"Taza")
 end
