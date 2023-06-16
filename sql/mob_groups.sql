@@ -2669,9 +2669,9 @@ INSERT INTO `mob_groups` VALUES (65,5329,54,'Dweomershell',300,0,2107,0,0,81,83,
 INSERT INTO `mob_groups` VALUES (66,2896,54,'Nix_Wavedancer',600,0,1657,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (67,2893,54,'Nix_Bladedancer',600,0,1820,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (68,2895,54,'Nix_Typhoondancer',600,0,1657,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (69,2364,54,'Lamie_Necromancer',600,0,1485,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (70,2362,54,'Lamie_Bellydancer',600,0,1485,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (71,2363,54,'Lamie_Deathdancer',600,0,1485,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (69,2364,54,'Lamie_Necromancer',600,0,1494,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (70,2362,54,'Lamie_Bellydancer',600,0,1657,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (71,2363,54,'Lamie_Deathdancer',600,0,1657,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (72,2368,54,'Lamie_Toxophilite',600,0,1485,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (73,5203,54,'Ephramadian_Shade',0,128,0,0,5000,81,83,0);
 INSERT INTO `mob_groups` VALUES (74,5202,54,'Ephramadian_Shade',0,128,0,0,5000,81,83,0);
@@ -4129,7 +4129,7 @@ INSERT INTO `mob_groups` VALUES (39,5197,79,'Draugar_Servant',330,0,2088,0,5000,
 INSERT INTO `mob_groups` VALUES (40,1111,79,'Draugar_Servant',330,0,702,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (41,6674,79,'Lamia_Toxophilite',330,0,1495,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (42,2326,79,'Lamia_Chaukidar',330,0,1486,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (43,6672,79,'Lamia_Necromancer',330,0,1494,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (43,6672,79,'Lamia_Necromancer',330,0,22,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (44,5206,79,'Aynu-Kaysey',7200,0,2936,105000,5000,85,87,0);
 INSERT INTO `mob_groups` VALUES (45,5337,79,'Vauxia_Fly',330,0,2310,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (46,5203,79,'Ephramadian_Shade',330,0,2878,0,0,81,83,0);

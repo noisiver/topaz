@@ -5417,8 +5417,126 @@ INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,350,27,55);
 INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,351,56,89); -- dokumori_ni
 INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,352,90,255); -- dokumori_san
 
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,320,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,321,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,322,85,255); -- katon_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,323,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,324,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,325,85,255); -- hyoton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,326,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,327,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,328,85,255); -- huton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,329,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,330,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,331,85,255); -- doton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,332,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,333,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,334,85,255); -- raiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,335,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,336,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,337,85,255); -- suiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,338,12,36);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,339,37,89); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,340,90,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,341,30,84); -- jubaku_ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,342,85,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,344,23,47);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,345,48,89); -- hojo_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,346,90,255); -- hojo_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,347,19,43);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,348,44,89); -- kurayami_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,349,90,255); -- kurayami_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,350,27,55);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,351,56,89); -- dokumori_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,352,90,255); -- dokumori_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,319,1,255); -- Aisha: Ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,507,1,255); -- Myoshu: Ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,508,1,255); -- Yurin: Ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,509,1,255); -- Kakka: Ichi
+
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,144,13,22);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,145,38,47);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,146,62,67);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,147,73,94); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,148,95,255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,149,17,27);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,150,42,53);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,151,64,68);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,152,74,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,153,95,255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,154,9,18);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,155,34,44);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,156,59,66);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,157,72,94); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,158,95,255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,159,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,160,26,35);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,161,51,60);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,162,68,94); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,163,95,255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,164,21,46);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,165,46,55);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,166,66,70);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,167,75,94); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,168,95,255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,169,5,12);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,170,30,40);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,171,55,61);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,172,70,94); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,173,95,255); -- Water V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,174,28,35);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,175,53,60);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,176,69,90);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,179,32,39);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,180,57,62);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,181,71,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,184,23,31);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,185,48,56);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,186,67,71);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,189,15,22);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,190,40,47);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,191,63,67);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,194,36,43);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,195,61,65);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,196,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,199,19,27);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,200,44,52);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,201,65,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,204,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,206,50,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,208,52,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,210,54,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,212,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,214,58,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,220,3,17);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,221,43,64);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,225,24,71);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,226,72,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,230,10,34);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,231,35,84);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,235,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,236,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,237,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,238,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,239,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,240,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,245,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,248,95,255); -- Aspir II
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,249,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,252,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,253,20,40);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,254,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,258,7,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,259,41,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,273,31,55);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,274,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,255,1,255); -- Break
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,365,1,255); -- Break
+
 -- NEXT 1020
--- NEXT 2080(Custom)
+-- NEXT 2084(Custom)
 
 
 
