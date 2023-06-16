@@ -71,7 +71,7 @@ end
 
 function onTrade(player, npc, trade)    
     for _, items in pairs(itemList) do
-        if (type(itemList) == 'table') and npcUtil.tradeHasExactly(trade, { tpz.items.MOOGLE_COIN, items[2], items[3]  }) then
+        if (type(itemList) == 'table') and npcUtil.tradeHasExactly(trade, { tpz.items.MOOGLE_COIN, items[2]} , items[3]  }) then
             DistributeItem(player, items[1])
         else
             player:PrintToPlayer("I can't do anything with those items, kupo!",0,"Moogle");
