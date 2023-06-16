@@ -2,8 +2,21 @@
 -- Area: Ship bound for Selbina
 --  Mob: Sea Horror
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+-----------------------------------
+
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.SLEEPRES, 100)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 5)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.HUNDRED_FISTS, hpp = math.random(25, 75)},
+        },
+    })
 end
 
 function onMobDeath(mob, player)

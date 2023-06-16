@@ -3,11 +3,12 @@
 --  Mob: Silverhook
 -----------------------------------
 local ID = require("scripts/zones/Ship_bound_for_Mhaura_Pirates/IDs")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+-----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.SILENCERES, 100)
-    mob:setMod(tpz.mod.BINDRES, 100)
-    mob:setMod(tpz.mod.MDEF, 50)
+    SetGenericNMStats(mob)
 end
 
 function onMobDeath(mob, player)
