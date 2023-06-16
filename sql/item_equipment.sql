@@ -11848,6 +11848,7 @@ INSERT INTO `item_equipment` VALUES (25842,'herculean_trousers',99,119,2593826,5
 INSERT INTO `item_equipment` VALUES (25843,'merlinic_shalwar',99,119,1589272,415,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (25844,'chironic_hose',99,119,524820,416,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (25849,'dashing_subligar',99,119,2472947,423,0,0,128,0);
+INSERT INTO `item_equipment` VALUES (25850,'pretty_pink_subligar',1,0,4194303,453,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (25852,'darraigners_brais',99,119,66592,350,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (25853,'querkening_brais',99,119,1589788,223,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (25854,'arjuna_breeches',99,119,6593,328,0,0,128,0);
