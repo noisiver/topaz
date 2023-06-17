@@ -73,7 +73,7 @@ function onTrigger(player, npc)
         player:startEvent(497)
     elseif WildCard == QUEST_ACCEPTED then
         player:startEvent(505)
-    elseif ThePromise == QUEST_AVAILABLE and WildCard == QUEST_COMPLETED then
+    elseif ThePromise == QUEST_AVAILABLE and WildCard == QUEST_COMPLETED and Fame >=6 then
         player:startEvent(513, 0, tpz.ki.INVISIBLE_MAN_STICKER)
     elseif ThePromise == QUEST_ACCEPTED and player:hasKeyItem(tpz.ki.INVISIBLE_MAN_STICKER) then
         player:startEvent(522, 0, tpz.ki.INVISIBLE_MAN_STICKER)
