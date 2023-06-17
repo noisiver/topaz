@@ -19,5 +19,6 @@ function onMobWeaponSkill(target, mob, skill)
     else
         return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     end
+
     return typeEffect
 end
