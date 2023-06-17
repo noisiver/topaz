@@ -682,12 +682,13 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     -- MNK mobs have a -50% end multiplier for wep damage and need to do 2x for physical moves to do proper damage
-    if (mob:getMainJob() == tpz.job.MNK) and (damageType ~= tpz.damageType.NONE) then -- Throat stab and special moves like Mijin Gakure
+    if (mob:getMainJob() == tpz.job.MNK) and (utils.getWeaponStyle(mob) == 'H2H') and (damageType ~= tpz.damageType.NONE) then -- Throat stab and special moves like Mijin Gakure
         if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+        printf("h2h damage")
             dmg = dmg * 2
         end
     end
-
+    printf("normal damage")
     -- set message to damage
     -- this is for AoE because its only set once
     skill:setMsg(tpz.msg.basic.DAMAGE)
