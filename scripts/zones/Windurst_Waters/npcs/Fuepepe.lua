@@ -1,4 +1,4 @@
-\-----------------------------------
+-----------------------------------
 -- Area: Windurst Waters
 --  NPC: Fuepepe
 -- Starts and Finishes Quest: Teacher's Pet
@@ -26,7 +26,7 @@ function onTrigger(player, npc)
         -- 2 = gave test answers to principle
         -- 3 = spoke to chomoro
 
-    if (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.TEACHER_S_PET) == QUEST_COMPLETED and gradestatus == QUEST_AVAILABLE and player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LET_SLEEPING_DOGS_LIE) ~= QUEST_ACCEPTED) then
+    if (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.TEACHER_S_PET) == QUEST_COMPLETED and gradestatus == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >=3 and player:getQuestStatus(WINDURST, tpz.quest.id.windurst.LET_SLEEPING_DOGS_LIE) ~= QUEST_ACCEPTED) then
         player:startEvent(442) -- Quest Start
     elseif (gradestatus == QUEST_ACCEPTED) then
 
