@@ -422,10 +422,11 @@ INSERT INTO `mob_droplist` VALUES (60,0,0,1000,4862,50);
 INSERT INTO `mob_droplist` VALUES (60,0,0,1000,4866,50);
 INSERT INTO `mob_droplist` VALUES (61,0,0,1000,1616,100);
 INSERT INTO `mob_droplist` VALUES (61,0,0,1000,14467,1000); -- (Ambusher Antlion) Archer's Jupon'
-INSERT INTO `mob_droplist` VALUES (62,0,0,1000,1275,1000);	-- (Amemet) Amemet Skin
-INSERT INTO `mob_droplist` VALUES (62,0,0,1000,1275,240);
-INSERT INTO `mob_droplist` VALUES (62,0,0,1000,1275,150);
-INSERT INTO `mob_droplist` VALUES (62,0,0,1000,1275,100);
+INSERT INTO `mob_droplist` VALUES (62,0,0,1000,13645,240);	-- (Amemet) Amemet Mantle (Was Amemet Skin)
+INSERT INTO `mob_droplist` VALUES (62,0,0,1000,13646,50); -- Amemet Mantle +1
+-- INSERT INTO `mob_droplist` VALUES (62,0,0,1000,1275,240);
+-- INSERT INTO `mob_droplist` VALUES (62,0,0,1000,1275,150);
+-- INSERT INTO `mob_droplist` VALUES (62,0,0,1000,1275,100);
 INSERT INTO `mob_droplist` VALUES (62,0,0,1000,4362,50);
 INSERT INTO `mob_droplist` VALUES (63,0,0,1000,1446,50);
 INSERT INTO `mob_droplist` VALUES (63,0,0,1000,2307,240); -- Vial Of Jody's Acid
@@ -1458,10 +1459,11 @@ INSERT INTO `mob_droplist` VALUES (224,0,0,1000,825,240);
 INSERT INTO `mob_droplist` VALUES (224,0,0,1000,940,150);
 INSERT INTO `mob_droplist` VALUES (224,0,0,1000,1031,50);
 INSERT INTO `mob_droplist` VALUES (224,0,0,1000,4871,100); -- Escape
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,1000); -- (Baobhan Sith) Square Of Cheviot Cloth
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,240); -- Square Of Cheviot Cloth
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,150); -- Square Of Cheviot Cloth
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,100); -- Square Of Cheviot Cloth
+INSERT INTO `mob_droplist` VALUES (225,0,0,1000,13651,240); -- (Baobhan Sith) (Was Square Of Cheviot Cloth)
+INSERT INTO `mob_droplist` VALUES (225,0,0,1000,13652,50);  -- Umbra Cape
+-- INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,240); -- Square Of Cheviot Cloth
+-- INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,150); -- Square Of Cheviot Cloth
+-- INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,100); -- Square Of Cheviot Cloth
 INSERT INTO `mob_droplist` VALUES (226,0,0,1000,858,240);
 INSERT INTO `mob_droplist` VALUES (226,0,0,1000,940,80);
 INSERT INTO `mob_droplist` VALUES (227,2,0,1000,838,0);
@@ -6492,7 +6494,8 @@ INSERT INTO `mob_droplist` VALUES (1250,0,0,1000,19247,100);
 INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,909,1000); -- (Guivre - Past) Guivre's skull
 INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,11288,240); -- Zahak's Mail
 INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,19212,240); -- Black Tathlum
-INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,909,240);	-- (Guivre - Present)  Guivre's skull
+INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,13920,240);	-- (Guivre - Present) Wyvern Helm (Was Guivre's skull)
+INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,13921,50); -- Wyvern Helm +1
 INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,1122,240);	-- Wyvern skin
 INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,1124,100);	-- Wyvern wing
 INSERT INTO `mob_droplist` VALUES (1253,0,0,1000,2961,1480);
@@ -12454,9 +12457,10 @@ INSERT INTO `mob_droplist` VALUES (2375,0,1,1000,4850,0);      -- Taisaijin; Ref
 INSERT INTO `mob_droplist` VALUES (2376,0,0,1000,914,150);
 INSERT INTO `mob_droplist` VALUES (2376,0,0,1000,1165,100);
 INSERT INTO `mob_droplist` VALUES (2376,4,0,1000,1165,0);
-INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,1000); -- (Tarasque) Tarasque Skin
-INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,240); -- Tarasque Skin
-INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,150); -- Tarasque Skin
+INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,14067,240); -- (Tarasque) Tarasque Mitts(Was Tarasque Skin)
+INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,14074,50); -- Tarasque Mitts +1
+-- INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,240); -- Tarasque Skin
+-- INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,150); -- Tarasque Skin
 INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,18042,240); -- Ascention
 INSERT INTO `mob_droplist` VALUES (2378,0,0,1000,1620,50);
 INSERT INTO `mob_droplist` VALUES (2378,0,0,1000,1621,90);
@@ -14371,15 +14375,15 @@ INSERT INTO `mob_droplist` VALUES (2637,0,0,1000,1612,100);
 INSERT INTO `mob_droplist` VALUES (2637,0,0,1000,1613,100);
 INSERT INTO `mob_droplist` VALUES (2637,0,0,1000,1687,90);
 INSERT INTO `mob_droplist` VALUES (2638,2,0,1000,880,0); -- (Wendigo, Inner Horutoto Ruins, WAR) bone_chip: steal
-INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,880,300); -- bone_chip
-INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,880,270); -- bone_chip
-INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,16447,100); -- rusty_dagger
+INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,880,240); -- bone_chip
+INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,880,150); -- bone_chip
+INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,16447,150); -- Rusty Dagger
 INSERT INTO `mob_droplist` VALUES (2639,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (2639,0,0,1000,880,309);
 INSERT INTO `mob_droplist` VALUES (2639,0,0,1000,1031,50);
 INSERT INTO `mob_droplist` VALUES (2639,0,0,1000,2776,0);	-- Pumice Stone
 INSERT INTO `mob_droplist` VALUES (2640,2,0,1000,880,0); -- (Wendigo, Inner Horutoto Ruins, BLM) bone_chip: steal
-INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,544,50); -- test_answers
+INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,544,100); -- Test Answers
 INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,880,240); -- bone_chip
 INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,4824,100); -- scroll_of_gravity
 INSERT INTO `mob_droplist` VALUES (2641,0,0,1000,891,130);
