@@ -4082,7 +4082,7 @@ INSERT INTO `mob_droplist` VALUES (761,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (761,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (761,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (761,0,0,1000,2531,120);
-INSERT INTO `mob_droplist` VALUES (761,0,0,1000,4727,210);
+INSERT INTO `mob_droplist` VALUES (761,0,0,1000,4727,100);      -- Enwater II
 INSERT INTO `mob_droplist` VALUES (762,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (762,0,0,1000,1034,50);
 INSERT INTO `mob_droplist` VALUES (762,0,0,1000,1685,95);
@@ -7653,7 +7653,7 @@ INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,836,50); -- King Arthro - Past)
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,11286,240); -- Avalon breastplate
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,16178,240); -- Avalon shield
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,12924,50); -- Magic cuisses
-INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,13189,50); -- Speed belt
+INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,15899,100); -- Velocious Belt
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13748,240);	-- (King Arthro Present) Vermillion Cloak(Was Square of damascene cloth)
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13749,100); -- Royal Cloak
 -- INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,240); -- Square of damascene cloth
@@ -7661,7 +7661,7 @@ INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13749,100); -- Royal Cloak
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4172,1000); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4174,1000); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,12924,1000); -- Magic cuisses
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,15899,50);	-- Velocious Belt
+-- INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,15899,50);	-- Velocious Belt
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,831,240); -- (King Behemoth) Square of shining cloth
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13415,950); -- Pixie earring
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13566,50); -- Defending ring
@@ -8943,7 +8943,6 @@ INSERT INTO `mob_droplist` VALUES (1723,2,0,1000,748,0); -- Moblin Workman
 INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1631,50); -- Moblin armor
 INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1638,100); -- Moblin mask
 INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1684,50); -- Gold key
-INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,4723,100); -- Scroll Of Enblizzard II
 INSERT INTO `mob_droplist` VALUES (1724,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1724,0,0,1000,1631,50);
 INSERT INTO `mob_droplist` VALUES (1724,0,0,1000,1638,100);
@@ -10138,13 +10137,13 @@ INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,2527,50);
 INSERT INTO `mob_droplist` VALUES (1861,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,2531,130);
-INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,4723,190);
+INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,4723,100);     -- Enblizzard II
 INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,2527,50);
 INSERT INTO `mob_droplist` VALUES (1862,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,2531,150);
 INSERT INTO `mob_droplist` VALUES (1862,4,0,1000,4552,0);
-INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,4723,240);
+INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,4723,100);     -- Enblizzard II
 INSERT INTO `mob_droplist` VALUES (1863,0,0,1000,606,10);
 INSERT INTO `mob_droplist` VALUES (1863,0,0,1000,607,10);
 INSERT INTO `mob_droplist` VALUES (1863,0,0,1000,608,50);
@@ -12785,7 +12784,6 @@ INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1138,150); -- Unlit lantern
 INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1429,150); -- Black mage's testimony
 INSERT INTO `mob_droplist` VALUES (2438,1,1,50,4774,500); -- Scroll of Thunder III
 INSERT INTO `mob_droplist` VALUES (2438,1,1,50,4803,500); -- Scroll of Thundaga II
-INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,4727,100); -- Scroll Of Enwater II
 INSERT INTO `mob_droplist` VALUES (2439,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,1119,150);
 INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,1138,110);
