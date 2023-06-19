@@ -24401,9 +24401,10 @@ INSERT INTO `item_mods` VALUES (19099,28,30);   -- "Magic Atk. Bonus"+30
 INSERT INTO `item_mods` VALUES (19099,30,20);   -- Magic Acc.+20
 INSERT INTO `item_mods` VALUES (19099,256,36);  -- Aftermath
 INSERT INTO `item_mods` VALUES (19099,355,188); -- Omniscience
-INSERT INTO `item_mods` VALUES (19100,2,16);
+INSERT INTO `item_mods` VALUES (19100,2,16);    -- Cobra Unit knife
 INSERT INTO `item_mods` VALUES (19100,5,16);
-INSERT INTO `item_mods` VALUES (19100,248,2);
+INSERT INTO `item_mods` VALUES (19100,1248,5);  -- Curse Resist +5%
+INSERT INTO `item_mods` VALUES (19100,384,200);    -- Haste +2%
 INSERT INTO `item_mods` VALUES (19103,25,1);
 INSERT INTO `item_mods` VALUES (19104,25,2);
 INSERT INTO `item_mods` VALUES (19105,9,1);
