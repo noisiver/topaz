@@ -495,9 +495,9 @@ INSERT INTO `item_mods_pet` VALUES (18761,28,5,0);      -- Acantha Shavers: MAB 
 INSERT INTO `item_mods_pet` VALUES (18761,30,5,0);      -- Acantha Shavers: MACC +5
 INSERT INTO `item_mods_pet` VALUES (17963,368,50,0);    -- Rainmaker Regain +50
 INSERT INTO `item_mods_pet` VALUES (17963,370,3,0);     -- Rainmaker Regen +3
-INSERT INTO `item_mods_pet` VALUES (15218,23,15,0);     -- Entrancing Ribbon Pet: Attack +15
-INSERT INTO `item_mods_pet` VALUES (12404,23,25,0);     -- Elegant Shield Pet: Attack +25
-INSERT INTO `item_mods_pet` VALUES (13072,23,25,0);     -- Bird Whistle Pet: Attack +15
+INSERT INTO `item_mods_pet` VALUES (15218,62,3,0);      -- Entrancing Ribbon Pet: Attack +3%
+INSERT INTO `item_mods_pet` VALUES (12404,62,3,0);      -- Elegant Shield Pet: Attack +3%
+INSERT INTO `item_mods_pet` VALUES (13072,62,3,0);      -- Bird Whistle Pet: Attack +3%
 INSERT INTO `item_mods_pet` VALUES (18040,384,500,0);   -- Webcutter Pet: Haste +5%
 INSERT INTO `item_mods_pet` VALUES (17191,25,10,0);     -- Pharaoh's Bow: Accuracy+10
 INSERT INTO `item_mods_pet` VALUES (17927,23,10,0);     -- Lohar: Attack +10
@@ -569,8 +569,8 @@ INSERT INTO `item_mods_pet` VALUES (16017,28,5,0);      -- Ardent Earring Pet: M
 INSERT INTO `item_mods_pet` VALUES (16018,30,5,0);      -- Ardent Earring Pet: MACC+5
 INSERT INTO `item_mods_pet` VALUES (16022,25,5,0);      -- Fidelity Earring Pet: Accuracy+5
 INSERT INTO `item_mods_pet` VALUES (16022,26,5,0);      -- Fidelity Earring Pet: Ranged Accuracy+5
-INSERT INTO `item_mods_pet` VALUES (16031,23,10,0);     -- Affinity Earring Pet: Attack+10
-INSERT INTO `item_mods_pet` VALUES (16031,24,10,0);     -- Affinity Earring Pet: Ranged Attack+10
+INSERT INTO `item_mods_pet` VALUES (16031,62,3,0);      -- Affinity Earring Pet: Attack+3%
+INSERT INTO `item_mods_pet` VALUES (16031,66,3,0);      -- Affinity Earring Pet: Ranged Attack+3%
 INSERT INTO `item_mods_pet` VALUES (10274,291,10,0);    -- Chelona Blazer Pet: Counter +10
 INSERT INTO `item_mods_pet` VALUES (10274,27,5,0);      -- Chelona Blazer Pet: Enmity+5
 INSERT INTO `item_mods_pet` VALUES (10275,291,12,0);    -- Chelona Blazer +1 Pet: Counter +12

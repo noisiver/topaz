@@ -12443,9 +12443,11 @@ INSERT INTO `item_mods` VALUES (13977,1,15);
 INSERT INTO `item_mods` VALUES (13977,2,5);
 INSERT INTO `item_mods` VALUES (13977,8,3);
 INSERT INTO `item_mods` VALUES (13977,10,3);
-INSERT INTO `item_mods` VALUES (13978,1,6);
-INSERT INTO `item_mods` VALUES (13978,23,-18);
-INSERT INTO `item_mods` VALUES (13978,25,6);
+INSERT INTO `item_mods` VALUES (13978,1,6);     -- Aiming Braclets
+INSERT INTO `item_mods` VALUES (13978,23,-18);  -- Attack -18
+INSERT INTO `item_mods` VALUES (13978,24,-18);  -- Ranged Attack -18
+INSERT INTO `item_mods` VALUES (13978,25,20);   -- Accuracy +20
+INSERT INTO `item_mods` VALUES (13978,26,20);   -- Ranged Accuracy +20
 INSERT INTO `item_mods` VALUES (13979,1,9); -- Silver Bangles
 INSERT INTO `item_mods` VALUES (13979,1272,15); -- Elemental WSD +15%
 INSERT INTO `item_mods` VALUES (13980,1,10); -- Silver Bangles +1
@@ -13232,11 +13234,11 @@ INSERT INTO `item_mods` VALUES (14203,5,-35);
 INSERT INTO `item_mods` VALUES (14203,8,4);
 INSERT INTO `item_mods` VALUES (14203,10,4);
 INSERT INTO `item_mods` VALUES (14203,12,-3);
-INSERT INTO `item_mods` VALUES (14204,1,9);
-INSERT INTO `item_mods` VALUES (14204,5,35);
+INSERT INTO `item_mods` VALUES (14204,1,9);     -- River Gaiters
+INSERT INTO `item_mods` VALUES (14204,5,75);    -- MP+75
 INSERT INTO `item_mods` VALUES (14204,9,-3);
-INSERT INTO `item_mods` VALUES (14204,12,4);
-INSERT INTO `item_mods` VALUES (14204,13,4);
+INSERT INTO `item_mods` VALUES (14204,12,10);    -- INT+10
+INSERT INTO `item_mods` VALUES (14204,13,15);    -- MND+15
 INSERT INTO `item_mods` VALUES (14205,1,9);
 INSERT INTO `item_mods` VALUES (14205,2,-20);
 INSERT INTO `item_mods` VALUES (14205,5,45);
@@ -15359,9 +15361,9 @@ INSERT INTO `item_mods` VALUES (14838,2,65);
 INSERT INTO `item_mods` VALUES (14838,8,6);
 INSERT INTO `item_mods` VALUES (14838,10,2);
 INSERT INTO `item_mods` VALUES (14838,11,-3);
-INSERT INTO `item_mods` VALUES (14839,1,11);
-INSERT INTO `item_mods` VALUES (14839,2,60);
-INSERT INTO `item_mods` VALUES (14839,10,6);
+INSERT INTO `item_mods` VALUES (14839,1,11);        -- River Gauntlets
+INSERT INTO `item_mods` VALUES (14839,2,90);        -- HP+90
+INSERT INTO `item_mods` VALUES (14839,10,15);       -- VIT+15
 INSERT INTO `item_mods` VALUES (14839,11,-5);
 INSERT INTO `item_mods` VALUES (14839,13,1);
 INSERT INTO `item_mods` VALUES (14840,1,11);
@@ -17715,10 +17717,8 @@ INSERT INTO `item_mods` VALUES (15464,68,7);
 INSERT INTO `item_mods` VALUES (15465,1,7);
 INSERT INTO `item_mods` VALUES (15465,27,4);
 INSERT INTO `item_mods` VALUES (15465,68,9);
-INSERT INTO `item_mods` VALUES (15466,1,7); -- Birdman Cape
-INSERT INTO `item_mods` VALUES (15466,5,30);
-INSERT INTO `item_mods` VALUES (15466,14,9);
-INSERT INTO `item_mods` VALUES (15466,1242,20); -- PARALYZERESTRAIT
+INSERT INTO `item_mods` VALUES (15466,1,7);      -- Birdman Cape
+INSERT INTO `item_mods` VALUES (15466,375,5);    -- Cure Potency Receieved +5%
 INSERT INTO `item_mods` VALUES (15467,1,5);
 INSERT INTO `item_mods` VALUES (15467,2,7);
 INSERT INTO `item_mods` VALUES (15467,5,7);
