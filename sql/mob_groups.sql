@@ -2856,7 +2856,7 @@ INSERT INTO `mob_groups` VALUES (1988,359,58,'Bathybic_Kulshedra',0,128,0,0,0,63
 INSERT INTO `mob_groups` VALUES (1989,413,58,'Bigclaw',0,128,272,0,0,49,49,0);
 INSERT INTO `mob_groups` VALUES (1990,879,58,'Cyan_Deep_Crab',0,128,555,0,0,49,49,0);
 INSERT INTO `mob_groups` VALUES (1991,880,58,'Cyan_Deep_Pugil',0,128,37,0,0,50,55,0);
-INSERT INTO `mob_groups` VALUES (1992,2065,58,'Imp',0,128,1002,0,0,54,54,0);
+INSERT INTO `mob_groups` VALUES (1992,6764,58,'Imp',0,128,1002,0,0,54,54,0);
 INSERT INTO `mob_groups` VALUES (1993,2296,58,'Kulshedra',0,128,504,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (1994,3059,58,'Orobon',0,128,969,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (1995,3207,58,'Proteus',0,128,2025,15000,0,85,85,0);
@@ -2877,7 +2877,7 @@ INSERT INTO `mob_groups` VALUES (2004,359,59,'Bathybic_Kulshedra',0,128,0,0,0,63
 INSERT INTO `mob_groups` VALUES (2005,413,59,'Bigclaw',0,128,272,0,0,49,49,0);
 INSERT INTO `mob_groups` VALUES (2006,879,59,'Cyan_Deep_Crab',0,128,93,0,0,49,49,0);
 INSERT INTO `mob_groups` VALUES (2007,880,59,'Cyan_Deep_Pugil',0,128,37,0,0,50,55,0);
-INSERT INTO `mob_groups` VALUES (2008,2065,59,'Imp',0,128,1002,0,0,54,54,0);
+INSERT INTO `mob_groups` VALUES (2008,6764,59,'Imp',0,128,1002,0,0,54,54,0);
 INSERT INTO `mob_groups` VALUES (2009,2296,59,'Kulshedra',0,128,1464,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (2010,3059,59,'Orobon',0,128,969,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (2011,3805,59,'Submarine_Nipper',0,128,93,0,0,52,53,0);
