@@ -18,13 +18,11 @@ function onMobSkillCheck(target, mob, skill)
         skill:setAoe(1)
         skill:setDistance(50)
     end
-
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLEEP_I
-
     local dmgmod = MobHPBasedMove(mob, target, 0.09, 1, tpz.magic.ele.WATER, 500)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WATER)

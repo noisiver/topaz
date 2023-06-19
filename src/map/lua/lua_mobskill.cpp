@@ -178,9 +178,9 @@ inline int32 CLuaMobSkill::getMobHPP(lua_State* L)
 inline int32 CLuaMobSkill::setAnimationID(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setAnimationID((uint16)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setAnimationID((uint16)lua_tointeger(L, 1));
 
     return 0;
 }
@@ -188,9 +188,9 @@ inline int32 CLuaMobSkill::setAnimationID(lua_State* L)
 inline int32 CLuaMobSkill::setAoe(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setAoe((uint8)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setAoe((uint8)lua_tointeger(L, 1));
 
     return 0;
 }
@@ -198,9 +198,9 @@ inline int32 CLuaMobSkill::setAoe(lua_State* L)
 inline int32 CLuaMobSkill::setDistance(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setDistance((float)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setDistance((float)lua_tointeger(L, 1));
 
     return 0;
 }
@@ -208,9 +208,9 @@ inline int32 CLuaMobSkill::setDistance(lua_State* L)
 inline int32 CLuaMobSkill::setFlag(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setFlag((uint8)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setFlag((uint8)lua_tointeger(L, 1));
 
     return 0;
 }
@@ -218,9 +218,9 @@ inline int32 CLuaMobSkill::setFlag(lua_State* L)
 inline int32 CLuaMobSkill::setAnimationTime(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setAnimationTime((uint16)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setAnimationTime((uint16)lua_tointeger(L, 1));
 
     return 0;
 }
@@ -228,9 +228,9 @@ inline int32 CLuaMobSkill::setAnimationTime(lua_State* L)
 inline int32 CLuaMobSkill::setActivationTime(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setActivationTime((uint16)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setActivationTime((uint16)lua_tointeger(L, 1));
 
     return 0;
 }
@@ -238,9 +238,9 @@ inline int32 CLuaMobSkill::setActivationTime(lua_State* L)
 inline int32 CLuaMobSkill::setValidTargets(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setValidTargets((uint16)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setValidTargets((uint16)lua_tointeger(L, 1));
 
     return 0;
 }
@@ -248,9 +248,9 @@ inline int32 CLuaMobSkill::setValidTargets(lua_State* L)
 inline int32 CLuaMobSkill::setKnockback(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    m_PLuaMobSkill->setKnockback((uint8)lua_tointeger(L, -1));
+    m_PLuaMobSkill->setKnockback((uint8)lua_tointeger(L, 1));
 
     return 0;
 }
