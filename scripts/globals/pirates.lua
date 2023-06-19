@@ -74,17 +74,18 @@ tpz.pirates.spawnMobs = function(ID)
         local xbone = GetMobByID(ID.mob.CROSSBONES[i])
         if not xbone:isSpawned() and os.time() > xbone:getLocalVar("respawnTime") then
             tpz.pirates.spawnMob(ID.mob.CROSSBONES[i])
+
+            local wight = GetMobByID(ID.mob.SHIP_WIGHT)
+            local nm = GetMobByID(ID.mob.NM)
+            -- Ship Wight only spawns if no NM is up
+            if not nm:isSpawned() then
+                if nm:getLocalVar("killed") == 0 then
+                    tpz.pirates.spawnMob(ID.mob.NM)
+                else
+                    tpz.pirates.spawnMob(ID.mob.SHIP_WIGHT)
+                end
+            end
         end
-    end
-    local wight = GetMobByID(ID.mob.SHIP_WIGHT)
-    local nm = GetMobByID(ID.mob.NM)
-    if not wight:isSpawned() and not nm:isSpawned() then
-        if os.time() > wight:getLocalVar("respawnTime") then
-            tpz.pirates.spawnMob(ID.mob.SHIP_WIGHT)
-        end
-    end
-    if nm:getLocalVar("killed") == 0 and math.random(0,100) < 50 then
-        tpz.pirates.spawnMob(ID.mob.NM)
     end
 end
 
