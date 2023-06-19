@@ -48,6 +48,11 @@ bool CMobSkill::hasMissMsg() const
     return m_Message == 158 || m_Message == 188 || m_Message == 31 || m_Message == 30;
 }
 
+// 1 = AOE around monster
+// 2 = AOE centered around target (8.0 radius)
+// 3 UNUSED
+// 4 = conal (45.0 degree cone)
+
 bool CMobSkill::isAoE() const
 {
     return m_Aoe > 0 && m_Aoe < 4;

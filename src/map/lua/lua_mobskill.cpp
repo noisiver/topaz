@@ -90,6 +90,10 @@ inline int32 CLuaMobSkill::isAoE(lua_State *L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
 
+    // 1 = AOE around monster
+    // 2 = AOE centered around target (8.0 radius)
+    // 3 UNUSED
+    // 4 = conal (45.0 degree cone)
     lua_pushboolean(L, m_PLuaMobSkill->isAoE());
     return 1;
 }
@@ -165,6 +169,81 @@ inline int32 CLuaMobSkill::getMobHPP(lua_State* L)
     return 1;
 }
 
+/*************************************************************************
+
+            set the params for a mob skill
+
+**************************************************************************/
+
+inline int32 CLuaMobSkill::setAnimationID(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setAnimationID((uint16)lua_tointeger(L, -1));
+
+    return 0;
+}
+
+inline int32 CLuaMobSkill::setAoe(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setAoe((uint8)lua_tointeger(L, -1));
+
+    return 0;
+}
+
+inline int32 CLuaMobSkill::setDistance(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setDistance((float)lua_tointeger(L, -1));
+
+    return 0;
+}
+
+inline int32 CLuaMobSkill::setFlag(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setFlag((uint8)lua_tointeger(L, -1));
+
+    return 0;
+}
+
+inline int32 CLuaMobSkill::setAnimationTime(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setAnimationTime((uint16)lua_tointeger(L, -1));
+
+    return 0;
+}
+
+inline int32 CLuaMobSkill::setActivationTime(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setActivationTime((uint16)lua_tointeger(L, -1));
+
+    return 0;
+}
+
+inline int32 CLuaMobSkill::setValidTargets(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setValidTargets((uint16)lua_tointeger(L, -1));
+
+    return 0;
+}
 
 inline int32 CLuaMobSkill::setKnockback(lua_State* L)
 {
@@ -197,5 +276,13 @@ Lunar<CLuaMobSkill>::Register_t CLuaMobSkill::methods[] =
     LUNAR_DECLARE_METHOD(CLuaMobSkill,getTotalTargets),
     LUNAR_DECLARE_METHOD(CLuaMobSkill,getTP),
     LUNAR_DECLARE_METHOD(CLuaMobSkill,getMobHPP),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setAnimationID),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setAoe),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setDistance),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setFlag),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setAnimationTime),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setActivationTime),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setValidTargets),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,setKnockback),
     {nullptr,nullptr}
 };
