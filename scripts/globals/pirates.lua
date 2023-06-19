@@ -82,7 +82,9 @@ tpz.pirates.spawnMobs = function(ID)
                 if nm:getLocalVar("killed") == 0 then
                     tpz.pirates.spawnMob(ID.mob.NM)
                 else
-                    tpz.pirates.spawnMob(ID.mob.SHIP_WIGHT)
+                    if not wight:isSpawned() then
+                        tpz.pirates.spawnMob(ID.mob.SHIP_WIGHT)
+                    end
                 end
             end
         end
