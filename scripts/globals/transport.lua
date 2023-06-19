@@ -15,13 +15,13 @@ tpz.transport.message =
 
 tpz.transport.epochOffset =
 {
-    NEARING = 200,
+    NEARING = 290,
     DOCKING = 290
 }
 
 tpz.transport.messageTime =
 {
-    NEARING = 300,
+    NEARING = 400,
     SILVER_SEA = 480
 }
 
