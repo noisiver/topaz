@@ -10,6 +10,7 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    skill:setKnockback(4)
     return 0
 end
 

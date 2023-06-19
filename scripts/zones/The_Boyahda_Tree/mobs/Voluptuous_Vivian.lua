@@ -11,6 +11,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ATT, 500)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.EVA, 50)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 30)
 end
 
 function onMobInitialize(mob)

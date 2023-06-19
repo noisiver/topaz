@@ -11,6 +11,14 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local isCassie = mob:getPool() == 630
+    local isVivian = mob:getPool() == 4253
+
+    if isCassie or isVivian then
+        skill:setAoe(1)
+        skill:setDistance(50)
+    end
+
     return 0
 end
 
