@@ -2496,6 +2496,71 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     return resist
 end
 
+function TryApplyAdditionalEffect(player, target, effect, element, power, tick, duration, subpower, tier, bonus)
+    local effects =
+    {
+        { tpz.effect.SLEEP_I, tpz.subEffect.SLEEP },
+        { tpz.effect.POISON, tpz.subEffect.POISON },
+        { tpz.effect.PARALYSIS, tpz.subEffect.PARALYSIS },
+        { tpz.effect.BLINDNESS, tpz.subEffect.BLINDNESS },
+        { tpz.effect.SILENCE, tpz.subEffect.SILENCE },
+        { tpz.effect.PETRIFICATION, tpz.subEffect.PETRIFICATION },
+        { tpz.effect.DISEASE, tpz.subEffect.PLAGUE },
+        { tpz.effect.CURSE_I, tpz.subEffect.CURSE },
+        { tpz.effect.STUN, tpz.subEffect.STUN },
+        { tpz.effect.BIND, tpz.subEffect.BIND },
+        { tpz.effect.WEIGHT, tpz.subEffect.WEIGHT },
+        { tpz.effect.SLOW, tpz.subEffect.SLOW },
+        { tpz.effect.CHARM_I, tpz.subEffect.CHARM },
+        { tpz.effect.DOOM, tpz.subEffect.DOOM },
+        { tpz.effect.AMNESIA, tpz.subEffect.AMNESIA },
+        { tpz.effect.CHARM_II, tpz.subEffect.CHARM },
+        { tpz.effect.GRADUAL_PETRIFICATION, tpz.subEffect.PETRIFICATION },
+        { tpz.effect.SLEEP_II, tpz.subEffect.SLEEP },
+        { tpz.effect.CURSE_II, tpz.subEffect.CURSE },
+        { tpz.effect.ADDLE, tpz.subEffect.ADDLE },
+        { tpz.effect.TERROR, tpz.subEffect.TERROR },
+        { tpz.effect.MUTE, tpz.subEffect.MUTE },
+        { tpz.effect.BANE, tpz.subEffect.BANE },
+        { tpz.effect.GRAVITY, tpz.subEffect.GRAVITY },
+        { tpz.effect.HASTE, tpz.subEffect.HASTE },
+        { tpz.effect.FLASH, tpz.subEffect.FLASH },
+        { tpz.effect.NONE, tpz.subEffect.DISPEL },
+        { tpz.effect.DEFENSE_DOWN, tpz.subEffect.DEFENSE_DOWN },
+        { tpz.effect.EVASION_DOWN, tpz.subEffect.EVASION_DOWN },
+        { tpz.effect.ATTACK_DOWN, tpz.subEffect.ATTACK_DOWN },
+        { tpz.effect.KO, tpz.subEffect.DEATH },
+    }
+
+    local resist = getAdditionalEffectStatusResist(player, target, effect, element, bonus)
+    duration = math.floor(duration * resist)
+
+    -- Check for subpower
+    if (subpower == nil) then
+        subpower = 0
+    end
+
+    -- Check for tier
+    if (tier == nil) then
+        tier = 1
+    end
+
+    for i, statusEffects in (effects) do
+        if (effect == statusEffects[1]) then
+            subeffect = statusEffects[2]
+        end
+    end
+
+    if (resist < 0.5) then 
+        return 0, 0, 0
+    else
+        if not target:hasStatusEffect(effect) then
+            target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier)
+        end
+        return subeffect, tpz.msg.basic.ADD_EFFECT_STATUS, effect
+    end
+end
+
 function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold, subpower, tier)
     local immunities = {
         { tpz.effect.SLEEP_I, 1},

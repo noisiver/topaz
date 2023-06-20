@@ -10,56 +10,21 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = CalculateAdditionalEffectChance(player, 10)
+    local power = 15
+    local duration = 60
+    local subpower = 0
+    local tier = 1
+    local bonus = 0
     if math.random(0, 95) <= chance then
         local rng = math.random(3)
         if (rng == 1) then
-            return PoisonProc(player, target)
+            return TryApplyAdditionalEffect(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, power, tick, duration, subpower, tier, bonus)
         elseif (rng == 2) then
-            return ParaProc(player, target)
+            return TryApplyAdditionalEffect(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, bonus)
         elseif (rng == 3) then
-            return BindProc(player, target)
+            power = 1
+            duration = 15
+            return TryApplyAdditionalEffect(player, target, tpz.effect.BIND, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, bonus)
         end
-    end
-end
-
-function ParaProc(player, target)
-    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, 0)
-    local duration = math.floor(60 * resist)
-
-    if (resist < 0.5) then 
-        return 0, 0, 0
-    else
-        if not target:hasStatusEffect(tpz.effect.PARALYSIS) then
-            target:addStatusEffect(tpz.effect.PARALYSIS, 25, 0, duration)
-        end
-        return tpz.subEffect.PARALYSIS, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.PARALYSIS
-    end
-end
-
-function PoisonProc(player, target)
-    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, 0)
-    local duration = math.floor(60 * resist)
-
-    if (resist < 0.5) then 
-        return 0, 0, 0
-    else
-        if not target:hasStatusEffect(tpz.effect.POISON) then
-            target:addStatusEffect(tpz.effect.POISON, 15, 3, duration)
-        end
-        return tpz.subEffect.POISON, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.POISON
-    end
-end
-
-function BindProc(player, target)
-    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.BIND, tpz.magic.ele.ICE, 0)
-    local duration = math.floor(30 * resist)
-
-    if (resist < 0.5) then 
-        return 0, 0, 0
-    else
-        if not target:hasStatusEffect(tpz.effect.BIND) then
-            target:addStatusEffect(tpz.effect.BIND, 10, 0, duration)
-        end
-        return tpz.subEffect.PARALYSIS, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.BIND
     end
 end
