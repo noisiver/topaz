@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 5840
 -- Item: bottle_of_stalwarts_gambir
--- Item Effect: ACC 100 RACC 100 RATTP 50 ATTP 50
+-- Item Effect: RATTP 50 ATTP 50 ACC 100 RACC 100
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
