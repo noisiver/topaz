@@ -163,7 +163,9 @@ local GearSets =  {
              {id = 212, items = {15072, 15245, 10650, 15087, 14500, 10670, 15102, 14909, 10690, 15117, 15580, 10710, 15132, 15665, 10730},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Warrior's Lorica Set Relic (Haste +4~10%)
              {id = 213, items = {16073, 16074, 14537, 14538, 14949, 14950, 15615, 15616, 15703, 15704},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Hydra Mail Set Crafted (Haste +4~10%)
              {id = 214, items = {15834, 15835}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STR, 15, 0, 0}, {tpz.mod.ACC, -10, 0, 0}} }, -- Unnamed Ring set: STR+26/ACC-10
-             --NEXT: 216
+             {id = 216, items = {15073, 15246, 10651, 15088, 15088, 10671, 15103, 14910, 10691, 15118, 15581, 10711, 15133, 15666, 10731},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Melee Set Relic (Haste +4~10%)
+             {id = 217, items = {15077, 15092, 15107, 15122, 15137, 15250, 14505, 14914, 15585, 15670, 10655, 10675, 10695, 10715, 10735},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Asassin's Set Relic (Haste +4~10%)
+             -- NEXT 218
             }
 
              -- increment id by (number of mods in previous gearset - 1)
