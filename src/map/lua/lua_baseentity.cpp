@@ -1900,14 +1900,7 @@ inline int32 CLuaBaseEntity::pathThrough(lua_State* L)
             return 0;
         }
 
-        if (lua_isnil(L, -1) || lua_isnil(L, -2) || lua_isnil(L, -3))
-        {
-            // error exit
-            ShowError("Lua::pathThrough : Path value is nil.");
-            return 0;
-        }
         points.push_back({ (float)lua_tonumber(L, -3), (float)lua_tonumber(L, -2), (float)lua_tonumber(L, -1), 0, 0 });
-
 
         lua_pop(L, 3);
     }
