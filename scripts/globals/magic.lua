@@ -2496,7 +2496,7 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     return resist
 end
 
-function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold, subpower)
+function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold, subpower, tier)
     local immunities = {
         { tpz.effect.SLEEP_I, 1},
         { tpz.effect.SLEEP_II, 1},
@@ -2527,6 +2527,11 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         subpower = 0
     end
 
+    -- Check for tier
+    if (tier == nil) then
+        tier = 1
+    end
+
     -- Check for immunity
     for i,statusEffect in pairs(immunities) do
         local immunity = 0
@@ -2549,7 +2554,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
-        if target:addStatusEffect(effect, power, tick, duration, 0, subpower) then
+        if target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier) then
             -- Check for magic burst
             if GetEnfeebleMagicBurstMessage(caster, spell, target) then
                 return spell:setMsg(spell:getMagicBurstMessage()) 
