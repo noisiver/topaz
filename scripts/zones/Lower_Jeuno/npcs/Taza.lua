@@ -277,9 +277,9 @@ function onTrade(player, npc, trade)
     local augment = CheckAugment(trade);
     if (type(augment) == 'table') and (augment.Item ~= nil) and (#augment.Augments > 1) then
         DistributeAugment(player, augment);
-    else
-        player:PrintToPlayer("I can't do anything with those items.",0,"Taza");
+        return
     end
+        player:PrintToPlayer("I can't do anything with those items.",0,"Taza");
 end
 
 function onTrigger(player, npc)
