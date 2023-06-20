@@ -20,7 +20,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", math.random(10, 15))
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
-        mob:useMobAbility(513) -- Smite of Rage
+        mob:useMobAbility(1559) -- Furry of Rage
         mob:setLocalVar("wingsTime", battletime + 5)
         mob:setLocalVar("wingsDown", 1)
     end
