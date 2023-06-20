@@ -38,7 +38,7 @@ function applyBarspell(effectType, caster, target, spell)
     local power = calculateBarspellPower(caster, enhanceSkill)
     local duration = (150 + (enhanceSkill / 2)) * gearduration
 	-- Apply composure bonus
-    if caster:hasStatusEffect(tpz.effect.COMPOSURE) then
+    if target:hasStatusEffect(tpz.effect.COMPOSURE) then
        duration = duration * 3
     end
 
