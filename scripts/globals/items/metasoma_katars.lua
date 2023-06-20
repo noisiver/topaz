@@ -29,7 +29,9 @@ function ParaProc(player, target)
     if (resist < 0.5) then 
         return 0, 0, 0
     else
-        target:addStatusEffect(tpz.effect.PARALYSIS, 25, 0, duration) 
+        if not target:hasStatusEffect(tpz.effect.PARALYSIS) then
+            target:addStatusEffect(tpz.effect.PARALYSIS, 25, 0, duration)
+        end
         return tpz.subEffect.PARALYSIS, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.PARALYSIS
     end
 end
@@ -41,7 +43,9 @@ function PoisonProc(player, target)
     if (resist < 0.5) then 
         return 0, 0, 0
     else
-        target:addStatusEffect(tpz.effect.POISON, 15, 3, duration)
+        if not target:hasStatusEffect(tpz.effect.POISON) then
+            target:addStatusEffect(tpz.effect.POISON, 15, 3, duration)
+        end
         return tpz.subEffect.POISON, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.POISON
     end
 end
@@ -53,7 +57,9 @@ function BindProc(player, target)
     if (resist < 0.5) then 
         return 0, 0, 0
     else
-        target:addStatusEffect(tpz.effect.BIND, 10, 0, duration) 
+        if not target:hasStatusEffect(tpz.effect.BIND) then
+            target:addStatusEffect(tpz.effect.BIND, 10, 0, duration)
+        end
         return tpz.subEffect.PARALYSIS, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.BIND
     end
 end
