@@ -1,7 +1,7 @@
 -----------------------------------
 --
---     tpz.effect.SCARLET_DELIRIUM
---     
+--     tpz.effect.SCARLET_DELIRIUM_I
+--     Used for tracking damage multiplier mod
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------

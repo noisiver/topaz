@@ -545,7 +545,7 @@ enum EFFECT
     EFFECT_SACROSANCTITY            = 477, // WHM 95
     EFFECT_PALISADE                 = 478, // PLD 95
     EFFECT_SCARLET_DELIRIUM         = 479, // DRK 95
-    EFFECT_SCARLET_DELIRIUM_1       = 480, // DRK 95
+    EFFECT_SCARLET_DELIRIUM_1       = 480, // Buff tracking damage bonus
     EFFECT_ABDHALJS_SEAL            = 481,      // WAS NONE
     EFFECT_DECOY_SHOT               = 482, // RNG 95
     EFFECT_HAGAKURE                 = 483, // SAM 95

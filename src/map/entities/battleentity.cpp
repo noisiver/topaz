@@ -571,6 +571,20 @@ int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullp
     else if (PLastAttacker && PLastAttacker->objtype == TYPE_PC)
         roeutils::event(ROE_EVENT::ROE_DMGDEALT, static_cast<CCharEntity*>(attacker), RoeDatagram("dmg", amount));
 
+    // Track Scarlet Delirium
+    if (this->StatusEffectContainer->HasStatusEffect(EFFECT_SCARLET_DELIRIUM))
+    {
+        this->StatusEffectContainer->DelStatusEffect(EFFECT_SCARLET_DELIRIUM);
+
+        // Increases damage proportional to half of the lost HP% (rounded down)
+        // Ex.: If you lose 50% HP, you will do 25% more damage.
+        // https://www.bg-wiki.com/ffxi/Scarlet_Delirium
+        auto scarletDmgBonus = (float)amount / (float)GetMaxHP();
+        scarletDmgBonus *= 0.5f;
+        scarletDmgBonus *= 100.0f;
+
+        this->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SCARLET_DELIRIUM_1, 0, scarletDmgBonus, 0, 90));
+    }
     // Damage always breaks petrify on mobs, but not players or NPCs(trusts, campaign helpers, charmed mobs, etc)
     if (this->objtype == TYPE_MOB && !this->isCharmed)
     {

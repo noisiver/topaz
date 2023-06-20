@@ -487,6 +487,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     if wsParams.useAutoTPFormula == nil or wsParams.useAutoTPFormula == false then
         finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.0 -- Add server bonus
     end
+
     -- Handle Positional PDT
     if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
         if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3 then
@@ -510,10 +511,14 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
             finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
         end
     end
+
     -- Handle Footwork damage reduction
 	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
-	finaldmg = math.floor(finaldmg * 0.5)
+	    finaldmg = math.floor(finaldmg * 0.5)
 	end
+
+    -- Handle Scarlet Delirium
+    finaldmg = utils.ScarletDeliriumBonus(attacker, finaldmg)
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
@@ -522,14 +527,6 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
 end
     
---[[
-    finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
-    calcParams.finalDmg = finaldmg
-    finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
-    return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
-end
---]]
-
 -- Sets up the necessary calcParams for a ranged WS before passing it to calculateRawWSDmg. When the raw
 -- damage is returned, handles reductions based on target resistances and passes off to takeWeaponskillDamage.
 function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, primaryMsg)
@@ -614,6 +611,9 @@ function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, prima
             finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
         end
     end
+
+    -- Handle Scarlet Delirium
+    finaldmg = utils.ScarletDeliriumBonus(attacker, finaldmg)
 	
     finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.00 -- Add server bonus
     calcParams.finalDmg = finaldmg
@@ -717,12 +717,6 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT))/100) -- Add in our "first hit" WS dmg bonus
         dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ELEMENTAL_WSDMG))/100) -- Add in our "elemental damage" WS dmg bonus
 
-        -- Calculate magical bonuses and reductions
-        dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
-        dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
-        dmg = target:magicDmgTaken(dmg, wsParams.ele)
-
-        dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
         -- Handle Positional MDT
         if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
             if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
@@ -746,6 +740,16 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
                 dmg = math.floor(dmg * 0.50) -- 50% DR
             end
         end
+
+        -- Handle Scarlet Delirium
+        dmg = utils.ScarletDeliriumBonus(attacker, dmg)
+
+        dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
+
+        -- Calculate magical bonuses and reductions
+        dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
+        dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
+        dmg = target:magicDmgTaken(dmg, wsParams.ele)
 
         -- handling absorb
         if (wsParams.ele ~= 0) then -- Non-elemental damage cannot be absorbed

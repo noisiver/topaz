@@ -1026,3 +1026,13 @@ function utils.GetWeaponType(player)
         end
     end
 end
+
+utils.ScarletDeliriumBonus(player, dmg)
+    local scarletDeliriumEffect = player:getStatusEffect(tpz.effect.SCARLET_DELIRIUM_I)
+    if (scarletDeliriumEffect ~= nil) and (scarletDeliriumEffect:getPower() >= 1) then
+        local dmgBonus = (1 + (scarletDeliriumEffect / 100))
+        dmg = math.floor(dmg * dmgBonus)
+    end
+
+    return dmg
+end

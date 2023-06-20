@@ -14,7 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.SCARLET_DELIRIUM, 8, 1, 30)
-    player:addStatusEffect(tpz.effect.CURSE_II, 1, 0, 30)
-    player:delStatusEffectSilent(tpz.effect.REGEN)
+    player:addStatusEffect(tpz.effect.SCARLET_DELIRIUM, 1, 0, 90)
 end

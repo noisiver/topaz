@@ -569,7 +569,7 @@ void CAttack::ProcessDamage()
     }
 
         // Circle Effects
-    if (m_victim->objtype == TYPE_MOB && m_damage > 0)
+    if (m_victim->objtype != TYPE_PC && m_damage > 0)
     {
         uint16 circlemult = 100;
 
@@ -688,6 +688,14 @@ void CAttack::ProcessDamage()
     if (m_attacker->objtype == TYPE_MOB && m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_BOOST))
     {
         m_damage = m_damage * 2;
+    }
+
+    // Handle Scarlet Delirium
+    if (m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_SCARLET_DELIRIUM_1))
+    {
+        uint16 power = m_attacker->StatusEffectContainer->GetStatusEffect(EFFECT_SCARLET_DELIRIUM_1)->GetPower();
+        auto dmgBonus = 1 + (power / 100);
+        m_damage = m_damage * (float)dmgBonus;
     }
 
     // Try skill up.

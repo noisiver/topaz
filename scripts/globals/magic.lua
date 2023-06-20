@@ -2373,6 +2373,9 @@ function doNuke(caster, target, spell, params)
         end
     end
 
+    -- Handle Scarlet Delirium
+    dmg = utils.ScarletDeliriumBonus(caster, dmg)
+
     --get the resisted damage
     dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
