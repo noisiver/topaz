@@ -976,7 +976,7 @@ function utils.getWeaponStyle(player)
     local twoHandedSkills = { 4, 6, 7, 8, 10, 12 };
     local oneHandedSkills = { 2, 3, 5, 9, 11 };
     local mainHandSkill = player:getWeaponSkillType(0, 0, tpz.slot.MAIN)
-    local subSkill = player:getWeaponSubSkillType()(0, 0, tpz.slot.SUB)
+    local subSkill = player:getWeaponSubSkillType(0, 0, tpz.slot.SUB)
     local mainHandSkill = 0
 
     if mainHandSkill == 1 then
@@ -1027,7 +1027,7 @@ function utils.GetWeaponType(player)
     end
 end
 
-utils.ScarletDeliriumBonus(player, dmg)
+function utils.ScarletDeliriumBonus(player, dmg)
     local scarletDeliriumEffect = player:getStatusEffect(tpz.effect.SCARLET_DELIRIUM_I)
     if (scarletDeliriumEffect ~= nil) and (scarletDeliriumEffect:getPower() >= 1) then
         local dmgBonus = (1 + (scarletDeliriumEffect / 100))
