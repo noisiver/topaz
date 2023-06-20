@@ -2548,7 +2548,7 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
         tier = 1
     end
 
-    for i, statusEffects in (effects) do
+    for i, statusEffects in pairs(effects) do
         if (effect == statusEffects[1]) then
             subeffect = statusEffects[2]
         end
@@ -2622,6 +2622,11 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
+        if target:getStatusEffect(effect) then
+            if (target:getStatusEffect(effect):getPower() < power) then
+                target:delStatusEffectSilent(effect)
+            end
+        end
         if target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier) then
             -- Check for magic burst
             if GetEnfeebleMagicBurstMessage(caster, spell, target) then
