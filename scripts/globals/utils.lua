@@ -975,14 +975,9 @@ end
 function utils.getWeaponStyle(player)
     local twoHandedSkills = { 4, 6, 7, 8, 10, 12 };
     local oneHandedSkills = { 2, 3, 5, 9, 11 };
-    local main = player:getStorageItem(0, 0, tpz.slot.MAIN)
-    local sub = player:getStorageItem(0, 0, tpz.slot.SUB)
+    local mainHandSkill = player:getWeaponSkillType(0, 0, tpz.slot.MAIN)
+    local subSkill = player:getWeaponSubSkillType()(0, 0, tpz.slot.SUB)
     local mainHandSkill = 0
-
-    if main and main:getSkillType() then
-        mainHandSkill = main:getSkillType()
-    end
-
 
     if mainHandSkill == 1 then
         return 'H2H'
@@ -995,15 +990,10 @@ function utils.getWeaponStyle(player)
     end
 
     for _, combatSkills in pairs(oneHandedSkills) do
-        local offHandSkill = 0
-        if sub and sub:getSkillType() then
-            offHandSkill = sub:getSkillType()
-        end
-
         for _, combatSkills in pairs(twoHandedSkills) do
-            if mainHandSkill == offHandSkill then
+            if mainHandSkill == subSkill then
                 return 'DW'
-            elseif sub == nil or sub:getSkillType() == tpz.skill.NONE or sub:isShield() then
+            elseif subSkill == nil or subSkill == tpz.skill.NONE or subSkill:isShield() then
                 return 'SHIELD'
             end
         end
@@ -1013,12 +1003,7 @@ function utils.getWeaponStyle(player)
 end
 
 function utils.GetWeaponType(player)
-    local main = player:getStorageItem(0, 0, tpz.slot.MAIN)
-    local mainHandSkill = 0
-
-    if main and main:getSkillType() then
-        mainHandSkill = main:getSkillType()
-    end
+    local mainHandSkill = player:getWeaponSkillType(0, 0, tpz.slot.MAIN)
 
     local skills =
     {
