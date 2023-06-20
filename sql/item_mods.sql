@@ -43688,7 +43688,7 @@ INSERT INTO `item_mods` VALUES (27584,122,10);
 INSERT INTO `item_mods` VALUES (27584,369,1);
 INSERT INTO `item_mods` VALUES (27585,298,2);
 INSERT INTO `item_mods` VALUES (27585,303,1);
-INSERT INTO `item_mods` VALUES (27858,835,1);	-- "Mug" +1
+INSERT INTO `item_mods` VALUES (27585,835,1);	-- "Mug" +1
 INSERT INTO `item_mods` VALUES (27586,26,20); -- Ranged Accuracy +20
 INSERT INTO `item_mods` VALUES (27586,118,10); -- Ninjutsu skill +10
 INSERT INTO `item_mods` VALUES (27586,259,5); -- "Dual Wield" +5

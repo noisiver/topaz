@@ -589,6 +589,12 @@ INSERT INTO `item_mods_pet` VALUES (10436,163,-5,0);    -- Chelona Hat Pet: Magi
 INSERT INTO `item_mods_pet` VALUES (10437,163,-6,0);    -- Chelona Hat +1 Pet: Magic damage taken -6% 
 INSERT INTO `item_mods_pet` VALUES (17492,25,8,0);      -- Shiva's Claws: Accuracy+8
 INSERT INTO `item_mods_pet` VALUES (17492,12,3,0);      -- Shiva's Claws: INT+3
+INSERT INTO `item_mods_pet` VALUES (27589,25,20,0);      -- Thurandaut Ring: Accuracy+20
+INSERT INTO `item_mods_pet` VALUES (27589,26,20,0);      -- Thurandaut Ring: Ranged Accuracy+20
+INSERT INTO `item_mods_pet` VALUES (27589,23,20,0);      -- Thurandaut Ring: Attack+20
+INSERT INTO `item_mods_pet` VALUES (27589,24,20,0);      -- Thurandaut Ring: Ranged Attack+20
+INSERT INTO `item_mods_pet` VALUES (27589,384,300,0);    -- Thurandaut Ring: Haste+3%
+INSERT INTO `item_mods_pet` VALUES (27589,160,-3,0);     -- Thurandaut Ring: Damage taken -3%
 
 
 

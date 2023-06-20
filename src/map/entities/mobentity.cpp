@@ -1360,19 +1360,43 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(15786, ++dropCount)) // TODO
+                    if (AddItemToPool(27580, ++dropCount)) // Adoulin Ring
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(16284, ++dropCount)) // TODO
+                    if (AddItemToPool(27581, ++dropCount)) // Woltaris Ring
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(11920, ++dropCount)) // TODO
+                    if (AddItemToPool(27582, ++dropCount)) // Weatherspoon Ring
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(16202, ++dropCount)) // TODO
+                    if (AddItemToPool(27583, ++dropCount)) // Janniston Ring
+                        return;
+                    break;
+                case 4:
+                    if (AddItemToPool(27584, ++dropCount)) // Renaye Ring
+                        return;
+                    break;
+                case 5:
+                    if (AddItemToPool(27585, ++dropCount)) // Gorney Ring
+                        return;
+                    break;
+                case 6:
+                    if (AddItemToPool(27586, ++dropCount)) // Haverton Ring
+                        return;
+                    break;
+                case 7:
+                    if (AddItemToPool(27587, ++dropCount)) // Karieyh Ring
+                        return;
+                    break;
+                case 8:
+                    if (AddItemToPool(27588, ++dropCount)) // Vocane Ring
+                        return;
+                    break;
+                case 9:
+                    if (AddItemToPool(27589, ++dropCount)) // Thurandaut Ring
                         return;
                     break;
             }
