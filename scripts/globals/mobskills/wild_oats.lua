@@ -35,7 +35,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.VIT_DOWN
     local power = (target:getStat(tpz.mod.VIT) * 0.2) +5
-    local tick = 60
+    local tick = 30
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, tick, 300)

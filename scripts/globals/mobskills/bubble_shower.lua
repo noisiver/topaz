@@ -15,7 +15,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STR_DOWN
-    local tick = 60
+    local tick = 30
     local power = (target:getStat(tpz.mod.STR) * 0.2) +5
 
     local dmgmod = MobHPBasedMove(mob, target, 0.0625, 1, tpz.magic.ele.WATER, 200)

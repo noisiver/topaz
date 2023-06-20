@@ -17,7 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.VIT_DOWN
     local power = (target:getStat(tpz.mod.VIT) * 0.2) +5
-	local tick = 60
+	local tick = 30
 
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_WIPE_SHADOWS)

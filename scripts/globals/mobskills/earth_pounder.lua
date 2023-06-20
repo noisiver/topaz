@@ -19,7 +19,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DEX_DOWN
-    local tick = 60
+    local tick = 30
     local power = (target:getStat(tpz.mod.DEX) * 0.2) + 5
 
     local dmgmod = 2.0
