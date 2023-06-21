@@ -1006,6 +1006,8 @@ end
 -- Adds a status effect to a target
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, params)
 
+    local params = {}
+
     if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    return tpz.msg.basic.SKILL_NO_EFFECT
     end
