@@ -12,10 +12,9 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player)
-
+    mob:setLocalVar("respawnTime", os.time() + 3600)
 end
 
 function onMobDespawn(mob, player)
     GetMobByID(ID.mob.SHIP_WIGHT):setLocalVar("respawnTime", os.time() + 60)
-    mob:setLocalVar("killed", 1)
 end

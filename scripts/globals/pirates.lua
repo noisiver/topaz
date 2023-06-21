@@ -79,7 +79,7 @@ tpz.pirates.spawnMobs = function(ID)
             local nm = GetMobByID(ID.mob.NM)
             -- Ship Wight only spawns if no NM is up
             if not nm:isSpawned() then
-                if nm:getLocalVar("killed") == 0 and math.random(0,100) < 50 then
+                if os.time() > nm:getLocalVar("respawnTime") and math.random(1,100) <= 24 then
                     tpz.pirates.spawnMob(ID.mob.NM)
                 else
                     if not wight:isSpawned() then
