@@ -694,7 +694,7 @@ void CAttack::ProcessDamage()
     if (m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_SCARLET_DELIRIUM_1))
     {
         uint16 power = m_attacker->StatusEffectContainer->GetStatusEffect(EFFECT_SCARLET_DELIRIUM_1)->GetPower();
-        auto dmgBonus = 1 + (power / 100);
+        float dmgBonus = 1 + ((uint16)power / 100.0f);
         m_damage = m_damage * (float)dmgBonus;
     }
 

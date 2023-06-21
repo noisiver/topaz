@@ -1152,6 +1152,9 @@ end
         dmg = math.floor(dmg * circlemult / 100)
     end
 
+    -- Handle Scarlet Delirium
+    dmg = utils.ScarletDeliriumBonus(caster, dmg)
+
     -- Handle Positional MDT
     if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
         if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
@@ -1183,7 +1186,6 @@ end
     end
 
     local element = spell:getElement()
-
     dmg = target:magicDmgTaken(dmg, element)
 
     if (dmg > 0) then
@@ -2372,9 +2374,6 @@ function doNuke(caster, target, spell, params)
             caster:delStatusEffectSilent(tpz.effect.FUTAE)
         end
     end
-
-    -- Handle Scarlet Delirium
-    dmg = utils.ScarletDeliriumBonus(caster, dmg)
 
     --get the resisted damage
     dmg = dmg*resist
