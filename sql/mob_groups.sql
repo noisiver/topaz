@@ -882,8 +882,8 @@ INSERT INTO `mob_groups` VALUES (69,3736,24,'Splinterspine_Grukjuk',0,128,283,55
 INSERT INTO `mob_groups` VALUES (70,429,24,'Blackbone_Frazdiz',0,128,283,5500,0,47,47,0);
 INSERT INTO `mob_groups` VALUES (71,3311,24,'Rainbringer_Yjatvot',0,128,0,5500,0,47,47,0);
 INSERT INTO `mob_groups` VALUES (72,375,24,'Baumesel',0,128,0,8500,0,56,58,0);
-INSERT INTO `mob_groups` VALUES (73,2299,24,'Kurrea',0,128,1470,45000,0,84,86,0);
-INSERT INTO `mob_groups` VALUES (74,100,24,'Amaltheia',0,128,55,45000,0,84,86,0);
+INSERT INTO `mob_groups` VALUES (73,2299,24,'Kurrea',0,128,1470,20000,0,83,83,0);
+INSERT INTO `mob_groups` VALUES (74,100,24,'Amaltheia',0,128,55,20000,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (75,4692,24,'Abununnu',0,128,0,0,9999,105,106,0);
 INSERT INTO `mob_groups` VALUES (76,4691,24,'Gloam_Servitor_mage',0,128,0,0,9999,101,102,0);
 INSERT INTO `mob_groups` VALUES (77,4690,24,'Gloam_Servitor_melee',0,128,0,0,0,101,102,0);
