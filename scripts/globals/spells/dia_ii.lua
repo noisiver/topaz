@@ -45,11 +45,12 @@ function onSpellCast(caster, target, spell)
     -- Calculate duration and bonus
     local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     local dotBonus = caster:getMod(tpz.mod.DIA_DOT) -- Dia Wand
+    local tier = 2
 
-    -- Do it!
-    target:delStatusEffectSilent(tpz.effect.DIA)
-    target:delStatusEffectSilent(tpz.effect.BIO)
-    target:addStatusEffect(tpz.effect.DIA, 2 + dotBonus, 3, duration, 0, 10, 2)
+    if ShouldOverwriteDiaBio(caster, target, tpz.effect.DIA, tier) then
+        target:addStatusEffect(tpz.effect.DIA, 2 + dotBonus, 3, duration, 0, 10, 2)
+    end
+
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
     CheckForMagicBurst(caster, spell, target)
 

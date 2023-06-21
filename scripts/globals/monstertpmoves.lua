@@ -1021,7 +1021,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         duration = MobGetStatusEffectDuration(typeEffect)
     end
 
-    if (target:canGainStatusEffect(typeEffect, power)) then
+    if target:canGainStatusEffect(typeEffect, power) and ShouldApplyDiaBioEffect(target, typeEffect) then
         local statmod = tpz.mod.INT
         local element = mob:getStatusEffectElement(typeEffect)
         local bonus = math.floor(mob:getMainLvl() / 2)
@@ -1073,7 +1073,7 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
         return 0
     end
 
-    if (target:canGainStatusEffect(typeEffect, power)) then
+    if target:canGainStatusEffect(typeEffect, power) and ShouldApplyDiaBioEffect(target, typeEffect) then
         local statmod = tpz.mod.INT
         local element = mob:getStatusEffectElement(typeEffect)
         local bonus = math.floor(mob:getMainLvl() / 2)
@@ -1891,6 +1891,18 @@ function IsNonScalingBuff(typeEffect)
     end
 
     return false
+end
+
+-- Don't overwrite Bio with Dia, but overwrite Dia with Bio
+function ShouldApplyDiaBioEffect(target, typeEffect)
+    if (typeEffect == tpz.effect.DIA) and target:hasStatusEffect(tpz.effect.BIO) then
+        return false
+    elseif (typeEffect == tpz.effect.BIO) and target:hasStatusEffect(tpz.effect.DIA) then
+        target:delStatusEffectSilent(tpz.effect.DIA)
+        return true
+    end
+
+    return true
 end
 
 function MobDmgTPModifier(tp)

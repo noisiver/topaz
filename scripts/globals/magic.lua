@@ -2645,6 +2645,24 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     end
 end
 
+function ShouldOverwriteDiaBio(caster, target, effect, tier)
+    if (effect == tpz.effect.BIO) and (target:getStatusEffect(tpz.effect.DIA):getTier() <= tier) then
+        target:delStatusEffectSilent(tpz.effect.DIA)
+        return true
+    end
+
+    if (effect == tpz.effect.DIA) and (target:getStatusEffect(tpz.effect.BIO):getTier() < tier) then
+        target:delStatusEffectSilent(tpz.effect.BIO)
+        return true
+    end
+
+    if (target:getStatusEffect(effect)) and target:getStatusEffect(effect):getTier() <= tier then
+        return true
+    end
+
+    return false
+end
+
 function ApplyProtectShell(caster, target, effect, power, duration)
     local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
 
