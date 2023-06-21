@@ -7,18 +7,12 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------------
-
 function onAdditionalEffect(player, target, damage)
     local chance = CalculateAdditionalEffectChance(player, 100)
-    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.SLEEP_I, tpz.magic.ele.LIGHT, 0)
-    local duration = math.floor(30 * resist)
-
-    if resist < 0.5 then
-        return 0, 0, 0
-    else
-        if (not target:hasStatusEffect(tpz.effect.SLEEP_I)) then
-            target:addStatusEffect(tpz.effect.SLEEP_I, 1, 0, duration)
-        end
-        return tpz.subEffect.SLEEP, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.SLEEP_I
-    end
-end
+    local power = 1
+    local duration = 60
+    local subpower = 0
+    local tier = 1
+    local bonus = 0
+    return TryApplyAdditionalEffect(player, target, tpz.effect.SLEEP_I, tpz.magic.ele.DARK, power, tick, duration, subpower, tier, chance, bonus)
+ end

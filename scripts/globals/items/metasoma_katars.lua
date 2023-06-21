@@ -15,16 +15,14 @@ function onAdditionalEffect(player, target, damage)
     local subpower = 0
     local tier = 1
     local bonus = 0
-    if math.random(0, 95) <= chance then
-        local rng = math.random(3)
-        if (rng == 1) then
-            return TryApplyAdditionalEffect(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, power, tick, duration, subpower, tier, bonus)
-        elseif (rng == 2) then
-            return TryApplyAdditionalEffect(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, bonus)
-        elseif (rng == 3) then
-            power = 1
-            duration = 15
-            return TryApplyAdditionalEffect(player, target, tpz.effect.BIND, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, bonus)
-        end
+    local rng = math.random(3)
+    if (rng == 1) then
+        return TryApplyAdditionalEffect(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, power, tick, duration, subpower, tier, chance, bonus)
+    elseif (rng == 2) then
+        return TryApplyAdditionalEffect(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, chance, bonus)
+    elseif (rng == 3) then
+        power = 1
+        duration = 15
+        return TryApplyAdditionalEffect(player, target, tpz.effect.BIND, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, chance, bonus)
     end
 end

@@ -2498,7 +2498,7 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     return resist
 end
 
-function TryApplyAdditionalEffect(player, target, effect, element, power, tick, duration, subpower, tier, bonus)
+function TryApplyAdditionalEffect(player, target, effect, element, power, tick, duration, subpower, tier, chance, bonus)
     local effects =
     {
         { tpz.effect.SLEEP_I, tpz.subEffect.SLEEP },
@@ -2547,16 +2547,37 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
         tier = 1
     end
 
+    -- Check if tick should be applied
+    if (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) or
+        (effect == tpz.effect.FLASH) or utils.IsElementalDOT(effect) then
+        tick = 3
+    else
+        tick = 0
+    end
+
+
+
+    -- Get sub effect from status effect ID
     for i, statusEffects in pairs(effects) do
         if (effect == statusEffects[1]) then
             subeffect = statusEffects[2]
         end
     end
 
-    if (resist < 0.5) then 
+    if math.random(1, 100) >= chance or (resist < 0.5) then 
         return 0, 0, 0
     else
         if not target:hasStatusEffect(effect) then
+
+            -- Attack, defense and evaison down also dispels attack defense and evasion boost effects
+            if (effect == tpz.effect.ATTACK_DOWN) then
+                target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
+            elseif (effect = tpz.effect.DEFENSE_DOWN) then
+                target:delStatusEffectSilent(tpz.effect.DEFENSE_BOOST)
+            elseif (effect = tpz.effect.EVASION_DOWN) then
+                target:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
+            end
+
             target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier)
         end
         return subeffect, tpz.msg.basic.ADD_EFFECT_STATUS, effect

@@ -7,18 +7,13 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
-
 function onAdditionalEffect(player, target, damage)
-    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.BLINDNESS, tpz.magic.ele.DARK, 0)
-    local duration = math.floor(60 * resist)
+    local chance = CalculateAdditionalEffectChance(player, 100)
+    local power = 20
+    local duration = 60
+    local subpower = 0
+    local tier = 1
+    local bonus = 0
+    return TryApplyAdditionalEffect(player, target, tpz.effect.BLINDNESS, tpz.magic.ele.DARK, power, tick, duration, subpower, tier, chance, bonus)
+ end
 
-    if resist < 0.5 then
-        return 0, 0, 0
-    else
-        target:delStatusEffectSilent(tpz.effect.BLINDNESS)
-        if (not target:hasStatusEffect(tpz.effect.BLINDNESS)) then
-            target:addStatusEffect(tpz.effect.BLINDNESS, 20, 0, duration)
-        end
-        return tpz.subEffect.BLIND, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.BLINDNESS
-    end
-end

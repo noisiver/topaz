@@ -7,16 +7,12 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
-
 function onAdditionalEffect(player, target, damage)
-    local chance = CalculateAdditionalEffectChance(player, 12)
-    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, 0)
-    local duration = math.floor(60 * resist)
-
-    if math.random(0, 99) >= chance or resist < 0.5 then
-        return 0, 0, 0
-    else
-        target:addStatusEffect(tpz.effect.POISON, 12, 3, duration)
-        return tpz.subEffect.POISON, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.POISON
-    end
-end
+    local chance = CalculateAdditionalEffectChance(player, 10)
+    local power = 12
+    local duration = 60
+    local subpower = 0
+    local tier = 1
+    local bonus = 0
+    return TryApplyAdditionalEffect(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, power, tick, duration, subpower, tier, chance, bonus)
+ end
