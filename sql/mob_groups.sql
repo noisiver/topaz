@@ -840,7 +840,7 @@ INSERT INTO `mob_groups` VALUES (27,1600,24,'Gigas_Wrestler',330,0,992,0,0,35,38
 INSERT INTO `mob_groups` VALUES (28,1583,24,'Gigas_Slinger',330,0,992,0,0,35,38,0);
 INSERT INTO `mob_groups` VALUES (29,4127,24,'Vampire_Bat',330,0,234,0,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (30,4353,24,'Wingrats',330,0,80,0,0,41,44,0);
-INSERT INTO `mob_groups` VALUES (31,20,24,'Abraxas',330,0,2,0,0,85,86,0);
+INSERT INTO `mob_groups` VALUES (31,20,24,'Abraxas',330,0,2,0,0,80,83,0);
 INSERT INTO `mob_groups` VALUES (32,4689,24,'Flockbock',7200,0,6002,18000,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (33,1386,24,'Fomor_Ninja',330,1,880,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (34,6522,24,'Fomor_Monk',330,1,867,0,0,77,79,0);
