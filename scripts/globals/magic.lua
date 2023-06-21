@@ -2572,9 +2572,9 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
             -- Attack, defense and evaison down also dispels attack defense and evasion boost effects
             if (effect == tpz.effect.ATTACK_DOWN) then
                 target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
-            elseif (effect = tpz.effect.DEFENSE_DOWN) then
+            elseif (effect == tpz.effect.DEFENSE_DOWN) then
                 target:delStatusEffectSilent(tpz.effect.DEFENSE_BOOST)
-            elseif (effect = tpz.effect.EVASION_DOWN) then
+            elseif (effect == tpz.effect.EVASION_DOWN) then
                 target:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
             end
 
