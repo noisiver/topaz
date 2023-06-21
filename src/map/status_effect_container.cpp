@@ -944,6 +944,22 @@ bool CStatusEffectContainer::HasStatusEffect(EFFECT StatusID)
     return false;
 }
 
+uint16 CStatusEffectContainer::GetTotalMinneBonus()
+{
+    uint16 ret = 0;
+
+    for (auto&& PEffect : m_StatusEffectSet)
+    {
+        if (PEffect->GetStatusID() == EFFECT_MINNE && !PEffect->deleted)
+        {
+            ret += PEffect->GetPower();
+        }
+    }
+
+    return ret;
+}
+
+
 bool CStatusEffectContainer::HasStatusEffectByFlag(uint32 flag)
 {
 
