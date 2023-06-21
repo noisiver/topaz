@@ -785,9 +785,16 @@ uint16 CBattleEntity::ACC(int8 attackNumber, int8 offsetAccuracy)
 
 uint16 CBattleEntity::DEF()
 {
-    int32 DEF = 8 + m_modStat[Mod::DEF] + VIT() / 2;
+    int32 DEF = 8 + m_modStat[Mod::DEF] + m_modStat[Mod::DEF_TRAIT] + VIT() / 2;
+
+      /* While the effect is active, the players Defense is calculated only by their VIT (VIT/2)
+      and any bonuses from Minne. All other defense bonuses, with the exception of the
+      Defense Bonus trait, are ignored, but defense penalties such as Berserk or
+      monster-inflicted Defense Down are applied.
+      https://www.bg-wiki.com/index.php?title=Counterstance&oldid=229232 */
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_COUNTERSTANCE, 0) && this->objtype == TYPE_PC)
     {
+        DEF = VIT() / 2 + m_modStat[Mod::DEF_TRAIT] + this->StatusEffectContainer->GetTotalMinneBonus();
         DEF += (DEF * m_modStat[Mod::DEFP] / 100);
         return std::clamp(DEF / 2, 0, 9999);
     }
