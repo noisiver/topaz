@@ -10,7 +10,7 @@ require("scripts/globals/status")
 
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.MAGIC_DELAY, 10)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setMobMod(tpz.mobMod.CHARMABLE, 1)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)

@@ -22,7 +22,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ATT, 800)
     mob:setMod(tpz.mod.ACC, 430) 
     mob:addMod(tpz.mod.EVA, 50)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
     tpz.mix.jobSpecial.config(mob, {
         specials =

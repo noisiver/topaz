@@ -9,7 +9,7 @@ require("scripts/globals/status")
 
 function onMobInitialize(mob)
     mob:setMod(tpz.mod.SPELLINTERRUPT, 95)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
 	mob:SetMobAbilityEnabled(false)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end

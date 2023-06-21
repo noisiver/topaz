@@ -85,19 +85,19 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
         mob:setSpellList(492)
     else
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
         mob:setSpellList(493)
     end
     if mob:hasStatusEffect(tpz.effect.CHAINSPELL) then
         mob:setSpellList(493)
     else
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     end
     if mob:hasStatusEffect(tpz.effect.SOUL_VOICE) then
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
         mob:setSpellList(494)
     else
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
         mob:setSpellList(493)
     end
     if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) or mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS)

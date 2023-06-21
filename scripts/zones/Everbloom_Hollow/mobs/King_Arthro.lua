@@ -17,7 +17,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.WATER_ABSORB, 100)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
     mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 2064)
 end
 

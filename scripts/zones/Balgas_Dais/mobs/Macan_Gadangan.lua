@@ -17,7 +17,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ACC, 40) 
      mob:setMod(tpz.mod.UFASTCAST, -50)
 	 mob:setMod(tpz.mod.REFRESH, 400)
-     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
      mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 

@@ -6,7 +6,7 @@ mixins = {require("scripts/mixins/families/imp")}
 -----------------------------------
 
 function onMobInitialize(mob)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)

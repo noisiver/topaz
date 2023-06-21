@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
 	mob:setMod(tpz.mod.MATT, 48)
     mob:setMod(tpz.mod.REFRESH, 400)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 	mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
 end
