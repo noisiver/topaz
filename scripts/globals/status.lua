@@ -1783,12 +1783,13 @@ tpz.mod =
     HARVESTING_SKILL        = 1318, -- Adds Harvesting Skill
     EXCAVATION_SKILL        = 1319, -- Adds Excavation Skill
     PHALANX_RECIEVED        = 1320, -- Phalanx effect received.
+    DEF_TRAIT               = 1321, -- Defense bonus traits
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1321 NEXT
+    -- 1322 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

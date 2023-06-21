@@ -29,6 +29,7 @@ enum class Mod
     NONE                      = 0, // Essential, but does nothing :)
     //  NAME                  = ID, // Comment
     DEF                       = 1, // Target's Defense
+    DEF_TRAIT                 = 1321, // Defense bonus traits
     HP                        = 2, // Target's HP
     HPP                       = 3, // HP Percentage
     CONVMPTOHP                = 4, // MP -> HP (Cassie Earring)
@@ -977,7 +978,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1321 NEXT
+    // 1322 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
