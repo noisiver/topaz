@@ -1004,10 +1004,10 @@ function MobDrainStatusEffectMove(mob, target)
 end
 
 -- Adds a status effect to a target
-function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
+function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, params)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+	    return tpz.msg.basic.SKILL_NO_EFFECT
     end
 
     if (typeEffect == nil) then
@@ -1036,7 +1036,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
             if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
-                return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+                return tpz.msg.basic.SKILL_NO_EFFECT
             end
         end
 
@@ -1052,21 +1052,25 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteSlow == nil) then
+                return tpz.msg.basic.SKILL_NO_EFFECT
+            end
+
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+        return tpz.msg.basic.SKILL_NO_EFFECT
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT -- resist 
+    return tpz.msg.basic.SKILL_NO_EFFECT 
 end
 
 -- Adds a status effect to a target with customizable duration and subpower
-function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
+function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier, params)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+	    return tpz.msg.basic.SKILL_NO_EFFECT
     end
 
     if (typeEffect == nil) then
@@ -1088,7 +1092,7 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
             if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
-                return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+                return tpz.msg.basic.SKILL_NO_EFFECT
             end
         end
 
@@ -1104,14 +1108,18 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteSlow == nil) then
+                return tpz.msg.basic.SKILL_NO_EFFECT
+            end
+
             target:addStatusEffect(typeEffect, power, tick, totalDuration, subid, subpower, tier)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+        return tpz.msg.basic.SKILL_NO_EFFECT
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT -- resist 
+    return tpz.msg.basic.SKILL_NO_EFFECT 
 end
 
 -- similar to status effect move except, this will not land if the attack missed

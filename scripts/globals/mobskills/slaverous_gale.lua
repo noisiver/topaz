@@ -14,6 +14,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local params = {}
+    params.overwriteSlow = true
+
     local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 3000)
     dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.2)
 
@@ -23,6 +26,6 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.EARTH)
     MobStatusEffectMove(mob, target, typeEffectOne, 5, 3, 300)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 5000, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 5000, 0, 300, params)
     return dmg
 end

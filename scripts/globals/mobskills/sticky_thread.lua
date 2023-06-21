@@ -14,11 +14,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
 
-    if not target:hasStatusEffect(tpz.effect.HASTE) then
-        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 9000, 0, 300))
-    else
-        return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    end
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 9000, 0, 300))
 
     return typeEffect
 end
