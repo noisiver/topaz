@@ -560,7 +560,7 @@ int32 CBattleEntity::addMP(int32 mp)
     return abs(mp);
 }
 
-int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullptr*/, ATTACKTYPE attackType /* = ATTACK_NONE*/, DAMAGETYPE damageType /* = DAMAGE_NONE*/)
+int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullptr*/, ATTACKTYPE attackType /* = ATTACK_NONE*/, DAMAGETYPE damageType /* = DAMAGE_NONE*/, bool isDOT)
 {
     PLastAttacker = attacker;
     PAI->EventHandler.triggerListener("TAKE_DAMAGE", this, amount, attacker, (uint16)attackType, (uint16)damageType);
@@ -572,7 +572,7 @@ int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullp
         roeutils::event(ROE_EVENT::ROE_DMGDEALT, static_cast<CCharEntity*>(attacker), RoeDatagram("dmg", amount));
 
     // Track Scarlet Delirium
-    if (this->StatusEffectContainer->HasStatusEffect(EFFECT_SCARLET_DELIRIUM))
+    if (this->StatusEffectContainer->HasStatusEffect(EFFECT_SCARLET_DELIRIUM) && !isDOT)
     {
         this->StatusEffectContainer->DelStatusEffect(EFFECT_SCARLET_DELIRIUM);
 

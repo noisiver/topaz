@@ -549,7 +549,7 @@ public:
     virtual int32 	addMP(int32 mp);			// увеличиваем/уменьшаем количество mp
 
     //Deals damage and updates the last attacker which is used when sending a player death message
-    virtual int32   takeDamage(int32 amount, CBattleEntity* attacker = nullptr, ATTACKTYPE attackType = ATTACK_NONE, DAMAGETYPE damageType = DAMAGE_NONE);
+    virtual int32   takeDamage(int32 amount, CBattleEntity* attacker = nullptr, ATTACKTYPE attackType = ATTACK_NONE, DAMAGETYPE damageType = DAMAGE_NONE, bool isDOT = false);
 
     int16		    getMod(Mod modID);		// величина модификатора
 
