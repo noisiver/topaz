@@ -8357,10 +8357,11 @@ INSERT INTO `mob_droplist` VALUES (1591,0,0,1000,2162,50);
 INSERT INTO `mob_droplist` VALUES (1591,0,0,1000,2226,100);
 INSERT INTO `mob_droplist` VALUES (1592,0,0,1000,2162,50);       -- (Mamool Ja Infiltrator: Mamook)
 INSERT INTO `mob_droplist` VALUES (1592,0,0,1000,2226,100);
-INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4965,250);       -- Aisha: Ichi
-INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4966,250);       -- Myoshu: Ichi
-INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4967,250);       -- Yurin: Ichi
-INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4968,250);       -- Kakka: Ichi
+INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4965,200);       -- Aisha: Ichi
+INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4966,200);       -- Myoshu: Ichi
+INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4967,200);       -- Yurin: Ichi
+INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4968,200);       -- Kakka: Ichi
+INSERT INTO `mob_droplist` VALUES (1592,1,1,100,4948,200);       -- Utsusemi: San
 INSERT INTO `mob_droplist` VALUES (1593,0,0,1000,16167,100);
 INSERT INTO `mob_droplist` VALUES (1593,0,0,1000,17716,240); -- Macuahuitl -1
 INSERT INTO `mob_droplist` VALUES (1594,0,0,1000,16167,100);

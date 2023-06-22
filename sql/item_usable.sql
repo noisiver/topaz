@@ -831,6 +831,7 @@ INSERT INTO `item_usable` VALUES (4944,'scroll_of_suiton_ni',1,1,14,5,0,0,0,0);
 INSERT INTO `item_usable` VALUES (4945,'scroll_of_suiton_san',1,1,14,5,0,0,0,0);
 INSERT INTO `item_usable` VALUES (4946,'scroll_of_utsusemi_ichi',1,1,14,5,0,0,0,0);
 INSERT INTO `item_usable` VALUES (4947,'scroll_of_utsusemi_ni',1,1,14,5,0,0,0,0);
+INSERT INTO `item_usable` VALUES (4948,'scroll_of_utsusemi_san',1,1,14,5,0,0,0,0);
 INSERT INTO `item_usable` VALUES (4949,'scroll_of_jubaku_ichi',1,1,14,5,0,0,0,0);
 INSERT INTO `item_usable` VALUES (4950,'scroll_of_jubaku_ni',1,1,14,5,0,0,0,0);
 INSERT INTO `item_usable` VALUES (4952,'scroll_of_hojo_ichi',1,1,14,5,0,0,0,0);

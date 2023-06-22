@@ -4655,6 +4655,7 @@ INSERT INTO `item_basic` VALUES (4944,336,'scroll_of_suiton_ni','suiton_ni',1,34
 INSERT INTO `item_basic` VALUES (4945,337,'scroll_of_suiton_san','suiton_san',1,34444,31,0,1500);
 INSERT INTO `item_basic` VALUES (4946,338,'scroll_of_utsusemi_ichi','utsusemi_ichi',1,1676,31,0,518);
 INSERT INTO `item_basic` VALUES (4947,339,'scroll_of_utsusemi_ni','utsusemi_ni',1,34444,31,0,1599);
+INSERT INTO `item_basic` VALUES (4948,340,'scroll_of_utsusemi_san','utsusemi_san',1,34444,31,0,1599);
 INSERT INTO `item_basic` VALUES (4949,341,'scroll_of_jubaku_ichi','jubaku_ichi',1,1676,31,0,1296);
 INSERT INTO `item_basic` VALUES (4950,342,'scroll_of_jubaku_ni','jubaku_ni',1,1676,31,0,1296);
 INSERT INTO `item_basic` VALUES (4952,344,'scroll_of_hojo_ichi','hojo_ichi',1,1676,31,0,994);
