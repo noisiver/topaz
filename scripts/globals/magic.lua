@@ -2668,7 +2668,7 @@ end
 
 function ShouldOverwriteDiaBio(caster, target, effect, tier)
 
-return true
+    return true
 end
 
 function ApplyProtectShell(caster, target, effect, power, duration)
