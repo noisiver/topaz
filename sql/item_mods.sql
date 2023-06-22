@@ -8362,9 +8362,10 @@ INSERT INTO `item_mods` VALUES (12458,57,1);
 INSERT INTO `item_mods` VALUES (12458,58,1);
 INSERT INTO `item_mods` VALUES (12459,1,15);
 INSERT INTO `item_mods` VALUES (12460,1,17);
-INSERT INTO `item_mods` VALUES (12461,1,23);
+INSERT INTO `item_mods` VALUES (12461,1,23);    -- Scorpion Helm +1
 INSERT INTO `item_mods` VALUES (12461,54,8);
 INSERT INTO `item_mods` VALUES (12461,1242,3);
+INSERT INTO `item_mods` VALUES (12461,516,2);  -- Converts 2% of damage taken to MP
 INSERT INTO `item_mods` VALUES (12462,1,14);
 INSERT INTO `item_mods` VALUES (12463,1,3);
 INSERT INTO `item_mods` VALUES (12464,1,5);		-- Headgear
@@ -8721,9 +8722,10 @@ INSERT INTO `item_mods` VALUES (12586,57,1);
 INSERT INTO `item_mods` VALUES (12586,58,1);
 INSERT INTO `item_mods` VALUES (12587,1,31);
 INSERT INTO `item_mods` VALUES (12588,1,33);
-INSERT INTO `item_mods` VALUES (12589,1,46);
+INSERT INTO `item_mods` VALUES (12589,1,46);    -- Scorpion Breastplate +1
 INSERT INTO `item_mods` VALUES (12589,54,10);
 INSERT INTO `item_mods` VALUES (12589,241,2);
+INSERT INTO `item_mods` VALUES (12589,516,3);  -- Converts 3% of damage taken to MP
 INSERT INTO `item_mods` VALUES (12590,1,12);
 INSERT INTO `item_mods` VALUES (12590,8,1);
 INSERT INTO `item_mods` VALUES (12591,1,11);
@@ -8798,9 +8800,10 @@ INSERT INTO `item_mods` VALUES (12620,8,16);
 INSERT INTO `item_mods` VALUES (12620,23,32);
 INSERT INTO `item_mods` VALUES (12620,161,-6);
 INSERT INTO `item_mods` VALUES (12620,163,6);
-INSERT INTO `item_mods` VALUES (12621,1,45);
+INSERT INTO `item_mods` VALUES (12621,1,45);    -- Scorpion Breastplate
 INSERT INTO `item_mods` VALUES (12621,54,9);
 INSERT INTO `item_mods` VALUES (12621,241,2);
+INSERT INTO `item_mods` VALUES (12621,516,3);  -- Converts 3% of damage taken to MP
 INSERT INTO `item_mods` VALUES (12622,1,53);
 INSERT INTO `item_mods` VALUES (12622,25,16);
 INSERT INTO `item_mods` VALUES (12622,165,4);
@@ -9068,9 +9071,10 @@ INSERT INTO `item_mods` VALUES (12714,57,1);
 INSERT INTO `item_mods` VALUES (12714,58,1);
 INSERT INTO `item_mods` VALUES (12715,1,10);
 INSERT INTO `item_mods` VALUES (12716,1,11);
-INSERT INTO `item_mods` VALUES (12717,1,13);
+INSERT INTO `item_mods` VALUES (12717,1,13);    -- Scorpion Gauntlets +1
 INSERT INTO `item_mods` VALUES (12717,54,6);
 INSERT INTO `item_mods` VALUES (12717,244,3);
+INSERT INTO `item_mods` VALUES (12717,516,2);  -- Converts 2% of damage taken to MP
 INSERT INTO `item_mods` VALUES (12718,1,9);
 INSERT INTO `item_mods` VALUES (12719,1,5);
 INSERT INTO `item_mods` VALUES (12720,1,3);		-- Gloves
@@ -9138,9 +9142,10 @@ INSERT INTO `item_mods` VALUES (12749,1,4);
 INSERT INTO `item_mods` VALUES (12749,68,5);
 INSERT INTO `item_mods` VALUES (12750,1,8);
 INSERT INTO `item_mods` VALUES (12750,5,8);
-INSERT INTO `item_mods` VALUES (12751,1,12);
+INSERT INTO `item_mods` VALUES (12751,1,12);    -- Scorpion Gauntlets
 INSERT INTO `item_mods` VALUES (12751,54,5);
 INSERT INTO `item_mods` VALUES (12751,244,2);
+INSERT INTO `item_mods` VALUES (12751,516,2);  -- Converts 2% of damage taken to MP
 INSERT INTO `item_mods` VALUES (12752,1,3);
 INSERT INTO `item_mods` VALUES (12752,23,3);
 INSERT INTO `item_mods` VALUES (12753,1,3);
@@ -11923,9 +11928,10 @@ INSERT INTO `item_mods` VALUES (13845,1,23);
 INSERT INTO `item_mods` VALUES (13845,23,5);
 INSERT INTO `item_mods` VALUES (13845,25,3);
 INSERT INTO `item_mods` VALUES (13845,68,-2);
-INSERT INTO `item_mods` VALUES (13846,1,22);
+INSERT INTO `item_mods` VALUES (13846,1,22);    -- Scorpion Helm
 INSERT INTO `item_mods` VALUES (13846,54,7);
 INSERT INTO `item_mods` VALUES (13846,1242,2);
+INSERT INTO `item_mods` VALUES (13846,516,2);  -- Converts 2% of damage taken to MP
 INSERT INTO `item_mods` VALUES (13847,1,21);
 INSERT INTO `item_mods` VALUES (13847,12,2);
 INSERT INTO `item_mods` VALUES (13847,57,-1);
@@ -14973,6 +14979,7 @@ INSERT INTO `item_mods` VALUES (14654,5,-3);
 INSERT INTO `item_mods` VALUES (14655,25,3);
 INSERT INTO `item_mods` VALUES (14656,2,10);
 INSERT INTO `item_mods` VALUES (14656,5,10);
+INSERT INTO `item_mods` VALUES (14658,360,4);    -- Atlaua's Ring: Charm+4
 INSERT INTO `item_mods` VALUES (14659,27,3);
 INSERT INTO `item_mods` VALUES (14660,24,3);
 INSERT INTO `item_mods` VALUES (14660,26,3);
