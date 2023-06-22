@@ -46,7 +46,11 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     if party ~= nil then
         for _,member in ipairs(party) do
+            if ((member:getMaxHP() - member:getHP()) < healAmount) then
+                healAmount = (member:getMaxHP() - member:getHP())
+            end
             member:addHP(healAmount)
+            player:updateEnmityFromCure(member, healAmount)
             member:removeAllNegativeEffects()
             if not member:hasStatusEffect(tpz.effect.REGEN) then
                 member:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 30)

@@ -51,6 +51,7 @@ function onUseAbility(player, target, ability)
         recover = (target:getMaxHP() - target:getHP())
     end
     player:setHP(player:getHP() + recover)
+    player:updateEnmityFromCure(player, recover)
 	ability:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
 
     local merits = player:getMerit(tpz.merit.INVIGORATE)
