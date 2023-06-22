@@ -996,15 +996,19 @@ function MobDrainStatusEffectMove(mob, target)
     -- try to drain buff
     local effect = mob:stealStatusEffect(target)
 
+    target:addEnmity(mob, 1, 320)
+
     if (effect ~= 0) then
         return tpz.msg.basic.EFFECT_DRAINED
     end
-    target:addEnmity(mob, 1, 320)
+
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
 -- Adds a status effect to a target
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, params)
+
+    local params = {}
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    return tpz.msg.basic.SKILL_NO_EFFECT

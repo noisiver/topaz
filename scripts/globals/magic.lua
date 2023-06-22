@@ -2572,9 +2572,9 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
             -- Attack, defense and evaison down also dispels attack defense and evasion boost effects
             if (effect == tpz.effect.ATTACK_DOWN) then
                 target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
-            elseif (effect = tpz.effect.DEFENSE_DOWN) then
+            elseif (effect == tpz.effect.DEFENSE_DOWN) then
                 target:delStatusEffectSilent(tpz.effect.DEFENSE_BOOST)
-            elseif (effect = tpz.effect.EVASION_DOWN) then
+            elseif (effect == tpz.effect.EVASION_DOWN) then
                 target:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
             end
 
@@ -2667,21 +2667,8 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 end
 
 function ShouldOverwriteDiaBio(caster, target, effect, tier)
-    if (effect == tpz.effect.BIO) and (target:getStatusEffect(tpz.effect.DIA):getTier() <= tier) then
-        target:delStatusEffectSilent(tpz.effect.DIA)
-        return true
-    end
 
-    if (effect == tpz.effect.DIA) and (target:getStatusEffect(tpz.effect.BIO):getTier() < tier) then
-        target:delStatusEffectSilent(tpz.effect.BIO)
-        return true
-    end
-
-    if (target:getStatusEffect(effect)) and target:getStatusEffect(effect):getTier() <= tier then
-        return true
-    end
-
-    return false
+    return true
 end
 
 function ApplyProtectShell(caster, target, effect, power, duration)
