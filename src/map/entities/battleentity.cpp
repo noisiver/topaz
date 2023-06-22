@@ -796,7 +796,7 @@ uint16 CBattleEntity::DEF()
     {
         DEF = VIT() / 2 + m_modStat[Mod::DEF_TRAIT] + this->StatusEffectContainer->GetTotalMinneBonus();
         DEF += (DEF * m_modStat[Mod::DEFP] / 100);
-        return std::clamp(DEF / 2, 0, 9999);
+        return std::clamp(DEF, 0, 9999);
     }
 
     return std::clamp(DEF + (DEF * m_modStat[Mod::DEFP] / 100) +
