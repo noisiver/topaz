@@ -189,6 +189,7 @@ tpz.msg.basic =
     OBTAINED_KEY_ITEM      = 758, -- Obtained key item: <key item>.
     ALREADY_HAVE_KEY_ITEM  = 759, -- You already have key item: <key item>.
     ALL_PARAMETERS_BOOSTED = 364, -- {actor} uses ${ability}.${lb}All of ${target}'s status parameters are boosted. 
+    MAGIC_BURST_JA         = 747, -- Magic Burst! Used for Avatars and...Rune Fencer(?)
 
     -- Distance
     TARG_OUT_OF_RANGE      = 4,   -- <target> is out of range.

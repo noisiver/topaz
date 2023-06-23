@@ -1522,7 +1522,7 @@ function getAvatarMagicBurstBonus(avatar, target, skill, element)
     if (skillchainburst > 1) then
         burst = burst * modburst * skillchainburst
         local spell = getSpell(147)
-        skill:setMsg(spell:getMagicBurstMessage())
+        skill:setMsg(tpz.msg.basic.MAGIC_BURST_JA)
     end
 
 
