@@ -5436,8 +5436,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,335,15,39);
 INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,336,40,84);
 INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,337,85,255); -- suiton_san
 INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,338,12,36);
-INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,339,37,89); -- Utusemi: Ni
-INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,340,90,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,339,37,50); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,340,51,255); -- Utsusemi: San
 INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,341,30,84); -- jubaku_ichi
 INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,342,85,255); -- jubaku_ni
 INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,344,23,47);
