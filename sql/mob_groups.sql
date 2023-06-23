@@ -11819,7 +11819,7 @@ INSERT INTO `mob_groups` VALUES (47,6456,176,'Dire_Bat',330,0,234,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (48,999,176,'Denn_the_Orcavoiced',3600,0,628,9500,0,64,65,0);
 INSERT INTO `mob_groups` VALUES (49,1018,176,'Devil_Manta',330,0,645,0,0,67,69,0);
 INSERT INTO `mob_groups` VALUES (50,4525,176,'Zuug_the_Shoreleaper',3600,0,2813,35000,0,70,71,0);
-INSERT INTO `mob_groups` VALUES (51,698,176,'Charybdis',31680,128,456,40000,0,80,81,0);
+INSERT INTO `mob_groups` VALUES (51,698,176,'Charybdis',31680,128,456,32500,0,80,81,0);
 INSERT INTO `mob_groups` VALUES (52,6390,176,'Mindgazer',330,0,1696,0,0,67,69,0);
 INSERT INTO `mob_groups` VALUES (53,1799,176,'Greatclaw',330,0,1223,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (54,6432,176,'Nightmare_Bats',330,0,1783,0,0,65,67,0);
