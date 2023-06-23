@@ -56,13 +56,16 @@ end
 
 function onEventUpdate(player, csid, option)
     if csid == 3140 or csid == 3155 then
-        if option == 1 and npcUtil.giveItem(player, 15807) then
+        if option == 1 and npcUtil.giveItem(player, tpz.items.BALRAHNS_RING) and npcUtil.giveItem(player, tpz.items.ULTHALAMS_RING) and
+        npcUtil.giveItem(player, tpz.items.JALZAHNS_RING) then
             player:setCharVar("TOAU_RINGTIME", os.time())
             player:setCharVar("TOAU_RINGRECV", 1)
-        elseif option == 2 and npcUtil.giveItem(player, 15808) then
+        elseif option == 2 and npcUtil.giveItem(player, tpz.items.BALRAHNS_RING) and npcUtil.giveItem(player, tpz.items.ULTHALAMS_RING) and
+        npcUtil.giveItem(player, tpz.items.JALZAHNS_RING) then
             player:setCharVar("TOAU_RINGTIME", os.time())
             player:setCharVar("TOAU_RINGRECV", 1)
-        elseif option == 3 and npcUtil.giveItem(player, 15809) then
+        elseif option == 3 and npcUtil.giveItem(player, tpz.items.BALRAHNS_RING) and npcUtil.giveItem(player, tpz.items.ULTHALAMS_RING) and
+        npcUtil.giveItem(player, tpz.items.JALZAHNS_RING) then
             player:setCharVar("TOAU_RINGTIME", os.time())
             player:setCharVar("TOAU_RINGRECV", 1)
         elseif option == 4 then

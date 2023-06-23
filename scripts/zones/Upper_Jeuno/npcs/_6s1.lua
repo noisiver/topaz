@@ -10,9 +10,9 @@ require("scripts/globals/settings")
 
 local ring =
 {
-    15543, -- Rajas Ring
-    15544, -- Sattva Ring
-    15545  -- Tamas Ring
+    tpz.items.RAJAS_RING, -- Rajas Ring
+    tpz.items.SATTVA_RING, -- Sattva Ring
+    tpz.items.TAMAS_RING  -- Tamas Ring
 }
 
 function onTrade(player, npc, trade)
@@ -69,10 +69,12 @@ function onEventFinish(player, csid, option)
     elseif (csid == 129) then
         player:setCharVar("PromathiaStatus", 5)
     elseif ((csid == 84 or csid == 204) and option >= 5 and option <= 7) then
-        if (player:getFreeSlotsCount() ~= 0) then
+        if (player:getFreeSlotsCount() >= 3) then
             local currentDay = tonumber(os.date("%j"))
             local ringsTaken = player:getCharVar("COP-ringsTakenbr")
-            player:addItem(ring[option - 4])
+            player:addItem(tpz.items.RAJAS_RING)
+            player:addItem(tpz.items.SATTVA_RING)
+            player:addItem(tpz.items.TAMAS_RING)
             player:messageSpecial(ID.text.ITEM_OBTAINED, ring[option - 4])
             player:setCharVar("COP-ringsTakenbr", ringsTaken + 1)
             player:setCharVar("COP-lastRingday", currentDay)

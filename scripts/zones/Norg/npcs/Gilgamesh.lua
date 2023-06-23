@@ -76,18 +76,24 @@ function onEventFinish(player, csid, option)
             reward = 15965 -- Ethereal Earring
         end
 
-        if reward ~= 0 then
-            if npcUtil.completeQuest(player, JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH, {
-                item = reward,
-                var = {"ApocalypseNigh", "Apoc_Nigh_Reward", "Apoc_Nigh_RewardCS1"}
-            }) then
-                player:completeMission(COP, tpz.mission.id.cop.DAWN)
-                player:addMission(COP, tpz.mission.id.cop.THE_LAST_VERSE)
-                player:setCharVar("PromathiaStatus", 0)
-                player:completeMission(ZILART, tpz.mission.id.cop.AWAKENING)
-                player:addMission(ZILART, tpz.mission.id.zilart.THE_LAST_VERSE)
-                player:addTitle(422) -- Breaker of the Chains
-                player:setCharVar("ZilartStatus", 0)
+        if (reward ~= 0) then
+            if (player:getFreeSlotsCount() >= 4) then
+                for v = tpz.items.STATIC_EARRING, tpz.items.ETHEREAL_EARRING, 1 do
+                    player:addItem(v)
+                end
+                if npcUtil.completeQuest(player, JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH, {
+                    var = {"ApocalypseNigh", "Apoc_Nigh_Reward", "Apoc_Nigh_RewardCS1"}
+                }) then
+                    player:completeMission(COP, tpz.mission.id.cop.DAWN)
+                    player:addMission(COP, tpz.mission.id.cop.THE_LAST_VERSE)
+                    player:setCharVar("PromathiaStatus", 0)
+                    player:completeMission(ZILART, tpz.mission.id.cop.AWAKENING)
+                    player:addMission(ZILART, tpz.mission.id.zilart.THE_LAST_VERSE)
+                    player:addTitle(422) -- Breaker of the Chains
+                    player:setCharVar("ZilartStatus", 0)
+                end
+            else
+                player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, reward)
             end
         end
     end

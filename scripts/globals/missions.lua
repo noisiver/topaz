@@ -1,6 +1,7 @@
 require("scripts/globals/keyitems")
 require("scripts/globals/log_ids")
 require("scripts/globals/zone")
+require("scripts/globals/items")
 
 tpz = tpz or {}
 tpz.mission = tpz.mission or {}
