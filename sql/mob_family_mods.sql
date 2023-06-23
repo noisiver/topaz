@@ -384,33 +384,8 @@ INSERT INTO `mob_family_mods` VALUES (175,7,50,1);	-- Magic Pot 50% chance to -G
 INSERT INTO `mob_family_mods` VALUES (285,44,1,1); -- Gulool_Ja_Ja
 
 -- Immunities
-INSERT INTO `mob_family_mods` VALUES (92,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (93,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (94,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (95,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (209,23,256,1); -- Rampart poison immunity
-INSERT INTO `mob_family_mods` VALUES (119,23,256,1); -- Gears poison immunity
-INSERT INTO `mob_family_mods` VALUES (120,23,256,1); -- Gears poison immunity
-INSERT INTO `mob_family_mods` VALUES (63,23,256,1); -- Chariot poison immunity
-INSERT INTO `mob_family_mods` VALUES (217,23,256,1); -- Scorpion poison immunity
-INSERT INTO `mob_family_mods` VALUES (273,23,256,1); -- Serket-Present poison immunity
-INSERT INTO `mob_family_mods` VALUES (274,23,256,1); -- King Vinegaroon poison immunity
-INSERT INTO `mob_family_mods` VALUES (547,23,256,1); -- Serket-Past poison immunity
-INSERT INTO `mob_family_mods` VALUES (66,23,256,1); -- Clot poison immunity
-INSERT INTO `mob_family_mods` VALUES (67,23,256,1); -- Clot poison immunity
-INSERT INTO `mob_family_mods` VALUES (290,23,256,1); -- Claret(Clot) poison immunity
-INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep immunity 
-INSERT INTO `mob_family_mods` VALUES (203,23,1,1); -- Qutrub sleep Immunity
-INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
-INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
-INSERT INTO `mob_family_mods` VALUES (214,23,640,1); -- Sandworm slow and elegy Immunity
-INSERT INTO `mob_family_mods` VALUES (215,23,640,1); -- Sandworm slow and elegy Immunity
-INSERT INTO `mob_family_mods` VALUES (4,23,16,1); -- Ahriman silence Immunity
 
 -- Status resist trait
-INSERT INTO `mob_family_mods` VALUES (125,1254,100,0); -- Giant Bird 100% lullaby resist
-INSERT INTO `mob_family_mods` VALUES (192,1243,95,0); -- Peiste 95% blind resist
-
 
 -- Absorb
 INSERT INTO `mob_family_mods` VALUES (319,460,100,0);	-- Shiva - Ice
