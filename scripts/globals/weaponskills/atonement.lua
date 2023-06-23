@@ -152,6 +152,11 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             end
             -- Atonement always yields the a TP return of a 2 hit WS (unless it does 0 damage), because if one hit lands, both hits do.
             calcParams.extraHitsLanded = 1
+
+            player:trySkillUp(target, tpz.skill.SWORD, tpHitsLanded)
+            target:tryInterruptSpell(player, tpHitsLanded) end
+        else
+            action:messageID(target:getID(), tpz.msg.basic.SKILL_NO_EFFECT)
         end
 
         damage = takeWeaponskillDamage(target, player, params, primary, attack, calcParams, action)
