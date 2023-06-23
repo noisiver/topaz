@@ -340,7 +340,7 @@ INSERT INTO `mob_family_mods` VALUES (164,29,29,0); 	-- Hydra +29 MDB
 INSERT INTO `mob_family_mods` VALUES (16,29,250,0); 	-- Animated Weapon(Instrument) +250 MDB
 
 -- MEVA
-INSERT INTO `mob_family_mods` VALUES (99,31,30,0); 	  -- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (99,31,30,0); 	    -- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (100,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (101,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (102,31,30,0); 	-- Elemental +30 MEVA
