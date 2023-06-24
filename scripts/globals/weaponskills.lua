@@ -26,7 +26,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     -- printf("hit rate %i", calcParams.hitRate*100)
     if ((missChance <= calcParams.hitRate) -- See if we hit the target
     or calcParams.guaranteedHit
-    or (calcParams.melee)
+    or (calcParams.melee))
     and not calcParams.mustMiss then
         if not shadowAbsorb(target) then
             critChance = math.random() -- See if we land a critical hit
