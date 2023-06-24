@@ -886,7 +886,6 @@ namespace petutils
         if (petID == PETID_CARBUNCLE || petID == PETID_CAIT_SITH)
         {
             PPet->SetMJob(JOB_WHM);
-            PPet->SetSJob(JOB_BLM);
         }
 
         // Elemetal Spirits are BLM/RDM Light is WHM/RDM and Dark is DRK/RDM
@@ -1622,8 +1621,8 @@ namespace petutils
             else
                 cost = 15;
         }
-        // Carbuncle and Cait Sith
-        else if (id == 8 || id == 20)
+        // Carbuncle
+        else if (id == 8)
         {
             if (level < 10)
                 cost = 1;

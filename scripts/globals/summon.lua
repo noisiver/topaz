@@ -1241,11 +1241,7 @@ function getAvatarDStat(statmod, avatar, target)
     end
 
     if dSTat > 0 then
-        if (statmod == MND_BASED) then -- Level ? Holy is 2.0 multiplier for dStat
-            dStat = math.floor(dStat * 2.0)
-        else
-            dStat = math.floor(dStat * 1.5)
-        end
+        dStat = math.floor(dStat * 1.5)
     else
         dSTat = math.floor(dStat * 1)
     end

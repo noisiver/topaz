@@ -21,7 +21,7 @@ function onPetAbility(target, pet, skill)
     local duration = 90
     local bonus = 0
 
-    -- Can't overwrite any sleep
+     -- Can't overwrite any sleep
     if hasSleepT1Effect(target) then
         giveAvatarTP(pet)
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
