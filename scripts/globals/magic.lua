@@ -2564,22 +2564,21 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
         end
     end
 
-    if math.random(1, 100) >= chance or (resist < 0.5) then 
+    if math.random(1, 100) >= chance or (resist < 0.5) or target:hasStatusEffect(effect) then
         return 0, 0, 0
     else
-        if not target:hasStatusEffect(effect) then
 
-            -- Attack, defense and evaison down also dispels attack defense and evasion boost effects
-            if (effect == tpz.effect.ATTACK_DOWN) then
-                target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
-            elseif (effect == tpz.effect.DEFENSE_DOWN) then
-                target:delStatusEffectSilent(tpz.effect.DEFENSE_BOOST)
-            elseif (effect == tpz.effect.EVASION_DOWN) then
-                target:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
-            end
-
-            target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier)
+        -- Attack, defense and evaison down also dispels attack defense and evasion boost effects
+        if (effect == tpz.effect.ATTACK_DOWN) then
+            target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
+        elseif (effect == tpz.effect.DEFENSE_DOWN) then
+            target:delStatusEffectSilent(tpz.effect.DEFENSE_BOOST)
+        elseif (effect == tpz.effect.EVASION_DOWN) then
+            target:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
         end
+
+        target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier)
+
         return subeffect, tpz.msg.basic.ADD_EFFECT_STATUS, effect
     end
 end
