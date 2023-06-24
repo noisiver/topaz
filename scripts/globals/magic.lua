@@ -2678,6 +2678,7 @@ function ShouldOverwriteDiaBio(caster, target, effect, tier)
                 target:delStatusEffectSilent(tpz.effect.DIA)
                 return true
             end
+        end
         -- No Dia on target, apply Bio
         return true
     end
@@ -2686,13 +2687,14 @@ function ShouldOverwriteDiaBio(caster, target, effect, tier)
     if (effect == tpz.effect.DIA) then
         -- Check if target has Dia
         if target:hasStatusEffect(tpz.effect.BIO) then
-        -- If targets current Bio effect is an equal tier or higher tier than casted Bio, don't do anything
+            -- If targets current Bio effect is an equal tier or higher tier than casted Bio, don't do anything
             if (target:getStatusEffect(tpz.effect.BIO):getTier() >= tier) then
                 return false
             else -- if Bio tier is lower, then delete Bio and apply Dia
                 target:delStatusEffectSilent(tpz.effect.BIO)
                 return true
             end
+        end
         -- No Bio on target, apply Dia
         return true
     end
