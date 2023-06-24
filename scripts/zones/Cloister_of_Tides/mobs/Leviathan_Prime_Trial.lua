@@ -25,7 +25,7 @@ function onMobFight(mob, target)
 
     if mob:getHPP() <= math.random(25, 50) and twohr == 0 then
         mob:useMobAbility(866)
-        mob:setLocalVar("2hr, 1")
+        mob:setLocalVar("2hr", 1)
     end
 end
 
