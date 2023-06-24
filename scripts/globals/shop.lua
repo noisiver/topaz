@@ -281,11 +281,11 @@ tpz.shop =
                 5332,    8800,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Kabura Quiver
                 -- 5819,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antlion Quiver
                 4227,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bolt Quiver
-                5334,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Blind Bolt Quiver
-                5335,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acid Bolt Quiver
-                5337,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Bolt Quiver
-                5339,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bloody Bolt Quiver
-                5338,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
+                5334,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Blind Bolt Quiver
+                5335,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acid Bolt Quiver
+                5337,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Bolt Quiver
+                5339,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bloody Bolt Quiver
+                5338,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
                 5336,    600,       tpz.ki.RHAPSODY_IN_UMBER,   -- Holy Bolt Quiver
                 4228,    3500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mythril Bolt Quiver
                 4229,    5580,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Darksteel Bolt Quiver
