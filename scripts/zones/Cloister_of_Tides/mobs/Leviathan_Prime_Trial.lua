@@ -3,7 +3,6 @@
 --  Mob: Leviathan Prime
 -- Involved in Quest: Trial by Water, Trial Size Trial by Water
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/settings")
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
@@ -18,16 +17,16 @@ function onMobSpawn(mob)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:addImmunity(tpz.immunity.POISON)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = 866, hpp = math.random(30,55)}, -- uses Tidal Wave once while near 50% HPP.
-        },
-    })
 end
 
 
 function onMobFight(mob, target)
+    local twohr = mob:getLocalVar("2hr")
+
+    if mob:getHPP() <= math.random(25, 50) and twohr == 0 then
+        mob:useMobAbility(866)
+        mob:setLocalVar("2hr, 1")
+    end
 end
 
 function onMobInitialize(mob)
