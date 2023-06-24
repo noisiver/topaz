@@ -8,7 +8,7 @@ require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
 function onAdditionalEffect(player, target, damage)
-    local chance = CalculateAdditionalEffectChance(player, 10)
+    local chance = CalculateAdditionalEffectChance(player, 100)
     local power = 13
     local duration = 60
     local subpower = 0
