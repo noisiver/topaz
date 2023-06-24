@@ -23,7 +23,8 @@ end
 function onMobFight(mob, target)
     local twohr = mob:getLocalVar("2hr")
 
-    if mob:getHPP() <= math.random(25, 50) and twohr == 0 then
+    if mob:getHPP() <= math.random(25, 50) and twohr == 0 and mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING and mob:getCurrentAction() ~= tpz.action.MOBABILITY_START 
+    and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and mob:actionQueueEmpty() then
         mob:useMobAbility(866)
         mob:setLocalVar("2hr", 1)
     end
