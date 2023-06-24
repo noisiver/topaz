@@ -1,5 +1,8 @@
 -----------------------------------------
--- Sleepga
+-- Mewing Lullaby
+-- https://www.bg-wiki.com/ffxi/Mewing_Lullaby
+-- The TP lowering seems to be a total reset of TP on the mob, and even if the sleep misses,
+-- the TP reset cannot miss.
 -----------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/status")
@@ -16,9 +19,9 @@ end
 
 function onPetAbility(target, pet, skill)
     local params = {}
-    local effect = tpz.effect.SLEEP_I
+    local effect = tpz.effect.LULLABY
     local power = 1
-    local duration = 90
+    local duration = 35
     local bonus = 0
 
     -- Can't overwrite any sleep
@@ -29,6 +32,8 @@ function onPetAbility(target, pet, skill)
     end
 
     skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
+    target:setTP(0)
     giveAvatarTP(pet)
-    return effect
+
+    return tpz.effect.SLEEP_II
 end
