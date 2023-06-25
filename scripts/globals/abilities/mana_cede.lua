@@ -37,5 +37,6 @@ function onUseAbility(player, target, ability)
 
     player:setHP(playerHPFinal)
     pet:setHP(petHPFinal)
+    player:updateEnmityFromCure(pet, petHPFinal)
     pet:removeAllNegativeEffects()
 end
