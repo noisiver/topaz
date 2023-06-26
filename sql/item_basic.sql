@@ -9873,7 +9873,7 @@ INSERT INTO `item_basic` VALUES (12575,0,'coeurl_jerkin','coeurl_jerkin',1,2084,
 INSERT INTO `item_basic` VALUES (12576,0,'bronze_harness','bronze_harness',1,2084,18,0,60);
 INSERT INTO `item_basic` VALUES (12577,0,'brass_harness','brass_harness',1,2084,18,0,497);
 INSERT INTO `item_basic` VALUES (12578,0,'padded_armor','padded_armor',1,2084,18,0,4034);
-INSERT INTO `item_basic` VALUES (12579,0,'scorpion_harness','scorpion_harness',1,2084,18,0,6825);
+INSERT INTO `item_basic` VALUES (12579,0,'scorpion_harness','scorpion_harness',1,63572,18,0,6825);
 INSERT INTO `item_basic` VALUES (12580,0,'darksteel_harness','darksteel_harness',1,2084,18,0,10739);
 INSERT INTO `item_basic` VALUES (12581,0,'coral_harness','coral_harness',1,2084,18,0,11070);
 INSERT INTO `item_basic` VALUES (12582,0,'bone_harness','bone_harness',1,2084,18,0,362);
@@ -11025,7 +11025,7 @@ INSERT INTO `item_basic` VALUES (13730,0,'frost_robe','frost_robe',1,2052,18,0,4
 INSERT INTO `item_basic` VALUES (13731,0,'faerie_tunic','faerie_tunic',1,2052,18,0,3753);
 INSERT INTO `item_basic` VALUES (13732,0,'earth_doublet','earth_doublet',1,2052,18,0,6592);
 INSERT INTO `item_basic` VALUES (13733,0,'shinobi_gi_+1','shinobi_gi_+1',1,2080,18,0,10120);
-INSERT INTO `item_basic` VALUES (13734,0,'scorpion_harness_+1','scp._harness_+1',1,2080,18,0,6930);
+INSERT INTO `item_basic` VALUES (13734,0,'scorpion_harness_+1','scp._harness_+1',1,63572,18,0,6930);
 INSERT INTO `item_basic` VALUES (13735,0,'haubergeon_+1','haubergeon_+1',1,63572,0,0,10780);
 INSERT INTO `item_basic` VALUES (13736,0,'stolid_breastplate','stolid_breastplate',1,2052,18,0,4920);
 INSERT INTO `item_basic` VALUES (13737,0,'mythril_breastplate_+1','mtl._brstplate_+1',1,2080,18,0,9571);
@@ -13992,7 +13992,7 @@ INSERT INTO `item_basic` VALUES (16719,0,'moth_axe','moth_axe',1,2052,6,0,1697);
 INSERT INTO `item_basic` VALUES (16720,0,'plantbane','plantbane',1,2052,6,0,4192);
 INSERT INTO `item_basic` VALUES (16721,0,'huge_moth_axe','huge_moth_axe',1,2052,6,0,8085);
 INSERT INTO `item_basic` VALUES (16722,0,'heavy_moth_axe','heavy_moth_axe',1,2048,6,0,5982);
-INSERT INTO `item_basic` VALUES (16723,0,'executioner','executioner',1,2052,6,0,7341);
+INSERT INTO `item_basic` VALUES (16723,0,'executioner','executioner',1,63572,6,0,7341);
 INSERT INTO `item_basic` VALUES (16724,0,'heavy_darksteel_axe','heavy_dst._axe',1,2084,6,0,8021);
 INSERT INTO `item_basic` VALUES (16725,0,'massive_darksteel_axe','massive_dst._axe',1,2080,6,0,8021);
 INSERT INTO `item_basic` VALUES (16726,0,'forsetis_axe','forsetis_axe',1,34820,6,0,7885);

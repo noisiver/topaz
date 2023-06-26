@@ -20826,7 +20826,7 @@ INSERT INTO `item_mods` VALUES (16863,61,2);
 INSERT INTO `item_mods` VALUES (16863,431,1);
 INSERT INTO `item_mods` VALUES (16867,2,7);
 INSERT INTO `item_mods` VALUES (16867,14,4);
-INSERT INTO `item_mods` VALUES (16868,68,-20);     -- Heavy Halberd Evasion -20
+INSERT INTO `item_mods` VALUES (16868,68,-75);     -- Heavy Halberd Evasion -75
 INSERT INTO `item_mods` VALUES (16868,1,75);       -- DEF: +75
 INSERT INTO `item_mods` VALUES (16868,10,5);       -- VIT+5
 INSERT INTO `item_mods` VALUES (16869,9,3);
