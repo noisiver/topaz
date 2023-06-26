@@ -63,6 +63,7 @@ function onUseAbility(player, target, ability, action)
     end
 
     player:addHP(recover)
+    player:updateEnmityFromCure(player, recover)
 
     if fail then
         return recover
