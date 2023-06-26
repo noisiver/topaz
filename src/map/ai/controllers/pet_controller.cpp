@@ -55,7 +55,7 @@ void CPetController::DoRoamTick(time_point tick)
     }
 
     // Pet is unable to move due to hard CC(Sleep, stun, terror, etc)
-    if (!PPet->StatusEffectContainer->HasPreventActionEffect(false))
+    if (PPet->StatusEffectContainer->HasPreventActionEffect(false))
     {
         return;
     }
