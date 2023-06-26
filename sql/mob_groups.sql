@@ -431,7 +431,7 @@ INSERT INTO `mob_groups` VALUES (67,2043,9,'Ice_Elemental',600,4,1347,0,0,84,86,
 INSERT INTO `mob_groups` VALUES (1,1027,10,'Diabolos',0,128,0,6000,5000,54,55,0);
 INSERT INTO `mob_groups` VALUES (2,5156,10,'Diremite',10,128,0,0,0,43,43,0);
 INSERT INTO `mob_groups` VALUES (3,3104,10,'Pasuk',0,128,0,6000,0,48,48,0);
-INSERT INTO `mob_groups` VALUES (4,5186,10,'Diabolos_Prime',0,128,3198,8500,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (4,5186,10,'Diabolos_Prime',0,128,3198,10000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (5,5157,10,'Diremite_Dominator',10,128,0,0,0,78,78,0);
 
 -- ------------------------------------------------------------
@@ -11373,7 +11373,7 @@ INSERT INTO `mob_groups` VALUES (40,6721,169,'Cutlass_Scorpion',330,0,3159,0,0,6
 -- Full_Moon_Fountain (Zone 170)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,4648,170,'Fenrir_Prime',0,128,3176,8500,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (1,4648,170,'Fenrir_Prime',0,128,3176,10000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (2,32,170,'Ace_of_Cups',0,128,12,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (3,30,170,'Ace_of_Batons',0,128,10,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (4,33,170,'Ace_of_Swords',0,128,13,0,0,73,75,0);
