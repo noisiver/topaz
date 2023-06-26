@@ -1,7 +1,7 @@
 -----------------------------------------
--- ID: 16860
--- Item: Holy Lance
--- Additional Effect: Light Damage
+-- ID: 16861
+-- Item: Ice Lance
+-- Additional Effect: Ice Damage
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -10,8 +10,8 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = CalculateAdditionalEffectChance(player, 10)
-    local damage = 35
-    local dmg = doAdditionalEffectDamage(player, target, chance, damage, nil, false, 0, tpz.magic.ele.LIGHT, 0)
+    local power = math.random(45, 55)
+    local dmg = doAdditionalEffectDamage(player, target, chance, power, nil, false, 0, tpz.magic.ele.ICE, 0)
 
     if dmg == 0 then
         return 0, 0, 0
@@ -23,5 +23,5 @@ function onAdditionalEffect(player, target, damage)
         dmg = target:addHP(-dmg)
     end
 
-    return tpz.subEffect.LIGHT_DAMAGE, message, dmg
+    return tpz.subEffect.ICE_DAMAGE, message, dmg
 end

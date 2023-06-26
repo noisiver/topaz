@@ -20817,6 +20817,8 @@ INSERT INTO `item_mods` VALUES (16856,12,-1);
 INSERT INTO `item_mods` VALUES (16856,13,-1);
 INSERT INTO `item_mods` VALUES (16857,56,4);
 INSERT INTO `item_mods` VALUES (16857,431,1); -- Additional effect: Wind damage
+INSERT INTO `item_mods` VALUES (16860,431,1);
+INSERT INTO `item_mods` VALUES (16861,431,1);
 INSERT INTO `item_mods` VALUES (16863,12,2);
 INSERT INTO `item_mods` VALUES (16863,13,-2);
 INSERT INTO `item_mods` VALUES (16863,60,-2);
@@ -20842,6 +20844,7 @@ INSERT INTO `item_mods` VALUES (16870,165,5);     -- Critical hit rate +5%
 INSERT INTO `item_mods` VALUES (16873,10,5);
 INSERT INTO `item_mods` VALUES (16873,11,5);
 INSERT INTO `item_mods` VALUES (16879,25,3);
+INSERT INTO `item_mods` VALUES (16880,431,1);
 INSERT INTO `item_mods` VALUES (16882,11,2);
 INSERT INTO `item_mods` VALUES (16882,13,2);
 INSERT INTO `item_mods` VALUES (16883,68,25);     -- Monsoon Spear EVA +25
@@ -20869,6 +20872,7 @@ INSERT INTO `item_mods` VALUES (16893,244,2);
 INSERT INTO `item_mods` VALUES (16894,2,11);
 INSERT INTO `item_mods` VALUES (16894,9,3);
 INSERT INTO `item_mods` VALUES (16894,10,3);
+INSERT INTO `item_mods` VALUES (16895,431,1);
 INSERT INTO `item_mods` VALUES (16899,25,3);
 INSERT INTO `item_mods` VALUES (16643,8,2);		-- Battle Axe +2 STR
 INSERT INTO `item_mods` VALUES (16904,165,3);
