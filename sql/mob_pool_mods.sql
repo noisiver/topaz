@@ -43,6 +43,7 @@ INSERT INTO `mob_pool_mods` VALUES (237,44,1,1); -- Ark Angel HM
 INSERT INTO `mob_pool_mods` VALUES (3598,44,1,1); -- Shikaree X
 INSERT INTO `mob_pool_mods` VALUES (9007,44,1,1); -- Nagi(Custom)
 INSERT INTO `mob_pool_mods` VALUES (1386,44,1,1); -- Fomor Ninja
+INSERT INTO `mob_pool_mods` VALUES (5857,44,1,1); -- Hoar-knuckled Rimberry
 
 
 INSERT INTO `mob_pool_mods` VALUES (60,370,20,0);
