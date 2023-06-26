@@ -52,5 +52,11 @@ function onUseAbility(player, target, ability, action)
         action:animation(target:getID(), 184)
     end
 
+    local dex = player:getStat(tpz.mod.DEX)
+    local agi = player:getStat(tpz.mod.AGI)
+
+    -- Add HP based on DEX + AGI
+    player:addHP(dex+agi)
+
     return gil
 end
