@@ -218,7 +218,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
             calcParams.hitRate = getRangedHitRate(attacker, target, false, bonusAcc + 100)
         end
     else
-        if (wsID == 0) then -- So jump won't get an accuracy bonus or have 99% acc
+        if (wsID == 0) then -- Jumps shoulnd't  get an accuracy bonus or have 99% ACC Cap
             calcParams.hitRate =  getHitRate(attacker, target, true, false, 0)
         else
             calcParams.hitRate =  getHitRate(attacker, target, true, true, bonusAcc + 100)
@@ -261,6 +261,10 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- store bonus damage for first hit, for use after other calculations are done
     local firstHitBonus = ((finaldmg * attacker:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT))/100)
 
+    if (wsID == 0) then -- Jumps do not benefit from WSD Mods
+        firstHitBonus = 0
+    end
+
     -- Reset fTP if it's not supposed to carry over across all hits for this WS
     if not wsParams.multiHitfTP then ftp = 1 end -- We'll recalculate our mainhand damage after doing offhand
 
@@ -286,6 +290,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     if (target:getHP() <= finaldmg) then
         extraOffhandHit = false
     end
+
     -- Do the extra hit for our offhand if applicable
     if calcParams.extraOffhandHit then
         local offhandDmg = (calcParams.weaponDamage[2] + wsMods) * ftp
@@ -330,6 +335,11 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         attacker:addMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)
     end
     local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
+
+    if (wsID == 0) then -- Jumps do not benefit from WSD Mods
+        bonusdmg = 0
+    end
+
     -- Remove Building Flourish WSD effect
     if flourisheffect ~= nil and flourisheffect:getPower() > 2 then
         attacker:delMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)

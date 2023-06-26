@@ -25,5 +25,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-   jobUtil.ConsumeUndaRune(player, target, tpz.effect.SPIRIT_SURGE, 15)
+   jobUtil.ConsumeUndaRune(player, target, tpz.effect.SPIRIT_SURGE, 10)
 end

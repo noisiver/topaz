@@ -184,9 +184,11 @@ function onMobSpawn(mob)
 	elseif mob:getMainLvl() >= 10 then
 	    mob:addMod(tpz.mod.EVA, 10)
 	end
+
     if master:getMod(tpz.mod.WYVERN_SUBJOB_TRAITS) > 0 then
         mob:addJobTraits(master:getSubJob(), master:getSubLvl())
     end
+
     local wyvernType = wyvernTypes[master:getSubJob()]
     local healingbreath = tpz.jobAbility.HEALING_BREATH
     if mob:getMainLvl() >= 80 then healingbreath = tpz.jobAbility.HEALING_BREATH_IV
@@ -258,7 +260,7 @@ function onMobSpawn(mob)
                 pet:addMod(tpz.mod.ATTP, 5 * diff)
                 pet:setHP(pet:getMaxHP())
                 player:messageBasic(tpz.msg.basic.STATUS_INCREASED, 0, 0, pet, false)
-                master:addMod(tpz.mod.ATTP, 4 * diff)
+                master:addMod(tpz.mod.ATTP, 2 * diff)
                 master:addMod(tpz.mod.DEFP, 4 * diff)
             end
             pet:setLocalVar("wyvern_exp", prev_exp + exp)
