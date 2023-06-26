@@ -378,12 +378,11 @@ bool CAttack::CheckAnticipated()
             // increment power and don't remove
             effect->SetPower(effect->GetPower() + 1);
             // chance to counter - 25% base
-            if (!m_victim->StatusEffectContainer->HasPreventActionEffect() &&
+            if (!m_victim->StatusEffectContainer->HasPreventActionEffect(false) &&
                 tpzrand::GetRandomNumber(100) < 25 + m_victim->getMod(Mod::THIRD_EYE_COUNTER_RATE))
             {
                 if (m_victim->PAI->IsEngaged() && facing(m_victim->loc.p, m_attacker->loc.p, 40) &&
-                    !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) && !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) &&
-                    !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) && !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR))
+                    !m_victim->StatusEffectContainer->HasPreventActionEffect(false))
                 {
                     m_isCountered = true;
                    // m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
@@ -408,9 +407,7 @@ bool CAttack::IsCountered()
 
 bool CAttack::CheckCounter()
 {
-    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
-        m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
-        m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+    if (!m_victim->StatusEffectContainer->HasPreventActionEffect(false))
     {
         return false;
     }

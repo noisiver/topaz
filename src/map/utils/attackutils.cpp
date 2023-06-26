@@ -103,7 +103,7 @@ namespace attackutils
     ************************************************************************/
     bool IsParried(CBattleEntity* PAttacker, CBattleEntity* PDefender)
     {
-        if (!PDefender->StatusEffectContainer->HasPreventActionEffect() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+        if (!PDefender->StatusEffectContainer->HasPreventActionEffect(false) && facing(PDefender->loc.p, PAttacker->loc.p, 64))
         {
             if (PDefender->objtype == TYPE_MOB)
             {
@@ -121,7 +121,7 @@ namespace attackutils
     ************************************************************************/
     bool IsGuarded(CBattleEntity* PAttacker, CBattleEntity* PDefender)
     {
-        if (!PDefender->StatusEffectContainer->HasPreventActionEffect() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+        if (!PDefender->StatusEffectContainer->HasPreventActionEffect(false) && facing(PDefender->loc.p, PAttacker->loc.p, 64))
         {
             return(tpzrand::GetRandomNumber(100) < battleutils::GetGuardRate(PAttacker, PDefender));
         }
@@ -135,7 +135,7 @@ namespace attackutils
     ************************************************************************/
     bool IsBlocked(CBattleEntity* PAttacker, CBattleEntity* PDefender)
     {
-        if (!PDefender->StatusEffectContainer->HasPreventActionEffect() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+        if (!PDefender->StatusEffectContainer->HasPreventActionEffect(false) && facing(PDefender->loc.p, PAttacker->loc.p, 64))
         {
             return(tpzrand::GetRandomNumber(100) < battleutils::GetBlockRate(PAttacker, PDefender));
         }

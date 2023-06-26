@@ -321,7 +321,7 @@ namespace petutils
 
         CBattleEntity* PPet = PMaster->PPet;
 
-        if (!PPet->StatusEffectContainer->HasPreventActionEffect())
+        if (!PPet->StatusEffectContainer->HasPreventActionEffect(false))
         {
             PPet->PAI->Engage(PTarget->targid);
         }
@@ -333,7 +333,7 @@ namespace petutils
 
         CBattleEntity* PPet = PMaster->PPet;
 
-        if (!PPet->StatusEffectContainer->HasPreventActionEffect())
+        if (!PPet->StatusEffectContainer->HasPreventActionEffect(false))
         {
             PPet->PAI->Disengage();
         }

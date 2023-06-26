@@ -15032,11 +15032,11 @@ inline int32 CLuaBaseEntity::getParryRate(lua_State* L)
         return 1;
     }
 
-    if (PDefender && PAttacker && PDefender->objtype == TYPE_PC && !PDefender->StatusEffectContainer->HasPreventActionEffect() && PDefender->PAI &&
+    if (PDefender && PAttacker && PDefender->objtype == TYPE_PC && !PDefender->StatusEffectContainer->HasPreventActionEffect(false) && PDefender->PAI &&
         PDefender->PAI->IsEngaged() &&
         facing(PDefender->loc.p, PAttacker->loc.p, 64))
         lua_pushinteger(L, battleutils::GetParryRate(PAttacker, PDefender));
-    else if (PDefender && PAttacker && PDefender->objtype == TYPE_MOB && !PDefender->StatusEffectContainer->HasPreventActionEffect() && PDefender->PAI &&
+    else if (PDefender && PAttacker && PDefender->objtype == TYPE_MOB && !PDefender->StatusEffectContainer->HasPreventActionEffect(false) && PDefender->PAI &&
         PDefender->PAI->IsEngaged() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
         lua_pushinteger(L, battleutils::GetMobParryRate(PAttacker, PDefender));
     else
@@ -15067,7 +15067,7 @@ inline int32 CLuaBaseEntity::getBlockRate(lua_State* L)
     }
     else if (PDefender->objtype == TYPE_MOB)
     {
-        if (PDefender && PAttacker && !PDefender->StatusEffectContainer->HasPreventActionEffect() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+        if (PDefender && PAttacker && !PDefender->StatusEffectContainer->HasPreventActionEffect(false) && facing(PDefender->loc.p, PAttacker->loc.p, 64))
             lua_pushinteger(L, battleutils::GetBlockRate(PAttacker, PDefender));
         else
             lua_pushinteger(L, 0);
@@ -15084,7 +15084,7 @@ inline int32 CLuaBaseEntity::getBlockRate(lua_State* L)
         }
     }
 
-    if (PDefender && PAttacker && !PDefender->StatusEffectContainer->HasPreventActionEffect() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+    if (PDefender && PAttacker && !PDefender->StatusEffectContainer->HasPreventActionEffect(false) && facing(PDefender->loc.p, PAttacker->loc.p, 64))
         lua_pushinteger(L, battleutils::GetBlockRate(PAttacker, PDefender));
     else
         lua_pushinteger(L, 0);
@@ -15705,7 +15705,7 @@ inline int32 CLuaBaseEntity::hasPreventActionEffect(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
 
-    lua_pushboolean(L, (static_cast<CBattleEntity *>(m_PBaseEntity))->StatusEffectContainer->HasPreventActionEffect());
+    lua_pushboolean(L, (static_cast<CBattleEntity *>(m_PBaseEntity))->StatusEffectContainer->HasPreventActionEffect(false));
 
     return 1;
 }

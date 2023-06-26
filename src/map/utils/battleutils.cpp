@@ -1106,9 +1106,7 @@ int getSDTTier(int SDT)
         // Handle Retaliation
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_RETALIATION) && PDefender->PAI->IsEngaged() &&
             4 + battleutils::GetHitRate(PDefender, PAttacker) / 2 > tpzrand::GetRandomNumber(100) && facing(PDefender->loc.p, PAttacker->loc.p, 64) &&
-            !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) && !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) &&
-            !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) && !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) &&
-            !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) && !PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE))
+            !PDefender->StatusEffectContainer->HasPreventActionEffect(false))
         {
             // Retaliation rate is based on player acc vs mob evasion. Missed retaliations do not even display in log.
             // Other theories exist but were not proven or reliably tested (I have to assume too many things to even consider JP translations about weapon

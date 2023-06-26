@@ -1896,8 +1896,9 @@ void CStatusEffectContainer::TickRegen(time_point tick)
     }
 }
 
-bool CStatusEffectContainer::HasPreventActionEffect()
+bool CStatusEffectContainer::HasPreventActionEffect(bool checkCharm)
 {
+    if (checkCharm)
     return HasStatusEffect({EFFECT_SLEEP,
         EFFECT_SLEEP_II,
         EFFECT_PETRIFICATION,
@@ -1906,7 +1907,19 @@ bool CStatusEffectContainer::HasPreventActionEffect()
         EFFECT_CHARM_II,
         EFFECT_PENALTY,
         EFFECT_STUN,
-        EFFECT_TERROR});
+        EFFECT_TERROR,
+        EFFECT_DEEPSLEEP});
+    else
+    {
+        return HasStatusEffect({EFFECT_SLEEP,
+        EFFECT_SLEEP_II,
+        EFFECT_PETRIFICATION,
+        EFFECT_LULLABY,
+        EFFECT_PENALTY,
+        EFFECT_STUN,
+        EFFECT_TERROR,
+        EFFECT_DEEPSLEEP});
+    }
 }
 
 uint16 CStatusEffectContainer::GetConfrontationEffect()

@@ -55,10 +55,7 @@ void CPetController::DoRoamTick(time_point tick)
     }
 
     // Pet is unable to move due to hard CC(Sleep, stun, terror, etc)
-    if (PPet->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP_II) ||
-        PPet->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
-        PPet->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
-        PPet->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_BIND))
+    if (!PPet->StatusEffectContainer->HasPreventActionEffect(false))
     {
         return;
     }
@@ -93,7 +90,7 @@ bool CPetController::PetIsHealing()
     bool isMasterHealing = (PPet->PMaster->animation == ANIMATION_HEALING);
     bool isPetHealing = (PPet->animation == ANIMATION_HEALING);
 
-    if (isMasterHealing && !isPetHealing && !PPet->StatusEffectContainer->HasPreventActionEffect()) {
+    if (isMasterHealing && !isPetHealing && !PPet->StatusEffectContainer->HasPreventActionEffect(false)) {
         //animation down
         PPet->animation = ANIMATION_HEALING;
         PPet->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_HEALING, 0, 0, map_config.healing_tick_delay, 0));
