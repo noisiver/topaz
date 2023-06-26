@@ -8774,7 +8774,7 @@ INSERT INTO `mob_groups` VALUES (26,5858,124,'Acolnahuacatl',7200,0,3070,7250,0,
 INSERT INTO `mob_groups` VALUES (27,3951,124,'Tonberry_Creeper',330,0,2431,0,0,45,49,0);
 INSERT INTO `mob_groups` VALUES (28,3958,124,'Tonberry_Hexer',330,0,2437,0,0,45,49,0);
 INSERT INTO `mob_groups` VALUES (29,1341,124,'Fire_Elemental',330,4,831,0,0,53,55,0);
-INSERT INTO `mob_groups` VALUES (30,3966,124,'Tonberry_Shadower',330,0,2445,0,0,61,63,0);
+INSERT INTO `mob_groups` VALUES (30,3966,124,'Tonberry_Shadower',330,0,0,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (31,5857,124,'Hoar-knuckled_Rimberry',3600,0,3069,18000,0,73,73,0);
 INSERT INTO `mob_groups` VALUES (32,3960,124,'Tonberry_Jinxer',330,0,2439,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (33,3950,124,'Tonberry_Chopper',330,0,2430,0,0,61,63,0);
