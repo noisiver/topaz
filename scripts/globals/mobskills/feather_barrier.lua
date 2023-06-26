@@ -22,7 +22,12 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.EVASION_BOOST
     local power = 25
     if mob:isNM() then
-        power = 100
+        power = 50
+    end
+
+    local isSimurgh = mob:getPool() == 3630
+    if isSimurgh then
+        power = 200
     end
 
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 180))
