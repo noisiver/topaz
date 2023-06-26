@@ -4,6 +4,7 @@
 -- BCNM: Amphibian Assault
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     SetGenericNMStats(mob)

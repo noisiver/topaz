@@ -4,6 +4,7 @@
 -- Zilart 6 Fight
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
