@@ -152,7 +152,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
                 return false;
             }
             // Pet is unable to use pet abilities due to Amnesia or hard CC
-            if (!PPet->StatusEffectContainer->HasPreventActionEffect(false))
+            if (PPet->StatusEffectContainer->HasPreventActionEffect(false))
             {
                 PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
                 return false;
