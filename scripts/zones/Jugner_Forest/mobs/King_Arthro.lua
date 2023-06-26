@@ -41,18 +41,13 @@ function onMobSpawn(mob)
             },
         },
     })
-
-    -- Use King Arthro ID to determine Knight Crab Id's, then set their respawn to 0 so they don't spawn while KA is up
-    for offset = 1, 10 do
-        GetMobByID(KingArthroID - offset):setRespawnTime(0)
-    end
 end
 
 function onAdditionalEffect(mob, target, damage)
     if (mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) == true) then
         return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {chance = 100, power = 25, duration = 30})
     else
-        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER, {chance = 100, power = math.random(30, 50)})
+        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER, {chance = 100, power = 15})
     end
 end
 
@@ -75,8 +70,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hours
 end
 
 
