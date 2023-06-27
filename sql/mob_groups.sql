@@ -7574,7 +7574,7 @@ INSERT INTO `mob_groups` VALUES (39,1267,105,'Evil_Weapon',330,0,0,0,0,36,38,0);
 INSERT INTO `mob_groups` VALUES (40,5758,105,'Prankster_Maverix',3600,0,1610,5500,0,51,51,0);
 INSERT INTO `mob_groups` VALUES (41,66,105,'Ahtu',0,128,33,2500,0,51,52,0);
 INSERT INTO `mob_groups` VALUES (42,6658,105,'Goblin_Digger',330,0,1040,0,0,30,32,0);
-INSERT INTO `mob_groups` VALUES (43,3800,105,'Sturmtiger',0,128,0,0,0,29,35,0);
+INSERT INTO `mob_groups` VALUES (43,3800,105,'Sturmtiger',0,128,0,8000,0,58,58,0);
 INSERT INTO `mob_groups` VALUES (44,3809,105,'Suparna',0,128,0,10000,0,65,70,0);
 INSERT INTO `mob_groups` VALUES (45,3810,105,'Suparna_Fledgling',0,128,0,8000,0,65,70,0);
 INSERT INTO `mob_groups` VALUES (46,322,105,'Badshah',0,128,0,0,0,29,35,0);
@@ -8142,7 +8142,7 @@ INSERT INTO `mob_groups` VALUES (32,2398,114,'Lesser_Manticore',330,0,1513,0,0,4
 INSERT INTO `mob_groups` VALUES (33,5855,114,'Nandi',0,128,3067,5600,0,48,49,0);
 INSERT INTO `mob_groups` VALUES (34,1084,114,'Doom_Scorpion',330,0,681,0,0,44,47,0);
 INSERT INTO `mob_groups` VALUES (35,6658,114,'Goblin_Digger',330,0,1042,0,0,45,49,0);
-INSERT INTO `mob_groups` VALUES (36,948,114,'Decurio_I-III',0,128,0,0,0,55,55,0);
+INSERT INTO `mob_groups` VALUES (36,948,114,'Decurio_I-III',0,128,0,5000,0,55,55,0);
 INSERT INTO `mob_groups` VALUES (37,4045,114,'Tsuchigumo',0,128,0,0,0,42,42,0);
 INSERT INTO `mob_groups` VALUES (38,1983,114,'Hobgoblin_Warrior',0,128,0,0,0,50,55,0);
 INSERT INTO `mob_groups` VALUES (39,1984,114,'Hobgoblin_White_Mage',0,128,0,0,0,50,55,0);
@@ -13024,7 +13024,7 @@ INSERT INTO `mob_groups` VALUES (32,4323,204,'Western_Shadow',3600,0,2645,8200,0
 INSERT INTO `mob_groups` VALUES (33,2907,204,'Northern_Shadow',3600,0,1823,9500,0,63,63,0);
 INSERT INTO `mob_groups` VALUES (34,1164,204,'Eastern_Shadow',3600,0,738,8500,0,63,63,0);
 INSERT INTO `mob_groups` VALUES (35,3709,204,'Southern_Shadow',3600,0,2296,8000,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (36,888,204,'Dabotzs_Ghost',0,128,0,8000,0,53,53,0);
+INSERT INTO `mob_groups` VALUES (36,888,204,'Dabotzs_Ghost',0,128,0,8000,0,58,58,0);
 INSERT INTO `mob_groups` VALUES (37,630,204,'Capricious_Cassie',0,0,411,30000,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (38,2043,204,'Ice_Elemental',330,4,1347,0,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (39,913,204,'Dark_Elemental',330,4,568,0,0,56,58,0);

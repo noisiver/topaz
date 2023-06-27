@@ -12436,10 +12436,10 @@ INSERT INTO `item_mods` VALUES (13973,2,13);
 INSERT INTO `item_mods` VALUES (13973,9,3);
 INSERT INTO `item_mods` VALUES (13973,24,20);
 INSERT INTO `item_mods` VALUES (13973,106,5);
-INSERT INTO `item_mods` VALUES (13974,1,15);
+INSERT INTO `item_mods` VALUES (13974,1,15);        -- Drachen Finger Gauntlets
 INSERT INTO `item_mods` VALUES (13974,2,11);
-INSERT INTO `item_mods` VALUES (13974,9,3);
-INSERT INTO `item_mods` VALUES (13974,110,10);
+INSERT INTO `item_mods` VALUES (13974,9,5);         -- DEX+5
+INSERT INTO `item_mods` VALUES (13974,1012,2);      -- Inquarta +2
 INSERT INTO `item_mods` VALUES (13975,1,11);
 INSERT INTO `item_mods` VALUES (13975,5,15);
 INSERT INTO `item_mods` VALUES (13975,10,4);
@@ -15635,11 +15635,11 @@ INSERT INTO `item_mods` VALUES (14902,9,6);
 INSERT INTO `item_mods` VALUES (14902,24,20);
 INSERT INTO `item_mods` VALUES (14902,26,20);
 INSERT INTO `item_mods` VALUES (14902,106,5);
-INSERT INTO `item_mods` VALUES (14903,1,19);
+INSERT INTO `item_mods` VALUES (14903,1,19);        -- Drachen Finger Gauntlets +1
 INSERT INTO `item_mods` VALUES (14903,2,11);
 INSERT INTO `item_mods` VALUES (14903,8,5);
 INSERT INTO `item_mods` VALUES (14903,9,5);
-INSERT INTO `item_mods` VALUES (14903,110,12);
+INSERT INTO `item_mods` VALUES (14903,1012,3);      -- Inquartata +3
 INSERT INTO `item_mods` VALUES (14904,1,11); -- evokers_bracers_+1
 INSERT INTO `item_mods` VALUES (14904,5,19);
 INSERT INTO `item_mods` VALUES (14904,357,1);

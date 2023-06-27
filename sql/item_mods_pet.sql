@@ -102,9 +102,9 @@ INSERT INTO `item_mods_pet` VALUES (11739,28,2,1);      -- Avatar: Magic Atk. Bo
 INSERT INTO `item_mods_pet` VALUES (11987,126,5,1);     -- Ngen Seraweels Avatar: Increases "Blood Pact" damage 5%
 INSERT INTO `item_mods_pet` VALUES (11987,370,1,1);     -- Adds "Regen" effect
 INSERT INTO `item_mods_pet` VALUES (12520,27,-3,1);     -- Evoker's Horn Avatar: Enmity -3
-INSERT INTO `item_mods_pet` VALUES (12649,370,1,2);     -- Drachen Mail Adds "Regen" effect to wyvern
+INSERT INTO `item_mods_pet` VALUES (12649,368,1,2);     -- Drachen Mail Adds "Regain" effect to wyvern +10
 INSERT INTO `item_mods_pet` VALUES (12650,27,-2,1);     -- Evoker's Doublet Avatar: Enmity -2
-INSERT INTO `item_mods_pet` VALUES (13974,25,5,2);      -- Drachen Fng. Gnt. Enhances wyvern's accuracy+5 (?)
+INSERT INTO `item_mods_pet` VALUES (13974,25,10,2);     -- Drachen Fng. Gnt. Enhances wyvern's accuracy+10
 INSERT INTO `item_mods_pet` VALUES (13975,27,-2,1);     -- Evoker's Bracers Avatar: Enmity -2
 INSERT INTO `item_mods_pet` VALUES (14103,27,-2,1);     -- Evoker's Pigaches Avatar: Enmity -2
 INSERT INTO `item_mods_pet` VALUES (14103,68,20,1);     -- Avatar: Enhances evasion +20
@@ -114,11 +114,11 @@ INSERT INTO `item_mods_pet` VALUES (14228,27,-2,1);     -- Avatar: Enmity -2
 INSERT INTO `item_mods_pet` VALUES (14405,2,65,2);      -- Wyvern Mail Wyvern: HP+65
 INSERT INTO `item_mods_pet` VALUES (14405,72,65,2);     -- Wyvern: HP recovered while healing +1
 INSERT INTO `item_mods_pet` VALUES (14468,27,5,1);      -- Yinyang Robe Avatar: Pet: Enmity +5
-INSERT INTO `item_mods_pet` VALUES (14486,370,1,2);     -- Drachen Mail + 1 Adds "Regen" effect to wyvern
+INSERT INTO `item_mods_pet` VALUES (14486,368,2,2);     -- Drachen Mail + 1 Adds "Regain" effect to wyvern +10
 INSERT INTO `item_mods_pet` VALUES (14514,165,4,1);     -- Smn. Doublet +1 Avatar: Critical Hit Rate +4%
 INSERT INTO `item_mods_pet` VALUES (14523,389,-5,4);    -- Pup. Tobe Automaton: Magic damage Taken -5%
 INSERT INTO `item_mods_pet` VALUES (14872,2,10,2);      -- Ostreger Mitts Wyvern: HP +10
-INSERT INTO `item_mods_pet` VALUES (14903,25,5,2);      -- Drn. Fng. Gnt. +1 Wyvern: Increases Accuracy +5 (?)
+INSERT INTO `item_mods_pet` VALUES (14903,25,15,2);     -- Drn. Fng. Gnt. +1 Wyvern: Increases Accuracy +15
 INSERT INTO `item_mods_pet` VALUES (14904,27,-2,1);     -- Evk. Bracers +1 Avatar: Enmity -2
 INSERT INTO `item_mods_pet` VALUES (14923,25,12,1);     -- Smn. Bracers +1 Avatar: Enhances accuracy +12 
 INSERT INTO `item_mods_pet` VALUES (14958,63,5,0);      -- Beast Bazubands Pet: Defense Bonus 5% (?)
