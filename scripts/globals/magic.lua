@@ -1897,8 +1897,9 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
         SDT = SDTmod
     end
 
-    -- printf("SDTmod: %s", SDTmod)
-    -- printf("SDT %s", SDT)
+    printf("status %s", status)
+    printf("SDTmod: %s", SDTmod)
+    printf("SDT %s", SDT)
     
     if SDT == 0 or SDT == nil then -- invalid SDT, it was never set on this target... just default it.
         SDT = 100
@@ -1985,7 +1986,7 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
         end
     end
 
-    -- print(string.format("Enfeeble SDT: %s", SDT))
+    print(string.format("Enfeeble SDT: %s", SDT))
     return SDT
 end
 
