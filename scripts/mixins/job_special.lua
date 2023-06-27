@@ -286,9 +286,9 @@ g_mixins.job_special = function(mob)
 
         if ability then
             mob:setLocalVar("[jobSpecial]numAbilities", 1)
-            
+
             -- Only set if mobs 2 hour isn't set in tpz.mix.jobSpecial.config
-            if (mob:getLocalVar("[jobSpecial]ability_1") == nil) then
+            if (mob:getLocalVar("[jobSpecial]ability_1") == nil) or (mob:getLocalVar("[jobSpecial]ability_1") == 0) then
                 mob:setLocalVar("[jobSpecial]ability_1", ability)
             end
 
@@ -298,11 +298,21 @@ g_mixins.job_special = function(mob)
             else
                 mob:setLocalVar("[jobSpecial]hpp_1", math.random(35, 50))
             end
-            mob:setLocalVar("[jobSpecial]between_1", 7200)
+            -- Only set if mobs between isn't set in tpz.mix.jobSpecial.config
+            if (mob:getLocalVar("[jobSpecial]between_1") == nil) or (mob:getLocalVar("[jobSpecial]between_1") == 0) then
+                mob:setLocalVar("[jobSpecial]between_1", 7200) -- cooldown between uses, default 2 hours
+            end
         end
 
-        mob:setLocalVar("[jobSpecial]chance", 100)     -- chance that mob will use any special at all during engagement
-        mob:setLocalVar("[jobSpecial]delayInitial", 2) -- default wait until mob can use its first special (prevents insta-flow)
+        -- Only set if mobs chance isn't set in tpz.mix.jobSpecial.config
+        if (mob:getLocalVar("[jobSpecial]chance") == nil) or (mob:getLocalVar("[jobSpecial]chance") == 0) then
+            mob:setLocalVar("[jobSpecial]chance", 100) -- chance that mob will use any special at all during engagement
+        end
+
+        -- Only set if mobs delayInitial isn't set in tpz.mix.jobSpecial.config
+        if (mob:getLocalVar("[jobSpecial]delayInitial") == nil) or (mob:getLocalVar("[jobSpecial]delayInitial") == 0) then
+            mob:setLocalVar("[jobSpecial]delayInitial", 2) -- default wait until mob can use its first special (prevents insta-flow)
+        end
     end)
 
     mob:addListener("ENGAGE", "JOB_SPECIAL_ENGAGE", function(mob)
