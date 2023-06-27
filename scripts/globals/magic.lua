@@ -1846,15 +1846,12 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
 
     local SDT = 100
     local SDTmod = 0
-    -- printf("status: %s", status)
+    printf("status: %s", status)
     if  status == tpz.effect.AMNESIA then
         SDTmod = tpz.mod.EEM_AMNESIA
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.BANE or status == tpz.effect.PLAGUE then
         SDTmod = tpz.mod.EEM_VIRUS
-        SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SILENCE or tpz.effect.MUTE then
-        SDTmod = tpz.mod.EEM_SILENCE
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.WEIGHT then
         SDTmod = tpz.mod.EEM_GRAVITY
@@ -1896,8 +1893,6 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
         SDTmod = getElementalSDT(element, target)
         SDT = SDTmod
     end
-
-    printf("status %s", status)
     printf("SDTmod: %s", SDTmod)
     printf("SDT %s", SDT)
     
