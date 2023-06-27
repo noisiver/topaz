@@ -130,5 +130,5 @@ function onUseAbility(player, target, ability)
     player:updateEnmityFromCure(pet, healPet)
     pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 18, 0, 0, 0) -- Was 90 seconds of regen. Changed to 15s due to being reduced in CD
     player:addTP(petTP/2) --add half pet tp to you
-    pet:delTP(petTP/2) -- remove half tp from pet
+    pet:delTP(petTP) -- remove half tp from pet
 end
