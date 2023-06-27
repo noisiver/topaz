@@ -761,12 +761,16 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     local element = damageType - 5
     -- Handle damage type resistances
     if attackType == tpz.attackType.PHYSICAL then
+        dmg = utils.HandlePositionalPDT(mob, target, dmg)
         dmg = target:physicalDmgTaken(dmg, damageType)
     elseif (attackType == tpz.attackType.MAGICAL) then
+        dmg = utils.HandlePositionalMDT(mob, target, dmg)
         dmg = target:magicDmgTaken(dmg, element)
     elseif (attackType == tpz.attackType.BREATH) then
+        dmg = utils.HandlePositionalMDT(mob, target, dmg)
         dmg = target:breathDmgTaken(dmg, element)
     elseif (attackType == tpz.attackType.RANGED) then
+        dmg = utils.HandlePositionalPDT(mob, target, dmg)
         dmg = target:rangedDmgTaken(dmg)
     end
 
