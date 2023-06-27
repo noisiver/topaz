@@ -1853,9 +1853,6 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
     elseif status == tpz.effect.BANE or status == tpz.effect.PLAGUE then
         SDTmod = tpz.mod.EEM_VIRUS
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SILENCE or status == tpz.effect.MUTE then
-        SDTmod = tpz.mod.EEM_SILENCE
-        SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.WEIGHT then
         SDTmod = tpz.mod.EEM_GRAVITY
         SDT = target:getMod(SDTmod)
