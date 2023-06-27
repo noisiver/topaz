@@ -669,14 +669,17 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return 0
     end
 
-    --handle pd
+    --Handle pd
     if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) )
-            and attackType==tpz.attackType.PHYSICAL) then
+        and attackType==tpz.attackType.PHYSICAL) then
+
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
-    -- handle fanatics drink/tonic/powder
-    if target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+
+    -- Handle fanatics drink/powder
+    if (target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 1) then
+
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
