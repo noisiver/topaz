@@ -621,7 +621,7 @@ function applyResistance(caster, target, spell, params)
         if     eleres < 0  and res < 0.5  then res = 0.5
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
-    print(string.format("res was %f",res))
+    -- print(string.format("res was %f",res))
     
     return res
 end
@@ -843,7 +843,7 @@ function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, 
     -- apply SDT
     local tier = getSDTTier(SDT)
     local multiplier = getSDTMultiplier(tier)
-    print(string.format('SDT: %s, Tier: %s, Multiplier: %s', SDT, tier, multiplier))
+    -- print(string.format('SDT: %s, Tier: %s, Multiplier: %s', SDT, tier, multiplier))
     baseMagiceva = math.floor(baseMagiceva * multiplier)
     -- printf("Base MEVA after multiplier: %s", baseMagiceva)
     -- add +MEVA mod
@@ -851,13 +851,13 @@ function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, 
     -- printf("MEVA after +MEVA mod: %s", magiceva)
     -- add resist gear/mods(barspells etc)
     magiceva = magiceva + resMod
-    printf("MEVA after gear/barspells: %s", magiceva)
+    -- printf("MEVA after gear/barspells: %s", magiceva)
     magicacc = math.floor(magicacc + bonusAcc)
 
     -- Add macc% from food
     local maccFood = magicacc * (caster:getMod(tpz.mod.FOOD_MACCP)/100)
     magicacc = math.floor(magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP)))
-    printf("MACC: %s", magicacc)
+    -- printf("MACC: %s", magicacc)
     
     return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, caster:getMainLvl(), target:getMainLvl(), SDT)
 end
@@ -919,18 +919,18 @@ function getMagicResist(magicHitRate)
     -- sixteenth section removed as it is not obtainable under normal circumstances... requires getting a 1/8th roll reduced by half via a 50% or lower SDT tier
     if (resvar <= eighth) then
         resist = 0.125
-        printf("Spell resisted to 1/8!  Threshold = %u",eighth)
+        --printf("Spell resisted to 1/8!  Threshold = %u",eighth)
     elseif (resvar <= quart) then
         resist = 0.25
-        printf("Spell resisted to 1/4.  Threshold = %u",quart)
+        --printf("Spell resisted to 1/4.  Threshold = %u",quart)
     elseif (resvar <= half) then
         resist = 0.5
-        printf("Spell resisted to 1/2.  Threshold = %u",half)
+        --printf("Spell resisted to 1/2.  Threshold = %u",half)
     else
         resist = 1.0
         --printf("1.0")
     end
-    printf("Resist: %s", resist)
+    -- printf("Resist: %s", resist)
 
     return resist
 end
@@ -2638,12 +2638,6 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
             return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     end
-
-    printf("resist %f", resist)
-    printf("resistthreshold %f", resistthreshold)
-    printf("effect %i", effect)
-    printf("power %i", power)
-    printf("tier %i", tier)
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
