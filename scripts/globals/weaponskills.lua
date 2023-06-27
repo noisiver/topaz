@@ -32,14 +32,16 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
             critChance = math.random() -- See if we land a critical hit
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
+            -- Crit pDIF caps at 3.0
+            -- https://ffxiclopedia.fandom.com/wiki/Level_Correction_Function_and_pDIF?oldid=332209
             if criticalHit then
                 TryBreakMob(target)
                 calcParams.criticalHit = true
-                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
+                calcParams.pdif = utils.clamp(generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1, 0, 3.0) + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             elseif forcedCrit then
                 TryBreakMob(target)
                 calcParams.criticalHit = true
-                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
+                calcParams.pdif = utils.clamp(generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1, 0, 3.0) + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             else
                 calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true)
             end
@@ -49,7 +51,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 if calcParams.pdif < 0.25 then -- Guard reduction caps at 0.25
                     calcParams.pdif = 0.25
                 end
-                attacker:PrintToPlayer("The monster guarded your WS!")
+                --attacker:PrintToPlayer("The monster guarded your WS!")
             end
 
             finaldmg = dmg * calcParams.pdif
@@ -83,7 +85,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     -- Check if mob blocks us
     if attacker:isInfront(target, 90) and math.random()*100 < target:getBlockRate(attacker) then
         finaldmg = target:getBlockedDamage(finaldmg)
-        attacker:PrintToPlayer("The monster blocked your weapon skill!")
+        --attacker:PrintToPlayer("The monster blocked your weapon skill!")
     end
 
     return finaldmg, calcParams
@@ -231,7 +233,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     if isParried then
         calcParams.hitRate = 0
-        attacker:PrintToPlayer("The monster parried your WS!")
+        --attacker:PrintToPlayer("The monster parried your WS!")
     end
 
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
