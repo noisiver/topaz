@@ -1716,8 +1716,8 @@ end
 function GetMaxWeaponPdif(attacker)
     local weaponStyle = utils.getWeaponStyle(attacker)
     local weaponType = utils.GetWeaponType(attacker)
-    printf("weapon style %s", weaponStyle)
-    printf("weaponTyper %s", weaponType)
+    -- printf("weapon style %s", weaponStyle)
+    -- printf("weaponType %s", weaponType)
 
     if (weaponStyle == 'H2H') or (weaponType == 'GREAT KATANA') then
         return 2.1
