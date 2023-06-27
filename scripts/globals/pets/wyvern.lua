@@ -135,7 +135,9 @@ function doRestoringBreath(player, breath)
             player:getPet():useJobAbility(breath, player)
             break
         else
-            player:getPet():useJobAbility(breath, member)
+            if inBreathRange(member) then
+                player:getPet():useJobAbility(breath, member)
+            end
             break
         end
     end
