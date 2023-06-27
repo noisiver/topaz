@@ -1049,10 +1049,10 @@ INSERT INTO `mob_groups` VALUES (32,71,28,'Air_Elemental',960,4,38,0,0,59,60,0);
 INSERT INTO `mob_groups` VALUES (33,3912,28,'Thunder_Elemental',960,4,2410,0,0,59,60,0);
 INSERT INTO `mob_groups` VALUES (34,913,28,'Dark_Elemental',960,4,568,0,0,59,60,0);
 INSERT INTO `mob_groups` VALUES (35,333,28,'Balor',0,128,218,8000,0,59,59,0);
-INSERT INTO `mob_groups` VALUES (36,2444,28,'Luaith',0,128,1544,8000,0,58,60,0);
-INSERT INTO `mob_groups` VALUES (37,2427,28,'Lobais',0,128,1529,8000,0,58,60,0);
+INSERT INTO `mob_groups` VALUES (36,2444,28,'Luaith',0,128,1544,8000,0,59,59,0);
+INSERT INTO `mob_groups` VALUES (37,2427,28,'Lobais',0,128,1529,8000,0,59,59,0);
 INSERT INTO `mob_groups` VALUES (38,1392,28,'Fomors_Avatar',0,128,0,0,0,49,51,0);
-INSERT INTO `mob_groups` VALUES (39,608,28,'Caithleann',0,128,399,8000,0,58,60,0);
+INSERT INTO `mob_groups` VALUES (39,608,28,'Caithleann',0,128,399,8000,0,59,59,0);
 INSERT INTO `mob_groups` VALUES (40,2074,28,'Indich',0,128,1362,8000,0,58,60,0);
 INSERT INTO `mob_groups` VALUES (41,4531,28,'Aqueduct_Spider',330,0,0,0,0,84,86,0);
 

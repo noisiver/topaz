@@ -4525,6 +4525,103 @@ INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 209, 1, 255);
 INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 59, 1, 255);     -- Silence
 INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 53, 1, 255);     -- Blink
 
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,1,3,13);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,2,14,25);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,3,26,48);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,4,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,23,1,30);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,24,31,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,25,85,255); -- Dia III
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,33,15,54);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,34,55,89);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,35,90,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,43,7,26);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,44,27,46);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,45,47,62);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,46,63,89);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,47,90,255); -- Protect V
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,48,17,36);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,49,37,56);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,50,57,67);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,51,68,90);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,52,90,255); -- Shell V
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,53,23,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,54,34,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,55,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,56,13,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,57,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,58,6,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,59,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,100,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,101,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,102,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,103,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,104,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,105,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,108,21,75);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,110,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,144,19,49);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,145,50,70);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,146,71,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,149,24,54);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,150,55,72);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,151,73,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,154,14,44);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,155,45,68);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,156,69,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,159,4,34);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,160,35,64);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,161,65,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,164,29,59);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,165,60,74);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,166,75,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,169,9,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,170,40,66);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,171,67,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,216,21,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,220,5,45);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,221,46,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,230,10,35);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,231,36,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,253,25,45);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,254,8,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,258,11,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,259,46,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,260,32,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,320,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,321,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,322,85,255); -- katon_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,323,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,324,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,325,85,255); -- hyoton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,326,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,327,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,328,85,255); -- huton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,329,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,330,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,331,85,255); -- doton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,332,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,333,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,334,85,255); -- raiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,335,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,336,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,337,85,255); -- suiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,338,12,36);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,339,37,89); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,340,90,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,341,30,84); -- jubaku_ichi
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,342,85,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,344,23,47);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,345,48,89); -- hojo_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,346,90,255); -- hojo_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,347,19,43);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,348,44,89); -- kurayami_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,349,90,255); -- kurayami_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,350,27,55);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,351,56,89); -- dokumori_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,352,90,255); -- dokumori_san
+
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5535,7 +5632,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,274,56,255);
 INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,255,1,255); -- Break
 INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,365,1,255); -- Break
 
--- NEXT 1020
+-- NEXT 1021
 -- NEXT 2084(Custom)
 
 
