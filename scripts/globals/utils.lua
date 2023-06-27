@@ -975,8 +975,8 @@ end
 function utils.getWeaponStyle(player)
     local twoHandedSkills = { 4, 6, 7, 8, 10, 12 };
     local oneHandedSkills = { 2, 3, 5, 9, 11 };
-    local mainHandSkill = player:getWeaponSkillType(0, 0, tpz.slot.MAIN)
-    local subSkill = player:getWeaponSubSkillType(0, 0, tpz.slot.SUB)
+    local mainHandSkill = player:getWeaponSkillType(tpz.slot.MAIN)
+    local subSkill = player:getWeaponSubSkillType(tpz.slot.SUB)
     local mainHandSkill = 0
 
     if mainHandSkill == 1 then
@@ -1003,7 +1003,7 @@ function utils.getWeaponStyle(player)
 end
 
 function utils.GetWeaponType(player)
-    local mainHandSkill = player:getWeaponSkillType(0, 0, tpz.slot.MAIN)
+    local mainHandSkill = player:getWeaponSkillType(tpz.slot.MAIN)
 
     local skills =
     {
