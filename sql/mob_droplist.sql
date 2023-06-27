@@ -752,17 +752,17 @@ INSERT INTO `mob_droplist` VALUES (129,0,0,1000,644,1000); -- Mythril Ore
 INSERT INTO `mob_droplist` VALUES (129,0,0,1000,16604,100); -- Save the Queen
 INSERT INTO `mob_droplist` VALUES (130,0,0,1000,645,1000); -- (Antican Prator) Darksteel ore
 INSERT INTO `mob_droplist` VALUES (130,0,0,1000,1429,1000); -- Black mage's testimony
-INSERT INTO `mob_droplist` VALUES (130,0,0,1000,4770,240); -- Scroll of Stone IV
-INSERT INTO `mob_droplist` VALUES (130,0,0,1000,4799,240); -- Scroll of Stonega III
-INSERT INTO `mob_droplist` VALUES (130,0,0,1000,4818,150); -- Scroll of Quake
+INSERT INTO `mob_droplist` VALUES (130,1,1,240,4770,334); -- Scroll of Stone IV
+INSERT INTO `mob_droplist` VALUES (130,1,1,240,4799,333); -- Scroll of Stonega III
+INSERT INTO `mob_droplist` VALUES (130,1,1,240,4818,333); -- Scroll of Quake
 INSERT INTO `mob_droplist` VALUES (131,0,0,1000,644,10);
 INSERT INTO `mob_droplist` VALUES (131,0,0,1000,1054,50);
 INSERT INTO `mob_droplist` VALUES (131,0,0,1000,1118,100);
 --INSERT INTO `mob_droplist` VALUES (131,0,0,1000,1540,90); Garrison
 INSERT INTO `mob_droplist` VALUES (131,0,0,1000,16995,240);
 INSERT INTO `mob_droplist` VALUES (132,0,0,1000,644,1000); -- (Antican Proconsul) Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (132,0,0,1000,4770,150); -- Scroll of Stone IV
-INSERT INTO `mob_droplist` VALUES (132,0,0,1000,4799,150); -- Scroll of Stonega III
+INSERT INTO `mob_droplist` VALUES (132,1,1,1000,4770,500); -- Scroll of Stone IV
+INSERT INTO `mob_droplist` VALUES (132,1,1,1000,4799,500); -- Scroll of Stonega III
 INSERT INTO `mob_droplist` VALUES (132,0,0,1000,18213,100); -- Mighty Axe
 INSERT INTO `mob_droplist` VALUES (133,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (133,0,0,1000,1121,100);
@@ -4911,10 +4911,10 @@ INSERT INTO `mob_droplist` VALUES (934,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (934,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (934,0,0,1000,2531,100);
 INSERT INTO `mob_droplist` VALUES (935,2,0,1000,750,0); -- (Garnet Quadav - Rolanberry)
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4667,150); -- Scroll of Silence
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4681,100); -- Scroll of Barpoison
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4744,100); -- Scroll of Invisible
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4746,100); -- Scroll of Deodorize
+INSERT INTO `mob_droplist` VALUES (935,1,1,100,4667,250); -- Scroll of Silence
+INSERT INTO `mob_droplist` VALUES (935,1,1,100,4681,250); -- Scroll of Barpoison
+INSERT INTO `mob_droplist` VALUES (935,1,1,100,4744,250); -- Scroll of Invisible
+INSERT INTO `mob_droplist` VALUES (935,1,1,100,4746,250); -- Scroll of Deodorize
 INSERT INTO `mob_droplist` VALUES (935,0,0,1000,17045,100); -- Maul
 INSERT INTO `mob_droplist` VALUES (936,2,0,1000,4569,0); -- (Garnet Quadav - Bead) Bowl Of Quadav Stew
 INSERT INTO `mob_droplist` VALUES (936,1,1,100,4743,500); -- Reraise
@@ -6653,10 +6653,10 @@ INSERT INTO `mob_droplist` VALUES (1268,0,0,1000,15474,1000);
 INSERT INTO `mob_droplist` VALUES (1269,0,0,1000,725,40);
 INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4173,240); -- (Hakutaku) Hi-reraiser
 INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4175,240); -- Vile elixir +1
-INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4754,240); -- Scroll of Fire III
-INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4755,100); -- Scroll of Fire IV
-INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4784,50); -- Scroll of Firaga III
-INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4812,50); -- Scroll of Flare
+INSERT INTO `mob_droplist` VALUES (1270,1,1,240,4754,250); -- Scroll of Fire III
+INSERT INTO `mob_droplist` VALUES (1270,1,1,240,4755,250); -- Scroll of Fire IV
+INSERT INTO `mob_droplist` VALUES (1270,1,1,240,4784,250); -- Scroll of Firaga III
+INSERT INTO `mob_droplist` VALUES (1270,1,1,240,4812,250); -- Scroll of Flare
 INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,13915,1000); -- Optical Hat
 INSERT INTO `mob_droplist` VALUES (1271,2,0,1000,1452,0); -- (Hamfist_Gukhbuk, Bu)
 INSERT INTO `mob_droplist` VALUES (1271,0,0,1000,1452,150);
@@ -7940,8 +7940,8 @@ INSERT INTO `mob_droplist` VALUES (1493,0,0,1000,2165,50);
 INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,1869,240);   -- Lamia / Lamie Necromancer (Arrapago Reef)
 INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,2219,150);   -- Lamian fang key
 INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,1869,240);
-INSERT INTO `mob_droplist` VALUES (1494,0,0,100,4863,500); -- Scroll of Break
-INSERT INTO `mob_droplist` VALUES (1494,0,0,100,4889,500); -- Scroll of Breakga
+INSERT INTO `mob_droplist` VALUES (1494,1,1,100,4863,500); -- Scroll of Break
+INSERT INTO `mob_droplist` VALUES (1494,1,1,100,4889,500); -- Scroll of Breakga
 INSERT INTO `mob_droplist` VALUES (1495,0,0,1000,1869,240);   -- Lamia / Lamie Toxophilite
 INSERT INTO `mob_droplist` VALUES (1495,0,0,1000,2167,50);
 INSERT INTO `mob_droplist` VALUES (1495,0,0,1000,18688,100); -- Lamian Kaman -1
@@ -12096,13 +12096,13 @@ INSERT INTO `mob_droplist` VALUES (2296,0,0,1000,12344,240);	-- Master Shield
 INSERT INTO `mob_droplist` VALUES (2297,2,0,1000,748,0); -- (Sozu Bliberry)
 INSERT INTO `mob_droplist` VALUES (2297,0,0,1000,1119,1000); -- Tonberry coat
 INSERT INTO `mob_droplist` VALUES (2297,0,0,1000,1162,150); -- Tonberry lantern
-INSERT INTO `mob_droplist` VALUES (2297,0,0,1000,4780,240); -- Scroll of Water IV
-INSERT INTO `mob_droplist` VALUES (2297,0,0,1000,4809,240); -- Scroll of Waterga III
+INSERT INTO `mob_droplist` VALUES (2297,1,1,240,4780,500); -- Scroll of Water IV
+INSERT INTO `mob_droplist` VALUES (2297,1,1,240,4809,500); -- Scroll of Waterga III
 INSERT INTO `mob_droplist` VALUES (2297,0,0,1000,1443,100); -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (2298,2,0,1000,748,0); -- (Sozu Rogberry)
 INSERT INTO `mob_droplist` VALUES (2298,0,0,1000,1119,1000); -- Tonberry coat
 INSERT INTO `mob_droplist` VALUES (2298,0,0,1000,1162,150); -- Tonberry lantern
-INSERT INTO `mob_droplist` VALUES (2298,0,0,1000,16480,50);	-- Thief's Knife
+INSERT INTO `mob_droplist` VALUES (2298,0,0,1000,16480,240);	-- Thief's Knife
 INSERT INTO `mob_droplist` VALUES (2298,0,0,1000,1443,100); -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (2299,2,0,1000,748,0); -- (Sozu Sarberry)
 INSERT INTO `mob_droplist` VALUES (2299,0,0,1000,1119,1000); -- Tonberry coat
