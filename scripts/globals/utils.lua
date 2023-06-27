@@ -687,8 +687,62 @@ function utils.HandleWeaponResist(target, damageType)
     return weaponResist
 end
 
+function utils.HandlePositionalPDT(attacker, target, dmg)
+    if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+    if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 4 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+
+    return dmg
+end
+
+function utils.HandlePositionalMDT(attacker, target, dmg)
+    if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+    if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+
+    return dmg
+end
+
 function utils.GetSkillchainElement(element)
-     local elements =
+    local elements =
     {
         [1] = {element = {tpz.magic.ele.FIRE}, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
         [2] = {element = {tpz.magic.ele.ICE}, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
