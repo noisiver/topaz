@@ -1031,7 +1031,6 @@ function utils.getWeaponStyle(player)
     local oneHandedSkills = { 2, 3, 5, 9, 11 };
     local mainHandSkill = player:getWeaponSkillType(tpz.slot.MAIN)
     local subSkill = player:getWeaponSubSkillType(tpz.slot.SUB)
-    local mainHandSkill = 0
 
     if mainHandSkill == 1 then
         return 'H2H'
@@ -1061,6 +1060,7 @@ function utils.GetWeaponType(player)
 
     local skills =
     {
+        {1, 'H2H'},
         {2, 'DAGGER'},
         {3, 'SWORD'},
         {4, 'GREAT SWORD'},
