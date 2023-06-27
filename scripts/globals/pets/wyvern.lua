@@ -123,7 +123,7 @@ function doStatusBreath(target, player)
     return usedBreath
 end
 
-function doRestoringBreath(player, healingbreath)
+function doRestoringBreath(player, breath)
     local breath_heal_range = 13
     local function inBreathRange(target)
         return player:getPet():getZoneID() == target:getZoneID() and player:getPet():checkDistance(target) <= breath_heal_range
