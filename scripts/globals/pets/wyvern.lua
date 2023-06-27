@@ -123,6 +123,24 @@ function doStatusBreath(target, player)
     return usedBreath
 end
 
+function doRestoringBreath(player, healingbreath)
+    local breath_heal_range = 13
+    local function inBreathRange(target)
+        return player:getPet():getZoneID() == target:getZoneID() and player:getPet():checkDistance(target) <= breath_heal_range
+    end
+
+    local party = player:getParty()
+    for _, member in ipairs(party) do
+        if player:getHPP() <= member:getHPP() and inBreathRange(member) then
+            player:getPet():useJobAbility(breath, player)
+            break
+        else
+            player:getPet():useJobAbility(breath, member)
+            break
+        end
+    end
+end
+
 function onMobSpawn(mob)
     local master = mob:getMaster()
     
