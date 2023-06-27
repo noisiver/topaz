@@ -678,7 +678,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     -- Handle fanatics drink/powder
-    if (target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 1) then
+    if (target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD)) and (target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3) then
 
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
