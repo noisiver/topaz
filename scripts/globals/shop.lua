@@ -234,14 +234,14 @@ tpz.shop =
     {
         [curio.medicine] =
         {
-                4112,     150,      tpz.ki.RHAPSODY_IN_WHITE,   -- Potion
-                4116,     300,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Potion
-                4120,    1200,      tpz.ki.RHAPSODY_IN_AZURE,   -- X-Potion
-                4124,    5700,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Max-Potion
-                4128,     650,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ether
-                4132,    1300,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Ether
-                4136,    3000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Super Ether
-                4140,    7000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Pro Ether
+                4112,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Potion
+                4116,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Potion
+                4120,    2000,      tpz.ki.RHAPSODY_IN_AZURE,   -- X-Potion
+                4124,   10000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Max-Potion
+                4128,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ether
+                4132,    1200,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Ether
+                4136,    4000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Super Ether
+                4140,    5000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Pro Ether
                 4145,   15000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Elixir
                 4144,   20000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Hi-Elixir
                 4148,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antidote
@@ -271,14 +271,14 @@ tpz.shop =
                 17296,      3,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pebble
                 4219,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Stone Quiver
                 4220,     350,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bone Quiver
-                4225,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Quiver
-                4221,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beetle Quiver
-                4226,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Silver Quiver
-                4222,     650,      tpz.ki.RHAPSODY_IN_WHITE,   -- Horn Quiver
+                4225,    2083,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Quiver
+                4221,    2083,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beetle Quiver
+                4226,    2083,      tpz.ki.RHAPSODY_IN_WHITE,   -- Silver Quiver
+                4222,    4166,      tpz.ki.RHAPSODY_IN_WHITE,   -- Horn Quiver
                 5333,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Quiver
-                4223,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Scorpion Quiver
-                4224,    7000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Demon Quiver
-                5332,    8800,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Kabura Quiver
+                4223,    2916,      tpz.ki.RHAPSODY_IN_WHITE,   -- Scorpion Quiver
+                4224,    6666,      tpz.ki.RHAPSODY_IN_AZURE,   -- Demon Quiver
+                5332,   12500,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Kabura Quiver
                 -- 5819,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antlion Quiver
                 4227,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bolt Quiver
                 5334,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Blind Bolt Quiver
@@ -286,18 +286,18 @@ tpz.shop =
                 5337,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Bolt Quiver
                 5339,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bloody Bolt Quiver
                 5338,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
-                5336,    600,       tpz.ki.RHAPSODY_IN_UMBER,   -- Holy Bolt Quiver
-                4228,    3500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mythril Bolt Quiver
-                4229,    5580,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Darksteel Bolt Quiver
+                5336,    2500,      tpz.ki.RHAPSODY_IN_UMBER,  -- Holy Bolt Quiver
+                4228,    2500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mythril Bolt Quiver
+                4229,    4166,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Darksteel Bolt Quiver
                 -- 5820,    9460,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darkling Bolt Quiver
                 -- 5821,    9790,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fusion Bolt Quiver
                 5359,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bullet Pouch
-                5363,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bullet Pouch
+                5363,    5742,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bullet Pouch
                 5341,     350,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spartan Bullet Pouch
-                5353,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Bullet Pouch
-                5340,     700,      tpz.ki.RHAPSODY_IN_AZURE,   -- Silver Bullet Pouch
-                5342,    7100,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Corsair Bullet Pouch
-                5416,    7600,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Steel Bullet Pouch
+                5353,   13333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Bullet Pouch
+                5340,   10000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Silver Bullet Pouch
+                5342,   20000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Corsair Bullet Pouch
+                5416,   18333,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Steel Bullet Pouch
                 -- 5822,    9680,      tpz.ki.RHAPSODY_IN_WHITE,   -- Dweomer Bullet Pouch
                 -- 5823,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oberon Bullet Pouch
                 6299,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Shuriken Pouch
@@ -309,22 +309,22 @@ tpz.shop =
         [curio.ninjutsuTools] =
         {
                 5308,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Uchi)
-                5309,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Tsurara)
+                5309,    2000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Tsurara)
                 5310,    8000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Kawahori-Ogi)
                 5311,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Makibishi)
-                5312,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Hiraishin)
+                5312,    4000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Hiraishin)
                 5313,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Mizu-Deppo)
                 5314,    4000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Shihei)
-                5315,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Jusatsu)
-                5316,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Kaginawa)
+                5315,   11000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Jusatsu)
+                5316,   10000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Kaginawa)
                 5317,    8000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Sairui-Ran)
-                5318,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Kodoku)
+                5318,    8000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Kodoku)
                 5319,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Shinobi-Tabi)
-                5417,    000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Sanjaku-Tenugui)
-                5734,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Soshi)
-                5867,    5000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (inoshishinofuda)
+                5417,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Sanjaku-Tenugui)
+                -- 5734,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Soshi)
+                5867,    4000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (inoshishinofuda)
                 5868,    5000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (shikanofuda)
-                5869,    5000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (chonofuda)
+                5869,   11000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (chonofuda)
         },
         [curio.foodStuffs] =
         {
