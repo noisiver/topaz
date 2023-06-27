@@ -86,6 +86,7 @@ tpz.mix.jobSpecial.config(mob, {
 require("scripts/globals/mixins")
 require("scripts/globals/status")
 require("scripts/globals/utils")
+require("scripts/globals/mobs")
 ----------------------------------
 
 tpz = tpz or {}
@@ -285,7 +286,12 @@ g_mixins.job_special = function(mob)
 
         if ability then
             mob:setLocalVar("[jobSpecial]numAbilities", 1)
-            mob:setLocalVar("[jobSpecial]ability_1", ability)
+            
+            -- Only set if mobs 2 hour isn't set in tpz.mix.jobSpecial.config
+            if (mob:getLocalVar("[jobSpecial]ability_1") == nil) then
+                mob:setLocalVar("[jobSpecial]ability_1", ability)
+            end
+
             -- Bene / Invincible / Perfect Dodge are sometimes used at very low HP values
             if (ability == tpz.jsa.BENEDICTION) or (ability == tpz.jsa.INVINCIBLE) or (ability == tpz.jsa.PERFECT_DODGE) then
                 mob:setLocalVar("[jobSpecial]hpp_1", math.random(10, 50))
