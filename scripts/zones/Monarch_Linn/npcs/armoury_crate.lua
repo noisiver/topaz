@@ -96,6 +96,79 @@ local loot =
             {itemid = 17468, droprate = 100}, -- Raise Rod  
         },
     }
+    -- ENM: Uninvited Guests
+    [966] =
+    {
+        {
+            {itemid = 4247, droprate = 1000},  -- Miratete's Memoirs
+        },
+        {
+            {itemid = 5264, droprate = 1000},  -- Yellow Liquid
+        },
+        {
+            {itemid = 5264, droprate = 1000},  -- Yellow Liquid
+        },
+        {
+            {itemid = 5264, droprate = 1000},  -- Yellow Liquid
+        },
+        {
+            {itemid =     0, droprate =  500}, -- nothing
+            {itemid =  1842, droprate =  500}, -- Cloud Evoker
+        },
+        {
+            {itemid =     0, droprate =  900}, -- nothing
+            {itemid = 14470, droprate =  100}, -- Assault Breastplate
+        },
+        {
+            {itemid =     0, droprate =  950}, -- nothing
+            {itemid = 65535, droprate = 50, amount = 10000},  -- gil
+        },
+        {
+            {itemid =  0, droprate =  800}, -- nothing
+            {itemid =  860, droprate = 50}, -- Behemoth's Hide 
+            {itemid = 4486, droprate = 50}, -- Dragon Heart
+            {itemid = 1313, droprate = 50}, -- Siren's Hair
+            {itemid = 1312, droprate = 50}, -- Angel's Skin
+        },
+        {
+            {itemid =  0, droprate =  800}, -- nothing
+            {itemid = 1601, droprate = 50}, -- Mannequin Head
+            {itemid = 1602, droprate = 50}, -- Mannequin Body
+            {itemid = 1603, droprate = 50}, -- Mannequin Hands
+            {itemid = 1604, droprate = 50}, -- Mannequin Legs
+            {itemid = 1605, droprate = 50}, -- Mannequin Feet
+        },
+        {
+            {itemid =   0, droprate =  400}, -- nothing
+            {itemid = 1766, droprate = 50}, -- Tiger Eye 
+            {itemid = 1765, droprate = 50}, -- Habu Skin
+            {itemid = 1770, droprate = 50}, -- Oversized Fang
+            {itemid =  646, droprate = 50},  -- Adaman Ore
+            {itemid =  739, droprate = 50},  -- Orichalcum Ore
+            {itemid =  678, droprate = 50}, -- Aluminum Ore
+            {itemid =   61, droprate = 50},   -- Armoire
+            {itemid = 1132, droprate = 50}, -- Raxa
+            {itemid = 1841, droprate = 50}, -- Unicorn Horn
+            {itemid =  908, droprate = 50},  -- Adamantoise Shell
+            {itemid = 1771, droprate = 50},  -- Dragon Bone
+            {itemid =  690, droprate = 50},  -- Elm Log
+        },
+        {
+            {itemid =   0, droprate =  400}, -- nothing
+            {itemid = 5144, droprate = 50},  -- Crimson Jelly
+            {itemid = 5158, droprate = 50},  -- Vermillion Jelly
+            {itemid = 4279, droprate = 50},  -- Tavnazian Salad
+            {itemid = 5185, droprate = 50},  -- Leremieu Salad
+            {itemid = 5142, droprate = 50},  -- Bison Steak
+            {itemid = 5157, droprate = 50},  -- Marbled steak
+            {itemid = 4544, droprate = 50},  -- Mushroom stew
+            {itemid = 4344, droprate = 50},  -- Witch Stew
+            {itemid = 4434, droprate = 50},  -- Mushroom Risotto
+            {itemid = 4330, droprate = 50},  -- Witch Risotto
+            {itemid = 4550, droprate = 50},  -- Bream Risotto
+            {itemid = 4268, droprate = 50},  -- Sea Spray Risotto
+        },
+    }
 }
 
 function onTrade(player, npc, trade)

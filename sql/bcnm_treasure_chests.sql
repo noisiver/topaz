@@ -385,6 +385,7 @@ INSERT INTO bcnm_treasure_chests VALUES (964,3,16904231);
 INSERT INTO bcnm_treasure_chests VALUES (965,1,16904219); -- beloved_of_the_atlantes
 INSERT INTO bcnm_treasure_chests VALUES (965,2,16904222);
 INSERT INTO bcnm_treasure_chests VALUES (965,3,16904225);
+INSERT INTO bcnm_treasure_chests VALUES (966,1,16904219); -- uninvited guests
 INSERT INTO bcnm_treasure_chests VALUES (967,1,16904267); -- nest_of_nightmares
 INSERT INTO bcnm_treasure_chests VALUES (967,2,16904273);
 INSERT INTO bcnm_treasure_chests VALUES (967,3,16904279);
