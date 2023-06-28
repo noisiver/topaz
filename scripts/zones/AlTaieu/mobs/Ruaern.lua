@@ -14,7 +14,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
-    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 50)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
 end
 
 function onMobEngaged(mob, target)
