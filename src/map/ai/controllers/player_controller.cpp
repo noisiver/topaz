@@ -179,7 +179,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
         }
 
         // Check for TP costing JA's
-        if (playerTP < PAbility->getTPCost())
+        if (playerTP < PAbility->getTPCost() && !PChar->StatusEffectContainer->HasStatusEffect(EFFECT_TRANCE))
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_NOT_ENOUGH_TP));
             return false;
