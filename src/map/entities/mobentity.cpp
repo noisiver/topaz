@@ -851,14 +851,16 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
 
     uint16 targets = (uint16)PAI->TargetFind->m_targets.size();
 
+    // Interrupted
     if (!PTarget || targets == 0)
     {
         action.actiontype = ACTION_MOBABILITY_INTERRUPT;
         actionList_t& actionList = action.getNewActionList();
-        actionList.ActionTargetID = id;
+        actionList.ActionTargetID = this->id;
 
         actionTarget_t& actionTarget = actionList.getNewActionTarget();
         actionTarget.animation = PSkill->getID();
+        actionTarget.messageID = 88;
         return;
     }
 
