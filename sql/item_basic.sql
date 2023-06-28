@@ -1079,7 +1079,7 @@ INSERT INTO `item_basic` VALUES (1189,0,'rattling_egg','rattling_egg',1,61524,0,
 INSERT INTO `item_basic` VALUES (1190,0,'antican_tag','antican_tag',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (1191,0,'kodoku','kodoku',99,4,49,0,25);
 INSERT INTO `item_basic` VALUES (1192,0,'fallen_star','fallen_star',1,61504,0,1,0);
-INSERT INTO `item_basic` VALUES (1193,0,'high-quality_crab_shell','h.q._crab_shell',1,4,42,0,3325);
+INSERT INTO `item_basic` VALUES (1193,0,'high-quality_crab_shell','h.q._crab_shell',99,4,42,0,3325);
 INSERT INTO `item_basic` VALUES (1194,0,'shinobi-tabi','shinobi-tabi',99,4,49,0,25);
 INSERT INTO `item_basic` VALUES (1195,0,'flask_of_romaeve_spring_water','romaeve_water',1,45140,0,1,0);
 INSERT INTO `item_basic` VALUES (1196,0,'qiqirn_cape','qiqirn_cape',1,4100,50,1,0);
