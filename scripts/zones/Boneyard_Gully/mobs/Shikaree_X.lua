@@ -4,15 +4,14 @@
 -----------------------------------
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobInitialize(mob)
+    SetGenericNMStats(mob)
+    mob:addMod(tpz.mod.DEFP, 50)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
     mob:setMobMod(tpz.mobMod.DUAL_WIELD, 1)
-    mob:addMod(tpz.mod.DEFP, 100) 
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 15) 
-    mob:addMod(tpz.mod.EVA, 15)
-    mob:setMod(tpz.mod.REFRESH, 40)
 end
 
 function onMobSpawn(mob)

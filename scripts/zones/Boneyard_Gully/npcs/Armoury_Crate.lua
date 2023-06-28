@@ -107,34 +107,41 @@ local loot =
     },
 
     -- Quest: Requiem of Sin
-    [676] =
+    [678] =
     {
         {
-            {itemid =    0, droprate =  600}, -- nothing
-            {itemid = 16976, droprate = 100},  -- Onimaru
-            {itemid = 18015, droprate = 100}, -- Blau Dolch
-            {itemid = 18099, droprate = 100}, -- Stone-splitter
-            {itemid = 17469, droprate = 100},  -- Raise II Rod
+            {itemid =   0,  droprate =  700},  -- nothing
+            {itemid = 18019, droprate = 100},  -- X's Knife
+            {itemid = 18057, droprate = 100},  -- Y's Scythe
+            {itemid = 18101, droprate = 100},  -- Z's Trident
         },
         {
-            {itemid =    0, droprate =  600}, -- nothing
-            {itemid = 17946, droprate = 100},  -- Maneater
-            {itemid = 18358, droprate = 100},  -- Wagh Baghnakhs
-            {itemid = 17365, droprate = 100}, -- Frenzy Fife
-            {itemid = 17469, droprate = 100},  -- Raise II Rod
+            {itemid =   0, droprate =  700},  -- nothing
+            {itemid = 1767, droprate =  50},  -- Eltoro Leather
+            {itemid = 1764, droprate =  50},  -- Kejusu Satin
+            {itemid = 1771, droprate =  50},  -- Dragon Bone
+            {itemid = 1763, droprate =  50},  -- Viridian Urushi
+            {itemid = 1769, droprate =  50},  -- Square of Galateia
+            {itemid = 1132, droprate =  50},  -- Square of Raxa
         },
         {
-            {itemid =   0, droprate =  166}, -- nothing
-            {itemid = 1763, droprate = 166},  -- Viridian Urushi
-            {itemid = 1767, droprate = 166},  -- Eltoro Leather
-            {itemid = 1841, droprate = 166},  -- Unicorn Horn
-            {itemid = 1762, droprate = 166},  -- Cassia Lumber
-            {itemid = 1771, droprate = 166},  -- Dragon Bone
+            {itemid =   0, droprate =  700},  -- nothing
+            {itemid = 1767, droprate =  50},  -- Eltoro Leather
+            {itemid = 1764, droprate =  50},  -- Kejusu Satin
+            {itemid = 1771, droprate =  50},  -- Dragon Bone
+            {itemid = 1763, droprate =  50},  -- Viridian Urushi
+            {itemid = 1769, droprate =  50},  -- Square of Galateia
+            {itemid = 1132, droprate =  50},  -- Square of Raxa
         },
         {
-            {itemid =  0, droprate =  500}, -- nothing
-            {itemid = 1842, droprate = 500},    -- Cloud Evoker
-        }
+            {itemid =   0, droprate =  700},  -- nothing
+            {itemid = 1767, droprate =  50},  -- Eltoro Leather
+            {itemid = 1764, droprate =  50},  -- Kejusu Satin
+            {itemid = 1771, droprate =  50},  -- Dragon Bone
+            {itemid = 1763, droprate =  50},  -- Viridian Urushi
+            {itemid = 1769, droprate =  50},  -- Square of Galateia
+            {itemid = 1132, droprate =  50},  -- Square of Raxa
+        },
     }
 }
 

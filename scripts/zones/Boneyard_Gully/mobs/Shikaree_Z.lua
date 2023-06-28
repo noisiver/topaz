@@ -4,16 +4,15 @@
 -----------------------------------
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 -- TODO: They skillchain with each other
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.DEFP, 100) 
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 15) 
-    mob:addMod(tpz.mod.EVA, 15)
-    mob:setMod(tpz.mod.REFRESH, 40)
+    SetGenericNMStats(mob)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
 end
 
 function onMobSpawn(mob)
@@ -26,6 +25,16 @@ function onMobEngaged(mob, target)
     SpawnMob(mob:getID() + 3)
     mob:setLocalVar("distracted", 0)
     mob:setMod(tpz.mod.REGAIN, 150)
+end
+
+function onMobFight(mob, target)
+    -- Handle Healing Breath
+    mob:addListener("MAGIC_STATE_EXIT", "SHIKAREE_Z", function(mob, spell)
+        local wyvern = GetMobByID(mob:getID() +3)
+        if mob:getHPP() <= 50 then
+            wyvern:useMobAbility(895) -- Healing Breath II
+        end
+    end)
 end
 
 function onMobWeaponSkill(target, mob, skill)

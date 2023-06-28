@@ -350,6 +350,11 @@ INSERT INTO `mob_groups` VALUES (15,1860,8,'Gwyn_Ap_Knudd',0,128,0,10500,0,85,85
 INSERT INTO `mob_groups` VALUES (16,598,8,'Cadaver_Warrior',0,128,0,0,0,76,77,0);
 INSERT INTO `mob_groups` VALUES (17,599,8,'Cadaver_Witch',0,128,0,0,0,76,77,0);
 INSERT INTO `mob_groups` VALUES (18,1250,8,'Erdgeist',0,128,0,0,0,76,77,0);
+INSERT INTO `mob_groups` VALUES (19,3601,8,'Shikaree_Z_Requiem',0,128,0,4000,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (20,3600,8,'Shikaree_Y_Requiem',0,128,0,4000,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (21,3598,8,'Shikaree_X_Requiem',0,128,0,4000,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (22,3602,8,'Shikaree_Zs_Wyvern_Requiem',0,128,0,4500,0,78,78,0);
+INSERT INTO `mob_groups` VALUES (23,3599,8,'Shikaree_Xs_Rabbit_Requiem',0,128,0,4500,0,78,78,0);
 
 -- ------------------------------------------------------------
 -- PsoXja (Zone 9)
@@ -1124,8 +1129,8 @@ INSERT INTO `mob_groups` VALUES (4,3333,31,'Razon',0,128,0,4000,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (5,4304,31,'Watch_Hippogryph',0,128,0,6500,0,55,57,0);
 INSERT INTO `mob_groups` VALUES (6,1834,31,'Guard_Hippogryph',0,128,0,1000,0,53,55,0);
 INSERT INTO `mob_groups` VALUES (7,1992,31,'Hotupuku',0,128,0,8000,0,55,57,0);
-INSERT INTO `mob_groups` VALUES (8,2502,31,'Mammet_Master',0,128,0,5500,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (9,2501,31,'Mammet-800',0,128,1585,3500,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (8,2502,31,'Mammet_Master',0,128,0,5500,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (9,2501,31,'Mammet-800',0,128,1585,3500,0,80,80,0);
 
 -- ------------------------------------------------------------
 -- Sealions_Den (Zone 32)
