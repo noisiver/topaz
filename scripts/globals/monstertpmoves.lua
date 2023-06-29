@@ -948,30 +948,33 @@ function DrainMultipleAttributes(mob, target, power, tick, count, duration)
     local attributes = {};
     local currIndex = 1;
     while (currIndex <= count) do
-      local newAttr = math.random(136, 142);
-      for _, attr in pairs(attributes) do
-        if (attr == newAttr) then
-          newAttr = -1;
+        local newAttr = math.random(136, 142);
+        for _, attr in pairs(attributes) do
+            if (attr == newAttr) then
+                newAttr = -1;
+            end
         end
-      end
-      if (newAttr ~= -1) then
-        attributes[currIndex] = newAttr;
-        currIndex = currIndex + 1;
-      end
+        if (newAttr ~= -1) then
+            attributes[currIndex] = newAttr;
+            currIndex = currIndex + 1;
+        end
     end
 
     local msg = tpz.msg.basic.SKILL_MISS;
-    
+    local effectsLanded = 0
+
     for i = 1,count,1 do
-      local newMsg = MobDrainAttribute(mob, target, attributes[i], power, tick, duration);
-      if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
-        msg = newMsg;
-      elseif (msg == tpz.msg.basic.SKILL_MISS) then
-        msg = newMsg;
-      end
+        local newMsg = MobDrainAttribute(mob, target, attributes[i], power, tick, duration);
+        if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
+            msg = newMsg;
+            effectsLanded = effectsLanded + 1
+        elseif (msg == tpz.msg.basic.SKILL_MISS) then
+            msg = newMsg;
+            effectsLanded = 0
+        end
     end
     
-    return msg;
+    return msg, effectsLanded
 end
 
 function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count, duration)
@@ -986,16 +989,15 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
     end
     -- Check if the attack wasn't blocked and didn't miss...
     if (MobPhysicalHit(mob, skill)) then
-		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
-        return count
+        return DrainMultipleAttributes(mob, target, power, tick, count, duration)
 	end
     -- If no shadows, then set msg to miss.
     if not target:hasStatusEffect(tpz.effect.COPY_IMAGE) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_2)
         and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
-            skill:setMsg(tpz.msg.basic.SKILL_MISS)
-            return 0
+            
+        return tpz.msg.basic.SKILL_MISS, 0
     else -- Return amount of shadows were consumed to block the attack
-        return shadows
+        return tpz.msg.basic.SHADOW_ABSORB, shadows
     end
 end
 

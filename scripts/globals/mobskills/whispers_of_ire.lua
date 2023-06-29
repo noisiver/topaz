@@ -18,5 +18,9 @@ function onMobWeaponSkill(target, mob, skill)
     if blightningBrand then
         utils.FullSelfEraseNa(mob)
     end
-    return DrainMultipleAttributesPhysical(mob, target, skill, 14, 60, math.random(1, 7), 300)
+    local msg, effectsLanded = DrainMultipleAttributesPhysical(mob, target, skill, 14, 60, math.random(1, 7), 300)
+
+    skill:setMsg(msg)
+
+    return effectsLanded
 end
