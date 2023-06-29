@@ -8318,12 +8318,13 @@ INSERT INTO `item_mods` VALUES (12443,289,3);        -- Subtle Blow +3
 INSERT INTO `item_mods` VALUES (12444,1,18);
 INSERT INTO `item_mods` VALUES (12444,54,2);
 INSERT INTO `item_mods` VALUES (12444,59,-1);
-INSERT INTO `item_mods` VALUES (12445,1,31);
+INSERT INTO `item_mods` VALUES (12445,1,31);        -- Dusk Mask
 INSERT INTO `item_mods` VALUES (12445,2,30);
 INSERT INTO `item_mods` VALUES (12445,10,5);
 INSERT INTO `item_mods` VALUES (12445,25,5);
 INSERT INTO `item_mods` VALUES (12445,68,5);
 INSERT INTO `item_mods` VALUES (12445,169,-12);
+INSERT INTO `item_mods` VALUES (12445,890,10);      -- Enhancing magic duration +10%
 INSERT INTO `item_mods` VALUES (12446,1,21);
 INSERT INTO `item_mods` VALUES (12446,23,3);
 INSERT INTO `item_mods` VALUES (12446,54,-4);
@@ -8676,9 +8677,10 @@ INSERT INTO `item_mods` VALUES (12571,289,5);      -- Subtle Blow +5
 INSERT INTO `item_mods` VALUES (12572,1,35);
 INSERT INTO `item_mods` VALUES (12572,54,3);
 INSERT INTO `item_mods` VALUES (12572,59,-1);
-INSERT INTO `item_mods` VALUES (12573,1,50);
+INSERT INTO `item_mods` VALUES (12573,1,50);        -- Dusk Jerkin
 INSERT INTO `item_mods` VALUES (12573,2,40);
-INSERT INTO `item_mods` VALUES (12573,25,2);
+INSERT INTO `item_mods` VALUES (12573,25,10);
+INSERT INTO `item_mods` VALUES (12573,26,10);
 INSERT INTO `item_mods` VALUES (12573,169,-12);
 INSERT INTO `item_mods` VALUES (12573,370,1);
 INSERT INTO `item_mods` VALUES (12574,1,41);
@@ -12279,12 +12281,13 @@ INSERT INTO `item_mods` VALUES (13937,27,2);
 INSERT INTO `item_mods` VALUES (13937,162,-6);
 INSERT INTO `item_mods` VALUES (13937,289,4);
 INSERT INTO `item_mods` VALUES (13937,421,2);       -- Critical hit damage +2%
-INSERT INTO `item_mods` VALUES (13938,1,32);
+INSERT INTO `item_mods` VALUES (13938,1,32);        -- Dusk Mask +1
 INSERT INTO `item_mods` VALUES (13938,2,32);
 INSERT INTO `item_mods` VALUES (13938,10,6);
 INSERT INTO `item_mods` VALUES (13938,25,6);
 INSERT INTO `item_mods` VALUES (13938,68,6);
 INSERT INTO `item_mods` VALUES (13938,169,-12);
+INSERT INTO `item_mods` VALUES (13938,890,12);      -- Enhancing magic duration +12%
 INSERT INTO `item_mods` VALUES (13939,1,13);
 INSERT INTO `item_mods` VALUES (13939,5,8);
 INSERT INTO `item_mods` VALUES (13939,14,-1);
@@ -14004,9 +14007,10 @@ INSERT INTO `item_mods` VALUES (14390,11,7);
 INSERT INTO `item_mods` VALUES (14390,23,12);
 INSERT INTO `item_mods` VALUES (14390,162,-12);
 INSERT INTO `item_mods` VALUES (14390,289,12);
-INSERT INTO `item_mods` VALUES (14391,1,51);
+INSERT INTO `item_mods` VALUES (14391,1,51);        -- Dusk Jerkin +1
 INSERT INTO `item_mods` VALUES (14391,2,42);
-INSERT INTO `item_mods` VALUES (14391,25,3);
+INSERT INTO `item_mods` VALUES (14391,25,12);
+INSERT INTO `item_mods` VALUES (14391,26,12);
 INSERT INTO `item_mods` VALUES (14391,169,-12);
 INSERT INTO `item_mods` VALUES (14391,370,1);
 INSERT INTO `item_mods` VALUES (14392,1,3);
@@ -14509,10 +14513,10 @@ INSERT INTO `item_mods` VALUES (14525,68,12);
 INSERT INTO `item_mods` VALUES (14525,306,5);
 INSERT INTO `item_mods` VALUES (14526,1,42); -- Jaridah Peti
 INSERT INTO `item_mods` VALUES (14526,2,-25);
-INSERT INTO `item_mods` VALUES (14526,23,10);
-INSERT INTO `item_mods` VALUES (14526,24,10);
-INSERT INTO `item_mods` VALUES (14526,25,10);
-INSERT INTO `item_mods` VALUES (14526,26,10);
+INSERT INTO `item_mods` VALUES (14526,23,5);
+INSERT INTO `item_mods` VALUES (14526,24,5);
+INSERT INTO `item_mods` VALUES (14526,25,5);
+INSERT INTO `item_mods` VALUES (14526,26,5);
 INSERT INTO `item_mods` VALUES (14527,1,40);      -- Yigit Gomlek: DEF 40
 INSERT INTO `item_mods` VALUES (14527,28,5);      -- Magic Atk. Bonus +5
 INSERT INTO `item_mods` VALUES (14527,68,7);      -- Evasion +7
@@ -14525,10 +14529,10 @@ INSERT INTO `item_mods` VALUES (14528,9,6);
 INSERT INTO `item_mods` VALUES (14528,165,3);
 INSERT INTO `item_mods` VALUES (14529,1,43);
 INSERT INTO `item_mods` VALUES (14529,2,-25);     -- Akinji Peti
-INSERT INTO `item_mods` VALUES (14529,23,11);
-INSERT INTO `item_mods` VALUES (14529,24,11);
-INSERT INTO `item_mods` VALUES (14529,25,11);
-INSERT INTO `item_mods` VALUES (14529,26,11);
+INSERT INTO `item_mods` VALUES (14529,23,6);
+INSERT INTO `item_mods` VALUES (14529,24,6);
+INSERT INTO `item_mods` VALUES (14529,25,6);
+INSERT INTO `item_mods` VALUES (14529,26,6);
 INSERT INTO `item_mods` VALUES (14530,1,42); -- (Pahluwan Khazagand)
 INSERT INTO `item_mods` VALUES (14530,2,20);
 INSERT INTO `item_mods` VALUES (14530,25,10);
@@ -15771,10 +15775,10 @@ INSERT INTO `item_mods` VALUES (14933,23,5);
 INSERT INTO `item_mods` VALUES (14933,110,5);
 INSERT INTO `item_mods` VALUES (14934,1,14); -- Jaridah Bazubands
 INSERT INTO `item_mods` VALUES (14934,2,-9);
-INSERT INTO `item_mods` VALUES (14934,23,5);
-INSERT INTO `item_mods` VALUES (14934,24,5);
-INSERT INTO `item_mods` VALUES (14934,25,5);
-INSERT INTO `item_mods` VALUES (14934,26,5);
+INSERT INTO `item_mods` VALUES (14934,23,3);
+INSERT INTO `item_mods` VALUES (14934,24,3);
+INSERT INTO `item_mods` VALUES (14934,25,3);
+INSERT INTO `item_mods` VALUES (14934,26,3);
 INSERT INTO `item_mods` VALUES (14935,1,17);
 INSERT INTO `item_mods` VALUES (14935,12,5);
 INSERT INTO `item_mods` VALUES (14935,13,5);
@@ -15791,10 +15795,10 @@ INSERT INTO `item_mods` VALUES (14938,8,5);
 INSERT INTO `item_mods` VALUES (14938,10,7);
 INSERT INTO `item_mods` VALUES (14939,1,15);      -- Akinji Bazubands
 INSERT INTO `item_mods` VALUES (14939,2,-9);
-INSERT INTO `item_mods` VALUES (14939,23,6);
-INSERT INTO `item_mods` VALUES (14939,24,6);
-INSERT INTO `item_mods` VALUES (14939,25,6);
-INSERT INTO `item_mods` VALUES (14939,26,6);
+INSERT INTO `item_mods` VALUES (14939,23,4);
+INSERT INTO `item_mods` VALUES (14939,24,4);
+INSERT INTO `item_mods` VALUES (14939,25,4);
+INSERT INTO `item_mods` VALUES (14939,26,4);
 INSERT INTO `item_mods` VALUES (14940,1,19);
 INSERT INTO `item_mods` VALUES (14940,24,5);
 INSERT INTO `item_mods` VALUES (14940,25,5);
@@ -18163,10 +18167,10 @@ INSERT INTO `item_mods` VALUES (15604,24,4);
 INSERT INTO `item_mods` VALUES (15604,26,4);
 INSERT INTO `item_mods` VALUES (15605,1,30); -- Jaridah Salvars
 INSERT INTO `item_mods` VALUES (15605,2,-12);
-INSERT INTO `item_mods` VALUES (15605,23,7);
-INSERT INTO `item_mods` VALUES (15605,24,7);
-INSERT INTO `item_mods` VALUES (15605,25,7);
-INSERT INTO `item_mods` VALUES (15605,26,7);
+INSERT INTO `item_mods` VALUES (15605,23,4);
+INSERT INTO `item_mods` VALUES (15605,24,4);
+INSERT INTO `item_mods` VALUES (15605,25,4);
+INSERT INTO `item_mods` VALUES (15605,26,4);
 INSERT INTO `item_mods` VALUES (15606,1,30);
 INSERT INTO `item_mods` VALUES (15606,2,25);
 INSERT INTO `item_mods` VALUES (15606,5,25);
@@ -18178,10 +18182,10 @@ INSERT INTO `item_mods` VALUES (15607,8,5);
 INSERT INTO `item_mods` VALUES (15607,10,8);
 INSERT INTO `item_mods` VALUES (15608,1,31);      -- Akinji Salvars
 INSERT INTO `item_mods` VALUES (15608,2,-12);
-INSERT INTO `item_mods` VALUES (15608,23,8);
-INSERT INTO `item_mods` VALUES (15608,24,8);
-INSERT INTO `item_mods` VALUES (15608,25,8);
-INSERT INTO `item_mods` VALUES (15608,26,8);
+INSERT INTO `item_mods` VALUES (15608,23,5);
+INSERT INTO `item_mods` VALUES (15608,24,5);
+INSERT INTO `item_mods` VALUES (15608,25,5);
+INSERT INTO `item_mods` VALUES (15608,26,5);
 INSERT INTO `item_mods` VALUES (15609,1,36);
 INSERT INTO `item_mods` VALUES (15609,8,3);
 INSERT INTO `item_mods` VALUES (15609,25,4);
@@ -18516,10 +18520,10 @@ INSERT INTO `item_mods` VALUES (15688,25,6);
 INSERT INTO `item_mods` VALUES (15688,72,1);
 INSERT INTO `item_mods` VALUES (15689,1,12); -- Jaridah Nails
 INSERT INTO `item_mods` VALUES (15689,2,-7);
-INSERT INTO `item_mods` VALUES (15689,23,5);
-INSERT INTO `item_mods` VALUES (15689,24,5);
-INSERT INTO `item_mods` VALUES (15689,25,5);
-INSERT INTO `item_mods` VALUES (15689,26,5);
+INSERT INTO `item_mods` VALUES (15689,23,3);
+INSERT INTO `item_mods` VALUES (15689,24,3);
+INSERT INTO `item_mods` VALUES (15689,25,3);
+INSERT INTO `item_mods` VALUES (15689,26,3);
 INSERT INTO `item_mods` VALUES (15690,1,11);
 INSERT INTO `item_mods` VALUES (15690,12,3);
 INSERT INTO `item_mods` VALUES (15690,13,3);
@@ -18534,10 +18538,10 @@ INSERT INTO `item_mods` VALUES (15693,8,3);
 INSERT INTO `item_mods` VALUES (15693,10,7);
 INSERT INTO `item_mods` VALUES (15694,1,13);      -- Akinji Nails
 INSERT INTO `item_mods` VALUES (15694,2,-7);
-INSERT INTO `item_mods` VALUES (15694,23,6);
-INSERT INTO `item_mods` VALUES (15694,24,6);
-INSERT INTO `item_mods` VALUES (15694,25,6);
-INSERT INTO `item_mods` VALUES (15694,26,6);
+INSERT INTO `item_mods` VALUES (15694,23,4);
+INSERT INTO `item_mods` VALUES (15694,24,4);
+INSERT INTO `item_mods` VALUES (15694,25,4);
+INSERT INTO `item_mods` VALUES (15694,26,4);
 INSERT INTO `item_mods` VALUES (15695,1,13);
 INSERT INTO `item_mods` VALUES (15695,9,4);
 INSERT INTO `item_mods` VALUES (15695,25,3);
