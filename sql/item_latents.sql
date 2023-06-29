@@ -2152,6 +2152,7 @@ INSERT INTO `item_latents` VALUES(16647, 23, 5, 56, 0);     -- Rune Axe +5 Atk.
 INSERT INTO `item_latents` VALUES(16647, 369, -3, 56, 0);   -- Rune Axe -3MP/tic
 INSERT INTO `item_latents` VALUES(16647, 370, 5, 56, 0);    -- Rune Axe +5HP/tic
 INSERT INTO `item_latents` VALUES(16686, 165, 7, 59, 3);    -- Arcanabane - Vs. arcana: Critical hit rate +7%
+INSERT INTO `item_latents` VALUES(16853, 165, 7, 59, 14);   -- Lizard Piercer - Vs. lizads: Critical hit rate +7%
 
 -- -------------------------------------------------------
 -- Schwarz Axt
