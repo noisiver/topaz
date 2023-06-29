@@ -315,13 +315,6 @@ function onMobFight(mob, target)
 	        mob:setMod(tpz.mod.MACC, 10)
 	    end       
     end
-    -- Spirit power logic(Spirit Surge)
-    local SpiritPower = master:getLocalVar("SpiritPower")
-    if SpiritPower > 0 then
-        mob:setMod(tpz.mod.ATTP, SpiritPower * 15)
-    else
-        mob:setMod(tpz.mod.ATTP, 0)
-    end
 end
 
 function onMobDeath(mob, player)
