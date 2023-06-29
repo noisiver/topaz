@@ -12267,16 +12267,18 @@ INSERT INTO `item_mods` VALUES (13935,1,21);
 INSERT INTO `item_mods` VALUES (13935,2,-30);
 INSERT INTO `item_mods` VALUES (13935,8,6);
 INSERT INTO `item_mods` VALUES (13935,25,6);
-INSERT INTO `item_mods` VALUES (13936,1,24);
+INSERT INTO `item_mods` VALUES (13936,1,24);        -- Dragon Cap
 INSERT INTO `item_mods` VALUES (13936,11,4);
 INSERT INTO `item_mods` VALUES (13936,27,1);
 INSERT INTO `item_mods` VALUES (13936,162,-5);
 INSERT INTO `item_mods` VALUES (13936,289,3);
-INSERT INTO `item_mods` VALUES (13937,1,25);
+INSERT INTO `item_mods` VALUES (13936,421,1);       -- Critical hit damage +1%
+INSERT INTO `item_mods` VALUES (13937,1,25);        -- Dragon Cap +1
 INSERT INTO `item_mods` VALUES (13937,11,5);
 INSERT INTO `item_mods` VALUES (13937,27,2);
 INSERT INTO `item_mods` VALUES (13937,162,-6);
 INSERT INTO `item_mods` VALUES (13937,289,4);
+INSERT INTO `item_mods` VALUES (13937,421,2);       -- Critical hit damage +2%
 INSERT INTO `item_mods` VALUES (13938,1,32);
 INSERT INTO `item_mods` VALUES (13938,2,32);
 INSERT INTO `item_mods` VALUES (13938,10,6);
@@ -15287,13 +15289,13 @@ INSERT INTO `item_mods` VALUES (14822,1,17);
 INSERT INTO `item_mods` VALUES (14822,2,-25);
 INSERT INTO `item_mods` VALUES (14822,25,5);
 INSERT INTO `item_mods` VALUES (14822,1242,2);
-INSERT INTO `item_mods` VALUES (14823,1,16);
-INSERT INTO `item_mods` VALUES (14823,11,4);
+INSERT INTO `item_mods` VALUES (14823,1,16);        -- Dragon Mittens
+INSERT INTO `item_mods` VALUES (14823,9,4);
 INSERT INTO `item_mods` VALUES (14823,23,2);
 INSERT INTO `item_mods` VALUES (14823,27,2);
 INSERT INTO `item_mods` VALUES (14823,289,2);
-INSERT INTO `item_mods` VALUES (14824,1,17);
-INSERT INTO `item_mods` VALUES (14824,11,5);
+INSERT INTO `item_mods` VALUES (14824,1,17);        -- Dragon Mittens +1
+INSERT INTO `item_mods` VALUES (14824,9,5);
 INSERT INTO `item_mods` VALUES (14824,23,3);
 INSERT INTO `item_mods` VALUES (14824,27,3);
 INSERT INTO `item_mods` VALUES (14824,289,3);
