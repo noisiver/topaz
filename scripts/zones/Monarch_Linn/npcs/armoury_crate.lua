@@ -95,7 +95,7 @@ local loot =
             {itemid = 18411, droprate = 100}, -- Buboso
             {itemid = 17468, droprate = 100}, -- Raise Rod  
         },
-    }
+    },
     -- ENM: Uninvited Guests
     [966] =
     {

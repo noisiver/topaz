@@ -14,5 +14,5 @@ function onAdditionalEffect(player, target, damage)
     local subpower = 0
     local tier = 1
     local bonus = 0
-    return TryApplyAdditionalEffect(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, chance, bonus)
+    return TryApplyAdditionalEffect(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, power, tick, duration, subpower, tier, chance, bonus)
  end
