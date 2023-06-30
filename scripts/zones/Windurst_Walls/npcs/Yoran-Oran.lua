@@ -117,7 +117,7 @@ function onEventFinish(player, csid, option)
     elseif csid == 255 then
         npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 150 }) -- Snobby Letter
         player:addExp(5000 * EXP_RATE)
-        player:addGil(GIL_RATE*10000)
+        player:addGil(GIL_RATE*5500)
         player:confirmTrade()
     end
 end
