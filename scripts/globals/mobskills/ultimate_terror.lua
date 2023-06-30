@@ -14,5 +14,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    return DrainMultipleAttributesPhysical(mob, target, skill, 21, 60, math.random(1, 7), 300)
+    local msg, effectsLanded = DrainMultipleAttributesPhysical(mob, target, skill, 21, 60, math.random(1, 7), 300)
+
+    skill:setMsg(msg)
+
+    return effectsLanded
 end
