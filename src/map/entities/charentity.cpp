@@ -1446,27 +1446,42 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                 actionTarget.animation = PAbility->getAnimationID();
                 actionTarget.messageID = 0;
                 actionTarget.param = 0;
-                int32 value = luautils::OnUseAbility(this, PTarget, PAbility, &action);
-                // If a script set messageID directly, use that;
-                // otherwise, use the ability's message id.
-                if (actionTarget.messageID == 0)
+
+                if (PTarget->isSuperJumped)
                 {
-                    actionTarget.messageID = first ? PAbility->getMessage() : PAbility->getAoEMsg();
+                    actionTarget.animation = ANIMATION_NONE;
+                    actionTarget.messageID = 0;
+                }
+                else
+                {
+                    int32 value = luautils::OnUseAbility(this, PTarget, PAbility, &action);
+
+                    // If a script set messageID directly, use that;
+                    // otherwise, use the ability's message id.
+                    if (actionTarget.messageID == 0)
+                    {
+                        actionTarget.messageID = first ? PAbility->getMessage() : PAbility->getAoEMsg();
+                    }
+
+                    // Display a generic message for the caster if no message is set.
+                    if (first && actionTarget.messageID == 0)
+                        actionTarget.messageID = MSGBASIC_USES_JA;
+
+                    actionTarget.param = value;
+
+                    if (value < 0)
+                    {
+                        actionTarget.messageID = ability::GetAbsorbMessage(actionTarget.messageID);
+                        actionTarget.param = -value;
+                    }
+
+                    state.ApplyEnmity();
                 }
 
-                // Display a generic message for the caster if no message is set.
-                if (first && actionTarget.messageID == 0)
-                    actionTarget.messageID = MSGBASIC_USES_JA;
-                actionTarget.param = value;
-                if (value < 0)
-                {
-                    actionTarget.messageID = ability::GetAbsorbMessage(actionTarget.messageID);
-                    actionTarget.param = -value;
-                }
-				state.ApplyEnmity();
                 first = false;
             }
         }
+
 
         // Interrupted
         if (!success)

@@ -888,6 +888,15 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         // reset the skill's message back to default
         PSkill->setMsg(defaultMessage);
 
+        if (PTarget->isSuperJumped)
+        {
+            target.reaction = REACTION_EVADE;
+            target.speceffect = SPECEFFECT_NONE;
+            target.messageID = 188; // skill miss
+            continue;
+        }
+
+
         if (objtype == TYPE_PET && static_cast<CPetEntity*>(this)->getPetType() != PETTYPE_JUG_PET)
         {
             if(static_cast<CPetEntity*>(this)->getPetType() == PETTYPE_AVATAR || static_cast<CPetEntity*>(this)->getPetType() == PETTYPE_WYVERN)

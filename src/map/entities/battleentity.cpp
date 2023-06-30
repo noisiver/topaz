@@ -89,6 +89,7 @@ CBattleEntity::CBattleEntity()
 
     m_Immunity = 0;
     isCharmed = false;
+    isSuperJumped = false;
     m_unkillable = false;
 }
 
@@ -1361,6 +1362,12 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
     CBattleEntity* POriginalTarget = PActionTarget;
     bool IsMagicCovered= false;
 
+    if (PActionTarget->isSuperJumped)
+    {
+        return OnCastInterrupted(state, action, MSGBASIC_IS_INTERRUPTED);
+    }
+
+
     luautils::OnSpellPrecast(this, PSpell);
 
     state.SpendCost();
@@ -1448,6 +1455,14 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
 
         auto ce = PSpell->getCE();
         auto ve = PSpell->getVE();
+
+        // Super Jump and Super Climb
+        if (PTarget->isSuperJumped)
+        {
+            actionTarget.messageID = MSGBASIC_MAGIC_NO_EFFECT;
+            // actionTarget.animation = ANIMATION_NONE; a really weird effect
+            continue;
+        }
 
         // Take all shadows
         if (PSpell->canTargetEnemy() && (aoeType > SPELLAOE_NONE || (PSpell->getFlag() & SPELLFLAG_WIPE_SHADOWS)))
@@ -1699,7 +1714,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             list.ActionTargetID = PTarget->id;
         }
 
-        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE, 0))
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE, 0) || PTarget->isSuperJumped)
         {
             actionTarget.messageID = 32;
             actionTarget.reaction = REACTION_EVADE;
