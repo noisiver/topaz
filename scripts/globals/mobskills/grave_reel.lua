@@ -17,10 +17,10 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
     if (mob:getPool() == 9004) then -- The Big One
         dmgmod = 3
-        skill:setMsg(MobDrainMove(mob, target, MOBDRAIN_TP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
+        skill:setMsg(MobDrainMove(mob, target, skill, MOBDRAIN_TP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
         return dmg
     end
 
-    skill:setMsg(MobDrainMove(mob, target, MOBDRAIN_HP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
+    skill:setMsg(MobDrainMove(mob, target, skill, MOBDRAIN_HP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
     return dmg
 end
