@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Talacca_Cove
--- NPC:  rock slab (corsair job flag quest)
+-- NPC:  rock slab (corsair job flag quest and BCNM Entrance)
 -- !pos -99 -7 -91 57
 -----------------------------------
 local ID = require("scripts/zones/Talacca_Cove/IDs")
@@ -36,8 +36,12 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 5493)
         else
             player:setCharVar("LuckOfTheDraw", 5) -- var will remain for af quests
-            player:addItem(5493)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 5493)
+            player:addItem(19221) -- Firefly
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 19221) -- Firefly
+            player:addItem(5363, 12) -- Bullet Pouch 12
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 5363) -- Bullet Pouch x12
+            player:addItem(5493) -- Corsair's Die
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 5493) -- Corsair's Die
             player:delKeyItem(tpz.ki.FORGOTTEN_HEXAGUN)
             player:unlockJob(tpz.job.COR)
             player:messageSpecial(ID.text.YOU_CAN_NOW_BECOME_A_CORSAIR)

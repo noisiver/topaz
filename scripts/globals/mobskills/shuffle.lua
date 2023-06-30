@@ -1,6 +1,7 @@
 ---------------------------------------------
 -- Shuffle
 -- Dispels a single buff at random (which could be food)<-Pending verification. It does not reset hate.
+-- Notes: Only used by NM Cardians.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -9,7 +10,10 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if mob:isNM() then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)

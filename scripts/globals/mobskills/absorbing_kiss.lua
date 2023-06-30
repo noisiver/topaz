@@ -12,6 +12,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    skill:setMsg(DrainMultipleAttributes(mob, target, 21, 60, 1, 300))
+    skill:setMsg(DrainMultipleAttributes(mob, target, 17, 60, 7, 300))
     return 1
 end

@@ -66,9 +66,10 @@ function onEventFinish(player, csid, option)
         player:addQuest(WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE)
     elseif csid == 479 then
         if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE) == QUEST_ACCEPTED then
-            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE, {fame=60, title=tpz.title.KISSER_MAKEUPPER})
+            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.PAYING_LIP_SERVICE, {fame=60, xp=2500, title=tpz.title.KISSER_MAKEUPPER})
         else
-            player:addFame(WINDURST, 8)
+            player:addExp(100 * EXP_RATE)
+            player:addFame(WINDURST, 50)
         end
 
         if option == 1 then

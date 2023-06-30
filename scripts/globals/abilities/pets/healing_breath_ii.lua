@@ -40,6 +40,7 @@ function onUseAbility(pet, target, skill, action)
 
     skill:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
     target:addHP(hpRecovered)
+    pet:updateEnmityFromCure(target, hpRecovered)
     target:addStatusEffect(tpz.effect.REGEN, 5, 3, 60)
     return hpRecovered
 end

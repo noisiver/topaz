@@ -14,7 +14,7 @@ g_mixins.families.zdei = function(mob)
 
     mob:addListener("ENGAGE", "ZDEI_ENGAGE", function(mob, target)
         mob:AnimationSub(1)
-        mob:setLocalVar("changeTime", os.time() + math.random(15, 30))
+        mob:setLocalVar("changeTime", os.time() + 60)
     end)
 
     mob:addListener("DISENGAGE", "ZDEI_DISENGAGE", function(mob)
@@ -30,10 +30,10 @@ g_mixins.families.zdei = function(mob)
         if now >= changeTime and mob:getCurrentAction() == tpz.act.ATTACK and mob:getLocalVar("charge_count") == 0 then
             if mob:AnimationSub() <= 1 then
                 mob:AnimationSub(math.random(2, 3))
-                mob:setLocalVar("changeTime", now + math.random(45, 60))
+                mob:setLocalVar("changeTime", now + 60)
             else
                 mob:AnimationSub(1)
-                mob:setLocalVar("changeTime", now + math.random(15, 30))
+                mob:setLocalVar("changeTime", now + 60)
             end
         end
     end)

@@ -41,6 +41,8 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.FOOD_ATT_CAP, 65)
     target:addMod(tpz.mod.FOOD_RATTP, 22)
     target:addMod(tpz.mod.FOOD_RATT_CAP, 65)
+    target:addMod(tpz.mod.FOOD_DEFP, 22)
+    target:addMod(tpz.mod.FOOD_DEF_CAP, 65)
 end
 
 function onEffectLose(target, effect)
@@ -54,4 +56,6 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.FOOD_ATT_CAP, 65)
     target:delMod(tpz.mod.FOOD_RATTP, 22)
     target:delMod(tpz.mod.FOOD_RATT_CAP, 65)
+    target:delMod(tpz.mod.FOOD_DEFP, 22)
+    target:delMod(tpz.mod.FOOD_DEF_CAP, 65)
 end

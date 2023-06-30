@@ -86,6 +86,7 @@ tpz.mix.jobSpecial.config(mob, {
 require("scripts/globals/mixins")
 require("scripts/globals/status")
 require("scripts/globals/utils")
+require("scripts/globals/mobs")
 ----------------------------------
 
 tpz = tpz or {}
@@ -111,6 +112,7 @@ local job2hr = {
     [tpz.job.SMN] = tpz.jsa.ASTRAL_FLOW,
     [tpz.job.BLU] = tpz.jsa.AZURE_LORE,
     [tpz.job.COR] = tpz.jsa.WILD_CARD,
+    [tpz.job.PUP] = tpz.jsa.OVERDRIVE_SHAMARHAAN,
     [tpz.job.SCH] = tpz.jsa.TABULA_RASA,
     [1000]        = tpz.jsa.CHARM, -- Dynamis BST when pet is dead
     [1893]        = tpz.jsa.SPIRIT_SURGE 
@@ -175,9 +177,9 @@ local effectByAbility =
     [tpz.jsa.SOUL_VOICE]     = tpz.effect.SOUL_VOICE,
     [tpz.jsa.AZURE_LORE]     = tpz.effect.AZURE_LORE,
     [tpz.jsa.TABULA_RASA]    = tpz.effect.TABULA_RASA,
+    [tpz.jsa.OVERDRIVE_SHAMARHAAN]        = tpz.effect.OVERDRIVE,
 
 -- following abilities are not yet defined on tpz.jsa, and/or do not have effect luas:
--- [tpz.jsa.OVERDRIVE]        = tpz.effect.OVERDRIVE,
 -- [tpz.jsa.TRANCE]           = tpz.effect.TRANCE,
 -- [tpz.jsa.BOLSTER]          = tpz.effect.BOLSTER,
 -- [tpz.jsa.ELEMENTAL_SFORZO] = tpz.effect.ELEMENTAL_SFORZO,
@@ -284,18 +286,33 @@ g_mixins.job_special = function(mob)
 
         if ability then
             mob:setLocalVar("[jobSpecial]numAbilities", 1)
-            mob:setLocalVar("[jobSpecial]ability_1", ability)
+
+            -- Only set if mobs 2 hour isn't set in tpz.mix.jobSpecial.config
+            if (mob:getLocalVar("[jobSpecial]ability_1") == nil) or (mob:getLocalVar("[jobSpecial]ability_1") == 0) then
+                mob:setLocalVar("[jobSpecial]ability_1", ability)
+            end
+
             -- Bene / Invincible / Perfect Dodge are sometimes used at very low HP values
             if (ability == tpz.jsa.BENEDICTION) or (ability == tpz.jsa.INVINCIBLE) or (ability == tpz.jsa.PERFECT_DODGE) then
                 mob:setLocalVar("[jobSpecial]hpp_1", math.random(10, 50))
             else
                 mob:setLocalVar("[jobSpecial]hpp_1", math.random(35, 50))
             end
-            mob:setLocalVar("[jobSpecial]between_1", 7200)
+            -- Only set if mobs between isn't set in tpz.mix.jobSpecial.config
+            if (mob:getLocalVar("[jobSpecial]between_1") == nil) or (mob:getLocalVar("[jobSpecial]between_1") == 0) then
+                mob:setLocalVar("[jobSpecial]between_1", 7200) -- cooldown between uses, default 2 hours
+            end
         end
 
-        mob:setLocalVar("[jobSpecial]chance", 100)     -- chance that mob will use any special at all during engagement
-        mob:setLocalVar("[jobSpecial]delayInitial", 2) -- default wait until mob can use its first special (prevents insta-flow)
+        -- Only set if mobs chance isn't set in tpz.mix.jobSpecial.config
+        if (mob:getLocalVar("[jobSpecial]chance") == nil) or (mob:getLocalVar("[jobSpecial]chance") == 0) then
+            mob:setLocalVar("[jobSpecial]chance", 100) -- chance that mob will use any special at all during engagement
+        end
+
+        -- Only set if mobs delayInitial isn't set in tpz.mix.jobSpecial.config
+        if (mob:getLocalVar("[jobSpecial]delayInitial") == nil) or (mob:getLocalVar("[jobSpecial]delayInitial") == 0) then
+            mob:setLocalVar("[jobSpecial]delayInitial", 2) -- default wait until mob can use its first special (prevents insta-flow)
+        end
     end)
 
     mob:addListener("ENGAGE", "JOB_SPECIAL_ENGAGE", function(mob)

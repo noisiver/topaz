@@ -21,5 +21,5 @@ function onMobWeaponSkill(target, mob, skill)
 	local target = GetMobByID(16986197)
     skill:setMsg(tpz.msg.basic.SELF_HEAL_SECONDARY)
 
-    return MobHealMove(target, skill, 2)
+    return MobHealMove(mob, target, skill, 2)
 end

@@ -77,9 +77,10 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
+
     if csid == 481 then
         player:addQuest(WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO)
-    elseif csid == 484 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO, {fame=80, title=tpz.title.GREAT_GRAPPLER_SCORPIO, gil=1500}) then
+    elseif csid == 484 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO, {fame=250, xp=6500, title=tpz.title.GREAT_GRAPPLER_SCORPIO, gil=1500}) then
         player:confirmTrade()
     elseif csid == 735 then
         player:setCharVar("WildcatWindurst", utils.mask.setBit(player:getCharVar("WildcatWindurst"), 0, true))

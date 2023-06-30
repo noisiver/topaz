@@ -1,9 +1,9 @@
 -----------------------------------
 -- Ability: Subtle Sorcery
--- Description: Reduces the amount of enmity generated from magic spells and increases magic accuracy.
--- Obtained: BLM Level 96
--- Recast Time: 01:00:00
--- Duration: 00:01:00
+-- Description: Greatly increases your magic damage for a short period.
+-- Obtained: BLM Level 60
+-- Recast Time: 00:05:00
+-- Duration: 00:00:30
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -14,5 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.SUBTLE_SORCERY, 4, 0, 60)
+    player:addStatusEffect(tpz.effect.SUBTLE_SORCERY, 1, 0, 30)
 end

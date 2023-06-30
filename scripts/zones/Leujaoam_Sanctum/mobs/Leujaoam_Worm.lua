@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:addMod(tpz.mod.SPELLINTERRUPT, 300)
 	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 15)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     local instance = npc:getInstance()
     if mob:getID(instance) == 17060180 or mob:getID(instance) == 17060177 or mob:getID(instance) == 17060178 then
         mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
@@ -36,7 +36,7 @@ function onMobFight(mob, target)
 	local DreadSpikesTime = mob:getLocalVar("DreadSpikesTime")
 	local DrainTime = mob:getLocalVar("DrainTime")
 	local BattleTime = mob:getBattleTime()
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
 end
 
 function onMobWeaponSkillPrepare(mob, target)

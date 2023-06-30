@@ -96,24 +96,27 @@ function onEventFinish(player, csid, option)
     elseif csid == 439 then
         player:setCharVar("MissionStatus", 5)
     elseif csid == 251 then
-        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 10 })
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 30 }) -- Cornette
         player:addGil(GIL_RATE*200)
         player:confirmTrade()
     elseif csid == 252 then
-        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 25 })
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 75 }) -- Yuhtunga SUlfur
+        player:addExp(500 * EXP_RATE)
         player:addGil(GIL_RATE*250)
         player:confirmTrade()
     elseif csid == 253 then
-        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 50 })
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 100 }) -- Three-Leaf Mandragora Bud
+        player:addExp(1000 * EXP_RATE)
         player:addGil(GIL_RATE*1200)
         player:confirmTrade()
     elseif csid == 254 then
-        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 10 })
-            fame = 10,
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 50 }) -- Four-Leaf Mandragora Bud
+        player:addExp(500 * EXP_RATE)
         player:addGil(GIL_RATE*120)
         player:confirmTrade()
     elseif csid == 255 then
-        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 100 })
+        npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.MANDRAGORA_MAD, { fame = 150 }) -- Snobby Letter
+        player:addExp(5000 * EXP_RATE)
         player:addGil(GIL_RATE*5500)
         player:confirmTrade()
     end

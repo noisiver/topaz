@@ -46,7 +46,7 @@ function onEventFinish(player, csid, option)
             player:addItem(4946) -- Scroll of Utsusemi: Ichi
             player:messageSpecial(ID.text.ITEM_OBTAINED, 4946)
             player:addTitle(tpz.title.TREASUREHOUSE_RANSACKER)
-            player:addFame(NORG, 75)
+            player:addFame(NORG, 400)
             player:completeQuest(OUTLANDS, tpz.quest.id.outlands.THE_SAHAGINS_STASH)
         end
     end

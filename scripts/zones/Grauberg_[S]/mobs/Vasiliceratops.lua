@@ -1,6 +1,7 @@
 ------------------------------
 -- Area: Grauberg [S]
 --   NM: Vasiliceratops
+-- Lyft NM
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/wotg")

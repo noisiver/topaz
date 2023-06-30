@@ -9,35 +9,35 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.LIGHT_MANEUVER)
 end
+--[[
+Magic motor damage belongs to " magic damage " and is affected by magic damage cuts such as shells . ( Maximum HP - Current HP of Mutton ) *
+Magnification + fixed damage of hand - to - hand combat skills . Sure hit . It is a performance that can be said to be a reverse spirit within ,
+and its power increases as Mutton 's HP decreases. The higher the TP , the higher the multiplier .
+The multiplier is 1.5 at TP 1000 , 1.75 at TP 2000, and 2.5 at TP 3000. Previously hand-to-hand combat skill
 
-function onPetAbility(target, automaton, skill, master, action)
-    local ftp
-    local tp = skill:getTP()
+Damage dealt = (Automaton Max HP - Automaton Current HP) × fTP + Automaton Melee Skill
+]]
 
-    if not USE_ADOULIN_WEAPON_SKILL_CHANGES then
-        ftp = 0.5 + ((0.5/3000) * tp)
-    else
-        -- Might be wrong, it may only use max hp in its new form, also it may be able to miss and take defense into account as well
-        if tp >= 3000 then
-            ftp = 2.5
-        elseif tp >= 2000 then
-            ftp = 1.75 + ((0.75/3000) * tp)
-        else
-            ftp = 1.5 + ((0.25/3000) * tp)
-        end
-    end
+function onPetAbility(target, pet, skill)
+    local params = {}
+    params.multiplier = 1.5
+    params.tp150 = 1.75
+    params.tp300 = 2.5
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.IGNORES_SHADOWS = true
+    params.MAGIC_MORTAR = true
 
-    local hpdamage = (automaton:getMaxHP() - automaton:getHP()) * ftp
-    local skilldamage = automaton:getSkillLevel(tpz.skill.AUTOMATON_MELEE) * ftp
-    local damage = (hpdamage > skilldamage) and hpdamage or skilldamage
+    local damage = AutoMagicalWeaponSkill(pet, target, skill, tpz.magic.ele.NONE, params, INT_BASED, 0)
+    dmg = AutoMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.NONE, params)
 
-    if damage > 0 then
-       target:addTP(20)
-       automaton:addTP(80)
-    end
-
-    target:takeDamage(damage, pet, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
-    return damage
+    return dmg
 end

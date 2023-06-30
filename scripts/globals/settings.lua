@@ -28,9 +28,9 @@ ENABLE_ROV     = 0
 ENABLE_VOIDWATCH = 0 -- Not an expansion, but has its own storyline.
 
 -- FIELDS OF VALOR/Grounds of Valor settings
-ENABLE_FIELD_MANUALS  = 0 -- Enables Fields of Valor
-ENABLE_GROUNDS_TOMES  = 0 -- Enables Grounds of Valor
-ENABLE_SURVIVAL_GUIDE = 0 -- Enables Survival Guides
+ENABLE_FIELD_MANUALS  = 1 -- Enables Fields of Valor
+ENABLE_GROUNDS_TOMES  = 1 -- Enables Grounds of Valor
+ENABLE_SURVIVAL_GUIDE = 1 -- Enables Survival Guides
 REGIME_WAIT = 1 -- Make people wait till 00:00 game time as in retail. If it's 0, there is no wait time.
 FOV_REWARD_ALLIANCE = 0 -- Allow Fields of Valor rewards while being a member of an alliance. (default retail behavior: 0)
 GOV_REWARD_ALLIANCE = 0 -- Allow Grounds of Valor rewards while being a member of an alliance. (default retail behavior: 1)
@@ -56,7 +56,7 @@ INITIAL_LEVEL_CAP = 50 -- The initial level cap for new players.  There seems to
 MAX_LEVEL = 75 -- Level max of the server, lowers the attainable cap by disabling Limit Break quests.
 NORMAL_MOB_MAX_LEVEL_RANGE_MIN = 0 -- Lower Bound of Max Level Range for Normal Mobs (0 = Uncapped)
 NORMAL_MOB_MAX_LEVEL_RANGE_MAX = 0 -- Upper Bound of Max Level Range for Normal Mobs (0 = Uncapped)
-START_GIL = 10 -- Amount of gil given to newly created characters.
+START_GIL = 5000 -- Amount of gil given to newly created characters.
 START_INVENTORY = 30 -- Starting inventory and satchel size.  Ignores values < 30.  Do not set above 80!
 NEW_CHARACTER_CUTSCENE = 0 -- Set to 1 to enable opening cutscenes, 0 to disable.
 SUBJOB_QUEST_LEVEL = 18 -- Minimum level to accept either subjob quest.  Set to 0 to start the game with subjobs unlocked.
@@ -67,7 +67,7 @@ UNLOCK_OUTPOST_WARPS = 0 -- Set to 1 to give starting characters all outpost war
 SHOP_PRICE      = 1.000 -- Multiplies prices in NPC shops.
 GIL_RATE        = 1.000 -- Multiplies gil earned from quests.  Won't always display in game.
 BAYLD_RATE      = 1.000 -- Multiples bayld earned from quests.
-EXP_RATE        = 0.000 -- Multiplies exp earned from fov and quests.
+EXP_RATE        = 1.000 -- Multiplies exp earned from fov and quests.
 TABS_RATE       = 1.000 -- Multiplies tabs earned from fov.
 ROE_EXP_RATE    = 1.000 -- Multiplies exp earned from records of eminence.
 SPARKS_RATE     = 1.000 -- Multiplies sparks earned from records of eminence.
@@ -130,8 +130,8 @@ FREE_COP_DYNAMIS = 0 -- Authorize player to entering inside COP Dynamis without 
 AF1_QUEST_LEVEL = 40    -- Minimum level to start AF1 quest
 AF2_QUEST_LEVEL = 50    -- Minimum level to start AF2 quest
 AF3_QUEST_LEVEL = 50    -- Minimum level to start AF3 quest
-OLDSCHOOL_G1    = true -- Set to true to require farming Exoray Mold, Bombd Coal, and Ancient Papyrus drops instead of allowing key item method.
-OLDSCHOOL_G2    = true -- Set true to require the NMs for "Atop the Highest Mountains" be dead to get KI like before SE changed it.
+OLDSCHOOL_G1    = false -- Set to true to require farming Exoray Mold, Bombd Coal, and Ancient Papyrus drops instead of allowing key item method.
+OLDSCHOOL_G2    = false -- Set true to require the NMs for "Atop the Highest Mountains" be dead to get KI like before SE changed it.
 FRIGICITE_TIME  = 600    -- When OLDSCHOOL_G2 is enabled, this is the time (in seconds) you have from killing Boreal NMs to click the "???" target.
 
 -- SPELL SPECIFIC SETTINGS
@@ -161,7 +161,7 @@ ENABLE_COP_ZONE_CAP = 1 -- enable or disable lvl cap
 ALLOW_MULTIPLE_EXP_RINGS = 0 -- Set to 1 to remove ownership restrictions on the Chariot/Empress/Emperor Band trio.
 BYPASS_EXP_RING_ONE_PER_WEEK = 0 -- -- Set to 1 to bypass the limit of one ring per Conquest Tally Week.
 NUMBER_OF_DM_EARRINGS = 1 -- Number of earrings players can simultaneously own from Divine Might before scripts start blocking them (Default: 1)
-HOMEPOINT_TELEPORT = 0 -- Enables the homepoint teleport system
+HOMEPOINT_TELEPORT = 1 -- Enables the homepoint teleport system
 DIG_ABUNDANCE_BONUS = 0 -- Increase chance of digging up an item (450  = item digup chance +45)
 DIG_FATIGUE = 0 -- Set to 0 to disable Dig Fatigue
 DIG_GRANT_BURROW = 0 -- Set to 1 to grant burrow ability

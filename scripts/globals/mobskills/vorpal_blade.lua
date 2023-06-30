@@ -31,8 +31,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 
-
-
 function onMobWeaponSkill(target, mob, skill)
     if (mob:getPool() == 4249) then -- Volker@Throne_Room only
         target:showText(mob, zones[tpz.zone.THRONE_ROOM].text.BLADE_ANSWER)
@@ -52,7 +50,7 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_CRIT_VARIES, params_phys, 1.3, 1.5)
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys, 1.3, 1.5)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

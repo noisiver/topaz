@@ -52,6 +52,7 @@ zones[tpz.zone.MAZE_OF_SHAKHRAMI] =
         APPARATUS_ELEMENTAL = 17588704,
         AROMA_CRAWLER       = 17588705,
         LOST_SOUL           = 17588706,
+        BALPAH              = 17588706,
     },
     npc =
     {

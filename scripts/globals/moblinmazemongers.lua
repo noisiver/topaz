@@ -151,3 +151,22 @@ function getAugmentAmount()
         return 4
     end
 end
+
+tpz.moblinmazemongers.MobMods = function(mob)
+	mob:setDamage(125)
+	mob:setMod(tpz.mod.VIT, 35)
+    mob:setMod(tpz.mod.UDMGBREATH, -66)
+    mob:setMod(tpz.mod.REGEN, 5)
+    mob:setMod(tpz.mod.REGAIN, 25)
+    mob:setMod(tpz.mod.MOVE, 20)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25)
+    mob:addMod(tpz.mod.ACC, 200)
+    mob:addMod(tpz.mod.EVA, 20) 
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 25)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 25)
+end

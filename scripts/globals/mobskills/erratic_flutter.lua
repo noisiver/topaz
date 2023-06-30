@@ -29,12 +29,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1
+    local dmgmod = 2.75
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg , mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
-
-    MobBuffMove(mob, tpz.effect.HASTE, 5000, 0, 300) -- There is no message for the self buff aspect, only dmg.
-
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
+    MobBuffMove(mob, tpz.effect.HASTE, 4500, 0, 300)
     return dmg
 end

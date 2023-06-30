@@ -8,6 +8,7 @@ require("scripts/globals/missions")
 require("scripts/globals/quests")
 require("scripts/globals/keyitems")
 require("scripts/globals/settings")
+require("scripts/globals/titles")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -93,8 +94,10 @@ function onEventFinish(player, csid, option)
             reward = 14743 -- Bushinomimi
         end
         if (reward ~= 0) then
-            if (player:getFreeSlotsCount() >= 1 and player:hasItem(reward) == false) then
-                player:addItem(reward)
+            if (player:getFreeSlotsCount() >= 5 and player:hasItem(reward) == false) then
+                for v = tpz.items.SUPPANOMIMI, tpz.items.BUSHINOMIMI, 1 do
+                    player:addItem(v)
+                end
                 player:messageSpecial(ID.text.ITEM_OBTAINED, reward)
                 if (csid == 55) then
                     player:completeQuest(OUTLANDS, tpz.quest.id.outlands.DIVINE_MIGHT)
@@ -104,6 +107,7 @@ function onEventFinish(player, csid, option)
                 end
                 player:setCharVar("DivineMight", 0)
                 player:setCharVar("DM_Earring", reward)
+                player:addTitle(tpz.title.PENTACIDE_PERPETRATOR)
             else
                 player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, reward)
             end

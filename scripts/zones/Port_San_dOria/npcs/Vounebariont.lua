@@ -41,9 +41,10 @@ function onEventFinish(player, csid, option)
     elseif (csid == 514) then
         if (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THICK_SHELLS) == QUEST_ACCEPTED) then
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THICK_SHELLS)
-            player:addFame(SANDORIA, 30)
+            player:addExp(3500 * EXP_RATE)
+            player:addFame(SANDORIA, 300)
         else
-            player:addFame(SANDORIA, 5)
+            player:addFame(SANDORIA, 30)
         end
 
         player:tradeComplete()

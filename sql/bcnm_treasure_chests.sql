@@ -308,6 +308,7 @@ INSERT INTO bcnm_treasure_chests VALUES (675,3,16810050);
 INSERT INTO bcnm_treasure_chests VALUES (676,1,16810061); -- totentanz
 INSERT INTO bcnm_treasure_chests VALUES (676,2,16810072);
 INSERT INTO bcnm_treasure_chests VALUES (676,3,16810083);
+INSERT INTO bcnm_treasure_chests VALUES (678,1,16810089); -- Requiem of Sin
 INSERT INTO bcnm_treasure_chests VALUES (679,1,16810107); -- antagonistic_ambuscade
 INSERT INTO bcnm_treasure_chests VALUES (679,2,16810113);
 INSERT INTO bcnm_treasure_chests VALUES (679,3,16810119);
@@ -385,6 +386,7 @@ INSERT INTO bcnm_treasure_chests VALUES (964,3,16904231);
 INSERT INTO bcnm_treasure_chests VALUES (965,1,16904219); -- beloved_of_the_atlantes
 INSERT INTO bcnm_treasure_chests VALUES (965,2,16904222);
 INSERT INTO bcnm_treasure_chests VALUES (965,3,16904225);
+INSERT INTO bcnm_treasure_chests VALUES (966,1,16904219); -- uninvited guests
 INSERT INTO bcnm_treasure_chests VALUES (967,1,16904267); -- nest_of_nightmares
 INSERT INTO bcnm_treasure_chests VALUES (967,2,16904273);
 INSERT INTO bcnm_treasure_chests VALUES (967,3,16904279);

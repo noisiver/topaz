@@ -13,5 +13,5 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-     return MobHealMove(target, skill, 0.33)
+     return MobPercentHealMove(mob, target, skill, 0.15)
 end

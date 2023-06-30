@@ -3994,39 +3994,38 @@ INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- s
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
 
 -- Avatar Fights
-INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime', 438, 181, 1, 255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime', 438, 180, 1, 255); -- Blizzaga II
 INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438,152,24,255); -- Blizzard IV
-INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 207, 1, 255); -- Freeze II
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 206, 1, 255); -- Freeze
 INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 356, 1, 255); -- Paralyaga
 
-INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime', 439, 196, 1, 255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime', 439, 195, 1, 255); -- Thundaga II
 INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439,167,24,255); -- Thunder IV
-INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 213, 1, 255); -- Burst II
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 212, 1, 255); -- Burst
 INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 252, 1, 255); -- Stun
 
-INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime', 440, 191, 1, 255); -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime', 440, 190, 1, 255); -- Stonega II
 INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440,162,24,255); -- Stone IV
-INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 211, 1, 255); -- Quake II
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 210, 1, 255); -- Quake
 INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 357, 1, 255); -- Slowga
 
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 441, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 441, 175, 1, 255); -- Firaga II
 INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441,147,24,255); -- Fire IV
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441, 205, 1, 255); -- Flare II
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441, 204, 1, 255); -- Flare
 
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime', 442, 201, 1, 255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime', 442, 200, 1, 255); -- Waterga II
 INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442,172,24,255); -- Water IV
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 215, 1, 255); -- Flood II
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 227, 1, 255); -- Poisonga III
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 214, 1, 255); -- Flood
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 226, 1, 255); -- Poisonga II
 
-INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime', 443, 186, 1, 255); -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime', 443, 185, 1, 255); -- Aeroga II
 INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443,157,24,255); -- Aero IV
-INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 209, 1, 255); -- Tornado II
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 208, 1, 255); -- Tornado
 INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 359, 1, 255); -- Silencega
 
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime', 444, 361, 1, 255); -- Blindga
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelga
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
-INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
 
 -- Mythic Weapon Battles
 
@@ -4258,6 +4257,106 @@ INSERT INTO `mob_spell_lists` VALUES ('Scylla',508,225,1,255); -- poisonga
 INSERT INTO `mob_spell_lists` VALUES ('Scylla',508,356,1,255); -- paralyga
 INSERT INTO `mob_spell_lists` VALUES ('Scylla',508,362,1,255); -- bindga
 
+-- Casts Aeroga II, Stonega II, Choke, Drown, Freeze, Ice Spikes, Stone III, Sleep II, and Tornado.
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,190,1,255);   -- Stonega II
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,185,1,255);   -- Aeroga II
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,235,24,255);  -- Burn
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,236,22,255);  -- Frost
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,237,20,255);  -- Choke
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,238,18,255);  -- Rasp
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,239,16,255);  -- Shock
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,240,27,255);  -- Drown
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,161,1,255);   -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,259,1,255);   -- Sleep II
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,208,1,255);   -- Tornado
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,206,1,255);   -- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,250,1,255);   -- Ice Spikes
+
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Harlequin',510,23,1,255);   -- Dia
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,144,13,22);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,145,38,47);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,146,62,67);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,147,73,94); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,148,95,255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,149,17,27);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,150,42,53);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,151,64,68);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,152,74,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,153,95,255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,154,9,18);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,155,34,44);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,156,59,66);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,157,72,94); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,158,95,255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,159,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,160,26,35);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,161,51,60);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,162,68,94); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,163,95,255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,164,21,46);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,165,46,55);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,166,66,70);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,167,75,94); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,168,95,255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,169,5,12);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,170,30,40);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,171,55,61);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,172,70,94); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,173,95,255); -- Water V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,174,28,35);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,175,53,60);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,176,69,90);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,179,32,39);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,180,57,62);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,181,71,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,184,23,31);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,185,48,56);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,186,67,71);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,189,15,22);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,190,40,47);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,191,63,67);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,194,36,43);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,195,61,65);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,196,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,199,19,27);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,200,44,52);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,201,65,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,204,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,206,50,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,208,52,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,210,54,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,212,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,214,58,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,220,3,17);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,221,43,64);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,225,24,71);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,226,72,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,230,10,34);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,231,35,84);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,235,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,236,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,237,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,238,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,239,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,240,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,245,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,248,95,255); -- Aspir II
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,249,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,252,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,253,20,40);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,254,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,258,7,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,259,41,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,273,31,55);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,274,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,56,1,255);  -- Slow
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,58,1,255);  -- Paralyze
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,59,1,255);  -- Silence
+
+-- NEXT 512
+
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,58,4,255); -- Paralyze
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,105,1,255); -- enwater
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,151,24,255); -- Blizzard II
@@ -4425,6 +4524,103 @@ INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019,57,1,255);    
 INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 209, 1, 255);    -- Tornado II
 INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 59, 1, 255);     -- Silence
 INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 53, 1, 255);     -- Blink
+
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,1,3,13);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,2,14,25);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,3,26,48);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,4,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,23,1,30);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,24,31,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,25,85,255); -- Dia III
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,33,15,54);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,34,55,89);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,35,90,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,43,7,26);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,44,27,46);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,45,47,62);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,46,63,89);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,47,90,255); -- Protect V
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,48,17,36);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,49,37,56);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,50,57,67);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,51,68,90);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,52,90,255); -- Shell V
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,53,23,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,54,34,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,55,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,56,13,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,57,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,58,6,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,59,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,100,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,101,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,102,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,103,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,104,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,105,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,108,21,75);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,110,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,144,19,49);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,145,50,70);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,146,71,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,149,24,54);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,150,55,72);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,151,73,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,154,14,44);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,155,45,68);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,156,69,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,159,4,34);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,160,35,64);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,161,65,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,164,29,59);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,165,60,74);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,166,75,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,169,9,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,170,40,66);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,171,67,99);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,216,21,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,220,5,45);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,221,46,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,230,10,35);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,231,36,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,253,25,45);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,254,8,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,258,11,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,259,46,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,260,32,255);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,320,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,321,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,322,85,255); -- katon_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,323,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,324,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,325,85,255); -- hyoton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,326,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,327,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,328,85,255); -- huton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,329,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,330,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,331,85,255); -- doton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,332,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,333,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,334,85,255); -- raiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,335,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,336,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,337,85,255); -- suiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,338,12,36);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,339,37,89); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,340,90,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,341,30,84); -- jubaku_ichi
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,342,85,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,344,23,47);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,345,48,89); -- hojo_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,346,90,255); -- hojo_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,347,19,43);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,348,44,89); -- kurayami_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,349,90,255); -- kurayami_san
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,350,27,55);
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,351,56,89); -- dokumori_ni
+INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,352,90,255); -- dokumori_san
 
 -- Bastok Missions
 
@@ -5285,8 +5481,159 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,248,95,255); -- Aspir 
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,253,20,40);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,259,41,255);
 
--- NEXT 1020
--- NEXT 2080(Custom)
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,320,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,321,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,322,85,255); -- katon_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,323,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,324,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,325,85,255); -- hyoton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,326,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,327,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,328,85,255); -- huton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,329,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,330,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,331,85,255); -- doton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,332,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,333,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,334,85,255); -- raiton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,335,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,336,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,337,85,255); -- suiton_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,338,12,36);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,339,37,89); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,340,90,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,341,30,54); -- jubaku_ichi
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,342,55,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,344,23,47);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,345,48,72); -- hojo_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,346,73,255); -- hojo_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,347,19,43);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,348,44,89); -- kurayami_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,349,90,255); -- kurayami_san
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,350,27,55);
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,351,56,89); -- dokumori_ni
+INSERT INTO `mob_spell_lists` VALUES ('WOTG_Yagudo_NIN',2081,352,90,255); -- dokumori_san
+
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,320,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,321,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,322,85,255); -- katon_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,323,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,324,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,325,85,255); -- hyoton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,326,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,327,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,328,85,255); -- huton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,329,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,330,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,331,85,255); -- doton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,332,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,333,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,334,85,255); -- raiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,335,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,336,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,337,85,255); -- suiton_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,338,12,36);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,339,37,50); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,340,51,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,341,30,84); -- jubaku_ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,342,85,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,344,23,47);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,345,48,89); -- hojo_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,346,90,255); -- hojo_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,347,19,43);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,348,44,89); -- kurayami_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,349,90,255); -- kurayami_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,350,27,55);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,351,56,89); -- dokumori_ni
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,352,90,255); -- dokumori_san
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,319,1,255); -- Aisha: Ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,507,1,255); -- Myoshu: Ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,508,1,255); -- Yurin: Ichi
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_NIN',2082,509,1,255); -- Kakka: Ichi
+
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,144,13,22);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,145,38,47);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,146,62,67);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,147,73,94); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,148,95,255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,149,17,27);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,150,42,53);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,151,64,68);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,152,74,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,153,95,255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,154,9,18);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,155,34,44);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,156,59,66);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,157,72,94); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,158,95,255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,159,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,160,26,35);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,161,51,60);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,162,68,94); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,163,95,255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,164,21,46);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,165,46,55);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,166,66,70);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,167,75,94); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,168,95,255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,169,5,12);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,170,30,40);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,171,55,61);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,172,70,94); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,173,95,255); -- Water V
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,174,28,35);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,175,53,60);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,176,69,90);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,179,32,39);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,180,57,62);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,181,71,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,184,23,31);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,185,48,56);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,186,67,71);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,189,15,22);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,190,40,47);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,191,63,67);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,194,36,43);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,195,61,65);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,196,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,199,19,27);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,200,44,52);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,201,65,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,204,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,206,50,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,208,52,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,210,54,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,212,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,214,58,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,220,3,17);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,221,43,64);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,225,24,71);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,226,72,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,230,10,34);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,231,35,84);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,235,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,236,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,237,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,238,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,239,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,240,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,245,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,248,95,255); -- Aspir II
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,249,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,252,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,253,20,40);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,254,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,258,7,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,259,41,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,273,31,55);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,274,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,255,1,255); -- Break
+INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,365,1,255); -- Break
+
+-- NEXT 1021
+-- NEXT 2084(Custom)
 
 
 

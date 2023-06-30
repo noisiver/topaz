@@ -620,14 +620,14 @@ end
 
 local overseerInvCommon =
 {
-    [32928] = {cp =     500, lvl =  1, item =  4182},             -- scroll_of_instant_reraise
-    [32929] = {cp =    750, lvl =  1, item =  4181},             -- scroll_of_instant_warp
+    [32928] = {cp =     7, lvl =  1, item =  4182},             -- scroll_of_instant_reraise
+    [32929] = {cp =    10, lvl =  1, item =  4181},             -- scroll_of_instant_warp
     [32930] = {cp =  2500, lvl =  1, item = 15542},             -- return_ring
     [32931] = {cp =  9000, lvl =  1, item = 15541},             -- homing_ring
     [32933] = {cp =   500, lvl =  1, item = 15761},             -- chariot_band
     [32934] = {cp =  1000, lvl =  1, item = 15762},             -- empress_band
     [32935] = {cp =  2000, lvl =  1, item = 15763},             -- emperor_band
-    --[32936] = {cp =  5000, lvl =  1, item = 28540},             -- warp_ring
+    [32936] = {cp =  5000, lvl =  1, item = 28540},             -- warp_ring
     [32941] = {cp = 20000, lvl =  1, item =  6380, rank = 10},  -- refined_chair_set
 }
 
@@ -1069,9 +1069,7 @@ tpz.conquest.overseerOnEventUpdate = function(player, csid, option, guardNation)
         end
 
         local rankCheck = true
-        if guardNation ~= tpz.nation.OTHER and guardNation ~= pNation and getNationRank(guardNation) <= pRank then -- buy from other nation, must be higher ranked
-            rankCheck = false
-        elseif guardNation ~= tpz.nation.OTHER and stock.place ~= nil and guardNation ~= pNation then -- buy from other nation, cannot buy items with nation rank requirement
+        if guardNation ~= tpz.nation.OTHER and guardNation ~= pNation and stock.place ~= nil and pRank > stock.place then -- buy from other nation TODO: Test
             rankCheck = false
         elseif stock.place ~= nil and pRank > stock.place then -- buy from own nation, check nation rank
             rankCheck = false

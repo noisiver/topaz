@@ -26,20 +26,22 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     -- printf("hit rate %i", calcParams.hitRate*100)
     if ((missChance <= calcParams.hitRate) -- See if we hit the target
     or calcParams.guaranteedHit
-    or (calcParams.melee and math.random() < attacker:getMod(tpz.mod.ZANSHIN)/100))
+    or (calcParams.melee))
     and not calcParams.mustMiss then
         if not shadowAbsorb(target) then
             critChance = math.random() -- See if we land a critical hit
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
+            -- Crit pDIF caps at 3.0
+            -- https://ffxiclopedia.fandom.com/wiki/Level_Correction_Function_and_pDIF?oldid=332209
             if criticalHit then
                 TryBreakMob(target)
                 calcParams.criticalHit = true
-                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
+                calcParams.pdif = utils.clamp(generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1, 0, 3.0) + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             elseif forcedCrit then
                 TryBreakMob(target)
                 calcParams.criticalHit = true
-                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
+                calcParams.pdif = utils.clamp(generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1, 0, 3.0) + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             else
                 calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true)
             end
@@ -49,6 +51,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 if calcParams.pdif < 0.25 then -- Guard reduction caps at 0.25
                     calcParams.pdif = 0.25
                 end
+                --attacker:PrintToPlayer("The monster guarded your WS!")
             end
 
             finaldmg = dmg * calcParams.pdif
@@ -59,7 +62,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 -- Calculate magical bonuses and reductions
                 local magicdmg = addBonusesAbility(attacker, wsParams.ele, target, finaldmg, wsParams)
                 magicdmg = magicdmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
-                magicdmg = target:magicDmgTaken(magicdmg)
+                magicdmg = target:magicDmgTaken(magicdmg, wsParams.ele)
                 magicdmg = adjustForTarget(target, magicdmg, wsParams.ele)
                 -- Add HP if absorbed
                 if (magicdmg < 0) then
@@ -82,6 +85,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     -- Check if mob blocks us
     if attacker:isInfront(target, 90) and math.random()*100 < target:getBlockRate(attacker) then
         finaldmg = target:getBlockedDamage(finaldmg)
+        --attacker:PrintToPlayer("The monster blocked your weapon skill!")
     end
 
     return finaldmg, calcParams
@@ -216,11 +220,20 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
             calcParams.hitRate = getRangedHitRate(attacker, target, false, bonusAcc + 100)
         end
     else
-        if (wsID == 0) then -- So jump won't get an accuracy bonus or have 99% acc
+        if (wsID == 0) then -- Jumps shoulnd't  get an accuracy bonus or have 99% ACC Cap
             calcParams.hitRate =  getHitRate(attacker, target, true, false, 0)
         else
             calcParams.hitRate =  getHitRate(attacker, target, true, true, bonusAcc + 100)
         end
+    end
+
+    -- Check for parry
+    local parryRate = target:getParryRate(attacker)
+    local isParried = attacker:isInfront(target, 90) and math.random()*100 < target:getParryRate(attacker)
+
+    if isParried then
+        calcParams.hitRate = 0
+        --attacker:PrintToPlayer("The monster parried your WS!")
     end
 
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
@@ -250,6 +263,10 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- store bonus damage for first hit, for use after other calculations are done
     local firstHitBonus = ((finaldmg * attacker:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT))/100)
 
+    if (wsID == 0) then -- Jumps do not benefit from WSD Mods
+        firstHitBonus = 0
+    end
+
     -- Reset fTP if it's not supposed to carry over across all hits for this WS
     if not wsParams.multiHitfTP then ftp = 1 end -- We'll recalculate our mainhand damage after doing offhand
 
@@ -275,6 +292,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     if (target:getHP() <= finaldmg) then
         extraOffhandHit = false
     end
+
     -- Do the extra hit for our offhand if applicable
     if calcParams.extraOffhandHit then
         local offhandDmg = (calcParams.weaponDamage[2] + wsMods) * ftp
@@ -319,6 +337,11 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         attacker:addMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)
     end
     local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
+
+    if (wsID == 0) then -- Jumps do not benefit from WSD Mods
+        bonusdmg = 0
+    end
+
     -- Remove Building Flourish WSD effect
     if flourisheffect ~= nil and flourisheffect:getPower() > 2 then
         attacker:delMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)
@@ -476,6 +499,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     if wsParams.useAutoTPFormula == nil or wsParams.useAutoTPFormula == false then
         finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.0 -- Add server bonus
     end
+
     -- Handle Positional PDT
     if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
         if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3 then
@@ -499,10 +523,14 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
             finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
         end
     end
+
     -- Handle Footwork damage reduction
 	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
-	finaldmg = math.floor(finaldmg * 0.5)
+	    finaldmg = math.floor(finaldmg * 0.5)
 	end
+
+    -- Handle Scarlet Delirium
+    finaldmg = utils.ScarletDeliriumBonus(attacker, finaldmg)
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
@@ -511,14 +539,6 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
 end
     
---[[
-    finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
-    calcParams.finalDmg = finaldmg
-    finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
-    return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
-end
---]]
-
 -- Sets up the necessary calcParams for a ranged WS before passing it to calculateRawWSDmg. When the raw
 -- damage is returned, handles reductions based on target resistances and passes off to takeWeaponskillDamage.
 function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, primaryMsg)
@@ -603,6 +623,9 @@ function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, prima
             finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
         end
     end
+
+    -- Handle Scarlet Delirium
+    finaldmg = utils.ScarletDeliriumBonus(attacker, finaldmg)
 	
     finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.00 -- Add server bonus
     calcParams.finalDmg = finaldmg
@@ -706,12 +729,6 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT))/100) -- Add in our "first hit" WS dmg bonus
         dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ELEMENTAL_WSDMG))/100) -- Add in our "elemental damage" WS dmg bonus
 
-        -- Calculate magical bonuses and reductions
-        dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
-        dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
-        dmg = target:magicDmgTaken(dmg)
-
-        dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
         -- Handle Positional MDT
         if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
             if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
@@ -735,6 +752,16 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
                 dmg = math.floor(dmg * 0.50) -- 50% DR
             end
         end
+
+        -- Handle Scarlet Delirium
+        dmg = utils.ScarletDeliriumBonus(attacker, dmg)
+
+        dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
+
+        -- Calculate magical bonuses and reductions
+        dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
+        dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
+        dmg = target:magicDmgTaken(dmg, wsParams.ele)
 
         -- handling absorb
         if (wsParams.ele ~= 0) then -- Non-elemental damage cannot be absorbed
@@ -842,7 +869,7 @@ function souleaterBonus(attacker, numhits)
             percent = percent / 2
         end
         percent = percent + math.min(0.02, 0.01 * attacker:getMod(tpz.mod.SOULEATER_EFFECT))
-
+        utils.clamp(percent, 0.01, 0.15) -- Caps at 15%
         local hitscounted = 0
         while (hitscounted < numhits) do
             local health = attacker:getHP()
@@ -851,7 +878,10 @@ function souleaterBonus(attacker, numhits)
             end
             hitscounted = hitscounted + 1
         end
-        attacker:delHP(numhits*0.10*attacker:getHP())
+        local stalwartSoul = attacker:getMod(tpz.mod.STALWART_SOUL)
+        local drainPercent = 0.10
+        drainPercent = utils.clamp((drainPercent - (stalwartSoul * 0.001)), 0, 0.10)
+        attacker:delHP(numhits*drainPercent*attacker:getHP())
         return damage
     else
         return 0
@@ -1658,7 +1688,7 @@ end
 function GetMobFamily(target)
     if (target:getFamily() == 246) or (target:getFamily() == 308) or (target:getFamily() == 923) then
         return 'Troll'
-    elseif (target:getFamily() == 176) or (target:getFamily() == 305) then
+    elseif (target:getFamily() == 176) or (target:getFamily() == 305) or (target:getFamily() == 591) then
         return 'Mamool'
     elseif (target:getFamily() == 171)  then
         return 'Lamiae'
@@ -1686,6 +1716,8 @@ end
 function GetMaxWeaponPdif(attacker)
     local weaponStyle = utils.getWeaponStyle(attacker)
     local weaponType = utils.GetWeaponType(attacker)
+    -- printf("weapon style %s", weaponStyle)
+    -- printf("weaponType %s", weaponType)
 
     if (weaponStyle == 'H2H') or (weaponType == 'GREAT KATANA') then
         return 2.1

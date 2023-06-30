@@ -32,6 +32,7 @@
 #include "../ai/states/attack_state.h"
 #include "../ai/states/weaponskill_state.h"
 #include "../ai/states/mobskill_state.h"
+#include "../ai/states/magic_state.h"
 #include "../entities/charentity.h"
 #include "../packets/action.h"
 #include "../packets/entity_update.h"
@@ -272,6 +273,15 @@ bool CMobEntity::CanRoam()
 
 bool CMobEntity::CanLink(position_t* pos, int16 superLink)
 {
+    if (loc.zone->HasReducedVerticalAggro())
+    {
+        float verticalDistance = abs(loc.p.y - (*pos).y);
+        if (verticalDistance > 3.5f)
+        {
+            return false;
+        }
+    }
+
     // handle super linking
     if (superLink && getMobMod(MOBMOD_SUPERLINK) == superLink)
     {
@@ -671,7 +681,7 @@ void CMobEntity::PostTick()
 
 float CMobEntity::GetRoamDistance()
 {
-    return (float)getMobMod(MOBMOD_ROAM_DISTANCE) / 10.0f;
+    return (float)getMobMod(MOBMOD_ROAM_DISTANCE);
 }
 
 float CMobEntity::GetRoamRate()
@@ -738,7 +748,7 @@ void CMobEntity::Spawn()
     SetMLevel(level);
     SetSLevel(level);//calculated in function
 
-    mobutils::CalculateStats(this);
+    mobutils::CalculateMobStats(this, true);
     mobutils::GetAvailableSpells(this);
 
     // spawn somewhere around my point
@@ -766,6 +776,7 @@ void CMobEntity::Spawn()
 
     m_DespawnTimer = time_point::min();
     luautils::OnMobSpawn(this);
+    PAI->EventHandler.triggerListener("SPAWN", this);
 }
 
 void CMobEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& action)
@@ -881,7 +892,11 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         {
             if(static_cast<CPetEntity*>(this)->getPetType() == PETTYPE_AVATAR || static_cast<CPetEntity*>(this)->getPetType() == PETTYPE_WYVERN)
             {
-                target.animation = PSkill->getPetAnimationID();
+                if (PSkill->getID() < 2452 || PSkill->getID() > 2457)
+                    target.animation = PSkill->getPetAnimationID();
+                else
+                    target.animation = PSkill->getPetAnimationID() - 1; // cait sith level ? holy pet animations shifted by 1 from mob animations
+
             }
             target.param = luautils::OnPetAbility(PTarget, this, PSkill, PMaster, &action);
         }
@@ -927,27 +942,31 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
             target.knockback = PSkill->getKnockback();
             if (first && (PSkill->getPrimarySkillchain() != 0))
             {
-                if (PSkill->getPrimarySkillchain())
+                // Only Humanoid mobs, jug pets, and charmed mobs can skillchain
+                if (IsHumanoid() || objtype == TYPE_PET || isCharmed)
                 {
-                    SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PSkill->getPrimarySkillchain(),
-                        PSkill->getSecondarySkillchain(), PSkill->getTertiarySkillchain());
-                    if (effect != SUBEFFECT_NONE)
+                    if (PSkill->getPrimarySkillchain())
                     {
-                        int32 skillChainDamage = battleutils::TakeSkillchainDamage(this, PTarget, target.param, nullptr);
-                        if (skillChainDamage < 0)
+                        SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PSkill->getPrimarySkillchain(), PSkill->getSecondarySkillchain(),
+                                                                            PSkill->getTertiarySkillchain());
+                        if (effect != SUBEFFECT_NONE)
                         {
-                            target.addEffectParam = -skillChainDamage;
-                            target.addEffectMessage = 384 + effect;
+                            int32 skillChainDamage = battleutils::TakeSkillchainDamage(this, PTarget, target.param, nullptr);
+                            if (skillChainDamage < 0)
+                            {
+                                target.addEffectParam = -skillChainDamage;
+                                target.addEffectMessage = 384 + effect;
+                            }
+                            else
+                            {
+                                target.addEffectParam = skillChainDamage;
+                                target.addEffectMessage = 287 + effect;
+                            }
+                            target.additionalEffect = effect;
                         }
-                        else
-                        {
-                            target.addEffectParam = skillChainDamage;
-                            target.addEffectMessage = 287 + effect;
-                        }
-                        target.additionalEffect = effect;
                     }
+                    first = false;
                 }
-                first = false;
             }
         }
         // Pet buffing abilities shouldn't revmove sneak/invis off players(i.e. Garuda's Hastega Blood Pact: Ward)
@@ -960,6 +979,11 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
             battleutils::ClaimMob(PTarget, this);
         }
         battleutils::DirtyExp(PTarget, this);
+        if (PTarget->isDead() && PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PET && this->PMaster->objtype == TYPE_PC)
+        {
+            ((CMobEntity*)PTarget)->m_autoTargetKiller = ((CCharEntity*)PMaster);
+            ((CMobEntity*)PTarget)->DoAutoTarget();
+        }
     }
     PTarget = static_cast<CBattleEntity*>(state.GetTarget());
     if (PTarget->objtype == TYPE_MOB && (PTarget->isDead() || (objtype == TYPE_PET && static_cast<CPetEntity*>(this)->getPetType() == PETTYPE_AVATAR)))
@@ -1170,7 +1194,229 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             }
         }
     }
+    // Roll for random rare items
+    if (tpzrand::GetRandomNumber(500) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0 && GetMLevel() >= 11)
+    {
+        if (GetMLevel() >= 11 && GetMLevel() <= 20) // 11-20 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(15835, ++dropCount)) // Desperado Ring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(16279, ++dropCount)) // Pile Chain
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(11312, ++dropCount)) // Rambler's Cloak
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(15926, ++dropCount)) // Bronze Bandolier
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 21 && GetMLevel() <= 30) // 21-30 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(18503, ++dropCount)) // Mammut 100% proc
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(16367, ++dropCount)) // Phlegethon's Trousers
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(16368, ++dropCount)) // Herder's Subligar
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(11401, ++dropCount)) // Rambler's Gaiters
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 31 && GetMLevel() <= 40) // 31-40 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(17760, ++dropCount)) // Buccaneer's Scimitar
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(18599, ++dropCount)) //Magic Dmg and MACC Affinity +1 (All)
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(18451, ++dropCount)) // Mokusa 100% proc
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(11492, ++dropCount)) // Risky Patch
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 41 && GetMLevel() <= 50) // 41-50 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(15042, ++dropCount)) // Gothic Gauntlets
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(11402, ++dropCount)) // Gothic Sabatons
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(18075, ++dropCount)) // Rossignol
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(19114, ++dropCount)) // Galkan Dagger 100% proc
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 51 && GetMLevel() <= 60) // 51-60 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(11042, ++dropCount)) // Rebel Earring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(14954, ++dropCount)) // Sadhu Cuffs
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(11575, ++dropCount)) // Grapevine Cape
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(14953, ++dropCount)) // Sadhu Bracelets
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 61 && GetMLevel() <= 70) // 61-70 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(15980, ++dropCount)) // Magnifying Earring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(17965, ++dropCount)) // Sirocco Axe 100% proc
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(18867, ++dropCount)) // Daedalus Hammer
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(10816, ++dropCount)) // Glassblower's Belt
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 71 && GetMLevel() <= 80) // 71-80+ bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(15786, ++dropCount)) // Divisor Ring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(17721, ++dropCount)) // Sanguine Sword
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(18028, ++dropCount)) // Matron's Knife
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(15796, ++dropCount)) // Psi Ring
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 81) // 81+ bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(27580, ++dropCount)) // Adoulin Ring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(27581, ++dropCount)) // Woltaris Ring
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(27582, ++dropCount)) // Weatherspoon Ring
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(27583, ++dropCount)) // Janniston Ring
+                        return;
+                    break;
+                case 4:
+                    if (AddItemToPool(27584, ++dropCount)) // Renaye Ring
+                        return;
+                    break;
+                case 5:
+                    if (AddItemToPool(27585, ++dropCount)) // Gorney Ring
+                        return;
+                    break;
+                case 6:
+                    if (AddItemToPool(27586, ++dropCount)) // Haverton Ring
+                        return;
+                    break;
+                case 7:
+                    if (AddItemToPool(27587, ++dropCount)) // Karieyh Ring
+                        return;
+                    break;
+                case 8:
+                    if (AddItemToPool(27588, ++dropCount)) // Vocane Ring
+                        return;
+                    break;
+                case 9:
+                    if (AddItemToPool(27589, ++dropCount)) // Thurandaut Ring
+                        return;
+                    break;
+            }
+        }
+    }
     uint16 Pzone = PChar->getZone();
+
+    // ToAU beastmen strongholds Moogle Coin drops
+    if (Pzone == 65 || Pzone == 54 || Pzone == 62)
+    {
+        if (tpzrand::GetRandomNumber(100) < 24 && getMobMod(MOBMOD_NO_DROPS) == 0)
+        {
+            if (AddItemToPool(8732, ++dropCount))
+                return;
+        }
+    }
 
     bool validZone = ((Pzone > 0 && Pzone < 31) || (Pzone > 44 && Pzone < 55) || (Pzone > 56 && Pzone < 63) || (Pzone > 64 && Pzone < 66) || (Pzone > 66 && Pzone < 69) ||
          (Pzone > 69 && Pzone < 73) || (Pzone > 78 && Pzone < 134) || (Pzone > 135 && Pzone < 185) || (Pzone > 188 && Pzone < 294));
@@ -1398,14 +1644,17 @@ void CMobEntity::OnDeathTimer()
 
 void CMobEntity::OnDespawn(CDespawnState&)
 {
+    if ((PAI != nullptr) && (PAI->GetController() != nullptr))
+    {
+        PAI->GetController()->SetAutoAttackEnabled(true);
+        PAI->GetController()->SetMagicCastingEnabled(true);
+        PAI->GetController()->SetWeaponSkillEnabled(true);
+    }
     FadeOut();
     PAI->Internal_Respawn(std::chrono::milliseconds(m_RespawnTime));
     luautils::OnMobDespawn(this);
     PAI->ClearActionQueue();
     m_unkillable = false;
-    PAI->GetController()->SetAutoAttackEnabled(true);
-    PAI->GetController()->SetMagicCastingEnabled(true);
-    PAI->GetController()->SetWeaponSkillEnabled(true);
     animationsub = 0;
     //#event despawn
     PAI->EventHandler.triggerListener("DESPAWN", this);
@@ -1414,7 +1663,6 @@ void CMobEntity::OnDespawn(CDespawnState&)
 void CMobEntity::Die()
 {
     DoAutoTarget();
-    m_THLvl = PEnmityContainer->GetHighestTH();
     PEnmityContainer->Clear();
     PAI->ClearStateStack();
     if (PPet != nullptr && PPet->isAlive() && GetMJob() == JOB_SMN)
@@ -1433,6 +1681,7 @@ void CMobEntity::Die()
 
             DistributeRewards();
             m_OwnerID.clean();
+            m_THLvl = 0;
             PAI->ClearActionQueue();
         }
     }));
@@ -1466,11 +1715,25 @@ void CMobEntity::OnCastFinished(CMagicState& state, action_t& action)
     CBattleEntity::OnCastFinished(state, action);
 
     static_cast<CMobController*>(PAI->GetController())->TapDeaggroTime();
+
+    auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
+    if (PTarget->isDead() && PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PET && this->PMaster->objtype == TYPE_PC)
+    {
+        ((CMobEntity*)PTarget)->m_autoTargetKiller = ((CCharEntity*)PMaster);
+        ((CMobEntity*)PTarget)->DoAutoTarget();
+    }
 }
 
 bool CMobEntity::OnAttack(CAttackState& state, action_t& action)
 {
     static_cast<CMobController*>(PAI->GetController())->TapDeaggroTime();
+
+    auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
+    if (PTarget->isDead() && PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PET && this->PMaster->objtype == TYPE_PC)
+    {
+        ((CMobEntity*)PTarget)->m_autoTargetKiller = ((CCharEntity*)PMaster);
+        ((CMobEntity*)PTarget)->DoAutoTarget();
+    }
 
     if (getMobMod(MOBMOD_ATTACK_SKILL_LIST))
     {

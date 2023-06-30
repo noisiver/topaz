@@ -85,6 +85,7 @@ function onEventFinish(player, csid, option)
         end
 
         player:addGil(gil*GIL_RATE)
+        player:addExp(1500 * EXP_RATE)
         player:messageSpecial(ID.text.GIL_OBTAINED, gil*GIL_RATE)
         player:addFame(BASTOK, fame)
         player:addTitle(tpz.title.MOMMYS_HELPER)

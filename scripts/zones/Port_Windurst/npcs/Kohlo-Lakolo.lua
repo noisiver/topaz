@@ -99,7 +99,7 @@ function onEventFinish(player, csid, option)
             player,
             WINDURST,
             tpz.quest.id.windurst.TRUTH_JUSTICE_AND_THE_ONION_WAY,
-            {item = 13093, title=tpz.title.STAR_ONION_BRIGADE_MEMBER, fame=10})
+            {item = 13093, title=tpz.title.STAR_ONION_BRIGADE_MEMBER, fame=100,xp=1500})
         then
             player:setLocalVar('TruthZone', 1)
             player:tradeComplete()
@@ -114,7 +114,7 @@ function onEventFinish(player, csid, option)
             player,
             WINDURST,
             tpz.quest.id.windurst.KNOW_ONE_S_ONIONS,
-            {item = 4857, title=tpz.title.SOB_SUPER_HERO, var="KnowOnesOnions", fame=10})
+            {item = 4857, title=tpz.title.SOB_SUPER_HERO, var="KnowOnesOnions", fame=150, xp=1500})
         then
             player:tradeComplete()
             player:setLocalVar("KnowOneOnionZone", 1)
@@ -126,7 +126,7 @@ function onEventFinish(player, csid, option)
             player,
             WINDURST,
             tpz.quest.id.windurst.INSPECTOR_S_GADGET,
-            {item = 13204, title=tpz.title.FAKEMOUSTACHED_INVESTIGATOR, fame=10})
+            {item = 13204, title=tpz.title.FAKEMOUSTACHED_INVESTIGATOR, fame=150, xp=1500})
         then
             player:setLocalVar("InspectorsGadgetZone", 1)
         end
@@ -147,6 +147,8 @@ function onEventFinish(player, csid, option)
         player:addQuest(WINDURST, tpz.quest.id.windurst.THE_PROMISE)
     elseif csid == 522 then
         if npcUtil.giveItem(player, 13135) then
+            player:addExp(15000 * EXP_RATE)
+            player:addFame(WINDURST, 500)
             npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.THE_PROMISE)
         end
     end

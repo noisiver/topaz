@@ -14,9 +14,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    --local base = math.random(4, 10)
-        local base = 12
+    local shadows = 4
+    if mob:isNM() then
+        shadows = 10
+    end
     local typeEffect = tpz.effect.BLINK
-    skill:setMsg(MobBuffMove(mob, typeEffect, base, 0, 300))
+    skill:setMsg(MobBuffMove(mob, typeEffect, base, 0, 60))
     return typeEffect
 end

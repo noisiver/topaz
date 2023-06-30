@@ -5,7 +5,7 @@
 --  Type: Physical
 --  Utsusemi/Blink absorb: 1 shadow
 --  Range: Melee
---  Notes:
+--  Notes: Unusuable when only 1 bomb remaining.
 ---------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -13,13 +13,16 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+	if mob:AnimationSub() == 2 then
+		return 1
+	end
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod =  1.5
+    local dmgmod =  1.75
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

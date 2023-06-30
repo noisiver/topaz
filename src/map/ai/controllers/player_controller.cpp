@@ -28,6 +28,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../../items/item_weapon.h"
 #include "../../packets/char_update.h"
 #include "../../packets/lock_on.h"
+#include "../../packets/inventory_finish.h"
+#include "../../packets/char_recast.h"
 #include "../../utils/battleutils.h"
 #include "../../utils/charutils.h"
 #include "../../recast_container.h"
@@ -108,6 +110,8 @@ bool CPlayerController::Disengage()
 bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
 {
     auto PChar = static_cast<CCharEntity*>(POwner);
+    auto playerTP = PChar->health.tp;
+
     if (PChar->PAI->CanChangeState())
     {
         CAbility* PAbility = ability::GetAbility(abilityid);
@@ -118,10 +122,94 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
         }
         if (PChar->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
         {
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_WAIT_LONGER));
+            Recast_t* recast = PChar->PRecastContainer->GetRecast(RECAST_ABILITY, PAbility->getRecastId());
+            // Set recast time in seconds to the normal recast time minus any charge time with the difference of the current time minus when the recast was set.
+            // Abilities without a charge will have zero chargeTime
+            uint32 recastSeconds = std::clamp<uint32>(recast->RecastTime - recast->chargeTime - ((uint32)time(nullptr) - recast->TimeStamp), 1, 99999);
+
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, recastSeconds, 0, MSGBASIC_TIME_LEFT));
             return false;
         }
-        return PChar->PAI->Internal_Ability(targid, abilityid);
+        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+        }
+        if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) ||
+            (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
+            (PAbility->isPetAbility() && !charutils::hasPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY)))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+            return false;
+        }
+        if (PAbility->isPetAbility())
+        {
+            CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+            // Not enough time since last pet ability was used
+            if (server_clock::now() < PChar->m_petAbilityWait)
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                return false;
+            }
+            // Pet is unable to use pet abilities due to Amnesia or hard CC
+            if (PPet->StatusEffectContainer->HasPreventActionEffect(false))
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                return false;
+            }
+            // Make sure pet is engaged when trying to use ready moves
+            if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_EXTIRPATING_SALVO)
+            {
+                CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+                if (!PPet->PAI->IsEngaged())
+                {
+                    PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                    return false;
+                }
+            }
+            if (PAbility->getID() >= ABILITY_HEALING_RUBY)
+            {
+                // Blood pact MP costs are stored under animation ID
+                if (PChar->health.mp < PAbility->getAnimationID())
+                {
+                    PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
+                    return false;
+                }
+            }
+        }
+
+        // Check for TP costing JA's
+        if (playerTP < PAbility->getTPCost() && !PChar->StatusEffectContainer->HasStatusEffect(EFFECT_TRANCE))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_NOT_ENOUGH_TP));
+            return false;
+        }
+
+        // Check for Finish Move costing JA's
+        if (PAbility->getID() >= ABILITY_ANIMATED_FLOURISH && PAbility->getID() <= ABILITY_WILD_FLOURISH || PAbility->getID() == ABILITY_CLIMACTIC_FLOURISH ||
+            PAbility->getID() == ABILITY_STRIKING_FLOURISH ||
+            PAbility->getID() == ABILITY_TERNARY_FLOURISH)
+        {
+            if (!PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_FINISHING_MOVE))
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_NO_FINISHINGMOVES));
+                return false;
+            }
+        }
+
+        // Check for paraylze
+        if (battleutils::IsParalyzed(PChar))
+        {
+            // 2 hours can be paraylzed but it won't reset their timers
+            if (PAbility->getRecastId() != 0)
+            {
+                PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
+            }
+            PChar->pushPacket(new CCharRecastPacket(PChar));
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_IS_PARALYZED));
+            return false;
+        }
+        return PChar->PAI->Internal_Ability(targid, abilityid); // Adds delay to next weapon swing timer
     }
     else
     {

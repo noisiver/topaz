@@ -119,12 +119,15 @@ struct Teleport_t
 
 struct PetInfo_t
 {
-    bool		respawnPet;		// used for spawning pet on zone
-    uint8		petID;			// id as in wyvern(48) , carbuncle(8) ect..
-    PETTYPE		petType;		// type of pet being transfered
-    int16		petHP;			// pets hp
-    int16       petMP;
-    float		petTP;			// pets tp
+    bool respawnPet;    // used for spawning pet on zone
+    int32 jugSpawnTime; // Keeps track of original spawn time in seconds since epoch
+    int32 jugDuration;  // Number of seconds a jug pet should last after its original spawn time
+    uint8 petID;        // id as in wyvern(48) , carbuncle(8) ect..
+    PETTYPE petType;    // type of pet being transfered
+    uint8 petLevel;     // level the pet was spawned with
+    int16 petHP;        // pets hp
+    int16 petMP;        // pets mp
+    float petTP;        // pets tp
 };
 
 struct AuctionHistory_t
@@ -200,6 +203,7 @@ public:
 
     nameflags_t				nameflags;						// флаги перед именем персонажа
     nameflags_t             menuConfigFlags;                // These flags are used for MenuConfig packets. Some nameflags values are duplicated.
+    uint64                  chatFilterFlags;                // Chat Filters
     uint32                  lastOnline {0};                 // UTC Unix Timestamp of the last time char zoned or logged out
     bool                    isNewPlayer();                  // Checks if new player bit is unset.
 
@@ -233,6 +237,7 @@ public:
     PetInfo_t				petZoningInfo;					// used to repawn dragoons pets ect on zone
     void					setPetZoningInfo();				// set pet zoning info (when zoning and logging out)
     void					resetPetZoningInfo();			// reset pet zoning info (when changing job ect)
+    bool                    shouldPetPersistThroughZoning();// if true, zoning should not cause a currently active pet
     uint8					m_SetBlueSpells[20];			// The 0x200 offsetted blue magic spell IDs which the user has set. (1 byte per spell)
 
     UnlockedAttachments_t	m_unlockedAttachments;			// Unlocked Automaton Attachments (1 bit per attachment)
@@ -330,9 +335,9 @@ public:
     uint16			  m_Monstrosity;				// Monstrosity model ID
     uint32			  m_AHHistoryTimestamp;			// Timestamp when last asked to view history
     uint32            m_DeathTimestamp;             // Timestamp when death counter has been saved to database
-    time_point        m_BPWait;                     // BP lock out to stop from re-issueing BP's when pet is mid action
+    time_point        m_petAbilityWait;             // ability lock out to stop from re-issueing pet abilities when pet is mid action
     time_point        m_deathSyncTime;              // Timer used for sending an update packet at a regular interval while the character is dead
-
+    time_point        AttackInventoryFinishPacket{ server_clock::now() };
     uint8			  m_hasTractor;					// checks if player has tractor already
     uint8			  m_hasRaise;					// checks if player has raise already
     uint8             m_hasAutoTarget;              // возможность использования AutoTarget функции
@@ -375,6 +380,10 @@ public:
     time_point        m_LastRangedAttackTime;
 
     CHAR_SUBSTATE     m_Substate;
+
+    
+    bool isYellFiltered() const;                    // Does the user have all yell mesages filtered?
+    bool isYellSpamFiltered() const;                 // Does the user have "all yell/shout messages deemed spam" filtered?
 
     int16 addTP(int16 tp) override;
     int32 addHP(int32 hp) override;
@@ -449,6 +458,7 @@ public:
     virtual void OnDeathTimer() override;
     virtual void OnRaise() override;
     virtual void OnItemFinish(CItemState&, action_t&);
+    void clearCharVarsWithPrefix(std::string const& prefix);
 
     CCharEntity();									// constructor
     ~CCharEntity();									// destructor

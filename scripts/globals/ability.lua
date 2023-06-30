@@ -703,7 +703,7 @@ function corsairSetup(caster, ability, action, effect, job)
                              tpz.effect.DOUBLE_UP_CHANCE,
                              roll,
                              0,
-                             45,
+                             60,
                              ability:getID(),
                              effect,
                              job,
@@ -761,7 +761,7 @@ function phantombuffMultiple(caster) -- Check for tpz.mod.PHANTOM_ROLL Value and
     return phantombuffMultiplier
 end
 
-function AbilityFinalAdjustments(dmg,mob,skill,target,skilltype,skillparam,shadowbehav)
+function AbilityFinalAdjustments(dmg,mob,skill,target,skilltype,damagetype,shadowbehav)
     -- physical attack missed, skip rest
     local msg = skill:getMsg()
     if (msg == 158 or msg == 188 or msg == 31 or msg == 30) then
@@ -802,12 +802,14 @@ function AbilityFinalAdjustments(dmg,mob,skill,target,skilltype,skillparam,shado
         return 0
     end
 
+    local element = damagetype - 5
+
     if (skilltype == tpz.attackType.PHYSICAL) then
-        dmg = target:physicalDmgTaken(dmg, skillparam)
+        dmg = target:physicalDmgTaken(dmg, damagetype)
     elseif (skilltype == tpz.attackType.MAGICAL) then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif (skilltype == tpz.attackType.BREATH) then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     elseif (skilltype == tpz.attackType.RANGED) then
         dmg = target:rangedDmgTaken(dmg)
     end

@@ -18,7 +18,7 @@ function onMobFight(mob, target)
     local recover = mob:getLocalVar("recover")
     local BattleTime = mob:getBattleTime()
 
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
 
     -- Enable casting after 45s so it won't open with a spell immediately
     if (BattleTime > 20) then

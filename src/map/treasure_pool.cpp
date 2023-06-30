@@ -97,40 +97,48 @@ void CTreasurePool::AddMember(CCharEntity* PChar)
 
 void CTreasurePool::DelMember(CCharEntity* PChar)
 {
-    TPZ_DEBUG_BREAK_IF(PChar == nullptr);
-    TPZ_DEBUG_BREAK_IF(PChar->PTreasurePool != this);
-
-    //if(m_TreasurePoolType != TREASUREPOOL_ZONE){
-        //Zone drops e.g. Dynamis DO NOT remove previous lot info. Everything else does.
-        // ^ TODO: verify what happens when a winner leaves zone
-        for(int i = 0; i < 10; i++){
-            if(m_PoolItems[i].Lotters.size()>0){
-                for(size_t j = 0; j<m_PoolItems[i].Lotters.size(); j++){
-                    //remove their lot info
-                    if(PChar->id == m_PoolItems[i].Lotters[j].member->id){
-                        m_PoolItems[i].Lotters.erase(m_PoolItems[i].Lotters.begin()+j);
-                    }
+    if (PChar == nullptr || PChar->PTreasurePool != this)
+    {
+        ShowWarning("CTreasurePool::DelMember() - PChar was null, or PTreasurePool mismatched.");
+        return;
+    }
+    // if(m_TreasurePoolType != TREASUREPOOL_ZONE)
+    // Zone drops e.g. Dynamis DO NOT remove previous lot info. Everything else does.
+    // ^ TODO: verify what happens when a winner leaves zone
+    for (int i = 0; i < 10; i++)
+    {
+        if (!m_PoolItems[i].Lotters.empty())
+        {
+            auto lotterIterator = m_PoolItems[i].Lotters.begin();
+            while (lotterIterator != m_PoolItems[i].Lotters.end())
+            {
+                // remove their lot info
+                LotInfo* info = &(*lotterIterator);
+                if (PChar->id == info->member->id)
+                {
+                    lotterIterator = m_PoolItems[i].Lotters.erase(lotterIterator);
+                    continue;
                 }
+                lotterIterator++;
             }
         }
-    //}
-
-    for (uint32 i = 0; i < members.size(); ++i)
-    {
-        if (PChar == members.at(i))
-        {
-            PChar->PTreasurePool = nullptr;
-            members.erase(members.begin()+i);
-            break;
-        }
     }
-
+    auto memberToDelete = std::find(members.begin(), members.end(), PChar);
+    if (memberToDelete != members.end())
+    {
+        PChar->PTreasurePool = nullptr;
+        members.erase(memberToDelete);
+    }
     if ((m_TreasurePoolType == TREASUREPOOL_PARTY || m_TreasurePoolType == TREASUREPOOL_ALLIANCE) && members.size() == 1)
+    {
         m_TreasurePoolType = TREASUREPOOL_SOLO;
-
+    }
     if (m_TreasurePoolType != TREASUREPOOL_ZONE && members.empty())
     {
-        delete this;
+        // TODO: This entire system needs rewriting to both:
+        //     : - Make it stable
+        //     : - Get rid of `delete this` and manage memory nicely
+        delete this; // cpp.sh allow
         return;
     }
 }

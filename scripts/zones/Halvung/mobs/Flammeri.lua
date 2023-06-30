@@ -1,6 +1,7 @@
 ------------------------------
 -- Area: Halvung
 --   NM: Flammeri
+-- Lyft NM
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

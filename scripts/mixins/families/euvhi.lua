@@ -4,6 +4,10 @@ g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
 -- opens/closed based on animation sub
 -- 4 = closed(petal) 6 = open(bloomed)
+-- Closed Euvhi is predicted base damage, open Euvhi is Base damage * 1.5.
+
+-- will go into closed mode when it takes a hit of at least 350 damage,
+-- and will unclose after 80 seconds.					
 
 function CheckForm(mob)
     if mob:AnimationSub() == 4 then
@@ -35,6 +39,8 @@ function PetalMods(mob)
     if mob:getLocalVar("petalMods") == 0 then
         mob:setLocalVar("petalMods", 1)
         mob:setLocalVar("bloomedMods", 0)
+        mob:setLocalVar("changeTime", os.time() + 80)
+        mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
         mob:addMod(tpz.mod.DEFP, 100) 
         mob:setDelay(4000)
     end
@@ -44,6 +50,7 @@ function BloomedMods(mob)
     if mob:getLocalVar("bloomedMods") == 0 then
         mob:setLocalVar("petalMods", 0)
         mob:setLocalVar("bloomedMods", 1)
+        mob:setDamage(math.floor(mob:getWeaponDmg() * 1.5)) -- Weapon damage * 1.5
         mob:setDelay(3000)
         mob:delMod(tpz.mod.DEFP, 100)
     end
@@ -77,11 +84,19 @@ g_mixins.families.euvhi = function(mob)
     mob:addListener("ENGAGE", "EUVHI_ENGAGE", function(mob, target)
         CheckForm(mob)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
-        mob:setLocalVar("changeTime", os.time() + math.random(20, 30))
     end)
 
     mob:addListener("DISENGAGE", "EUVHI_DISENGAGE", function(mob)
         CheckForm(mob)
+    end)
+
+    mob:addListener("TAKE_DAMAGE", "EUVHI_TAKE_DAMAGE", function(mob, damage, attacker, attackType, damageType)
+        local damageTaken = mob:getLocalVar("damageTaken")
+        local animationSub = mob:AnimationSub()
+        mob:setLocalVar("damageTaken", mob:getLocalVar("damageTaken") + damage)
+        if (animationSub ~= 1) and (damageTaken >= 350) then  -- Goes into petal form after taking 350 damage
+            petal_form(mob)
+        end
     end)
 
 
@@ -89,14 +104,11 @@ g_mixins.families.euvhi = function(mob)
         -- Ensure the Euvhi won't stop moving mid fight
         mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
         local changeTime = mob:getLocalVar("changeTime")
-        -- Open if time expired
-        if os.time() >= changeTime then
+        -- Open after 80 seconds
+        if os.time() >= changeTime and mob:AnimationSub() == 4 then
             if mob:AnimationSub() == 4 then
                 bloomed_form(mob)
-                mob:setLocalVar("changeTime", os.time() + math.random(30, 45))
-            elseif mob:AnimationSub() == 6 then
-                petal_form(mob)
-                mob:setLocalVar("changeTime", os.time() + math.random(30, 45))
+                mob:setLocalVar("changeTime", 0)
             end
         end
     end)

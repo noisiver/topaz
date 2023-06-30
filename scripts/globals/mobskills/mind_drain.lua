@@ -12,7 +12,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local tick = 60
+    local tick = 30
     if (mob:getPool() == 128) then -- Ancient Vessel
         local typeEffectTwo = tpz.effect.STR_DOWN
         local typeEffectThree = tpz.effect.DEX_DOWN

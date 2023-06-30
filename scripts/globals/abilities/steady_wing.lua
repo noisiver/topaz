@@ -1,0 +1,2 @@
+-- Formula to be used later
+-- local power = wyvern:getMaxHP() * 0.3 + wyvern:getMaxHP() - wyvern:getHP()

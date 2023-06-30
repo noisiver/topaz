@@ -98,12 +98,13 @@ function onEventFinish(player, csid, option)
         if (player:getFreeSlotsCount(0) >= 1) then
             player:tradeComplete()
             player:addTitle(tpz.title.KNIGHT_IN_TRAINING)
-            player:addItem(16565)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 16565) -- Spatha
-            player:addFame(SANDORIA, 30)
+            player:addItem(16543)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 16543) -- Fire Sword
+            player:addExp(2000 * EXP_RATE)
+            player:addFame(SANDORIA, 250)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.A_SQUIRE_S_TEST)
         else
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 16565) -- Spatha
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 16543) -- Fire Sword
         end
     elseif (csid == 625 or csid == 630) then
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.A_SQUIRE_S_TEST_II)

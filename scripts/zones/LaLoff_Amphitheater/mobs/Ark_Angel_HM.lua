@@ -4,6 +4,7 @@
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -13,7 +14,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 10) 
     mob:setMod(tpz.mod.MDEF, 12) 
 	mob:setMod(tpz.mod.SUB_DMG_RATING, 120)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setUnkillable(true)
     tpz.mix.jobSpecial.config(mob, {
         between = 30,

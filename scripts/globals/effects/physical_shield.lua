@@ -1,6 +1,7 @@
 -----------------------------------
 -- Physical Shield
 -- Blocks all physical attacks
+-- if power is > 19 then PDT % = power
 -- If power is 8, 50% PDT from BEHIND
 -- If power is 7, 75% PDT from BEHIND
 -- If power is 6, 50% PDT in FRONT
@@ -19,6 +20,9 @@ function onEffectGain(target, effect)
         target:addMod(tpz.mod.UDMGRANGE, -100)
     elseif (effect:getPower() == 2) then
         target:addMod(tpz.mod.PHYS_ABSORB, 100)
+    elseif (effect:getPower() > 19) then
+        target:addMod(tpz.mod.UDMGPHYS, -effect:getPower())
+        target:addMod(tpz.mod.UDMGRANGE, -effect:getPower())
     end
 end
 
@@ -31,5 +35,8 @@ function onEffectLose(target, effect)
         target:delMod(tpz.mod.UDMGRANGE, -100)
      elseif (effect:getPower() == 2) then
         target:delMod(tpz.mod.PHYS_ABSORB, 100)
+    elseif (effect:getPower() > 19) then
+        target:delMod(tpz.mod.UDMGPHYS, -effect:getPower())
+        target:delMod(tpz.mod.UDMGRANGE, -effect:getPower())
     end
 end

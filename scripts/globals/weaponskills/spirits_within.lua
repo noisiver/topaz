@@ -39,6 +39,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local WSC = 0
     local tpHits = 0
     local damage = 0
+    action:messageID(target:getID(), tpz.msg.basic.DAMAGE)
+
     -- Damage calculations based on https://www.bg-wiki.com/index.php?title=Spirits_Within&oldid=269806
     if (tp == 3000) then
         WSC = HP
@@ -117,15 +119,17 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         else
             calcParams.tpHitsLanded = 1
         end
+
+        player:trySkillUp(target, tpz.skill.SWORD, tpHitsLanded)
+        target:tryInterruptSpell(player, tpHitsLanded)
+    else
+        action:messageID(target:getID(), tpz.msg.basic.SKILL_NO_EFFECT)
     end
 
     damage = damage * WEAPON_SKILL_POWER
     calcParams.finalDmg = damage
 
     damage = takeWeaponskillDamage(target, player, {}, primary, attack, calcParams, action)
-	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits) end
-
 
     return calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.criticalHit, damage
 end

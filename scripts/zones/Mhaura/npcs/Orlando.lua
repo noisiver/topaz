@@ -15,17 +15,17 @@ function onTrade(player, npc, trade)
     local itemID = trade:getItemId()
     local itemList =
     {
-        {564, 200},   -- Fingernail Sack
-        {565, 250},   -- Teeth Sack
-        {566, 200},   -- Goblin Cup
-        {568, 120},   -- Goblin Die
-        {656, 600},   -- Beastcoin
-        {748, 900},   -- Gold Beastcoin
-        {749, 800},   -- Mythril Beastcoin
-        {750, 750},   -- Silver Beastcoin
-        {898, 120},   -- Chicken Bone
-        {900, 100},   -- Fish Bone
-        {16995, 150}, -- Rotten Meat
+        {564,   3500},   -- Fingernail Sack
+        {565,   3500},   -- Teeth Sack
+        {566,   3500},   -- Goblin Cup
+        {568,   3500},   -- Goblin Die
+        {656,   600},    -- Beastcoin
+        {748,   900},    -- Gold Beastcoin
+        {749,   8000},   -- Mythril Beastcoin
+        {750,   4000},   -- Silver Beastcoin
+        {898,   2500},   -- Chicken Bone
+        {900,   100},    -- Fish Bone
+        {16995, 1000},   -- Rotten Meat
     }
 
     for x, item in pairs(itemList) do
@@ -73,7 +73,8 @@ function onEventFinish(player, csid, option)
         player:addQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.ORLANDO_S_ANTIQUES)
     elseif (csid == 102) then
         player:tradeComplete()
-        player:addFame(WINDURST, 10)
+        player:addExp(2500 * EXP_RATE)
+        player:addFame(WINDURST, 200)
         player:addGil(payout)
         player:messageSpecial(ID.text.GIL_OBTAINED, payout)
         player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.ORLANDO_S_ANTIQUES)
@@ -81,6 +82,7 @@ function onEventFinish(player, csid, option)
         player:setLocalVar("OrlandoRepeat", 0)
     elseif (csid == 103) then
         if (QuestStatus == QUEST_COMPLETED) then
+            player:addFame(WINDURST, 20)
             player:setLocalVar("OrlandoRepeat", 1)
         end
     end

@@ -101,7 +101,8 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 17391) -- Willow Fishing Rod
             player:addTitle(tpz.title.LOST_CHILD_OFFICER)
             player:setCharVar("QuestfatherAndSonVar", 0)
-            player:addFame(SANDORIA, 30)
+            player:addExp(2000 * EXP_RATE)
+            player:addFame(SANDORIA, 250)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.FATHER_AND_SON)
         end
     elseif (csid == 61) then

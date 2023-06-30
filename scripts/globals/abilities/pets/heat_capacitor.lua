@@ -14,6 +14,25 @@ end
 function onPetAbility(target, automaton, skill, master, action)
     automaton:addRecast(tpz.recast.ABILITY, skill:getID(), 90)
     local maneuvers = master:countEffect(tpz.effect.FIRE_MANEUVER)
+    local tier = automaton:getLocalVar("heat_capacitor")
+    local tp = 0
+    if (tier == 1) then
+        if (maneuvers == 1) then
+            tp = 200
+        elseif (maneuvers == 2) then
+            tp = 500
+        elseif (maneuvers == 3) then
+            tp = 800
+        end
+    elseif (tier == 2) then
+        if (maneuvers == 1) then
+            tp = 600
+        elseif (maneuvers == 2) then
+            tp = 1200
+        elseif (maneuvers == 3) then
+            tp = 1800
+        end
+    end
     skill:setMsg(tpz.msg.basic.TP_INCREASE)
 
     for i = 1, maneuvers do
@@ -21,13 +40,7 @@ function onPetAbility(target, automaton, skill, master, action)
     end
 
 
-    if automaton:getLocalVar("heat_capacitor") >= 3 then -- Heat Capacitor & Heat Capacitor II
-        target:addTP(1000 * maneuvers)
-    elseif automaton:getLocalVar("heat_capacitor") >= 2 then -- Heat Capacitor II
-        target:addTP(600 * maneuvers)
-    else -- Heat Capacitor
-        target:addTP(400 * maneuvers)
-    end
+    target:addTP(tp)
 
-    return target:getTP()
+   return target:getTP()
 end

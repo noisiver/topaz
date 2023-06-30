@@ -39,6 +39,9 @@ TP_MACC_BONUS = 1
 TP_MAB_BONUS = 2
 TP_DMG_BONUS = 3
 TP_RANGED = 4
+TP_AUTO_ATTACK = 5
+TP_IGNORE_DEFENSE = 6
+TP_IGNORE_MACC = 7
 
 BOMB_TOSS_HPP = 1
 
@@ -57,7 +60,9 @@ end
 -- 1 TP_ATK_VARIES
 -- 2 TP_DMG_VARIES
 -- 3 TP_CRIT_VARIES
--- 4 TP_AUTO_ATTACK -- Used for "auto-attack"" skills ONLY
+-- 4 TP_RANGED Used for ranged attacks
+-- 5 TP_AUTO_ATTACK -- Used for "auto-attack"" skills ONLY
+-- 6 TP_IGNORE_DEFENSE
 -- mtp100/200/300 are the three values for 100% TP, 200% TP, 300% TP just like weaponskills.lua
 -- if TP_ACC_VARIES -> three values are acc %s (1.0 is 100% acc, 0.8 is 80% acc, 1.2 is 120% acc)
 -- if TP_ATK_VARIES -> three values are attack multiplier (1.5x 0.5x etc)
@@ -92,12 +97,30 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         base = 1
     end
 
+    local ignoredDef = 0
+    local ignoredDefMod = 0
+    local attackBonus = 0
+
+    if (params_phys.attack_boost ~= nil) then
+        attackBonus = params_phys.attack_boost
+    end
+
+    if (tpeffect == TP_IGNORE_DEFENSE) then
+        ignoredDefMod = MobIgnoreDefenseModifier(tp) / 100
+        --printf("Ignore def modifier %u", ignoredDefMod*100)
+        ignoredDef = target:getStat(tpz.mod.DEF) * ignoredDefMod
+        --printf("Amount of defense ignored final %u", ignoredDef)
+    end
     --work out and cap ratio
     if (offcratiomod == nil) then -- default to attack. Pretty much every physical mobskill will use this, Cannonball being the exception.
-        offcratiomod = mob:getStat(tpz.mod.ATT)
+        local attk = mob:getStat(tpz.mod.ATT)
+        offcratiomod = mob:getStat(tpz.mod.ATT) * (1 + (attackBonus / 100))
         -- print ("Nothing passed, defaulting to attack")
     end
     local ratio = offcratiomod/target:getStat(tpz.mod.DEF)
+    --printf("Ratio before ignore defense applied %u", ratio*100)
+    ratio = (offcratiomod / utils.clamp((target:getStat(tpz.mod.DEF) - ignoredDef), 0, 9999))
+    --printf("Ratio after ignore defense applied %u", ratio*100)
 
     local lvldiff = lvluser - lvltarget
     if lvldiff < 0 then
@@ -409,8 +432,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
 
     -- get resist
-    -- Why isn't this a param?
-    if ignoremacc ~= nil and ignoremacc == 101 then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
+    if (tpeffect == TP_IGNORE_MACC) then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
         resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
@@ -457,7 +479,7 @@ function MobNeedlesMagicalMove(mob, target, skill, damage, element, tpeffect)
     returninfo = {}
 
     local resist = 1
-    if bonus == nil then bonus = 0 end -- bonus macc
+    if bonus == nil then bonus = 50 end -- bonus macc
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
 
     -- get resist
@@ -576,15 +598,6 @@ function mobAddBonuses(caster, spell, target, dmg, ele)
 
     dmg = math.floor(dmg * dayWeatherBonus)
 
-    burst = calculateMobMagicBurst(caster, ele, target)
-
-    -- not sure what to do for this yet
-    -- if (burst > 1.0) then
-        -- spell:setMsg(spell:getMagicBurstMessage()) -- "Magic Burst!"
-    -- end
-
-    dmg = math.floor(dmg * burst)
-
     local mdefBarBonus = 0
     if
         ele >= tpz.magic.element.FIRE and
@@ -611,39 +624,13 @@ function mobAddBonuses(caster, spell, target, dmg, ele)
     return dmg
 end
 
-function calculateMobMagicBurst(caster, ele, target)
-
-    local burst = 1.0
-
-    local skillchainTier, skillchainCount = MobFormMagicBurst(ele, target)
-
-    if (skillchainTier > 0) then
-        if (skillchainCount == 1) then
-            burst = 1.3
-        elseif (skillchainCount == 2) then
-            burst = 1.35
-        elseif (skillchainCount == 3) then
-             burst = 1.40
-        elseif (skillchainCount == 4) then
-            burst = 1.45
-        elseif (skillchainCount == 5) then
-            burst = 1.50
-        else
-            -- Something strange is going on if this occurs.
-            burst = 1.0
-        end
-    end
-
-    return burst
-end
-
 -- Calculates breath damage
 -- mob is a mob reference to get hp and lvl
 -- percent is the percentage to take from HP
 -- base is calculated from main level to create a minimum
 -- Equation: (HP * percent) + (LVL / base)
 -- cap is optional, defines a maximum damage
-function MobBreathMove(mob, target, percent, base, element, cap)
+function MobHPBasedMove(mob, target, percent, base, element, cap)
     local damage = (mob:getHP() * percent) + (mob:getMainLvl() / base)
     local bonus = 0
 
@@ -682,20 +669,23 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return 0
     end
 
-    --handle pd
+    --Handle pd
     if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) )
-            and attackType==tpz.attackType.PHYSICAL) then
+        and attackType==tpz.attackType.PHYSICAL) then
+
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
-    -- handle fanatics drink/tonic/powder
-    if target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+
+    -- Handle fanatics drink/powder
+    if (target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD)) and (target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3) then
+
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
 
     -- MNK mobs have a -50% end multiplier for wep damage and need to do 2x for physical moves to do proper damage
-    if (mob:getMainJob() == tpz.job.MNK) and (damageType ~= tpz.damageType.NONE) then -- Throat stab and special moves like Mijin Gakure
+    if (mob:getMainJob() == tpz.job.MNK) and (mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND) and (damageType ~= tpz.damageType.NONE) then -- Throat stab and special moves like Mijin Gakure
         if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
             dmg = dmg * 2
         end
@@ -768,14 +758,19 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         dmg = dmg * utils.HandleWeaponResist(target, damageType)
     end
 
+    local element = damageType - 5
     -- Handle damage type resistances
     if attackType == tpz.attackType.PHYSICAL then
+        dmg = utils.HandlePositionalPDT(mob, target, dmg)
         dmg = target:physicalDmgTaken(dmg, damageType)
     elseif (attackType == tpz.attackType.MAGICAL) then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = utils.HandlePositionalMDT(mob, target, dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif (attackType == tpz.attackType.BREATH) then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = utils.HandlePositionalMDT(mob, target, dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     elseif (attackType == tpz.attackType.RANGED) then
+        dmg = utils.HandlePositionalPDT(mob, target, dmg)
         dmg = target:rangedDmgTaken(dmg)
     end
 
@@ -953,30 +948,33 @@ function DrainMultipleAttributes(mob, target, power, tick, count, duration)
     local attributes = {};
     local currIndex = 1;
     while (currIndex <= count) do
-      local newAttr = math.random(136, 142);
-      for _, attr in pairs(attributes) do
-        if (attr == newAttr) then
-          newAttr = -1;
+        local newAttr = math.random(136, 142);
+        for _, attr in pairs(attributes) do
+            if (attr == newAttr) then
+                newAttr = -1;
+            end
         end
-      end
-      if (newAttr ~= -1) then
-        attributes[currIndex] = newAttr;
-        currIndex = currIndex + 1;
-      end
+        if (newAttr ~= -1) then
+            attributes[currIndex] = newAttr;
+            currIndex = currIndex + 1;
+        end
     end
 
     local msg = tpz.msg.basic.SKILL_MISS;
-    
+    local effectsLanded = 0
+
     for i = 1,count,1 do
-      local newMsg = MobDrainAttribute(mob, target, attributes[i], power, tick, duration);
-      if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
-        msg = newMsg;
-      elseif (msg == tpz.msg.basic.SKILL_MISS) then
-        msg = newMsg;
-      end
+        local newMsg = MobDrainAttribute(mob, target, attributes[i], power, tick, duration);
+        if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
+            msg = newMsg;
+            effectsLanded = effectsLanded + 1
+        elseif (msg == tpz.msg.basic.SKILL_MISS) then
+            msg = newMsg;
+            effectsLanded = 0
+        end
     end
     
-    return msg;
+    return msg, effectsLanded
 end
 
 function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count, duration)
@@ -991,22 +989,23 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
     end
     -- Check if the attack wasn't blocked and didn't miss...
     if (MobPhysicalHit(mob, skill)) then
-		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
-        return count
+        return DrainMultipleAttributes(mob, target, power, tick, count, duration)
 	end
     -- If no shadows, then set msg to miss.
     if not target:hasStatusEffect(tpz.effect.COPY_IMAGE) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_2)
         and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
-            skill:setMsg(tpz.msg.basic.SKILL_MISS)
-            return 0
+            
+        return tpz.msg.basic.SKILL_MISS, 0
     else -- Return amount of shadows were consumed to block the attack
-        return shadows
+        return tpz.msg.basic.SHADOW_ABSORB, shadows
     end
 end
 
 function MobDrainStatusEffectMove(mob, target)
     -- try to drain buff
     local effect = mob:stealStatusEffect(target)
+
+    target:addEnmity(mob, 1, 320)
 
     if (effect ~= 0) then
         return tpz.msg.basic.EFFECT_DRAINED
@@ -1016,15 +1015,18 @@ function MobDrainStatusEffectMove(mob, target)
 end
 
 -- Adds a status effect to a target
-function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
+function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, params)
+
+    local params = {}
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+	    return tpz.msg.basic.SKILL_NO_EFFECT
     end
 
     if (typeEffect == nil) then
         return 0
     end
+
     -- Override durations with a single function to make it easier to update a million files durations at once when editing stuff
     -- Don't override Doom, Gradual Petrification, Encumbrance, or Terror
     if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) and
@@ -1032,19 +1034,22 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         duration = MobGetStatusEffectDuration(typeEffect)
     end
 
-    if (target:canGainStatusEffect(typeEffect, power)) then
+    if target:canGainStatusEffect(typeEffect, power) and ShouldApplyDiaBioEffect(target, typeEffect) then
         local statmod = tpz.mod.INT
         local element = mob:getStatusEffectElement(typeEffect)
+        local bonus = math.floor(mob:getMainLvl() / 2)
 
-        local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
+        target:addEnmity(mob, 1, 320)
+
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
             if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
-                return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+                return tpz.msg.basic.SKILL_NO_EFFECT
             end
         end
 
@@ -1060,14 +1065,74 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteSlow == nil) then
+                return tpz.msg.basic.SKILL_NO_EFFECT
+            end
+
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+        return tpz.msg.basic.SKILL_NO_EFFECT
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT -- resist 
+    return tpz.msg.basic.SKILL_NO_EFFECT 
+end
+
+-- Adds a status effect to a target with customizable duration and subpower
+function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier, params)
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+	    return tpz.msg.basic.SKILL_NO_EFFECT
+    end
+
+    if (typeEffect == nil) then
+        return 0
+    end
+
+    if target:canGainStatusEffect(typeEffect, power) and ShouldApplyDiaBioEffect(target, typeEffect) then
+        local statmod = tpz.mod.INT
+        local element = mob:getStatusEffectElement(typeEffect)
+        local bonus = math.floor(mob:getMainLvl() / 2)
+
+        local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and resist < 0.5  then resist = 0.5
+        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+        target:addEnmity(mob, 1, 320)
+
+        -- Doom and Gradual Petrification can't have a lower duration from resisting
+        if (resist < 1) then
+            if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
+                return tpz.msg.basic.SKILL_NO_EFFECT
+            end
+        end
+
+        if (resist >= 0.50) then
+
+            -- Reduce duration by resist percentage
+            local totalDuration = duration * resist
+
+            -- add TP scaling
+            local tp = mob:getLocalVar("tp")
+            -- Doom and Gradual Petrification duration shouldn't scale or it makes it weaker
+            if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) then
+                totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
+            end
+
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteSlow == nil) then
+                return tpz.msg.basic.SKILL_NO_EFFECT
+            end
+
+            target:addStatusEffect(typeEffect, power, tick, totalDuration, subid, subpower, tier)
+
+            return tpz.msg.basic.SKILL_ENFEEB_IS
+        end
+
+        return tpz.msg.basic.SKILL_NO_EFFECT
+    end
+    return tpz.msg.basic.SKILL_NO_EFFECT 
 end
 
 -- similar to status effect move except, this will not land if the attack missed
@@ -1075,6 +1140,16 @@ function MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, tick
 
     if (MobPhysicalHit(mob, skill)) then
         return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
+    end
+
+    return tpz.msg.basic.SKILL_MISS
+end
+
+-- checks to make sure the attack hit with customizable duration and subpower
+function MobPhysicalStatusEffectMoveSub(mob, target, skill, typeEffect, power, tick, duration, subid, subpower, tier)
+
+    if (MobPhysicalHit(mob, skill)) then
+        return MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
     end
 
     return tpz.msg.basic.SKILL_MISS
@@ -1092,6 +1167,18 @@ function MobGazeMove(mob, target, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
+-- similar to statuseffect move except it will only take effect if facing
+function MobGazeMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
+    if (target:isFacing(mob)) then
+		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
+			return tpz.msg.basic.SKILL_NO_EFFECT
+		else
+			return MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
+		end
+    end
+    return tpz.msg.basic.SKILL_NO_EFFECT
+end
+
 function MobBuffMove(mob, typeEffect, power, tick, duration)
 
     -- Add TP scaling
@@ -1101,6 +1188,9 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
         finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))
     end
 
+    local target = mob:getTarget()
+    target:addEnmity(mob, 320, 320)
+
     if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
@@ -1108,7 +1198,27 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
-function MobHealMove(target, skill, multiplier)
+-- Adds a buff to the move with subpower
+function MobBuffMoveSub(mob, typeEffect, power, tick, duration, subid, subpower, tier)
+
+    -- Add TP scaling
+    local tp = mob:getLocalVar("tp")
+    local finalDuration = duration
+    if not IsNonScalingBuff(typeEffect) then
+        finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))
+    end
+
+    local target = mob:getTarget()
+    target:addEnmity(mob, 320, 320)
+
+    if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
+        return tpz.msg.basic.SKILL_GAIN_EFFECT
+    end
+
+    return tpz.msg.basic.SKILL_NO_EFFECT
+end
+
+function MobHealMove(mob, target, skill, multiplier)
 
     local mobHP = target:getHP()
     local mobMaxHP = target:getMaxHP()
@@ -1126,14 +1236,16 @@ function MobHealMove(target, skill, multiplier)
     target:wakeUp()
     target:addHP(healAmount)
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+    mob:updateEnmityFromCure(target, healAmount)
 
     return healAmount
 end
 
-function MobPercentHealMove(target, skill, heal)
+function MobPercentHealMove(mob, target, skill, heal)
 
     local mobHP = target:getHP()
     local mobMaxHP = target:getMaxHP()
+    heal = math.floor(mobMaxHP * heal)
 
     if (mobHP+heal > mobMaxHP) then
         heal = mobMaxHP - mobHP
@@ -1142,6 +1254,7 @@ function MobPercentHealMove(target, skill, heal)
     target:wakeUp()
     target:addHP(heal)
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+    mob:updateEnmityFromCure(target, heal)
 
     return heal
 end
@@ -1149,8 +1262,9 @@ end
 function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
     local element = tpz.magic.ele.WATER
+    local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_II, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_II, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -1197,6 +1311,7 @@ function MobEncumberMove(mob, target, maxSlots, duration)
           target:unequipItem(encumberSlots[i]);
           mask = mask + math.pow(2, encumberSlots[i]);
         end
+        target:addEnmity(mob, 1, 320)
         target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_II, tpz.effect.ENCUMBRANCE_II, mask, 0, duration * resist);
     end
 end
@@ -1205,12 +1320,16 @@ function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
     local statmod = tpz.mod.CHR
     local element = tpz.magic.ele.LIGHT
+    local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 	--GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+
+    target:addEnmity(mob, 1, 320)
+
 	if (not target:isPC()) then
 		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
@@ -1232,8 +1351,9 @@ end
 function MobDeathMove(mob, target, skill)
         local statmod = tpz.mod.INT
         local element = tpz.magic.ele.DARK
+        local bonus = 50
 
-        local resist = applyPlayerResistance(mob, tpz.effect.KO, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local resist = applyPlayerResistance(mob, tpz.effect.KO, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -1268,11 +1388,14 @@ end
 function MobFullDispelMove(mob, target, skill, param1, param2)
     local statmod = tpz.mod.INT
     local element = tpz.magic.ele.DARK
+    local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.NONE, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.NONE, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+    target:addEnmity(mob, 1, 320)
 
 	if resist >= 0.5 then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
@@ -1728,44 +1851,51 @@ function MobGetStatusEffectDuration(effect)
         if (effect == tpz.effect.BIND) then
             duration = 20
         elseif (effect == tpz.effect.PETRIFICATION) then
-            duration = 10
+            duration = 15
         elseif (effect == tpz.effect.STUN) then
             duration = 5
         elseif (effect == tpz.effect.FLASH) then
-            duration = 6
+            duration = 9
         elseif (effect == tpz.effect.AMNESIA) then
             duration = 30
         elseif (effect == tpz.effect.MUTE) then
             duration = 20
         elseif (effect == tpz.effect.CHARM_I) then
             duration = 60
-        elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.SLEEP_II) or (effect == tpz.effect.LULLABY) then
-            duration = 90 
+        elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.LULLABY) then
+            duration = 60
+        elseif (effect == tpz.effect.SLEEP_II) then
+            duration = 120
         elseif (effect == tpz.effect.WEIGHT) then
             duration = 60 
         elseif (effect == tpz.effect.PARALYSIS) then
-            duration = 120 
+            duration = 60 
         elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
-            duration = 180 
+            duration = 90 
         elseif (effect == tpz.effect.SILENCE) then
-            duration = 120 
+            duration = 60
+        elseif (effect == tpz.effect.BLINDNESS) then
+            duration = 90 
         elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) or
         utils.IsElementalDOT(effect) then
-            duration = 90
+            duration = 60
         elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
-            duration = 120
+            duration = 60
         elseif (effect == tpz.effect.CURSE_II) then
             duration = 20
         elseif (effect == tpz.effect.PHYSICAL_SHIELD) or (effect == tpz.effect.MAGIC_SHIELD) then
             duration = 30
+        elseif (effect == tpz.effect.ATTACK_DOWN) then
+            duration = 60
         else
-            duration = 300
+            duration = 120
         end
     end
 
     return duration
 end
 
+-- Two hours
 function IsNonScalingBuff(typeEffect)
     local buffs =
     {
@@ -1784,6 +1914,18 @@ function IsNonScalingBuff(typeEffect)
     return false
 end
 
+-- Don't overwrite Bio with Dia, but overwrite Dia with Bio
+function ShouldApplyDiaBioEffect(target, typeEffect)
+    if (typeEffect == tpz.effect.DIA) and target:hasStatusEffect(tpz.effect.BIO) then
+        return false
+    elseif (typeEffect == tpz.effect.BIO) and target:hasStatusEffect(tpz.effect.DIA) then
+        target:delStatusEffectSilent(tpz.effect.DIA)
+        return true
+    end
+
+    return true
+end
+
 function MobDmgTPModifier(tp)
     return 1 + (math.max(tp - 1000, 0) * 0.00015) -- 0, 15, 30
 end
@@ -1794,6 +1936,10 @@ end
 
 function MobCritTPModifier(tp)
     return 15 + (math.max(tp - 1000, 0) * 0.015) -- 15, 30, 45
+end
+
+function MobIgnoreDefenseModifier(tp)
+    return 30 + (math.max(tp - 1000, 0) * 0.010) -- 30, 40, 50
 end
 
 function MobEnfeebleDurationTPModifier(effect, tp)

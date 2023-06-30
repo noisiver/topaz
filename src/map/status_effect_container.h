@@ -78,10 +78,11 @@ public:
     void TickRegen(time_point tick);
 
     void LoadStatusEffects();                                   // загружаем эффекты персонажа
-    void SaveStatusEffects(bool logout = false);                // сохраняем эффекты персонажа
+    void SaveStatusEffects(bool logout = false, bool removeOnZone = true);                // сохраняем эффекты персонажа
 
     uint8 GetEffectsCount(EFFECT ID);                        // получаем количество эффектов с указанным id
     uint8 GetLowestFreeSlot(); // returns the lowest free slot for songs/rolls
+    uint16 GetTotalMinneBonus();
 
     bool ApplyCorsairEffect(CStatusEffect* PStatusEffect, uint8 maxRolls, uint8 bustDuration);
     bool CheckForElevenRoll();
@@ -95,7 +96,7 @@ public:
 
     void WakeUp(); // remove sleep effects
     bool IsAsleep();
-    bool HasPreventActionEffect(); // checks if owner has an effect that prevents actions, like stun, petrify, sleep etc
+    bool HasPreventActionEffect(bool checkCharm = true); // checks if owner has an effect that prevents actions, like stun, petrify, sleep etc
 
     uint16 GetConfrontationEffect(); // gets confrontation number (bcnm, confrontation, campaign, reive mark)
     void CopyConfrontationEffect(CBattleEntity* PEntity); // copies confrontation status (pet summoning, etc)

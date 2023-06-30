@@ -2,7 +2,7 @@
 -- High-Tension_Discharger
 -- Description: Discharges a powerful current that deals Lightning damage to players in a fan-shaped area.
 -- Additional effect: Stun
--- Type: Magical
+-- Type: BREATH
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -30,9 +30,9 @@ function onMobWeaponSkill(target, mob, skill)
 
     local dmgmod = 2.0
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.THUNDER, dmgmod, TP_MAB_BONUS, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING, MOBPARAM_IGNORE_SHADOWS)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.LIGHTNING, MOBPARAM_IGNORE_SHADOWS)
 
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
+    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHTNING)
     MobStatusEffectMove(mob, target, typeEffect, 1, 0, 8)
     if target:hasStatusEffect(tpz.effect.ELEMENTALRES_DOWN) then
         target:delStatusEffectSilent(tpz.effect.ELEMENTALRES_DOWN)

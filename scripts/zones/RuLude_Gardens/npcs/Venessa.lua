@@ -115,22 +115,22 @@ function onEventFinish(player, csid, option)
         if option == 1 and VanadielTime() >= abandonmentTimer and player:hasKeyItem(tpz.ki.CENSER_OF_ABANDONMENT) == false then
             player:addKeyItem(tpz.ki.CENSER_OF_ABANDONMENT)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CENSER_OF_ABANDONMENT)
-            player:setCharVar("[ENM]abandonmentTimer", VanadielTime()+39600) -- Current time +11 hrs
+            player:setCharVar("[ENM]abandonmentTimer", os.time() + 432000) -- 5 days
             player:setCharVar("[ENM]VenessaIntro", 1)
         elseif option == 2 and VanadielTime() >= antipathyTimer and player:hasKeyItem(tpz.ki.CENSER_OF_ANTIPATHY) == false then
             player:addKeyItem(tpz.ki.CENSER_OF_ANTIPATHY)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CENSER_OF_ANTIPATHY)
-            player:setCharVar("[ENM]antipathyTimer", VanadielTime()+39600) -- Current time +11 hrs
+            player:setCharVar("[ENM]antipathyTimer", os.time() + 432000) -- 5 days
             player:setCharVar("[ENM]VenessaIntro", 1)
         elseif option == 3 and VanadielTime() >= animusTimer and player:hasKeyItem(tpz.ki.CENSER_OF_ANIMUS) == false then
             player:addKeyItem(tpz.ki.CENSER_OF_ANIMUS)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CENSER_OF_ANIMUS)
-            player:setCharVar("[ENM]animusTimer", VanadielTime()+39600) -- Current time +11 hrs
+            player:setCharVar("[ENM]animusTimer", os.time() + 432000) -- 5 days
             player:setCharVar("[ENM]VenessaIntro", 1)
         elseif option == 4 and VanadielTime() >= acrimonyTimer and player:hasKeyItem(tpz.ki.CENSER_OF_ACRIMONY) == false then
             player:addKeyItem(tpz.ki.CENSER_OF_ACRIMONY)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CENSER_OF_ACRIMONY)
-            player:setCharVar("[ENM]acrimonyTimer", VanadielTime()+39600) -- Current time +11 hrs
+            player:setCharVar("[ENM]acrimonyTimer", os.time() + 432000) -- 5 days
              player:setCharVar("[ENM]VenessaIntro", 1)
         end
     end

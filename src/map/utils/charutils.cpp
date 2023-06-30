@@ -671,7 +671,7 @@ namespace charutils
         }
 
         fmtQuery = "SELECT nameflags, mjob, sjob, hp, mp, mhflag, title, bazaar_message, zoning, "
-            "pet_id, pet_type, pet_hp, pet_mp "
+            "pet_id, pet_type, pet_hp, pet_mp, pet_level  "
             "FROM char_stats WHERE charid = %u;";
 
         ret = Sql_Query(SqlHandle, fmtQuery, PChar->id);
@@ -707,7 +707,13 @@ namespace charutils
                 PChar->petZoningInfo.petID = Sql_GetUIntData(SqlHandle, 9);
                 PChar->petZoningInfo.petMP = Sql_GetIntData(SqlHandle, 12);
                 PChar->petZoningInfo.petType = (PETTYPE)Sql_GetUIntData(SqlHandle, 10);
+                PChar->petZoningInfo.petLevel = Sql_GetUIntData(SqlHandle, 13);
                 PChar->petZoningInfo.respawnPet = true;
+                PChar->petZoningInfo.jugSpawnTime = GetCharVar(PChar, "jugpet-pet-spawn-time");
+                PChar->petZoningInfo.jugDuration = GetCharVar(PChar, "jugpet-duration-seconds");
+
+                // clear the charvars used for jug state
+                PChar->clearCharVarsWithPrefix("jugpet-");
             }
         }
 
@@ -808,7 +814,8 @@ namespace charutils
             "SELECT "
             "gmlevel, "    // 0
             "mentor, "     // 1
-            "nnameflags "  // 2
+            "nnameflags, "  // 2
+            "chatfilters " // 3
             "FROM chars "
             "WHERE charid = %u;";
 
@@ -821,6 +828,7 @@ namespace charutils
             PChar->m_GMlevel = (uint8)Sql_GetUIntData(SqlHandle, 0);
             PChar->m_mentorUnlocked = Sql_GetUIntData(SqlHandle, 1) > 0;
             PChar->menuConfigFlags.flags = (uint32)Sql_GetUIntData(SqlHandle, 2);
+            PChar->chatFilterFlags = Sql_GetUInt64Data(SqlHandle, 3);
         }
 
         charutils::LoadInventory(PChar);
@@ -842,6 +850,7 @@ namespace charutils
         PChar->health.hp = zoneutils::IsResidentialArea(PChar) ? PChar->GetMaxHP() : HP;
         PChar->health.mp = zoneutils::IsResidentialArea(PChar) ? PChar->GetMaxMP() : MP;
         PChar->UpdateHealth();
+        PChar->ReloadParty();
         PChar->m_event.EventID = luautils::OnZoneIn(PChar);
         luautils::OnGameIn(PChar, zoning == 1);
     }
@@ -2440,7 +2449,6 @@ namespace charutils
         PChar->UpdateHealth();
         PChar->m_EquipSwap = true;
         PChar->updatemask |= UPDATE_LOOK;
-        PChar->pushPacket(new CInventoryFinishPacket());
     }
 
     /************************************************************************
@@ -2471,8 +2479,7 @@ namespace charutils
             if (slotID == SLOT_SUB)
             {
                 // Unequip if no main weapon or a non-grip subslot without DW
-                if (!PChar->getEquip(SLOT_MAIN) ||
-                    (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)))
+                if (!PChar->getEquip(SLOT_MAIN) && (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)) || !((CItemWeapon*)PItem)->IsShield())
                 {
                     UnequipItem(PChar, SLOT_SUB);
                     continue;
@@ -2965,7 +2972,7 @@ namespace charutils
     *                                                                       *
     ************************************************************************/
 
-    void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl)
+    void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl, bool HighChance)
     {
         // This usually happens after a crash
         TPZ_DEBUG_BREAK_IF(SkillID >= MAX_SKILLTYPE); // выход за пределы допустимых умений
@@ -2984,10 +2991,30 @@ namespace charutils
 
             double random = tpzrand::GetRandomNumber(1.);
 
-            if (SkillUpChance > 0.5)
+            // Ranaged and damage dealing magic and blood pacts have 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
+            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING || SkillID == SKILL_ELEMENTAL_MAGIC || HighChance)
             {
-                SkillUpChance = 0.5;
+                if (SkillUpChance > 0.70)
+                {
+                    SkillUpChance = 0.70;
+                }
             }
+            else if (SkillID == SKILL_GREAT_SWORD || SkillID == SKILL_GREAT_AXE || SkillID == SKILL_SCYTHE || SkillID == SKILL_POLEARM ||
+                     SkillID == SKILL_GREAT_KATANA || SkillID == SKILL_STAFF)
+            {
+                if (SkillUpChance > 0.5)
+                {
+                    SkillUpChance = 0.5;
+                }
+            }
+            else
+            {
+                if (SkillUpChance > 0.24)
+                {
+                    SkillUpChance = 0.24;
+                }
+            }
+
 
             // Check for skillup% bonus. https://www.bg-wiki.com/bg/Category:Skill_Up_Food
             // Assuming multiplicative even though rate is already a % because 0.5 + 0.8 would be > 1.
@@ -3000,7 +3027,7 @@ namespace charutils
             {
                 SkillUpChance *= ((100.f + PChar->getMod(Mod::MAGIC_SKILLUP_RATE)) / 100.f);
             }
-
+            // What is this doing?
             if (Diff > 0 && random < SkillUpChance)
             {
                 double chance = 0;
@@ -3014,19 +3041,19 @@ namespace charutils
                     switch (tier)
                     {
                         case 5:
-                            chance = 0.900;
+                            chance = 0.450;
                             break;
                         case 4:
-                            chance = 0.700;
-                            break;
-                        case 3:
-                            chance = 0.500;
-                            break;
-                        case 2:
                             chance = 0.300;
                             break;
+                        case 3:
+                            chance = 0.250;
+                            break;
+                        case 2:
+                            chance = 0.150;
+                            break;
                         case 1:
-                            chance = 0.200;
+                            chance = 0.100;
                             break;
                         default:
                             chance = 0.000;
@@ -3624,7 +3651,7 @@ namespace charutils
                             case 4: exp *= 0.45f; break;
                             case 5: exp *= 0.39f; break;
                             case 6: exp *= 0.35f; break;
-                            default: exp *= (1.8f / pcinzone); break;
+                            default: exp *= (1.0f / pcinzone); break;
                         }
                     }
                     else if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && region >= 28 && region <= 32)
@@ -3637,7 +3664,7 @@ namespace charutils
                             case 4: exp *= 0.45f; break;
                             case 5: exp *= 0.39f; break;
                             case 6: exp *= 0.35f; break;
-                            default: exp *= (1.8f / pcinzone); break;
+                            default: exp *= (1.0f / pcinzone); break;
                         }
 
                     }
@@ -3651,7 +3678,7 @@ namespace charutils
                             case 4: exp *= 0.40f; break;
                             case 5: exp *= 0.37f; break;
                             case 6: exp *= 0.35f; break;
-                            default: exp *= (1.8f / pcinzone); break;
+                            default: exp *= (1.0f / pcinzone); break;
                         }
                     }
 
@@ -3659,20 +3686,6 @@ namespace charutils
                     {
                         const float monsterbonus = 1.f + PMob->getMobMod(MOBMOD_EXP_BONUS) / 100.f;
                         exp *= monsterbonus;
-                    }
-
-                    // Per monster caps pulled from: https://ffxiclopedia.fandom.com/wiki/Experience_Points
-                    if (PMember->GetMLevel() <= 50)
-                    {
-                        exp = std::fmin(exp, 400.f);
-                    }
-                    else if (PMember->GetMLevel() <= 60)
-                    {
-                        exp = std::fmin(exp, 500.f);
-                    }
-                    else
-                    {
-                        exp = std::fmin(exp, 600.f);
                     }
 
                     if (mobCheck > EMobDifficulty::DecentChallenge)
@@ -3689,7 +3702,7 @@ namespace charutils
                                 case 3: exp *= 1.3f; break;
                                 case 4: exp *= 1.4f; break;
                                 case 5: exp *= 1.5f; break;
-                                default: exp *= 1.55f; break;
+                                default: exp *= 1.0f; break;
                             }
                         }
                         else
@@ -3938,6 +3951,17 @@ namespace charutils
         // exp added from raise shouldn't display a message. Don't need a message for zero exp either
         if (!expFromRaise && exp > 0)
         {
+            //printf("Experience before level penalty %i\n", exp);
+            // Check for level restriction(COP level capped zones)
+            if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_RESTRICTION))
+            {
+                // Reduce experience if the players job is higher level than the level cap restriction
+                if (PChar->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_RESTRICTION)->GetPower() < PChar->jobs.job[PChar->GetMJob()])
+                {
+                    exp = (int32)(exp * 0.10f);
+                    //printf("Experience after level penalty %i\n", exp);
+                }
+            }
             if (mobCheck >= EMobDifficulty::EvenMatch && isexpchain)
             {
                 if (PChar->expChain.chainNumber != 0)
@@ -4530,7 +4554,7 @@ namespace charutils
     {
         const char* Query = "UPDATE char_stats "
             "SET hp = %u, mp = %u, nameflags = %u, mhflag = %u, mjob = %u, sjob = %u, "
-            "pet_id = %u, pet_type = %u, pet_hp = %u, pet_mp = %u "
+            "pet_id = %u, pet_type = %u, pet_hp = %u, pet_mp = %u, pet_level = %u "
             "WHERE charid = %u;";
 
         Sql_Query(SqlHandle,
@@ -4545,7 +4569,13 @@ namespace charutils
             PChar->petZoningInfo.petType,
             PChar->petZoningInfo.petHP,
             PChar->petZoningInfo.petMP,
+            PChar->petZoningInfo.petLevel,
             PChar->id);
+
+        // These two are jug only variables. We should probably move pet char stats into its own table, but in the meantime
+        // we use charvars for jug specific things
+        SetCharVar(PChar, "jug-pet-spawn-time", PChar->petZoningInfo.jugSpawnTime);
+        SetCharVar(PChar, "jug-duration-seconds", PChar->petZoningInfo.jugDuration);
     }
 
     /************************************************************************
@@ -4579,6 +4609,19 @@ namespace charutils
         const char* Query = "UPDATE %s SET %s %u WHERE charid = %u;";
 
         Sql_Query(SqlHandle, Query, "chars", "nnameflags =", PChar->menuConfigFlags.flags, PChar->id);
+    }
+
+    /************************************************************************
+     *                                                                       *
+     *  Save the char's chat filter flags                                    *
+     *                                                                       *
+     ************************************************************************/
+
+    void SaveChatFilterFlags(CCharEntity* PChar)
+    {
+        const char* Query = "UPDATE chars SET chatfilters = %llu WHERE charid = %u;";
+
+        Sql_Query(SqlHandle, Query, PChar->chatFilterFlags, PChar->id);
     }
 
     /************************************************************************
@@ -5444,6 +5487,15 @@ namespace charutils
             SaveCharPosition(PChar);
         }
 
+        if (PChar->shouldPetPersistThroughZoning())
+        {
+            PChar->setPetZoningInfo();
+        }
+        else
+        {
+            PChar->resetPetZoningInfo();
+        }
+
         PChar->pushPacket(new CServerIPPacket(PChar, type, ipp));
     }
 
@@ -5570,6 +5622,16 @@ namespace charutils
         return false;
     }
 
+    int32 ClearCharVarsWithPrefix(CCharEntity* PChar, std::string const& prefix)
+    {
+        if (PChar == nullptr)
+        {
+            return 0;
+        }
+
+        PChar->clearCharVarsWithPrefix(prefix);
+        return 0;
+    }
 
     uint16 getWideScanRange(JOBTYPE job, uint8 level)
     {

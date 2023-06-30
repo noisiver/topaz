@@ -72,41 +72,54 @@ g_mixins.families.aern = function(mob)
 		mob:AnimationSub(1)
     end)
 
+    mob:addListener("TAKE_DAMAGE", "AERN_TAKE_DAMAGE", function(mob, damage, attacker, attackType, damageType)
+        local Mode = mob:getLocalVar("Mode")
+        -- Only track damage while outside of bracelet mode
+        if (mode == 0) then
+            mob:setLocalVar("dmgTaken", mob:getLocalVar("dmgTaken") + damage)
+        end
+    end)
+
     mob:addListener("ENGAGE", "AERN_ENGAGE", function(mob, target)
-        mob:setLocalVar("BraceletsTime", os.time() + math.random(15, 90))
+        mob:setLocalVar("BraceletsTime", os.time() + 80)
     end)
 
     mob:addListener("COMBAT_TICK", "AERN_COMBAT_TICK", function(mob)
 	local BraceletsTime = mob:getLocalVar("BraceletsTime")
 	local BraceletsOff = mob:getLocalVar("BraceletsOff")
 	local Mode = mob:getLocalVar("Mode")
+    local dmgTaken = mob:getLocalVar("dmgTaken")
 
+        -- Goes into bracelets mode after 80 seconds of no bracelets or after taking 300 damage while not in bracelet mode
+        -- Bracelets last 30 seconds
 		if BraceletsTime == 0 then
-			mob:setLocalVar("BraceletsTime", os.time() + math.random(15, 90))
-		elseif os.time() >= BraceletsTime and Mode == 0 then
+			mob:setLocalVar("BraceletsTime", os.time() + 80)
+		elseif (os.time() >= BraceletsTime and Mode == 0) or (dmgTaken > 300) then
             if mob:getMainJob() == tpz.job.MNK then
-                mob:setDelay(6000)
+                mob:setDelay(5300)
             else
-			    mob:setDelay(3000)
+			    mob:setDelay(2700)
             end
-			mob:addMod(tpz.mod.ATTP, 50)
-            mob:addMod(tpz.mod.DEFP, 50)
-			mob:addMod(tpz.mod.MATT, 48)
+			mob:addMod(tpz.mod.ATTP, 30)
+            mob:addMod(tpz.mod.ACC, 40)
+			mob:addMod(tpz.mod.MATT, 25)
 			mob:AnimationSub(2)
-			mob:setLocalVar("BraceletsOff", os.time() + math.random(60, 90))
+			mob:setLocalVar("BraceletsOff", os.time() + 30)
 			mob:setLocalVar("Mode", 1)
+            mob:setLocalVar("dmgTaken", 0)
 		end
-		if BraceletsOff > 0 and os.time() >= BraceletsOff and Mode == 1 then
+
+		if (BraceletsOff > 0 and os.time() >= BraceletsOff and Mode == 1) then
             if mob:getMainJob() == tpz.job.MNK then
                 mob:setDelay(8000)
             else
 			    mob:setDelay(4000)
             end
-			mob:delMod(tpz.mod.ATTP, 50)
-            mob:delMod(tpz.mod.DEFP, 50)
-			mob:delMod(tpz.mod.MATT, 48)
+			mob:delMod(tpz.mod.ATTP, 30)
+            mob:delMod(tpz.mod.ACC, 40)
+			mob:delMod(tpz.mod.MATT, 25)
 			mob:AnimationSub(1)
-			mob:setLocalVar("BraceletsTime", os.time() + math.random(60, 90))
+			mob:setLocalVar("BraceletsTime", os.time() + 80)
 			mob:setLocalVar("Mode", 0)
 		end
     end)

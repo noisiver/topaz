@@ -7,11 +7,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setDamage(110)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.ACC, 50) 
-    mob:addMod(tpz.mod.EVA, 50)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.STORETP, 100)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 6000) 

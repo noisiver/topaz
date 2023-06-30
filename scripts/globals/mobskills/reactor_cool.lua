@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 300))
     local effect1 = mob:getStatusEffect(tpz.effect.ICE_SPIKES)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
-    skill:setMsg(MobBuffMove(mob, typeEffect2, 100, 0, 300))
+    skill:setMsg(MobBuffMove(mob, typeEffect2, 25, 0, 300))
     local effect2 = mob:getStatusEffect(tpz.effect.DEFENSE_BOOST)
     effect2:unsetFlag(tpz.effectFlag.DISPELABLE)
 

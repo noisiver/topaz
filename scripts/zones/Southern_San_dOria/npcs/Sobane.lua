@@ -71,15 +71,21 @@ function onEventFinish(player, csid, option)
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.SIGNED_IN_BLOOD)
     elseif csid == 734 then
         player:setCharVar("SIGNED_IN_BLOOD_Prog", 1)
-    elseif csid == 736 and npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.SIGNED_IN_BLOOD, {item = 14760, gil = 3500, var = "SIGNED_IN_BLOOD_Prog"}) then
+    elseif csid == 736 and npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.SIGNED_IN_BLOOD, {item = 14760, gil = 3500, fame = 500, xp = 7500, var = "SIGNED_IN_BLOOD_Prog"}) then
         player:delKeyItem(tpz.ki.TORN_OUT_PAGES)
         player:confirmTrade()
     elseif csid == 735 then
         player:needToZone(true)
     elseif csid == 738 then
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY)
-    elseif csid == 740 and npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY, {item = 13174}) then
-        player:addFame(SANDORIA, 450)
-        player:setCharVar("TEA_WITH_A_TONBERRY_PROG", 0)
+    elseif csid == 740 then
+        if (player:getFreeSlotsCount(0) >= 1) then
+            npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY, { fame = 1000, xp = 12500})
+            player:setCharVar("TEA_WITH_A_TONBERRY_PROG", 0)
+            player:addItem(13174, 1, 141, 9) -- Conserve MP +10
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 13174) -- Willpower Torque
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13174) -- Willpower Torque
+        end
     end
 end

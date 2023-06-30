@@ -29,6 +29,7 @@ enum class Mod
     NONE                      = 0, // Essential, but does nothing :)
     //  NAME                  = ID, // Comment
     DEF                       = 1, // Target's Defense
+    DEF_TRAIT                 = 1321, // Defense bonus traits
     HP                        = 2, // Target's HP
     HPP                       = 3, // HP Percentage
     CONVMPTOHP                = 4, // MP -> HP (Cassie Earring)
@@ -71,7 +72,7 @@ enum class Mod
     MEVA                      = 31, // Magic Evasion
     TPEVA                     = 1309, // Evasion to Monster TP moves in percents(used mainly for foil)
 
-    // Magic Accuracy and Elemental Attacks
+    // Magic Accuracy and Elemental Attacks(Damage mods currently unused and not coded anywhere!)
     FIREATT                   = 32, // Fire Damage
     ICEATT                    = 33, // Ice Damage
     WINDATT                   = 34, // Wind Damage
@@ -317,7 +318,7 @@ enum class Mod
     AMNESIARESTRAIT = 1253,
     LULLABYRESTRAIT = 1254,
     DEATHRESTRAIT = 1255,
-    STATUSRESTRAIT = 2000,
+    STATUSRESTRAIT = 2000, // All res trait
 
 
     PARALYZE                  = 257, // Paralyze -- percent chance to proc
@@ -356,7 +357,7 @@ enum class Mod
     REGEN_MULTIPLIER          = 838, // Multiplier to base regen rate
     CURE2MP_PERCENT           = 860, // Converts % of "Cure" amount to MP
     DIVINE_BENISON            = 910, // Adds fast cast and enmity reduction to -Na spells (includes Erase). Enmity reduction is half of the fast cast amount
-
+    PROTECT_SHELL_EFFECT      = 1316,// Enhances the effect of "Protect" and "Shell". Target with mod only.
     // Black Mage
     CLEAR_MIND                = 295, // Used in conjunction with HEALMP to increase amount between tics
     CONSERVE_MP               = 296, // Percent chance
@@ -366,6 +367,7 @@ enum class Mod
     STONESKIN                 = 300, // Tracks stoneskin HP pool
     PHALANX                   = 301, // Tracks direct damage reduction
     PHALANX_POTENCY           = 1273,// Increases power of phalanx(Gear mod)
+    PHALANX_RECIEVED          = 1320,// Phalanx effect received.
     ENF_MAG_POTENCY           = 290, // Increases Enfeebling magic potency %
     ENHANCES_SABOTEUR         = 297, // Increases Saboteur Potency %
 
@@ -407,7 +409,8 @@ enum class Mod
     TAME                      = 304, // Additional percent chance to charm
     CHARM_TIME                = 360, // extends the charm time only, no effect of charm chance
     REWARD_HP_BONUS           = 364, // Percent to add to reward HP healed. (364)
-    CHARM_CHANCE              = 391, // extra chance to charm (light+apollo staff ect)
+    REWARD_RECAST             = 1313,// Reward recast reduction
+    CHARM_CHANCE              = 391, // extra chance to charm, in percents(1%, 2%, 3%, etc)
     FERAL_HOWL_DURATION       = 503, // +20% duration per merit when wearing augmented Monster Jackcoat +2
     JUG_LEVEL_RANGE           = 564, // Decreases the level range of spawned jug pets. Maxes out at 2.
 
@@ -781,10 +784,15 @@ enum class Mod
     CLAMMING_REDUCED_INCIDENTS= 510, //
 
     CHOCOBO_RIDING_TIME       = 511, // Increases chocobo riding time
+    DIGGING_SKILL_GAIN_RATE   = 1317,// Chocobo digging skill up gain increase
 
     HARVESTING_RESULT         = 513, // Improves harvesting results
     LOGGING_RESULT            = 514, // Improves logging results
+    LOGGING_SKILL             = 1314,// Adds Logging Skill
     MINING_RESULT             = 515, // Improves mining results
+    MINING_SKILL              = 1315,// Adds Mining Skill
+    HARVESTING_SKILL          = 1318,// Adds Harvesting Skill
+    EXCAVATION_SKILL          = 1319,// Adds Excavation Skill
 
     EGGHELM                   = 517,
 
@@ -803,6 +811,7 @@ enum class Mod
     AUGMENTS_AURA_STEAL       = 889, // 20% chance of 2 effects to be dispelled or stolen per merit level
     AUGMENTS_CONSPIRATOR      = 912, // Applies Conspirator benefits to player at the top of the hate list
     ENHANCES_REFRESH          = 529, // "Enhances Refresh" adds +1 per modifier to spell's tick result.
+    REFRESH_DURATION          = 1312, // Increased refresh duration (in seconds)
     NO_SPELL_MP_DEPLETION     = 530, // % to not deplete MP on spellcast.
     FORCE_FIRE_DWBONUS        = 531, // Set to above 0 to force fire day/weather spell bonus/penalty.
     FORCE_ICE_DWBONUS         = 532, // Set to above 0 to force ice day/weather spell bonus/penalty.
@@ -901,11 +910,11 @@ enum class Mod
     RESBUILD_POISON = 967,
 
     SDT_FIRE = 968,
-    SDT_EARTH = 969,
-    SDT_WATER = 970,
-    SDT_WIND = 971,
-    SDT_ICE = 972,
-    SDT_THUNDER = 973,
+    SDT_ICE = 969,
+    SDT_WIND = 970,
+    SDT_EARTH = 971,
+    SDT_THUNDER = 972,
+    SDT_WATER = 973,
     SDT_LIGHT = 974,
     SDT_DARK = 975,
 
@@ -969,7 +978,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1312 NEXT
+    // 1322 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

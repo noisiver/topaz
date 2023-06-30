@@ -46,10 +46,12 @@ function onEventFinish(player, csid, option)
     elseif (csid == 193) then
         if (player:getQuestStatus(BASTOK, tpz.quest.id.bastok.BITE_THE_DUST) == QUEST_ACCEPTED) then
             player:addTitle(tpz.title.SAND_BLASTER)
-            player:addFame(BASTOK, 120)
+            player:addExp(4500 * EXP_RATE)
+            player:addFame(BASTOK, 200)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.BITE_THE_DUST)
         else
-            player:addFame(BASTOK, 80)
+            player:addExp(500 * EXP_RATE)
+            player:addFame(BASTOK, 50)
         end
 
         player:addGil(GIL_RATE*350)

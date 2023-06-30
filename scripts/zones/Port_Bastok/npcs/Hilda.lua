@@ -4,6 +4,7 @@
 -- Involved in Quest: Cid's Secret, Riding on the Clouds
 -- Starts & Finishes: The Usual
 -- !pos -163 -8 13 236
+-- TODO: Add + Elemental WSD to Speed Bow
 -----------------------------------
 local ID = require("scripts/zones/Port_Bastok/IDs")
 require("scripts/globals/keyitems")
@@ -180,7 +181,8 @@ function onEventFinish(player, csid, option)
             player:setCharVar("TheUsual_Event", 0)
             player:addItem(17170)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 17170) -- Speed Bow
-            player:addFame(BASTOK, 30)
+            player:addExp(7500 * EXP_RATE)
+            player:addFame(BASTOK, 250)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.THE_USUAL)
         end
     elseif (csid == 255) then

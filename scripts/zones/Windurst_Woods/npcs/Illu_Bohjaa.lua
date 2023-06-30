@@ -12,10 +12,12 @@ require("scripts/globals/titles")
 function onTrade(player, npc, trade)
     if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CREEPY_CRAWLIES) ~= QUEST_AVAILABLE then
         if npcUtil.tradeHas(trade, {{816, 3}}) then -- silk thread x3
-            player:addFame(WINDURST, 15)
+            player:addExp(3500 * EXP_RATE)
+            player:addFame(WINDURST, 150)
             player:startEvent(335, 600 * GIL_RATE, 816, 938, 1156)
         elseif npcUtil.tradeHas(trade, {{1156, 3}}) then -- crawler calculus x3
-            player:addFame(WINDURST, 30)
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(WINDURST, 100)
             player:startEvent(335, 600 * GIL_RATE, 816, 938, 1156)
         end
     end

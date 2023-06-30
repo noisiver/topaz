@@ -9,44 +9,32 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.WIND_MANEUVER)
 end
 
-function onPetAbility(target, automaton, skill, master, action)
-    local params = {
-        numHits = 1,
-        atkmulti = 1,
-        accBonus = 50,
-        weaponType = tpz.skill.CLUB,
-        ftp100 = 4.0,
-        ftp200 = 5.0,
-        ftp300 = 5.5,
-        acc100 = 0.0,
-        acc200 = 0.0,
-        acc300 = 0.0,
-        str_wsc = 0.0,
-        dex_wsc = 0.0,
-        vit_wsc = 0.0,
-        agi_wsc = 0.0,
-        int_wsc = 0.0,
-        mnd_wsc = 0.0,
-        chr_wsc = 0.0
-    }
+function onPetAbility(target, pet, skill)
+    local numhits = 1
+    local params = {}
+    params.ftp100 = 5.0 -- 6.0
+    params.ftp200 = 5.5 -- 8.5
+    params.ftp300 = 6.0 -- 11.0
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.6 -- 1.0
+    params.int_wsc = 0.0 
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
 
-    if USE_ADOULIN_WEAPON_SKILL_CHANGES then
-        params.agi_wsc = 1.0
-        params.ftp100 = 6.0
-        params.ftp200 = 8.5
-        params.ftp300 = 11.0
-    end
+    local effect = tpz.effect.EVASION_DOWN
+    local power = (target:getEVA() * 0.10)
+    local duration = 30
+    local bonus = 0
 
-    local damage = doAutoPhysicalWeaponskill(automaton, target, 0, skill:getTP(), true, action, false, params, skill, action)
+    local damage = AutoPhysicalWeaponSkill(pet, target, skill, tpz.attackType.PHYSICAL, numhits, TP_DMG_BONUS, params)
+    dmg = AutoPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, damage.hitslanded, params)
+    AutoPhysicalStatusEffectWeaponSkill(pet, target, skill, effect, power, duration, params, bonus)
 
-    if damage > 0 then
-        if not target:hasStatusEffect(tpz.effect.EVASION_DOWN) then
-            target:addStatusEffect(tpz.effect.EVASION_DOWN, 10, 0, 30)
-        end
-    end
-
-    return damage
+    return dmg
 end

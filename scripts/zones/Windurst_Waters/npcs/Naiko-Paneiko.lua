@@ -3,6 +3,7 @@
 --  NPC: Naiko-Paneiko
 -- Involved In Quest: Making Headlines, Riding on the Clouds
 -- !pos -246 -5 -308 238
+-- TODO: Scrooped!
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Waters/IDs")
 require("scripts/globals/settings")
@@ -81,7 +82,8 @@ function onEventFinish(player, csid, option)
         player:delKeyItem(tpz.ki.WINDURST_WATERS_SCOOP)
         player:delKeyItem(tpz.ki.PORT_WINDURST_SCOOP)
         player:setCharVar("QuestMakingHeadlines_var", 0)
-        player:addFame(WINDURST, 30)
+        player:addExp(4000 * EXP_RATE)
+        player:addFame(WINDURST, 250)
         player:completeQuest(WINDURST, tpz.quest.id.windurst.MAKING_HEADLINES)
     end
 

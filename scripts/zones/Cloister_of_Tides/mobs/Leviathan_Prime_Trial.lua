@@ -3,7 +3,6 @@
 --  Mob: Leviathan Prime
 -- Involved in Quest: Trial by Water, Trial Size Trial by Water
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/settings")
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
@@ -11,26 +10,24 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(120)
-    mob:setMod(tpz.mod.ATT, 522)
-    mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.EVA, 314) 
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.UFASTCAST, 25)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 50) 
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:addImmunity(tpz.immunity.POISON)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = 866, hpp = math.random(30,55)}, -- uses Tidal Wave once while near 50% HPP.
-        },
-    })
 end
 
 
 function onMobFight(mob, target)
+    local twohr = mob:getLocalVar("2hr")
+
+    if mob:getHPP() <= math.random(25, 50) and twohr == 0 and mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING and mob:getCurrentAction() ~= tpz.action.MOBABILITY_START 
+    and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and mob:actionQueueEmpty() then
+        mob:useMobAbility(866)
+        mob:setLocalVar("2hr", 1)
+    end
 end
 
 function onMobInitialize(mob)
@@ -38,7 +35,7 @@ function onMobInitialize(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER, {chance = 100, power = 250})
+return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER, {chance = 100, power = 25})
 end
 
 function onMobDeath(mob, player, isKiller)

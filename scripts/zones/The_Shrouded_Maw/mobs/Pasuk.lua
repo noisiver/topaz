@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ACC, 15) 
     mob:addMod(tpz.mod.EVA, 15)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 

@@ -996,7 +996,7 @@ local prowessData =
     { effect = tpz.effect.PROWESS_KILLER,        basePower = 4,   addPower = 4,   maxStack = 2  },
 }
 
-local function addGovProwessBonusEffect(player)
+function addGovProwessBonusEffect(player)
     -- make a table of prowesses that are not yet maxed
     local availableProwesses = {}
 
@@ -1030,7 +1030,7 @@ local function addGovProwessBonusEffect(player)
 
         -- set effect
         player:addStatusEffectEx(p.effect, 0, power, 0, 0)
-        player:messageBasic(p.effect - 168)
+        player:messageBasic(p.effect - 168, 0, 0, 0, false)
     end
 end
 
@@ -1148,7 +1148,7 @@ tpz.regime.bookOnEventFinish = function(player, option, regimeType)
 
     -- check player can eat
     if opt.food and (player:hasStatusEffect(tpz.effect.FOOD) or player:hasStatusEffect(tpz.effect.FIELD_SUPPORT_FOOD)) then
-        player:messageBasic(tpz.msg.basic.IS_FULL)
+        player:messageBasic(tpz.msg.basic.IS_FULL, 0, 0, 0, false)
         return
     end
 
@@ -1320,7 +1320,7 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
 
     -- increment number killed
     killed = killed + 1
-    player:messageBasic(tpz.msg.basic.FOV_DEFEATED_TARGET, killed, needed)
+    player:messageBasic(tpz.msg.basic.FOV_DEFEATED_TARGET, killed, needed, 0, false)
     player:setCharVar("[regime]killed" .. index, killed)
 
     -- this mob is not yet finished
@@ -1342,7 +1342,7 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
     end
 
     -- get base reward
-    player:messageBasic(tpz.msg.basic.FOV_COMPLETED_REGIME)
+    player:messageBasic(tpz.msg.basic.FOV_COMPLETED_REGIME, 0, 0, 0, false)
     local reward = page[7]
 
     -- adjust reward down if regime is higher than server mob level cap
@@ -1380,13 +1380,13 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
     if REGIME_WAIT == 0 or player:getCharVar("[regime]lastReward") < vanadielEpoch then
         -- gil
         player:addGil(reward)
-        player:messageBasic(tpz.msg.basic.FOV_OBTAINS_GIL, reward)
+        player:messageBasic(tpz.msg.basic.FOV_OBTAINS_GIL, reward, 0, 0, false)
 
         -- tabs
         local tabs = math.floor(reward / 10) * TABS_RATE
         tabs = utils.clamp(tabs, 0, 50000 - player:getCurrency("valor_point")) -- Retail caps players at 50000 tabs
         player:addCurrency("valor_point", tabs)
-        player:messageBasic(tpz.msg.basic.FOV_OBTAINS_TABS, tabs, player:getCurrency("valor_point"))
+        player:messageBasic(tpz.msg.basic.FOV_OBTAINS_TABS, tabs, player:getCurrency("valor_point"), 0, false)
 
         player:setCharVar("[regime]lastReward", vanadielEpoch)
     end
@@ -1400,7 +1400,7 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
             player:setCharVar("[regime]killed" .. i, 0)
         end
 
-        player:messageBasic(tpz.msg.basic.FOV_REGIME_BEGINS_ANEW)
+        player:messageBasic(tpz.msg.basic.FOV_REGIME_BEGINS_ANEW, 0, 0, 0, false)
     else
         tpz.regime.clearRegimeVars(player)
     end

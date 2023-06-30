@@ -32,8 +32,22 @@ zones[tpz.zone.VALKURM_DUNES] =
         SIGNPOST1                      = 7360,  -- Northeast: La Theine Plateau Southeast: Konschtat Highlands Southwest: Selbina
         CONQUEST                       = 7370,  -- You've earned conquest points!
         AN_EMPTY_LIGHT_SWIRLS          = 7748,  -- An empty light swirls about the cave, eating away at the surroundings...
+        TOO_MANY_IN_PARTY              = 7821,  -- Nothing happens. Your party exceeds the maximum number of <Numeric Parameter 0> members.
+        ALLIANCE_NOT_ALLOWED           = 7822,  -- Nothing happens. You must dissolve your alliance.
         MONSTERS_KILLED_ADVENTURERS    = 7824,  -- Long ago, monsters killed many adventurers and merchants just off the coast here. If you find any vestige of the victims and return it to the sea, perhaps it would appease the spirits of the dead.
+        SHIMMERY_POINT                 = 7829,  -- Right over there! The ship-shape-shimmery point!
+        HURRY_UP                       = 7830,  -- Ahhhh! Hurry up, hurry up!!!
+        ITS_COMING                     = 7831,  -- It's coming! It's coming for ussssss!
+        THREE_OF_THEM                  = 7832,  -- It can'taru be....!Three of them!!!?
+        NOOOOO                         = 7833,  -- Noooooo!!!!
+        CRY_OF_ANGUISH                 = 7834,  -- ??? disappears in a cry of anguish.
+        NO_LONGER_FEEL_CHILL           = 7839,  -- You no longer feel a chill. The chart may lose its power if you venture too far.
+        TOO_MUCH_TIME_PASSED           = 7840,  -- Too much time has passed. The monster has lost interest.
         DYNA_NPC_DEFAULT_MESSAGE       = 7850,  -- You hear a mysterious, floating voice: Bring forth the <item>...
+        CONNECTING_WITH_THE_SERVER     = 7854, -- Connecting with the server. Please wait.
+        UNABLE_TO_CONNECT              = 7855, -- Unable to connect
+        ANOTHER_GROUP                  = 7857, -- Another group of players is currently occupying [Dummy/San d'Oria/Bastok/Windurst/Jeuno/Beaucedine/Xarcabard/Valkurm/Buburimu/Qufim/Tavnazia].
+        INFORMATION_RECORDED           = 7858,
         YOU_CANNOT_ENTER_DYNAMIS       = 7862,  -- You cannot enter Dynamis - [Dummy/San d'Oria/Bastok/Windurst/Jeuno/Beaucedine/Xarcabard/Valkurm/Buburimu/Qufim/Tavnazia] for <number> [day/days] (Vana'diel time).
         PLAYERS_HAVE_NOT_REACHED_LEVEL = 7864,  -- Players who have not reached level <number> are prohibited from entering Dynamis.
         PLAYER_OBTAINS_ITEM            = 8074,  -- <name> obtains <item>!
@@ -49,11 +63,6 @@ zones[tpz.zone.VALKURM_DUNES] =
         VALKURM_EMPEROR_PH =
         {
             [17199434] = 17199438, -- -228.957 2.776 -101.226
-          --  [17199437] = 17199438, -- -264.829 -0.843 -91.306
-          --  [17199420] = 17199438, -- -95.250 -0.268 -49.386
-          --  [17199419] = 17199438, -- -144.284 -1.103 4.202
-          --  [17199435] = 17199438, -- -270.823 -2.168 -16.349
-          --  [17199436] = 17199438, -- -327.000 -1.000 -21.000
         },
         GOLDEN_BAT_PH      =
         {
@@ -61,15 +70,23 @@ zones[tpz.zone.VALKURM_DUNES] =
             [17199563] = 17199564, -- -798.674 -8.672 19.204
             [17199461] = 17199564, -- -296.679 -0.510 -164.298
         },
-        MARCHELUTE         = 17199566,
-        DOMAN              = 17199567,
-        ONRYO              = 17199568,
+        MARCHELUTE          = 17199566,
+        DOMAN               = 17199567,
+        ONRYO               = 17199568,
+        HOUU_THE_SHOALWADER = 17199602,
+        HEIKE_CRAB          = 17199604,
+        BEACH_MONK          = 17199603,
     },
     npc =
     {
-        CASKET_BASE   = 17199672,
-        SUNSAND_QM    = 17199699,
-        OVERSEER_BASE = 17199709,
+        CASKET_BASE       = 17199672,
+        SUNSAND_QM        = 17199699,
+        OVERSEER_BASE     = 17199709,
+        PIRATE_CHART_QM   = 17199740,
+        PIRATE_CHART_TARU = 17199741,
+        BARNACLED_BOX     = 17199605,
+        SHIMMERING_POINT  = 17199742,
+        QM_WHMAF          = 17199727,
     },
 }
 

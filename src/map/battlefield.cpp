@@ -47,6 +47,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
 #include "utils/charutils.h"
 #include "utils/itemutils.h"
+#include "utils/petutils.h"
 #include "utils/zoneutils.h"
 #include "zone.h"
 #include <chrono>
@@ -257,7 +258,6 @@ void CBattlefield::ApplyLevelRestrictions(CCharEntity* PChar) const
             cap = PChar->GetMLevel(); // Cap to current level to strip buffs - this is the retail diff between uncapped and capped to max lv.
         }
 
-        //PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DEATH, true);
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE);
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ON_ZONE);
         PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_LEVEL_RESTRICTION, EFFECT_LEVEL_RESTRICTION, cap, 0, 0));
@@ -438,6 +438,21 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
         if (m_LevelCap)
             PChar->StatusEffectContainer->DelStatusEffect(EFFECT_LEVEL_RESTRICTION);
 
+        // Release charmed pet when master leaves battlefield
+        if (PChar->PPet && PChar->PPet->isCharmed)
+        {
+            petutils::DetachPet(PChar);
+        }
+
+        if (PChar->isDead())
+        {
+            auto state = dynamic_cast<CDeathState*>(PChar->PAI->GetCurrentState());
+            if (state)
+            {
+                state->allowSendRaise();
+            }
+        }
+
         m_EnteredPlayers.erase(m_EnteredPlayers.find(PEntity->id));
 
         if (leavecode != BATTLEFIELD_LEAVE_CODE_WARPDC)
@@ -458,13 +473,28 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
     }
     else
     {
-        auto check = [PEntity, &found](auto entity) { if (PEntity == entity) { found = true; return found; } return false; };
+        auto check = [PEntity, &found](auto entity)
+        {
+            if (PEntity == entity)
+            {
+                found = true;
+                return found;
+            }
+            return false;
+        };
 
         if (PEntity->objtype == TYPE_NPC)
         {
             PEntity->status = STATUS_DISAPPEAR;
             PEntity->loc.zone->UpdateEntityPacket(PEntity, ENTITY_DESPAWN, UPDATE_ALL_MOB);
-            m_NpcList.erase(std::remove_if(m_NpcList.begin(), m_NpcList.end(), check), m_NpcList.end());
+
+            if (auto* PNpcEntity = dynamic_cast<CNpcEntity*>(PEntity))
+            {
+                if (std::find(m_NpcList.begin(), m_NpcList.end(), PNpcEntity) != m_NpcList.end())
+                {
+                    m_NpcList.erase(std::remove_if(m_NpcList.begin(), m_NpcList.end(), check), m_NpcList.end());
+                }
+            }
         }
         else if (PEntity->objtype == TYPE_MOB || PEntity->objtype == TYPE_PET)
         {
@@ -472,15 +502,26 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
             // allies targid >= 0x700
             if (PEntity->targid >= 0x700)
             {
-                if (static_cast<CPetEntity*>(PEntity)->isAlive() && PEntity->PAI->IsSpawned())
-                    static_cast<CPetEntity*>(PEntity)->Die();
-
-                if (m_AllyList.size() > 0)
+                // Disappear pets that do not belong to players
+                auto* PPetEntity = dynamic_cast<CPetEntity*>(PEntity);
+                if (PPetEntity && (!PPetEntity->PMaster || PPetEntity->PMaster->objtype != TYPE_PC))
                 {
-                    m_AllyList.erase(std::remove_if(m_AllyList.begin(), m_AllyList.end(), check), m_AllyList.end());
+                    PEntity->status = STATUS_DISAPPEAR;
                 }
-                PEntity->status = STATUS_DISAPPEAR;
-                return found;
+
+                if (auto* PMobEntity = dynamic_cast<CMobEntity*>(PEntity))
+                {
+                    if (std::find(m_AllyList.begin(), m_AllyList.end(), PMobEntity) != m_AllyList.end())
+                    {
+                        if (PMobEntity->isAlive() && PMobEntity->PAI->IsSpawned())
+                        {
+                            PEntity->status = STATUS_DISAPPEAR;
+                            PEntity->loc.zone->UpdateEntityPacket(PEntity, ENTITY_DESPAWN, UPDATE_NONE);
+                        }
+
+                        m_AllyList.erase(std::remove_if(m_AllyList.begin(), m_AllyList.end(), check), m_AllyList.end());
+                    }
+                }
             }
             else
             {

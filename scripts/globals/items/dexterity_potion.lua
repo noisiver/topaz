@@ -16,5 +16,6 @@ end
 function onItemUse(target)
     target:addStatusEffect(tpz.effect.DEX_BOOST, 20, 0, 30)
 	target:addStatusEffect(tpz.effect.POTENCY, 100, 0, 30)
-   -- target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
+    target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.POTENCY)
+    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end

@@ -25,6 +25,7 @@
 #include "../../entities/trustentity.h"
 #include "../../lua/luautils.h"
 #include "../../mobskill.h"
+#include "../../mob_spell_container.h"
 #include "../../recast_container.h"
 #include "../../status_effect_container.h"
 #include "../../utils/battleutils.h"
@@ -137,6 +138,11 @@ void CAutomatonController::setMagicCooldowns()
     }
 }
 
+void CAutomatonController::ResetCastDelay()
+{
+    m_LastMagicTime = m_Tick - m_magicCooldown;
+}
+
 bool CAutomatonController::isRanged()
 {
     switch (PAutomaton->getHead())
@@ -237,6 +243,11 @@ bool CAutomatonController::TryAction()
 bool CAutomatonController::TryShieldBash()
 {
     CState* PState = PTarget->PAI->GetCurrentState();
+    // Only usable by Valoredge https://www.bg-wiki.com/ffxi/Automaton
+    if (PAutomaton->getFrame() != FRAME_VALOREDGE)
+    {
+        return false;
+    }
     if (m_shieldbashCooldown > 0s && PState && PState->CanInterrupt() &&
         m_Tick > m_LastShieldBashTime + (m_shieldbashCooldown - std::chrono::seconds(PAutomaton->getMod(Mod::AUTO_SHIELD_BASH_DELAY))))
     {
@@ -454,12 +465,12 @@ bool CAutomatonController::TryHeal(const CurrentManeuvers& maneuvers)
     {
         if (PAutomaton->GetHPP() <= 50) // Automaton only heals itself when <= 50%
             PCastTarget = PAutomaton;
-        else if (PAutomaton->PMaster->GetHPP() <= threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
+        else if (PAutomaton->PMaster->GetHPP() < threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
             PCastTarget = PAutomaton->PMaster;
     }
     else
     {
-        if (PAutomaton->PMaster->GetHPP() <= threshold)
+        if (PAutomaton->PMaster->GetHPP() < threshold)
             PCastTarget = PAutomaton->PMaster;
         else if (PAutomaton->GetHPP() <= 50) // Automaton only heals itself when <= 50%
             PCastTarget = PAutomaton;
@@ -474,7 +485,7 @@ bool CAutomatonController::TryHeal(const CurrentManeuvers& maneuvers)
                 if (PMember->id != PAutomaton->PMaster->id)
                 {
                     auto enmity_obj = enmityList->find(PMember->id);
-                    if (enmity_obj != enmityList->end() && highestEnmity < enmity_obj->second.CE + enmity_obj->second.VE && PMember->GetHPP() <= threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
+                    if (enmity_obj != enmityList->end() && highestEnmity < enmity_obj->second.CE + enmity_obj->second.VE && PMember->GetHPP() < threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
                     {
                         highestEnmity = enmity_obj->second.CE + enmity_obj->second.VE;
                         PCastTarget = PMember;
@@ -487,7 +498,7 @@ bool CAutomatonController::TryHeal(const CurrentManeuvers& maneuvers)
             static_cast<CCharEntity*>(PAutomaton->PMaster)->ForPartyWithTrusts([&](CBattleEntity* PMember) {
                 if (PMember->id != PAutomaton->PMaster->id && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
                 {
-                    if (PMember->GetHPP() <= threshold)
+                    if (PMember->GetHPP() < threshold)
                     {
                         PCastTarget = PMember;
                     }
@@ -543,7 +554,7 @@ bool CAutomatonController::TryElemental(const CurrentManeuvers& maneuvers)
     else if (hp <= 600 || selfmp < 156)
         tier = 3;
 
-    if (PAutomaton->getMod(Mod::AUTO_SCAN_RESISTS))
+    if (tpzrand::GetRandomNumber(100) < PAutomaton->getMod(Mod::AUTO_SCAN_RESISTS))
     {
         //std::vector<std::pair<SpellID, int16>> reslist{
         //    std::make_pair(SpellID::Fire, PTarget->getMod(Mod::FIRERES)),
@@ -646,7 +657,7 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
     {
         if (!PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_DIA))
         {
-            if (maneuvers.dark) // Dark -> Bio
+            if (maneuvers.dark && maneuvers.light < 2) // Dark -> Bio
             {
                 castPriority.push_back(SpellID::Bio_II);
             }
@@ -670,7 +681,7 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
 
         if (!PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_DIA))
         {
-            if (maneuvers.dark) // Dark -> Bio
+            if (maneuvers.dark && maneuvers.light < 2) // Dark -> Bio
             {
                 castPriority.push_back(SpellID::Bio);
             }
@@ -704,10 +715,13 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             defaultPriority.push_back(SpellID::Poison);
         }
 
-        if (maneuvers.wind) // Wind -> Silence
-            castPriority.push_back(SpellID::Silence);
-        else
-            defaultPriority.push_back(SpellID::Silence);
+        if ((static_cast<CMobEntity*>(PTarget))->SpellContainer->HasSpells())
+        {
+            if (maneuvers.wind) // Wind -> Silence
+                castPriority.push_back(SpellID::Silence);
+            else
+                defaultPriority.push_back(SpellID::Silence);
+        }
 
         if (maneuvers.earth) // Earth -> Slow
             castPriority.push_back(SpellID::Slow);
@@ -793,10 +807,13 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
                 defaultPriority.push_back(SpellID::Poison);
             }
 
-            if (maneuvers.wind >= 2) // 2 Wind -> Silence
-                castPriority.push_back(SpellID::Silence);
-            else
-                defaultPriority.push_back(SpellID::Silence);
+            if ((static_cast<CMobEntity*>(PTarget))->SpellContainer->HasSpells())
+            {
+                if (maneuvers.wind) // Wind -> Silence
+                    castPriority.push_back(SpellID::Silence);
+                else
+                    defaultPriority.push_back(SpellID::Silence);
+            }
 
             if (maneuvers.earth >= 2) // 2 Earth -> Slow
                 castPriority.push_back(SpellID::Slow);
@@ -886,10 +903,13 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             }
         }
 
-        if (maneuvers.wind) // Wind -> Silence
-            castPriority.push_back(SpellID::Silence);
-        else
-            defaultPriority.push_back(SpellID::Silence);
+        if ((static_cast<CMobEntity*>(PTarget))->SpellContainer->HasSpells())
+        {
+            if (maneuvers.wind) // Wind -> Silence
+                castPriority.push_back(SpellID::Silence);
+            else
+                defaultPriority.push_back(SpellID::Silence);
+        }
 
         if (maneuvers.ice) // Ice -> Paralyze
             castPriority.push_back(SpellID::Paralyze);

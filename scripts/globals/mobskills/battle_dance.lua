@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
+    local dmgmod = 1.0
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -34,7 +34,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*math.random(2, 3))
 
     local typeEffect = tpz.effect.DEX_DOWN
-    local tick = 60
+    local tick = 30
     local power = (target:getStat(tpz.mod.DEX) * 0.2) + 5
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

@@ -595,27 +595,32 @@ void CZoneEntities::SpawnNPCs(CCharEntity* PChar)
         for (EntityList_t::const_iterator it = m_npcList.begin(); it != m_npcList.end(); ++it)
         {
             CNpcEntity* PCurrentNpc = (CNpcEntity*)it->second;
-            SpawnIDList_t::iterator NPC = PChar->SpawnNPCList.lower_bound(PCurrentNpc->id);
+            SpawnIDList_t::iterator NPC = PChar->SpawnNPCList.find(PCurrentNpc->id);
 
-            if (PCurrentNpc->status == STATUS_NORMAL || PCurrentNpc->status == STATUS_MOB)
+            if (PCurrentNpc->status == STATUS_NORMAL)
             {
-                if (distance(PChar->loc.p, PCurrentNpc->loc.p) < 50)
+                // Is this npc "visible" to the player?
+                if (distance(PChar->loc.p, PCurrentNpc->loc.p) <= 50)
                 {
-                    if (NPC == PChar->SpawnNPCList.end() ||
-                        PChar->SpawnNPCList.key_comp()(PCurrentNpc->id, NPC->first))
+                    // npc not in update list for player, add it in
+                    if (NPC == PChar->SpawnNPCList.end())
                     {
                         PChar->SpawnNPCList.insert(NPC, SpawnIDList_t::value_type(PCurrentNpc->id, PCurrentNpc));
                         PChar->updateEntityPacket(PCurrentNpc, ENTITY_SPAWN, UPDATE_ALL_MOB);
                     }
                 }
-                else {
-                    if (NPC != PChar->SpawnNPCList.end() &&
-                        !(PChar->SpawnNPCList.key_comp()(PCurrentNpc->id, NPC->first)))
-                    {
-                        PChar->SpawnNPCList.erase(NPC);
-                        PChar->updateEntityPacket(PCurrentNpc, ENTITY_DESPAWN, UPDATE_NONE);
-                    }
+                // npc not visible, remove it from spawn list if it's in there
+                else if (NPC != PChar->SpawnNPCList.end())
+                {
+                    PChar->SpawnNPCList.erase(NPC);
+                    PChar->updateEntityPacket(PCurrentNpc, ENTITY_DESPAWN, UPDATE_NONE);
                 }
+            }
+            // NPC not visible, remove it from spawn list if it's in there
+            else if (NPC != PChar->SpawnNPCList.end())
+            {
+                PChar->SpawnNPCList.erase(NPC);
+                PChar->updateEntityPacket(PCurrentNpc, ENTITY_DESPAWN, UPDATE_NONE);
             }
         }
     }
@@ -1027,6 +1032,19 @@ void CZoneEntities::SavePlayTime()
         {
             CCharEntity* PChar = (CCharEntity*)it->second;
             charutils::SavePlayTime(PChar);
+        }
+    }
+}
+
+void CZoneEntities::SaveCharacterData()
+{
+    if (!m_charList.empty())
+    {
+        for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
+        {
+            CCharEntity* PChar = (CCharEntity*)it->second;
+            charutils::SaveCharPosition(PChar);
+            PChar->StatusEffectContainer->SaveStatusEffects(false, false);
         }
     }
 }

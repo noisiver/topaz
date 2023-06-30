@@ -32,20 +32,20 @@ end
 function onTrigger(player, npc)
     local stock =
     {
-        21509, 999999999, 3,    -- Premium Mogti
-        20571, 999999999, 3,    -- Infiltrator
-        20665, 999999999, 3,    -- Kam'lanaut's Sword
-        21682, 999999999, 3,    -- Lament
-        21745, 999999999, 3,    -- Dullahan Axe
-        21759, 999999999, 3,    -- Autarch's Axe
-        21820, 999999999, 3,    -- Lost Sickle
-        21862, 999999999, 3,    -- Mizukage Naginata
-        21923, 999999999, 3,    -- Debahocho
-        21977, 999999999, 3,    -- Mutsunokami
-        21086, 999999999, 3,    -- Heartstopper
-        22070, 999999999, 3,    -- Ranine Staff
-        22112, 999999999, 3,    -- Mizukage-no-Yumi
-        21272, 999999999, 3,    -- Troll Gun
+        tpz.items.MAMMOMS_ARM,  999999999, 3,
+        tpz.items.SCHALAS_DAGGER, 999999999, 3,
+        tpz.items.ZEALS_SWORD, 999999999, 3,
+        tpz.items.SLASHS_SABER, 999999999, 3,
+        tpz.items.NUS_AXE, 999999999, 3,
+        tpz.items.CYRUS_BHUJ, 999999999, 3,
+        tpz.items.JANUS_SICKLE, 999999999, 3,
+        tpz.items.LAVOS_NEEDLE, 999999999, 3,
+        tpz.items.AZALAS_KUNAI, 999999999, 3,
+        tpz.items.GLENNS_TACHI, 999999999, 3,
+        tpz.items.FLEAS_WAND, 999999999, 3,
+        tpz.items.MELCHIOS_WAND, 999999999, 3,
+        tpz.items.LEENES_BOW, 999999999, 3,
+        tpz.items.DALTONS_GUN, 999999999, 3,
         -- 22070, 999999999, 3,    -- Shield NYI?
         -- 22070, 999999999, 3,    -- Instrument NYI?
     }
@@ -58,5 +58,4 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-
 end

@@ -10,13 +10,11 @@ require("scripts/mixins/families/aern")
 local ID = require("scripts/zones/AlTaieu/IDs")
 require("scripts/globals/missions")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 25) 
-    mob:setMod(tpz.mod.SDT_WIND, 50)
-    mob:setMod(tpz.mod.SDT_DARK, 50)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
 end
 
 function onMobEngaged(mob, target)

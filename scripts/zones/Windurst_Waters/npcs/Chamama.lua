@@ -132,18 +132,20 @@ function onEventFinish(player, csid, option)
         player:tradeComplete(trade)
         player:completeQuest(WINDURST, tpz.quest.id.windurst.IN_A_PICKLE)
         player:needToZone(true)
-        player:addItem(12505)
+        player:addItem(12505, 1, 25, 1)
         player:messageSpecial(ID.text.ITEM_OBTAINED, 12505)
         player:addGil(GIL_RATE*200)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*200)
-        player:addFame(WINDURST, 75)
+        player:addExp(2500 * EXP_RATE)
+        player:addFame(WINDURST, 200)
     elseif (csid == 661 and option == 1) then
         player:setCharVar("QuestInAPickle_var", 1)
     elseif (csid == 662) then  -- IN A PICKLE + 200 GIL: Repeatable Quest Turn In
         player:tradeComplete(trade)
         player:needToZone(true)
         player:addGil(GIL_RATE*200)
-        player:addFame(WINDURST, 8)
+        player:addExp(250 * EXP_RATE)
+        player:addFame(WINDURST, 20)
         player:setCharVar("QuestInAPickle_var", 0)
     end
 end

@@ -858,7 +858,7 @@ local function calculateSkillUp(player)
     local skillRank = player:getSkillRank(tpz.skill.DIG)
     local maxSkill = utils.clamp((skillRank + 1) * 100, 0, 1000)
     local realSkill = player:getCharSkillLevel(tpz.skill.DIG)
-    local increment = 1
+    local increment = 1 + player:getMod(tpz.mod.DIGGING_SKILL_GAIN_RATE)
 
     -- this probably needs correcting
     local roll = math.random(0, 100)

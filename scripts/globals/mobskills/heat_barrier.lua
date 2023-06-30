@@ -21,10 +21,13 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     -- TODO: Enfire power, Blaze Spikes reduced power in Salvage zones
+    -- spikes: lv * .8, enfire lv *.4
     local typeEffectOne = tpz.effect.BLAZE_SPIKES
     local typeEffectTwo = tpz.effect.ENFIRE
-    skill:setMsg(MobBuffMove(mob, typeEffectOne, 50, 0, 300))
-    MobBuffMove(mob, typeEffectTwo, 50, 0, 300)
+    local powerOne = math.floor(mob:getMainLvl() * 0.8)
+    local powerTwo = math.floor(mob:getMainLvl() * 0.4)
+    skill:setMsg(MobBuffMove(mob, typeEffectOne, powerOne, 0, 180))
+    MobBuffMove(mob, typeEffectTwo, powerTwo, 0, 300)
 
     return typeEffectOne
 end

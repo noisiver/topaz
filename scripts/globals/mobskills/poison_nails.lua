@@ -33,7 +33,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, MOBPARAM_WIPE_SHADOWS)
 
     local typeEffect = tpz.effect.POISON
-    local power = 30
+    local power = 1
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 3, 90)

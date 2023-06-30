@@ -218,13 +218,13 @@ INSERT INTO `mob_family_mods` VALUES (198,68,25,0);		-- Puk +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (72,68,25,0);		-- Colibri +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (176,68,25,0);		-- Mamool ja +25 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
-INSERT INTO `mob_family_mods` VALUES (165,68,50,0);		-- Imp +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (119,68,50,0);		-- Gear +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (120,68,50,0);		-- Gears +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (166,68,50,0);		-- Jakko(Imp) +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (90,68,50,0);		-- Dvergr +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (165,68,25,0);		-- Imp +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (119,68,25,0);		-- Gear +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (120,68,25,0);		-- Gears +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (166,68,25,0);		-- Jakko(Imp) +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (90,68,25,0);		-- Dvergr +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (131,68,25,0);		-- Gnat +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (6,68,25,0);		-- Amphiptere +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (6,68,25,0);		  -- Amphiptere +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (117,68,25,0);		-- Gargouille +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (118,68,25,0);		-- Gargoyle +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (170,68,25,0);		-- Ladybug +25 Evasion Racial
@@ -235,7 +235,7 @@ INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion 
 INSERT INTO `mob_family_mods` VALUES (943,68,25,0);		-- WotG Yagudo +25 Evasion Racial
 
 -- Evasion Penalty
-INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	    -- Bugbear -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	  -- Bugbear -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (180,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (371,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (246,68,-20,0);	-- Troll -20 Evasion
@@ -365,6 +365,8 @@ INSERT INTO `mob_family_mods` VALUES (939,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (940,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (941,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (943,31,30,0);		-- WotG Yagudo +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (165,31,30,0); 	-- Imp +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (166,31,30,0); 	-- Imp +30 MEVA
 
 
 -- Move Speed
@@ -382,33 +384,8 @@ INSERT INTO `mob_family_mods` VALUES (175,7,50,1);	-- Magic Pot 50% chance to -G
 INSERT INTO `mob_family_mods` VALUES (285,44,1,1); -- Gulool_Ja_Ja
 
 -- Immunities
-INSERT INTO `mob_family_mods` VALUES (92,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (93,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (94,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (95,23,2047,1); -- Dyna Statues immune all enfeebles
-INSERT INTO `mob_family_mods` VALUES (209,23,256,1); -- Rampart poison immunity
-INSERT INTO `mob_family_mods` VALUES (119,23,256,1); -- Gears poison immunity
-INSERT INTO `mob_family_mods` VALUES (120,23,256,1); -- Gears poison immunity
-INSERT INTO `mob_family_mods` VALUES (63,23,256,1); -- Chariot poison immunity
-INSERT INTO `mob_family_mods` VALUES (217,23,256,1); -- Scorpion poison immunity
-INSERT INTO `mob_family_mods` VALUES (273,23,256,1); -- Serket-Present poison immunity
-INSERT INTO `mob_family_mods` VALUES (274,23,256,1); -- King Vinegaroon poison immunity
-INSERT INTO `mob_family_mods` VALUES (547,23,256,1); -- Serket-Past poison immunity
-INSERT INTO `mob_family_mods` VALUES (66,23,256,1); -- Clot poison immunity
-INSERT INTO `mob_family_mods` VALUES (67,23,256,1); -- Clot poison immunity
-INSERT INTO `mob_family_mods` VALUES (290,23,256,1); -- Claret(Clot) poison immunity
-INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep immunity 
-INSERT INTO `mob_family_mods` VALUES (203,23,1,1); -- Qutrub sleep Immunity
-INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
-INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
-INSERT INTO `mob_family_mods` VALUES (214,23,640,1); -- Sandworm slow and elegy Immunity
-INSERT INTO `mob_family_mods` VALUES (215,23,640,1); -- Sandworm slow and elegy Immunity
-INSERT INTO `mob_family_mods` VALUES (4,23,16,1); -- Ahriman silence Immunity
 
 -- Status resist trait
-INSERT INTO `mob_family_mods` VALUES (125,1254,100,0); -- Giant Bird 100% lullaby resist
-INSERT INTO `mob_family_mods` VALUES (192,1243,95,0); -- Peiste 95% blind resist
-
 
 -- Absorb
 INSERT INTO `mob_family_mods` VALUES (319,460,100,0);	-- Shiva - Ice
@@ -492,99 +469,90 @@ INSERT INTO `mob_family_mods` VALUES (499,387,100,0); -- Stray +100% PDT(Bonus)
 INSERT INTO `mob_family_mods` VALUES (499,388,100,0); -- Stray +100% BDT(Bonus)
 INSERT INTO `mob_family_mods` VALUES (499,389,100,0); -- Stray +100% MDT(Bonus)
 
+-- Jugs
+INSERT INTO `mob_family_mods` VALUES (556,62,60,0);		  -- Tiger +60% Attack
+INSERT INTO `mob_family_mods` VALUES (556,63,-10,0);	  -- Tiger -10% Defense
+INSERT INTO `mob_family_mods` VALUES (560,62,-10,0);    -- Crab Familiar -10% Attack
+INSERT INTO `mob_family_mods` VALUES (560,63,10,0);     -- Crab Familiar +10% Def
+INSERT INTO `mob_family_mods` VALUES (588,62,-10,0);    -- Courier Carrie -10% Attack
+INSERT INTO `mob_family_mods` VALUES (588,63,20,0);     -- Courier Carrie +20% Def
+INSERT INTO `mob_family_mods` VALUES (564,62,30,0);     -- Lizard Familiar +30% Attack
+INSERT INTO `mob_family_mods` VALUES (564,63,-20,0);    -- Lizard Familiar -20% Def
+INSERT INTO `mob_family_mods` VALUES (562,63,30,0);     -- Antlion Familiar +30% Def
+INSERT INTO `mob_family_mods` VALUES (558,62,20,0);     -- Beetle Familiar +20% Attack
+INSERT INTO `mob_family_mods` VALUES (565,62,30,0);     -- Diremite Familiar +30% Attack
+INSERT INTO `mob_family_mods` VALUES (561,162,-35,0);   -- Funguar Familiar -35% BDT
+INSERT INTO `mob_family_mods` VALUES (561,163,-35,0);   -- Funguar Familiar -35% MDT
+INSERT INTO `mob_family_mods` VALUES (568,28,30,0);     -- FLy Familiar -+30 MAB
+
 -- Dynamis Mobs
-INSERT INTO `mob_family_mods` VALUES (337,62,50,0);	-- Quadav +50% Attk
-INSERT INTO `mob_family_mods` VALUES (337,63,50,0);	-- Quadav +50% DEF
-INSERT INTO `mob_family_mods` VALUES (337,25,50,0);	-- Quadav +50 ACC
-INSERT INTO `mob_family_mods` VALUES (337,68,50,0);	-- Quadav +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (337,62,25,0);	-- Quadav +25% Attk
+INSERT INTO `mob_family_mods` VALUES (337,63,25,0);	-- Quadav +25% DEF
 INSERT INTO `mob_family_mods` VALUES (337,29,10,0);	-- Quadav +10 MDB
 INSERT INTO `mob_family_mods` VALUES (337,28,-100,1); -- Quadav -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (334,62,50,0);	-- Orc +50% Attk
-INSERT INTO `mob_family_mods` VALUES (334,63,50,0);	-- Orc +50% DEF
-INSERT INTO `mob_family_mods` VALUES (334,25,50,0);	-- Orc +50 ACC
-INSERT INTO `mob_family_mods` VALUES (334,68,50,0);	-- Orc +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (334,62,25,0);	-- Orc +25% Attk
+INSERT INTO `mob_family_mods` VALUES (334,63,25,0);	-- Orc +25% DEF
 INSERT INTO `mob_family_mods` VALUES (334,28,-100,1); -- Orc -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (360,62,50,0);	-- Yagudo +50% Attk
-INSERT INTO `mob_family_mods` VALUES (360,63,50,0);	-- Yagudo +50% DEF
-INSERT INTO `mob_family_mods` VALUES (360,25,50,0);	-- Yagudo +50 ACC
-INSERT INTO `mob_family_mods` VALUES (360,68,50,0);	-- Yagudo +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (360,62,25,0);	-- Yagudo +25% Attk
+INSERT INTO `mob_family_mods` VALUES (360,63,25,0);	-- Yagudo +25% DEF
 INSERT INTO `mob_family_mods` VALUES (360,29,30,0);	-- Yagudo +30 MDB
 INSERT INTO `mob_family_mods` VALUES (360,28,-100,1); -- Yagudo -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (327,62,50,0);	-- Goblin +50% Attk
-INSERT INTO `mob_family_mods` VALUES (327,63,50,0);	-- Goblin +50% DEF
-INSERT INTO `mob_family_mods` VALUES (327,25,50,0);	-- Goblin +50 ACC
-INSERT INTO `mob_family_mods` VALUES (327,68,50,0);	-- Goblin +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (327,62,25,0);	-- Goblin +25% Attk
+INSERT INTO `mob_family_mods` VALUES (327,63,25,0);	-- Goblin +25% DEF
 INSERT INTO `mob_family_mods` VALUES (327,29,20,0);	-- Goblin +20 MDB
 INSERT INTO `mob_family_mods` VALUES (327,28,-100,1); -- Goblin -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (509,62,75,0);	-- Hydra +75% Attk
-INSERT INTO `mob_family_mods` VALUES (509,63,75,0);	-- Hydra +75% DEF
-INSERT INTO `mob_family_mods` VALUES (509,25,75,0);	-- Hydra +75 ACC
-INSERT INTO `mob_family_mods` VALUES (509,68,75,0);	-- Hydra +75 EVAS
+INSERT INTO `mob_family_mods` VALUES (509,62,25,0);	-- Hydra +25% Attk
+INSERT INTO `mob_family_mods` VALUES (509,63,25,0);	-- Hydra +25% DEF
 INSERT INTO `mob_family_mods` VALUES (509,29,50,0);	-- Hydra  +50 MDB
 INSERT INTO `mob_family_mods` VALUES (509,28,-100,1); -- Hydra -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (358,62,50,0);	-- Kindred +50% Attk
-INSERT INTO `mob_family_mods` VALUES (358,63,50,0);	-- Kindred +50% DEF
-INSERT INTO `mob_family_mods` VALUES (358,25,50,0);	-- Kindred +50 ACC
-INSERT INTO `mob_family_mods` VALUES (358,68,50,0);	-- Kindred +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (358,62,25,0);	-- Kindred +25% Attk
+INSERT INTO `mob_family_mods` VALUES (358,63,25,0);	-- Kindred +25% DEF
 INSERT INTO `mob_family_mods` VALUES (358,389,-25,0); -- Kindred -25% MDT
 INSERT INTO `mob_family_mods` VALUES (358,29,70,0);	 -- Kindred +70 MDB 
 INSERT INTO `mob_family_mods` VALUES (358,28,-100,1); -- Kindred -100% exp
 
-
-INSERT INTO `mob_family_mods` VALUES (511,62,50,0);	-- Ahriman +50% Attk
-INSERT INTO `mob_family_mods` VALUES (511,63,50,0);	-- Ahriman +50% DEF
-INSERT INTO `mob_family_mods` VALUES (511,25,50,0);	-- Ahriman +50 ACC
-INSERT INTO `mob_family_mods` VALUES (511,68,50,0);	-- Ahriman +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (511,62,25,0);	-- Ahriman +25% Attk
+INSERT INTO `mob_family_mods` VALUES (511,63,25,0);	-- Ahriman +25% DEF
 INSERT INTO `mob_family_mods` VALUES (511,389,-25,0); -- Ahriman -25% MDT
 INSERT INTO `mob_family_mods` VALUES (511,29,70,0);	 -- Ahriman +50 MDB
 INSERT INTO `mob_family_mods` VALUES (511,23,16,1);	 -- Silence Immunity
 INSERT INTO `mob_family_mods` VALUES (511,28,-100,1); -- Ahriman -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (92,366,150,0); -- Statue-Goblin +150 WEP DMG
-INSERT INTO `mob_family_mods` VALUES (92,25,50,0);	-- Statue-Goblin +50 ACC
-INSERT INTO `mob_family_mods` VALUES (92,68,50,0);	-- Statue-Goblin +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (92,366,75,0); -- Statue-Goblin +75 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (92,29,112,0);	-- Statue-Goblin +112 MDB
 INSERT INTO `mob_family_mods` VALUES (92,388,-50,0); -- Statue-Goblin -50% BDT
 INSERT INTO `mob_family_mods` VALUES (92,73,100,0);	-- Statue-Goblin +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (92,1,5000,0);  -- Statue-Goblin +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (92,28,-100,1); -- Statue-Goblin -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (93,366,150,0); -- Statue-Orc +150 WEP DMG
-INSERT INTO `mob_family_mods` VALUES (93,25,50,0);	-- Statue-Orc +50 ACC
-INSERT INTO `mob_family_mods` VALUES (93,68,50,0);	-- Statue-Orc +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (93,366,75,0); -- Statue-Orc +75 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (93,29,62,0);	-- Statue-Orc +62 MDB
 INSERT INTO `mob_family_mods` VALUES (93,388,-50,0); -- Statue-Orc -50% BDT
 INSERT INTO `mob_family_mods` VALUES (93,73,100,0);	-- Statue-Orc +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (93,1,5000,0);  -- Statue-Orc +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (93,28,-100,1); -- Statue-Orc -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (94,366,150,0); -- Statue-Quadav +150 WEP DMG
-INSERT INTO `mob_family_mods` VALUES (94,25,50,0);	-- Statue-Quadav +50 ACC
-INSERT INTO `mob_family_mods` VALUES (94,68,50,0);	-- Statue-Quadav +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (94,366,75,0); -- Statue-Quadav +75 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (94,29,112,0);	-- Statue-Quadav +112 MDB
 INSERT INTO `mob_family_mods` VALUES (94,388,-50,0); -- Statue-Quadav -50% BDT
 INSERT INTO `mob_family_mods` VALUES (94,73,100,0);	-- Statue-Quadav +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (94,1,5000,0);  -- Statue-Quadav +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (94,28,-100,1); -- Statue-Quadav -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (95,366,150,0); -- Statue-Yagudo +150 WEP DMG
-INSERT INTO `mob_family_mods` VALUES (95,25,50,0);	-- Statue-Yagudo +50 ACC
-INSERT INTO `mob_family_mods` VALUES (95,68,50,0);	-- Statue-Yagudo +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (95,366,75,0); -- Statue-Yagudo +75 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (95,29,162,0);	-- Statue-Yagudo +162 MDB
 INSERT INTO `mob_family_mods` VALUES (95,388,-50,0); -- Statue-Yagudo -50% BDT
 INSERT INTO `mob_family_mods` VALUES (95,73,100,0);	-- Statue-Yagudo +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (95,1,5000,0);  -- Statue-Yagudo +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (95,28,-100,1); -- Statue-Yagudo -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (510,62,50,0);	-- Kindreds Wyvern +50% Attk
-INSERT INTO `mob_family_mods` VALUES (510,63,50,0);	-- Kindreds Wyvern +50% DEF
-INSERT INTO `mob_family_mods` VALUES (510,25,50,0);	-- Kindreds Wyvern +50 ACC
-INSERT INTO `mob_family_mods` VALUES (510,68,50,0);	-- Kindreds Wyvern +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (510,62,25,0);	-- Kindreds Wyvern +25% Attk
+INSERT INTO `mob_family_mods` VALUES (510,63,25,0);	-- Kindreds Wyvern +25% DEF
 INSERT INTO `mob_family_mods` VALUES (510,29,20,0);	-- Kindreds Wyvern +20 MDB 
 INSERT INTO `mob_family_mods` VALUES (510,28,-100,1); -- Kindreds Wyvern -100% exp
 
@@ -1107,37 +1075,36 @@ INSERT INTO `mob_family_mods` VALUES (139,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (511,56,-1,1);
 
 -- Weapon bonus damage
-INSERT INTO `mob_family_mods` VALUES (57,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (58,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (59,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (79,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (80,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (81,59,115,1);
-INSERT INTO `mob_family_mods` VALUES (265,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (266,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (267,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (268,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (87,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (136,59,145,1);
-INSERT INTO `mob_family_mods` VALUES (179,59,125,1); -- Manticore +25 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (180,59,125,1); -- Marid +25 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (217,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (208,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (210,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (242,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (240,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (257,59,125,1); -- Wivre +25 Weapon dmg
-
-INSERT INTO `mob_family_mods` VALUES (259,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (260,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (261,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (262,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (263,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (264,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (169,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (358,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (371,59,125,1);
-
+INSERT INTO `mob_family_mods` VALUES (57,59,15,1);  -- Buffalo
+INSERT INTO `mob_family_mods` VALUES (58,59,10,1);  -- Bugard
+INSERT INTO `mob_family_mods` VALUES (80,59,10,1);  -- Dhalmel
+INSERT INTO `mob_family_mods` VALUES (266,59,15,1); -- Wyvern
+INSERT INTO `mob_family_mods` VALUES (87,59,20,1);  -- Dragon
+INSERT INTO `mob_family_mods` VALUES (136,59,15,1); -- Goobbue
+INSERT INTO `mob_family_mods` VALUES (179,59,20,1); -- Manticore +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (217,59,15,1); -- Scorpion
+INSERT INTO `mob_family_mods` VALUES (208,59,15,1); -- Ram
+INSERT INTO `mob_family_mods` VALUES (210,59,10,1); -- Raptor
+INSERT INTO `mob_family_mods` VALUES (242,59,10,1); -- Tiger
+INSERT INTO `mob_family_mods` VALUES (257,59,15,1); -- Wivre +15 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (180,59,20,1); -- Marid +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (371,59,20,1); -- Marid (NM? Family #2)
+INSERT INTO `mob_family_mods` VALUES (203,59,13,1); -- Qutrub +13 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (204,59,13,1); -- Qutrub +13 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (205,59,13,1); -- Qutrub +13 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (252,59,30,1); -- Vampyr +30 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (284,59,30,1); -- Vampyr +30 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (171,59,10,1); -- Lamia +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (182,59,10,1); -- Merrow +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (176,59,20,1); -- Mamool Ja +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (177,59,20,1); -- Mamool Ja +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (591,59,10,1); -- Mamool Ja (BLU) +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (128,59,20,1); -- WoTG Gigas +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (942,59,15,1); -- WoTG Quadav +15 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (943,59,10,1); -- WoTG Yagudo +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (944,59,20,1); -- WoTG Orc +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (945,59,20,1); -- WoTG Orc War Machine +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (946,59,15,1); -- WoTG Goblin +15 Weapon dmg
 
 /*!40000 ALTER TABLE `mob_family_mods` ENABLE KEYS */;
 UNLOCK TABLES;

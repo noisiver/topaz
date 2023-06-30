@@ -5,6 +5,7 @@
 -- Starts and finishes Quest: Stop Your Whining
 -- !pos 49 -6 15 252
 -----------------------------------
+local ID = require("scripts/zones/Norg/IDs")
 require("scripts/globals/keyitems")
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
@@ -44,9 +45,6 @@ function onTrigger(player, npc)
         player:startEvent(22) -- remind objective
     elseif (stopYourWhining == QUEST_ACCEPTED and player:hasKeyItem(tpz.ki.BARREL_OF_OPOOPO_BREW)) then
         player:startEvent(23) -- finish quest
-    elseif (stopYourWhining == QUEST_COMPLETED) then
-        player:startEvent(24) -- final dialog
-
     -- CHASING DREAMS
     elseif (player:getCharVar("ChasingDreams") == 4) then
          player:startEvent(222)
@@ -54,6 +52,8 @@ function onTrigger(player, npc)
          player:startEvent(221)
     elseif (player:getCharVar("ChasingDreams") == 8) then 
          player:startEvent(223)
+    elseif (stopYourWhining == QUEST_COMPLETED) then
+        player:startEvent(24) -- final dialog
 
     -- DEFAULT DIALOG
     else
@@ -77,7 +77,7 @@ function onEventFinish(player, csid, option)
     elseif (csid == 21 and option == 1) then
         player:addQuest(OUTLANDS, tpz.quest.id.outlands.STOP_YOUR_WHINING)
         npcUtil.giveKeyItem(player, tpz.ki.EMPTY_BARREL)
-    elseif (csid == 23 and npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.STOP_YOUR_WHINING, {item=4952, fame=75, fameArea=NORG, title=tpz.title.APPRENTICE_SOMMELIER})) then -- Scroll of Hojo: Ichi
+    elseif (csid == 23 and npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.STOP_YOUR_WHINING, {item=4952, fame=400, fameArea=NORG, title=tpz.title.APPRENTICE_SOMMELIER})) then -- Scroll of Hojo: Ichi
         player:delKeyItem(tpz.ki.BARREL_OF_OPOOPO_BREW)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.BARREL_OF_OPOOPO_BREW)
 
@@ -85,6 +85,5 @@ function onEventFinish(player, csid, option)
     elseif (csid == 221) then
          player:setCharVar("ChasingDreams", 4)
          npcUtil.giveKeyItem(player, tpz.ki.WASHUS_FLASK)
-         player:messageSpecial(ID.text.KEYITEM_OBTAINED, WASHUS_FLASK) -- maybe wrong
     end
 end

@@ -5,6 +5,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Port_San_dOria/IDs")
 require("scripts/globals/settings")
+require("scripts/globals/npc_util")
 require("scripts/globals/quests")
 require("scripts/globals/titles")
 -----------------------------------
@@ -14,12 +15,15 @@ function onTrade(player, npc, trade)
         local count = trade:getItemCount()
         LufetSalt = trade:hasItemQty(1019, 3)
         if (LufetSalt == true and count == 3) then
-            player:tradeComplete()
-            player:addFame(SANDORIA, 30)
-            player:addGil(GIL_RATE*600)
-            player:addTitle(tpz.title.BEAN_CUISINE_SALTER)
-            player:completeQuest(SANDORIA, tpz.quest.id.sandoria.LUFET_S_LAKE_SALT)
-            player:startEvent(11)
+            if npcUtil.giveItem(player, tpz.items.TURTLE_SHIELD) then
+                player:tradeComplete()
+                player:addExp(3500 * EXP_RATE)
+                player:addFame(SANDORIA, 350)
+                player:addGil(GIL_RATE*600)
+                player:addTitle(tpz.title.BEAN_CUISINE_SALTER)
+                player:completeQuest(SANDORIA, tpz.quest.id.sandoria.LUFET_S_LAKE_SALT)
+                player:startEvent(11)
+            end
         end
     end
 end

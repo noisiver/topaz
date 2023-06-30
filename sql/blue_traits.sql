@@ -66,7 +66,9 @@ INSERT INTO `blue_traits` VALUES (27, 2, 110, 407, 5); -- Magic burst bonus
 INSERT INTO `blue_traits` VALUES (28, 2, 20, 0, 0);
 INSERT INTO `blue_traits` VALUES (28, 3, 19, 303, 1);
 INSERT INTO `blue_traits` VALUES (29, 4, 4, 1, 22); -- Defense Bonus II
-INSERT INTO `blue_traits` VALUES (30, 6, 4, 1, 35); -- Defense Bonus III
+INSERT INTO `blue_traits` VALUES (29, 6, 4, 1, 35); -- Defense Bonus III
+INSERT INTO `blue_traits` VALUES (30, 4, 136, 1310, 10); -- Shield Barrier
+INSERT INTO `blue_traits` VALUES (30, 8, 136, 1310, 15); -- Shield Barrier II
 INSERT INTO `blue_traits` VALUES (31, 4, 7, 2, 120); -- Max Hp Boost III
 INSERT INTO `blue_traits` VALUES (32, 4, 8, 5, 40); -- Max MP Boost III
 INSERT INTO `blue_traits` VALUES (33, 2, 98, 421, 11); -- 11% Crit damage increase(Crit. Atk. Bonus)

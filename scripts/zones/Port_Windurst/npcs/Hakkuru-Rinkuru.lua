@@ -4,6 +4,7 @@
 -- Involved In Quest: Making Amends
 -- Starts and Ends Quest: Wonder Wands
 -- !pos -111 -4 101 240
+-- TODO: Buff New Moon Armlets
 -----------------------------------
 local ID = require("scripts/zones/Port_Windurst/IDs")
 require("scripts/globals/settings")
@@ -111,7 +112,8 @@ function onEventFinish(player, csid, option)
     elseif (csid == 277) then
             player:addGil(GIL_RATE*1500)
             player:completeQuest(WINDURST, tpz.quest.id.windurst.MAKING_AMENDS)
-            player:addFame(WINDURST, 75)
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(WINDURST, 150)
             player:addTitle(tpz.title.QUICK_FIXER)
             player:needToZone(true)
             player:tradeComplete()
@@ -168,6 +170,7 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.GIL_OBTAINED, 4800)
             player:addItem(12750) -- New Moon Armlets
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12750) -- New Moon Armlets
+            player:addExp(2500 * EXP_RATE)
             player:addFame(WINDURST, 150)
             player:addTitle(tpz.title.DOCTOR_SHANTOTTOS_GUINEA_PIG)
             player:completeQuest(WINDURST, tpz.quest.id.windurst.WONDER_WANDS)

@@ -14,12 +14,13 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local effect = tpz.effect.FOIL
-    local baseDuration = 300 -- 5m
+    local effect = tpz.effect.HASTE
+    local power = 1465 -- 150/1024 ~14.65%
+    local baseDuration = 180 -- 3m base
 	local gear = player:getMod(tpz.mod.JIG_DURATION)
 	local gearBonus =  baseDuration * (gear / 100)
     local finalDuration = baseDuration + gearBonus
 
-    player:addStatusEffect(effect, 25, 0, 300)
-    return effect
+    player:addStatusEffect(effect, power, 0, finalDuration)
+    return effect -- TODO: Change spell msg
 end

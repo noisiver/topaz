@@ -1,6 +1,7 @@
 ------------------------------
 -- Area: Mount Zhayolm
 --   NM: Fahrafahr the Bloodied
+-- Lyft NM
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

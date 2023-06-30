@@ -3,6 +3,7 @@
 --  NPC: ???
 -- Finishes Quest: Lovers in the Dusk
 -- !zone 121
+-- TODO: Siren's Flute custom stats
 -----------------------------------
 local ID = require("scripts/zones/The_Sanctuary_of_ZiTah/IDs")
 require("scripts/globals/npc_util")
@@ -26,6 +27,6 @@ end
 
 function onEventFinish(player, csid, option)
     if csid == 204 then
-        npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.LOVERS_IN_THE_DUSK, {item = 17346, fame = 120})
+        npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.LOVERS_IN_THE_DUSK, {item = 17346, fame = 350, xp = 10500})
     end
 end

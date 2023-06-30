@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Voidsong
 --
---  Description: Removes all status effects in an area of effect.
+--  Description: Removes all status effects in an area of effect, including debuffs on the mob
 --  Type: Enfeebling
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: 20' radial
@@ -30,6 +30,6 @@ function onMobWeaponSkill(target, mob, skill)
     else
         skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
     end
-
+    mob:removeAllNegativeEffects()
     return dispel
 end

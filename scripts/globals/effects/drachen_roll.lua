@@ -17,5 +17,5 @@ end
 
 function onEffectLose(target, effect)
     target:delPetMod(tpz.mod.ACC, effect:getPower())
-     target:delPetMod(tpz.mod.RACC, effect:getPower())
+    target:delPetMod(tpz.mod.RACC, effect:getPower())
 end

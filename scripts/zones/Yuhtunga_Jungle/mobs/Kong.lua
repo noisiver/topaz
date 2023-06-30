@@ -6,10 +6,12 @@
 -----------------------------------
 local ID = require("scripts/zones/Yuhtunga_Jungle/IDs")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
+-----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 50)
+    SetGenericNMStats(mob)
+    mob:setDamage(30)
     mob:setMod(tpz.mod.COUNTER, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)

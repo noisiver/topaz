@@ -36,6 +36,9 @@ function onSpellCast(caster, target, spell)
     -- Cap at 35
     power = math.min(power, 35)
 
+    -- Add phalanx recieved gear mod
+    power = power + target:getMod(tpz.mod.PHALANX_RECIEVED)
+
     if target:addStatusEffect(tpz.effect.PHALANX, power, 0, finalDuration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else

@@ -113,7 +113,7 @@ function onEventFinish(player, csid, option, npc)
             player:delKeyItem(tpz.ki.SEALED_IRON_BOX)
             player:addItem(4961) -- Scroll of Tonko: Ichi
             player:messageSpecial(ID.text.ITEM_OBTAINED, 4961)
-            player:addFame(NORG, 50)
+            player:addFame(NORG, 400)
             player:completeQuest(OUTLANDS, tpz.quest.id.outlands.ITS_NOT_YOUR_VAULT)
         end
     end

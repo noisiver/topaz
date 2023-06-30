@@ -3,12 +3,10 @@
 --   NM: Eldritch Edge
 ------------------------------
 require("scripts/globals/hunts")
+require("scripts/globals/mobs")
 ------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
+    SetGenericNMStats(mob)
 end
 
 function onMobFight(mob, target)
@@ -22,7 +20,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", math.random(10, 15))
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
-        mob:useMobAbility(513) -- Smite of Rage
+        mob:useMobAbility(1559) -- Furry of Rage
         mob:setLocalVar("wingsTime", battletime + 5)
         mob:setLocalVar("wingsDown", 1)
     end

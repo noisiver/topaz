@@ -7,11 +7,8 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 30) 
-    mob:addMod(tpz.mod.ATTP, 20)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 10000)
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
 end
 
 function onMobInitialize(mob)

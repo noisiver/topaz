@@ -47,12 +47,14 @@ function onEventFinish(player, csid, option)
         player:setCharVar("DistantLoyaltiesProgress", 1)
     elseif (csid == 665) then
         if (player:getFreeSlotsCount() == 0) then
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13585)
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13585) -- White Cape
         else
             player:delKeyItem(tpz.ki.MYTHRIL_HEARTS)
-            player:addItem(13585, 1)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 13585)
+            player:addItem(13585, 1, 96, 4) -- Pet: Acc+5 Ranged Accuracy+5
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 13585) -- White Cape
             player:setCharVar("DistantLoyaltiesProgress", 0)
+            player:addExp(7500 * EXP_RATE)
+            player:addFame(SANDORIA, 450)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.DISTANT_LOYALTIES)
         end
     end

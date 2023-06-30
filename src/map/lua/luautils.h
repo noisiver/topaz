@@ -132,6 +132,7 @@ namespace luautils
     int32 GetNPCByID(lua_State*);                                               // Returns NPC By Id
     int32 GetMobByID(lua_State*);                                               // Returns Mob By Id
     int32 WeekUpdateConquest(lua_State*);
+    int32 UpdateGuildsStock(lua_State*);
     int32 GetRegionOwner(lua_State*);                                           // узнаем страну, владеющую текущим регионом
     int32 GetRegionInfluence(lua_State*);                                       // Return influence graphics
     int32 getNationRank(lua_State* L);

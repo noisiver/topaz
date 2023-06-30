@@ -13,8 +13,10 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
+    local params = {}
+    params.overwriteSlow = true
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 5000, 0, 300)) -- https://www.bg-wiki.com/ffxi/Category:Diremite Inflicts Slow (50%) Ignores shadows.
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 5000, 0, 300, params))
 
     return typeEffect
 end

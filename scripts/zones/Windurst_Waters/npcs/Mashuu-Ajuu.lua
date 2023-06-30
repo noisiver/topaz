@@ -80,7 +80,8 @@ function onEventFinish(player, csid, option)
         player:needToZone(true)
         if (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.REAP_WHAT_YOU_SOW) == QUEST_ACCEPTED) then
             player:completeQuest(WINDURST, tpz.quest.id.windurst.REAP_WHAT_YOU_SOW)
-            player:addFame(WINDURST, 75)
+            player:addExp(6500 * EXP_RATE)
+            player:addFame(WINDURST, 350)
             player:addItem(131)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 131)
         elseif (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.REAP_WHAT_YOU_SOW) == QUEST_COMPLETED) then
@@ -93,7 +94,8 @@ function onEventFinish(player, csid, option)
         player:needToZone(true)
         if (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.REAP_WHAT_YOU_SOW) == QUEST_ACCEPTED) then
             player:completeQuest(WINDURST, tpz.quest.id.windurst.REAP_WHAT_YOU_SOW)
-            player:addFame(WINDURST, 75)
+            player:addExp(6500 * EXP_RATE)
+            player:addFame(WINDURST, 350)
             player:addItem(131)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 131)
         elseif (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.REAP_WHAT_YOU_SOW) == QUEST_COMPLETED) then

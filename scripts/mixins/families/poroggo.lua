@@ -11,7 +11,7 @@ g_mixins.families.poroggo = function(mob)
         	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 0)
             mob:setSpellList(2043)
         else
-        	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+        	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
             mob:setSpellList(2)
         end
     end)

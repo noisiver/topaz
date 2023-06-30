@@ -7,6 +7,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Port_San_dOria/IDs")
 require("scripts/globals/keyitems")
+require("scripts/globals/items")
 require("scripts/globals/settings")
 require("scripts/globals/quests")
 require("scripts/globals/titles")
@@ -101,11 +102,12 @@ function onEventFinish(player, csid, option)
         player:tradeComplete()
     elseif (csid == 515) then
         if (freeSlots ~= 0) then
-            player:addItem(12289)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 12289)
+            player:addItem(tpz.items.MAHOGANY_SHIELD)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.MAHOGANY_SHIELD)
             player:addTitle(tpz.title.COURIER_EXTRAORDINAIRE)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_BRUGAIRE_CONSORTIUM)
-            player:addFame(SANDORIA, 30)
+            player:addExp(2000 * EXP_RATE)
+            player:addFame(SANDORIA, 250)
             player:setCharVar("TheBrugaireConsortium-Parcels", 0)
         else
             player:startEvent(537)

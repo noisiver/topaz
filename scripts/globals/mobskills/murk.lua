@@ -19,8 +19,8 @@ function onMobWeaponSkill(target, mob, skill)
     local slowed = false
     local weight = false
 
-    slowed = MobStatusEffectMove(mob, target, tpz.effect.SLOW, 1250, 0, 300)
-    weight = MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 40, 0, 300)
+    slowed = MobStatusEffectMove(mob, target, tpz.effect.SLOW, 8500, 0, 300)
+    weight = MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 44, 0, 300)
 
     skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
 

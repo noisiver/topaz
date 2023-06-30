@@ -3,6 +3,7 @@
 --  Mob: Lamia's Elemental
 -----------------------------------
 local ID = require("scripts/zones/Arrapago_Remnants/IDs")
+mixins = {require("scripts/mixins/families/elemental_spirit")}
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")

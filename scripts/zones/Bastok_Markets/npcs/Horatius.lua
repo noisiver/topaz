@@ -4,6 +4,7 @@
 --  Type: Quest Giver
 --  Starts and Finishes: Breaking Stones
 -- !pos -158 -6 -117 235
+-- Test: Repeat p roperly?
 -----------------------------------
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
@@ -35,7 +36,10 @@ function onEventFinish(player, csid, option)
     if (csid == 100 and option == 0) then
         player:addQuest(BASTOK, tpz.quest.id.bastok.BREAKING_STONES)
     elseif (csid == 101) then
-        if (npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.BREAKING_STONES, {gil=400})) then
+        local fame = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.BREAKING_STONES) and 200 or 50
+        local exp = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.BREAKING_STONES) and 3000 or 300
+        if (npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.BREAKING_STONES, {gil=400, fame=fame, xp=exp})) then
+            player:addItem(26169) -- Reraise ring
             player:confirmTrade()
         end
     elseif (csid == 428) then

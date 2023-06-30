@@ -107,12 +107,19 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 493)
         end
     elseif (csid == 103) then
-        player:tradeComplete()
-        player:completeQuest(BASTOK, tpz.quest.id.bastok.DRACHENFALL)
-        player:addFame(BASTOK, 120)
-        player:addTitle(tpz.title.DRACHENFALL_ASCETIC)
-        player:addGil(GIL_RATE*2000)
-        player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*2000)
+        if (player:getFreeSlotsCount(0) >= 1) then
+            player:tradeComplete()
+            player:completeQuest(BASTOK, tpz.quest.id.bastok.DRACHENFALL)
+            player:addExp(7500 * EXP_RATE)
+            player:addFame(BASTOK, 300)
+            player:addTitle(tpz.title.DRACHENFALL_ASCETIC)
+            player:addGil(GIL_RATE*2000)
+            player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*2000)
+            player:addItem(13609, 1, 115, 4) -- Pet: StoreTP +5
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 13609) -- Wolf Mantle +1
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13609) -- Wolf Mantle +1
+        end
     end
 
 end

@@ -135,7 +135,9 @@ void TryLearningSpells(CCharEntity* PChar, CMobEntity* PMob) {
             // make sure the difference between spell skill and player is at most 31 points
             if (playerSkillLvl >= skillLvlForSpell - 31)
             {
-                auto chanceToLearn = 33 + PBlueMage->getMod(Mod::BLUE_LEARN_CHANCE);
+                int chanceToLearn = 20 + PBlueMage->getMod(Mod::BLUE_LEARN_CHANCE) + playerSkillLvl - skillLvlForSpell;
+                chanceToLearn = std::clamp(chanceToLearn, 5, 45);
+
                 if (tpzrand::GetRandomNumber(100) < chanceToLearn) {
 					if (charutils::addSpell(PBlueMage, static_cast<uint16>(PSpell->getID()))) {
 						PBlueMage->pushPacket(new CMessageBasicPacket(PBlueMage, PBlueMage, static_cast<uint16>(PSpell->getID()), 0, MSGBASIC_LEARNS_SPELL));

@@ -45,9 +45,7 @@ function onSpellCast(caster, target, spell)
 
     -- Calculate duration
     local duration = 120
-
-    -- Check for Dia
-    local dia = target:getStatusEffect(tpz.effect.DIA)
+    local tier = 2
 
     -- Calculate DoT effect
     -- http://wiki.ffo.jp/html/1954.html
@@ -59,10 +57,10 @@ function onSpellCast(caster, target, spell)
     end
     dotdmg = utils.clamp(dotdmg, 3, 100)
 
-    -- Do it!
-    target:delStatusEffectSilent(tpz.effect.DIA)
-    target:delStatusEffectSilent(tpz.effect.BIO)
-    target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 10, 2)
+    if ShouldOverwriteDiaBio(caster, target, tpz.effect.BIO, tier) then
+        target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 10, 2)
+    end
+
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
     CheckForMagicBurst(caster, spell, target)
 

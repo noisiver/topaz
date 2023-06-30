@@ -18,8 +18,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffectOne = tpz.effect.STONESKIN
     local typeEffectTwo = tpz.effect.BLAZE_SPIKES
-    skill:setMsg(MobBuffMove(mob, typeEffectOne, 1000, 0, 300))
-    MobBuffMove(mob, typeEffectTwo, 30, 0, 300)
+    skill:setMsg(MobBuffMove(mob, typeEffectOne, 750, 0, 300))
+    MobBuffMove(mob, typeEffectTwo, 20, 0, 300)
     local effect1 = mob:getStatusEffect(typeEffectOne)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 

@@ -57,14 +57,14 @@ g_mixins.families.ghrah = function(mob)
 
     mob:addListener("ROAM_TICK", "GHRAH_RTICK", function(mob)
         local roamTime = mob:getLocalVar("roamTime")
-        if (mob:AnimationSub() == 0 and os.time() - roamTime > 45) then
+        if (mob:AnimationSub() == 0 and os.time() - roamTime > 60) then
             mob:AnimationSub(mob:getLocalVar("form2"))
             mob:setAggressive(1)
             SetJob(mob)
             SetSDT(mob)
             SetCasting(mob)
             mob:setLocalVar("roamTime", os.time())
-        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 45) then
+        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 60) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
             SetJob(mob)
@@ -77,7 +77,7 @@ g_mixins.families.ghrah = function(mob)
     mob:addListener("ENGAGE", "GHRAH_ENGAGE", function(mob, target)
         SetJob(mob)
         SetSDT(mob)
-        mob:setLocalVar("changeTime", math.random(15, 45))
+        mob:setLocalVar("changeTime", 60)
     end)
 
     mob:addListener("COMBAT_TICK", "GHRAH_CTICK", function(mob)
@@ -90,7 +90,7 @@ g_mixins.families.ghrah = function(mob)
             SetSDT(mob)
             SetCasting(mob)
             SetClusterDrops(mob)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + math.random(15, 45))
+            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
         elseif (mob:AnimationSub() == mob:getLocalVar("form2") and mob:getBattleTime() >= changeTime) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
@@ -98,7 +98,7 @@ g_mixins.families.ghrah = function(mob)
             SetSDT(mob)
             SetCasting(mob)
             SetClusterDrops(mob)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + math.random(15, 45))
+            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
         end
     end)
 end
@@ -113,24 +113,35 @@ function SetCasting(mob)
 end
 
 function SetJob(mob)
-    -- Humanoid does not cast
-    if mob:AnimationSub() == 0 then
-        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+    if mob:AnimationSub() == 0 then -- Ball form
+        mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
+        mob:addJobTraits(tpz.job.BLM, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.WAR, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.PLD, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.THF, mob:getMainLvl())
         DelDefenseBonus(mob)
-        DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 1 then  -- human form gives defense bonus equal to paladin of that level AND 100% defense modifier
-        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
-        AddDefenseBonus(mob, 120)
-        DelEvasionBonus(mob)
+        mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
+        mob:addJobTraits(tpz.job.PLD, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.WAR, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.THF, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.BLM, mob:getMainLvl())
+        AddDefenseBonus(mob, 100)
     elseif mob:AnimationSub() == 2 then  -- spider form gives defense bonus equal to warrior of that level
-        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        mob:setDamage(math.floor(mob:getWeaponDmg() * 2)) -- Weapon damage * 2
+        mob:addJobTraits(tpz.job.WAR, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.PLD, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.THF, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.BLM, mob:getMainLvl())
         DelDefenseBonus(mob)
         AddDefenseBonus(mob, 10)
-        DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 3 then  -- Bird form grants evasion and triple attack equal to appropriate level thief
-        mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
+        mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
+        mob:addJobTraits(tpz.job.THF, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.WAR, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.PLD, mob:getMainLvl())
+        mob:delJobTraits(tpz.job.BLM, mob:getMainLvl())
         DelDefenseBonus(mob)
-        AddEvasionBonus(mob)
     end
 end
 
@@ -146,20 +157,6 @@ function DelDefenseBonus(mob)
     if mob:getLocalVar("defBonus") > 0 then
         mob:delMod(tpz.mod.DEFP, defBonus)
         mob:setLocalVar("defBonus", 0)
-    end
-end
-
-function AddEvasionBonus(mob)
-    if mob:getLocalVar("evaBonus") == 0 then
-        mob:setLocalVar("evaBonus", 1)
-        mob:addMod(tpz.mod.EVA, 48)
-    end
-end
-
-function DelEvasionBonus(mob)
-    if mob:getLocalVar("evaBonus") == 1 then
-        mob:setLocalVar("evaBonus", 0)
-        mob:delMod(tpz.mod.EVA, 48)
     end
 end
 

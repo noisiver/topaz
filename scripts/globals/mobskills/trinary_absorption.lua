@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Trinary Absorption
--- Attempts to absorb one buff from a single target, or otherwise steals HP.
+-- Absorbs HP.
 -- Type: Magical
 -- Utsusemi/Blink absorb: 1 Shadows
 -- Range: Melee
@@ -15,12 +15,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    -- time to drain HP. 50-100
-    local power = 300
-    local dmg = MobFinalAdjustments(power, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_1_SHADOW)
-
-    skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
+    local dmgmod = math.floor(mob:getMainLvl() * 5)
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_1_SHADOW)
+    skill:setMsg(MobDrainMove(mob, target, MOBDRAIN_HP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
 
     return dmg
 end

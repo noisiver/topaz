@@ -85,7 +85,8 @@ function onEventFinish(player, csid, option)
     elseif
         csid == 776 and
         npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.CRYING_OVER_ONIONS, {
-            fame=120,
+            fame=400,
+            xp = 12500,
             var="CryingOverOnions",
         })
     then
@@ -98,7 +99,8 @@ function onEventFinish(player, csid, option)
         csid == 782 and
         npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.WILD_CARD, {
             title=tpz.title.DREAM_DWELLER,
-            fame=135,
+            fame=500,
+            xp = 15000,
             var="WildCard",
         })
     then

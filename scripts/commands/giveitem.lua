@@ -14,7 +14,7 @@ function error(player, msg)
     player:PrintToPlayer("!additem <target> <itemId> {quantity} {aug1} {v1} {aug2} {v2} {aug3} {v3} {aug4} {v4} {trial}")
 end
 
-function onTrigger(player, target, name, amount, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId, aug4val)
+function onTrigger(player, target, name, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId, aug4val)
     local targ = GetPlayerByName( target )
     if (targ == nil) then
         player:PrintToPlayer( string.format( "Player named '%s' not found!", target ) )

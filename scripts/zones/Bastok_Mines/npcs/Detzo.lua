@@ -63,9 +63,10 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13571)
         else
             player:addTitle(tpz.title.CONTEST_RIGGER)
-            player:addItem(13571)
+            player:addItem(13571, 1, 96, 9) -- Pet ACC/RACC+10
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13571)
-            player:addFame(BASTOK, 30)
+            player:addExp(4500 * EXP_RATE)
+            player:addFame(BASTOK, 200)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.RIVALS)
         end
     end

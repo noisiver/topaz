@@ -39,7 +39,7 @@ void CPetController::Tick(time_point tick)
     TracyZoneScoped;
     TracyZoneIString(PPet->GetName());
 
-    if (PPet->isCharmed && tick > PPet->charmTime)
+    if (PPet->shouldDespawn(tick))
     {
         petutils::DespawnPet(PPet->PMaster);
         return;
@@ -55,9 +55,7 @@ void CPetController::DoRoamTick(time_point tick)
     }
 
     // Pet is unable to move due to hard CC(Sleep, stun, terror, etc)
-    if (PPet->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
-        PPet->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
-        PPet->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_BIND))
+    if (PPet->StatusEffectContainer->HasPreventActionEffect(false))
     {
         return;
     }
@@ -72,19 +70,18 @@ void CPetController::DoRoamTick(time_point tick)
         return;
     }
 
-    float currentDistance = distance(PPet->loc.p, PPet->PMaster->loc.p);
+    float currentDistanceSquared = distanceSquared(PPet->loc.p, PPet->PMaster->loc.p);
 
-    if (currentDistance > PetRoamDistance)
-        // Was 35.0f, but pets lag behind heavily due to bad pathing/navmesh so this should help
+    if (currentDistanceSquared > PetRoamDistance * PetRoamDistance)
     {
-        if (currentDistance < 20.0f && PPet->PAI->PathFind->PathAround(PPet->PMaster->loc.p, 2.0f, PATHFLAG_RUN | PATHFLAG_WALLHACK))
-        {
-            PPet->PAI->PathFind->FollowPath();
+        if (!PPet->PAI->PathFind->IsFollowingPath() || distanceSquared(PPet->PAI->PathFind->GetDestination(), PPet->PMaster->loc.p) > 10 * 10)
+        { // recalculate path only if owner moves more than X yalms
+            if (!PPet->PAI->PathFind->PathAround(PPet->PMaster->loc.p, PetRoamDistance, PATHFLAG_RUN | PATHFLAG_WALLHACK))
+            {
+                PPet->PAI->PathFind->PathInRange(PPet->PMaster->loc.p, PetRoamDistance, PATHFLAG_RUN | PATHFLAG_WALLHACK);
+            }
         }
-        else if (PPet->GetSpeed() > 0)
-        {
-            PPet->PAI->PathFind->WarpTo(PPet->PMaster->loc.p, PetRoamDistance);
-        }
+        PPet->PAI->PathFind->FollowPath();
     }
 }
 
@@ -93,7 +90,7 @@ bool CPetController::PetIsHealing()
     bool isMasterHealing = (PPet->PMaster->animation == ANIMATION_HEALING);
     bool isPetHealing = (PPet->animation == ANIMATION_HEALING);
 
-    if (isMasterHealing && !isPetHealing && !PPet->StatusEffectContainer->HasPreventActionEffect()) {
+    if (isMasterHealing && !isPetHealing && !PPet->StatusEffectContainer->HasPreventActionEffect(false)) {
         //animation down
         PPet->animation = ANIMATION_HEALING;
         PPet->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_HEALING, 0, 0, map_config.healing_tick_delay, 0));

@@ -16,7 +16,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PARALYSIS
 
-    skill:setMsg(MobGazeMove(mob, target, typeEffect, 75, 0, 300))
+    skill:setMsg(MobGazeMove(mob, target, typeEffect, 35, 0, 300))
 
     return typeEffect
 end

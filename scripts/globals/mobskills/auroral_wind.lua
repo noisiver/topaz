@@ -19,13 +19,10 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SILENCE
+    local dmgmod = math.floor(mob:getMainLvl() * 2.5)
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
 
-    local dmgmod = 1.5
-    local accmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
-
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
     MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
 
     return dmg

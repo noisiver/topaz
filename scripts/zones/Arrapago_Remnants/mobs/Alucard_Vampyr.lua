@@ -67,7 +67,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.PIERCERES, 750)
     mob:setMod(tpz.mod.RANGEDRES, 500)
     mob:setMod(tpz.mod.IMPACTRES, 1000)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:delImmunity(tpz.immunity.SILENCE)
     tpz.mix.jobSpecial.config(mob, {

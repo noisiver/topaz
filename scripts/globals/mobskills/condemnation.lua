@@ -19,9 +19,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 3
+    local numhits = 1
     local accmod = 1
-    local dmgmod = 1
+    local dmgmod = 3.0
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -34,7 +34,7 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.mnd_wsc = 0.2
     params_phys.chr_wsc = 0.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*math.random(2, 3))
     local typeEffect = tpz.effect.STUN
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

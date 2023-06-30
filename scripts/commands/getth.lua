@@ -23,9 +23,5 @@ function onTrigger(player)
         error(player, "you must select a target monster with the cursor first")
     end
 
-    local enmityList = targ:getEnmityList()
-
-    if enmityList and #enmityList > 0 then
-        player:PrintToPlayer(string.format("%s TH level is is ... %u", targ:getName(), targ:getTHlevel()))
-    end
+    player:PrintToPlayer(string.format("%s TH level is is ... %u", targ:getName(), targ:getTHlevel()))
 end

@@ -105,7 +105,7 @@ local battlefields = {
         { 3,  963,    0},   -- Bad Seed (ENM)
         { 4,  964,    0},   -- Bugard in the Clouds (ENM)
         { 5,  965,    0},   -- Beloved of the Atlantes (ENM)
-     -- { 6,  966,    0},   -- Uninvited Guests (Quest)
+        { 6,  966,    0},   -- Uninvited Guests (Quest)
      -- { 7,  967, 3455},   -- Nest of Nightmares (HKC50)
      -- { 8,    ?,    0},   -- *The Savage (HTMBF)
     },
@@ -168,7 +168,7 @@ local battlefields = {
     {
         { 0, 1088,    0},   -- Call to Arms (ISNM)
         { 1, 1089,    0},   -- Compliments to the Chef (ISNM)
-     -- { 2, 1090,    0},   -- Puppetmaster Blues (Quest)
+        { 2, 1090,    0},   -- Puppetmaster Blues (Quest)
         { 3, 1091, 2332},   -- Breaking the Bonds of Fate (COR LB5)
         { 4, 1092,    0},   -- Legacy of the Lost (TOAU35)
      -- { 5,    ?,    0},   -- *Legacy of the Lost (HTMBF)
@@ -661,6 +661,7 @@ function checkReqs(player, npc, bfid, registrant)
         [ 963] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                                ) end, -- ENM: Bad Seed
         [ 964] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                                ) end, -- ENM: Bugard in the Clouds
         [ 965] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                                ) end, -- ENM: Beloved of Atlantes
+        [ 966] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_LINN_PATROL_PERMIT)                                                                                                ) end, -- ENM: Uninvited Guests
         [ 992] = function() return ( cop == mi.cop.ONE_TO_BE_FEARED and copStat == 2                                                                                        ) end, -- PM6-4: One to be Feared
         [ 993] = function() return ( cop == mi.cop.THE_WARRIOR_S_PATH                                                                                                       ) end, -- PM7-5: The Warrior's Path
         [1024] = function() return ( cop == mi.cop.WHEN_ANGELS_FALL and copStat == 4                                                                                        ) end, -- PM8-3: When Angels Fall

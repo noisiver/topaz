@@ -62,7 +62,8 @@ function onEventFinish(player, csid, option)
         else
             player:addItem(13330)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13330) -- Tourmaline Earring
-            player:addFame(WINDURST, 30)
+            player:addExp(3500 * EXP_RATE)
+            player:addFame(WINDURST, 200)
             player:completeQuest(WINDURST, tpz.quest.id.windurst.A_GREETING_CARDIAN)
             player:needToZone(true) -- zone before starting Legendary Plan B
             player:setCharVar("AGreetingCardian_timer", 0)

@@ -131,18 +131,6 @@ bool CAbilityState::CanUseAbility()
     {
         auto PAbility = GetAbility();
         auto PChar = static_cast<CCharEntity*>(m_PEntity);
-        if (PChar->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
-        {
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_WAIT_LONGER));
-            return false;
-        }
-        if (PChar->StatusEffectContainer->HasStatusEffect({EFFECT_AMNESIA, EFFECT_IMPAIRMENT}) ||
-            (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
-            (PAbility->isPetAbility() && !charutils::hasPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY)))
-        {
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
-            return false;
-        }
         std::unique_ptr<CBasicPacket> errMsg;
         auto PTarget = GetTarget();
         if (PChar->IsValidTarget(PTarget->targid, PAbility->getValidTarget(), errMsg))
@@ -156,15 +144,6 @@ bool CAbilityState::CanUseAbility()
             {
                 m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, PAbility->getID(), 0, MSGBASIC_CANNOT_PERFORM_ACTION);
                 return false;
-            }
-            if (PAbility->getID() >= ABILITY_HEALING_RUBY)
-            {
-                // Blood pact MP costs are stored under animation ID
-                if (PChar->health.mp < PAbility->getAnimationID())
-                {
-                    PChar->pushPacket(new CMessageBasicPacket(PChar, PTarget, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
-                    return false;
-                }
             }
             CBaseEntity* PMsgTarget = PChar;
             int32 errNo = luautils::OnAbilityCheck(PChar, PTarget, PAbility, &PMsgTarget);

@@ -8,7 +8,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.PHALANX) then
+	if mob:hasStatusEffect(tpz.effect.DEFENSE_BOOST) then
 		return 1
 	end
 	
@@ -20,7 +20,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    skill:setMsg(MobBuffMove(mob, tpz.effect.PHALANX, 0, 0, 90))
-    mob:getStatusEffect(tpz.effect.PHALANX):unsetFlag(tpz.effectFlag.DISPELABLE)
-    return tpz.effect.PHALANX
+    local typeEffect = tpz.effect.DEFENSE_BOOST
+    skill:setMsg(MobBuffMove(mob, typeEffect, 50, 0, 120))
+    mob:getStatusEffect(typeEffect):unsetFlag(tpz.effectFlag.DISPELABLE)
+    return typeEffect
 end

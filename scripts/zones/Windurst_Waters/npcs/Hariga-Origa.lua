@@ -67,7 +67,8 @@ function onEventFinish(player, csid, option)
             player:addKeyItem(tpz.ki.MAP_OF_THE_HORUTOTO_RUINS)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MAP_OF_THE_HORUTOTO_RUINS)
         end
-        player:addFame(WINDURST, 120)
+        player:addExp(1500 * EXP_RATE)
+        player:addFame(WINDURST, 150)
         player:completeQuest(WINDURST, tpz.quest.id.windurst.GLYPH_HANGER)
     elseif (csid == 413 and option == 0) then
         player:addQuest(WINDURST, tpz.quest.id.windurst.A_SMUDGE_ON_ONE_S_RECORD)

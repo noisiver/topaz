@@ -207,9 +207,10 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 16409) -- Lynx Baghnakhs
         else
             player:delKeyItem(tpz.ki.CURILLAS_BOTTLE_FULL)
-            player:addItem(16409)
+            player:addItem(16409, 1, 41, 2) -- +3% Crit
             player:messageSpecial(ID.text.ITEM_OBTAINED, 16409) -- Lynx Baghnakhs
-            player:addFame(SANDORIA, 30)
+            player:addExp(6500 * EXP_RATE)
+            player:addFame(SANDORIA, 350)
             player:completeQuest(SANDORIA, sandyQuests.THE_GENERAL_S_SECRET)
         end
     elseif (csid == 94 and option == 1) then

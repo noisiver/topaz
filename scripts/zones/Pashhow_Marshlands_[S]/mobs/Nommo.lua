@@ -1,6 +1,7 @@
 ------------------------------
 -- Area: Pashhow Marshlands [S]
 --   NM: Nommo
+-- Lyft NM
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

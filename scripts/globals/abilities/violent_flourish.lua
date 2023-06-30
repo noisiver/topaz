@@ -37,7 +37,7 @@ function onAbilityCheck(player, target, ability)
             player:addStatusEffect(tpz.effect.FINISHING_MOVE_4, 1, 0, 7200)
             return 0, 0
         else
-            return tpz.msg.basic.NO_FINISHINGMOVES, 0
+            return 0, 0
         end
     end
 end

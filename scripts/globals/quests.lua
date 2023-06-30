@@ -1,5 +1,7 @@
 require("scripts/globals/log_ids")
 require("scripts/globals/zone")
+require("scripts/globals/npc_util")
+require("scripts/globals/items")
 
 tpz = tpz or {}
 tpz.quest = tpz.quest or {}

@@ -56,6 +56,7 @@ function onEventFinish(player, csid, option)
         player:addQuest(BASTOK, tpz.quest.id.bastok.MEAN_MACHINE)
     elseif (csid == 557) then
         player:completeQuest(BASTOK, tpz.quest.id.bastok.MEAN_MACHINE)
+        player:addExp(2000 * EXP_RATE)
         player:addFame(BASTOK, 120)
         player:tradeComplete()
         player:addItem(4869)

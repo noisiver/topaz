@@ -15,7 +15,7 @@ function onPetAbility(target, automaton, skill, master, action)
     automaton:addRecast(tpz.recast.ABILITY, skill:getID(), 60)
     local maneuvers = master:countEffect(tpz.effect.WIND_MANEUVER)
     local duration = 300
-    local shadows = 1 + maneuvers -- math.floor(maneuvers * 3.5) currently on retail
+    local shadows = math.floor(maneuvers * 3.5)
 
     if target:addStatusEffect(tpz.effect.BLINK, shadows, 0, duration) then
         skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)

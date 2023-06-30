@@ -4,6 +4,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
+require("scripts/globals/items") -- might error
 ------------------------------------
 
 tpz = tpz or {}
@@ -597,7 +598,7 @@ function applyResistance(caster, target, spell, params)
     end
 
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
-    local res = getMagicResist(p, element)
+    local res = getMagicResist(p)
 
 
     if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
@@ -685,7 +686,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     magicaccbonus = magicaccbonus + caster:getMod(tpz.mod.STATUS_EFFECT_MACC)
 
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
-    local res = getMagicResist(p, element)
+    local res = getMagicResist(p)
 
     if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
@@ -715,7 +716,7 @@ function applyResistanceAbility(player, target, element, skill, bonus)
     local params = {}
     local SDT = getElementalSDT(element, target)
     local p = getMagicHitRate(player, target, skill, element, SDT, 0, bonus, params)
-    local res = getMagicResist(p, element)
+    local res = getMagicResist(p)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16
@@ -745,7 +746,7 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
     params.effect = effect
 
     local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus, params)
-	local res = getMagicResist(p, element)
+	local res = getMagicResist(p)
 
     if (effect == nil) then
         if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
@@ -969,10 +970,11 @@ function getEffectResistanceTraitChance(caster, target, effect)
     end
     
     if (effectres ~= 0) then
-        local ret = target:getMod(effectres)
+        local ret = target:getMod(effectres) + target:getMod(tpz.mod.STATUSRESTRAIT) -- TODO: Test
         if (not caster:isPC()) and caster:isNM() then
             ret = math.floor(ret/2)
         end
+
         return ret/100
     end
 
@@ -1150,6 +1152,9 @@ end
         dmg = math.floor(dmg * circlemult / 100)
     end
 
+    -- Handle Scarlet Delirium
+    dmg = utils.ScarletDeliriumBonus(caster, dmg)
+
     -- Handle Positional MDT
     if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
         if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
@@ -1174,7 +1179,14 @@ end
         end
     end
 
-    dmg = target:magicDmgTaken(dmg)
+    -- add on ice maker bonus(if automaton)
+    if caster:isPet() then
+        local iceMakerBonus = 1 + (caster:getLocalVar("ice_maker_bonus") / 100)
+        dmg = math.floor(dmg * iceMakerBonus)
+    end
+
+    local element = spell:getElement()
+    dmg = target:magicDmgTaken(dmg, element)
 
     if (dmg > 0) then
         if not (spell:getID() == 247) and not (spell:getID() == 248) then -- Aspir isn't reduced by Phalanx
@@ -1203,13 +1215,14 @@ end
         end
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
+    caster:delStatusEffectSilent(tpz.effect.CASCADE)
     return dmg
  end
 
 function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     --Handles target's HP adjustment and returns SIGNED dmg (negative values on absorb)
 
-    dmg = target:magicDmgTaken(dmg)
+    dmg = target:magicDmgTaken(dmg, ele)
 
     if (dmg > 0) then
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
@@ -1233,22 +1246,8 @@ function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     return dmg
 end
 
+-- No longer needed, added to core
 function adjustForTarget(target, dmg, ele)
-    -- Check for absorb. Converts damage to HP.
-    if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.magic.absorbMod[ele])) then
-        return -dmg
-    end
-    -- Check for null
-    if (math.random(0, 99) < target:getMod(nullMod[ele])) then
-        return 0
-    end
-    -- Evokers Bracers / +1 Mod 
-    -- Procs after absorb or null checks. Converts dmg to MP
-    if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.magic.absorbModToMP[ele])) then
-        target:addMP(dmg)
-    end
-    --Moved non element specific absorb and null mod checks to core
-    --TODO: update all lua calls to magicDmgTaken with appropriate element and remove this function
     return dmg
 end
 
@@ -1851,10 +1850,10 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
     if  status == tpz.effect.AMNESIA then
         SDTmod = tpz.mod.EEM_AMNESIA
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.VIRUS then
+    elseif status == tpz.effect.BANE or status == tpz.effect.PLAGUE then
         SDTmod = tpz.mod.EEM_VIRUS
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SILENCE then
+    elseif status == tpz.effect.SILENCE or status == tpz.effect.MUTE then
         SDTmod = tpz.mod.EEM_SILENCE
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.WEIGHT then
@@ -1866,10 +1865,7 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
     elseif status == tpz.effect.LULLABY then
         SDTmod = tpz.mod.EEM_LIGHT_SLEEP
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.CHARM_I then
-        SDTmod = tpz.mod.EEM_CHARM
-        SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.CHARM_II then
+    elseif status == tpz.effect.CHARM_I or status == tpz.effect.CHARM_II then
         SDTmod = tpz.mod.EEM_CHARM
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.PARALYSIS then
@@ -1890,10 +1886,7 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
     elseif status == tpz.effect.POISON then
         SDTmod = tpz.mod.EEM_POISON
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SLEEP_I then
-        SDTmod = tpz.mod.EEM_DARK_SLEEP
-        SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SLEEP_II then
+    elseif status == tpz.effect.SLEEP_I or status == tpz.effect.SLEEP_II then
         SDTmod = tpz.mod.EEM_DARK_SLEEP
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.BLINDNESS then
@@ -2107,8 +2100,109 @@ function getDstatBonus(softcap, diff)
     return dstatMaccBonus
 end
 
+function GetCharmHitRate(player, target)
+    -- Immune to charm
+    if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
+        return 0
+    end
+
+    -- formula is 50% - family reduct - dLvl (3/lvl until 50, 5/lvl 51+, 10/lvl at some level)) * charm multiplier + dCHR + Light Staff bonus (10/15)
+    -- dLVL can never go above 0, and dCHR goes below 0
+    local chance = 50
+    local familyReduction = GetCharmFamilyReduction(player, target)
+    local element = tpz.magic.ele.LIGHT
+    local diff = player:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
+    local dCHR = getDstatBonus(10, diff)
+    local playerLvl = player:getMainLvl()
+    local bstMainLvl = player:getJobLevel(tpz.job.BST)
+
+    -- If BST main level is below current job level, use BST Level for player level in formula
+    if (playerLvl > bstMainLvl) then
+        playerLvl = bstMainLvl
+    end
+
+    local dLvl = playerLvl - target:getMainLvl()
+    local SDT = getEnfeeblelSDT(tpz.effect.CHARM, element, target)
+    local charmMultiplier = GetCharmMultiplier(SDT)
+    local charmMod = (1 + player:getMod(tpz.mod.CHARM_CHANCE) / 100) -- Correct mod?
+    local affinityBonus = AffinityBonusAcc(player, element)
+    local tameBonus = 0
+
+    if player:getLocalVar("Tamed_Mob") == target:getID() then
+        tameBonus = 10
+    end
+
+    if (target:getMainLvl() > 70) then
+        dLvl = dLvl * 10
+    elseif (target:getMainLvl() > 50) then
+        dLvl = dLvl * 5
+    else
+        dLvl = dLvl * 3
+    end
+
+    dLvl = utils.clamp(chance, -99999, 0)
+
+    chance = chance - familyReduction
+    --print(string.format("chance - family reduction: %i", chance))
+    chance = chance + dLvl
+    --print(string.format("chance - dLvl reduction: %i", chance))
+    chance = chance * charmMultiplier
+    --print(string.format("chance * charm multiplier: %i", chance))
+    chance = chance + dCHR
+    --print(string.format("chance + dCHR: %i", chance))
+    chance = chance + affinityBonus
+    --print(string.format("chance + affinity bonus: %i", chance))
+    chance = chance + tameBonus
+    --print(string.format("chance + tame bonus: %i", chance))
+
+    chance = utils.clamp(chance, 5, 95)
+    --print(string.format("chance final %i", chance))
+
+    return chance
+end
+
+function GetCharmMultiplier(SDT)
+    -- Light SDT/EEM	Charm Multi
+    -- 150%	            1.5
+    -- 130%	            1.4
+    -- 115%         	1.2
+    -- 100%	            1
+    -- SUB 100%	        0.5
+    if (SDT >= 150) then
+        return 1.5
+    elseif (SDT >= 130) then
+        return 1.4
+    elseif (SDT >= 150) then
+        return 1.2
+    elseif (SDT >= 100) then
+        return 1
+    else
+        return 0.5
+    end
+
+    return 1
+end
+
+function GetCharmFamilyReduction(player, target)
+    -- Slime, Puk -35%
+    -- Old Opo-Opo -40%
+    -- Ifrit's Raptor -75%
+    local family = target:getFamily()
+
+    if (family == 198 or family == 526 or family == 228 or family == 229 or family == 230 or family == 66 or family == 67) then
+        return 35
+    elseif (family == 188) then -- Should be old Opo-opo only
+        return 40
+    elseif (family == 376 or family == 377 or family == 210) then -- Should be ifrits raptor only
+        return 75
+    end
+
+    return 0
+end
+
 function doElementalNuke(caster, spell, target, spellParams)
     local DMG = 0
+    local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     local V = 0
     local M = 0
@@ -2120,11 +2214,11 @@ function doElementalNuke(caster, spell, target, spellParams)
         V = spellParams.V -- Base value
         M = spellParams.M -- Tier multiplier
         local I = spellParams.I -- Inflection point
-        local cap = I * 2 + V -- Base damage soft cap
+        local cap = DMGMod + I * 2 + V -- Base damage soft cap
 
         if dINT < 0 then
             -- If dINT is a negative value the tier multiplier is always 1
-            DMG = V + dINT
+            DMG = DMGMod + V + dINT
 
             -- Check/ set lower limit of 0 damage for negative dINT
             if DMG <= 1 then
@@ -2133,11 +2227,12 @@ function doElementalNuke(caster, spell, target, spellParams)
 
         elseif dINT < I then
              -- If dINT > 0 but below inflection point I
-            DMG = V + dINT * M
+            DMG = DMGMod + V + dINT * M
 
         else
              -- Above inflection point I additional dINT is only half as effective
-            DMG = V + I + ((dINT - I) * (M / 2))
+            DMG = DMGMod + V + I + ((dINT - I) * (M / 2))
+
         end
 
         -- Check/ set damage soft cap
@@ -2260,8 +2355,6 @@ function doNuke(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	
-    --get the resisted damage
-    dmg = dmg*resist
     if (spell:getSkillType() == tpz.skill.NINJUTSU) then
         if (caster:getMainJob() == tpz.job.NIN) then -- NIN main gets a bonus to their ninjutsu nukes
             local ninSkillBonus = 100
@@ -2281,8 +2374,9 @@ function doNuke(caster, target, spell, params)
             caster:delStatusEffectSilent(tpz.effect.FUTAE)
         end
     end
-    
 
+    --get the resisted damage
+    dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg, params)
     --add in target adjustment
@@ -2346,6 +2440,22 @@ function doAdditionalEffectDamage(player, target, chance, dmg, dStat, incudeMAB,
     return dmg
 end
 
+function CheckAdditionalEffeectAmmo(player, requiredAmmo, chance)
+    local ammo = player:getEquipID(tpz.slot.AMMO)
+	if (ammo == requiredAmmo) then
+		chance = chance
+    else
+        chance = 0
+	end
+    return chance
+end
+
+function DeleteAmmoAdditionalEffect(player, dmg, ammo)
+    if (dmg > 0) then
+        player:removeAmmo()
+    end
+end
+
 function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     local immunities = {
         { tpz.effect.SLEEP_I, 1},
@@ -2388,7 +2498,92 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     return resist
 end
 
-function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
+function TryApplyAdditionalEffect(player, target, effect, element, power, tick, duration, subpower, tier, chance, bonus)
+    local effects =
+    {
+        { tpz.effect.SLEEP_I, tpz.subEffect.SLEEP },
+        { tpz.effect.POISON, tpz.subEffect.POISON },
+        { tpz.effect.PARALYSIS, tpz.subEffect.PARALYSIS },
+        { tpz.effect.BLINDNESS, tpz.subEffect.BLINDNESS },
+        { tpz.effect.SILENCE, tpz.subEffect.SILENCE },
+        { tpz.effect.PETRIFICATION, tpz.subEffect.PETRIFICATION },
+        { tpz.effect.DISEASE, tpz.subEffect.PLAGUE },
+        { tpz.effect.CURSE_I, tpz.subEffect.CURSE },
+        { tpz.effect.STUN, tpz.subEffect.STUN },
+        { tpz.effect.BIND, tpz.subEffect.BIND },
+        { tpz.effect.WEIGHT, tpz.subEffect.WEIGHT },
+        { tpz.effect.SLOW, tpz.subEffect.SLOW },
+        { tpz.effect.CHARM_I, tpz.subEffect.CHARM },
+        { tpz.effect.DOOM, tpz.subEffect.DOOM },
+        { tpz.effect.AMNESIA, tpz.subEffect.AMNESIA },
+        { tpz.effect.CHARM_II, tpz.subEffect.CHARM },
+        { tpz.effect.GRADUAL_PETRIFICATION, tpz.subEffect.PETRIFICATION },
+        { tpz.effect.SLEEP_II, tpz.subEffect.SLEEP },
+        { tpz.effect.CURSE_II, tpz.subEffect.CURSE },
+        { tpz.effect.ADDLE, tpz.subEffect.ADDLE },
+        { tpz.effect.TERROR, tpz.subEffect.TERROR },
+        { tpz.effect.MUTE, tpz.subEffect.MUTE },
+        { tpz.effect.BANE, tpz.subEffect.BANE },
+        { tpz.effect.GRAVITY, tpz.subEffect.GRAVITY },
+        { tpz.effect.HASTE, tpz.subEffect.HASTE },
+        { tpz.effect.FLASH, tpz.subEffect.FLASH },
+        { tpz.effect.NONE, tpz.subEffect.DISPEL },
+        { tpz.effect.DEFENSE_DOWN, tpz.subEffect.DEFENSE_DOWN },
+        { tpz.effect.EVASION_DOWN, tpz.subEffect.EVASION_DOWN },
+        { tpz.effect.ATTACK_DOWN, tpz.subEffect.ATTACK_DOWN },
+        { tpz.effect.KO, tpz.subEffect.DEATH },
+    }
+
+    local resist = getAdditionalEffectStatusResist(player, target, effect, element, bonus)
+    duration = math.floor(duration * resist)
+
+    -- Check for subpower
+    if (subpower == nil) then
+        subpower = 0
+    end
+
+    -- Check for tier
+    if (tier == nil) then
+        tier = 1
+    end
+
+    -- Check if tick should be applied
+    if (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) or
+        (effect == tpz.effect.FLASH) or utils.IsElementalDOT(effect) then
+        tick = 3
+    else
+        tick = 0
+    end
+
+
+
+    -- Get sub effect from status effect ID
+    for i, statusEffects in pairs(effects) do
+        if (effect == statusEffects[1]) then
+            subeffect = statusEffects[2]
+        end
+    end
+
+    if math.random(1, 100) >= chance or (resist < 0.5) or target:hasStatusEffect(effect) then
+        return 0, 0, 0
+    else
+
+        -- Attack, defense and evaison down also dispels attack defense and evasion boost effects
+        if (effect == tpz.effect.ATTACK_DOWN) then
+            target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
+        elseif (effect == tpz.effect.DEFENSE_DOWN) then
+            target:delStatusEffectSilent(tpz.effect.DEFENSE_BOOST)
+        elseif (effect == tpz.effect.EVASION_DOWN) then
+            target:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
+        end
+
+        target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier)
+
+        return subeffect, tpz.msg.basic.ADD_EFFECT_STATUS, effect
+    end
+end
+
+function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold, subpower, tier)
     local immunities = {
         { tpz.effect.SLEEP_I, 1},
         { tpz.effect.SLEEP_II, 1},
@@ -2409,8 +2604,19 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         { tpz.effect.PETRIFICATION, 8192},
     }
 
+    -- Check for Stymie
     if caster:hasStatusEffect(tpz.effect.STYMIE) then
         duration = duration * 3
+    end
+
+    -- Check for subpower
+    if (subpower == nil) then
+        subpower = 0
+    end
+
+    -- Check for tier
+    if (tier == nil) then
+        tier = 1
     end
 
     -- Check for immunity
@@ -2435,7 +2641,12 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
-        if target:addStatusEffect(effect, power, tick, duration) then
+        if target:getStatusEffect(effect) then
+            if (target:getStatusEffect(effect):getPower() < power) then
+                target:delStatusEffectSilent(effect)
+            end
+        end
+        if target:addStatusEffect(effect, power, tick, duration, 0, subpower, tier) then
             -- Check for magic burst
             if GetEnfeebleMagicBurstMessage(caster, spell, target) then
                 return spell:setMsg(spell:getMagicBurstMessage()) 
@@ -2452,6 +2663,64 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     else
         return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
+end
+
+function ShouldOverwriteDiaBio(caster, target, effect, tier)
+    -- Check effect trying to be applied
+    if (effect == tpz.effect.BIO) then
+        -- Check if target has Dia
+        if target:hasStatusEffect(tpz.effect.DIA) then
+            -- If targets current Dia effect is a higher tier than casted Bio, don't do anything
+            if (target:getStatusEffect(tpz.effect.DIA):getTier() > tier) then
+                return false
+            else -- If Dia tier is lower or equal, delete Dia and apply Bio
+                target:delStatusEffectSilent(tpz.effect.DIA)
+                return true
+            end
+        end
+        -- No Dia on target, apply Bio
+        return true
+    end
+
+    -- Check effect trying to be applied
+    if (effect == tpz.effect.DIA) then
+        -- Check if target has Dia
+        if target:hasStatusEffect(tpz.effect.BIO) then
+            -- If targets current Bio effect is an equal tier or higher tier than casted Bio, don't do anything
+            if (target:getStatusEffect(tpz.effect.BIO):getTier() >= tier) then
+                return false
+            else -- if Bio tier is lower, then delete Bio and apply Dia
+                target:delStatusEffectSilent(tpz.effect.BIO)
+                return true
+            end
+        end
+        -- No Bio on target, apply Dia
+        return true
+    end
+
+    return false
+end
+
+
+function ApplyProtectShell(caster, target, effect, power, duration)
+    local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
+
+    if (effect == tpz.effect.PROTECT) then
+        power = power * (1 + (protShellMod / 10)) -- Percent
+    elseif (effect == tpz.effect.SHELL) then
+        power = power + protShellMod -- Flat
+    end
+
+    return target:addStatusEffect(effect, power, 0, duration) 
+end
+
+function CalculateAdditionalEffectChance(player, chance)
+    -- THF has double the chance to apply additional effects
+    if (player:getMainJob() == tpz.job.THF) then
+        chance = chance * 2
+    end
+
+    return chance
 end
 
 function GetEnfeebleMagicBurstMessage(caster, spell, target)

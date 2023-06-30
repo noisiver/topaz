@@ -16,7 +16,7 @@ require("scripts/globals/status")
 function onMobInitialize(mob)
     mob:addListener("DEATH", "AERN_DEATH", function(mob)
         local timesReraised = mob:getLocalVar("AERN_RERAISES")
-        if(math.random (1, 10) < 10) then
+        if (math.random (100) < 20) then
             -- reraise
             local target = mob:getTarget()
             local targetid = 0
@@ -56,8 +56,8 @@ end
 
 function onMobSpawn(mob)
 	mob:setDamage(145)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 15) 
+    mob:addMod(tpz.mod.ATTP, 15)
     mob:setMod(tpz.mod.REFRESH, 50)
     mob:AnimationSub(1)
 

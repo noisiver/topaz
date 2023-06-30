@@ -14,9 +14,9 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 1000) 
     mob:addMod(tpz.mod.EVA, -100)
     mob:setMod(tpz.mod.COUNTER, 100)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:SetMobAbilityEnabled(false)
 end
 

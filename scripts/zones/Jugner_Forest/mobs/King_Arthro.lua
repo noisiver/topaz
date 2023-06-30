@@ -19,11 +19,10 @@ function onMobSpawn(mob)
 	mob:setDamage(130)
     mob:setMod(tpz.mod.ATT, 500)
     mob:addMod(tpz.mod.DEFP, 50) 
-    mob:setMod(tpz.mod.ATT, 800)
     mob:setMod(tpz.mod.ACC, 430) 
     mob:addMod(tpz.mod.EVA, 50)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
@@ -41,18 +40,13 @@ function onMobSpawn(mob)
             },
         },
     })
-
-    -- Use King Arthro ID to determine Knight Crab Id's, then set their respawn to 0 so they don't spawn while KA is up
-    for offset = 1, 10 do
-        GetMobByID(KingArthroID - offset):setRespawnTime(0)
-    end
 end
 
 function onAdditionalEffect(mob, target, damage)
     if (mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) == true) then
         return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {chance = 100, power = 25, duration = 30})
     else
-        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER, {chance = 100, power = math.random(30, 50)})
+        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER, {chance = 100, power = 15})
     end
 end
 
@@ -75,8 +69,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hours
 end
 
 

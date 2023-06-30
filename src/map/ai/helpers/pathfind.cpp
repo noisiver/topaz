@@ -283,18 +283,21 @@ void CPathFind::StepTo(const position_t& pos, bool run)
     TracyZoneScoped;
     float speed = GetRealSpeed();
 
+    // TODO should this be /20 for everyone?
+    float stepDistance = speed / 24.5f; // 40 ms means 4 units per second, so 1.6 units per step (server tick rate is 2.5/sec)
+
     int8 mode = 2;
 
     if (!run)
     {
         mode = 1;
-        speed /= 2;
+        stepDistance /= 2;
     }
 
-    float stepDistance = ((float)speed / 10) / 2;
-    float distanceTo = distance(m_PTarget->loc.p, pos);
+    float distanceTo =   distance(m_PTarget->loc.p, pos);
+    float diff_y =       pos.y - m_PTarget->loc.p.y;
 
-    // face point mob is moving towards
+    // face point mob is movingB towards
     LookAt(pos);
 
     if (distanceTo <= m_distanceFromPoint + stepDistance)
@@ -312,8 +315,21 @@ void CPathFind::StepTo(const position_t& pos, bool run)
             float radians = (1 - (float)m_PTarget->loc.p.rotation / 256) * 2 * (float)M_PI;
 
             m_PTarget->loc.p.x += cosf(radians) * (distanceTo - m_distanceFromPoint);
-            m_PTarget->loc.p.y = pos.y;
             m_PTarget->loc.p.z += sinf(radians) * (distanceTo - m_distanceFromPoint);
+            if (abs(diff_y) > .5f)
+            {
+                // Don't step too far vertically by simply utilizing the slope
+                float new_y = m_PTarget->loc.p.y + stepDistance * (pos.y - m_PTarget->loc.p.y) / distance(m_PTarget->loc.p, pos, true);
+                float min_y = (pos.y + m_PTarget->loc.p.y - abs(pos.y - m_PTarget->loc.p.y)) / 2;
+                float max_y = (pos.y + m_PTarget->loc.p.y + abs(pos.y - m_PTarget->loc.p.y)) / 2;
+                // clamp new_y between start and end vertical position
+                new_y = new_y < min_y ? min_y : new_y;
+                m_PTarget->loc.p.y = new_y > max_y ? max_y : new_y;
+            }
+            else
+            {
+                m_PTarget->loc.p.y = pos.y;
+            }
         }
     }
     else
@@ -323,13 +339,26 @@ void CPathFind::StepTo(const position_t& pos, bool run)
         float radians = (1 - (float)m_PTarget->loc.p.rotation / 256) * 2 * (float)M_PI;
 
         m_PTarget->loc.p.x += cosf(radians) * stepDistance;
-        m_PTarget->loc.p.y = pos.y;
         m_PTarget->loc.p.z += sinf(radians) * stepDistance;
+        if (abs(diff_y) > .5f)
+        {
+            // Don't step too far vertically by simply utilizing the slope
+            float new_y = m_PTarget->loc.p.y + stepDistance * (pos.y - m_PTarget->loc.p.y) / distance(m_PTarget->loc.p, pos, true);
+            float min_y = (pos.y + m_PTarget->loc.p.y - abs(pos.y - m_PTarget->loc.p.y)) / 2;
+            float max_y = (pos.y + m_PTarget->loc.p.y + abs(pos.y - m_PTarget->loc.p.y)) / 2;
+            // clamp new_y between start and end vertical position
+            new_y = new_y < min_y ? min_y : new_y;
+            m_PTarget->loc.p.y = new_y > max_y ? max_y : new_y;
+        }
+        else
+        {
+            m_PTarget->loc.p.y = pos.y;
+        }
 
     }
 
 
-    m_PTarget->loc.p.moving += (uint16)((0x36 * ((float)m_PTarget->speed / 0x28)) - (0x14 * (mode - 1)));
+    m_PTarget->loc.p.moving += (uint16)((0x36 * ((float)speed / 0x28)) - (0x14 * (mode - 1)));
 
     if (m_PTarget->loc.p.moving > 0x2fff)
     {
@@ -357,25 +386,48 @@ bool CPathFind::FindPath(const position_t& start, const position_t& end)
 bool CPathFind::FindRandomPath(const position_t& start, float maxRadius, uint8 maxTurns, uint16 roamFlags)
 {
     TracyZoneScoped;
+
+    if (!isNavMeshEnabled())
+    {
+        return false;
+    }
+
     auto m_turnLength = tpzrand::GetRandomNumber((int)maxTurns) + 1;
 
+    // Seemingly arbitrary value to pass for maxRadius, all values seem to give similar results, likely due to navmesh polygons being too dense?
+    float maxRadiusForPolyQuery = maxRadius / 10.f;
     position_t startPosition = start;
 
-    // find end points for turns
-    for (int8 i = 0; i < m_turnLength; i++) {
-        // look for new point centered around the last point
-        auto status = m_PTarget->loc.zone->m_navMesh->findRandomPosition(startPosition, maxRadius);
+    // find end points for turns, iterate potentially twice as many times to account for erroneous turnPoints
+    for (int i = 0; i < m_turnLength * 2; i++)
+    {
+        // look for new turnPoint. findRandomPosition doesn't guarantee the new point is within the radius
+        auto status = m_PTarget->loc.zone->m_navMesh->findRandomPosition(startPosition, maxRadiusForPolyQuery);
 
         // couldn't find one point so just break out
-        if (status.first != 0) {
+        if (status.first != 0)
+        {
             return false;
         }
 
-        m_turnPoints.push_back(status.second);
-        startPosition = m_turnPoints[i];
+        float distSq = distanceSquared(startPosition, status.second, true);
+        // only add the roam point if it's _actually_ within range of the spawn point...
+        if (distSq < maxRadius * maxRadius)
+        {
+            m_turnPoints.push_back(status.second);
+        }
+        // else
+        // {
+        //     ShowDebug("CPathFind::FindRandomPath (%s - %d) random point too far: sq distance (%f)", m_PTarget->GetName(), m_PTarget->id, distSq);
+        // }
+        if (m_turnPoints.size() >= m_turnLength)
+            break;
     }
-    m_points = m_PTarget->loc.zone->m_navMesh->findPath(start, m_turnPoints[0]);
-    m_currentPoint = 0;
+    if (m_turnPoints.size() > 0)
+    {
+        m_points = m_PTarget->loc.zone->m_navMesh->findPath(start, m_turnPoints[0]);
+        m_currentPoint = 0;
+    }
 
     if (m_points.empty())
     {
@@ -384,6 +436,8 @@ bool CPathFind::FindRandomPath(const position_t& start, float maxRadius, uint8 m
 
     return true;
 }
+
+
 
 bool CPathFind::FindClosestPath(const position_t& start, const position_t& end)
 {
@@ -405,8 +459,9 @@ bool CPathFind::FindClosestPath(const position_t& start, const position_t& end)
 
 void CPathFind::LookAt(const position_t& point)
 {
-    // don't look if i'm at that point
-    if (!AtPoint(point)) {
+    // Avoid unpredictable results if we're too close.
+    if (!distanceWithin(m_PTarget->loc.p, point, 0.1f, true))
+    {
         m_PTarget->loc.p.rotation = worldAngle(m_PTarget->loc.p, point);
         m_PTarget->updatemask |= UPDATE_POS;
     }
@@ -461,9 +516,9 @@ bool CPathFind::IsFollowingScriptedPath()
 bool CPathFind::AtPoint(const position_t& pos)
 {
     if (m_distanceFromPoint == 0)
-        return m_PTarget->loc.p.x == pos.x && m_PTarget->loc.p.z == pos.z;
+        return distanceWithin(m_PTarget->loc.p, pos, 0.1f);
     else
-        return distance(m_PTarget->loc.p, pos) <= (m_distanceFromPoint + .2f);
+        return distanceWithin(m_PTarget->loc.p, pos, m_distanceFromPoint + 0.2f);
 }
 
 bool CPathFind::InWater()

@@ -5,6 +5,7 @@
 -- Involved In Quest: Crying Over Onions
 -- Involved in Mission 2-1
 -- !pos 62 -4 240 241
+-- THF job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Woods/IDs")
 require("scripts/globals/keyitems")
@@ -46,6 +47,10 @@ local TrustMemory = function(player)
     end
     return memories
 end
+
+    -- Stolen item from Sentient Carafe
+    -- Stolen item from Greater Cockatrice(Kuftal)
+    -- Stolen item from Abraxas
 
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, {{498, 4}}) then -- Yagudo Necklace x4

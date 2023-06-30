@@ -45,9 +45,10 @@ function onEventFinish(player, csid, option)
         else
             player:tradeComplete()
             player:delKeyItem(tpz.ki.NEUTRALIZER)
-            player:addItem(16706)
+            player:addItem(16706, 1, 512, 4) -- STR+5
             player:messageSpecial(ID.text.ITEM_OBTAINED, 16706) -- Heavy Axe
-            player:addFame(SANDORIA, 30)
+            player:addExp(5500 * EXP_RATE)
+            player:addFame(SANDORIA, 400)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.TROUBLE_AT_THE_SLUICE)
         end
     end

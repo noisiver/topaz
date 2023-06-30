@@ -37,10 +37,17 @@ function onEventFinish(player, csid, option)
     if (csid == 45 and option == 0) then
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.GRIMY_SIGNPOSTS)
     elseif (csid == 44) then
-        player:setCharVar("CleanSignPost", 0)
-        player:addFame(SANDORIA, 30)
-        player:addGil(GIL_RATE*1500)
-        player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*1500)
-        player:completeQuest(SANDORIA, tpz.quest.id.sandoria.GRIMY_SIGNPOSTS)
+        if (player:getFreeSlotsCount(0) >= 1) then
+            player:setCharVar("CleanSignPost", 0)
+            player:addExp(5500 * EXP_RATE)
+            player:addFame(SANDORIA, 700)
+            player:addGil(GIL_RATE*1500)
+            player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*1500)
+            player:addItem(15455)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 15455) -- Red Sash
+            player:completeQuest(SANDORIA, tpz.quest.id.sandoria.GRIMY_SIGNPOSTS)
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 15455) -- Red Sash
+        end
     end
 end

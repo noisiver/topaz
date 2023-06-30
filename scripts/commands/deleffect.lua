@@ -26,12 +26,12 @@ function onTrigger(player, arg1, arg2)
         return
     else
         if (targ:isMob() == false) and (targ:isPet() == false) and (targ ~= arg1) then
-            targ = player
-            -- Target player
+            targ = player:getCursorTarget()
+            -- Target is cursor target
             id = arg1
         else
-            -- Target is cursor target
-            targ = player:getCursorTarget()
+            -- Target player
+            targ = player
             id = arg1
         end
     end

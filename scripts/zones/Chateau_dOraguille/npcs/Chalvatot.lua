@@ -106,7 +106,8 @@ function onEventFinish(player, csid, option)
         player:tradeComplete()
         player:addKeyItem(tpz.ki.MAP_OF_THE_NORTHLANDS_AREA)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MAP_OF_THE_NORTHLANDS_AREA)
-        player:addFame(SANDORIA, 30)
+        player:addExp(7500 * EXP_RATE)
+        player:addFame(SANDORIA, 400)
         player:completeQuest(SANDORIA, tpz.quest.id.sandoria.HER_MAJESTY_S_GARDEN)
 
     end

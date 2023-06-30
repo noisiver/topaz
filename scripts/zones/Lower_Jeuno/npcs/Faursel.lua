@@ -96,7 +96,7 @@ function onEventFinish(player, csid, option)
         if (csid == 10063 and option == 1 or csid == 10063 and option == 2) then -- Offically offer quest, Second Dialog.
         player:setCharVar("THE_ROAD_TO_AHT_URHGAN", 1)
         elseif (option == 3) then
-            player:delGil(500000)
+            player:delGil(3000) -- Normally 500000 gil
             player:setCharVar("THE_ROAD_TO_AHT_URHGAN", 2)
             player:setCharVar("THE_ROAD_TO_AHT_URHGAN_Day", VanadielDayOfTheYear())
             player:setCharVar("THE_ROAD_TO_AHT_URHGAN_Year", VanadielYear())

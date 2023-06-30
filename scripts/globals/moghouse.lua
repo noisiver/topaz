@@ -79,13 +79,6 @@ function moogleTrigger(player, npc)
     if player:isInMogHouse() then
         local lockerTs = getMogLockerExpiryTimestamp(player)
 
-        -- Check for WoTG zones so the moogle doesn't lock up occasionally
-        -- TODO: Test
-        if (player:getZoneID() >= tpz.zone.SOUTHERN_SAN_DORIA_S and player:getZoneID() <= tpz.zone.CASTLE_OZTROJA_S) then
-            player:sendMenu(1)
-            return true
-        end
-
         if lockerTs ~= nil then
             if lockerTs == -1 then -- expired
                 player:messageSpecial(zones[player:getZoneID()].text.MOG_LOCKER_OFFSET + 1, 2184) -- 2184 is imperial bronze piece item id
@@ -172,6 +165,7 @@ function moogleEventFinish(player, csid, option)
         elseif csid == 30008 then
             player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.GIVE_A_MOOGLE_A_BREAK)
             player:changeContainerSize(tpz.inv.MOGSAFE, 10)
+            player:changeContainerSize(tpz.inv.MOGSAFE2, 10)
             player:addTitle(tpz.title.MOGS_KIND_MASTER)
             player:setCharVar("MogSafeProgress", 0)
 
@@ -190,6 +184,7 @@ function moogleEventFinish(player, csid, option)
         elseif csid == 30012 then
             player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.THE_MOOGLE_PICNIC)
             player:changeContainerSize(tpz.inv.MOGSAFE, 10)
+            player:changeContainerSize(tpz.inv.MOGSAFE2, 10)
             player:addTitle(tpz.title.MOGS_EXCEPTIONALLY_KIND_MASTER)
             player:setCharVar("MogSafeProgress", 0)
 
@@ -208,6 +203,7 @@ function moogleEventFinish(player, csid, option)
         elseif csid == 30016 then
             player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.MOOGLES_IN_THE_WILD)
             player:changeContainerSize(tpz.inv.MOGSAFE, 10)
+            player:changeContainerSize(tpz.inv.MOGSAFE2, 10)
             player:addTitle(tpz.title.MOGS_LOVING_MASTER)
             player:setCharVar("MogSafeProgress", 0)
         end

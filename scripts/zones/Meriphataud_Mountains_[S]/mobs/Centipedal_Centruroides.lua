@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Meriphataud Mountains [S]
 --   NM: Centipedal Centruroides
+-- Lyft NM
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectOne = tpz.effect.MAGIC_SHIELD
     local typeEffectTwo = tpz.effect.SHOCK_SPIKES
 
-    skill:setMsg(MobBuffMove(mob, typeEffectOne, 1, 0, 300))
-    MobBuffMove(mob, typeEffectTwo, 25, 0, 300)
+    skill:setMsg(MobBuffMove(mob, typeEffectOne, 1, 0, 60))
+    MobBuffMove(mob, typeEffectTwo, 25, 0, 60)
     return typeEffectOne
 end

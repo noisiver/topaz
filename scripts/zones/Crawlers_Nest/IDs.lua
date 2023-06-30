@@ -53,6 +53,8 @@ zones[tpz.zone.CRAWLERS_NEST] =
         MIMIC               = 17584426,
         APPARATUS_ELEMENTAL = 17584427,
         RAOGRIMM            = 17584514,
+        NASHMEIRA           = 17584515,
+        MNEJING             = 17584516,
     },
     npc =
     {

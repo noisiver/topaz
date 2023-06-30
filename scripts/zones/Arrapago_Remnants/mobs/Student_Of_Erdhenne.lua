@@ -47,6 +47,7 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+    -- TODO: Can telepor while stunned add not mob:hasStatusEffect(tpz.effect.STUN)
     -- Teleports away every 45s and casts a random spell from table if not terrored or mid spell cast
     if mob:getLocalVar("teleport") < os.time() and not mob:hasStatusEffect(tpz.effect.TERROR) and
     mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING then 

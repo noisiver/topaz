@@ -14,7 +14,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 3000)
+    local params = {}
+    params.overwriteSlow = true
+
+    local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 3000)
     dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.2)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
@@ -22,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.SLOW
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.EARTH)
-    MobStatusEffectMove(mob, target, typeEffectOne, 1, 3, 300)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 2550, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffectOne, 5, 3, 300)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 5000, 0, 300, params)
     return dmg
 end

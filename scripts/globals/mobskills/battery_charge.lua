@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Battery Charge
--- Description: Gradually restores MP.
+-- Description: Restores MP equal to the amount of TP consumed
 -- Type: Magical (Light)
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -9,7 +9,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.REFRESH) then
+	if mob:getMPP() == 100 then
 		return 1
 	end
     return 0
@@ -20,10 +20,12 @@ function onMobWeaponSkill(target, mob, skill)
         local typeEffectTwo = tpz.effect.SHOCK_SPIKES
 		skill:setMsg(MobBuffMove(mob, typeEffectTwo, 15, 0, 30))
         typeEffectTwo:unsetFlag(tpz.effectFlag.DISPELABLE)
+        return typeEffect
     end
-    local typeEffect = tpz.effect.REFRESH
+    local tp = mob:getLocalVar("tp" + 66)
+    mob:addMP(tp)
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, 3, 3, 300))
+    skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_MP)
 
-    return typeEffect
+    return tp
 end

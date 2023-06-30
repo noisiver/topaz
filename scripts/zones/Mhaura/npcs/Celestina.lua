@@ -53,6 +53,8 @@ function onEventFinish(player, csid, option)
         npcUtil.completeQuest(player, OTHER_AREAS_LOG, tpz.quest.id.otherAreas.THE_SAND_CHARM, {
             ki = tpz.ki.MAP_OF_BOSTAUNIEUX_OUBLIETTE,
             fame_area = MHAURA,
+            fame = 400,
+            xp = 7500,
             var = "theSandCharmVar"
         })
         player:setCharVar("SmallDialogByBlandine", 1)

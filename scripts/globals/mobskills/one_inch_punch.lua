@@ -1,6 +1,7 @@
 ---------------------------------------------
 --  One Inch Punch
 -- Used by Raogrimm(Mythic fight)
+-- Defense ignore mod
 --  Type: Physical
 ---------------------------------------------
 
@@ -29,10 +30,10 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, params_phys, 1.75, 2.50)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_IGNORE_DEFENSE, params_phys, 1.75, 2.50)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.HTH, info.hitslanded)
     local raogrimm = mob:getPool() == 9011
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.HTH)
     if raogrimm then
         target:addStatusEffect(tpz.effect.WEAKNESS, 1, 0, 30)
         target:setHP(1)

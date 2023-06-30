@@ -11,7 +11,7 @@ require("scripts/globals/settings")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    if player:getCharVar("ChasingDreams") == 11 and npcUtil.tradeHas(trade, {{1664, 5}}) then
+    if player:getCharVar("ChasingDreams") == 11 and npcUtil.tradeHasExactly(trade, {{1664, 5}}) then
         player:startEvent(323)
     end
 end

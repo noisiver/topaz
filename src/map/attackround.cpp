@@ -467,13 +467,16 @@ void CAttackRound::CreateDakenAttack()
     if (m_attacker->objtype == TYPE_PC)
     {
         auto PAmmo = dynamic_cast<CItemWeapon*>(m_attacker->m_Weapons[SLOT_AMMO]);
-        if (PAmmo && PAmmo->isShuriken())
+        if (PAmmo != nullptr)
         {
-            uint16 daken = m_attacker->getMod(Mod::DAKEN);
-             if (tpzrand::GetRandomNumber(100) < daken)
-             {
-                AddAttackSwing(PHYSICAL_ATTACK_TYPE::DAKEN, RIGHTATTACK, 1);
-             }
+            if (PAmmo && PAmmo->isShuriken())
+            {
+                uint16 daken = m_attacker->getMod(Mod::DAKEN);
+                if (tpzrand::GetRandomNumber(100) < daken)
+                {
+                    AddAttackSwing(PHYSICAL_ATTACK_TYPE::DAKEN, RIGHTATTACK, 1);
+                }
+            }
         }
     }
 }

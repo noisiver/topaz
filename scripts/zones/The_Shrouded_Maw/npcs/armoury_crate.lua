@@ -12,13 +12,14 @@ local loot =
     [705] =
     {
         {
-            {itemid =     0, droprate =  950}, -- nothing
-            {itemid =  1842, droprate =  050}, -- Cloud Evoker
+            {itemid =     0, droprate =  500}, -- nothing
+            {itemid =  1842, droprate =  500}, -- Cloud Evoker
         },
         {
-            {itemid = 14675, droprate =  100}, -- Woodsman Ring
-            {itemid = 15432, droprate =  100}, -- Quick Belt 
-            {itemid = 14766, droprate =  100}, -- Geist Earring
+            {itemid =    0, droprate =  600}, -- nothing
+            {itemid = 14675, droprate =  133}, -- Woodsman Ring
+            {itemid = 15432, droprate =  133}, -- Quick Belt 
+            {itemid = 14766, droprate =  133}, -- Geist Earring
         },
     },
 }

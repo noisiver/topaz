@@ -9,9 +9,9 @@ require("scripts/globals/msg");
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(80)
+	mob:addMod(tpz.mod.ATTP, 50)
 	mob:addMod(tpz.mod.DEFP, 20) 
-	mob:addMod(tpz.mod.ATTP, 25)
-	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
 	mob:addMod(tpz.mod.ACC, 15) 
 	mob:addMod(tpz.mod.EVA, 15)
 	mob:setMod(tpz.mod.MDEF, 14) 
@@ -41,6 +41,7 @@ function onMobFight(mob,target)
         mob:setMod(tpz.mod.REGAIN, 150)
     elseif hpp <= 25 and speed < 2 then
         mob:setLocalVar("speed", 2)
+        mob:setMod(tpz.mod.ATTP, 100)
 		mob:setMod(tpz.mod.HASTE_MAGIC, 2500)
         mob:setMod(tpz.mod.REGAIN, 200)
     elseif hpp <= 10 and speed < 3 then

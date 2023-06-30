@@ -18,6 +18,8 @@ function onEffectGain(target, effect)
         target:addMod(tpz.mod.CRITHITRATE, effect:getPower())
         target:addMod(tpz.mod.CRIT_DMG_INCREASE, effect:getPower())
         target:addMod(tpz.mod.ALL_WSDMG_ALL_HITS, effect:getPower())
+        target:addMod(tpz.mod.WYVERN_BREATH, 25)
+        target:addPetMod(tpz.mod.ATTP, 45)
     end
 end
 
@@ -37,5 +39,7 @@ function onEffectLose(target, effect)
         target:delMod(tpz.mod.CRITHITRATE, effect:getPower())
         target:delMod(tpz.mod.CRIT_DMG_INCREASE, effect:getPower())
         target:delMod(tpz.mod.ALL_WSDMG_ALL_HITS, effect:getPower())
+        target:delMod(tpz.mod.WYVERN_BREATH, 25)
+        target:delPetMod(tpz.mod.ATTP, 45)
     end
 end

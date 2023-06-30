@@ -14,7 +14,7 @@ end
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.ENDARK
     local magicskill = target:getSkillLevel(tpz.skill.NINJUTSU)
-    local potency = (magicskill / 8) + 12.5
+    local potency = math.floor((magicskill / 8) + 12.5)
 
     if target:addStatusEffect(effect, potency, 0, 1800) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)

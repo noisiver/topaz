@@ -21,7 +21,7 @@ function onTrigger(player, npc)
 
     if (player:needToZone()) then
         player:startEvent(127) -- chat about my work
-    elseif (pFame < 2 and momTheAdventurer ~= QUEST_ACCEPTED and questStatus == 0) then
+    elseif (pFame < 2 and momTheAdventurer ~= QUEST_COMPLETED and questStatus == 0) then
         player:startEvent(230)
     elseif (momTheAdventurer >= QUEST_ACCEPTED and questStatus == 2) then
         if (player:seenKeyItem(tpz.ki.LETTER_FROM_ROH_LATTEH)) then
@@ -31,12 +31,11 @@ function onTrigger(player, npc)
         else
             player:startEvent(231)
         end
-    elseif (pFame >= 2 and player:getQuestStatus(BASTOK, tpz.quest.id.bastok.THE_SIGNPOST_MARKS_THE_SPOT) == QUEST_AVAILABLE) then
+    elseif (player:getQuestStatus(BASTOK, tpz.quest.id.bastok.THE_SIGNPOST_MARKS_THE_SPOT) == QUEST_AVAILABLE) then
         player:startEvent(235)
     else
         player:startEvent(127)
     end
-
 end
 
 function onEventUpdate(player, csid, option)
@@ -45,6 +44,7 @@ end
 function onEventFinish(player, csid, option)
 
     if (csid == 230 and option == 0) then
+
         if (player:getFreeSlotsCount(0) > 0) then
             player:setCharVar("MomTheAdventurer_Event", 1)
             player:addItem(4096)
@@ -56,23 +56,29 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 4096)
         end
     elseif (csid == 233 or csid == 234) then
+        local expReward = 1500
+
         if (player:seenKeyItem(tpz.ki.LETTER_FROM_ROH_LATTEH)) then
             gilReward = 100
+            expReward = 750
         else
             gilReward = 200
         end
         player:needToZone(true)
         player:delKeyItem(tpz.ki.LETTER_FROM_ROH_LATTEH)
         player:addTitle(tpz.title.RINGBEARER)
+        player:addItem(13454, 1, 25, 2) -- +3 Attack
+        player:messageSpecial(ID.text.ITEM_OBTAINED, 13454)
         player:addGil(GIL_RATE*gilReward)
+        player:addExp(expReward * EXP_RATE)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*gilReward)
         player:setCharVar("MomTheAdventurer_Event", 0)
 
         if (player:getQuestStatus(BASTOK, tpz.quest.id.bastok.MOM_THE_ADVENTURER) == QUEST_ACCEPTED) then
-            player:addFame(BASTOK, 20)
+            player:addFame(BASTOK, 100)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.MOM_THE_ADVENTURER)
         else
-            player:addFame(BASTOK, 8)
+            player:addFame(BASTOK, 50)
         end
     elseif (csid == 235 and option == 0) then
         player:addQuest(BASTOK, tpz.quest.id.bastok.THE_SIGNPOST_MARKS_THE_SPOT)

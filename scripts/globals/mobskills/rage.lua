@@ -20,9 +20,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local duration = 300
+    local duration = 180
 
     local typeEffect = tpz.effect.BERSERK
-    skill:setMsg(MobBuffMove(mob, typeEffect, 50, 0, duration))
+    skill:setMsg(MobBuffMoveSub(mob, typeEffect, 45, 0, 120, 0, 59, 0))
     return typeEffect
 end

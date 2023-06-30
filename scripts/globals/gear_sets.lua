@@ -107,7 +107,7 @@ local GearSets =  {
              {id = 90, items = {15850, 15851}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ATT, 6, 0, 0}, {tpz.mod.ACC, 12, 0, 0}, {tpz.mod.DEF, 6, 0, 0}} }, -- Lava's/Kusha's earring set: Atk+6/Acc+12
              {id = 93, items = {16146, 14588, 15009, 16315, 15755},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.FIRERES, 5, 5, 10}, {tpz.mod.ICERES, 5, 5, 10}, {tpz.mod.WINDRES, 5, 5, 10}, {tpz.mod.EARTHRES, 5, 5, 10}, {tpz.mod.THUNDERRES, 5, 5, 10}, {tpz.mod.WATERRES, 5, 5, 10}, {tpz.mod.LIGHTRES, 5, 5, 10}, {tpz.mod.DARKRES, 5, 5, 10}} }, --  Iron Ram Haubert Set
              {id = 101, items = {16035, 16036}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.AGI, 8, 0, 0}} }, -- Altdorf's/Wilhelm's earring: AGI+8
-             {id = 102, items = {15042, 11402}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ATT, 5, 0, 0}, {tpz.mod.RATT, 5, 0, 0}} }, -- Gothic Gauntlets/Sabatons: Atk/RAtk +5
+             {id = 102, items = {15042, 11402}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ATT, 15, 0, 0}, {tpz.mod.RATT, 15, 0, 0}} }, -- Gothic Gauntlets/Sabatons: Atk/RAtk +15
              {id = 104, items = {26713, 27853, 27999, 28140, 28279},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.FASTCAST, 4, 2, 0}} }, -- Teal Set +1: Fast Cast +4-10%
              {id = 105, items = {26712, 27852, 27998, 28139, 28278},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STORETP, 2, 2, 0}} }, -- Aurore Set +1: Sore TP +2-8%
              {id = 106, items = {26711, 27851, 27997, 28138, 28277},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 200, 100, 0}} }, -- Perle Set +1: Haste +2-5%
@@ -163,7 +163,9 @@ local GearSets =  {
              {id = 212, items = {15072, 15245, 10650, 15087, 14500, 10670, 15102, 14909, 10690, 15117, 15580, 10710, 15132, 15665, 10730},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Warrior's Lorica Set Relic (Haste +4~10%)
              {id = 213, items = {16073, 16074, 14537, 14538, 14949, 14950, 15615, 15616, 15703, 15704},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Hydra Mail Set Crafted (Haste +4~10%)
              {id = 214, items = {15834, 15835}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STR, 15, 0, 0}, {tpz.mod.ACC, -10, 0, 0}} }, -- Unnamed Ring set: STR+26/ACC-10
-             --NEXT: 216
+             {id = 216, items = {15073, 15246, 10651, 15088, 15088, 10671, 15103, 14910, 10691, 15118, 15581, 10711, 15133, 15666, 10731},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Melee Set Relic (Haste +4~10%)
+             {id = 217, items = {15077, 15092, 15107, 15122, 15137, 15250, 14505, 14914, 15585, 15670, 10655, 10675, 10695, 10715, 10735},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Asassin's Set Relic (Haste +4~10%)
+             -- NEXT 218
             }
 
              -- increment id by (number of mods in previous gearset - 1)

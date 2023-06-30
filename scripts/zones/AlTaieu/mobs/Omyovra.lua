@@ -9,7 +9,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(140)
+	mob:setDamage(math.floor(mob:getMainLvl() * 2))
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:addImmunity(tpz.immunity.PARALYZE)
     mob:hideName(true)
@@ -19,7 +19,7 @@ function onMobSpawn(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {power = 25, chance = 100})
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {power = 25, chance = 25})
 end
 
 function onMobEngaged(mob, target)

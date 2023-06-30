@@ -9,34 +9,27 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.THUNDER_MANEUVER)
 end
 
-function onPetAbility(target, automaton, skill, master, action)
-    local params = {
-        numHits = 2,
-        atkmulti = 1.36,
-        weaponType = tpz.skill.SWORD,
-        ftp100 = 1.5,
-        ftp200 = 1.5,
-        ftp300 = 1.5,
-        acc100 = 0.0,
-        acc200 = 0.0,
-        acc300 = 0.0,
-        canCrit = true,
-        crit100 = 0.2,
-        crit200 = 0.4,
-        crit300 = 0.7,
-        str_wsc = 0.0,
-        dex_wsc = 0.0,
-        vit_wsc = 0.5,
-        agi_wsc = 0.0,
-        int_wsc = 0.0,
-        mnd_wsc = 0.0,
-        chr_wsc = 0.0
-    }
+function onPetAbility(target, pet, skill)
+    local numhits = 3
+    local params = {}
+    params.ftp100 = 1.5
+    params.ftp200 = 1.5
+    params.ftp300 = 1.5
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.5
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0 
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.attkMod = 1.36
 
-    local damage = doAutoPhysicalWeaponskill(automaton, target, 0, skill:getTP(), true, action, false, params, skill, action)
+    local damage = AutoPhysicalWeaponSkill(pet, target, skill, tpz.attackType.PHYSICAL, numhits, TP_CRIT_VARIES, params)
+    dmg = AutoPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, damage.hitslanded, params)
 
-    return damage
+    return dmg
 end

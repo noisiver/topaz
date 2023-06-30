@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Arrapago Reef
 --   NM: Euryale
+-- Lyft NM
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

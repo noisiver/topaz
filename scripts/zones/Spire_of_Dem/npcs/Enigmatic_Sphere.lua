@@ -32,12 +32,12 @@ local loot =
             {itemid = 5293, droprate =  125}, -- cluster_of_malevolent_memories
         },
         {
-            {itemid =    0, droprate =  700}, -- nothing
-            {itemid = 1800, droprate =  60}, -- Violent
-            {itemid = 1803, droprate =  60}, -- Painful
-            {itemid = 1805, droprate =  60}, -- Timorous
-            {itemid = 1808, droprate =  60}, -- Brilliant
-            {itemid = 1811, droprate =  60}, -- Venerable
+            {itemid =    0, droprate =  600}, -- nothing
+            {itemid = 1800, droprate =  80}, -- Violent
+            {itemid = 1803, droprate =  80}, -- Painful
+            {itemid = 1805, droprate =  80}, -- Timorous
+            {itemid = 1808, droprate =  80}, -- Brilliant
+            {itemid = 1811, droprate =  80}, -- Venerable
         },
     }
 }

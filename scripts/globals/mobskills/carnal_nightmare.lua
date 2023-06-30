@@ -2,7 +2,7 @@
 -- Cernal Nightmare
 --
 -- Description: TP reset
--- Type: Physical (Blunt)
+-- Only -50% for pets
 --
 --
 ---------------------------------------------
@@ -18,6 +18,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local reset = 0
+    if target:isPet() then
+        reset = math.floor(target:getTP() / 2)
+    end
     if (target:getTP() == 0) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
     else

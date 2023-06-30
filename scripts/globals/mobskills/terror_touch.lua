@@ -18,21 +18,16 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
     local dmgmod = 1.5
+    local typeEffect = tpz.effect.ATTACK_DOWN
     if (mob:getPool() == 9004) then -- The Big One
-        dmgmod = 3
-		local typeEffectTwo = tpz.effect.ATTACK_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectTwo, 75, 0, 30)
-		local typeEffectThree = tpz.effect.ACCURACY_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectThree, 100, 0, 30)
-		local typeEffectFour = tpz.effect.STR_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectFour, 20, 0, 30)
-		local typeEffectFive = tpz.effect.DEX_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectFive, 20, 0, 30)
+        dmgmod = 2.0
+        local typeEffectTwo = tpz.effect.ACCURACY_DOWN
+        MobPhysicalStatusEffectMove(mob, target, skill, typeEffectTwo, 100, 0, 30)
+        local typeEffectFour = tpz.effect.STR_DOWN
+        MobPhysicalStatusEffectMove(mob, target, skill, typeEffectFour, 20, 0, 30)
+        local typeEffectFive = tpz.effect.DEX_DOWN
+        MobPhysicalStatusEffectMove(mob, target, skill, typeEffectFive, 20, 0, 30)
         target:setTP(0)
-    else
-        local typeEffect = tpz.effect.ATTACK_DOWN
-
-        MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 75, 0, 30)
     end
     local params_phys = {}
     params_phys.multiplier = dmgmod
@@ -45,10 +40,11 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.2
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_CRIT_VARIES, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
+    MobPhysicalStatusEffectMoveSub(mob, target, skill, typeEffect, 70, 0, 45, 0, 0, 0)
+    if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

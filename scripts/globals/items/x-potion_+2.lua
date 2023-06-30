@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 4122
 -- Item: X-Potion +2
--- Item Effect: Restores 170 HP
+-- Item Effect: Restores 770 HP
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -17,6 +17,6 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, target:addHP(170*ITEM_POWER))
-    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 5)
+    target:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, target:addHP(770*ITEM_POWER))
+    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 180)
 end

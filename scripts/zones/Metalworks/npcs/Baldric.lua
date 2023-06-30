@@ -36,6 +36,8 @@ function onEventFinish(player, csid, option)
     if (csid == 554) then
         player:addQuest(BASTOK, tpz.quest.id.bastok.STARDUST)
     elseif (csid == 555) then
+        local fame = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.STARDUST) and 50 or 200
+        local exp = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.STARDUST) and 4500 or 450
         player:tradeComplete()
         player:addGil(300)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*300)

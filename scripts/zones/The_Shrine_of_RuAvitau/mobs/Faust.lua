@@ -8,13 +8,14 @@ require("scripts/globals/pathfind")
 local ID = require("scripts/zones/The_Shrine_of_RuAvitau/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 20)
-    mob:addMod(tpz.mod.ACC, 20) 
-    mob:addMod(tpz.mod.EVA, 20)
+    mob:addMod(tpz.mod.DEFP, 15) 
+    mob:addMod(tpz.mod.ATTP, 15)
+    mob:addMod(tpz.mod.ACC, 5) 
+    mob:addMod(tpz.mod.EVA, 5)
     mob:setMod(tpz.mod.REFRESH, 300)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
 
@@ -39,21 +40,17 @@ function onMobFight(mob, target)
 end
 
 function onMobRoam(mob)
-    local roam = mob:getLocalVar("roam")
-    local faustPos = mob:getPos()
-    -- Stationary looking back and forth every 9 seconds
-    if (roam >= 2 and faustPos.x == 740 and faustPos.y == 0 and faustPos.z == -99) then
-        mob:setLocalVar("roam", 0)
-        if (faustPos.rot ~= 255) then
-            faustPos.rot = 255
-        else
-            faustPos.rot = 190
-        end
-        mob:setPos(faustPos.x, faustPos.y, faustPos.z, faustPos.rot)
-    else 
-        mob:setLocalVar("roam", roam+1)
-        mob:pathThrough({ 740.000, -0.400, -99.000 })
+    local Turn = mob:getLocalVar("Turn")
+    local Time = os.time()
+    local facingDirection = {255, 190}
+    if Time > Turn then
+        mob:setPos(mob:getXPos(),mob:getYPos(),mob:getZPos(), facingDirection[math.random(#facingDirection)])
+        mob:setLocalVar("Turn", Time + 30)
     end
+end
+
+function onMobEngaged(mob)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
 end
 
 function onMobDisengage(mob)

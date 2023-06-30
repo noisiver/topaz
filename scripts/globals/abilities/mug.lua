@@ -16,6 +16,7 @@ end
 function onUseAbility(player, target, ability, action)
     local thfLevel
     local gil = 0
+    local fail = false
 
     if (player:getMainJob() == tpz.job.THF) then
         thfLevel = player:getMainLvl()
@@ -24,6 +25,8 @@ function onUseAbility(player, target, ability, action)
     end
 
     local mugChance = 90 + thfLevel - target:getMainLvl()
+    local dex = player:getStat(tpz.mod.DEX)
+    local agi = player:getStat(tpz.mod.AGI)
 
     if (target:isMob() and math.random(100) < mugChance and target:getMobMod(tpz.mobMod.MUG_GIL) > 0) then
         local purse = target:getMobMod(tpz.mobMod.MUG_GIL)
@@ -48,9 +51,23 @@ function onUseAbility(player, target, ability, action)
             ability:setMsg(tpz.msg.basic.MUG_SUCCESS)
         end
     else
-        ability:setMsg(tpz.msg.basic.MUG_FAIL)
-        action:animation(target:getID(), 184)
+        fail = true
+        ability:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
     end
 
-    return gil
+    -- Add HP based on DEX + AGI
+    local recover = dex + agi
+
+    if ((player:getMaxHP() - player:getHP()) < recover) then
+        recover = (player:getMaxHP() - player:getHP())
+    end
+
+    player:addHP(recover)
+    player:updateEnmityFromCure(player, recover)
+
+    if fail then
+        return recover
+    else
+        return gil
+    end
 end

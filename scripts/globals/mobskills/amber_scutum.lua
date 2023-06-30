@@ -20,13 +20,13 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local status = mob:getStatusEffect(tpz.effect.DEFENSE_BOOST)
-    local power = 100
+    local power = 24
     if status ~= nil then
         -- This is as accurate as we get until effects applied by mob moves can use subpower..
         power = status:getPower() * 2
     end
 
-    skill:setMsg(MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, power, 0, 300))
+    skill:setMsg(MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, power, 0, 180))
 
     return tpz.effect.DEFENSE_BOOST
 end

@@ -68,7 +68,7 @@ enum ROAMFLAG : uint16
 enum MOBTYPE
 {
     MOBTYPE_NORMAL      = 0x00,
-    MOBTYPE_0X01        = 0x01, // available for use
+    MOBTYPE_QUEST       = 0x01, // Quest / Mission mobs
     MOBTYPE_NOTORIOUS   = 0x02,
     MOBTYPE_FISHED      = 0x04,
     MOBTYPE_CALLED      = 0x08,

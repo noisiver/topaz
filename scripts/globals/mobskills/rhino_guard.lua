@@ -5,7 +5,7 @@
 -- Type: Enhancing
 -- Utsusemi/Blink absorb: N/A
 -- Range: Self
--- Notes: Very sharp evasion increase.
+-- Notes: +25% EVA
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -21,8 +21,8 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.EVASION_BOOST
-    local power = (mob:getEVA() * 0.5)
+    local power = (mob:getEVA() * 0.25)
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 300)) -- buffed to 30
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 180))
     return typeEffect
 end

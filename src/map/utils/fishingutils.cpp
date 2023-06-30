@@ -752,18 +752,9 @@ namespace fishingutils
         PChar->updatemask |= UPDATE_HP;
 
         PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CCaughtMonsterPacket(PChar, MessageOffset + FISHMESSAGEOFFSET_CATCH_CHEST));
-        position_t p = PChar->loc.p;
-        position_t m;
-        double Radians = p.rotation * M_PI / 128;
-        m.x = p.x - 2.0f * (float)cos(Radians);
-        m.y = p.y;
-        m.z = p.z + 2.0f * (float)sin(Radians);
-        m.rotation = worldAngle(m, p);
 
-        // @todo: spawnchest
-        Chest->loc.p = m;
-        Chest->status = STATUS_NORMAL;
-        zoneutils::GetZone(PChar->getZone())->PushPacket(Chest, CHAR_INRANGE, new CEntityUpdatePacket(Chest, ENTITY_UPDATE, UPDATE_COMBAT));
+        // Chest->status = STATUS_NORMAL;
+        luautils::OnNpcSpawn(static_cast<CBaseEntity*>(Chest));
 
         return 1;
     }
@@ -854,19 +845,9 @@ namespace fishingutils
         levelDifference = catchLevel - charSkillLevel;
         }
 
-        // No skillup if fish level not between char level and 50 levels higher
-        if (catchLevel <= charSkillLevel || (levelDifference > 50))
-        {
-        return;
-        }
-
         int skillRoll = 90;
         int maxChance = 0;
         int bonusChanceRoll = 8;
-
-        // Lu shang rod under level 50 penalty
-        if (Rod != nullptr && charSkillLevel < 50 && Rod->getID() == LU_SHANG_ROD_ID)
-        skillRoll += 20;
 
         // Generate a normal distribution favoring fish 10 levels higher in skill with 5 levels of deviation on either side
         double normDist = NormalDist(levelDifference, 11, 5);
@@ -1068,6 +1049,8 @@ namespace fishingutils
             // Start fishing animation
             PChar->animation = ANIMATION_NEW_FISHING_START;
             PChar->updatemask |= UPDATE_HP;
+
+            PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_INVISIBLE);
 
             PChar->pushPacket(new CCharUpdatePacket(PChar));
             PChar->pushPacket(new CCharSyncPacket(PChar));

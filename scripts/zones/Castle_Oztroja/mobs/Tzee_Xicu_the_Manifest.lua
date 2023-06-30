@@ -55,7 +55,7 @@ function onMobFight(mob, target)
         for _, zonePlayer in pairs(zonePlayers) do
             zonePlayer:PrintToPlayer("Rid our castle of these scum!",0,"Tzee Xicu")
         end
-        for v = 17396728, 17396735, 1 do
+        for v = 17396271, 17396278, 1 do
             GetMobByID(v):setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
             GetMobByID(v):spawn()
             GetMobByID(v):updateEnmity(target)

@@ -8,14 +8,13 @@ require("scripts/globals/mobs")
 local ID = require("scripts/zones/Lufaise_Meadows/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(120)
+	mob:setDamage(50)
     mob:setMod(tpz.mod.MAIN_DMG_RATING, 0)
     mob:setMod(tpz.mod.DMGPHYS, 0)
     mob:setMod(tpz.mod.UFASTCAST, 0)
-    mob:setMod(tpz.mod.MATT, 36)
     mob:setMod(tpz.mod.MDEF, 10)
-    mob:setMod(tpz.mod.REGEN, 25)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+    mob:setMod(tpz.mod.REGEN, 5)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:SetAutoAttackEnabled(true)
@@ -67,7 +66,8 @@ function onMobFight(mob)
 			mob:addMod(tpz.mod.MATT, 25)
 		elseif RNG == 7 then
 			mob:showText(mob, 7792) -- Kurrea's wounds disappear!
-			mob:addHP(mob:getMaxHP() * .25)
+			mob:addHP(mob:getMaxHP() * .05)
+            mob:removeAllNegativeEffects()
 		elseif RNG == 8 then
 			mob:showText(mob, 7794) -- Kurrea's face has turned green...
 			mob:setMod(tpz.mod.MAIN_DMG_RATING, 0)

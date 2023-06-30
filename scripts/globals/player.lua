@@ -30,12 +30,12 @@ local startingNationInfo =
 
 local startingJobGear =
 {
-    [tpz.job.WAR] = {16534},       -- onion sword
-    [tpz.job.MNK] = {13184},       -- white belt
-    [tpz.job.WHM] = {17068, 4608}, -- onion rod, scroll of cure
-    [tpz.job.BLM] = {17104, 4607}, -- onion staff, scroll of stone
-    [tpz.job.RDM] = {16482, 4606}, -- onion dagger, scroll of dia
-    [tpz.job.THF] = {16483},       -- onion knife
+    [tpz.job.WAR] = {16640, 12289},         -- bronze axe, lauan shield
+    [tpz.job.MNK] = {13184},                -- white belt
+    [tpz.job.WHM] = {17068, 4608},          -- onion rod, scroll of cure
+    [tpz.job.BLM] = {17104, 4607},          -- onion staff, scroll of stone
+    [tpz.job.RDM] = {16482, 16534, 4606},   -- onion dagger, onion sword, scroll of dia
+    [tpz.job.THF] = {16483, 16534},         -- onion knife, onion sword
 }
 
 -----------------------------------
@@ -67,7 +67,7 @@ local function CharCreate(player)
     player:addKeyItem(nationInfo.map)
 
     -- add nation- and race-specific ring
-    if nation == raceInfo.homeNation and not player:hasItem(nationInfo.ring) then
+    if not player:hasItem(nationInfo.ring) then
         player:addItem(nationInfo.ring)
     end
 

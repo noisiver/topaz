@@ -1,14 +1,20 @@
 -----------------------------------
--- Area: Ship Bound for Selbina Pirates
---  NM: Blackbeard
--- Note: 
+-- Area: Ship bound for Selbina (Pirates)
+--  Mob: Blackbeard
 -----------------------------------
-local ID = require("scripts/zones/Ship_bound_for_Selbina_Pirates/IDs")
+local ID = require("scripts/zones/Ship_bound_for_Mhaura_Pirates/IDs")
+require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobSpawn(mob)
+    SetGenericNMStats(mob)
 end
 
-function onMobDespawn(mob)
+function onMobDeath(mob, player)
+    mob:setLocalVar("respawnTime", os.time() + 3600)
+end
+
+function onMobDespawn(mob, player)
+    GetMobByID(ID.mob.SHIP_WIGHT):setLocalVar("respawnTime", os.time() + 60)
 end

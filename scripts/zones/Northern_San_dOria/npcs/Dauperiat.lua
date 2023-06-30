@@ -77,10 +77,12 @@ function onEventFinish(player, csid, option)
         player:addGil(GIL_RATE*900)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*900)
         if (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.BLACKMAIL) == QUEST_ACCEPTED) then
-            player:addFame(SANDORIA, 30)
+            player:addExp(5500 * EXP_RATE)
+            player:addFame(SANDORIA, 400)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.BLACKMAIL)
         else
-            player:addFame(SANDORIA, 5)
+            player:addExp(550 * EXP_RATE)
+            player:addFame(SANDORIA, 50)
         end
     elseif (csid == 40 and option == 1) then
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.BLACKMAIL)

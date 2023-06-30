@@ -350,23 +350,14 @@ void SmallPacket0x00C(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     PChar->loc.zone->SpawnTransport(PChar);
 
     // respawn any pets from last zone
-    if (PChar->petZoningInfo.respawnPet == true)
+    if (PChar->loc.zone->CanUseMisc(MISC_PET) && !PChar->m_moghouseID)
     {
-        // only repawn pet in valid zones
-        if (PChar->loc.zone->CanUseMisc(MISC_PET) && !PChar->m_moghouseID)
+        if (PChar->shouldPetPersistThroughZoning())
         {
-            switch (PChar->petZoningInfo.petType)
-            {
-            case PETTYPE_AUTOMATON:
-            case PETTYPE_JUG_PET:
-            case PETTYPE_WYVERN:
-                petutils::SpawnPet(PChar, PChar->petZoningInfo.petID, true);
-                break;
-
-            default:
-                break;
-            }
+            petutils::SpawnPet(PChar, PChar->petZoningInfo.petID, true);
         }
+
+        PChar->resetPetZoningInfo();
     }
     // reset the petZoning info
     PChar->resetPetZoningInfo();
@@ -435,9 +426,13 @@ void SmallPacket0x00D(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             }
         }
 
-        if (PChar->PPet != nullptr)
+        if (PChar->shouldPetPersistThroughZoning())
         {
             PChar->setPetZoningInfo();
+        }
+        else
+        {
+            PChar->resetPetZoningInfo();
         }
 
         session->shuttingDown = 1;
@@ -737,10 +732,11 @@ void SmallPacket0x01A(map_session_data_t* PSession, CCharEntity* PChar, CBasicPa
         }
         break;
         case 0x04: // disengage
-        {
-            if (PChar->PAI->Disengage())
+            if (!PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_CHARM, EFFECT_CHARM_II }))
+            {
+                PChar->PAI->Disengage();
                 PChar->m_LastEngagedTargID = 0;
-        }
+            }
         break;
         case 0x05: // call for help
         {
@@ -1071,8 +1067,9 @@ void SmallPacket0x028(map_session_data_t* const PSession, CCharEntity* const PCh
     }
 
     // Linkshells (other than Linkpearls and Pearlsacks) and temporary items cannot be stored in the Recycle Bin.
+    // Only drop items if GM level is above lvl1 to help testing/GMing properly
     // TODO: Are there any special messages here?
-    if (PItem->isType(ITEM_LINKSHELL) || container == CONTAINER_ID::LOC_TEMPITEMS)
+    if (PItem->isType(ITEM_LINKSHELL) || container == CONTAINER_ID::LOC_TEMPITEMS || (PChar->m_GMlevel >= 1))
     {
         charutils::DropItem(PChar, container, slotID, quantity, ItemID);
         return;
@@ -1264,7 +1261,7 @@ void SmallPacket0x032(map_session_data_t* const PSession, CCharEntity* const PCh
             return;
         }
 
-        // Clean trade upon requesting so you're not stuck in a state of  trying to trade but can't
+        // Clean trade upon requesting so you're not stuck in a state of trying to trade but can't
         PChar->TradePending.clean();
         PTarget->TradePending.clean();
         // This block usually doesn't trigger,
@@ -1608,10 +1605,7 @@ void SmallPacket0x03A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     for (uint8 slotID = 1; slotID <= size; ++slotID)
     {
         CItem* PItem = PItemContainer->GetItem(slotID);
-
-        if ((PItem != nullptr) &&
-            (PItem->getQuantity() < PItem->getStackSize()) &&
-            !PItem->isSubType(ITEM_LOCKED))
+        if ((PItem != nullptr) && (PItem->getQuantity() < PItem->getStackSize()) && !PItem->isSubType(ITEM_LOCKED) && (PItem->getReserve() == 0))
         {
             for (uint8 slotID2 = slotID + 1; slotID2 <= size; ++slotID2)
             {
@@ -1620,7 +1614,7 @@ void SmallPacket0x03A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
                 if ((PItem2 != nullptr) &&
                     (PItem2->getID() == PItem->getID()) &&
                     (PItem2->getQuantity() < PItem2->getStackSize()) &&
-                    !PItem2->isSubType(ITEM_LOCKED))
+                    !PItem2->isSubType(ITEM_LOCKED) && (PItem2->getReserve() == 0))
                 {
                     uint32 totalQty = PItem->getQuantity() + PItem2->getQuantity();
                     uint32 moveQty = 0;
@@ -1813,7 +1807,7 @@ void SmallPacket0x04B(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         if ((bool)Sql_GetUIntData(SqlHandle, 0))
             PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Server does not support this client version."));
         else
-            PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Report bugs on Topaz bugtracker if server admin confirms the bug occurs on stock Topaz."));
+            PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Welcome to Vanadiel!"));
     }
     return;
 }
@@ -2786,6 +2780,7 @@ void SmallPacket0x050(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     charutils::SaveCharLook(PChar);
     luautils::CheckForGearSet(PChar); // check for gear set on gear change
     PChar->UpdateHealth();
+    PChar->pushPacket(new CInventoryFinishPacket());
     return;
 }
 /************************************************************************
@@ -3161,13 +3156,6 @@ void SmallPacket0x05D(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 void SmallPacket0x05E(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
 {
     TracyZoneScoped;
-
-    // handle pets on zone
-    if (PChar->PPet != nullptr)
-    {
-        PChar->setPetZoningInfo();
-        petutils::DespawnPet(PChar);
-    }
 
     uint32 zoneLineID = data.ref<uint32>(0x04);
     uint8  town = data.ref<uint8>(0x16);
@@ -4131,28 +4119,76 @@ void SmallPacket0x083(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 *                                                                       *
 ************************************************************************/
 
-void SmallPacket0x084(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x084(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     if (PChar->animation != ANIMATION_SYNTH)
     {
         uint32 quantity = data.ref<uint32>(0x04);
         uint16 itemID = data.ref<uint16>(0x08);
-        uint8  slotID = data.ref<uint8>(0x0A);
+        uint8 slotID = data.ref<uint8>(0x0A);
 
         CItem* PItem = PChar->getStorage(LOC_INVENTORY)->GetItem(slotID);
-        if ((PItem != nullptr) &&
-            (PItem->getID() == itemID) &&
-            !(PItem->getFlag() & ITEM_FLAG_NOSALE))
+        if ((PItem != nullptr) && (PItem->getID() == itemID) && !(PItem->getFlag() & ITEM_FLAG_NOSALE))
         {
             quantity = std::min(quantity, PItem->getQuantity());
             // Store item-to-sell in the last slot of the shop container
             PChar->Container->setItem(PChar->Container->getExSize(), itemID, slotID, quantity);
-            PChar->pushPacket(new CShopAppraisePacket(slotID, PItem->getBasePrice()));
+
+            uint32 basePrice = PItem->getBasePrice();
+            float mult = 0.8f;
+
+            // fame start
+
+            CZone* PZone = PChar->loc.zone;
+            uint16 fame = 0;
+            float fameMultiplier = map_config.fame_multiplier;
+
+
+        switch (PZone->m_fameType)
+            {
+                case FAME_SANDY:
+                case FAME_BASTOK:
+                case FAME_WINDURST:
+                    fame = (uint16)(PChar->profile.fame[PZone->m_fameType] * fameMultiplier);
+                    break;
+                case FAME_JEUNO:
+                    fame = (uint16)(PChar->profile.fame[4] + ((PChar->profile.fame[0] + PChar->profile.fame[1] + PChar->profile.fame[2]) * fameMultiplier / 3));
+                    break;
+                case FAME_SELBINA_RABAO:
+                    fame = (uint16)((PChar->profile.fame[0] + PChar->profile.fame[1]) * fameMultiplier / 2);
+                    break;
+                case FAME_NORG:
+                    fame = (uint16)(PChar->profile.fame[3] * fameMultiplier);
+                    break;
+                    // TODO: Abyssea and adoulin
+                default: // default to no fame for worst sale price
+                    fame = 0;
+                    break;
+            }
+
+            // Amalasanda
+            if (PZone->GetID() == ZONE_LOWER_JEUNO && PChar->loc.p.x > 23.0f && PChar->loc.p.x < 45.0f && PChar->loc.p.z > -62.0f && PChar->loc.p.z < -29.0f)
+                fame = (uint16)(PChar->profile.fame[3] * fameMultiplier); // use tenshodo fame
+
+            mult = 1.0f + (((float)fame / 440.0f) / 100.0f);
+
+            if (basePrice == 1)
+                mult = 1.0f; // dont round down to 0
+
+            if (fame >= 8000) // rank9 fame
+            {
+                mult = 1.18f;
+            }
+
+
+            uint32 finalPrice = (uint32)((float)basePrice * mult);
+            PChar->pushPacket(new CShopAppraisePacket(slotID, finalPrice));
         }
         return;
     }
 }
+
 
 /************************************************************************
 *                                                                       *
@@ -4161,13 +4197,20 @@ void SmallPacket0x084(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 *                                                                       *
 ************************************************************************/
 
-void SmallPacket0x085(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+/************************************************************************
+ *                                                                       *
+ *  Vender Item Sell                                                     *
+ *  Player selling an item to a vendor.                                  *
+ *                                                                       *
+ ************************************************************************/
+
+void SmallPacket0x085(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     // Retrieve item-to-sell from last slot of the shop's container
     uint32 quantity = PChar->Container->getQuantity(PChar->Container->getExSize());
     uint16 itemID = PChar->Container->getItemID(PChar->Container->getExSize());
-    uint8  slotID = PChar->Container->getInvSlotID(PChar->Container->getExSize());
+    uint8 slotID = PChar->Container->getInvSlotID(PChar->Container->getExSize());
 
     CItem* gil = PChar->getStorage(LOC_INVENTORY)->GetItem(0);
     CItem* PItem = PChar->getStorage(LOC_INVENTORY)->GetItem(slotID);
@@ -4176,31 +4219,80 @@ void SmallPacket0x085(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     {
         if (quantity < 1 || quantity > PItem->getStackSize()) // Possible exploit
         {
-            ShowExploit(CL_RED"SmallPacket0x085: Player %s trying to sell invalid quantity %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity);
+            ShowExploit(CL_RED "SmallPacket0x085: Player %s trying to sell invalid quantity %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(),
+                        quantity);
             return;
         }
 
         if (PItem->isSubType(ITEM_LOCKED)) // Possible exploit
         {
-            ShowExploit(CL_RED"SmallPacket0x085: Player %s trying to sell %u of a LOCKED item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, PItem->getID());
+            ShowExploit(CL_RED "SmallPacket0x085: Player %s trying to sell %u of a LOCKED item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity,
+                        PItem->getID());
             return;
         }
 
         if (PItem->getReserve() > 0) // Usually caused by bug during synth, trade, etc. reserving the item. We don't want such items sold in this state.
         {
-            ShowError(CL_RED"SmallPacket0x085: Player %s trying to sell %u of a RESERVED(%u) item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, PItem->getReserve(), PItem->getID());
+            ShowError(CL_RED "SmallPacket0x085: Player %s trying to sell %u of a RESERVED(%u) item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity,
+                      PItem->getReserve(), PItem->getID());
             return;
         }
 
-        charutils::UpdateItem(PChar, LOC_INVENTORY, 0, quantity * PItem->getBasePrice());
+        uint32 basePrice = PItem->getBasePrice();
+        float mult = 0.8f;
+
+        // fame start
+
+        CZone* PZone = PChar->loc.zone;
+        uint16 fame = 0;
+        float fameMultiplier = map_config.fame_multiplier;
+
+        switch (PZone->m_fameType)
+        {
+            case FAME_SANDY:
+            case FAME_BASTOK:
+            case FAME_WINDURST:
+                fame = (uint16)(PChar->profile.fame[PZone->m_fameType] * fameMultiplier);
+                break;
+            case FAME_JEUNO:
+                fame = (uint16)(PChar->profile.fame[4] + ((PChar->profile.fame[0] + PChar->profile.fame[1] + PChar->profile.fame[2]) * fameMultiplier / 3));
+                break;
+            case FAME_SELBINA_RABAO:
+                fame = (uint16)((PChar->profile.fame[0] + PChar->profile.fame[1]) * fameMultiplier / 2);
+                break;
+            case FAME_NORG:
+                fame = (uint16)(PChar->profile.fame[3] * fameMultiplier);
+                break;
+                // TODO: Abyssea and adoulin
+            default: // default to no fame for worst sale price
+                fame = 0;
+                break;
+        }
+
+        // Amalasanda
+        if (PZone->GetID() == ZONE_LOWER_JEUNO && PChar->loc.p.x > 23.0f && PChar->loc.p.x < 45.0f && PChar->loc.p.z > -62.0f && PChar->loc.p.z < -29.0f)
+            fame = (uint16)(PChar->profile.fame[3] * fameMultiplier); // use tenshodo fame
+
+        if (fame >= 613) // fame level 9
+            mult = 1.0f;
+        else
+            mult = 0.8f + 0.2f * (float)fame / 612.0f;
+
+        if (basePrice == 1)
+            mult = 1.0f; // dont round down to 0
+
+        // fame end
+
+        charutils::UpdateItem(PChar, LOC_INVENTORY, 0, quantity * (uint32)((float)basePrice * mult));
         charutils::UpdateItem(PChar, LOC_INVENTORY, slotID, -(int32)quantity);
-        ShowNotice(CL_CYAN"SmallPacket0x085: Player '%s' sold %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, itemID);
+        ShowNotice(CL_CYAN "SmallPacket0x085: Player '%s' sold %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, itemID);
         PChar->pushPacket(new CMessageStandardPacket(0, itemID, quantity, MsgStd::Sell));
         PChar->pushPacket(new CInventoryFinishPacket());
         PChar->Container->setItem(PChar->Container->getSize() - 1, 0, -1, 0);
     }
     return;
 }
+
 
 /************************************************************************
 *                                                                       *
@@ -4691,10 +4783,15 @@ void SmallPacket0x0BE(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
             if (PChar->PMeritPoints->IsMeritExist(merit))
             {
+                const Merit_t* PMerit = PChar->PMeritPoints->GetMerit(merit);
                 switch (operation)
                 {
-                case 0: PChar->PMeritPoints->LowerMerit(merit); break;
-                case 1: PChar->PMeritPoints->RaiseMerit(merit); break;
+                case 0: PChar->PMeritPoints->LowerMerit(merit);
+                        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, data.ref<uint16>(0x06), PMerit->count, MSGBASIC_MERIT_DECREASE));
+                    break;
+                case 1: PChar->PMeritPoints->RaiseMerit(merit);
+                        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, data.ref<uint16>(0x06), PMerit->count, MSGBASIC_MERIT_INCREASE));
+                    break;
                 }
                 PChar->pushPacket(new CMenuMeritPacket(PChar));
                 PChar->pushPacket(new CMeritPointsCategoriesPacket(PChar, merit));
@@ -4966,14 +5063,26 @@ void SmallPacket0x0D3(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
 /************************************************************************
 *                                                                       *
-*  Set Preferred Language                                               *
+*  Set Chat Filters                                               *
 *                                                                       *
 ************************************************************************/
 
-void SmallPacket0x0DB(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x0DB(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
+
+    // Extract the system filter bits and update MenuConfig
+    const uint8 systemFilterMask = (NFLAG_SYSTEM_FILTER_H | NFLAG_SYSTEM_FILTER_L) >> 8;
+    PChar->menuConfigFlags.byte2 &= ~systemFilterMask;
+    PChar->menuConfigFlags.byte2 |= data.ref<uint8>(0x09) & systemFilterMask;
+
+    PChar->chatFilterFlags = data.ref<uint64>(0x0C);
+
     PChar->search.language = data.ref<uint8>(0x24);
+
+    charutils::SaveMenuConfigFlags(PChar);
+    charutils::SaveChatFilterFlags(PChar);
+    PChar->pushPacket(new CMenuConfigPacket(PChar));
     return;
 }
 
@@ -6099,6 +6208,21 @@ void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPac
                 charutils::UnequipItem(PChar, SLOT_SUB);
             }
 
+        }
+
+        if (PChar->GetMLevel() == 75 && charutils::hasKeyItem(PChar, 606))
+        {
+            if (Sql_Query(SqlHandle, "UPDATE char_exp SET mode = %u WHERE charid = %u", true, PChar->id) != SQL_ERROR)
+            {
+                PChar->MeritMode = true;
+            }
+        }
+        else
+        {
+            if (Sql_Query(SqlHandle, "UPDATE char_exp SET mode = %u WHERE charid = %u", false, PChar->id) != SQL_ERROR)
+            {
+                PChar->MeritMode = false;
+            }
         }
 
         charutils::SetStyleLock(PChar, false);

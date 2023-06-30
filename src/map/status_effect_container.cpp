@@ -944,6 +944,22 @@ bool CStatusEffectContainer::HasStatusEffect(EFFECT StatusID)
     return false;
 }
 
+uint16 CStatusEffectContainer::GetTotalMinneBonus()
+{
+    uint16 ret = 0;
+
+    for (auto&& PEffect : m_StatusEffectSet)
+    {
+        if (PEffect->GetStatusID() == EFFECT_MINNE && !PEffect->deleted)
+        {
+            ret += PEffect->GetPower();
+        }
+    }
+
+    return ret;
+}
+
+
 bool CStatusEffectContainer::HasStatusEffectByFlag(uint32 flag)
 {
 
@@ -1515,7 +1531,7 @@ void CStatusEffectContainer::LoadStatusEffects()
 *                                                                       *
 ************************************************************************/
 
-void CStatusEffectContainer::SaveStatusEffects(bool logout)
+void CStatusEffectContainer::SaveStatusEffects(bool logout, bool removeOnZone)
 {
     TPZ_DEBUG_BREAK_IF(m_POwner->objtype != TYPE_PC);
 
@@ -1523,7 +1539,7 @@ void CStatusEffectContainer::SaveStatusEffects(bool logout)
 
     for (CStatusEffect* PStatusEffect : m_StatusEffectSet)
     {
-        if ((logout && PStatusEffect->GetFlag() & EFFECTFLAG_LOGOUT) || (!logout && PStatusEffect->GetFlag() & EFFECTFLAG_ON_ZONE))
+        if ((logout && PStatusEffect->GetFlag() & EFFECTFLAG_LOGOUT) || (!logout && removeOnZone && PStatusEffect->GetFlag() & EFFECTFLAG_ON_ZONE))
         {
             RemoveStatusEffect(PStatusEffect, true);
             continue;
@@ -1809,7 +1825,7 @@ void CStatusEffectContainer::TickRegen(time_point tick)
             if (damage > 0)
             {
                 DelStatusEffectSilent(EFFECT_HEALING);
-                m_POwner->takeDamage(damage);
+                m_POwner->takeDamage(damage, 0, ATTACK_NONE, DAMAGE_NONE, true);
 			if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_DEEPSLEEP))
                 WakeUp();
             }
@@ -1880,8 +1896,9 @@ void CStatusEffectContainer::TickRegen(time_point tick)
     }
 }
 
-bool CStatusEffectContainer::HasPreventActionEffect()
+bool CStatusEffectContainer::HasPreventActionEffect(bool checkCharm)
 {
+    if (checkCharm)
     return HasStatusEffect({EFFECT_SLEEP,
         EFFECT_SLEEP_II,
         EFFECT_PETRIFICATION,
@@ -1890,7 +1907,19 @@ bool CStatusEffectContainer::HasPreventActionEffect()
         EFFECT_CHARM_II,
         EFFECT_PENALTY,
         EFFECT_STUN,
-        EFFECT_TERROR});
+        EFFECT_TERROR,
+        EFFECT_DEEPSLEEP});
+    else
+    {
+        return HasStatusEffect({EFFECT_SLEEP,
+        EFFECT_SLEEP_II,
+        EFFECT_PETRIFICATION,
+        EFFECT_LULLABY,
+        EFFECT_PENALTY,
+        EFFECT_STUN,
+        EFFECT_TERROR,
+        EFFECT_DEEPSLEEP});
+    }
 }
 
 uint16 CStatusEffectContainer::GetConfrontationEffect()

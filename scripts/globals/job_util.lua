@@ -63,3 +63,19 @@ function jobUtil.CheckForFlyHigh(player, target, ability)
         ability:setRecast(utils.clamp(recast, 0, recast / 2))
     end
 end
+
+function jobUtil.GetAutoMainSkill(pet)
+    local frame = pet:getAutomatonFrame()
+
+    if frame == tpz.frames.HARLEQUIN then
+        return tpz.skill.AUTOMATON_MELEE
+    elseif frame == tpz.frames.VALOREDGE then
+        return tpz.skill.AUTOMATON_MELEE
+    elseif frame == tpz.frames.SHARPSHOT then
+        return tpz.skill.AUTOMATON_RANGED
+    elseif frame == tpz.frames.STORMWAKER then
+        return tpz.skill.AUTOMATON_MAGIC
+    end
+
+    return tpz.skill.AUTOMATON_MELEE
+end

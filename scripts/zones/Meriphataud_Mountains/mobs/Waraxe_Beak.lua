@@ -3,13 +3,11 @@
 --   NM: Waraxe Beak
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 25) 
-     mob:addMod(tpz.mod.ATTP, 25)
-     mob:addMod(tpz.mod.ACC, 30) 
-     mob:addMod(tpz.mod.EVA, 30)
+    SetGenericNMStats(mob)
 end
 
 function onMobInitialize(mob)

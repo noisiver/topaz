@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     mob:addImmunity(tpz.immunity.SLEEP)
     mob:addImmunity(tpz.immunity.LIGHTSLEEP)
     mob:addImmunity(tpz.immunity.POISON)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
     mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 5000)
 end
 

@@ -127,9 +127,11 @@ function onEventFinish(player, csid, option)
         player:tradeComplete(trade)
         if (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.TEACHER_S_PET) == QUEST_ACCEPTED) then
             player:completeQuest(WINDURST, tpz.quest.id.windurst.TEACHER_S_PET)
-            player:addFame(WINDURST, 75)
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(WINDURST, 250)
         else
-            player:addFame(WINDURST, 8)
+            player:addExp(250 * EXP_RATE)
+            player:addFame(WINDURST, 25)
         end
     elseif (csid == 182 or csid == 687) and option ~= 1 then -- start
         player:addKeyItem(tpz.ki.CREATURE_COUNTER_MAGIC_DOLL)

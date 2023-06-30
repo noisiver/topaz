@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 33, 0, 360))
     if (mob:getPool() == 669) then -- Celeste-eyed Tozberry
         local typeEffect = tpz.effect.CURSE_I
-        MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 360)
+        MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 25, 0, 360)
     end
 
     return typeEffect

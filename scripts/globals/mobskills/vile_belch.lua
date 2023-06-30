@@ -21,7 +21,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 	local typeffect =  tpz.effect.SILENCE
     local duration = 300
-    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 3, 3, duration)
+    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 10, 3, duration)
     skill:setMsg(MobStatusEffectMove(mob, target, typeffect, 1, 0, duration))
 
     return typeffect

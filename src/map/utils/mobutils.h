@@ -43,25 +43,25 @@ typedef std::unordered_map<uint32,ModsList_t*> ModsMap_t;
 
 namespace mobutils
 {
-	void  CalculateStats(CMobEntity* PMob);
-        void  SetupJob(CMobEntity* PMob);
-        void  SetupRoaming(CMobEntity* PMob);
-        void  SetupDynamisMob(CMobEntity* PMob);
-        void  SetupLimbusMob(CMobEntity* PMob);
-        void  SetupDungeonInstancedMob(CMobEntity* PMob);
-        void  SetupSalvageMob(CMobEntity* PMob);
-        void  SetupStrongholdsMob(CMobEntity* PMob);
-        void  SetupBattlefieldMob(CMobEntity* PMob);
-        void  SetupDungeonMob(CMobEntity* PMob);
-        void  SetupEventMob(CMobEntity* PMob);
-        void  SetupNMMob(CMobEntity* PMob);
+    void  CalculateMobStats(CMobEntity* PMob, bool recover = true);
+    void  SetupJob(CMobEntity* PMob);
+    void  SetupRoaming(CMobEntity* PMob);
+    void  SetupDynamisMob(CMobEntity* PMob);
+    void  SetupLimbusMob(CMobEntity* PMob);
+    void  SetupDungeonInstancedMob(CMobEntity* PMob);
+    void  SetupSalvageMob(CMobEntity* PMob);
+    void  SetupStrongholdsMob(CMobEntity* PMob);
+    void  SetupBattlefieldMob(CMobEntity* PMob);
+    void  SetupDungeonMob(CMobEntity* PMob);
+    void  SetupEventMob(CMobEntity* PMob);
+    void  SetupNMMob(CMobEntity* PMob);
 	void  SetupPetSkills(CMobEntity* PMob);
 
-	uint16	GetWeaponDamage(CMobEntity* PMob);
-        uint16  GetMagicEvasion(CMobEntity* PMob);
-        uint16  GetEvasion(CMobEntity* PMob);
-        uint16  GetBase(CMobEntity* PMob, uint8 rank);
-        uint16  GetBaseToRank(uint8 rank, uint16 level);
+	uint16 GetWeaponDamage(CMobEntity* PMob, uint16 slot);
+    uint16  GetMagicEvasion(CMobEntity* PMob);
+    uint16  GetEvasion(CMobEntity* PMob);
+    uint16  GetBase(CMobEntity* PMob, uint8 rank);
+    uint16  GetBaseToRank(uint8 rank, uint16 level);
 	void    GetAvailableSpells(CMobEntity* PMob);
 	void	InitializeMob(CMobEntity* PMob, CZone* PZone);
 	void	LoadCustomMods();

@@ -54,6 +54,8 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 4156) -- Cannot give Mulsum because player Inventory is full
         else
             player:setCharVar("ToBeeOrNot_var", 0)
+            player:addExp(2000 * EXP_RATE)
+            player:addFame(WINDURST, 150)
             player:addItem(4156, 3) -- Mulsum x3
             player:messageSpecial(ID.text.ITEMS_OBTAINED, 4156, 3)
             player:needToZone(true)

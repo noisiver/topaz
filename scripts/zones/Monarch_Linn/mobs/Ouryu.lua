@@ -9,12 +9,11 @@ mixins = {require("scripts/mixins/families/wyrm_wakeup")}
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(60)
+	mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 20)
     mob:SetMobSkillAttack(0) -- resetting so it doesn't respawn in flight mode.
     mob:AnimationSub(0) -- subanim 0 is only used when it spawns until first flight.
-	mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
 
 function onMobEngaged(mob, target)

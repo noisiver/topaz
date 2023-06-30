@@ -53,8 +53,12 @@ function onUseAbility(player, target, ability, action)
         if not debuff then
             debuff = despoilDebuffs[math.random(#despoilDebuffs)]
         end
+
         local power = processDebuff(player, target, ability, debuff) -- Also sets ability message
-        target:addStatusEffect(debuff, power, 0, 30)        -- from 90(duration?)
+        -- Don't overwrite debuffs already on the target
+        if not target:hasStatusEffect(debuff) then
+            target:addStatusEffect(debuff, power, 0, 90)
+        end
     else
         action:animation(target:getID(), 182)
         ability:setMsg(tpz.msg.basic.STEAL_FAIL) -- Failed

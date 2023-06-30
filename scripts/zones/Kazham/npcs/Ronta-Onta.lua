@@ -19,8 +19,13 @@ function onTrigger(player, npc)
     TrialByFire = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.TRIAL_BY_FIRE)
     WhisperOfFlames = player:hasKeyItem(tpz.ki.WHISPER_OF_FLAMES)
     realday = tonumber(os.date("%j")) -- %M for next minute, %j for next day
+    local introSeen = npcUtil.avatarIntroSeen(player)
 
     if ((TrialByFire == QUEST_AVAILABLE and player:getFameLevel(KAZHAM) >= 6) or (TrialByFire == QUEST_COMPLETED and realday ~= player:getCharVar("TrialByFire_date"))) then
+        -- Skip long intro CS if player has seen it once
+        if (introSeen) then
+            npcUtil.giveAvatarQuest(npc, player, OUTLANDS, tpz.quest.id.outlands.TRIAL_BY_FIRE, tpz.ki.TUNING_FORK_OF_FIRE, "TrialByFire_date")
+        end
         player:startEvent(270, 0, tpz.ki.TUNING_FORK_OF_FIRE) -- Start and restart quest "Trial by Fire"
     elseif (TrialByFire == QUEST_ACCEPTED and player:hasKeyItem(tpz.ki.TUNING_FORK_OF_FIRE) == false and WhisperOfFlames == false) then
         player:startEvent(285, 0, tpz.ki.TUNING_FORK_OF_FIRE) -- Defeat against Ifrit : Need new Fork
@@ -51,6 +56,7 @@ function onEventFinish(player, csid, option)
         if (player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.TRIAL_BY_FIRE) == QUEST_COMPLETED) then
             player:delQuest(OUTLANDS, tpz.quest.id.outlands.TRIAL_BY_FIRE)
         end
+        npcUtil.setAvatarVar(player)
         player:addQuest(OUTLANDS, tpz.quest.id.outlands.TRIAL_BY_FIRE)
         player:setCharVar("TrialByFire_date", 0)
         player:addKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)

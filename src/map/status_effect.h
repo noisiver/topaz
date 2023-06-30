@@ -69,6 +69,7 @@ enum EFFECTFLAG
     EFFECTFLAG_INFLUENCE        = 0x1000000, // Influence effects - e.g. Signet, Sanction, Sigil, Ionis
     EFFECTFLAG_OFFLINE_TICK     = 0x2000000, // Duration elapses while offline
     EFFECTFLAG_AURA             = 0x4000000, // Is an aura type effect
+    EFFECTFLAG_FINISHING_MOVE   = 0x8000000, // Is a finishing move
 };
 
 enum EFFECT
@@ -544,7 +545,7 @@ enum EFFECT
     EFFECT_SACROSANCTITY            = 477, // WHM 95
     EFFECT_PALISADE                 = 478, // PLD 95
     EFFECT_SCARLET_DELIRIUM         = 479, // DRK 95
-    EFFECT_SCARLET_DELIRIUM_1       = 480, // DRK 95
+    EFFECT_SCARLET_DELIRIUM_1       = 480, // Buff tracking damage bonus
     EFFECT_ABDHALJS_SEAL            = 481,      // WAS NONE
     EFFECT_DECOY_SHOT               = 482, // RNG 95
     EFFECT_HAGAKURE                 = 483, // SAM 95
@@ -731,7 +732,7 @@ enum EFFECT
     // EFFECT_PLACEHOLDER           = 1023 // The client dat file seems to have only this many "slots", results of exceeding that are untested.
 };
 
-#define MAX_EFFECTID    1000  // 768 real + 32 custom
+#define MAX_EFFECTID    9999  // 768 real + 32 custom
 
 /************************************************************************
 *                                                                       *

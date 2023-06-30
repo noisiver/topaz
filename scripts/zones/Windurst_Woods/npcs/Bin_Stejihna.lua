@@ -20,11 +20,6 @@ function onTrigger(player, npc)
         player:showText(npc, ID.text.BIN_STEJIHNA_OPEN_DIALOG)
 
         local rank = getNationRank(tpz.nation.WINDURST)
-        if rank ~= 3 then
-            table.insert(stock, 1840) --Semolina
-            table.insert(stock, 1840)
-        end
-
         local stock =
         {
             1840,  1840,  -- Semolina
@@ -35,6 +30,10 @@ function onTrigger(player, npc)
             4366,    22,  -- La Theine Cabbage
             4378,    55   -- Selbina Milk
         }
+        if rank ~= 3 then
+            table.insert(stock, 1840) --Semolina
+            table.insert(stock, 1840)
+        end
 
         tpz.shop.general(player, stock, WINDURST)
     end

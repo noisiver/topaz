@@ -1776,17 +1776,17 @@ tpz.annm.PopNM = function(player, npc)
 end
 
 tpz.annm.NMMods = function(mob)
-	mob:setDamage(140)
+	mob:setDamage(125)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 25) 
     mob:addMod(tpz.mod.EVA, 25)
-    mob:setMod(tpz.mod.REGAIN, 150)
-    mob:setMod(tpz.mod.MDEF, 70)
+    mob:setMod(tpz.mod.REGAIN, 25)
+    mob:setMod(tpz.mod.MDEF, 13)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
     mob:setMod(tpz.mod.MOVE, 20)
     mob:setMod(tpz.mod.SKILLCHAINDMG, 50)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
@@ -1798,12 +1798,14 @@ tpz.annm.NMMods = function(mob)
     mob:addImmunity(tpz.immunity.SILENCE) 
     mob:addImmunity(tpz.immunity.POISON)
     mob:addImmunity(tpz.immunity.ELEGY)
+    mob:SetAutoAttackEnabled(false)
+    mob:SetMagicCastingEnabled(false)
+    mob:SetMobAbilityEnabled(false)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setUnkillable(true)
 end
 
 tpz.annm.PetMods = function(mob)
-    mob:setMod(tpz.mod.MDEF, 70)
-    mob:setMod(tpz.mod.UDMGMAGIC, -13)
     for v = 1280, 1294 do
         mob:setMod(v, 150)
     end
@@ -1844,6 +1846,10 @@ tpz.annm.PetShield = function(mob, addsIDstart, addsIDend)
             return
         end
     end
+    mob:SetAutoAttackEnabled(true)
+    mob:SetMagicCastingEnabled(true)
+    mob:SetMobAbilityEnabled(true)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     mob:setUnkillable(false)
 end
 

@@ -123,12 +123,29 @@ function doStatusBreath(target, player)
     return usedBreath
 end
 
+function doRestoringBreath(player, breath)
+    local breath_heal_range = 13
+    local function inBreathRange(target)
+        return player:getPet():getZoneID() == target:getZoneID() and player:getPet():checkDistance(target) <= breath_heal_range
+    end
+
+    local party = player:getParty()
+    for _, member in ipairs(party) do
+        if player:getHPP() <= member:getHPP() and inBreathRange(member) then
+            player:getPet():useJobAbility(breath, player)
+            break
+        else
+            if inBreathRange(member) then
+                player:getPet():useJobAbility(breath, member)
+            end
+            break
+        end
+    end
+end
+
 function onMobSpawn(mob)
     local master = mob:getMaster()
     
-	mob:addMod(tpz.mod.DMG, -40)
-    mob:addMod(tpz.mod.DEFP, 50)
-
 	if mob:getMainLvl() >= 70 then
 		mob:addMod(tpz.mod.HP, 74)
 	elseif mob:getMainLvl() >= 50 then
@@ -187,9 +204,11 @@ function onMobSpawn(mob)
 	elseif mob:getMainLvl() >= 10 then
 	    mob:addMod(tpz.mod.EVA, 10)
 	end
+
     if master:getMod(tpz.mod.WYVERN_SUBJOB_TRAITS) > 0 then
         mob:addJobTraits(master:getSubJob(), master:getSubLvl())
     end
+
     local wyvernType = wyvernTypes[master:getSubJob()]
     local healingbreath = tpz.jobAbility.HEALING_BREATH
     if mob:getMainLvl() >= 80 then healingbreath = tpz.jobAbility.HEALING_BREATH_IV
@@ -260,8 +279,8 @@ function onMobSpawn(mob)
                 pet:addMod(tpz.mod.HPP, 6 * diff)
                 pet:addMod(tpz.mod.ATTP, 5 * diff)
                 pet:setHP(pet:getMaxHP())
-                player:messageBasic(tpz.msg.basic.STATUS_INCREASED, 0, 0, pet)
-                master:addMod(tpz.mod.ATTP, 4 * diff)
+                player:messageBasic(tpz.msg.basic.STATUS_INCREASED, 0, 0, pet, false)
+                master:addMod(tpz.mod.ATTP, 2 * diff)
                 master:addMod(tpz.mod.DEFP, 4 * diff)
             end
             pet:setLocalVar("wyvern_exp", prev_exp + exp)
@@ -295,13 +314,6 @@ function onMobFight(mob, target)
 	    elseif mob:getMainLvl() >= 10 then
 	        mob:setMod(tpz.mod.MACC, 10)
 	    end       
-    end
-    -- Spirit power logic(Spirit Surge)
-    local SpiritPower = master:getLocalVar("SpiritPower")
-    if SpiritPower > 0 then
-        mob:setMod(tpz.mod.ATTP, SpiritPower * 15)
-    else
-        mob:setMod(tpz.mod.ATTP, 0)
     end
 end
 

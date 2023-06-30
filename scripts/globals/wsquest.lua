@@ -2,6 +2,7 @@ require('scripts/globals/keyitems')
 require('scripts/globals/quests')
 require('scripts/globals/status')
 require('scripts/globals/weaponskillids')
+require('scripts/globals/mobs')
 
 tpz = tpz or {}
 tpz.wsquest =

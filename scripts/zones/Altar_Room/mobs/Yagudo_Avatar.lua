@@ -2,7 +2,7 @@
 -- Area: Altar Room 
 -----------------------------------
 local ID = require("scripts/zones/Altar_Room/IDs")
-mixins = {require("scripts/mixins/job_special")}
+mixins = {require("scripts/mixins/job_special"), require("scripts/mixins/families/avatar")}
 require("scripts/globals/mobs")
 -----------------------------------
 

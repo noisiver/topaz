@@ -104,8 +104,7 @@ bool CMagicState::Update(time_point tick)
 
         action_t action;
 
-        if (!PTarget || m_errorMsg || (HasMoved() && (m_PEntity->objtype != TYPE_PET ||
-            static_cast<CPetEntity*>(m_PEntity)->getPetType() != PETTYPE_AUTOMATON)) || !CanCastSpell(PTarget))
+        if (!PTarget || m_errorMsg || (HasMoved()) || !CanCastSpell(PTarget))
         {
             m_interrupted = true;
         }
@@ -122,8 +121,8 @@ bool CMagicState::Update(time_point tick)
 
         if (m_interrupted)
         {
-            m_PEntity->OnCastInterrupted(*this, action, msg);
             m_PEntity->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", m_PEntity, PTarget, m_PSpell.get(), &action);
+            m_PEntity->OnCastInterrupted(*this, action, msg);
         }
         else
         {

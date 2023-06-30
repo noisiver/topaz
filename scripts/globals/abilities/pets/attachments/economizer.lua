@@ -10,7 +10,7 @@ function onEquip(pet)
         local maneuvers = (master and master:countEffect(tpz.effect.DARK_MANEUVER) > 0) and master:countEffect(tpz.effect.DARK_MANEUVER) or 7
         local mpthreshold = 60 - maneuvers * 10
         local mpp = automaton:getMaxMP() > 0 and math.ceil(automaton:getMP() / automaton:getMaxMP() * 100) or 100
-        if mpp < mpthreshold and not automaton:hasRecast(tpz.recast.ABILITY, 2068) then
+        if mpp < mpthreshold and not automaton:hasRecast(tpz.recast.ABILITY, 2068) and master:countEffect(tpz.effect.DARK_MANEUVER) > 0 then
             automaton:useMobAbility(2068, automaton)
         else
             return 0

@@ -83,6 +83,7 @@
 #include "../battlefield.h"
 #include "../daily_system.h"
 #include "../packets/char_emotion.h"
+#include "../utils/guildutils.h"
 
 namespace luautils
 {
@@ -110,6 +111,7 @@ namespace luautils
         lua_register(LuaHandle, "GetNPCByID", luautils::GetNPCByID);
         lua_register(LuaHandle, "GetMobByID", luautils::GetMobByID);
         lua_register(LuaHandle, "WeekUpdateConquest", luautils::WeekUpdateConquest);
+        lua_register(LuaHandle, "UpdateGuildsStock", luautils::UpdateGuildsStock);
         lua_register(LuaHandle, "GetRegionOwner", luautils::GetRegionOwner);
         lua_register(LuaHandle, "GetRegionInfluence", luautils::GetRegionInfluence);
         lua_register(LuaHandle, "getNationRank", luautils::getNationRank);
@@ -370,11 +372,11 @@ namespace luautils
 
             if (PInstance)
             {
-                PNpc = PInstance->GetEntity(npcid & 0xFFF, TYPE_NPC);
+                PNpc = PInstance->GetEntity(npcid & 0xFFF, TYPE_NPC | TYPE_SHIP);
             }
             else
             {
-                PNpc = zoneutils::GetEntity(npcid, TYPE_NPC);
+                PNpc = zoneutils::GetEntity(npcid, TYPE_NPC | TYPE_SHIP);
             }
 
             if (PNpc == nullptr)
@@ -463,6 +465,12 @@ namespace luautils
         }
         conquest::UpdateConquestGM(type);
 
+        return 0;
+    }
+
+    int32 UpdateGuildsStock(lua_State* L)
+    {
+        guildutils::UpdateGuildsStock();
         return 0;
     }
 
@@ -3700,7 +3708,7 @@ namespace luautils
             if (PPet->getPetType() == PETTYPE_AVATAR && PPet->PMaster->objtype == TYPE_PC)
             {
                 CCharEntity* PMaster = (CCharEntity*)PPet->PMaster;
-                if (PMaster->GetMJob() == JOB_SMN) charutils::TrySkillUP(PMaster, SKILL_SUMMONING_MAGIC, PMaster->GetMLevel());
+                if (PMaster->GetMJob() == JOB_SMN) charutils::TrySkillUP(PMaster, SKILL_SUMMONING_MAGIC, PMaster->GetMLevel(), true);
             }
         }
 

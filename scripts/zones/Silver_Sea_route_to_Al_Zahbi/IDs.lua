@@ -26,6 +26,18 @@ zones[tpz.zone.SILVER_SEA_ROUTE_TO_AL_ZAHBI] =
     },
     mob =
     {
+        SEA_CREATURES =
+        {
+            17018887,   -- Sea Monk 1
+            17018888,   -- Sea Crab 1
+            17018889,   -- Sea Crab 2
+            17018890,   -- Sea Pugil 1
+            17018891,   -- Sea Pugil 2
+            17018892,   -- Sea Monk 2
+            17018894,
+        },
+        UTUKKU = 17018893,
+        ALLMIGHTY_APKALLU = 17018897,
     },
     npc =
     {

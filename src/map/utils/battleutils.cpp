@@ -72,6 +72,7 @@
 #include "../ai/controllers/pet_controller.h"
 #include "../ai/controllers/player_controller.h"
 #include "../ai/controllers/player_charm_controller.h"
+#include "../ai/controllers/automaton_controller.h"
 #include "../ai/states/magic_state.h"
 #include "../utils/petutils.h"
 #include "zoneutils.h"
@@ -304,17 +305,47 @@ namespace battleutils
     }
 
     /************************************************************************
-    *   Return Max Skill by SkillType, JobType, and level                   *
-    ************************************************************************/
-
+     *   Return Max Skill by SkillType, JobType, and level                   *
+     ************************************************************************/
+    // 1 = A+
+    // 2 = A-
+    // 3 = B+
+    // 4 = B
+    // 5 = B-
+    // 6 = C+
+    // 7 = C
+    // 8 = C-
+    // 9 = D
+    // 10 = E
+    // 11 = F
+    // 12 = G
     uint16 GetMaxSkill(SKILLTYPE SkillID, JOBTYPE JobID, uint8 level)
     {
-        return g_SkillTable[level][g_SkillRanks[SkillID][JobID]];
-    }
+        // The skill_caps table is 0-indexed, so our maximum level should one lower
+        // than the size of the array.
+        auto maxLevel = static_cast<uint8>(g_SkillTable.size() - 1);
 
+        // TODO: Research on mobs level 99+ is still on-going. This line can be removed once the correct formula/skilltype have been established.
+        // max indexed value and level is capped at 99 as stated above for skill_caps table
+        if (level > 99)
+        {
+            level = 99;
+        }
+
+        if (level > maxLevel)
+        {
+            ShowDebug("battleutils::GetMaxSkill() received level value greater than array size! (Received: %d, Clamped to: %d)", level, maxLevel);
+        }
+        return g_SkillTable[std::clamp<uint8>(level, 0, maxLevel)][g_SkillRanks[SkillID][JobID]];
+    }
     uint16 GetMaxSkill(uint8 rank, uint8 level)
     {
-        return g_SkillTable[level][rank];
+        auto maxLevel = static_cast<uint8>(g_SkillTable.size() - 1);
+        if (level > maxLevel)
+        {
+            ShowDebug("battleutils::GetMaxSkill() received level value greater than array size! (Received: %d, Clamped to: %d)", level, maxLevel);
+        }
+        return g_SkillTable[std::clamp<uint8>(level, 0, maxLevel)][rank];
     }
 
     bool isValidSelfTargetWeaponskill(int wsid) {
@@ -328,156 +359,444 @@ namespace battleutils
         return false;
     }
 
-    float getElementalSDTDivisor(CBattleEntity* PTarget, uint8 element)
+int getSDTTier(int SDT)
     {
-        if (!element)
-            return 1;
-        Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
-        float res = PTarget->getMod(resistarray[element -1]);
-        //printf("SDT res in function %f \n", res);
-        if (res == 0.0f)
-            return 1.0f;
-        if (res <= 5.0f)
-            return 0.05f;
-        if (res >= 150.0f)
-            return 1.5f;
-        res = res / 100.0f;
-        // printf("SDT res after dividing %f \n", res);
-        // todo -- magic burst
+        int tier = 0;
 
-        return res;
+        if (SDT == 150)
+        {
+            tier = -3;
+        }
+        else if (SDT == 130)
+        {
+            tier = -2;
+        }
+        else if (SDT == 115)
+        {
+            tier = -1;
+        }
+        else if (SDT == 100)
+        {
+            tier = 0;
+        }
+        else if (SDT == 85)
+        {
+            tier = 1;
+        }
+        else if (SDT == 70)
+        {
+            tier = 2;
+        }
+        else if (SDT == 60)
+        {
+            tier = 3;
+        }
+        else if (SDT == 50)
+        {
+            tier = 4;
+        }
+        else if (SDT == 40)
+        {
+            tier = 5;
+        }
+        else if (SDT == 30)
+        {
+            tier = 6;
+        }
+        else if (SDT == 25)
+        {
+            tier = 7;
+        }
+        else if (SDT == 20)
+        {
+            tier = 8;
+        }
+        else if (SDT == 15)
+        {
+            tier = 9;
+        }
+        else if (SDT == 10) // because 10 % (T10)tier forcibly sets your hit rate to 5 %
+        {
+            tier = 10;
+        }
+        else if (SDT == 5) // 5 % (T11)causes you to auto fail all the coin flips
+        {
+            tier = 11;
+        }
+
+        return tier;
     }
 
-
-    float getMagicResist(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skill, uint8 element, uint8 bonus)
+    float getSDTMultiplier(float tier)
     {
-        float p = 0.0f;
-        float DMacc = 0.0f;
-        float SDT = 1.0f;
-        float levelcorrectionpenalty = 0.0f;
-        float casterLvl = PAttacker->GetMLevel();
-        float targetLvl = PDefender->GetMLevel();
-        float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
-        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element -1]));
-        if (PAttacker->objtype == TYPE_MOB)
+        float multiplier = 1.0f;
+
         {
-            magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
-            //printf("Mob base MACC from skill %f \n", magicacc);
+            if (tier == -3)
+                multiplier = 0.95f;
+            else if (tier == -2)
+                multiplier = 0.96019f;
+            else if (tier == -1)
+                multiplier = 0.98f;
+            else if (tier == 0)
+                multiplier = 1;
+            else if (tier == 1)
+                multiplier = 1.023f;
+            else if (tier == 2)
+                multiplier = 1.049f;
+            else if (tier == 3)
+                multiplier = 1.0905f;
+            else if (tier == 4)
+                multiplier = 1.126f;
+            else if (tier == 5)
+                multiplier = 1.2075f;
+            else if (tier == 6)
+                multiplier = 1.3475f;
+            else if (tier == 7)
+                multiplier = 1.70065f;
+            else if (tier == 8)
+                multiplier = 2.141f;
+            else if (tier == 9)
+                multiplier = 2.65f;
+            else if (tier == 10)
+                multiplier = 5.0f;
+            else if (tier == 11)
+                multiplier = 10.0f;
         }
-        // NIN Endark Myoshu: Ichi uses Ninjutsu skill
-        if (PAttacker->GetMJob() == JOB_NIN && PAttacker->objtype == TYPE_PC && PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ENDARK))
+        return multiplier;
+    }
+
+    int GetPlayerMeva(CBattleEntity* PAttacker)
+    {
+        uint8 level = PAttacker->GetMLevel();
+        uint8 meva = 0;
+    
+        // G Rank
+        // http://wiki.ffo.jp/html/2570.html
+    
+        if (level <= 50)
         {
-            magicacc += static_cast<float>(PDefender->GetSkill(SKILL_NINJUTSU) + PDefender->getMod(Mod::MACC));
-            magicacc -= static_cast<float>(PDefender->GetSkill(SKILL_ENHANCING_MAGIC));
+            meva = (level - 1) * 2 + 3;
         }
-        SDT = getElementalSDTDivisor(PDefender, element);
-        //printf("sdt for enspells = %f \n", SDT);
-        //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
-        // Spikes are PDefender for Macc
-        if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
-            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ICE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DREAD_SPIKES) ||
-            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DELUGE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_GALE_SPIKES) ||
-            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_CLOD_SPIKES))
+        else if (level > 50 && level <= 60)
         {
-            casterLvl = PDefender->GetMLevel();
-            targetLvl = PAttacker->GetMLevel();
-            meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element -1]));
-            magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
-            if (PDefender->objtype == TYPE_MOB)
-            {
-                magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PDefender->GetMLevel()));
-            }
-            //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
-            // Blue Magic spike spells use Blue Magic Skll
-            if (PDefender->GetMJob() == JOB_BLU && PDefender->objtype == TYPE_PC)
-            {
-                magicacc += static_cast<float>(PDefender->GetSkill(SKILL_BLUE_MAGIC) + PDefender->getMod(Mod::MACC));
-                magicacc -= static_cast<float>(PDefender->GetSkill(SKILL_ENHANCING_MAGIC));
-            }
-            SDT = getElementalSDTDivisor(PAttacker, element);
-            //printf("sdt for spikes = %f \n", SDT);
+            meva = (level - 50) * 4 + 101;
         }
-        //printf("Macc after gear mod = %f \nmeva after = %f \n", magicacc, meva);
-        levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4.0f);
-        //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
-        magicacc = magicacc + levelcorrectionpenalty;
-        //printf("\nmagicacc after correction penalty = %f \n", magicacc);
-        DMacc = (float)(magicacc - meva);
-        //printf("\nDMacc after = %f \n", DMacc);
-        if (DMacc < 0.0f)
+        else if (level > 60 && level <= 70)
         {
-            p = floor(50.0f + DMacc / 2.0f);
+            meva = (level - 60) * 2 + 141;
         }
         else
         {
-            p = floor(50.0f + DMacc); 
+            meva = (level - 70) * 2 + 161;
         }
-        //printf("p DMacc after %f \n", p);
-        if (p < 5.0f)
-        {
-            p = 5.0f;
-        }
-        else if (p > 95.0f)
-        {
-            p = 95.0f;
-        }
-        p = std::clamp(p, 5.0f, 95.0f);
-        //printf("p after clamping to 5,95 = %f \n", p);
-        //printf("SDT element %i \n", element);
-        // Add SDT
-        p = p * SDT;
-        if (p < 5.0f)
-        {
-            p = 5.0f;
-        }
-        else if (p > 95.0f)
-        {
-            p = 95.0f;
-        }
-        p = p / 100.0f;
-         //printf("p after sdt = %f \n", p);
+    
+        return meva;
+    }
+
+    float getMagicResist(float magicHitRate)
+    {
+        float p = magicHitRate / 100.0f;
         float half = (1.0f - p);
-        float quart = static_cast<float>(pow(half, 2.0f));
+        float quarter = static_cast<float>(pow(half, 2.0f));
         float eighth = static_cast<float>(pow(half, 3.0f));
         p = floor(p * 100.0f) / 100.0f;
-         //printf("p trying to remove decimals = %f \n", p);
+        // printf("p trying to remove decimals = %f \n", p);
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.0));
-        //printf("resist roll %f \n", resvar);
-        // Apply "special" gear resist bonus for players
+        // printf("resvar %f\n", resvar);
+        // printf("half %f\n", half);
+        // printf("quarter %f\n", quarter);
+        // printf("eighth %f\n", eighth);
+        if (resvar <= eighth)
+            return 0.125f;
+        else if (resvar <= quarter)
+            return 0.25f;
+        else if (resvar <= half)
+            return 0.5f;
+
+        return 1.0f;
+    }
+
+    int getElementalSDT(uint8 element, CBattleEntity* PDefender)
+    {
         if (PDefender->objtype == TYPE_PC)
         {
-            if (PDefender->getMod(resistarray[element - 1]) < 0 && resvar < 0.5f)
+             return 100;
+        }
+        Mod sdtarray[9] = { Mod::NONE, Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH,
+                            Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
+        int SDT = (PDefender->getMod(sdtarray[element]));
+        //printf("Element:%u\\nMod:%u\\nValue:%f\\n", element, sdtarray[element], SDT);
+
+        if (SDT == 0) // invalid SDT, it was never set on this target... just default it.
+        {
+            SDT = 100;
+        }
+        //printf("SDT %f\n", SDT);
+        return SDT;
+    }
+
+    int getEnfeebleSDT(uint8 status, uint8 element, CBattleEntity* PDefender)
+    {
+        int SDT = 100;
+        if (PDefender->objtype == TYPE_PC)
+        {
+            return 100;
+        }
+        if  (status == EFFECT_AMNESIA) 
+            SDT = PDefender->getMod(Mod::EEM_AMNESIA);
+        else if (status == EFFECT_BANE || status == EFFECT_PLAGUE) 
+            SDT = PDefender->getMod(Mod::EEM_VIRUS);
+        else if (status == EFFECT_SILENCE || status == EFFECT_MUTE) 
+            SDT = PDefender->getMod(Mod::EEM_SILENCE);
+        else if (status == EFFECT_WEIGHT) 
+            SDT = PDefender->getMod(Mod::EEM_GRAVITY);
+        else if (status == EFFECT_STUN) 
+            SDT = PDefender->getMod(Mod::EEM_STUN);
+        else if (status == EFFECT_LULLABY) 
+            SDT = PDefender->getMod(Mod::EEM_LIGHT_SLEEP);
+        else if (status == EFFECT_CHARM || status == EFFECT_CHARM_II) 
+            SDT = PDefender->getMod(Mod::EEM_CHARM);
+        else if (status == EFFECT_PARALYSIS) 
+            SDT = PDefender->getMod(Mod::EEM_PARALYZE);
+        else if (status == EFFECT_BIND) 
+            SDT = PDefender->getMod(Mod::EEM_BIND);
+        else if (status == EFFECT_SLOW) 
+            SDT = PDefender->getMod(Mod::EEM_SLOW);
+        else if (status == EFFECT_PETRIFICATION) 
+            SDT = PDefender->getMod(Mod::EEM_PETRIFY);
+        else if (status == EFFECT_TERROR) 
+            SDT = PDefender->getMod(Mod::EEM_TERROR);
+        else if (status == EFFECT_POISON) 
+            SDT = PDefender->getMod(Mod::EEM_POISON);
+        else if (status == EFFECT_SLEEP || status == EFFECT_SLEEP_II) 
+            SDT = PDefender->getMod(Mod::EEM_DARK_SLEEP);
+        else if (status == EFFECT_BLINDNESS) 
+            SDT = PDefender->getMod(Mod::EEM_BLIND);
+        else // No status effect mod exists, default to the element of it's status effect
+            SDT = getElementalSDT(element, PDefender);
+
+        if (SDT == 0) // invalid SDT, it was never set on this target... just default it.
+        {
+            SDT = 100;
+        }
+        // printf("SDT %f\n", SDT);
+        return SDT;
+    }
+
+    float getDstatBonus(float softcap, float diff)
+    {
+        // https://www.bluegartr.com/threads/108196-Random-Facts-Thread-Magic?p=6818652&viewfull=1#post6818652
+        //  + / -10 dStat >> > 1 INT = 1 MACC
+        //  + / -11 dStat to 30 INT >> > 2 INT = 1 MACC
+        //  + / -31 - 70 dStat >> > 4 INT = 1 MACC
+        //  Caps at 70 dStat
+        float dstatMaccBonus = 0;
+
+        if ((diff - softcap) >= 0 || (diff - softcap) <= 0)
+        {
+            dstatMaccBonus = diff;
+        }
+
+        if (diff >= 11)
+        {
+            dstatMaccBonus = softcap + (diff - softcap) / 2;
+        }
+
+        if (diff <= -11)
+        {
+            softcap = -10;
+            dstatMaccBonus = softcap + (diff - softcap) / 2;
+        }
+
+        if (diff >= 31)
+        {
+            dstatMaccBonus = 20 + (diff - 30) / 4;
+        }
+
+        if (diff <= -31)
+        {
+            dstatMaccBonus = -20 + (diff - -30) / 4;
+        }
+
+        dstatMaccBonus = std::clamp<float>(dstatMaccBonus, -70.0f, 70.0f);
+
+        return dstatMaccBonus;
+    }
+
+    float calculateMagicHitRate(float magicacc, float magiceva, uint8 element, float percentBonus, float casterLvl, float targetLvl, int SDT)
+    {
+        float p = 0;
+        magicacc = magicacc + (casterLvl - targetLvl) * 4;
+        float dMAcc = magicacc - magiceva;
+
+        if (dMAcc < 0) // when penalty, half effective
+        {
+            p = 50.0f + (dMAcc / 2.0f);
+        }
+        else
+        {
+            p = 50.f + dMAcc;
+        }
+
+        p = std::clamp(p, 5.0f, 95.0f);
+
+        // p += percentBonus +status resist mod, flat mevasion/hit rate to enfeebles
+
+        // Check SDT tiers
+        int tier = static_cast<int>(getSDTTier(SDT));
+        if (tier >= 10)
+        {
+            p = 5.0f;
+        }
+
+        p = std::clamp(p, 5.0f, 95.0f);
+        //printf("MagicHitRate: %f\n", p);
+
+        return p;
+    }
+
+    float getMagicHitRate(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skillType, uint8 element, int SDT, float percentBonus,
+                          float magicaccbonus)
+    {
+        float casterLvl = PAttacker->GetMLevel();
+        // printf("casterLvl: %f\n", casterLvl);
+        float targetLvl = PDefender->GetMLevel();
+        // printf("casterLvl: %f\n", casterLvl);
+        float magicacc = static_cast<float>(PAttacker->GetSkill(skillType));
+        //printf("base MACC %f\n", magicacc);
+        if (PAttacker->objtype == TYPE_PET)
+        {
+            magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
+        }
+        if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_BLU && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SHOCK_SPIKES))
+        {
+            magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_BLUE_MAGIC));
+        }
+        magicacc += PAttacker->getMod(Mod::MACC);
+        //printf("MACC after MACC mod %f\n", magicacc);
+        magicacc += percentBonus;
+        //printf("MACC after percentBonus %f\n", magicacc);
+        magicacc += magicaccbonus;
+        //printf("MACC final %f\n", magicacc);
+        float baseMeva = magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_EVASION, JOB_PLD, PDefender->GetMLevel()));
+        //printf("baseMeva before SDT %f\n", baseMeva);
+        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
+        if (PDefender->objtype == TYPE_PC)
+        {
+            baseMeva = static_cast<float>(GetPlayerMeva(PDefender));
+        }
+        // Add + MEVA mod
+        float mevaMod = baseMeva - PDefender->getMod(Mod::MEVA);
+        //printf("mevaMod %f\n", mevaMod);
+        baseMeva *= getSDTMultiplier(static_cast<float>(getSDTTier(static_cast<int>(SDT))));
+        //printf("getSDTMultiplier: %f\n", getSDTMultiplier(getSDTTier(SDT)));
+        //printf("baseMeva after SDT %f\n", baseMeva);
+        baseMeva += mevaMod;
+        //printf("baseMeva after MEVA mod %f\n", baseMeva);
+        // Add resist gear/barspells etc
+        baseMeva += PDefender->getMod(resistarray[element - 1]);
+        //printf("baseMeva after resist mod %f\n", baseMeva);
+        float magiceva = baseMeva + mevaMod;
+        //printf("Meva final %f\n-----------------------------------------------------------------\n", magiceva);
+
+        return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, casterLvl, targetLvl, SDT);
+    }
+
+    float applyResistance(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 element, uint8 skillType, float diff, float bonus)
+
+    {
+        // https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
+        //printf("element for SDT %u\n", element);
+        int SDT = getElementalSDT(element, PDefender);
+        float percentBonus = 0.0f;
+        float softcap = 10.0f; // 10 is set on all nukes.everything else is nil
+
+        // Apply dStat Macc bonus
+        bonus += getDstatBonus(softcap, diff);
+
+        float p = getMagicHitRate(PAttacker, PDefender, skillType, element, SDT, percentBonus, bonus);
+        float res = getMagicResist(p);
+
+        if (SDT >= 150) // 1.5 guarantees at least half value, no quarter or full resists.
+        {
+            res = std::clamp<float>(res, 0.50f, 1.0f);
+        }
+
+        if (SDT <= 50) // .5 or below SDT drops a resist tier
+        {
+            res = res / 2.0f;
+        }
+
+        if (SDT <= 5) // SDT tier .05 makes you lose ALL coin flips
+        {
+            res = 0.125f;
+        }
+
+        // Apply "special" gear resist bonus for players
+        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
+        if (PDefender->objtype == TYPE_PC)
+        {
+            if (PDefender->getMod(resistarray[element - 1]) < 0 && res < 0.5f)
             {
                 return 0.5f;
             }
-            else if (PDefender->getMod(resistarray[element - 1]) < 1 && resvar < 0.25f)
+            else if (PDefender->getMod(resistarray[element - 1]) < 1 && res < 0.25f)
             {
                 return 0.25f;
             }
         }
 
-        // 0.05 SDT makes you lose ALL coin flips(cannot do more than 1/8th damage)
-        if (SDT <= 0.05f)
-        {
-            return 0.125f;
-        }
-        // 0.5 SDT drops a resist tier(cannot do more than half damage)
-        else if (SDT <= 0.5f)
-        {
-            (resvar = resvar / 2.0f);
-        }
-        //printf("final resist after SDT %f \n", resvar);
-        // Determine resist based on which thresholds have been crossed.
-        if (resvar <= eighth)
-            return 0.125f;
-        else if (resvar <= quart)
-            return 0.25f;
-        else if (resvar <= half)
-            return 0.5f;
-
-        return 1;
+        //printf("res: %f\n", res);
+        return res;
     }
+
+    float applyResistanceEffect(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 status, uint8 element, uint8 skillType, float diff, float bonus)
+
+    {
+        // Fealty forces a full resist on any enfeeble
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FEALTY))
+        {
+            return 0.0625f;
+        }
+
+        // https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
+        // printf("element for SDT %u\n", element);
+        int SDT = getEnfeebleSDT(status, element, PDefender);
+        float percentBonus = 0.0f;
+        float softcap = 10.0f; // 10 is set on all nukes.everything else is nil
+
+        // Apply dStat Macc bonus
+        bonus += getDstatBonus(softcap, diff);
+
+        float p = getMagicHitRate(PAttacker, PDefender, skillType, element, SDT, percentBonus, bonus);
+        float res = getMagicResist(p);
+
+
+        if (SDT <= 5) // SDT tier .05 makes you lose ALL coin flips
+        {
+            res = 0.125f;
+        }
+
+        // Apply "special" gear resist bonus for players
+        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
+        if (PDefender->objtype == TYPE_PC)
+        {
+            if (PDefender->getMod(resistarray[element - 1]) < 0 && res < 0.5f)
+            {
+                return 0.5f;
+            }
+            else if (PDefender->getMod(resistarray[element - 1]) < 1 && res < 0.25f)
+            {
+                return 0.25f;
+            }
+        }
+
+        // printf("res: %f\n", res);
+        return res;
+    }
+
+
 
     bool CanUseWeaponskill(CCharEntity* PChar, CWeaponSkill* PSkill)
     {
@@ -679,8 +998,9 @@ namespace battleutils
             dBonus -= 0.25f;
         // printf("\nDayWeather Bonus %f\n", dBonus);
         uint32 enspellMaccBonus = PAttacker->getMod(Mod::ENSPELL_MACC) + 30;
-        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element + 1, enspellMaccBonus));
-        damage = (int32)(damage * dBonus);
+        //printf("Element in enspell: %u\n", element);
+        damage = static_cast<int32>(static_cast<float>(damage) * applyResistance(PAttacker, PDefender, element +1, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(enspellMaccBonus)));
+        damage = static_cast<int32>(static_cast<float>(damage) * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
         // printf("\nElement before enspell damage = %i \n", element);
@@ -719,38 +1039,38 @@ namespace battleutils
         {
             case SPIKE_BLAZE:
                 element = ELEMENT_FIRE;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_GALE:
                 element = ELEMENT_WIND;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_CLOD:
                 element = ELEMENT_EARTH;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_SHOCK:
                 element = ELEMENT_THUNDER;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_REPRISAL:
                 element = ELEMENT_LIGHT;
-                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DIVINE_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
             case SPIKE_CURSE:
                 element = ELEMENT_DARK;
                 // drain same as damage taken
-                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element, spikesMaccBonus);
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DARK_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             default:
                 break;
@@ -786,9 +1106,7 @@ namespace battleutils
         // Handle Retaliation
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_RETALIATION) && PDefender->PAI->IsEngaged() &&
             4 + battleutils::GetHitRate(PDefender, PAttacker) / 2 > tpzrand::GetRandomNumber(100) && facing(PDefender->loc.p, PAttacker->loc.p, 64) &&
-            !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) && !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) &&
-            !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) && !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) &&
-            !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) && !PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE))
+            !PDefender->StatusEffectContainer->HasPreventActionEffect(false))
         {
             // Retaliation rate is based on player acc vs mob evasion. Missed retaliations do not even display in log.
             // Other theories exist but were not proven or reliably tested (I have to assume too many things to even consider JP translations about weapon
@@ -811,7 +1129,7 @@ namespace battleutils
                     {
                         skilltype = weapon->getSkillType();
                     }
-                    charutils::TrySkillUP((CCharEntity*)PDefender, (SKILLTYPE)skilltype, PAttacker->GetMLevel());
+                    charutils::TrySkillUP((CCharEntity*)PDefender, (SKILLTYPE)skilltype, PAttacker->GetMLevel(), false);
                 }
 
                 // Check if crit
@@ -922,13 +1240,6 @@ namespace battleutils
                     break;
 
                 case SPIKE_DREAD:
-                    if (getElementalSDTDivisor(PAttacker, element) == 2)
-                    {
-                        // is undead or dark resistance too high, no effect
-                        Action->spikesEffect = (SUBEFFECT)0;
-                        return false;
-                    }
-                    else
                     {
                         Action->addEffectMessage = 132;
                         Action->spikesMessage = 132;
@@ -1053,7 +1364,7 @@ namespace battleutils
     {
         uint8 spikes = (uint8)PAttacker->getMod(Mod::SPIKES);
 
-        int resist = 1;
+        float resist = 1.0f;
         uint8 element = 1;
         uint32 spikesMaccBonus = PAttacker->getMod(Mod::SPIKES_MACC) + 30;
 
@@ -1088,8 +1399,8 @@ namespace battleutils
             default:
                 break;
         }
-        resist = static_cast<int32>(getMagicResist(PAttacker, PDefender, SKILL_EVASION, element, spikesMaccBonus));
-        if (resist >= 0.5)
+        resist = static_cast<float>(applyResistance(PDefender, PAttacker, element, SKILL_EVASION, 0, static_cast<float>(spikesMaccBonus)));
+        if (resist >= 0.5f)
         {
             // spikes landed
             if (spikesType == SUBEFFECT_CURSE_SPIKES)
@@ -1126,7 +1437,7 @@ namespace battleutils
         {
             case SUBEFFECT_CURSE_SPIKES:
                 element = ELEMENT_DARK;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+                resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_CURSE, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false &&
@@ -1138,7 +1449,7 @@ namespace battleutils
             }
             case SUBEFFECT_ICE_SPIKES:
                 element = ELEMENT_ICE;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_PARALYSIS, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false &&
@@ -1151,7 +1462,7 @@ namespace battleutils
             }
             case SUBEFFECT_SHOCK_SPIKES:
                 element = ELEMENT_THUNDER;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_STUN, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
@@ -1163,7 +1474,7 @@ namespace battleutils
             }
             case SUBEFFECT_GALE_SPIKES:
                 element = ELEMENT_WIND;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_SILENCE, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
@@ -1175,7 +1486,7 @@ namespace battleutils
             }
             case SUBEFFECT_CLOD_SPIKES:
                 element = ELEMENT_EARTH;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_SLOW, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
@@ -1187,7 +1498,7 @@ namespace battleutils
             }
             case SUBEFFECT_DELUGE_SPIKES:
                 element = ELEMENT_WATER;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_POISON, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
@@ -1199,7 +1510,7 @@ namespace battleutils
             }
             case SUBEFFECT_GLINT_SPIKES:
                 element = ELEMENT_DARK;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_KO, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::DEATHRESTRAIT))
@@ -2092,21 +2403,21 @@ namespace battleutils
         else if (PDefender->objtype == TYPE_MOB)
         {
             CMobEntity* PMob = (CMobEntity*)PDefender;
-            if (PMob->getMobMod(MOBMOD_BLOCK) > 0)
+            if (PMob->getMobMod(MOBMOD_BLOCK) > 0 || PMob->getMod(Mod::SHIELDBLOCKRATE) > 0)
             {
-                return base = PMob->getMobMod(MOBMOD_BLOCK);
+                base = PMob->getMobMod(MOBMOD_BLOCK);
+                base += PMob->getMod(Mod::SHIELDBLOCKRATE);
+                base = std::clamp(base, 0, 100);
+                return base;
             }
             else
                 return 0;
         }
-        else if (PDefender->objtype == TYPE_PET && static_cast<CPetEntity*>(PDefender)->getPetType() == PETTYPE_AUTOMATON && PDefender->GetMJob() == JOB_PLD)
+        else if (PDefender->objtype == TYPE_PET)
         {
-            float skillmodifier = (PDefender->GetSkill(SKILL_AUTOMATON_MELEE) - attackskill) * 0.2325f;
             base = PDefender->getMod(Mod::SHIELDBLOCKRATE);
-            if (base <= 0)
-                return 0;
-            else
-                return base + (int32)skillmodifier;
+            base = std::clamp(base, 0, 100);
+            return base;
         }
         else
             return 0;
@@ -2186,7 +2497,53 @@ namespace battleutils
                 // Inquartata grants a flat parry rate bonus.
                 int16 inquartataBonus = static_cast<int16>(PDefender->getMod(Mod::INQUARTATA));
                 parryRate += (uint8)inquartataBonus;
-                // printf("Your parryrtate is... %f \n", parryRate);
+
+                // Parry rate caps at 80% like Counter(unverified)
+                if (parryRate > 80.0f)
+                {
+                    parryRate = 80.0f;
+                }
+                // printf("Player parry rate is... %f \n", parryRate);
+                return static_cast<uint8>(parryRate);
+            }
+        }
+
+        return 0;
+    }
+
+    uint8 GetMobParryRate(CBattleEntity* PAttacker, CBattleEntity* PDefender)
+    {
+        CItemWeapon* PWeapon = GetEntityWeapon(PDefender, SLOT_MAIN);
+        if (PDefender->objtype == TYPE_MOB)
+        {
+            JOBTYPE job = PDefender->GetMJob();
+
+            if (job == JOB_NIN || job == JOB_SAM || job == JOB_THF || job == JOB_BST || job == JOB_DRG || job == JOB_PLD || job == JOB_WAR || job == JOB_BRD ||
+                job == JOB_DRK || job == JOB_RDM || job == JOB_COR || job == JOB_DNC || job == JOB_PUP || job == JOB_RUN || job == JOB_BLU || job == JOB_MNK ||
+                job == JOB_GEO || job == JOB_SCH)
+            {
+                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) || ((CMobEntity*)PDefender)->getMobMod(MOBMOD_CAN_PARRY) == 0)
+                {
+                    return 0;
+                }
+                auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
+                uint16 attackskill = static_cast<uint16>(PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0)));
+                uint16 skill = static_cast<uint16>((PDefender->GetSkill(SKILL_PARRY) + PDefender->getMod(Mod::PARRY) + PWeapon->getILvlParry()));
+
+                // parry rate = clamp(15 + floor((parryskill - weaponskill)*.125f - (level correction?)),5,20)
+                // https://ffxilogdialy.hatenablog.com/entry/2018/08/10/113719
+                auto parryRate = std::clamp<float>((float)((15 + floor(skill - attackskill) * 0.125f)), 5.0f, 20.0f);
+
+                // Inquartata grants a flat parry rate bonus.
+                int16 inquartataBonus = static_cast<int16>(PDefender->getMod(Mod::INQUARTATA));
+                parryRate += (uint8)inquartataBonus;
+
+                //  Parry rate caps at 80% like Counter(unverified)
+                if (parryRate > 80.0f)
+                {
+                    parryRate = 80.0f;
+                }
+                // printf("Mobs parry rate is... %f \n", parryRate);
                 return static_cast<uint8>(parryRate);
             }
         }
@@ -2269,7 +2626,7 @@ namespace battleutils
             damage = (int32)(damage * (1.f + (DMGSPIRITS / 100.f)));
             // TODO: chance to 'resist'
 
-            damage = BreathDmgTaken(PDefender, damage);
+            damage = BreathDmgTaken(PDefender, damage, ELEMENT_NONE);
         }
         else
         {
@@ -2518,7 +2875,10 @@ namespace battleutils
 
                 baseTp = CalculateBaseTP((int16)(delay * 60.0f / 1000.0f / ratio));
 
-                if (PAttacker->objtype == TYPE_PET) // Pets gain 84 tp per hit
+                auto PPet = dynamic_cast<CPetEntity*>(PAttacker);
+
+                // Pets gain ~84 tp per hit
+                if (PAttacker->objtype == TYPE_PET && PPet->getPetType() != PETTYPE_AUTOMATON)
                 {
                     baseTp = (baseTp / 4) + 5;
                 }
@@ -2556,7 +2916,8 @@ namespace battleutils
                     }
                 }
 
-                //mobs hit get basetp+30 whereas pcs hit get basetp/3
+                auto PPet = dynamic_cast<CPetEntity*>(PDefender);
+                //mobs get basetp+30 whereas pcs get basetp/3 when hit
                 if (PDefender->objtype == TYPE_PC)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
@@ -2685,14 +3046,8 @@ namespace battleutils
             float sBlow2 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW_II), -50.0f, 50.0f);
             float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
 
-            //int16 bonusTP = 0;
-            //if (tpzrand::GetRandomNumber(100) < PAttacker->getMod(Mod::TP_BOOST_WHEN_DMGD))
-            //{
-            //    // Occasionally boosts TP 1-3 points when damaged.
-            //    bonusTP = tpzrand::GetRandomNumber(10, 30);
-            //} 
 
-            //mobs hit get basetp+30 whereas pcs hit get basetp/3
+            //mobs get basetp+30 whereas pcs get basetp/3 on attack
             if (PDefender->objtype == TYPE_PC)
                 PDefender->addTP((int16)(tpMultiplier * targetTPMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
             else
@@ -2832,31 +3187,34 @@ namespace battleutils
             // (Not a post Adoulin Zone) && (Not Legion_A)
             bool shouldApplyLevelCorrection = (zoneId < 256) && (zoneId != 183);
 
-            if (shouldApplyLevelCorrection) {
-                int16 dLvl = PAttacker->GetMLevel() - PDefender->GetMLevel();
+            // https://www.bg-wiki.com/ffxi/Hit_Rate#:~:text=99%25%20For%20one%2Dhanded%20main,95%25%20for%20ranged%20attacks
+            if (shouldApplyLevelCorrection)
+            {
+                int16 dLvl = 0;
                 // Skip penalties for avatars, this should likely be all pets and mobs but I have no proof
                 // of this for ACC, ATT level correction for Pets/Avatars is the same as mobs though.
                 bool isPet = PAttacker->objtype == TYPE_PET;
                 bool isAvatar = false;
-                
-                if (isPet) {
+
+                if (isPet)
+                {
                     CPetEntity* petEntity = dynamic_cast<CPetEntity*>(PAttacker);
-                    isAvatar = petEntity->getPetType() == PETTYPE_AVATAR;
+                    isAvatar = petEntity ? petEntity->getPetType() == PETTYPE_AVATAR : false;
                 }
 
                 if (isAvatar)
                 {
-                    if (dLvl > 0)
-                    {
-                        // Avatars have a known level difference cap of 38
-                        hitrate += static_cast<int16>(std::min(dLvl, (int16)38) * 2);
-                    }
+                    dLvl = PAttacker->GetMLevel() - PDefender->GetMLevel();
+                    // Avatars have a known level difference cap of 38
+                    dLvl = std::clamp(dLvl, static_cast<int16>(0), static_cast<int16>(38));
                 }
-                else
+                // Only players are penalized for dLvl
+                else if (PAttacker->objtype == TYPE_PC && PAttacker->GetMLevel() < PDefender->GetMLevel())
                 {
-                    // Everything else has no known caps, though it's likely 38 like avatars
-                    hitrate += static_cast<int16>(dLvl * 2);
+                    dLvl = PAttacker->GetMLevel() - PDefender->GetMLevel();
                 }
+
+                hitrate += static_cast<int16>(dLvl * 2);
             }
 
             // https://www.bg-wiki.com/bg/Hit_Rate
@@ -3118,9 +3476,29 @@ namespace battleutils
             defense = 1;
         }
 
+        
+        ENTITYTYPE attackerType = PAttacker->objtype;
+
+        uint8 attackerLvl = PAttacker->GetMLevel();
+        uint8 defenderLvl = PDefender->GetMLevel();
+
+        uint16 ignoredDef = 0;
+        uint16 ignoredDefMod = 0;
+        // Check for Attuner (PUP)
+        // 15/30/45/60% ignored based on currently active manuevers
+        if (attackerType == TYPE_PET)
+        {
+            if (attackerLvl < defenderLvl && (int16)PAttacker->GetLocalVar("attuner") > 0)
+            {
+                ignoredDef = (int16)PAttacker->GetLocalVar("attunerBonus");
+                ignoredDef = (defense * ignoredDef) / 100;
+
+            }
+        }
+      
         // https://www.bg-wiki.com/bg/PDIF
         // https://www.bluegartr.com/threads/127523-pDIF-Changes-(Feb.-10th-2016)
-        float ratio = (static_cast<float>(attack)) / (static_cast<float>(defense));
+        float ratio = (static_cast<float>(attack)) / ((static_cast<float>(defense) - ignoredDef));
         float cRatio = ratio;
 
         // Level correction does not happen in Adoulin zones, Legion, or zones in Escha/Reisenjima
@@ -3139,10 +3517,6 @@ namespace battleutils
         // (Not a post Adoulin Zone) && (Not Legion_A)
         bool shouldApplyLevelCorrection = (zoneId < 256) && (zoneId != 183);
 
-        ENTITYTYPE attackerType = PAttacker->objtype;
-
-        uint8 attackerLvl = PAttacker->GetMLevel();
-        uint8 defenderLvl = PDefender->GetMLevel();
         uint8 dLvl = std::abs(attackerLvl - defenderLvl);
         float correction = static_cast<float>(dLvl) * 0.05f;
 
@@ -4120,11 +4494,22 @@ namespace battleutils
 
         if (PDefender->objtype == TYPE_MOB)
         {
-            // Listener (hook)
-            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker, currentElement, damage);
-
-            // Binding
-            luautils::OnSkillchain(PDefender, PAttacker);
+            auto enmityList = ((CMobEntity*)PDefender)->PEnmityContainer->GetEnmityList();
+            for (auto iter = enmityList->begin(); iter != enmityList->end(); iter++)
+            {
+                auto entity = iter->second.PEnmityOwner;
+                if (entity->objtype == TYPE_PET)
+                {
+                    if (((CPetEntity*)entity)->getPetType() == PETTYPE_AUTOMATON)
+                    {
+                        if (((int16)entity->GetLocalVar("amplifier_mburst") > 0) || ((int16)entity->GetLocalVar("amplifier_mburst_II") > 0))
+                        {
+                            auto controller = entity->PAI->GetController();
+                            ((CAutomatonController*)controller)->ResetCastDelay();
+                        }
+                    }
+                }
+            }
         }
 
         PDefender->takeDamage(damage, PAttacker, ATTACK_SPECIAL, appliedEle == ELEMENT_NONE ? DAMAGE_NONE : (DAMAGETYPE)(DAMAGE_ELEMENTAL + appliedEle));
@@ -4536,7 +4921,7 @@ namespace battleutils
 
                 if (PCurrentMob->m_HiPCLvl > 0 && PCurrentMob->PEnmityContainer->HasID(PSource->id))
                 {
-                    PCurrentMob->PEnmityContainer->UpdateEnmity(PSource, CE, VE);
+                    PCurrentMob->PEnmityContainer->UpdateEnmity(PSource, CE, VE, false, false, false);
                 }
             }
         }
@@ -4580,9 +4965,11 @@ namespace battleutils
             //at most 2% bonus from gear
             auto gearBonusPercent = m_PChar->getMod(Mod::SOULEATER_EFFECT);
             drainPercent = drainPercent + std::min(0.02f, 0.01f * gearBonusPercent);
+            drainPercent = std::clamp(drainPercent, 0.01f, 0.15f); // Caps at 15%
+            auto stalwartSoul = std::clamp(m_PChar->getMod(Mod::STALWART_SOUL)* 0.001f, 0.0f, 0.10f);
 
             damage += (uint32)(m_PChar->health.hp * drainPercent);
-            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - m_PChar->getMod(Mod::STALWART_SOUL) * 0.001f))));
+            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - stalwartSoul))));
         }
         else if (m_PChar->GetSJob() == JOB_DRK &&m_PChar->health.hp >= 10 && m_PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SOULEATER))
         {
@@ -4859,7 +5246,7 @@ namespace battleutils
 
         // try skill up (CharEntity only)
         if (PAttacker->objtype == TYPE_PC)
-            charutils::TrySkillUP((CCharEntity*)PAttacker, (SKILLTYPE)PWeapon->getSkillType(), PVictim->GetMLevel());
+            charutils::TrySkillUP((CCharEntity*)PAttacker, (SKILLTYPE)PWeapon->getSkillType(), PVictim->GetMLevel(), true);
 
         // jump + high jump doesn't give any tp to victim
         battleutils::TakePhysicalDamage(PAttacker, PVictim, PHYSICAL_ATTACK_TYPE::NORMAL, totalDamage, false, fstrslot, realHits, nullptr, false, true);
@@ -5006,6 +5393,11 @@ namespace battleutils
             battleutils::RelinquishClaim(static_cast<CCharEntity*>(PVictim));
             PVictim->PMaster = PCharmer;
             PVictim->updatemask |= UPDATE_ALL_CHAR;
+
+            // Prevent auto attacks for a little bit to simulate retail
+            // On retail, you don't engage for a little bit, which we have no mechanism for yet
+            // TODO: implement the delays on engage (also applies to mobs) and verify exact timings for those things.
+            PVictim->PAI->Inactive(5000ms, false);
         }
         PVictim->allegiance = PCharmer->allegiance;
         PVictim->updatemask |= UPDATE_HP;
@@ -5286,8 +5678,12 @@ namespace battleutils
         PChar->PClaimedMob = nullptr;
     }
 
-    int32 BreathDmgTaken(CBattleEntity* PDefender, int32 damage)
+    int32 BreathDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element)
     {
+        Mod absorb[8] = { Mod::FIRE_ABSORB, Mod::ICE_ABSORB,   Mod::WIND_ABSORB,  Mod::EARTH_ABSORB,
+                          Mod::LTNG_ABSORB, Mod::WATER_ABSORB, Mod::LIGHT_ABSORB, Mod::DARK_ABSORB };
+        Mod nullarray[8] = { Mod::FIRE_NULL, Mod::ICE_NULL, Mod::WIND_NULL, Mod::EARTH_NULL, Mod::LTNG_NULL, Mod::WATER_NULL, Mod::LIGHT_NULL, Mod::DARK_NULL };
+
         float resist = 1.0f + floor( 256.0f * ( PDefender->getMod(Mod::UDMGBREATH) / 100.0f )  ) / 256.0f;
         resist = std::max<float>(resist, 0);
         damage = (int32)(damage * resist);
@@ -5297,7 +5693,11 @@ namespace battleutils
         resist = std::clamp(resist, 0.5f, 1.5f); //assuming if its floored at .5f its capped at 1.5f but who's stacking +dmgtaken equip anyway???
         damage = (int32)(damage * resist);
 
+        if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 1)
+            damage = HandleSteamJacket(PDefender, damage, element);
+
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
+            (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
             if (PDefender->getMod(Mod::MAGIC_ABSORB) > 100)
             {
@@ -5307,13 +5707,17 @@ namespace battleutils
             {
                 damage = -damage;
             }
+        else if ((element && tpzrand::GetRandomNumber(100) < PDefender->getMod(nullarray[element - 1])) ||
+                 tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
+            damage = 0;
+        else
         {
             damage = HandleSevereDamage(PDefender, damage, false);
             int16 absorbedMP = (int16)(damage * PDefender->getMod(Mod::ABSORB_DMG_TO_MP) / 100);
             if (absorbedMP > 0)
                 PDefender->addMP(absorbedMP);
         }
-
+        // ShowDebug(CL_CYAN"BreathDmgTaken: Element = %d\n" CL_RESET, element);
         return damage;
     }
 
@@ -5334,7 +5738,7 @@ namespace battleutils
         damage = (int32)(damage * resist);
 
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 1)
-            damage = HandleSteamJacket(PDefender, damage, 5);
+            damage = HandleSteamJacket(PDefender, damage, element);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
@@ -5358,7 +5762,7 @@ namespace battleutils
                 PDefender->addMP(absorbedMP);
         }
 
-        // ShowDebug(CL_CYAN"MagicDmgTaken: Element = %d\n" CL_RESET, element);
+        //ShowDebug(CL_CYAN"MagicDmgTaken: Element = %d\n" CL_RESET, element);
         return damage;
     }
 
@@ -5373,11 +5777,8 @@ namespace battleutils
         resist += PDefender->getMod(Mod::DMGPHYS_II) / 100.f; // Add Burtgang reduction after 50% cap. Extends cap to -68%
         damage = (int32)(damage * resist);
 
-        if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 0)
-            damage = HandleSteamJacket(PDefender, damage, damageType);
-
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_EQUALIZER) > 0)
-            damage -= (int32)(damage / float(PDefender->GetMaxHP()) * (PDefender->getMod(Mod::AUTO_EQUALIZER) / 100.0f));
+            damage -= (int32)(damage / float(PDefender->GetMaxHP()) * (PDefender->getMod(Mod::AUTO_EQUALIZER) / 100.0f) * 100);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::PHYS_ABSORB))
@@ -5421,7 +5822,7 @@ namespace battleutils
         damage = (int32)(damage * resist);
 
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 1)
-            damage = HandleSteamJacket(PDefender, damage, 5);
+            damage = HandleSteamJacket(PDefender, damage, element);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
@@ -5461,9 +5862,6 @@ namespace battleutils
         resist = std::max(resist, 0.5f);
         damage = (int32)(damage * resist);
 
-        if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 0)
-            damage = HandleSteamJacket(PDefender, damage, damageType);
-
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_EQUALIZER) > 0)
         {
             damage -= (int32)(damage / float(PDefender->GetMaxHP()) * (PDefender->getMod(Mod::AUTO_EQUALIZER) / 100.0f));
@@ -5493,14 +5891,14 @@ namespace battleutils
         return damage;
     }
 
-    int32 HandleSteamJacket(CBattleEntity* PDefender, int32 damage, int16 damageType)
+    int32 HandleSteamJacket(CBattleEntity* PDefender, int32 damage, ELEMENT element)
     {
         auto steamJacketType = (int16)PDefender->GetLocalVar("steam_jacket_type");
         int16 steamJacketHits = (int16)PDefender->GetLocalVar("steam_jacket_hits");
 
-        if (steamJacketType != damageType)
+        if (steamJacketType != element)
         {
-            PDefender->SetLocalVar("steam_jacket_type", damageType);
+            PDefender->SetLocalVar("steam_jacket_type", element);
             steamJacketHits = 0;
         }
 
@@ -5516,7 +5914,7 @@ namespace battleutils
         if (PAttacker->objtype == TYPE_MOB &&
              PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ISSEKIGAN)) {
             // Issekigan is Known to Grant 300 CE per parry, but unknown how it effects VE (per bgwiki). So VE is left alone for now.
-            static_cast<CMobEntity*>(PAttacker)->PEnmityContainer->UpdateEnmity(PDefender, 300, 0, false);
+            static_cast<CMobEntity*>(PAttacker)->PEnmityContainer->UpdateEnmity(PDefender, 300, 0, false, false);
         }
     }
 
@@ -5795,27 +6193,28 @@ namespace battleutils
     ************************************************************************/
     void assistTarget(CCharEntity* PChar, uint16 TargID)
     {
-        // get the player we want to assist
-        CBattleEntity* PlayerToAssist = (CBattleEntity*)PChar->GetEntity(TargID, TYPE_MOB | TYPE_PC);
-        if (PlayerToAssist != nullptr)
+        // get the entity we want to assist
+        CBattleEntity* EntityToAssist = (CBattleEntity*)PChar->GetEntity(TargID, TYPE_MOB | TYPE_PC);
+        if (EntityToAssist != nullptr)
         {
-            if (PlayerToAssist->objtype == TYPE_PC && PlayerToAssist->m_TargID != 0)
+            if (EntityToAssist->objtype == TYPE_PC && EntityToAssist->GetBattleTargetID() != 0)
             {
-                // get that players target (mob,player,pet only)
-                CBattleEntity* EntityToLockon = (CBattleEntity*)PChar->GetEntity(PlayerToAssist->m_TargID, TYPE_MOB | TYPE_PC | TYPE_PET);
+                // get that players engaged target
+                CBattleEntity* EntityToLockon = EntityToAssist->GetBattleTarget();
                 if (EntityToLockon != nullptr)
                 {
                     // lock on to the new target!
                     PChar->pushPacket(new CLockOnPacket(PChar, EntityToLockon));
                 }
             }
-            else if (PlayerToAssist->GetBattleTargetID() != 0)
+            else if (EntityToAssist->GetBattleTargetID() != 0)
             {
                 // lock on to the new target!
-                PChar->pushPacket(new CLockOnPacket(PChar, PlayerToAssist->GetBattleTarget()));
+                PChar->pushPacket(new CLockOnPacket(PChar, EntityToAssist->GetBattleTarget()));
             }
         }
     }
+
 
     uint8 GetSpellAoEType(CBattleEntity* PCaster, CSpell* PSpell)
     {

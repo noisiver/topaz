@@ -19,8 +19,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.numHits = 1
-    params.ftp100 = 1.5 params.ftp200 = 1.7 params.ftp300 = 2.0
-    params.str_wsc = 0.25 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.25 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
+    params.ftp100 = 1.0 params.ftp200 = 1.0 params.ftp300 = 1.0
+    params.str_wsc = 0.25 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
     params.acc100 = 0.0 params.acc200= 0.0 params.acc300= 0.0
@@ -33,12 +33,15 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0)
 
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.INT_DOWN) == false) and resist >= 0.5 then
-    local duration = duration * resist
-    local power = math.floor((player:getMainLvl() / 10) * (tp / 2000) + 5)
-        target:addStatusEffect(tpz.effect.INT_DOWN, power, 0, duration)
+    if (damage > 0 and target:hasStatusEffect(tpz.effect.ADDLE) == false) and resist >= 0.5 then
+        local duration = 180 * resist
+        local power = 15
+        target:addStatusEffect(tpz.effect.ADDLE, power, 0, duration, 0, power)
     end
-		if damage > 0 then player:trySkillUp(target, tpz.skill.ARCHERY, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
+	if damage > 0 then player:trySkillUp(target, tpz.skill.ARCHERY, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    player:addStatusEffectEx(tpz.effect.MEDITATE, 0, 20, 3, 15)
+
     return tpHits, extraHits, criticalHit, damage
 end

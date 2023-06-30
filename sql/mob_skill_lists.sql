@@ -704,7 +704,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2050);
 INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2051);
 INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2053);
 INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2062);
--- 153 to 154: taken by random mobs?
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,3);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,4);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,5);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,6);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,7);
+-- 154 random mobs?
 INSERT INTO `mob_skill_lists` VALUES ('Asterion_50',155,499); -- back_swish
 INSERT INTO `mob_skill_lists` VALUES ('Asterion_50',155,501); -- frightful_roar
 INSERT INTO `mob_skill_lists` VALUES ('Asterion_0',156,499); -- back_swish
@@ -3874,6 +3879,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Vial',1170,2371);
 INSERT INTO `mob_skill_lists` VALUES ('Head_Butt_Autoattack',1171,3843); 
 INSERT INTO `mob_skill_lists` VALUES ('Skull_Smash_only',1172,2267); 
 
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Slapstick',1173,1943);
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Valoredge',1174,1940);
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Valoredge',1174,1941);
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Sharpshot',1175,1942);
+
+INSERT INTO `mob_skill_lists` VALUES ('Blighting_Brand',1176,1560); -- Whispers of Ire only
+INSERT INTO `mob_skill_lists` VALUES ('Eldritch_Edge',1177,1559); -- Flurry of Rage only
+
+
 -- Custom Content
 
 -- Murgleis
@@ -4536,6 +4550,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1566); --
 -- MMM End
 
 -- ANNM Start
+
 INSERT INTO `mob_skill_lists` VALUES ('Aqua_Fortis_Autoattack',6131,2211); 
 
 INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,819); -- blizzard breath -- chance of ice spikes effect
@@ -4559,6 +4574,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1680);
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1681); 
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207); 
 
+-- ANNM End
+
 -- Maybe needs skllID 1-9
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,1); -- combo
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,2); -- shoulder_attack
@@ -4566,11 +4583,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,7); -- howling fists
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,8); -- dragon kick
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
 
-INSERT INTO `mob_skill_lists` VALUES ('RaDha_Scarscute',6136,2267); -- Skull Smash
+INSERT INTO `mob_skill_lists` VALUES ('Nashmeira',6136,3243); -- Imperial Authority
 
--- ANNM End
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,69); -- Rampage
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,71); -- Mistral Axe
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,72); -- Decimation
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,74); -- Primal Rend
 
-
-
--- Next available ID: 1173
+-- Next available ID: 1178
+-- Next custom ID: 6138
 

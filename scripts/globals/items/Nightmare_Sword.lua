@@ -9,7 +9,9 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local dmg = doAdditionalEffectDamage(player, target, 100, 5, nil, false, 0, tpz.magic.ele.DARK, 0)
+    local chance = CalculateAdditionalEffectChance(player, 100)
+    local power = 5
+    local dmg = doAdditionalEffectDamage(player, target, chance, power, nil, false, 0, tpz.magic.ele.DARK, 0)
 
     if dmg == 0 or target:isUndead() then
         return 0, 0, 0

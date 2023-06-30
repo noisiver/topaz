@@ -22,7 +22,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local message = tpz.msg.basic.SKILL_MISS
-    local typeEffect = tpz.effect.SLEEP_I
+    local typeEffect = tpz.effect.SLEEP_II
 
     target:addStatusEffectEx(tpz.effect.DEEPSLEEP,0,1,3,90)
     skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 90))

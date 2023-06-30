@@ -19,10 +19,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.CHOKE
     local power = 7
-
-    local dmgmod = 1.5
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
+    local dmgmod = mob:getMainLvl() * 4
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
     MobStatusEffectMove(mob, target, typeEffect, power, 3, 90)
     return dmg

@@ -35,7 +35,7 @@ function onEventFinish(player, csid, option)
     if csid == 521 then
         player:addKeyItem(tpz.ki.MONARCH_BEARD)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MONARCH_BEARD)
-        player:setCharVar("[ENM]MonarchBeardTimer", VanadielTime()+39600) -- Current time +11 hrs
+        player:setCharVar("[ENM]MonarchBeardTimer", os.time() + 432000) -- 5 days
     end
     if csid == 522 then
         -- player:updateEvent(MonarchBeardTimer, MonarchBeardTimer, MonarchBeardTimer, MonarchBeardTimer, MonarchBeardTimer, MonarchBeardTimer, MonarchBeardTimer, MonarchBeardTimer)

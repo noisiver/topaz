@@ -9,44 +9,33 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.THUNDER_MANEUVER)
 end
 
-function onPetAbility(target, automaton, skill, master, action)
-    local params = {
-        numHits = 1,
-        atkmulti = 1,
-        accBonus = 150,
-        ftp100 = 5.0,
-        ftp200 = 5.5,
-        ftp300 = 6.0,
-        acc100 = 0.0,
-        acc200 = 0.0,
-        acc300 = 0.0,
-        str_wsc = 0.0,
-        dex_wsc = 0.0,
-        vit_wsc = 0.0,
-        agi_wsc = 0.0,
-        int_wsc = 0.0,
-        mnd_wsc = 0.0,
-        chr_wsc = 0.0
-    }
+function onPetAbility(target, pet, skill)
+    local numhits = 1
+    local params = {}
+    params.ftp100 = 6.0 -- 6.0
+    params.ftp200 = 6.5 -- 8.5
+    params.ftp300 = 7.0 -- 11.0
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.6
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.accBonus = 50
 
-    if USE_ADOULIN_WEAPON_SKILL_CHANGES then
-        params.dex_wsc = 1.0
-        params.ftp100 = 6.0
-        params.ftp200 = 8.5
-        params.ftp300 = 11.0
-    end
+    local effect = tpz.effect.STUN
+    local power = 1
+    local duration = 12
+    local bonus = 0
 
-    local damage = doAutoRangedWeaponskill(automaton, target, 0, params, skill:getTP(), true, skill, action)
+    local damage = AutoPhysicalWeaponSkill(pet, target, skill, tpz.attackType.RANGED, numhits, TP_DMG_BONUS, params)
+    dmg = AutoPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, damage.hitslanded, params)
+    AutoPhysicalStatusEffectWeaponSkill(pet, target, skill, effect, power, duration, params, bonus)
 
-    if damage > 0 then
-        local chance = 0.033 * skill:getTP()
-        if not target:hasStatusEffect(tpz.effect.STUN) and chance >= math.random()*100 then
-            target:addStatusEffect(tpz.effect.STUN, 1, 0, 4)
-        end
-    end
-
-    return damage
+    return dmg
 end

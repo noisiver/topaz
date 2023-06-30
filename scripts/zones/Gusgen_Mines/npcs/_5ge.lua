@@ -11,14 +11,19 @@ function onTrigger(player, npc)
     --local nID = npc:getID()
     -- printf("id: %u", nID)
 
-    local Lever = npc:getID()
-
     npc:openDoor(2) -- Lever animation
-    if (GetNPCByID(Lever-6):getAnimation() == 9) then
-        GetNPCByID(Lever-7):setAnimation(9)--close door F
-        GetNPCByID(Lever-6):setAnimation(8)--open door E
-        GetNPCByID(Lever-5):setAnimation(9)--close door D
-    end
+    npc:timer(750, function(npc)
+        local lever = npc:getID()
+
+        if GetNPCByID(lever - 6):getAnimation() == 9 then
+            -- send dustcloud animation
+            SendEntityVisualPacket(GetNPCByID(lever - 6):getID(), "kem1")
+
+            GetNPCByID(lever - 7):setAnimation(9) -- close door F
+            GetNPCByID(lever - 6):setAnimation(8) -- open door E
+            GetNPCByID(lever - 5):setAnimation(9) -- close door D
+        end
+    end)
 
 end
 

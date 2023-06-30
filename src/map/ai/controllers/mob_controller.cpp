@@ -171,6 +171,18 @@ void CMobController::TryLink()
         ((CMobEntity*)PMob->PPet)->PEnmityContainer->AddBaseEnmity(PTarget);
     }
 
+    // Mobs shouldn't link to pets without master being engaged
+    if (PTarget->objtype == TYPE_PET && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
+    {
+        return;
+    }
+
+    // Mobs shouldn't link to charmed pets
+    if (PTarget->objtype == TYPE_MOB && PTarget->isCharmed && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
+    {
+        return;
+    }
+
     // Handle monster linking if they are close enough
     if (PMob->PParty != nullptr)
     {
@@ -216,6 +228,12 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     float verticalDistance = abs(PMob->loc.p.y - PTarget->loc.p.y);
 
     if (verticalDistance > 12 && PMob->getMobMod(MOBMOD_VERTICAL_AGGRO) == 0)
+    {
+        return false;
+    }
+
+
+    if (PTarget->loc.zone->HasReducedVerticalAggro() && verticalDistance > 3.5f)
     {
         return false;
     }
@@ -496,7 +514,7 @@ bool CMobController::IsUndead()
 bool CMobController::CanSeePoint(position_t pos)
 {
     TracyZoneScoped;
-    if (PMob->PAI->PathFind)
+    if (PMob->PAI->PathFind && PMob->m_Family != 6) // Amphiptere paths don't match player's level very well, so pathfind checks mostly fail
     {
         return PMob->PAI->PathFind->CanSeePoint(pos);
     }
@@ -544,6 +562,10 @@ bool CMobController::MobSkill(int wsList)
         else
         {
             continue;
+        }
+        if (PActionTarget == nullptr)
+        {
+            return false;
         }
         float currentDistance = distance(PMob->loc.p, PActionTarget->loc.p);
         if (!PMobSkill->isTwoHour() && luautils::OnMobSkillCheck(PActionTarget, PMob, PMobSkill) == 0) //A script says that the move in question is valid
@@ -652,7 +674,6 @@ bool CMobController::TryCastSpell()
 
         if (chosenSpellId && currentDistance <= 20.4)
         {
-            //#TODO: select target based on spell type
             CastSpell(chosenSpellId.value());
             return true;
         }
@@ -700,13 +721,14 @@ void CMobController::CastSpell(SpellID spellid)
     else
     {
         CBattleEntity* PCastTarget = nullptr;
+        CBattleEntity* PCureTarget = nullptr;
         // check valid targets
         if (PSpell->getValidTarget() & TARGET_SELF)
         {
             PCastTarget = PMob;
 
             // only buff other targets if i'm roaming
-            if ((PSpell->getValidTarget() & TARGET_PLAYER_PARTY))
+            if ((PSpell->getValidTarget() & TARGET_PLAYER_PARTY) && !PMob->PAI->IsEngaged())
             {
                 // chance to target my master
                 if (PMob->PMaster != nullptr && tpzrand::GetRandomNumber(2) == 0)
@@ -738,6 +760,22 @@ void CMobController::CastSpell(SpellID spellid)
         {
             PCastTarget = PTarget;
         }
+
+        // TODO: Cure other party members if they are low HP logic
+        //if (PSpell->getValidTarget() & TARGET_PLAYER_PARTY)
+        //{
+        //    PMob->PAI->TargetFind->reset();
+        //    PMob->PAI->TargetFind->findWithinArea(PMob, AOERADIUS_ATTACKER, PSpell->getRange());
+        //    if (!PMob->PAI->TargetFind->m_targets.empty())
+        //    {
+        //        PCureTarget = PMob->PAI->TargetFind->m_targets[tpzrand::GetRandomNumber(PMob->PAI->TargetFind->m_targets.size())];
+        //        PMob->PAI->TargetFind->findWithinArea(PMob, AOERADIUS_ATTACKER, PSpell->getRange());
+        //        if (PCureTarget->GetHPP() <= PMob->getMobMod(MOBMOD_HP_HEAL_CHANCE) && PCureTarget->GetHPP() >=d PMob->getMobMod(MOBMOD_HP_HEAL_CHANCE))
+        //        {
+        //            PCastTarget = PCureTarget;
+        //        }
+        //    }
+        //}
 
         if (PCastTarget)
         {
@@ -1016,8 +1054,8 @@ void CMobController::DoRoamTick(time_point tick)
         PMob->m_OwnerID.clean();
     }
 
-    //skip roaming if waiting
-    if (m_Tick >= m_WaitTime)
+    //skip roaming if waiting or bound
+    if (m_Tick >= m_WaitTime && !PMob->StatusEffectContainer->HasStatusEffect(EFFECT_BIND))
     {
         // don't aggro a little bit after I just disengaged
         PMob->m_neutral = PMob->CanBeNeutral() && m_Tick <= m_NeutralTime + 10s;
@@ -1035,8 +1073,8 @@ void CMobController::DoRoamTick(time_point tick)
                 PMob->CallForHelp(false);
             }
 
-            // can't rest with poison or disease
-            if (PMob->CanRest() && PMob->getMobMod(MOBMOD_NO_REST) == 0)
+            // can't rest with a DOT on (plague does not stop mob regen)
+            if (!PMob->getMod(Mod::REGEN_DOWN) && PMob->getMobMod(MOBMOD_NO_REST) == 0)
             {
                 // recover 10% health
                 if (PMob->Rest(0.1f))
@@ -1265,6 +1303,8 @@ bool CMobController::Disengage()
     PMob->updatemask |= (UPDATE_STATUS | UPDATE_HP);
     PMob->CallForHelp(false);
     PMob->animation = ANIMATION_NONE;
+    // https://www.bluegartr.com/threads/108198-Random-Facts-Thread-Traits-and-Stats-(Player-and-Monster)?p=5670209&viewfull=1#post5670209
+    PMob->m_THLvl = 0;
 
     return CController::Disengage();
 }
@@ -1345,6 +1385,12 @@ bool CMobController::CanAggroTarget(CBattleEntity* PTarget)
 
     // Don't aggro I'm special
     if (PMob->getMobMod(MOBMOD_NO_AGGRO) > 0)
+    {
+        return false;
+    }
+
+    // Don't aggro I'm a players charmed pet
+    if (PTarget->objtype == TYPE_MOB && PTarget->isCharmed)
     {
         return false;
     }

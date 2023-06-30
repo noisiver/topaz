@@ -378,12 +378,11 @@ bool CAttack::CheckAnticipated()
             // increment power and don't remove
             effect->SetPower(effect->GetPower() + 1);
             // chance to counter - 25% base
-            if (!m_victim->StatusEffectContainer->HasPreventActionEffect() &&
+            if (!m_victim->StatusEffectContainer->HasPreventActionEffect(false) &&
                 tpzrand::GetRandomNumber(100) < 25 + m_victim->getMod(Mod::THIRD_EYE_COUNTER_RATE))
             {
                 if (m_victim->PAI->IsEngaged() && facing(m_victim->loc.p, m_attacker->loc.p, 40) &&
-                    !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) && !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) &&
-                    !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) && !m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR))
+                    !m_victim->StatusEffectContainer->HasPreventActionEffect(false))
                 {
                     m_isCountered = true;
                    // m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
@@ -408,9 +407,7 @@ bool CAttack::IsCountered()
 
 bool CAttack::CheckCounter()
 {
-    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
-        m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
-        m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+    if (!m_victim->StatusEffectContainer->HasPreventActionEffect(false))
     {
         return false;
     }
@@ -569,7 +566,7 @@ void CAttack::ProcessDamage()
     }
 
         // Circle Effects
-    if (m_victim->objtype == TYPE_MOB && m_damage > 0)
+    if (m_victim->objtype != TYPE_PC && m_damage > 0)
     {
         uint16 circlemult = 100;
 
@@ -690,12 +687,20 @@ void CAttack::ProcessDamage()
         m_damage = m_damage * 2;
     }
 
+    // Handle Scarlet Delirium
+    if (m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_SCARLET_DELIRIUM_1))
+    {
+        uint16 power = m_attacker->StatusEffectContainer->GetStatusEffect(EFFECT_SCARLET_DELIRIUM_1)->GetPower();
+        float dmgBonus = 1 + ((uint16)power / 100.0f);
+        m_damage = m_damage * (float)dmgBonus;
+    }
+
     // Try skill up.
     if (m_damage > 0)
     {
         if (auto weapon = dynamic_cast<CItemWeapon*>(m_attacker->m_Weapons[slot]))
         {
-            charutils::TrySkillUP((CCharEntity*)m_attacker, (SKILLTYPE)weapon->getSkillType(), m_victim->GetMLevel());
+            charutils::TrySkillUP((CCharEntity*)m_attacker, (SKILLTYPE)weapon->getSkillType(), m_victim->GetMLevel(), false);
         }
 
         if (m_attacker->objtype == TYPE_PET && m_attacker->PMaster && m_attacker->PMaster->objtype == TYPE_PC &&

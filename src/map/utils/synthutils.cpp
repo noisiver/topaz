@@ -131,11 +131,14 @@ bool isRightRecipe(CCharEntity* PChar)
                 #endif
                 if (currentSkill < (skillValue*10 - 110)) // Check player skill against recipe level. Range must be 14 or less. Changed from 150 to 110
                 {
-                    PChar->pushPacket(new CSynthMessagePacket(PChar, SYNTH_NOSKILL));
-                    #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
-                    ShowDebug(CL_CYAN"Not enough skill. Synth aborted.\n" CL_RESET);
-                    #endif
-                    return false;
+                    if (PChar->CraftContainer->getCraftType() != 1) // desynths have no level requirement
+                    {
+                        PChar->pushPacket(new CSynthMessagePacket(PChar, SYNTH_NOSKILL));
+                        #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
+                        ShowDebug(CL_CYAN"Not enough skill. Synth aborted.\n" CL_RESET);
+                        #endif
+                        return false;
+                    }
                 }
             }
             return true;
@@ -265,8 +268,8 @@ uint8 calcSynthResult(CCharEntity* PChar)
             }
             else
             {
-                if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth lower success rate
-                    success = 0.60 - (synthDiff / 10);  // changed from 0.45
+                if (PChar->CraftContainer->getCraftType() == 1) // if it's a desynth lower success rate
+                    success = 0.60; // changed from 0.45
                 else
                     success = 0.95 - (synthDiff / 10);
 
@@ -321,16 +324,21 @@ uint8 calcSynthResult(CCharEntity* PChar)
         {
             case 4:  chance = 0.5;      break; // 1 in 2
             case 3:  chance = 0.25;     break; // 1 in 4
-            case 2:  chance = 0.10;     break; // 1 in 10
-            case 1:  chance = 0.0625;   break; // 1 in 16
+            case 2:  chance = 0.0625;   break; // 1 in 16
+            case 1:  chance = 0.015625; break; // 1 in 64
             default: chance = 0.000;    break;
         }
 
-        if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth raise HQ chance
-            chance *= 1.5;
+        if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth, HQ rate is set to 60%
+
+        {
+            chance = 0.60;
+            canHQ = true;
+        }
 
         int16 modSynthHqRate = PChar->getMod(Mod::SYNTH_HQ_RATE);
-
+        //printf("Synthesis HQ chance %f \n", chance);
+        //printf("Can HQ? %s \n", canHQ ? "True" : "False");
         // Using x/512 calculation for HQ success rate modifier
         // see: https://www.bluegartr.com/threads/130586-CraftyMath-v2-Post-September-2017-Update
         chance += (double)modSynthHqRate / 512.;
@@ -458,17 +466,17 @@ int32 doSynthSkillUp(CCharEntity* PChar)
 
                     // Set satier initial rank
                     if((baseDiff >= 1) && (baseDiff < 3))
-                        satier = 0;
+                        satier = 1; // 10%
                     else if((baseDiff >= 3) && (baseDiff < 5))
-                        satier = 1; // changed from 2
+                        satier = 2; // 20%
                     else if((baseDiff >= 5) && (baseDiff < 8))
-                        satier = 2; // changed from 3
+                        satier = 3; // 30%
                     else if((baseDiff >= 8) && (baseDiff < 10))
-                        satier = 3; //changed from 4
+                        satier = 4; // 50%
                     else if (baseDiff >= 10)
-                        satier = 2; // changed from 5
+                        satier = 3; // 30%
 
-                    for(uint8 i = 0; i < 4; i ++) // cicle up to 4 times until cap (0.5) or break. The lower the satier, the more likely it will break
+                    for(uint8 i = 0; i < 2; i ++) // cicle up to 2 times until cap (0.3) or break. The lower the satier, the more likely it will break
                     {
                         #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
                         ShowDebug(CL_CYAN"SkillUpAmount Tier: %i  Random: %g\n" CL_RESET, satier, random);
@@ -476,11 +484,11 @@ int32 doSynthSkillUp(CCharEntity* PChar)
 
                         switch(satier)
                         {
-                            case 5:  chance = 0.900; break;
-                            case 4:  chance = 0.700; break;
-                            case 3:  chance = 0.500; break;
-                            case 2:  chance = 0.300; break;
-                            case 1:  chance = 0.200; break;
+                            case 5:  chance = 0.700; break;
+                            case 4:  chance = 0.500; break;
+                            case 3:  chance = 0.300; break;
+                            case 2:  chance = 0.200; break;
+                            case 1:  chance = 0.150; break;
                             default: chance = 0.000; break;
                         }
 

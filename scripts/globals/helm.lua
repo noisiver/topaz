@@ -25,6 +25,47 @@ tpz.helm.type =
     MINING     = 4,
 }
 
+tpz.helm.ZoneData =
+    -- zoneID, skill up chabnce, zone skill cap
+    {
+        -- Logging
+        { tpz.zone.CARPENTERS_LANDING, 10, 40 },
+        { tpz.zone.LUFAISE_MEADOWS, 10, 40 },
+        { tpz.zone.MISAREAUX_COAST, 10, 40 },
+        { tpz.zone.MAMOOK, 1, 100 },
+        { tpz.zone.CAEDARVA_MIRE, 1, 100 },
+        { tpz.zone.EAST_RONFAURE_S, 5, 60 },
+        { tpz.zone.JUGNER_FOREST_S, 5, 80 },
+        { tpz.zone.FORT_KARUGO_NARUGO_S, 5, 80 },
+        { tpz.zone.EAST_RONFAURE, 10, 20 },
+        { tpz.zone.JUGNER_FOREST, 5, 60 },
+        { tpz.zone.BUBURIMU_PENINSULA, 5, 60 },
+        { tpz.zone.YUHTUNGA_JUNGLE, 10, 40 },
+        { tpz.zone.YHOATOR_JUNGLE, 5, 60 },
+        { tpz.zone.GHELSBA_OUTPOST, 10, 40 },
+        -- Mining
+        { tpz.zone.OLDTON_MOVALPOLOS, 5, 60 },
+        { tpz.zone.NEWTON_MOVALPOLOS, 5, 80 },
+        { tpz.zone.MOUNT_ZHAYOLM, 5, 80 },
+        { tpz.zone.HALVUNG, 1, 100 },
+        { tpz.zone.NORTH_GUSTABERG_S, 10, 40 },
+        { tpz.zone.YUGHOTT_GROTTO, 10, 40 },
+        { tpz.zone.PALBOROUGH_MINES, 10, 40 },
+        { tpz.zone.ZERUHN_MINES, 10, 20 },
+        { tpz.zone.GUSGEN_MINES, 5, 60 },
+        { tpz.zone.IFRITS_CAULDRON, 1, 100 },
+        -- Harvesting
+        { tpz.zone.WAJAOM_WOODLANDS, 1, 100 },
+        { tpz.zone.BHAFLAU_THICKETS, 1, 100 },
+        { tpz.zone.GRAUBERG_S, 5, 80 },
+        { tpz.zone.WEST_SARUTABARUTA_S, 5, 60 },
+        { tpz.zone.WEST_SARUTABARUTA, 10, 20 },
+        { tpz.zone.YUHTUNGA_JUNGLE, 10, 40 },
+        { tpz.zone.YHOATOR_JUNGLE, 10, 40 },
+        { tpz.zone.GIDDEUS, 10, 40 },
+        { tpz.zone.ABYSSEA_GRAUBERG, 1, 100 },
+    }
+
 -------------------------------------------------
 -- drops are {weight, itemId}
 -- {R} for retail-verified coordinates
@@ -47,17 +88,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1880, 1522}, -- Fresh Marjoram
-                    {1060, 2236}, -- Simsim
-                    {1310, 2295}, -- Mohbwa Grass
-                    {1760, 2164}, -- Pephredo Hive Chip
-                    { 590, 4388}, -- Eggplant
-                    { 960, 2270}, -- Coffee Cherries
-                    { 450, 2645}, -- Eastern Ginger
-                    { 860, 2156}, -- Imperial Tea Leaves
-                    { 470, 1845}, -- Red Moko Grass
-                    { 430, 1524}, -- Fresh Mugwort
-                    { 240,  951}, -- Wijnruit
+                    {2400, 1522}, -- Fresh Marjoram
+                    {1500, 2295}, -- Mohbwa Grass
+                    {1500, 2164}, -- Pephredo Hive Chip
+                    {1000, 2236}, -- Simsim
+                    {1000, 2156}, -- Imperial Tea Leaves
+                    {1000, 2270}, -- Coffee Cherries
+                    { 500, 4388}, -- Eggplant
+                    { 500, 2645}, -- Eastern Ginger
+                    { 500, 1845}, -- Red Moko Grass
+                    { 500, 1524}, -- Fresh Mugwort
+                    { 500, 2361}, -- Ameretat Vine
+                    { 100,  844}, -- Phoenix Feather
                 },
                 points =
                 {
@@ -85,17 +127,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1510, 2295}, -- Mohbwa Grass
-                    {1470, 1522}, -- Fresh Marjoram
-                    {1480, 2164}, -- Pephredo Hive Chip
-                    {1170, 2236}, -- Simsim
-                    {1100, 2156}, -- Imperial Tea Leaves
+                    {1500, 2295}, -- Mohbwa Grass
+                    {1500, 1522}, -- Fresh Marjoram
+                    {1500, 2164}, -- Pephredo Hive Chip
+                    {1000, 2236}, -- Simsim
+                    {1000, 2156}, -- Imperial Tea Leaves
                     {1000, 2270}, -- Coffee Cherries
-                    { 510, 4388}, -- Eggplant
-                    { 580, 1845}, -- Red Moko Grass
-                    { 460, 1524}, -- Fresh Mugwort
-                    { 370,  951}, -- Wijnruit
-                    { 360, 2645}, -- Eastern Ginger
+                    { 500, 4388}, -- Eggplant
+                    { 500, 1845}, -- Red Moko Grass
+                    { 500, 1524}, -- Fresh Mugwort
+                    { 500,  919}, -- Boyahda Moss
+                    { 100,  951}, -- Wijnruit
+                    { 100, 2645}, -- Eastern Ginger
                 },
                 points =
                 {
@@ -115,14 +158,16 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1830,  833}, -- Moko Grass
-                    {1850, 1845}, -- Red Moko Grass
-                    {1250,  573}, -- Vegetable Seeds
-                    {1560, 5651}, -- Burdock
-                    {1060,  575}, -- Grain Seeds
-                    {1200,  572}, -- Herb Seeds
-                    {1270, 2155}, -- Lesser Chigoe
-                    {1160, 5907}, -- Winterflower
+                    {2400,  833}, -- Moko Grass
+                    {2400, 1845}, -- Red Moko Grass
+                    {1500, 5651}, -- Burdock
+                    {1000,  573}, -- Vegetable Seeds
+                    {1000,  843}, -- Giant Bird Plume
+                    {1000, 5680}, -- Agaricus
+                    {500,   575}, -- Grain Seeds
+                    {500,   572}, -- Herb Seeds
+                    {500,  2155}, -- Lesser Chigoe
+                    {500,  5907}, -- Winterflower
                 },
                 points =
                 {
@@ -138,18 +183,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1630, 1522}, -- Fresh Marjoram
-                    {1580,  833}, -- Moko Grass
-                    {1680,  834}, -- Saruta Cotton
-                    { 890, 5651}, -- Burdock
-                    { 830, 1845}, -- Red Moko Grass
-                    { 910,  835}, -- Flax Flower
-                    { 540,  573}, -- Vegetable Seeds
-                    { 550, 1981}, -- Skull Locust
-                    { 390, 1524}, -- Fresh Mugwort
-                    { 350, 1982}, -- King Locust
-                    { 280,  572}, -- Herb Seeds
-                    { 370,  575}, -- Grain Seeds
+                    {2400, 1522}, -- Fresh Marjoram
+                    {1500,  833}, -- Moko Grass
+                    {1500,  834}, -- Saruta Cotton
+                    {1000, 5651}, -- Burdock
+                    {1000, 2522}, -- Gnat Wing
+                    {1000,  835}, -- Flax Flower
+                    { 500,  573}, -- Vegetable Seeds
+                    { 500,  845}, -- Black Chocobo Feather
+                    { 500, 1524}, -- Fresh Mugwort
+                    { 500,  918}, -- Mistletoe
+                    { 500,  572}, -- Herb Seeds
+                    { 500,  575}, -- Grain Seeds
                 },
                 points =
                 {
@@ -165,21 +210,21 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1680,  833}, -- Moko Grass
-                    {1290,  834}, -- Saruta Cotton
-                    {1180, 1522}, -- Fresh Marjoram
-                    {1090, 1845}, -- Red Moko Grass
-                    { 920,  835}, -- Flax Flower
-                    { 880, 2713}, -- Dyer's Woad
-                    { 670, 4545}, -- Gysahl Greens
-                    { 650,  635}, -- Windurstian Tea Leaves
-                    { 480, 1981}, -- Skull Locust
-                    { 360,  951}, -- Wijnruit
-                    { 320,  573}, -- Vegetable Seeds
-                    { 210,  572}, -- Herb Seeds
-                    { 190,  575}, -- Grain Seeds
-                    { 160,  839}, -- Crawler Cocoon
-                    {  10, 1524}, -- Fresh Mugwort
+                    {2400,  833}, -- Moko Grass
+                    {1500,  834}, -- Saruta Cotton
+                    {1000, 1522}, -- Fresh Marjoram
+                    {1000, 1845}, -- Red Moko Grass
+                    {1000,  835}, -- Flax Flower
+                    {1000, 2713}, -- Dyer's Woad
+                    { 500, 4545}, -- Gysahl Greens
+                    { 500,  635}, -- Windurstian Tea Leaves
+                    { 500, 1981}, -- Skull Locust
+                    { 500,  951}, -- Wijnruit
+                    { 500,  573}, -- Vegetable Seeds
+                    { 100,  572}, -- Herb Seeds
+                    { 100,  575}, -- Grain Seeds
+                    { 100,  839}, -- Crawler Cocoon
+                    { 100, 1524}, -- Fresh Mugwort
                 },
                 points =
                 {
@@ -293,14 +338,14 @@ local helmInfo =
             {
                 drops =
                 {
-                    { 970,  572}, -- Herb Seeds
-                    {1330,  833}, -- Moko Grass
-                    { 880, 2155}, -- Lesser Chigoe
-                    { 880,  575}, -- Grain Seeds
-                    {1180, 1845}, -- Red Moko Grass
+                    {1000,  572}, -- Herb Seeds
+                    {1500,  833}, -- Moko Grass
+                    {1000, 2155}, -- Lesser Chigoe
+                    {1000,  575}, -- Grain Seeds
+                    {1000, 1845}, -- Red Moko Grass
                     {1000, 5651}, -- Burdock
-                    { 790,  573}, -- Vegetable Seeds
-                    { 940, 5444}, -- Grauberg Greens
+                    {1000,  573}, -- Vegetable Seeds
+                    {1000, 5444}, -- Grauberg Greens
                 },
                 points =
                 {
@@ -476,13 +521,13 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1750,  693}, -- Walnut Log
-                    {1750,  695}, -- Willow Log
+                    {2400,  693}, -- Walnut Log
+                    {2400,  695}, -- Willow Log
                     {1000,  696}, -- Yew Log
-                    { 750,  688}, -- Arrowwood Log
+                    {1000,  688}, -- Arrowwood Log
                     { 500,  698}, -- Ash Log
                     { 500,  923}, -- Dryad Root
-                    { 250, 4504}, -- Acorn
+                    {2400, 4504}, -- Acorn
                     { 100,  699}, -- Oak Log
                 },
                 points =
@@ -496,14 +541,14 @@ local helmInfo =
             {
                 drops =
                 {
-                    {3330,  688}, -- Arrowwood Log
-                    {1750,  698}, -- Ash Log
+                    {2400,  688}, -- Arrowwood Log
+                    {2400,  698}, -- Ash Log
                     {2000,  691}, -- Maple Log
-                    {1420, 4363}, -- Faerie Apple
-                    { 830,  693}, -- Walnut Log
-                    { 170, 4504}, -- Acorn
-                    { 330,  690}, -- Elm Log
-                    { 170,  699}, -- Oak Log
+                    {2400, 4363}, -- Faerie Apple
+                    {1000,  693}, -- Walnut Log
+                    { 500, 4504}, -- Acorn
+                    { 500,  690}, -- Elm Log
+                    { 100,  699}, -- Oak Log
                 },
                 points =
                 {
@@ -517,13 +562,13 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2220,  688}, -- Arrowwood Log
-                    {2220, 4363}, -- Faerie Apple
-                    {2220,  698}, -- Ash Log
-                    {2220,  691}, -- Maple Log
+                    {2400,  688}, -- Arrowwood Log
+                    {2400, 4363}, -- Faerie Apple
+                    {2400,  698}, -- Ash Log
+                    {2400,  691}, -- Maple Log
                     { 100,  693}, -- Walnut Log
-                    { 100, 4504}, -- Acorn
-                    {1110,  690}, -- Elm Log
+                    {2400, 4504}, -- Acorn
+                    {1000,  690}, -- Elm Log
                     { 100,  699}, -- Oak Log
                 },
                 points =
@@ -538,16 +583,16 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1070,  688}, -- Arrowwood Log
-                    {1070,  727}, -- Dogwood Log
-                    {2300, 2213}, -- Pine Nuts
-                    {1070, 2503}, -- Almonds
+                    {2400,  688}, -- Arrowwood Log
+                    {2400,  727}, -- Dogwood Log
+                    {2400, 2213}, -- Pine Nuts
+                    {2400, 2503}, -- Almonds
                     { 500,  694}, -- Chestnut Log
-                    {2300, 5566}, -- Date
+                    {2400, 5566}, -- Date
                     { 500,  702}, -- Ebony Log
                     { 500,  689}, -- Lauan Log
-                    { 490,  701}, -- Rosewood Log
-                    { 200,  729}, -- Bloodwood Log
+                    { 500,  701}, -- Rosewood Log
+                    { 500,  729}, -- Bloodwood Log
                 },
                 points =
                 {
@@ -562,16 +607,16 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2200,  727}, -- Dogwood Log
-                    {1520, 2503}, -- Almonds
-                    {1260,  688}, -- Arrowwood Log
-                    { 470,  694}, -- Chestnut Log
-                    { 680, 5566}, -- Date
-                    { 940,  689}, -- Lauan Log
-                    {1150, 2213}, -- Pine Nuts
-                    { 680,  701}, -- Rosewood Log
-                    { 260,  729}, -- Bloodwood Log
-                    { 310,  702}, -- Ebony Log
+                    {2400,  727}, -- Dogwood Log
+                    {2400, 2503}, -- Almonds
+                    {2400,  688}, -- Arrowwood Log
+                    { 500,  694}, -- Chestnut Log
+                    {1000, 5566}, -- Date
+                    {1000,  689}, -- Lauan Log
+                    {1000, 2213}, -- Pine Nuts
+                    {1000,  701}, -- Rosewood Log
+                    { 500,  729}, -- Bloodwood Log
+                    { 500,  702}, -- Ebony Log
                 },
                 points =
                 {
@@ -586,17 +631,17 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1890,  688}, -- Arrowwood Log
-                    {1400,  698}, -- Ash Log
-                    {1430,  691}, -- Maple Log
-                    {1270, 5661}, -- Walnut
-                    { 850,  694}, -- Chestnut Log
-                    {1000,  639}, -- Ronfaure Chestnut
-                    { 760,  693}, -- Walnut Log
-                    { 490,  574}, -- Fruit Seeds
-                    {  40, 2534}, -- Jacaranda Log
-                    { 400,  699}, -- Oak Log
-                    { 290, 2532}, -- Teak Log
+                    {2400,  688}, -- Arrowwood Log
+                    {1500,  698}, -- Ash Log
+                    {2400,  691}, -- Maple Log
+                    {2400, 5661}, -- Walnut
+                    {1000,  694}, -- Chestnut Log
+                    {2400,  639}, -- Ronfaure Chestnut
+                    {1000,  693}, -- Walnut Log
+                    {1500,  574}, -- Fruit Seeds
+                    { 500, 2534}, -- Jacaranda Log
+                    { 500,  699}, -- Oak Log
+                    { 500, 2532}, -- Teak Log
                 },
                 points =
                 {
@@ -612,15 +657,15 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2000, 5661}, -- Walnut
-                    {1540,  693}, -- Walnut Log
-                    {1140,  688}, -- Arrowwood Log
-                    {1090,  698}, -- Ash Log
-                    { 860,  699}, -- Oak Log
-                    { 860,  695}, -- Willow Log
-                    { 510, 4504}, -- Acorn
-                    { 170, 2534}, -- Jacaranda Log
-                    { 230, 2532}, -- Teak Log
+                    {2400, 5661}, -- Walnut
+                    {1500,  693}, -- Walnut Log
+                    {1000,  688}, -- Arrowwood Log
+                    {1000,  698}, -- Ash Log
+                    {1000,  699}, -- Oak Log
+                    {1000,  695}, -- Willow Log
+                    { 500, 4504}, -- Acorn
+                    { 500, 2534}, -- Jacaranda Log
+                    { 500, 2532}, -- Teak Log
                 },
                 points =
                 {
@@ -636,12 +681,12 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2910,  4154}, -- Holy Water
-                    {2230,  5650}, -- Nopales
-                    {1650,  5662}, -- Dragon Fruit
-                    {1490,   847}, -- Bird Feather
-                    {1250,  4570}, -- Bird Egg
-                    { 170,  1236}, -- Cactus Stems
+                    {2400,  4154}, -- Holy Water
+                    {2400,  5650}, -- Nopales
+                    {1500,  5662}, -- Dragon Fruit
+                    {1500,   847}, -- Bird Feather
+                    {1500,  4570}, -- Bird Egg
+                    { 500,  1236}, -- Cactus Stems
                     {  50, 18175}, -- Optical Needle
                 },
                 points =
@@ -699,14 +744,14 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2040,  693}, -- Walnut Log
-                    {1850,  695}, -- Willow Log
-                    {1790,  696}, -- Yew Log
-                    {1460,  688}, -- Arrowwood Log
-                    {1430,  698}, -- Ash Log
-                    { 580, 4504}, -- Acorn
-                    { 550,  923}, -- Dryad Root
-                    {  60,  699}, -- Oak Log
+                    {2400,  693}, -- Walnut Log
+                    {2400,  695}, -- Willow Log
+                    {1500,  696}, -- Yew Log
+                    {1500,  688}, -- Arrowwood Log
+                    {1500,  698}, -- Ash Log
+                    {2400, 4504}, -- Acorn
+                    {1500,  923}, -- Dryad Root
+                    {  50,  699}, -- Oak Log
                 },
                 points =
                 {
@@ -742,16 +787,16 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2410,  689}, -- Lauan Log
-                    {1980,  688}, -- Arrowwood Log
-                    {1550, 4445}, -- Yagudo Cherry
-                    {1030, 4503}, -- Buburimu Grapes
-                    { 780,  923}, -- Dryad Root
-                    { 520,  574}, -- Fruit Seeds
-                    { 950,  697}, -- Holly Log
-                    { 340,  702}, -- Ebony Log
-                    { 170,  700}, -- Mahogany Log
-                    { 260,  701}, -- Rosewood Log
+                    {2400,  689}, -- Lauan Log
+                    {2400,  688}, -- Arrowwood Log
+                    {1500, 4445}, -- Yagudo Cherry
+                    {1000, 4503}, -- Buburimu Grapes
+                    {1500,  923}, -- Dryad Root
+                    { 500,  574}, -- Fruit Seeds
+                    {1000,  697}, -- Holly Log
+                    { 500,  702}, -- Ebony Log
+                    { 100,  700}, -- Mahogany Log
+                    { 500,  701}, -- Rosewood Log
                 },
                 points =
                 {
@@ -793,18 +838,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1900,  688}, -- Arrowwood Log
-                    {1430,  721}, -- Rattan Lumber
-                    {1190,  689}, -- Lauan Log
-                    {1190,  940}, -- Revival Tree Root
-                    { 950,  731}, -- Aquilaria Log
-                    { 480,  912}, -- Beehive Chip
-                    { 480, 1237}, -- Tree Cuttings
-                    { 480, 5662}, -- Dragon Fruit   - buffed from 100
-                    { 240,  702}, -- Ebony Log
+                    {2400,  688}, -- Arrowwood Log
+                    {1500,  721}, -- Rattan Lumber
+                    {1000,  689}, -- Lauan Log
+                    {1000,  940}, -- Revival Tree Root
+                    {1000,  731}, -- Aquilaria Log
+                    { 500,  912}, -- Beehive Chip
+                    { 500, 1237}, -- Tree Cuttings
+                    { 500, 5662}, -- Dragon Fruit   - buffed from 100
+                    { 500,  702}, -- Ebony Log
                     { 100,  697}, -- Holly Log
                     { 100,  701}, -- Rosewood Log
-                    {100 , 4273}, -- Kitron
+                    { 100 , 4273}, -- Kitron
                 },
                 points =
                 {
@@ -830,7 +875,7 @@ local helmInfo =
                     { 500,  732}, -- Kapor Log
                     { 500,  700}, -- Mahogany Log
                     { 100,  702}, -- Ebony Log
-                    { 100, 4274}, --Persikos
+                    { 100, 4274}, -- Persikos
                     { 100, 1237}, -- Tree Cuttings
                 },
                 points =
@@ -861,12 +906,12 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2950, 688}, -- Arrowwood Log
-                    {2230, 698}, -- Ash Log
-                    {2120, 691}, -- Maple Log
+                    {2400, 688}, -- Arrowwood Log
+                    {2400, 698}, -- Ash Log
+                    {2400, 691}, -- Maple Log
                     {1000, 695}, -- Willow Log
-                    { 620, 690}, -- Elm Log
-                    { 650, 697}, -- Holly Log
+                    { 500, 690}, -- Elm Log
+                    { 500, 697}, -- Holly Log
                 },
                 points =
                 {
@@ -905,20 +950,20 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1150, 1654}, -- Igneous Rock
-                    {1130,  642}, -- Zinc Ore
-                    {1100,  640}, -- Copper Ore
-                    {1080,  641}, -- Tin Ore
-                    {1050,  736}, -- Silver Ore
-                    { 970,  643}, -- Iron Ore
-                    { 680, 1632}, -- Moblin Mail
-                    { 630, 1625}, -- Moblin Helm
-                    { 600, 1638}, -- Moblin Mask
-                    { 570,  568}, -- Goblin Die
-                    { 570, 1631}, -- Moblin Armor
-                    {  100,  645}, -- Darksteel Ore
-                    {  81000,  644}, -- Mythril Ore
-                    {  100,  737}, -- Gold Ore
+                    {2400, 1654}, -- Igneous Rock
+                    {1500,  642}, -- Zinc Ore
+                    {1500,  640}, -- Copper Ore
+                    {1000,  641}, -- Tin Ore
+                    {1500,  736}, -- Silver Ore
+                    {1000,  643}, -- Iron Ore
+                    { 500, 1632}, -- Moblin Mail
+                    { 500, 1625}, -- Moblin Helm
+                    { 500, 1638}, -- Moblin Mask
+                    {2400,  568}, -- Goblin Die
+                    { 500, 1631}, -- Moblin Armor
+                    { 500,  645}, -- Darksteel Ore
+                    {1000,   644}, -- Mythril Ore
+                    {  500,  737}, -- Gold Ore
                     {  100,  738}, -- Platium Ore
                 },
                 points =
@@ -942,18 +987,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1660,  640}, -- Copper Ore
-                    {1100,  641}, -- Tin Ore
-                    {1450,  642}, -- Zinc Ore
-                    {1790, 1654}, -- Igneous Rock
-                    {1450,  736}, -- Silver Ore
-                    { 140,  678}, -- Aluminum Ore
-                    {1720,  643}, -- Iron Ore
-                    {  100,  645}, -- Darksteel Ore
-                    { 210,  644}, -- Mythril Ore
-                    { 140,  737}, -- Gold Ore
-                    { 600,  738}, -- Platium Ore
-                    {  100,  769}, -- Colored Rock
+                    {1500,  640}, -- Copper Ore
+                    {1000,  641}, -- Tin Ore
+                    {1500,  642}, -- Zinc Ore
+                    {1500, 1654}, -- Igneous Rock
+                    {1500,  736}, -- Silver Ore
+                    { 500,  678}, -- Aluminum Ore
+                    {1500,  643}, -- Iron Ore
+                    { 100,  645}, -- Darksteel Ore
+                    { 500,  644}, -- Mythril Ore
+                    { 100,  737}, -- Gold Ore
+                    { 500,  738}, -- Platium Ore
+                    { 100,  769}, -- Colored Rock
                 },
                 points =
                 {
@@ -1018,20 +1063,20 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2010, 2417}, -- Aht Urhgan Brass
+                    {2400, 2417}, -- Aht Urhgan Brass
                     {1000,  928}, -- Bomb Ash
-                    {1720,  768}, -- Flint Stone
-                    { 290,  737}, -- Gold Ore
-                    {1440, 1155}, -- Iron Sand
-                    {  50, 2228}, -- Luminium Ore
-                    { 430, 1631}, -- Moblin Armor
-                    { 430, 1625}, -- Moblin Helm
-                    { 480, 1632}, -- Moblin Mail
-                    { 290, 1638}, -- Moblin Mask
+                    {1500,  768}, -- Flint Stone
+                    { 500,  737}, -- Gold Ore
+                    {1500, 1155}, -- Iron Sand
+                    { 100, 2228}, -- Luminium Ore
+                    { 500, 1631}, -- Moblin Armor
+                    { 500, 1625}, -- Moblin Helm
+                    { 500, 1632}, -- Moblin Mail
+                    { 500, 1638}, -- Moblin Mask
                     { 100,  739}, -- Orichalcum Ore
-                    {1200, 1108}, -- Pinch of Sulfur
-                    { 480, 2160}, -- Troll Pauldron
-                    { 330, 2161}, -- Troll Vambrace
+                    {1500, 1108}, -- Pinch of Sulfur
+                    { 500, 2160}, -- Troll Pauldron
+                    { 500, 2161}, -- Troll Vambrace
                 },
                 points =
                 {
@@ -1061,18 +1106,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1870,   640}, -- Copper Ore
-                    {1930,   642}, -- Zinc Ore
+                    {2400,   640}, -- Copper Ore
+                    {2400,   642}, -- Zinc Ore
                     {1500,   641}, -- Tin Ore
-                    {1340, 17296}, -- Pebble
-                    { 860,   736}, -- Silver Ore
-                    {1180,   643}, -- Iron Ore
-                    { 750,   644}, -- Mythril Ore
-                    { 210,  1638}, -- Moblin Mask
-                    { 110,  1625}, -- Moblin Helm
-                    { 110,  1632}, -- Moblin Mail
-                    {  50,  1631}, -- Moblin Armor
-                    { 160,   738}, -- Platium Ore
+                    {1500, 17296}, -- Pebble
+                    {1000,   736}, -- Silver Ore
+                    {1000,   643}, -- Iron Ore
+                    {1000,   644}, -- Mythril Ore
+                    { 100,  1638}, -- Moblin Mask
+                    { 100,  1625}, -- Moblin Helm
+                    { 100,  1632}, -- Moblin Mail
+                    { 100,  1631}, -- Moblin Armor
+                    { 100,   738}, -- Platium Ore
                 },
                 points =
                 {
@@ -1111,16 +1156,16 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1460,   640}, -- Copper Ore
-                    {1650,   643}, -- Iron Ore
-                    {1300,   641}, -- Tin Ore
-                    {1140, 17296}, -- Pebble
-                    {1320,   642}, -- Zinc Ore
-                    { 840,   768}, -- Flint Stone
-                    { 360,   736}, -- Silver Ore
-                    { 170,   769}, -- Colored Rock
-                    { 150,   645}, -- Darksteel Ore
-                    { 110,   737}, -- Gold Ore
+                    {1500,   640}, -- Copper Ore
+                    {2400,   643}, -- Iron Ore
+                    {1500,   641}, -- Tin Ore
+                    {100, 17296}, -- Pebble
+                    {1500,   642}, -- Zinc Ore
+                    {1000,   768}, -- Flint Stone
+                    { 500,   736}, -- Silver Ore
+                    { 500,   769}, -- Colored Rock
+                    { 100,   645}, -- Darksteel Ore
+                    { 100,   737}, -- Gold Ore
                 },
                 points =
                 {
@@ -1164,13 +1209,13 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1130,   642}, -- Zinc Ore
-                    { 940,   643}, -- Iron Ore
-                    {1040, 17296}, -- Pebble
-                    { 970,   641}, -- Tin Ore
-                    { 900,   644}, -- Mythril Ore
-                    { 900,   736}, -- Silver Ore
-                    { 800,   640}, -- Copper Ore
+                    {1500,   642}, -- Zinc Ore
+                    {100,   643}, -- Iron Ore
+                    {1000, 17296}, -- Pebble
+                    {1000,   641}, -- Tin Ore
+                    {1000,   644}, -- Mythril Ore
+                    {1000,   736}, -- Silver Ore
+                    {1000,   640}, -- Copper Ore
                     { 100,   738}, -- Platium Ore
                 },
                 points =
@@ -1202,14 +1247,14 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2450,   643}, -- Iron Ore
-                    {1800, 17296}, -- Pebble
-                    {1850,   640}, -- Copper Ore
-                    {1330,   642}, -- Zinc Ore
-                    {1120,   641}, -- Tin Ore
-                    { 550,  1984}, -- Snapping Mole
-                    { 180,   736}, -- Silver Ore
-                    {  40,   645}, -- Darksteel Ore
+                    {2400,   643}, -- Iron Ore
+                    {2400, 17296}, -- Pebble
+                    {2400,   640}, -- Copper Ore
+                    {1500,   642}, -- Zinc Ore
+                    {1000,   641}, -- Tin Ore
+                    { 500,  1984}, -- Snapping Mole
+                    { 100,   736}, -- Silver Ore
+                    { 100,   645}, -- Darksteel Ore
                 },
                 points =
                 {
@@ -1243,15 +1288,15 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1890, 17296}, -- Pebble
-                    {1670,   642}, -- Zinc Ore
-                    {1510,   640}, -- Copper Ore
-                    {1470,   641}, -- Tin Ore
-                    {1450,   643}, -- Iron Ore
-                    { 810,   736}, -- Silver Ore
-                    { 590,   645}, -- Darksteel Ore
-                    { 400,   769}, -- Colored Rock
-                    {  100,   737}, -- Gold Ore
+                    {2400, 17296}, -- Pebble
+                    {2400,   642}, -- Zinc Ore
+                    {1500,   640}, -- Copper Ore
+                    {1500,   641}, -- Tin Ore
+                    {1500,   643}, -- Iron Ore
+                    {1000,   736}, -- Silver Ore
+                    { 500,   645}, -- Darksteel Ore
+                    { 500,   769}, -- Colored Rock
+                    { 100,   737}, -- Gold Ore
                 },
                 points =
                 {
@@ -1279,17 +1324,17 @@ local helmInfo =
             {
                 drops =
                 {
-                    {3260,   768}, -- Flint Stone
-                    {1520,   643}, -- Iron Ore
-                    { 430,  1108}, -- Sulfur
-                    { 650, 17316}, -- Bomb Arm
-                    { 870,   928}, -- Bomb Ash
-                    {1300,  1155}, -- Iron Sand
-                    { 250,   646}, -- Adaman Ore
-                    { 600,   645}, -- Darksteel Ore
-                    {1520,  2126}, -- Orpiment
+                    {2400,   768}, -- Flint Stone
+                    {1500,   643}, -- Iron Ore
+                    { 500,  1108}, -- Sulfur
+                    { 500, 17316}, -- Bomb Arm
+                    {1000,   928}, -- Bomb Ash
+                    {1500,  1155}, -- Iron Sand
+                    { 500,   646}, -- Adaman Ore
+                    { 500,   645}, -- Darksteel Ore
+                    {1500,  2126}, -- Orpiment
                     { 100,   739}, -- Orichalcum Ore
-                    { 220,   769}, -- Colored Rock
+                    { 100,   769}, -- Colored Rock
                 },
                 points =
                 {
@@ -1395,6 +1440,116 @@ local function movePoint(npc, zoneId, info)
     npc:queue(3000, doMove(npc, unpack(point)))
 end
 
+local function GetHelmSKillUpChance(zoneId, skill)
+    local chance = 0
+
+    for _, skillUps in pairs(tpz.helm.ZoneData) do
+        if (zoneId == skillUps[1]) then
+            if (skill < skillUps[3]) then
+                chance = skillUps[2]
+            end
+        end
+    end
+
+    return chance
+end
+
+local function TrySkillUpHELM(player, helmType, zoneId)
+    local miningSkill = player:getCharVar("MiningSkill")
+    local loggingSkill = player:getCharVar("LoggingSkill")
+    local harvestingSkill = player:getCharVar("HarvestingSkill")
+
+    if (helmType == tpz.helm.type.MINING) and (miningSkill < 100) then
+        local chance = GetHelmSKillUpChance(zoneId, miningSkill)
+        if math.random(100) <= chance then
+            player:setCharVar("MiningSkill", miningSkill + 1)
+            player:PrintToPlayer("Your skill in mining has increased to " .. miningSkill +1, 6, 0)
+        end
+    elseif (helmType == tpz.helm.type.LOGGING) and (loggingSkill < 100) then
+        local chance = GetHelmSKillUpChance(zoneId, loggingSkill)
+        if math.random(100) <= chance then
+            player:setCharVar("LoggingSkill", loggingSkill + 1)
+            player:PrintToPlayer("Your skill in logging has increased to " .. loggingSkill +1, 6, 0)
+        end
+    elseif (helmType == tpz.helm.type.HARVESTING) and (harvestingSkill < 100) then
+        local chance = GetHelmSKillUpChance(zoneId, harvestingSkill)
+        if math.random(100) <= chance then
+            player:setCharVar("HarvestingSkill", harvestingSkill + 1)
+            player:PrintToPlayer("Your skill in logging has increased to " .. harvestingSkill +1, 6, 0)
+        end
+    end
+end
+
+local function GetCurrentZone(player, zoneId)
+    for _, zoneLevel in pairs(tpz.helm.ZoneData) do
+        if (zoneId == zoneLevel[1]) then
+            return zoneLevel[1]
+        end
+    end
+
+    return 0
+end
+
+local function GetCurrentHELMSkill(player, helmType)
+    local miningSkill = player:getCharVar("MiningSkill")
+    local loggingSkill = player:getCharVar("LoggingSkill")
+    local harvestingSkill = player:getCharVar("HarvestingSkill")
+    local skill = 0
+
+    if (helmType == tpz.helm.type.MINING) then
+        skill = miningSkill
+    elseif (helmType == tpz.helm.type.LOGGING) then
+        skill = loggingSkill
+    elseif (helmType == tpz.helm.type.HARVESTING) then
+        skill = harvestingSkill
+    end
+
+    return skill
+end
+
+local function GetHELMZoneLevelRequirements(player, zoneId, helmType)
+    local skill = GetCurrentHELMSkill(player, helmType)
+
+    for _, zoneLevel in pairs(tpz.helm.ZoneData) do
+        if (zoneId == zoneLevel[1]) then
+            if (zoneLevel[3] > skill + 20) then
+                return false, skill, zoneLevel[3]
+            else
+                return true, skill, zoneLevel[3]
+            end
+        end
+    end
+end
+
+local function GetHELMGearBonus(player, helmType)
+    local gearBonus = 0
+
+    if (helmType == tpz.helm.type.MINING) then
+        gearBonus = player:getMod(tpz.mod.MINING_SKILL)
+    elseif (helmType == tpz.helm.type.LOGGING) then
+        player:getMod(tpz.mod.LOGGING_SKILL)
+    elseif (helmType == tpz.helm.type.HARVESTING) then
+        player:getMod(tpz.mod.HARVESTING_SKILL)
+    end
+
+    return gearBonus
+end
+
+local function GetHELMSkillBonus(player, helmType, zoneLvl)
+    local skill = GetCurrentHELMSkill(player, helmType)
+    local zone = GetCurrentZone(player, zoneId)
+    local skillBonus = 0
+
+    -- Add gear mod
+    skill = skill + GetHELMGearBonus(player, helmType)
+
+    if (skill > zoneLvl) then
+        skillBonus = math.floor((skill - zoneLvl) / 5)
+    end
+
+    return skillBonus
+end
+
 -------------------------------------------------
 -- public functions
 -------------------------------------------------
@@ -1417,11 +1572,24 @@ tpz.helm.onTrade = function(player, npc, trade, helmType, csid)
     local info = helmInfo[helmType]
     local zoneId = player:getZoneID()
     local regionId = player:getCurrentRegion()
+    local miningSkill = player:getCharVar("MiningSkill")
+    local loggingSkill = player:getCharVar("LoggingSkill")
+    local harvestingSkill = player:getCharVar("HarvestingSkill")
+    local zoneLvlReq, currentSkill, zoneLvl  = GetHELMZoneLevelRequirements(player, zoneId, helmType)
+    local gatherCrit = GetHELMSkillBonus(player, helmType, zoneLvl)
+    local ID = zones[player:getZoneID()]
 
-        -- HELM should remove invisible
-        player:delStatusEffect(tpz.effect.INVISIBLE)
+    -- HELM should remove invisible
+    player:delStatusEffect(tpz.effect.INVISIBLE)
 
     if trade:hasItemQty(info.tool, 1) and trade:getItemCount() == 1 then
+
+        -- Check skill level vs zone level requirement
+        if not zoneLvlReq then
+            local requiredSkill = zoneLvl - 20
+            player:PrintToPlayer("Your skill is too low level to gather from this.\n" .. "Current Skill: " .. currentSkill .. "     Required Skill: " .. requiredSkill, 6, 0)
+            return
+        end
         -- start event
         local item  = pickItem(player, info)
         local broke = doesToolBreak(player, info) and 1 or 0
@@ -1432,6 +1600,15 @@ tpz.helm.onTrade = function(player, npc, trade, helmType, csid)
         -- success! reward item and decrement number of remaining uses on the point
         if item ~= 0 and full == 0 then
             player:addItem(item)
+            TrySkillUpHELM(player, helmType, zoneId)
+
+            -- Check for HQ gather
+            if math.random(100) <= gatherCrit and full == 0 then
+                player:addItem(item)
+                TrySkillUpHELM(player, helmType, zoneId)
+                player:messageSpecial(ID.text.ITEM_OBTAINED, item)
+                player:PrintToPlayer("Due to your skill in mining, you found another item!", 0xD)
+            end
 
             local uses = (npc:getLocalVar("uses") - 1) % 4
             npc:setLocalVar("uses", uses)

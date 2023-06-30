@@ -16,7 +16,7 @@ function onSpellCast(caster, target, spell)
     duration = calculateDurationForLvl(duration, 57, target:getMainLvl())
 
     local typeEffect = tpz.effect.SHELL
-    if target:addStatusEffect(typeEffect, power, 0, duration) then
+    if ApplyProtectShell(caster, target, typeEffect, power, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect

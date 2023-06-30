@@ -28,6 +28,9 @@ function onSpellCast(caster, target, spell)
     local power = 23
     local duration = 180
 
+    -- Add phalanx recieved gear mod
+    power = power + target:getMod(tpz.mod.PHALANX_RECIEVED)
+
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
 

@@ -47,7 +47,8 @@ function onEventFinish(player, csid, option)
                 player:delKeyItem(tpz.ki.TATTERED_MISSION_ORDERS)
                 player:setCharVar("PastPerfectVar", 0)
                 player:messageSpecial(ID.text.ITEM_OBTAINED, 12560)
-                player:addFame(BASTOK, 110)
+                player:addExp(3500 * EXP_RATE)
+                player:addFame(BASTOK, 150)
                 player:completeQuest(BASTOK, tpz.quest.id.bastok.PAST_PERFECT)
             end
         end

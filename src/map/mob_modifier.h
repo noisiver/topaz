@@ -87,7 +87,7 @@ enum MOBMODIFIER : int
     MOBMOD_HP_STANDBACK        = 56, // mob will always standback with hp % higher to value
     MOBMOD_MAGIC_DELAY         = 57, // Amount of seconds mob waits before casting first spell
     MOBMOD_SPECIAL_DELAY       = 58, // Amount of seconds mob waits before using first special
-    MOBMOD_WEAPON_BONUS        = 59, // Add a bonus percentage to mob weapon damage ( bonus / 100 )
+    MOBMOD_WEAPON_BONUS        = 59, // Add a bonus to mob weapon damage (i.e +30 weapon damage)
     MOBMOD_SPAWN_ANIMATIONSUB  = 60, // reset animationsub to this on spawn
     MOBMOD_HP_SCALE            = 61, // Scale the mobs max HP. ( hp_scale / 100 ) * maxhp
     MOBMOD_NO_STANDBACK        = 62, // Mob will never standback
@@ -120,6 +120,7 @@ enum MOBMODIFIER : int
     MOBMOD_BLOCK               = 103, // Allows a mob to block, in percent(10 = 10% block chance).
     MOBMOD_ECOSYSTEMLINK       = 104, // Mob will link to the same echo system(i.e. Demon or Bird)
     MOBMOD_VERTICAL_AGGRO      = 105, // Always aggro regardless of verrtical distance
+    MOBMOD_CAN_PARRY           = 106, // Check if a mob is allowed to have parry rank(Rank Value 1 - 5)
 };
 
 #endif

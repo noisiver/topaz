@@ -20,7 +20,7 @@ local randomAugment =
     tpz.augments.ENH_DRAIN_ASPIR, tpz.augments.SPELLINTERRUPT, tpz.augments.SKILLCHAINDMG, tpz.augments.CONSERVE_TP,
     tpz.augments.CURE_POTENCY, tpz.augments.REGENPOTENCY,tpz.augments.WALTZ_POTENTCY, tpz.augments.ENMITY,
     tpz.augments.ENMITY_MINUS, tpz.augments.HP_MINUS_33, tpz.augments.MP_MINUS_33, tpz.augments.ACC_MINUS, tpz.augments.ATTK_MINUS,
-    tpz.augments.RACC, tpz.augments.RATTK, tpz.augments.RACC_MINUS, tpz.augments.RATTK_MINUS, tpz.augments.EVA_MINUS,
+    tpz.augments.RACC_MINUS, tpz.augments.RATTK_MINUS, tpz.augments.EVA_MINUS,
     tpz.augments.DEF_MINUS, tpz.augments.MACC_MINUS, tpz.augments.MDEF, tpz.augments.MDEF_MINUS, tpz.augments.STR_MINUS,
     tpz.augments.DEX_MINUS, tpz.augments.VIT_MINUS, tpz.augments.AGI_MINUS, tpz.augments.INT_MINUS, tpz.augments.MND_MINUS,
     tpz.augments.CHR_MINUS, tpz.augments.FIRERES,tpz.augments.ICERES, tpz.augments.WINDRES, tpz.augments.EARTHRES,

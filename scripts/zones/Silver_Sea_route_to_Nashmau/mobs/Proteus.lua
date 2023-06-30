@@ -7,9 +7,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.ATT, 550)
-    mob:setMod(tpz.mod.DEF, 550)
-    mob:addMod(tpz.mod.EVA, 20)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 100)
     mob:addImmunity(tpz.immunity.SLEEP)
 end

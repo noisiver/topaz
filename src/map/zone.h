@@ -455,6 +455,26 @@ enum ZONEMISC
     MISC_TRUST      = 0x0800,   // Ability to summon Trust NPC
 };
 
+enum ZONEFAME
+{
+    FAME_SANDY = 0,
+    FAME_BASTOK = 1,
+    FAME_WINDURST = 2,
+    FAME_JEUNO = 3,
+    FAME_SELBINA_RABAO = 4,
+    FAME_NORG = 5,
+    FAME_ABYSSEA_KONSCHTAT = 6,
+    FAME_ABYSSEA_TAHRONGI = 7,
+    FAME_ABYSSEA_LATHEINE = 8,
+    FAME_ABYSSEA_MISAREAUX = 9,
+    FAME_ABYSSEA_VUNKERL = 10,
+    FAME_ABYSSEA_ATTOHWA = 11,
+    FAME_ABYSSEA_ALTEPA = 12,
+    FAME_ABYSSEA_GRAUBERG = 13,
+    FAME_ABYSSEA_ULEGUERAND = 14,
+    FAME_ADOULIN = 15
+};
+
 /************************************************************************
 *                                                                       *
 *                                                                       *
@@ -515,6 +535,7 @@ class CBattleEntity;
 class CTrustEntity;
 class CTreasurePool;
 class CZoneEntities;
+class CAIEventHandler;
 
 typedef std::list<CRegion*> regionList_t;
 typedef std::list<zoneLine_t*> zoneLineList_t;
@@ -545,6 +566,8 @@ public:
     uint8           GetBackgroundMusicNight();
     zoneLine_t*     GetZoneLine(uint32 zoneLineID);
 
+    CZoneEntities* m_zoneEntities;
+
     virtual CCharEntity*    GetCharByName(int8* name);                              // finds the player if exists in zone
     virtual CCharEntity*    GetCharByID(uint32 id);
     // Gets an entity - ignores instances (use CBaseEntity->GetEntity if possible)
@@ -562,7 +585,8 @@ public:
     virtual void    SpawnTRUSTs(CCharEntity* PChar);                                // Display TRUSTs in zone
     virtual void    SpawnMoogle(CCharEntity* PChar);                                // отображаем Moogle в MogHouse
     virtual void    SpawnTransport(CCharEntity* PChar);                             // отображаем транспорт
-    void            SavePlayTime();
+    void            SavePlayTime();                                                 // Saves character playtime
+    void            SaveCharacterData();                                            // Saves character position and status effects
 
     virtual void    WideScan(CCharEntity* PChar, uint16 radius);                    // сканирование местности с заданным радиусом
 
@@ -607,10 +631,15 @@ public:
     virtual void    ForEachTrustInstance(CBaseEntity* PEntity, std::function<void(CTrustEntity*)> func);
     virtual void    ForEachNpc(std::function<void(CNpcEntity*)> func);
 
+    bool HasReducedVerticalAggro();
+
     CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID);
     virtual ~CZone();
 
+    CAIEventHandler* PEventHandler;
     CBattlefieldHandler* m_BattlefieldHandler;  // BCNM Instances in this zone
+
+    uint8 m_fameType; // the fame type applied the the entire area, used for item appraisal when selling items to an NPC in this zone
 
     CNavMesh*       m_navMesh;              // zones navmesh for finding paths
 
@@ -629,7 +658,6 @@ private:
 
     WEATHER         m_Weather;              // Current Weather
     uint32          m_WeatherChangeTime;    // current weather start time
-    CZoneEntities*  m_zoneEntities;
 
     uint16          m_tax;                  // налог в bazaar
     uint16          m_miscMask;             // битовое поле, описывающее возможности использования в зоне определенных умений
@@ -646,6 +674,8 @@ private:
 
     CTreasurePool*  m_TreasurePool;         // глобальный TreasuerPool
     time_point m_timeZoneEmpty;    // The time_point when the last player left the zone
+
+    static const uint16 ReducedVerticalAggroZones[];
 
 protected:
 

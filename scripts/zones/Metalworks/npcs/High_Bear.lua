@@ -35,11 +35,12 @@ function onEventFinish(player, csid, option)
     if (csid == 731) then
             player:addQuest(BASTOK, tpz.quest.id.bastok.BEADEAUX_SMOG)
     elseif (csid == 732) then
-            player:addFame(BASTOK, 30)
-            player:delKeyItem(tpz.ki.CORRUPTED_DIRT)
-            player:addItem(17284, 1)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 17284)
-            player:completeQuest(BASTOK, tpz.quest.id.bastok.BEADEAUX_SMOG)
-            player:setTitle(tpz.title.BEADEAUX_SURVEYOR)
+        player:addExp(9000 * EXP_RATE)
+        player:addFame(BASTOK, 300)
+        player:delKeyItem(tpz.ki.CORRUPTED_DIRT)
+        player:addItem(17284, 1, 23, 2) -- ACC+3
+        player:messageSpecial(ID.text.ITEM_OBTAINED, 17284) -- Chakram
+        player:completeQuest(BASTOK, tpz.quest.id.bastok.BEADEAUX_SMOG)
+        player:setTitle(tpz.title.BEADEAUX_SURVEYOR)
     end
 end

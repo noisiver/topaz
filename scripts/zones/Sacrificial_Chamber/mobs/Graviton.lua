@@ -9,14 +9,17 @@ mixins =
     require("scripts/mixins/job_special")
 }
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    SetGenericNMStats(mob)
     mob:addMod(tpz.mod.SLEEPRES, 100)
     mob:addMod(tpz.mod.LULLABYRES, 100)
     mob:setLocalVar("everyonesRancorHPP", math.random(20, 30))
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)

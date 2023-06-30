@@ -48,9 +48,10 @@ function onEventFinish(player, csid, option)
         if (player:getFreeSlotsCount() == 0) then
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13465)
         else
-            player:addItem(13465)
+            player:addItem(13465, 1, 97, 9) -- Pet: Attack+10 Ranged Attack+10
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13465)
-            player:addFame(SANDORIA, 30)
+            player:addExp(3000 * EXP_RATE)
+            player:addFame(SANDORIA, 300)
             player:addTitle(tpz.title.THE_BENEVOLENT_ONE)
             player:setCharVar("sermonQuestVar", 2)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_VICASQUE_S_SERMON )

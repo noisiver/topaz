@@ -29,6 +29,6 @@ function onUpdate(pet, maneuvers)
     elseif maneuvers == 2 then
         updateModPerformance(pet, tpz.mod.CURE_POTENCY, 'vivi_valve_mod', 35)
     elseif maneuvers == 3 then
-        updateModPerformance(pet, tpz.mod.CURE_POTENCY, 'vivi_valve_mod', 45)
+        updateModPerformance(pet, tpz.mod.CURE_POTENCY, 'vivi_valve_mod', 50)
     end
 end

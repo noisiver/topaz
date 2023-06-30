@@ -1,5 +1,5 @@
 ---------------------------------------------
---  Poison Breath Dragon
+--  Poison Breath (Dragon)
 --
 --  Description: Deals Water breath damage to enemies within a fan-shaped area originating from the caster.
 --  Type: Magical (Water)
@@ -17,13 +17,13 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WATER, 900)
+    local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.WATER, 900)
     if mob:getPool() == 9056 then -- Vishap(Assault - Lebros Cavern)
-        dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WATER, 400)
+        dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.WATER, 400)
     end
 
     local typeEffect = tpz.effect.POISON
-    local power = 25
+    local power = 50
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WATER)

@@ -30,7 +30,7 @@ end
 function onEffectLose(target, effect)
     if (effect:getTimeRemaining() == 0) then
         -- Set attack and movement speed back to what it was before applying this effect, then petrify
-        target:addStatusEffect(tpz.effect.PETRIFICATION, 1, 0, 60)
+        target:addStatusEffect(tpz.effect.PETRIFICATION, 1, 0, 120)
     end
     target:setMod(tpz.mod.HASTE_MAGIC, target:getLocalVar("attackSpeed"))
     target:setMod(tpz.mod.MOVE, target:getLocalVar("movementSpeed"))

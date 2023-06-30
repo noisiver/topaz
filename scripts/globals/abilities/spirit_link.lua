@@ -38,9 +38,17 @@ function onUseAbility(player, target, ability)
 
     local playerHP = player:getHP()
     local drainamount = (math.random(25, 35) / 100) * playerHP
+
+    -- Prevents player HP lose if wyvern is at full HP
     if (player:getPet():getHP() == player:getPet():getMaxHP()) then
-        drainamount = 0 -- Prevents player HP lose if wyvern is at full HP
+        drainamount = 0
     end
+
+    -- Don't drain more HP than your pet has HP
+    if ((player:getPet():getMaxHP() - player:getPet():getHP()) < drainamount) then
+        drainamount = (player:getPet():getMaxHP() - player:getPet():getHP())
+    end
+
     -- Add Unda runes on each use, up to 3 total.
     jobUtil.AddUndaRune(player)
 
@@ -68,15 +76,9 @@ function onUseAbility(player, target, ability)
     local petTP = pet:getTP()
     local regenAmount = player:getMainLvl()/3 -- level/3 tic regen
 
-    -- Reduce by 1/5th to reflect the custom CD reduction of 5m - > 1m
-    regenAmount = math.floor(regenAmount / 5)
-
     if (player:getEquipID(tpz.slot.HEAD)==15238) then
         healPet = healPet + 15
     end
-
-    -- Reduce by 1/5th to reflect the custom CD reduction of 5m - > 1m
-    healPet = math.floor(healPet / 5)
 
     pet:delStatusEffectSilent(tpz.effect.POISON)
     pet:delStatusEffectSilent(tpz.effect.BLINDNESS)
@@ -85,7 +87,9 @@ function onUseAbility(player, target, ability)
     if (math.random(1, 2) == 1) then
         pet:delStatusEffectSilent(tpz.effect.DOOM)
     end
-    if (pet:getHP() < pet:getMaxHP()) then -- sleep is only removed if it heals the wyvern
+
+    -- Remove sleep if wyvern is healed
+    if (pet:getHP() < pet:getMaxHP()) then 
         removeSleepEffects(pet)
     end
 
@@ -123,7 +127,8 @@ function onUseAbility(player, target, ability)
     end
 
     pet:addHP(healPet) --add the hp to pet
+    player:updateEnmityFromCure(pet, healPet)
     pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 18, 0, 0, 0) -- Was 90 seconds of regen. Changed to 15s due to being reduced in CD
     player:addTP(petTP/2) --add half pet tp to you
-    pet:delTP(petTP/2) -- remove half tp from pet
+    pet:delTP(petTP) -- remove half tp from pet
 end

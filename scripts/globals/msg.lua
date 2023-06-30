@@ -139,9 +139,11 @@ tpz.msg.basic =
     JA_MISS_2              = 324, -- <user> uses <ability>, but misses <target>. (includes target name)
     JA_DAMAGE_AND_STUN     = 522, -- <user> uses <ability>.  <target> takes <damage> and is stunned. (2 line msg)
     CANNOT_PERFORM_ACTION  = 71,  -- <user> cannot perform that action.
+    SEEMS_FRIENDLIER       = 138, -- The <player> uses .. <target> seems friendlier.
 
 
     -- Misc other unsorted (sort me)
+    LEVEL_RESTRICTED       = 314, -- <target>'s level is currently restricted to <level>. Equipment affected by the level restriction will be adjusted accordingly.
     FALL_TO_GROUND         = 20,  -- <name> falls to the ground.
     NARROWLY_ESCAPE        = 359, -- <name> narrowly escapes impending doom.
     AOE_HP_RECOVERY        = 367, -- <target> recovers <amount> HP.
@@ -154,7 +156,7 @@ tpz.msg.basic =
     TP_REDUCED             = 362, -- tp reduced to
     ATTR_DRAINED           = 369,
     EFFECT_DRAINED         = 370, -- <num> status effects are drained from <target>.
-    TP_INCREASE            = 409,
+    TP_INCREASE            = 409, -- The <player> uses .. <target>'s TP is increased to ...
     DEFEATS_TARG           = 6,   -- The <player> defeats <target>.
     ALREADY_CLAIMED        = 12,  -- Cannot attack. Your target is already claimed.
     IS_INTERRUPTED         = 16,  -- The <player>'s casting is interrupted.
@@ -187,6 +189,7 @@ tpz.msg.basic =
     OBTAINED_KEY_ITEM      = 758, -- Obtained key item: <key item>.
     ALREADY_HAVE_KEY_ITEM  = 759, -- You already have key item: <key item>.
     ALL_PARAMETERS_BOOSTED = 364, -- {actor} uses ${ability}.${lb}All of ${target}'s status parameters are boosted. 
+    MAGIC_BURST_JA         = 747, -- Magic Burst! Used for Avatars and...Rune Fencer(?)
 
     -- Distance
     TARG_OUT_OF_RANGE      = 4,   -- <target> is out of range.
@@ -234,6 +237,7 @@ tpz.msg.basic =
     ITEM_OBTAINS_A          = 376,  -- ${actor} uses a ${item}.${lb}${target} obtains a ${item2}.
     ITEM_OBTAINS            = 377,  -- ${actor} uses a ${item}.${lb}${target} obtains ${item2}.
     ITEM_EFFECT_DISAPPEARS  = 378,  -- ${actor} uses a ${item}.${lb}${target}'s ${status} effect disappears!
+    PLAYER_REGAIN_TP        = 452,  -- The <player> uses .. <target> regains .. TP.
 
     -- Ranged
     NO_RANGED_WEAPON       = 216, -- You do not have an appropriate ranged weapon equipped.

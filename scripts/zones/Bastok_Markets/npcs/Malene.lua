@@ -32,8 +32,9 @@ function onEventFinish(player, csid, option)
             player:addQuest(BASTOK, tpz.quest.id.bastok.THE_COLD_LIGHT_OF_DAY)
         end
     elseif (csid == 104) then
-        local fame = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.THE_COLD_LIGHT_OF_DAY) and 8 or 50
-        if (npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.THE_COLD_LIGHT_OF_DAY, {title=tpz.title.CRAB_CRUSHER, gil=500, fame=fame})) then
+        local fame = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.THE_COLD_LIGHT_OF_DAY) and 10 or 150
+        local exp = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.THE_COLD_LIGHT_OF_DAY) and 1500 or 150
+        if (npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.THE_COLD_LIGHT_OF_DAY, {title=tpz.title.CRAB_CRUSHER, gil=500, fame=fame, xp=exp})) then
             player:confirmTrade()
         end
 

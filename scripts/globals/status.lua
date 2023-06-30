@@ -102,24 +102,33 @@ tpz.subEffect =
 {
     -- ATTACKS
     FIRE_DAMAGE         = 1,   -- 110000        3
+    PLAGUE              = 1,   -- Same subeffect as FIRE_DAMAGE
     ICE_DAMAGE          = 2,   -- 1-01000       5
     WIND_DAMAGE         = 3,   -- 111000        7
     CHOKE               = 3,   -- Shares subeffect
     EARTH_DAMAGE        = 4,   -- 1-00100       9
     LIGHTNING_DAMAGE    = 5,   -- 110100       11
+    THUNDER_DAMAGE      = 5,   -- 110100       11
     WATER_DAMAGE        = 6,   -- 1-01100      13
     LIGHT_DAMAGE        = 7,   -- 111100       15
+    FLASH               = 7,   -- Same subeffect as LIGHT_DAMAGE
+    DARK_DAMAGE         = 8,   -- 1-00010      17
     DARKNESS_DAMAGE     = 8,   -- 1-00010      17
     DISPEL              = 8,   -- Verified with video of Lockheart Greatsword proc.
     DOOM                = 8,   -- Same subeffect as DARKNESS_DAMAGE
     SLEEP               = 9,   -- 110010       19
     POISON              = 10,  -- 1-01010      21
     PARALYSIS           = 11,
+    PARALYZE            = 11,
     AMNESIA             = 11,  -- Verified uses same animation as para
     BLIND               = 12,  -- 1-00110      25
+    BLINDNESS           = 12,  -- 1-00110      25
     SILENCE             = 13,
     PETRIFY             = 14,
+    PETRIFICATION       = 14,
     PLAGUE              = 15,
+    BANE                = 15,
+    ADDLE               = 15,
     STUN                = 16,
     CURSE               = 17,
     DEFENSE_DOWN        = 18,  -- 1-01001      37
@@ -132,6 +141,7 @@ tpz.subEffect =
     MP_DRAIN            = 22,  -- This is correct animation
     TP_DRAIN            = 22,  -- Verified this should look exactly like Aspir Samba.
     HASTE               = 23,
+    SLOW                = 23,
     -- There are no additional attack effect animations beyond 23. Some effects share subeffect/animations.
 
     -- SPIKES
@@ -150,7 +160,7 @@ tpz.subEffect =
     -- There are no spikes effect animations beyond 63. Some effects share subeffect/animations.
     -- "Damage Spikes" use the Blaze Spikes animation even though they are different status.
 
-    -- SKILLCHAINS
+    -- SKILLCHAINS What is this for? Use tpz.skillchainEle to match the enum in C++ and IDs
     NONE                = 0,
     LIGHT               = 1,
     DARKNESS            = 2,
@@ -170,26 +180,26 @@ tpz.subEffect =
 
 tpz.skillchainEle =
 {
-    NONE = 0, -- Lv0 None
+    NONE            = 0, -- Lv0 None
 
-    TRANSFIXION = 1, -- Lv1 Light
-    COMPRESSION = 2, -- Lv1 Dark
-    LIQUEFACTION = 3, -- Lv1 Fire
-    SCISSION = 4, -- Lv1 Earth
-    REVERBERATION = 5, -- Lv1 Water
-    DETONATION = 6, -- Lv1 Wind
-    INDURATION = 7, -- Lv1 Ice
-    IMPACTION = 8, -- Lv1 Thunder
+    TRANSFIXION     = 1, -- Lv1 Light
+    COMPRESSION     = 2, -- Lv1 Dark
+    LIQUEFACTION    = 3, -- Lv1 Fire
+    SCISSION        = 4, -- Lv1 Earth
+    REVERBERATION   = 5, -- Lv1 Water
+    DETONATION      = 6, -- Lv1 Wind
+    INDURATION      = 7, -- Lv1 Ice
+    IMPACTION       = 8, -- Lv1 Thunder
 
-    GRAVITATION = 9, -- Lv2 Dark & Earth
-    DISTORTION = 10, -- Lv2 Water & Ice
-    FUSION = 11, -- Lv2 Fire & Light
-    FRAGMENTATION = 12, -- Lv2 Wind & Thunder
+    GRAVITATION     = 9, -- Lv2 Dark & Earth
+    DISTORTION      = 10, -- Lv2 Water & Ice
+    FUSION          = 11, -- Lv2 Fire & Light
+    FRAGMENTATION   = 12, -- Lv2 Wind & Thunder
 
-    LIGHT = 13, -- Lv3 Fire, Light, Wind, Thunder
-    DARKNESS = 14, -- Lv3 Dark, Earth, Water, Ice
-    LIGHT_II = 15, -- Lv4 Light
-    DARKNESS_II = 16, -- Lv4 Darkness
+    LIGHT           = 13, -- Lv3 Fire, Light, Wind, Thunder
+    DARKNESS        = 14, -- Lv3 Dark, Earth, Water, Ice
+    LIGHT_II        = 15, -- Lv4 Light
+    DARKNESS_II     = 16, -- Lv4 Darkness
 }
 ------------------------------------
 -- These codes represent the actual status effects.
@@ -668,7 +678,7 @@ tpz.effect =
     SACROSANCTITY            = 477, -- WHM 95
     PALISADE                 = 478, -- PLD 95
     SCARLET_DELIRIUM         = 479, -- DRK 95
-    SCARLET_DELIRIUM_1       = 480, -- DRK 95
+    SCARLET_DELIRIUM_1       = 480, -- Buff tracking damage bonus
     -- NONE                      = 481, -- NONE
     DECOY_SHOT               = 482, -- RNG 95
     HAGAKURE                 = 483, -- SAM 95
@@ -911,7 +921,10 @@ function removeSleepEffects(target)
 end
 
 function hasSleepT1Effect(target)
-    return target:hasStatusEffect(tpz.effect.SLEEP_I) or target:hasStatusEffect(tpz.effect.LULLABY)
+    if target:hasStatusEffect(tpz.effect.SLEEP_I) or target:hasStatusEffect(tpz.effect.LULLABY) then
+        return true
+    end
+    return false
 end
 
 function hasSleepEffects(target)
@@ -1690,11 +1703,11 @@ tpz.mod =
     RESBUILD_LULLABY    = 967, -- any light based sleep
     
     SDT_FIRE = 968,
-    SDT_EARTH = 969,
-    SDT_WATER = 970,
-    SDT_WIND = 971,
-    SDT_ICE = 972,
-    SDT_THUNDER = 973,
+    SDT_ICE = 969,
+    SDT_WIND = 970,
+    SDT_EARTH = 971,
+    SDT_THUNDER = 972,
+    SDT_WATER = 973,
     SDT_LIGHT = 974,
     SDT_DARK = 975,
     
@@ -1764,13 +1777,22 @@ tpz.mod =
     TPEVA                   = 1309, -- Evasion to Monster TP moves in percents(used mainly for foil)
     SHIELD_BARRIER          = 1310, -- Phalanx effect while wielding a shield
     SPIKES_MACC             = 1311, -- Increases Spikes magical accuracy
-    
+    REFRESH_DURATION        = 1312, -- Increased refresh duration (in seconds)
+    REWARD_RECAST           = 1313, -- Reward recast reduction
+    LOGGING_SKILL           = 1314, -- Adds Logging Skill
+    MINING_SKILL            = 1315, -- Adds Mining Skill
+    PROTECT_SHELL_EFFECT    = 1316, -- Enhances the effect of "Protect" and "Shell". Target with mod only.
+    DIGGING_SKILL_GAIN_RATE = 1317,  -- Chocobo digging skill up gain increase
+    HARVESTING_SKILL        = 1318, -- Adds Harvesting Skill
+    EXCAVATION_SKILL        = 1319, -- Adds Excavation Skill
+    PHALANX_RECIEVED        = 1320, -- Phalanx effect received.
+    DEF_TRAIT               = 1321, -- Defense bonus traits
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1312 NEXT
+    -- 1322 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
@@ -2499,7 +2521,7 @@ tpz.mobMod =
     HP_STANDBACK        = 56, -- mob will always standback with hp % higher to value
     MAGIC_DELAY         = 57, -- Amount of seconds mob waits before casting first spell
     SPECIAL_DELAY       = 58, -- Amount of seconds mob waits before using first special
-    WEAPON_BONUS        = 59, -- Add a bonus percentage to mob weapon damage ( bonus / 100 )
+    WEAPON_BONUS        = 59, -- Add a bonus to mob weapon damage (i.e +30 weapon damage)
     SPAWN_ANIMATIONSUB  = 60, -- reset animationsub to this on spawn
     HP_SCALE            = 61, -- Scale the mobs max HP. ( hp_scale / 100 ) * maxhp
     NO_STANDBACK        = 62, -- Mob will never standback
@@ -2531,6 +2553,8 @@ tpz.mobMod =
     BLOCK               = 103, -- Allows a mob to block, in percent(10 = 10% block chance).
     ECOSYSTEMLINK       = 104, -- Mob will link to the same echo system(i.e. Demon or Bird)
     VERTICAL_AGGRO      = 105, -- Always aggro regardless of verrtical distance
+    CAN_PARRY           = 106, -- Check if a mob is allowed to have parry rank(Rank Value 1 - 5)
+
 }
 
 ------------------------------------
@@ -2644,14 +2668,16 @@ tpz.jobSpecialAbility =
     SPIRIT_SURGE         = 1893,
     -- SPIRIT_SURGE         = 2255,
     AZURE_LORE           = 1933,
+    AZURE_LORE_HUME      = 2006,
+    AZURE_LORE_GALKA     = 2257,
     -- AZURE_LORE           = 2006,
     -- AZURE_LORE           = 2257,
     -- AZURE_LORE           = 3481,
-    -- WILD_CARD            = 1934,
-    -- WILD_CARD            = 2007,
+    WILD_CARD            = 1934,
+    WILD_CARD_QULTADA    = 2007,
     -- WILD_CARD            = 2258,
     -- OVERDRIVE            = 1935,
-    -- OVERDRIVE            = 2008,
+    OVERDRIVE_SHAMARHAAN = 2008,
     -- OVERDRIVE            = 2259,
     -- TABULA_RASA          = 2358,
     TABULA_RASA          = 2261,

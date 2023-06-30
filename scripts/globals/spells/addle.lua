@@ -34,7 +34,7 @@ function onSpellCast(caster, target, spell)
     --Duration, including resistance.
     local duration = 180 * resist
 
-    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5, power)
 
     return params.effect
 end

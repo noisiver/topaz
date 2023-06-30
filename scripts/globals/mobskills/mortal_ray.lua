@@ -10,7 +10,12 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    local mortalRayUsed = mob:getLocalVar("mortalRayUsed")
+    if (mortalRayUsed > 0) then
+        return 1
+    else
+        return 0
+    end
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -21,6 +26,8 @@ function onMobWeaponSkill(target, mob, skill)
     else
         skill:setMsg(MobGazeMove(mob, target, typeEffect, 10, 3, 30))
     end
-
+    if not mob:isNM() then
+        mob:setLocalVar("mortalRayUsed", 1)
+    end
     return typeEffect
 end

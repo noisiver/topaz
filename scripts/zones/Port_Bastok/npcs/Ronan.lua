@@ -56,9 +56,10 @@ function onEventFinish(player, csid, option)
         if (player:getFreeSlotsCount() >= 1) then
             player:addTitle(tpz.title.SHELL_OUTER)
             player:setCharVar("OutOfOneShell", 0)
-            player:addItem(12501)
+            player:addItem(12501, 1, 54, 1) -- -2% PDT
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12501)
-            player:addFame(BASTOK, 120)
+            player:addExp(4500 * EXP_RATE)
+            player:addFame(BASTOK, 200)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.OUT_OF_ONE_S_SHELL)
         else
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 12501)

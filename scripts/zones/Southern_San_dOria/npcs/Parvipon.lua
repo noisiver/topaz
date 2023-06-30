@@ -41,10 +41,17 @@ function onEventFinish(player, csid, option)
         player:addGil(GIL_RATE*120)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*120)
         if (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THE_MERCHANT_S_BIDDING) == QUEST_ACCEPTED) then
-            player:addFame(SANDORIA, 30)
-            player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_MERCHANT_S_BIDDING)
+            if (player:getFreeSlotsCount(0) >= 1) then
+                player:addExp(2500 * EXP_RATE)
+                player:addFame(SANDORIA, 300)
+                player:addItem(13192, 1, 512, 0) -- STR+1
+                player:messageSpecial(ID.text.ITEM_OBTAINED, 13192) -- Leather Belt
+                player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_MERCHANT_S_BIDDING)
+            else
+                player:addFame(SANDORIA, 10)
+            end
         else
-            player:addFame(SANDORIA, 5)
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13192) -- Leather Belt
         end
     end
 

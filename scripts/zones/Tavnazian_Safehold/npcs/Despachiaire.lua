@@ -2,8 +2,11 @@
 -- Area: Tavnazian Safehold
 --  NPC: Despachiaire
 -- !pos 108 -40 -83 26
+-- TODO: Tango with a tracker and Requiem of Sin quest logic
 -----------------------------------
 require("scripts/globals/missions")
+require("scripts/globals/npc_util")
+require("scripts/globals/keyitems")
 -----------------------------------
 -- TODO:
 -- Starts quests: "X Marks the Spot"

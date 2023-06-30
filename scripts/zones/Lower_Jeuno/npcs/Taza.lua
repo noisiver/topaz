@@ -1,7 +1,7 @@
 -----------------------------------
 -- Area: Lower Jeuno
 --  NPC: Taza
--- Augmenting NPC
+-- Zilart Augmenting NPC
 -- !pos -29 5 -89 245
 -----------------------------------
 local ID = require("scripts/zones/Lower_Jeuno/IDs")
@@ -9,367 +9,280 @@ require("scripts/globals/npc_util")
 require("scripts/globals/items")
 require("scripts/globals/augments")
 -----------------------------------
-
+-- Tiger / Darksteel Cuirass / Shade Harness / Silk Coat
 -----------------------------------
--- Forgotten items
-local forgotten =
+-- Sets
+local sets =
 {
-head = tpz.items.FORGOTTEN_THOUGHT, body = tpz.items.FORGOTTEN_HOPE,  hands = tpz.items.FORGOTTEN_TOUCH,
-legs = tpz.items.FORGOTTEN_JOURNEY, feet = tpz.items.FORGOTTEN_STEP
-}
------------------------------------
+    helm =
+    {
+        items = {
+            tpz.items.DARKSTEEL_ARMET,
+            tpz.items.DARKSTEEL_ARMET_HQ,
+            tpz.items.TIGER_HELM,
+            tpz.items.FERAL_HELM,
+            tpz.items.COEURL_MASK,
+            tpz.items.TORAMA_MASK,
+            tpz.items.SILK_HAT,
+            tpz.items.SILK_HAT_HQ,
+            tpz.items.SHADE_TIARA,
+            tpz.items.SHADE_TIARA_HQ,
+        },
+        augmentMat  =  tpz.items.FORGOTTEN_THOUGHT,
+        augmentMultiplier  = 1.25,
+    },
+    body =
+    {
+        items = {
+            tpz.items.DARKSTEEL_CUIRASS,
+            tpz.items.DARKSTEEL_CUIRASS_HQ,
+            tpz.items.TIGER_JERKIN,
+            tpz.items.FERAL_JERKIN,
+            tpz.items.COEURL_JERKIN,
+            tpz.items.TORAMA_JERKIN,
+            tpz.items.SILK_COAT,
+            tpz.items.SILK_COAT_HQ,
+            tpz.items.SHADE_HARNESS,
+            tpz.items.SHADE_HARNESS_HQ,
+        },
+        augmentMat  =  tpz.items.FORGOTTEN_HOPE,
+        augmentMultiplier  = 2.0,
+    },
+    hands =
+    {
+        items = {
+            tpz.items.DARKSTEEL_GAUNTLETS,
+            tpz.items.DARKSTEEL_GAUNTLETS_HQ,
+            tpz.items.TIGER_GLOVES,
+            tpz.items.FERAL_GLOVES,
+            tpz.items.COEURL_GLOVES,
+            tpz.items.TORAMA_GLOVES,
+            tpz.items.SILK_CUFFS,
+            tpz.items.SILK_CUFFS_HQ,
+            tpz.items.SHADE_MITTENS,
+            tpz.items.SHADE_MITTENS_HQ,
+        },
+        augmentMat  =  tpz.items.FORGOTTEN_TOUCH,
+        augmentMultiplier  = 1.0,
+    },
+    legs =
+    {
+        items = {
+            tpz.items.DARKSTEEL_CUISSES,
+            tpz.items.DARKSTEEL_CUISSES_HQ,
+            tpz.items.TIGER_TROUSERS,
+            tpz.items.FERAL_TROUSERS,
+            tpz.items.COEURL_TROUSERS,
+            tpz.items.TORAMA_TROUSERS,
+            tpz.items.SILK_SLOPS,
+            tpz.items.SILK_SLOPS_HQ,
+            tpz.items.SHADE_TIGHTS,
+            tpz.items.SHADE_TIGHTS_HQ,
+        },
+        augmentMat  =  tpz.items.FORGOTTEN_JOURNEY,
+        augmentMultiplier  = 1.5,
+    },
+    feet =
+    {
+        items = {
+            tpz.items.DARKSTEEL_SABATONS,
+            tpz.items.DARKSTEEL_SABATONS_HQ,
+            tpz.items.TIGER_LEDELSENS,
+            tpz.items.FERAL_LEDELSENS,
+            tpz.items.COEURL_LEDELSENS,
+            tpz.items.TORAMA_LEDELSENS,
+            tpz.items.PIGACHES,
+            tpz.items.PIGACHES_HQ,
+            tpz.items.SHADE_LEGGINGS,
+            tpz.items.SHADE_LEGGINGS_HQ,
+        },
+        augmentMat  =  tpz.items.FORGOTTEN_JOURNEY,
+        augmentMultiplier  = 1.0 
+    },
+};
 
-local trades =
-{
-    {
-        items = {
-            { tpz.items.IFRITS_BLADE, 1 },
-            { tpz.items.IFRITEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.IFRITS_BLADE, 1, 45, 4);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.IFRITS_BLADE)
-        end
-    },
-        {
-        items = {
-            { tpz.items.FIRE_RING, 1 },
-            { tpz.items.IFRITEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.FIRE_RING, 1, 143, 1);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.FIRE_RING)
-        end
-    },
-    {
-        items = {
-            { tpz.items.SHIVAS_CLAWS, 1 },
-            { tpz.items.SHIVATEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.SHIVAS_CLAWS, 1, 45, 9);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.SHIVAS_CLAWS)
-        end
-    },
-    {
-        items = {
-            { tpz.items.ICE_RING, 1 },
-            { tpz.items.SHIVATEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.ICE_RING, 1, 334, 1);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.ICE_RING)
-        end
-    },
-    {
-        items = {
-            { tpz.items.LEVIATHANS_ROD, 1 },
-            { tpz.items.LEVIATEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.LEVIATHANS_ROD, 1, 55, 2);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.LEVIATHANS_ROD)
-        end
-    },
-    {
-        items = {
-            { tpz.items.WATER_RING, 1 },
-            { tpz.items.LEVIATEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WATER_RING, 1, 323, 1);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WATER_RING)
-        end
-    },
-    {
-        items = {
-            { tpz.items.GARUDAS_DAGGER, 1 },
-            { tpz.items.GARUTEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.GARUDAS_DAGGER, 1, 45, 9);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.GARUDAS_DAGGER)
-        end
-    },
-    {
-        items = {
-            { tpz.items.WIND_RING, 1 },
-            { tpz.items.GARUTEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WIND_RING, 1, 31, 4);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WIND_RING)
-        end
-    },
-    {
-        items = {
-            { tpz.items.RAMUHS_STAFF, 1 },
-            { tpz.items.RAMUTEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.RAMUHS_STAFF, 1, 45, 29);  
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.RAMUHS_STAFF)
-        end
-    },
-    {
-        items = {
-            { tpz.items.LIGHTING_RING, 1 },
-            { tpz.items.RAMUTEAR, 1 },
-            { 'gil', 250000 }, 
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.LIGHTING_RING, 1, 55, 2);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.LIGHTING_RING)
-        end
-    },
-    {
-        items = {
-            { tpz.items.TITANS_CUDGEL, 1 },
-            { tpz.items.TITATEAR, 1 },
-            { 'gil', 250000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.TITANS_CUDGEL, 1, 45, 14);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.TITANS_CUDGEL);
-        end
-    },
-    {
-        items = {
-            { tpz.items.EARTH_RING, 1 },
-            { tpz.items.TITATEAR, 1 },
-            { 'gil', 250000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.EARTH_RING, 1, 54, 1);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.EARTH_RING);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WARLOCKS_CHAPEAU, 1 },
-            { forgotten.head, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WARLOCKS_CHAPEAU, 1, 45, 14);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WARLOCKS_CHAPEAU);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WARLOCKS_TABARD, 1 },
-            { forgotten.body, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WARLOCKS_TABARD, 1, 45, 14);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WARLOCKS_TABARD);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WARLOCKS_GLOVES, 1 },
-            { forgotten.hands, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WARLOCKS_GLOVES, 1, 138, 0);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WARLOCKS_GLOVES);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WARLOCKS_TIGHTS, 1 },
-            { forgotten.legs, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WARLOCKS_TIGHTS, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WARLOCKS_TIGHTS);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WARLOCKS_BOOTS, 1 },
-            { forgotten.feet, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WARLOCKS_BOOTS, 1, 368, 1);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WARLOCKS_BOOTS);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WISE_CAP, 1 },
-            { forgotten.head, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WISE_CAP, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WISE_CAP);
-        end
-    },
-    {
-        items = {
-            { tpz.items.CHASUBLE, 1 },
-            { forgotten.body, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.CHASUBLE, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.CHASUBLE);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WISE_GLOVES, 1 },
-            { forgotten.hands, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WISE_GLOVES, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WISE_GLOVES);
-        end
-    },
-    {
-        items = {
-            { tpz.items.WISE_PIGACHES, 1 },
-            { forgotten.feet, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.WISE_PIGACHES, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.WISE_PIGACHES);
-        end
-    },
-    {
-        items = {
-            { tpz.items.NOBLES_CROWN, 1 },
-            { forgotten.head, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.NOBLES_CROWN, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.NOBLES_CROWN);
-        end
-    },
-    {
-        items = {
-            { tpz.items.NOBLES_MITTS, 1 },
-            { forgotten.hands, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.NOBLES_MITTS, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.NOBLES_MITTS);
-        end
-    },
-    {
-        items = {
-            { tpz.items.NOBLES_SLACKS, 1 },
-            { forgotten.legs, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.NOBLES_SLACKS, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.NOBLES_SLACKS);
-        end
-    },
-    {
-        items = {
-            { tpz.items.NOBLES_PUMPS, 1 },
-            { forgotten.feet, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.NOBLES_PUMPS, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.NOBLES_PUMPS);
-        end
-    },
-    {
-        items = {
-            { tpz.items.BLESSED_BRIAULT, 1 },
-            { forgotten.body, 100 },
-            { 'gil', 1000000 },
-        },
-        GiveAugment = function(player)
-            player:addItem(tpz.items.BLESSED_BRIAULT, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.BLESSED_BRIAULT);
-        end
-    },
-    {
-        items = {
-            { 15229, 1 }, -- WARLOCKS_CHAPEAU +1
-        },
-        GiveAugment = function(player)
-            player:addItem(15229, 1, 45, 14);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 15229);
-        end
-    },
-    {
-        items = {
-            { 14477, 1 }, -- WARLOCKS_TABARD +1
-        },
-        GiveAugment = function(player)
-            player:addItem(14477, 1, 45, 14);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 14477);
-        end
-    },
-    {
-        items = {
-            { 14894, 1 }, -- WARLOCKS_GLOVES +1
-        },
-        GiveAugment = function(player)
-            player:addItem(14894, 1, 138, 0, tpz.augments.HASTE, 3);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 14894);
-        end
-    },
-    {
-        items = {
-            { 15565, 1 }, -- WARLOCKS_TIGHTS +1
-        },
-        GiveAugment = function(player)
-            player:addItem(15565, 1, 1248, 24);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 15565);
-        end
-    },
-    {
-        items = {
-            { 15356, 1 }, -- WARLOCKS_BOOTS +1
-        },
-        GiveAugment = function(player)
-            player:addItem(15356, 1, 368, 1, tpz.augments.PDT, 1);
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 15356);
-        end
-    },
-}
+local outputMessages = {
+    [1] = 'The magical properties of this item are not very powerful.',
+    [2] = 'The magical properties of this item are mild.',
+    [3] = 'The magical properties of this item are good.',
+    [4] = 'The magical properties of this item are powerful!',
+    [5] = 'The magical properties of this item are very powerful!'
+};
 
+local function CalculateAugmentQuantity()
+    local rnd = math.random()
 
+    if rnd < 0.2 then
+        return 1
+    elseif rnd < 0.4 then
+        return 2
+    elseif rnd < 0.8 then
+        return 3
+    elseif rnd < 0.9 then
+        return 4
+    else
+        return 5
+    end
+end
 
+local function CalculateAugments(multiplier)
+    -----------------------------------
+    -- Augments go inside function so the table is made fresh each time.
+    local possibleAugments =
+    {
+        -- Mod || Base Mod Power
+        { Stat = tpz.augments.ACC, Power = 10, Used = false },
+        { Stat = tpz.augments.ATTK, Power = 10, Used = false },
+        { Stat = tpz.augments.RACC, Power = 10, Used = false },
+        { Stat = tpz.augments.RATTK, Power = 10, Used = false },
+        { Stat = tpz.augments.EVA, Power = 10, Used = false },
+        { Stat = tpz.augments.DEF, Power = 10, Used = false },
+        { Stat = tpz.augments.MACC, Power = 5, Used = false },
+        { Stat = tpz.augments.MATT, Power = 5, Used = false },
+        { Stat = tpz.augments.STR, Power = 5, Used = false },
+        { Stat = tpz.augments.DEX, Power = 5, Used = false },
+        { Stat = tpz.augments.VIT, Power = 5, Used = false },
+        { Stat = tpz.augments.AGI, Power = 5, Used = false },
+        { Stat = tpz.augments.INT, Power = 5, Used = false },
+        { Stat = tpz.augments.MND, Power = 5, Used = false },
+        { Stat = tpz.augments.CHR, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTSLEEP, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTPOISON, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTPARALYZE, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTBLIND, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTSILENCE, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTPETRIFY, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTVIRUS, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTCURSE, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTSTUN, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTBIND, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTGRAVITY, Power = 5, Used = false },
+        { Stat = tpz.augments.RESISTSLOW, Power = 5, Used = false },
+        { Stat = tpz.augments.RECYCLE, Power = 5, Used = false },
+        { Stat = tpz.augments.NTE, Power = 5, Used = false },
+        { Stat = tpz.augments.SUBTLE_BLOW, Power = 5, Used = false },
+        { Stat = tpz.augments.ZANSHIN, Power = 5, Used = false },
+        { Stat = tpz.augments.SNAP_SHOT, Power = 5, Used = false },
+        { Stat = tpz.augments.RAPID_SHOT, Power = 5, Used = false },
+        { Stat = tpz.augments.WSACC, Power = 10, Used = false },
+        { Stat = tpz.augments.ENH_DRAIN_ASPIR, Power = 5, Used = false },
+        { Stat = tpz.augments.SPELLINTERRUPT, Power = 5, Used = false },
+        { Stat = tpz.augments.SKILLCHAINDMG, Power = 5, Used = false },
+        { Stat = tpz.augments.CONSERVE_TP, Power = 5, Used = false },
+        { Stat = tpz.augments.CURE_POTENCY, Power = 5, Used = false },
+        { Stat = tpz.augments.REGENPOTENCY, Power = 5, Used = false },
+        { Stat = tpz.augments.WALTZ_POTENTCY, Power = 5, Used = false },
+        { Stat = tpz.augments.ENMITY, Power = 5, Used = false },
+        { Stat = tpz.augments.ENMITY_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.HP_MINUS_33, Power = 1, Used = false },
+        { Stat = tpz.augments.MP_MINUS_33, Power = 1, Used = false },
+        { Stat = tpz.augments.ACC_MINUS, Power = 10, Used = false },
+        { Stat = tpz.augments.ATTK_MINUS, Power = 10, Used = false },
+        { Stat = tpz.augments.RACC_MINUS, Power = 10, Used = false },
+        { Stat = tpz.augments.RATTK_MINUS, Power = 10, Used = false },
+        { Stat = tpz.augments.EVA_MINUS, Power = 10, Used = false },
+        { Stat = tpz.augments.DEF_MINUS, Power = 10, Used = false },
+        { Stat = tpz.augments.MACC_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.MDEF, Power = 5, Used = false },
+        { Stat = tpz.augments.MDEF_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.STR_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.DEX_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.VIT_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.AGI_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.INT_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.MND_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.CHR_MINUS, Power = 5, Used = false },
+        { Stat = tpz.augments.FIRERES, Power = 10, Used = false },
+        { Stat = tpz.augments.ICERES, Power = 10, Used = false },
+        { Stat = tpz.augments.WINDRES, Power = 10, Used = false },
+        { Stat = tpz.augments.EARTHRES, Power = 10, Used = false },
+        { Stat = tpz.augments.LIGHTNINGRES, Power = 10, Used = false },
+        { Stat = tpz.augments.WATERRES, Power = 10, Used = false },
+        { Stat = tpz.augments.LIGHTRES, Power = 10, Used = false },
+        { Stat = tpz.augments.DARKRES, Power = 10, Used = false },
+        { Stat = tpz.augments.DEF_10, Power = 1, Used = false },
+    }
 
-function onTrade(player, npc, trade)
-    for _,option in pairs(trades) do
-        if npcUtil.tradeHas(trade, option.items) then
-            player:confirmTrade()
-            option.GiveAugment(player);
-            player:PrintToPlayer("I have successfully augmented your item and the the magical properties have been revealed!",0,"Taza")
-            return
+    local possibleRareAugments =
+    {
+        { Stat = tpz.augments.REGEN, Power = 1, Used = false },
+        { Stat = tpz.augments.MAGIC_BURST_DMG, Power = 3, Used = false },
+        { Stat = tpz.augments.BDT, Power = 1, Used = false },
+        { Stat = tpz.augments.DT, Power = 1, Used = false },
+        { Stat = tpz.augments.RESISTCHARM, Power = 5, Used = false },
+        { Stat = tpz.augments.FASTCAST, Power = 1, Used = false },
+        { Stat = tpz.augments.CRITHITRATE, Power = 1, Used = false },
+        { Stat = tpz.augments.CRITHITDAMAGE, Power = 1, Used = false },
+        { Stat = tpz.augments.CONSERVE_MP, Power = 1, Used = false },
+        { Stat = tpz.augments.ALL_WSDMG_FIRST_HIT, Power = 1, Used = false },
+        { Stat = tpz.augments.SONG_SPELLCASTING_TIME_MINUS, Power = 1, Used = false },
+        { Stat = tpz.augments.CURE_SPELLCASTING_TIME_MINUS, Power = 1, Used = false },
+        { Stat = tpz.augments.DUAL_WIELD, Power = 1, Used = false },
+        { Stat = tpz.augments.COUNTER, Power = 1, Used = false },
+        { Stat = tpz.augments.HP_33, Power = 1, Used = false },
+        { Stat = tpz.augments.MP_33, Power = 1, Used = false },
+        { Stat = tpz.augments.HHP, Power = 1, Used = false },
+        { Stat = tpz.augments.HMP, Power = 1, Used = false },
+    }
+    -----------------------------------
+
+    local augmentQuantity = CalculateAugmentQuantity();    
+    local augmentResult = {}
+    for i = 1,augmentQuantity do
+        local randomAugment;
+        while (randomAugment == nil) or (randomAugment.Used) do
+            if i < 5 then
+                randomAugment = possibleAugments[math.random(#possibleAugments)]
+            else
+                randomAugment = possibleRareAugments[math.random(#possibleRareAugments)]
+            end
+        end
+
+        local power = math.random(0, randomAugment.Power) * multiplier;
+        augmentResult[#augmentResult + 1] = randomAugment.Stat;
+        augmentResult[#augmentResult + 1] = power;
+        randomAugment.Used = true
+    end
+    
+    return augmentResult;
+end
+
+local function CheckAugment(trade)
+    for slot,details in pairs(sets) do
+        for _,item in ipairs(details.items) do
+            if npcUtil.tradeHasExactly(trade, { item, details.augmentMat }) then
+                local augments = CalculateAugments(details.augmentMultiplier);
+                return {
+                    Augments=augments,
+                    Item=item,
+                };
+            end
         end
     end
-    player:PrintToPlayer("I can't do anything with those items",0,"Taza")
+end
+
+local function DistributeAugment(player, augment)
+    player:tradeComplete();
+    player:addItem(augment.Item, 1, table.unpack(augment.Augments));
+    local ID = zones[player:getZoneID()]
+    player:PrintToPlayer("I will start the imbuing process on this item right away. Do not go anywhere!" ,0,"Taza")
+    player:timer(3000, function(player)
+        player:PrintToPlayer(outputMessages[#augment.Augments / 2],0,"Taza")
+        player:messageSpecial(ID.text.ITEM_OBTAINED, augment.Item)
+    end)
 end
 
 
+function onTrade(player, npc, trade)    
+    local augment = CheckAugment(trade);
+    if (type(augment) == 'table') and (augment.Item ~= nil) and (#augment.Augments > 1) then
+        DistributeAugment(player, augment);
+        return
+    end
+        player:PrintToPlayer("I can't do anything with those items.",0,"Taza");
+end
+
 function onTrigger(player, npc)
-	player:PrintToPlayer("Do you have magical items you would like to augment? I can help!",0,"Taza")
+	player:PrintToPlayer("I can unlock the magical properties of the following items:",0,"Taza")
+    player:PrintToPlayer("Dark Cuirass Set, Shade Harness Set, Tiger Jerkin Set, Silk Robe Set",0xF,"Taza")
 end

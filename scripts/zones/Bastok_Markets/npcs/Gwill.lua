@@ -56,9 +56,10 @@ function onEventFinish(player, csid, option)
         if (player:getFreeSlotsCount() >= 1) then
             player:tradeComplete()
             player:addTitle(tpz.title.KULATZ_BRIDGE_COMPANION)
-            player:addItem(12498)
+            player:addItem(12498, 1, 513, 0) -- DEX+1
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12498)
-            player:addFame(BASTOK, 80)
+            player:addExp(3000 * EXP_RATE)
+            player:addFame(BASTOK, 150)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.THE_RETURN_OF_THE_ADVENTURER)
         else
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 12498)

@@ -13,9 +13,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local params = {}
+    params.overwriteSlow = true
 
-    MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 25, 0, 300)
-    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.SLOW, 5000, 0, 300)) 
+    MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 50, 0, 300)
+    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.SLOW, 5000, 0, 300, params)) 
     mob:resetEnmity(target)
 
     return typeEffect

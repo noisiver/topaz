@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 300
 
     MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 15, 3, duration)
-    MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 100, 3, duration)
+    MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 30, 3, duration)
     MobStatusEffectMove(mob, target, tpz.effect.POISON, 25, 3, 90)
     MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 3, 3, duration)
     MobStatusEffectMove(mob, target, tpz.effect.BIND, 1, 0, 45)

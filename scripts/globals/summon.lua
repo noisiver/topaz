@@ -222,6 +222,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             local isBlocked = math.random()*100 < target:getBlockRate(avatar)
+            local isParried = math.random()*100 < target:getParryRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -261,7 +262,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 -- Hybrid hits are only HALF a physical hits damage
                 magicdmg = magicdmg / 2
                 --printf("magicdmg after resist %u", magicdmg)
-                magicdmg = target:magicDmgTaken(magicdmg)
+                magicdmg = target:magicDmgTaken(magicdmg, tpz.magic.ele.FIRE) -- Only hybrid BP is fire for now
                 -- Handle absorb
                 magicdmg = adjustForTarget(target, magicdmg, tpz.magic.ele.FIRE)
                 -- Add HP if absorbed
@@ -282,6 +283,10 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             if avatar:isInfront(target, 90) and isBlocked then
                 finaldmg = target:getBlockedDamage(finaldmg)
             end
+            -- Check if mob parried us
+            if avatar:isInfront(target, 90) and isParried then
+                finaldmg = 0
+            end
             numHitsProcessed = 1
         end
 
@@ -291,6 +296,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             local isBlocked = math.random()*100 < target:getBlockRate(avatar)
+            local isParried = math.random()*100 < target:getParryRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -319,6 +325,14 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             finaldmg = finaldmg + (avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp)
             --handling phalanx
             finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
+            -- Check if mob blocked us
+            if avatar:isInfront(target, 90) and isBlocked then
+                finaldmg = target:getBlockedDamage(finaldmg)
+            end
+            -- Check if mob parried us
+            if avatar:isInfront(target, 90) and isParried then
+                finaldmg = 0
+            end
             numHitsProcessed = numHitsProcessed + 1
         end
         -- apply ftp bonus
@@ -329,10 +343,11 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             --printf("%i", finaldmg)
         end
     end
-    -- Check if mob blocked us
-    if avatar:isInfront(target, 90) and isBlocked then
-        finaldmg = target:getBlockedDamage(finaldmg)
+
+    if (finaldmg == 0) then -- Full parries and full miss
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
     end
+
     --printf("finaldmg %i", finaldmg)
     returninfo.dmg = finaldmg
     returninfo.hitslanded = numHitsLanded
@@ -411,7 +426,9 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
 
     -- set message to damage
     -- this is for AoE because its only set once
-    skill:setMsg(tpz.msg.basic.DAMAGE)
+    if (dmg > 0) then
+        skill:setMsg(tpz.msg.basic.DAMAGE)
+    end
     -- Shadows logic
     --printf("numhits %u", numberofhits)
     dmg = getAvatarShadowAbsorb(dmg, numberofhits, target, skill, params)
@@ -471,11 +488,12 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         end
     end
 
+    local element = damageType - 5
     -- Check for MDT/PDT/RDT/BDT/MDB
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then
@@ -542,9 +560,9 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     dmg = dmg + dmg * avatar:getMod(tpz.mod.BP_DAMAGE) / 100
 
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     end
 
     -- Handle absorb
@@ -1223,7 +1241,11 @@ function getAvatarDStat(statmod, avatar, target)
     end
 
     if dSTat > 0 then
-        dStat = math.floor(dStat * 1.5)
+        if (statmod == MND_BASED) then -- Level ? Holy is 2.0 multiplier for dStat
+            dStat = math.floor(dStat * 2.0)
+        else
+            dStat = math.floor(dStat * 1.5)
+        end
     else
         dSTat = math.floor(dStat * 1)
     end
@@ -1504,7 +1526,7 @@ function getAvatarMagicBurstBonus(avatar, target, skill, element)
     if (skillchainburst > 1) then
         burst = burst * modburst * skillchainburst
         local spell = getSpell(147)
-        skill:setMsg(spell:getMagicBurstMessage())
+        skill:setMsg(tpz.msg.basic.MAGIC_BURST_JA)
     end
 
 

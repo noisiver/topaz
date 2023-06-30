@@ -383,10 +383,10 @@ uint16 CBattleEntity::GetMainWeaponDmg()
             dmg *= GetMLevel() * 3;
             dmg /= 4;
             dmg /= weapon->getReqLvl();
-            return dmg + getMod(Mod::MAIN_DMG_RATING);
+            return std::clamp(dmg + getMod(Mod::MAIN_DMG_RATING), 0, 9999);
         }
         else
-            return weapon->getDamage() + getMod(Mod::MAIN_DMG_RATING);
+            return std::clamp(weapon->getDamage() + getMod(Mod::MAIN_DMG_RATING), 0, 9999);
     }
     return 0;
 }
@@ -560,7 +560,7 @@ int32 CBattleEntity::addMP(int32 mp)
     return abs(mp);
 }
 
-int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullptr*/, ATTACKTYPE attackType /* = ATTACK_NONE*/, DAMAGETYPE damageType /* = DAMAGE_NONE*/)
+int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullptr*/, ATTACKTYPE attackType /* = ATTACK_NONE*/, DAMAGETYPE damageType /* = DAMAGE_NONE*/, bool isDOT)
 {
     PLastAttacker = attacker;
     PAI->EventHandler.triggerListener("TAKE_DAMAGE", this, amount, attacker, (uint16)attackType, (uint16)damageType);
@@ -571,8 +571,22 @@ int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullp
     else if (PLastAttacker && PLastAttacker->objtype == TYPE_PC)
         roeutils::event(ROE_EVENT::ROE_DMGDEALT, static_cast<CCharEntity*>(attacker), RoeDatagram("dmg", amount));
 
-    // Damage always breaks petrify on mobs, but not players or NPCs(trusts, campaign helpers, etc)
-    if (this->objtype == TYPE_MOB)
+    // Track Scarlet Delirium
+    if (this->StatusEffectContainer->HasStatusEffect(EFFECT_SCARLET_DELIRIUM) && !isDOT)
+    {
+        this->StatusEffectContainer->DelStatusEffect(EFFECT_SCARLET_DELIRIUM);
+
+        // Increases damage proportional to half of the lost HP% (rounded down)
+        // Ex.: If you lose 50% HP, you will do 25% more damage.
+        // https://www.bg-wiki.com/ffxi/Scarlet_Delirium
+        float scarletDmgBonus = (float)amount / (float)GetMaxHP();
+        scarletDmgBonus = scarletDmgBonus / 2.0f;
+        scarletDmgBonus *= 100.0f;
+
+        this->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SCARLET_DELIRIUM_1, EFFECT_SCARLET_DELIRIUM_1, scarletDmgBonus, 0, 90));
+    }
+    // Damage always breaks petrify on mobs, but not players or NPCs(trusts, campaign helpers, charmed mobs, etc)
+    if (this->objtype == TYPE_MOB && !this->isCharmed)
     {
         this->StatusEffectContainer->DelStatusEffect(EFFECT_PETRIFICATION);
     }
@@ -624,7 +638,7 @@ uint16 CBattleEntity::CHR()
 uint16 CBattleEntity::ATT()
 {
     //TODO: consider which weapon!
-    int32 ATT = 8 + m_modStat[Mod::ATT];
+    int32 ATT = 8 + static_cast<int32>(m_modStat[Mod::ATT]);
     auto weapon = dynamic_cast<CItemWeapon*>(m_Weapons[SLOT_MAIN]);
     if (weapon && weapon->isTwoHanded())
     {
@@ -640,7 +654,7 @@ uint16 CBattleEntity::ATT()
     }
 
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_ENDARK))
-        ATT += this->getMod(Mod::ENSPELL_DMG);
+        ATT += static_cast<int32>(this->getMod(Mod::ENSPELL_DMG));
 
     if (this->objtype & TYPE_PC)
     {
@@ -651,7 +665,7 @@ uint16 CBattleEntity::ATT()
             // Smite applies when using 2H or H2H weapons
             if (weapon->isTwoHanded() || weapon->isHandToHand())
             {
-                ATT += static_cast<int32>(ATT * this->getMod(Mod::SMITE) / 256.f); // Divide smite value by 256
+                ATT += static_cast<int32>(ATT * static_cast<int32>(this->getMod(Mod::SMITE)) / 256.f); // Divide smite value by 256
             }
         }
     }
@@ -659,8 +673,10 @@ uint16 CBattleEntity::ATT()
     {
         ATT += this->GetSkill(SKILL_AUTOMATON_MELEE);
     }
-    return ATT + (ATT * m_modStat[Mod::ATTP] / 100) +
-        std::min<int16>((ATT * m_modStat[Mod::FOOD_ATTP] / 100), m_modStat[Mod::FOOD_ATT_CAP]);
+    auto attack = ATT + (ATT * static_cast<int32>(m_modStat[Mod::ATTP]) / 100) +
+                  std::min<int16>((ATT * static_cast<int32>(m_modStat[Mod::FOOD_ATTP]) / 100), static_cast<int32>(m_modStat[Mod::FOOD_ATT_CAP]));
+    //printf("Pre-Clamp Attack: %d", attack);
+    return std::clamp(attack, 0, 9999);
 }
 
 uint16 CBattleEntity::RATT(uint8 skill, uint16 bonusSkill)
@@ -670,9 +686,11 @@ uint16 CBattleEntity::RATT(uint8 skill, uint16 bonusSkill)
     {
         return 0;
     }
-    int32 ATT = 8 + GetSkill(skill) + bonusSkill + m_modStat[Mod::RATT] + battleutils::GetRangedAttackBonuses(this) + (STR() * 3) / 4;
-    return ATT + (ATT * m_modStat[Mod::RATTP] / 100) +
-        std::min<int16>((ATT * m_modStat[Mod::FOOD_RATTP] / 100), m_modStat[Mod::FOOD_RATT_CAP]);
+    int32 ATT = 8 + GetSkill(skill) + bonusSkill + static_cast<int32>(m_modStat[Mod::RATT]) + battleutils::GetRangedAttackBonuses(this) + (STR() * 3) / 4;
+    auto attack = ATT + (ATT * static_cast<int32>(m_modStat[Mod::RATTP]) / 100) +
+        std::min<int16>((ATT * static_cast<int32>(m_modStat[Mod::FOOD_RATTP]) / 100), static_cast<int32>(m_modStat[Mod::FOOD_RATT_CAP]));
+    //printf("Pre-Clamp Attack: %d", attack);
+    return std::clamp(attack, 0, 9999);
 }
 
 uint16 CBattleEntity::RACC(uint8 skill, uint16 bonusSkill)
@@ -767,11 +785,18 @@ uint16 CBattleEntity::ACC(int8 attackNumber, int8 offsetAccuracy)
 
 uint16 CBattleEntity::DEF()
 {
-    int32 DEF = 8 + m_modStat[Mod::DEF] + VIT() / 2;
+    int32 DEF = 8 + m_modStat[Mod::DEF] + m_modStat[Mod::DEF_TRAIT] + VIT() / 2;
+
+      /* While the effect is active, the players Defense is calculated only by their VIT (VIT/2)
+      and any bonuses from Minne. All other defense bonuses, with the exception of the
+      Defense Bonus trait, are ignored, but defense penalties such as Berserk or
+      monster-inflicted Defense Down are applied.
+      https://www.bg-wiki.com/index.php?title=Counterstance&oldid=229232 */
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_COUNTERSTANCE, 0) && this->objtype == TYPE_PC)
     {
+        DEF = VIT() / 2 + m_modStat[Mod::DEF_TRAIT] + this->StatusEffectContainer->GetTotalMinneBonus();
         DEF += (DEF * m_modStat[Mod::DEFP] / 100);
-        return std::clamp(DEF / 2, 0, 9999);
+        return std::clamp(DEF, 0, 9999);
     }
 
     return std::clamp(DEF + (DEF * m_modStat[Mod::DEFP] / 100) +
@@ -780,12 +805,28 @@ uint16 CBattleEntity::DEF()
 
 uint16 CBattleEntity::EVA()
 {
-    int16 evasion = GetSkill(SKILL_EVASION);
+    int16 evasion = 1;
 
-    if (evasion > 200) { //Evasion skill is 0.9 evasion post-200
-        evasion = (int16)(200 + (evasion - 200) * 0.9);
+    if (this->objtype == TYPE_MOB || this->objtype == TYPE_PET && static_cast<CPetEntity*>(this)->getPetType() != PETTYPE_AUTOMATON)
+    {
+        evasion = m_modStat[Mod::EVA]; // Mobs and pets base evasion is based off the EVA mod
     }
-    return std::max(0, (m_modStat[Mod::EVA] + evasion + AGI() / 2));
+    else // If it is a player then evasion = SKILL_EVASION
+    {
+        evasion = GetSkill(SKILL_EVASION);
+    }
+
+    // Both mobs and players follow the same formula for over 200 evasion
+    if (evasion > 200)
+    {
+        evasion = 200 + (evasion - 200) * 0.9;
+    }
+
+    evasion += AGI() / 2;
+
+    return std::max(0, evasion + (this->objtype == TYPE_MOB || this->objtype == TYPE_PET
+                                      ? 0
+                                      : m_modStat[Mod::EVA])); // The mod for a pet or mob is already calclated in the above so return 0
 }
 
 /************************************************************************
@@ -841,11 +882,10 @@ void CBattleEntity::SetMLevel(uint8 mlvl)
 
 void CBattleEntity::SetSLevel(uint8 slvl)
 {
-    if (!map_config.include_mob_sj && (this->objtype == TYPE_MOB && this->objtype != TYPE_PET))
+    if (!map_config.include_mob_sj && (this->objtype == TYPE_MOB && this->objtype != TYPE_PET ||
+        this->objtype == TYPE_PET && ((CPetEntity*)this)->getPetType() == PETTYPE_AVATAR))
     {
-        // Technically, we shouldn't be assuming mobs even have a ratio they must adhere to.
-        // But there is no place in the DB to set subLV right now.
-        m_slvl = (slvl > (m_mlvl >> 1) ? (m_mlvl == 1 ? 1 : (m_mlvl >> 1)) : slvl);
+        m_slvl = m_mlvl; // All mobs and avatars have a 1:1 ratio of MainJob/Subjob
     }
     else
     {
@@ -1674,21 +1714,23 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         else if ((tpzrand::GetRandomNumber(100) < attack.GetHitRate() || attackRound.GetSATAOccured()) &&
                  !PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_ALL_MISS))
         {
-            // attack hit, try to be absorbed by shadow unless it is a SATA attack round
-            if (!(attackRound.GetSATAOccured()) && battleutils::IsAbsorbByShadow(PTarget))
-            {
-                actionTarget.messageID = 0;
-                actionTarget.reaction = REACTION_EVADE;
-                attack.SetEvaded(true);
-                PTarget->loc.zone->PushPacket(PTarget, CHAR_INRANGE_SELF, new CMessageBasicPacket(PTarget, PTarget, 0, 1, 31));
-            }
-            else if (attack.IsParried())
+            // Check parry.
+            if (attack.IsParried())
             {
                 actionTarget.messageID = 70;
                 actionTarget.reaction = REACTION_PARRY;
                 actionTarget.speceffect = SPECEFFECT_NONE;
                 battleutils::HandleTacticalParry(PTarget);
                 battleutils::HandleIssekiganEnmityBonus(PTarget, this);
+            }
+            // Try to be absorbed by shadow unless it is a SATA attack round.
+            else if (!(attackRound.GetSATAOccured()) && battleutils::IsAbsorbByShadow(PTarget))
+            {
+                actionTarget.messageID = MSGBASIC_SHADOW_ABSORB;
+                actionTarget.param = 1;
+                actionTarget.reaction = REACTION_EVADE;
+                actionTarget.speceffect = SPECEFFECT_NONE;
+                attack.SetEvaded(true);
             }
             else if (attack.CheckAnticipated() || attack.CheckCounter())
             {
@@ -1737,7 +1779,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                         {
                             auto targ_weapon = dynamic_cast<CItemWeapon*>(PTarget->m_Weapons[SLOT_MAIN]);
                             uint8 skilltype = (targ_weapon == nullptr ? SKILL_HAND_TO_HAND : targ_weapon->getSkillType());
-                            charutils::TrySkillUP((CCharEntity*)PTarget, (SKILLTYPE)skilltype, GetMLevel());
+                            charutils::TrySkillUP((CCharEntity*)PTarget, (SKILLTYPE)skilltype, GetMLevel(), false);
                         } // In case the Automaton can counter
                         else if (PTarget->objtype == TYPE_PET && PTarget->PMaster && PTarget->PMaster->objtype == TYPE_PC &&
                             static_cast<CPetEntity*>(PTarget)->getPetType() == PETTYPE_AUTOMATON)
@@ -1812,18 +1854,19 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 // Process damage.
                 attack.ProcessDamage();
 
-                // Display Treasure Hunter Message
-                if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
-                {
-                    CMobEntity* PMob = (CMobEntity*)PTarget;
-                    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                    uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
+                // TODO: TH procs + message
+                //// Display Treasure Hunter Message
+                //if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
+                //{
+                //    CMobEntity* PMob = (CMobEntity*)PTarget;
+                //    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
+                //    uint16 mobTHLvL = PMob->m_THLvl;
 
-                    if (playerTHLvl > mobTHLvL)
-                    {
-                        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                    }
-                }
+                //    if (playerTHLvl > mobTHLvL)
+                //    {
+                //        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
+                //    }
+                //}
 
                 // Try shield block
                 if (attack.IsBlocked())
@@ -1831,11 +1874,16 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                     actionTarget.reaction = REACTION_BLOCK;
                 }
 
-                actionTarget.param = battleutils::TakePhysicalDamage(this, PTarget, attack.GetAttackType(), attack.GetDamage(), attack.IsBlocked(), attack.GetWeaponSlot(), 1, attackRound.GetTAEntity(), true, true, attack.IsCountered(), attack.IsCovered(), POriginalTarget);
-                if (actionTarget.param < 0)
+                // Check damage if the attack actually hit and wasn't absorbed by shadows, countered, parried, etc
+                if (actionTarget.reaction == REACTION_HIT || actionTarget.reaction == REACTION_BLOCK || actionTarget.reaction == REACTION_GUARD)
                 {
-                    actionTarget.param = -(actionTarget.param);
-                    actionTarget.messageID = 373;
+                    actionTarget.param = battleutils::TakePhysicalDamage(this, PTarget, attack.GetAttackType(), attack.GetDamage(), attack.IsBlocked(), attack.GetWeaponSlot(), 1, attackRound.GetTAEntity(), true, true, attack.IsCountered(), attack.IsCovered(), POriginalTarget);
+
+                    if (actionTarget.param < 0)
+                    {
+                        actionTarget.param = -(actionTarget.param);
+                        actionTarget.messageID = 373;
+                    }
                 }
             }
 
@@ -1845,7 +1893,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 {
                     if (battleutils::GetGuardRate(this, PTarget) > 0)
                     {
-                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_GUARD, GetMLevel());
+                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_GUARD, GetMLevel(), false);
                     }
                 }
 
@@ -1853,7 +1901,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 {
                     if (battleutils::GetBlockRate(this, PTarget) > 0)
                     {
-                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_SHIELD, GetMLevel());
+                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_SHIELD, GetMLevel(), false);
                     }
                 }
 
@@ -1861,12 +1909,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 {
                     if (battleutils::GetParryRate(this, PTarget) > 0)
                     {
-                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_PARRY, GetMLevel());
+                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_PARRY, GetMLevel(), false);
                     }
                 }
                 if (!attack.IsCountered() && !attack.IsParried())
                 {
-                    charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_EVASION, GetMLevel());
+                    charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_EVASION, GetMLevel(), false);
                 }
             }
         }
@@ -1886,24 +1934,6 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
             // Check & Handle Afflatus Misery Accuracy Bonus
             battleutils::HandleAfflatusMiseryAccuracyBonus(this);
-        }
-
-        if (actionTarget.reaction != REACTION_HIT && actionTarget.reaction != REACTION_BLOCK && actionTarget.reaction != REACTION_GUARD)
-        {
-            actionTarget.param = 0;
-            // add 1 ce for a missed attack for TH application
-            if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
-            {
-                CMobEntity* PMob = (CMobEntity*)PTarget;
-                uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
-
-                if (playerTHLvl > mobTHLvL)
-                {
-                    (PMob->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0));
-                    loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                }
-            }
         }
 
         if (actionTarget.reaction != REACTION_EVADE && actionTarget.reaction != REACTION_PARRY)

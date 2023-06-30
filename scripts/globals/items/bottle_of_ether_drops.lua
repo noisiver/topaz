@@ -1,20 +1,22 @@
 -----------------------------------------
 -- ID: 5357
 -- Item: Ether Drop
--- Item Effect: Restores 15 MP
+-- Item Effect: Restores 50 MP
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 
 function onItemCheck(target)
-    if (target:hasStatusEffect(tpz.effect.MEDICINE)) then
+    if (target:getMP() == target:getMaxMP()) then
+        return tpz.msg.basic.ITEM_UNABLE_TO_USE
+    elseif (target:hasStatusEffect(tpz.effect.MEDICINE)) then
         return tpz.msg.basic.ITEM_NO_USE_MEDICATED
     end
     return 0
 end
 
 function onItemUse(target)
-    target:addMP(50*ITEM_POWER)
-   -- target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 300)
+    target:messageBasic(tpz.msg.basic.RECOVERS_MP, 0, target:addMP(50*ITEM_POWER))
+    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 180)
 end

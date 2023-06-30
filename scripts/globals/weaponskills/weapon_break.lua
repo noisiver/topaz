@@ -3,7 +3,7 @@
 -- Great Axe weapon skill
 -- Skill level: 175
 -- Lowers enemy's attack. Duration of effect varies with TP.
--- Lowers attack by as much as 25% if unresisted.
+-- Lowers attack by 25% and weapon damage by 25.
 -- Strong against: Manticores, Orcs, Rabbits, Raptors, Sheep.
 -- Immune: Crabs, Crawlers, Funguars, Quadavs, Pugils, Sahagin, Scorpion.
 -- Will stack with Sneak Attack.
@@ -35,7 +35,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local power = 25
-    local bonus = 0
+    local bonus = 25
     -- Imperial Bhuj Hidden Effect
     local gaxe = player:getEquipID(tpz.slot.MAIN)
 	if gaxe == 18485 then -- Imperial Bhuj
@@ -48,7 +48,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     if (damage > 0 and target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
         local duration = (120 + (tp/1000 * 60))
         target:delStatusEffect(tpz.effect.ATTACK_BOOST)
-        target:addStatusEffect(tpz.effect.ATTACK_DOWN, power, 0, duration * resist)
+        target:addStatusEffect(tpz.effect.ATTACK_DOWN, power, 0, duration * resist, 0, power, 0)
     end
 	if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_AXE, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end

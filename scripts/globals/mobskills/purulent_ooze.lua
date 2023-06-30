@@ -17,13 +17,13 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 5
+    local dmgmod = 1.5
     local baseDamage = mob:getWeaponDmg()*3
     local info = MobMagicalMove(mob, target, skill, baseDamage, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_WIPE_SHADOWS)
 
-    MobStatusEffectMove(mob, target, tpz.effect.BIO, 20, 3, 300, 0, 10)
-    MobStatusEffectMove(mob, target, tpz.effect.MAX_HP_DOWN, 25, 0, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.BIO, 12, 3, 300, 0, 10)
+    MobStatusEffectMove(mob, target, tpz.effect.MAX_HP_DOWN, 10, 0, 300)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
     return dmg

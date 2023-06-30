@@ -13,7 +13,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.SLOW, 1250, 0, 300))
+    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.SLOW, 3550, 0, 300))
 
     return tpz.effect.SLOW
 end

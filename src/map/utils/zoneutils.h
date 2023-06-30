@@ -43,6 +43,7 @@ namespace zoneutils
     void InitializeWeather();                                                       // обновляем погоду в зонах
     void TOTDChange(TIMETYPE TOTD);                                                 // реакция мира на смену времени суток
     void SavePlayTime();
+    void SaveCharacterData();                                                       // Saves character position and status effects
 
     REGIONTYPE    GetCurrentRegion(uint16 ZoneID);
     CONTINENTTYPE GetCurrentContinent(uint16 ZoneID);

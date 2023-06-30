@@ -1226,6 +1226,16 @@ INSERT INTO `bcnm_battlefield` VALUES (676,3,16810079,0);
 INSERT INTO `bcnm_battlefield` VALUES (676,3,16810080,0);
 INSERT INTO `bcnm_battlefield` VALUES (676,3,16810081,0);
 INSERT INTO `bcnm_battlefield` VALUES (676,3,16810082,0);
+INSERT INTO `bcnm_battlefield` VALUES (677,1,16810084,3); -- Tango With a Tracker
+INSERT INTO `bcnm_battlefield` VALUES (677,1,16810085,3); -- Tango With a Tracker
+INSERT INTO `bcnm_battlefield` VALUES (677,1,16810086,3); -- Tango With a Tracker
+INSERT INTO `bcnm_battlefield` VALUES (677,1,16810087,3); -- Tango With a Tracker
+INSERT INTO `bcnm_battlefield` VALUES (677,1,16810088,3); -- Tango With a Tracker
+INSERT INTO `bcnm_battlefield` VALUES (678,1,16810084,3); -- Requiem of Sin
+INSERT INTO `bcnm_battlefield` VALUES (678,1,16810085,3); -- Requiem of Sin
+INSERT INTO `bcnm_battlefield` VALUES (678,1,16810086,3); -- Requiem of Sin
+INSERT INTO `bcnm_battlefield` VALUES (678,1,16810087,3); -- Requiem of Sin
+INSERT INTO `bcnm_battlefield` VALUES (678,1,16810088,3); -- Requiem of Sin
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818177,3); -- darkness_named
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818178,1);
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818179,1);
@@ -1458,6 +1468,7 @@ INSERT INTO `bcnm_battlefield` VALUES (1057,3,16924684,3);
 
 INSERT INTO `bcnm_battlefield` VALUES (1088,1,17010725,3); -- call_to_arms
 INSERT INTO `bcnm_battlefield` VALUES (1089,1,17010725,3); -- compliments_to_the_chef
+INSERT INTO `bcnm_battlefield` VALUES (1090,1,17010719,3); -- Puppetmaster Blues
 
 
 
@@ -1493,8 +1504,9 @@ INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039390,2);
 INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039391,2);
 INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039392,2);
 INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039393,2);
+INSERT INTO `bcnm_battlefield` VALUES (1123,1,17039394,3); -- Achieving True Power (PUP LB5)
+INSERT INTO `bcnm_battlefield` VALUES (1123,1,17039395,1); -- Achieving True Power (PUP LB5)
 INSERT INTO `bcnm_battlefield` VALUES (1124,1,17039400,3); -- shield_of_diplomacy
-
 INSERT INTO `bcnm_battlefield` VALUES (1152,1,17051649,3); -- making_a_mockery
 INSERT INTO `bcnm_battlefield` VALUES (1152,2,17051651,3); -- making_a_mockery
 INSERT INTO `bcnm_battlefield` VALUES (1152,3,17051653,3); -- making_a_mockery

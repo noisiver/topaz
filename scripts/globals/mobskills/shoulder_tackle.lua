@@ -14,12 +14,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    -- KNOCKBACK -------------------
-
     local numhits = 1
     local accmod = 1
-    local dmgmod = 2.0
+    local dmgmod = 1.0
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

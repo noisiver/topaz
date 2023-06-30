@@ -242,8 +242,10 @@ function onEventFinish(player, csid, option)
         player:addQuest(WINDURST, tpz.quest.id.windurst.TUNING_IN)
 
     elseif csid == 886 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.TUNING_IN, {
+        fame = 500,
         gil = 4000,
         title = tpz.title.FINE_TUNER,
+        xp = 10000,
     }) then
         player:tradeComplete()
 
@@ -253,8 +255,10 @@ function onEventFinish(player, csid, option)
         player:addQuest(WINDURST, tpz.quest.id.windurst.TUNING_OUT)
 
     elseif csid == 897 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.TUNING_OUT, {
+        fame = 500,
         item = 15180, -- Cache-Nez
         title = tpz.title.FRIEND_OF_THE_HELMED,
+        xp = 10000,
     }) then
         player:setCharVar("TuningOut_Progress", 0) -- zero when quest is done
     end

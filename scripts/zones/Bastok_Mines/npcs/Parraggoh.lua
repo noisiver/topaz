@@ -43,11 +43,12 @@ function onEventFinish(player, csid, option)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.BEAUTY_AND_THE_GALKA)
             player:setCharVar("BeautyAndTheGalkaDenied", 0)
             player:delKeyItem(tpz.ki.PALBOROUGH_MINES_LOGS)
-            player:addFame(BASTOK, 75)
-            player:addItem(16465)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 16465)
+            player:addExp(2000 * EXP_RATE)
+            player:addFame(BASTOK, 150)
+            player:addItem(16471)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 16471) -- Blind Knife
         else
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 16465)
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 16471)
         end
     end
 end

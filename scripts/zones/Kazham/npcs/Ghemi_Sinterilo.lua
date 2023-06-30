@@ -19,7 +19,7 @@ function onTrigger(player, npc)
         628,   236,    -- Cinnamon
         632,   109,    -- Kukuru Bean
         5187,  156,    -- Elshimo Coconut
-        5604,  154,    -- Elshimo Pachira Fruit
+        -- 5604,  154,    -- Elshimo Pachira Fruit
         2869, 9100,    -- Kazham Waystone
        -- 731,  2877,    -- Aquilaria Log
     }

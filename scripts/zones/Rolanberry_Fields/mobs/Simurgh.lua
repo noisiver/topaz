@@ -17,7 +17,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ACC, 430) 
     mob:addMod(tpz.mod.EVA, 50)
     mob:setMod(tpz.mod.MACC, 1000) 
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
     mob:setLocalVar("[rage]timer", 1200) -- 20 minutes
     tpz.mix.jobSpecial.config(mob, {
         specials =

@@ -4,6 +4,7 @@
 -- Starts & Ends Quest: Star Struck
 -- Involved in Quest: Making the Grade, Riding on the Clouds
 -- !pos -120 -6 124 239
+-- TODO: Add Nothing Matters and a proper reward!
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Walls/IDs")
 require("scripts/globals/keyitems")
@@ -153,7 +154,8 @@ function onEventFinish(player, csid, option)
         player:messageSpecial(ID.text.ITEM_OBTAINED, 12502)
         player:completeQuest(WINDURST, tpz.quest.id.windurst.STAR_STRUCK)
         player:needToZone(true)
-        player:addFame(WINDURST, 20)
+        player:addExp(2500 * EXP_RATE)
+        player:addFame(WINDURST, 150)
     elseif (csid == 199) then
         player:tradeComplete()
         player:messageSpecial(ID.text.GIL_OBTAINED, 50)
@@ -169,7 +171,8 @@ function onEventFinish(player, csid, option)
         player:addItem(17030)
         player:messageSpecial(ID.text.ITEM_OBTAINED, 17030)
         player:addTitle(tpz.title.FOSSILIZED_SEA_FARER)
-        player:addFame(WINDURST, 30)
+        player:addExp(7500 * EXP_RATE)
+        player:addFame(WINDURST, 300)
         player:needToZone(true)
     elseif (csid == 404) then
         if (player:getFreeSlotsCount() ~= 0) then

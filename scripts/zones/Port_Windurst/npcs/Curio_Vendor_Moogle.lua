@@ -12,6 +12,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
+    tpz.shop.curioVendorMoogleOnTrigger(player)
     if not player:hasKeyItem(tpz.ki.RHAPSODY_IN_WHITE) then
         player:startEvent(9600)
     else

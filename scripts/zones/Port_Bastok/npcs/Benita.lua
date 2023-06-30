@@ -29,7 +29,7 @@ function onTrigger(player, npc)
 TheWisdom = player:getQuestStatus(BASTOK, tpz.quest.id.bastok.THE_WISDOM_OF_ELDERS)
 pLevel = player:getMainLvl()
 
-    if (TheWisdom == 0 and pLevel >= 6) then
+    if (TheWisdom == 0) then
         player:startEvent(174)
     else
     rand = math.random(1, 2)
@@ -55,6 +55,7 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 12500)
         else
             player:completeQuest(BASTOK, tpz.quest.id.bastok.THE_WISDOM_OF_ELDERS)
+            player:addExp(2000 * EXP_RATE)
             player:addFame(BASTOK, 120)
             player:addItem(12500)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12500)

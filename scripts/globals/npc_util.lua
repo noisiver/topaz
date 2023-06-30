@@ -14,6 +14,7 @@
 --]]
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/items")
 require("scripts/globals/msg")
 
 npcUtil = {}
@@ -194,7 +195,7 @@ end
         { {640, 2} }         -- copper ore x2
         { {640, 2}, 641 }    -- copper ore x2, tin ore x1
 ******************************************************************************* --]]
-function npcUtil.giveItem(player, items)
+function npcUtil.giveItem(player, items) -- TODO: ability to give augmented items
     local ID = zones[player:getZoneID()]
 
     -- create table of items, with key/val of itemId/itemQty
@@ -590,4 +591,31 @@ function npcUtil.castingAnimation(npc, magicType, phaseDuration, func)
         end)
         npcUtil.castingAnimation(npc, magicType, phaseDuration, func)
     end)
+end
+
+function npcUtil.avatarIntroSeen(player)
+    if player:getCharVar(npc:getName()) == "IntroSeen" then
+        return true
+    end
+
+    return false
+end
+
+function npcUtil.setAvatarVar(player)
+    local npc = player:getEventTarget()
+    local introSeen = npcUtil.avatarIntroSeen(player)
+    if introSeen == 0 then
+        player:setCharVar(npc:getName(), "IntroSeen")
+    end
+end
+
+function npcUtil.giveAvatarQuest(npc, player, region, quest, keyitem, timer)
+    local ID = zones[player:getZoneID()]
+        if (player:getQuestStatus(region, quest) == QUEST_COMPLETED) then
+            player:delQuest(region, quest)
+        end
+        player:addQuest(region, quest)
+        player:setCharVar(timer, 0)
+        player:addKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.TUNING_FORK_OF_FIRE)
 end

@@ -14,23 +14,7 @@ require("scripts/globals/mobs")
 require("scripts/globals/moblinmazemongers")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(140)
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.ACC, 200)
-    mob:setMod(tpz.mod.DEF, 1250)
-    mob:setMod(tpz.mod.EVA, 374) 
-	mob:setMod(tpz.mod.VIT, 68)
-    mob:setMod(tpz.mod.UDMGBREATH, -66)
-    mob:setMod(tpz.mod.REGEN, 50)
-    mob:setMod(tpz.mod.REGAIN, 150)
-    mob:setMod(tpz.mod.MOVE, 20)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
-    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
-    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
-    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 30)
-    mob:SetMagicCastingEnabled(false)
+    tpz.moblinmazemongers.MobMods(mob)
     mob:setLocalVar("[rage]timer", 7200) -- 2 hrs
     tpz.mix.jobSpecial.config(mob, {
         specials =
@@ -48,7 +32,6 @@ function onMobRoam(mob)
 end
 
 function onMobEngaged(mob)
-    mob:SetMagicCastingEnabled(true)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
 end
 

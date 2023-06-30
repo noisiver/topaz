@@ -21,7 +21,7 @@ function onPetAbility(target, automaton, skill, master, action)
 
     if automaton:getLocalVar("shockabsorber") >= 4 then -- Shock Absorber III
         if maneuvers == 1 then
-            bonus = pMod * 0.6
+            bonus = pMod * 0.75
         elseif maneuvers == 2 then
             bonus = pMod * 1.0
         elseif maneuvers == 3 then
@@ -41,7 +41,7 @@ function onPetAbility(target, automaton, skill, master, action)
         elseif maneuvers == 2 then
             bonus = pMod * 0.4
         elseif maneuvers == 3 then
-            bonus = pMod * 0.75
+            bonus = pMod * 0.6
         end
     end
     amount = amount + math.floor(bonus)

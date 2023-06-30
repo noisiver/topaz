@@ -4,31 +4,29 @@
 --
 -----------------------------------
 local ID = require("scripts/zones/Silver_Sea_route_to_Al_Zahbi/IDs")
+require("scripts/globals/sea_creatures")
 -----------------------------------
-local mobList = {
-    17018887,
-    17018888,
-    17018889,
-    17018890,
-    17018891,
-    17018892,
-    17018894,
-    17018897
-
-}
-
 function onInitialize(zone)
-    -- 5% Chance to spawn a random mob from table when boat trip begins
-	if math.random(1,100) <= 5 then 
-        GetMobByID(mobList[math.random(#mobList)]):spawn()
-    end
+    zone:addListener("TRANSPORTZONE_END", "MHAURA_TRANSPORTZONE_END", function(transportZone)
+        if GetMobByID(ID.mob.UTUKKU):isSpawned() then
+            DespawnMob(ID.mob.UTUKKU)
+        end
+        if GetMobByID(ID.mob.ALLMIGHTY_APKALLU):isSpawned() then
+            DespawnMob(ID.mob.ALLMIGHTY_APKALLU)
+        end
+        tpz.sea_creatures.despawn(ID)
+    end)
 
-    -- Despawn previous boat rides mobs
-    for v = 17018887, 17018892, 1 do
-        DespawnMob(v)
-    end
-    DespawnMob(17018894)
-    DespawnMob(17018897)
+    zone:addListener("TRANSPORTZONE_START", "MHAURA_TRANSPORTZONE_START", function(transportZone)
+        if GetMobByID(ID.mob.ALLMIGHTY_APKALLU):isSpawned() then
+            DespawnMob(ID.mob.ALLMIGHTY_APKALLU)
+        end
+        tpz.sea_creatures.checkSpawns(ID, 5, 1) -- 5 percent on init
+    end)
+
+    zone:addListener("TRANSPORTZONE_UPDATE", "MHAURA_TRANSPORTZONE_UPDATE", function(transportZone, tripTime)
+        tpz.sea_creatures.checkSpawns(ID, 1, 2) -- 1 percent per vana minute, 2 total mobs
+    end)
 end
 
 function onZoneIn(player, prevZone)
@@ -43,20 +41,22 @@ end
 function onTransportEvent(player, transport)
     player:startEvent(1025)
     player:messageSpecial(ID.text.DOCKING_IN_AL_ZAHBI)
-    -- Despawn previous boat rides mobs
-    for v = 17018887, 17018892, 1 do
-        DespawnMob(v)
-    end
-    DespawnMob(17018894)
-    DespawnMob(17018897)
 end
 
 function onGameHour(zone)
-    -- 5% Chance to spawn a random mob from table every hour
-    if VanadielHour() % 1 == 0 then
-		if math.random(1,100) <= 5 then 
-            GetMobByID(mobList[math.random(#mobList)]):spawn()
+    local hour = VanadielHour()
+    if hour >= 20 or hour < 4 then
+        if math.random() < 0.20 and not GetMobByID(ID.mob.UTUKKU):isSpawned() then
+            GetMobByID(ID.mob.UTUKKU):spawn()
         end
+    elseif GetMobByID(ID.mob.UTUKKU):isSpawned() then
+        DespawnMob(ID.mob.UTUKKU)
+    end
+
+    local mob = GetMobByID(ID.mob.ALLMIGHTY_APKALLU)
+    -- 3% chance per game hour (if not spawned, and min repop time)
+    if math.random(0, 100) < 3 and not mob:isSpawned() and os.time() > mob:getLocalVar("respawnTime") then
+        mob:spawn()
     end
 end
 

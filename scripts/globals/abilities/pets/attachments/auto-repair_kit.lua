@@ -4,32 +4,12 @@
 require("scripts/globals/automaton")
 require("scripts/globals/status")
 -----------------------------------
-
 function onEquip(pet)
-    -- We do not have support to do a fraction of a percent so we rounded
-    local frame = pet:getAutomatonFrame()
-    if frame == tpz.frames.HARLEQUIN then
-        pet:addMod(tpz.mod.HPP, 5)
-    elseif frame == tpz.frames.VALOREDGE then
-        pet:addMod(tpz.mod.HPP, 4)
-    elseif frame == tpz.frames.SHARPSHOT then
-        pet:addMod(tpz.mod.HPP, 6)
-    elseif frame == tpz.frames.STORMWAKER then
-        pet:addMod(tpz.mod.HPP, 7)
-    end
+    pet:addMod(tpz.mod.HPP, 5)
 end
 
 function onUnequip(pet)
-    local frame = pet:getAutomatonFrame()
-    if frame == tpz.frames.HARLEQUIN then
-        pet:delMod(tpz.mod.HPP, 5)
-    elseif frame == tpz.frames.VALOREDGE then
-        pet:delMod(tpz.mod.HPP, 4)
-    elseif frame == tpz.frames.SHARPSHOT then
-        pet:delMod(tpz.mod.HPP, 6)
-    elseif frame == tpz.frames.STORMWAKER then
-        pet:delMod(tpz.mod.HPP, 7)
-    end
+    pet:delMod(tpz.mod.HPP, 5)
 end
 
 function onManeuverGain(pet, maneuvers)
@@ -42,8 +22,12 @@ end
 
 function onUpdate(pet, maneuvers)
     local power = 0
-    if maneuvers > 0 then
-        power = math.floor(maneuvers + (pet:getMaxHP() * (0.125 * maneuvers) / 100))
+    if maneuvers == 1 then
+        power = math.floor(1 + (pet:getMaxHP() * 0.125 / 100))
+    elseif maneuvers == 2 then
+        power = math.floor(2 + (pet:getMaxHP() * 0.250 / 100))
+    elseif maneuvers == 3 then
+        power = math.floor(3 + (pet:getMaxHP() * 0.375 / 100))
     end
     updateModPerformance(pet, tpz.mod.REGEN, 'autorepair_kit_mod', power)
 end

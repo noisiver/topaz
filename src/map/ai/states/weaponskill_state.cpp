@@ -117,14 +117,29 @@ bool CWeaponSkillState::Update(time_point tick)
 {
     if (!IsCompleted())
     {
-        SpendCost();
+        CBattleEntity* PTarget = dynamic_cast<CBattleEntity*>(GetTarget());
         action_t action;
-        m_PEntity->OnWeaponSkillFinished(*this, action);
-        m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
-        auto PTarget {GetTarget()};
-        m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", m_PEntity, PTarget, m_PSkill->getID(), m_spent, &action);
-        PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spent, &action);
-        auto delay = m_PSkill->getAnimationTime();
+        if (PTarget && PTarget->isAlive())
+        {
+            SpendCost();
+            action_t action;
+            m_PEntity->OnWeaponSkillFinished(*this, action);
+            m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
+            auto PTarget{ GetTarget() };
+            m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", m_PEntity, PTarget, m_PSkill->getID(), m_spent, &action);
+            PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spent, &action);
+        }
+        else // Mob is dead before we could finish WS, generate interrupt for WS
+        {
+            // Could not reproduce on retail due to server tick rate, this entire block is assumed.
+            // Ideally, you would ready a WS then have the mob die to either a DoT or a JA like Quick Draw/Jump and dump the packet.
+            // To the best of our knowledge this would produce a similar-enough effect to cancel the WS animation
+            // Essentially, very similar to "too far away" and casting out of range spell cancellation, with no message.
+            action.actiontype = ACTION_MAGIC_FINISH;
+            action.actionid = 28787; // Some hardcoded magic for interrupts
+            actionList_t& actionList = action.getNewActionList();
+        }
+        auto delay = m_PSkill->getAnimationTime(); // TODO: Is delay time a fixed number if the weaponskill is used out of range?
         m_finishTime = tick + delay;
         Complete();
     }

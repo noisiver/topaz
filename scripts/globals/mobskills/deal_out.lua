@@ -5,7 +5,7 @@
 --  Type: Physical
 --  Utsusemi/Blink absorb: 2-3 shadows
 --  Range: 10' radial
---  Notes:
+--  Notes: NM Cardians use Double Down instead.
 ---------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -13,6 +13,9 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+    if mob:isNM() then
+        return 1
+    end
     return 0
 end
 
@@ -20,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.7
+    local dmgmod = 1.75
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -33,9 +36,9 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.2
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_3_SHADOW)
 
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
         if (MobPhysicalHit(mob, skill)) then

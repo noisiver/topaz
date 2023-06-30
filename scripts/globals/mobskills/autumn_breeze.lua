@@ -36,5 +36,5 @@ function onMobWeaponSkill(target, mob, skill)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
-    return MobHealMove(target, skill, 1)
+    return MobHealMove(mob, target, skill, 1)
 end

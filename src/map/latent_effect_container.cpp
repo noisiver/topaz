@@ -1103,6 +1103,19 @@ bool CLatentEffectContainer::ProcessLatentEffect(CLatentEffect& latentEffect)
         }
         break;
     }
+    case LATENT_CITIZEN_OF:
+    {
+        // player is logging in/zoning
+        if (m_POwner->loc.zone == nullptr)
+        {
+        break;
+        }
+
+        auto PZone = m_POwner->loc.zone;
+        auto region = (REGIONTYPE)latentEffect.GetConditionsValue();
+        expression = m_POwner->profile.nation == latentEffect.GetConditionsValue();
+        break;
+    }
     case LATENT_ZONE_HOME_NATION:
     {
         //player is logging in/zoning

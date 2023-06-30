@@ -9,37 +9,33 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.WIND_MANEUVER)
 end
 
-function onPetAbility(target, automaton, skill, master, action)
-    local params = {
-        numHits = 2,
-        atkmulti = 2.25,
-        accBonus = 50,
-        ftp100 = 6.0,
-        ftp200 = 6.0,
-        ftp300 = 6.0,
-        acc100 = 0.0,
-        acc200 = 0.0,
-        acc300 = 0.0,
-        str_wsc = 0.0,
-        dex_wsc = 0.5,
-        vit_wsc = 0.0,
-        agi_wsc = 0.0,
-        int_wsc = 0.0,
-        mnd_wsc = 0.0,
-        chr_wsc = 0.0
-    }
+function onPetAbility(target, pet, skill)
+    local numhits = 1
+    local params = {}
+    params.ftp100 = 6.0
+    params.ftp200 = 6.0
+    params.ftp300 = 6.0
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.5
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.attkMod = 1.25
 
-    local damage = doAutoRangedWeaponskill(automaton, target, 0, params, skill:getTP(), true, skill, action)
+    local effect = tpz.effect.DEFENSE_DOWN
+    local power = 15
+    local duration = 90
+    local bonus = 50
 
-    if damage > 0 then
-        local bonusduration = 1 + 0.00033 * (skill:getTP() - 1000)
-        if not target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) then
-            target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 15, 0, 90*bonusduration)
-        end
-    end
+    local damage = AutoPhysicalWeaponSkill(pet, target, skill, tpz.attackType.RANGED, numhits, TP_EFFECT_DURATION, params)
+    dmg = AutoPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, damage.hitslanded, params)
+    AutoPhysicalStatusEffectWeaponSkill(pet, target, skill, effect, power, duration, params, bonus)
 
-    return damage
+    return dmg
 end

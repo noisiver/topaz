@@ -470,6 +470,12 @@ bool CTargetFind::isWithinArea(position_t* pos)
 
 bool CTargetFind::isWithinCone(position_t* pos)
 {
+
+    if (abs(m_APoint->y - pos->y) > 10)
+    {
+        return false;
+    }
+
     position_t PPoint;
 
     // holds final weight

@@ -22,7 +22,7 @@ function onSpellCast(caster, target, spell)
 
     --Duration, including resistance.
     local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
-
+    local tier = 2
     local params = {}
     params.diff = dMND
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
     duration = duration * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.SLOW, target))
 
-    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5, tier)
 
     return params.effect
 end

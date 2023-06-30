@@ -38,9 +38,14 @@
 #include "../mob_modifier.h"
 
 CPetEntity::CPetEntity(PETTYPE petType)
+: CMobEntity()
+, m_PetID(0)
+, m_PetType(petType)
+, m_spawnLevel(0)
+, m_jugSpawnTime(time_point::min())
+, m_jugDuration(duration::min())
 {
 	objtype = TYPE_PET;
-	m_PetType = petType;
 	m_EcoSystem = SYSTEM_UNCLASSIFIED;
 	allegiance = ALLEGIANCE_PLAYER;
     m_MobSkillList = 0;
@@ -59,9 +64,48 @@ PETTYPE CPetEntity::getPetType()
     return m_PetType;
 }
 
+uint8 CPetEntity::getSpawnLevel()
+{
+    return m_spawnLevel;
+}
+
+void CPetEntity::setSpawnLevel(uint8 level)
+{
+    m_spawnLevel = level;
+}
+
 bool CPetEntity::isBstPet()
 {
   return getPetType() == PETTYPE_JUG_PET || objtype == TYPE_MOB;
+}
+
+int32 CPetEntity::getJugSpawnTime()
+{
+  TPZ_DEBUG_BREAK_IF(m_PetType != PETTYPE_JUG_PET)
+
+  const auto epoch = m_jugSpawnTime.time_since_epoch();
+  return static_cast<int32>(std::chrono::duration_cast<std::chrono::seconds>(epoch).count());
+}
+
+void CPetEntity::setJugSpawnTime(int32 spawnTime)
+{
+  TPZ_DEBUG_BREAK_IF(m_PetType != PETTYPE_JUG_PET);
+
+  m_jugSpawnTime = std::chrono::system_clock::time_point(std::chrono::duration<int>(spawnTime));
+}
+
+int32 CPetEntity::getJugDuration()
+{
+  TPZ_DEBUG_BREAK_IF(m_PetType != PETTYPE_JUG_PET);
+
+  return static_cast<int32>(std::chrono::duration_cast<std::chrono::seconds>(m_jugDuration).count());
+}
+
+void CPetEntity::setJugDuration(int32 seconds)
+{
+  TPZ_DEBUG_BREAK_IF(m_PetType != PETTYPE_JUG_PET);
+
+  m_jugDuration = std::chrono::seconds(seconds);
 }
 
 std::string CPetEntity::GetScriptName()
@@ -182,8 +226,54 @@ void CPetEntity::Spawn()
         mobutils::GetAvailableSpells(this);
     }
 
+    if (m_PetType == PETTYPE_JUG_PET)
+    {
+        m_jugSpawnTime = server_clock::now();
+    }
+
     CBattleEntity::Spawn();
     luautils::OnMobSpawn(this);
+    PAI->EventHandler.triggerListener("SPAWN", this);
+}
+
+bool CPetEntity::shouldDespawn(time_point tick)
+{
+    // This check was moved from the original call site when this method was added.
+    // It is in theory not needed, but we are not removing it without further testing.
+    // TODO: Consider removing this when possible.
+    if (isCharmed && tick > charmTime)
+    {
+        return true;
+    }
+
+    if (PMaster != nullptr && PAI->IsSpawned() && m_PetType == PETTYPE_JUG_PET && tick > m_jugSpawnTime + m_jugDuration)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+void CPetEntity::loadPetZoningInfo()
+{
+    if (!PAI->IsSpawned())
+    {
+        ShowWarning("Attempt to load info without Pet spawned.");
+        return;
+    }
+
+    if (auto* master = dynamic_cast<CCharEntity*>(PMaster))
+    {
+        health.tp = static_cast<uint16>(master->petZoningInfo.petTP);
+        health.hp = master->petZoningInfo.petHP;
+        health.mp = master->petZoningInfo.petMP;
+
+        if (m_PetType == PETTYPE_JUG_PET)
+        {
+            setJugDuration(master->petZoningInfo.jugDuration);
+            setJugSpawnTime(master->petZoningInfo.jugSpawnTime);
+        }
+    }
 }
 
 void CPetEntity::OnAbility(CAbilityState& state, action_t& action)
@@ -198,7 +288,10 @@ void CPetEntity::OnAbility(CAbilityState& state, action_t& action)
         {
             return;
         }
-        if (battleutils::IsParalyzed(this)) {
+        // Currently, only the Wyvern uses abilities at all as of writing, but their abilities are not instant and are mob abilities.
+        // Abilities are not subject to paralyze if they have non-zero cast time due to this corner case.
+        if (state.GetAbility()->getCastTime() == 0s && battleutils::IsParalyzed(this))
+        {
             // display paralyzed
             loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_IS_PARALYZED));
             return;

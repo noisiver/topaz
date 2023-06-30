@@ -33,7 +33,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 100, 0, 300)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 20, 0, 300)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SILENCE, 0, 0, 300)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BIND, 1, 0, 45)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.WEIGHT, 25, 0, 300)

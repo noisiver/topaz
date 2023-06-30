@@ -24,5 +24,4 @@ function onTrigger(player)
     end
     
     player:PrintToPlayer(string.format("%s's TP is: %u ", targ:getName(), targ:getTP()))
-    
 end

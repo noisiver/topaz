@@ -25,21 +25,11 @@ function onUseAbility(player, target, ability, action)
     local params = {}
     params.includemab = true
     local dmg = (2 * (player:getRangedDmg() + player:getAmmoDmg()) + player:getMod(tpz.mod.QUICK_DRAW_DMG)) * (1 + player:getMod(tpz.mod.QUICK_DRAW_DMG_PERCENT) / 100)
-    dmg  = addBonusesAbility(player, tpz.magic.ele.ICE, target, dmg, params)
     local bonusAcc = player:getStat(tpz.mod.AGI) / 2 + player:getMerit(tpz.merit.QUICK_DRAW_ACCURACY) + player:getMod(tpz.mod.QUICK_DRAW_MACC)
-    dmg = dmg * applyResistanceAbility(player, target, tpz.magic.ele.ICE, tpz.skill.NONE, bonusAcc)
-    dmg = adjustForTarget(target, dmg, tpz.magic.ele.ICE)
-    local SDT = target:getMod(tpz.mod.SDT_ICE)
 
-    if SDT <= 5 then
-        dmg = dmg / 8 
-    elseif SDT <= 25 then
-        dmg = dmg / 4
-    elseif SDT <= 50 then
-        dmg = dmg / 2
-    else
-        dmg = dmg
-    end
+    dmg = math.floor(dmg * applyResistanceAbility(player, target, tpz.magic.ele.ICE, tpz.skill.NONE, bonusAcc))
+    dmg = addBonusesAbility(player, tpz.magic.ele.ICE, target, dmg, params)
+    dmg = adjustForTarget(target, dmg, tpz.magic.ele.ICE)
 
     params.targetTPMult = 0 -- Quick Draw does not feed TP
     dmg = takeAbilityDamage(target, player, params, true, dmg, tpz.attackType.MAGICAL, tpz.damageType.ICE, tpz.slot.RANGED, 1, 0, 0, 0, action, nil)

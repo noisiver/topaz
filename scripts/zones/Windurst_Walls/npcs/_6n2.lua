@@ -104,7 +104,8 @@ function onEventFinish(player, csid, option)
     elseif csid == 289 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.ONION_RINGS, {
         item = 17029,
         title = tpz.title.STAR_ONION_BRIGADIER,
-        fame = 10,
+        fame = 300,
+        xp = 9500,
         var = {"OnionRingsTime", "OnionRings"}
     }) then
         player:delKeyItem(tpz.ki.OLD_RING)

@@ -78,7 +78,7 @@ namespace charutils
     void	DistributeItem(CCharEntity* PChar, CBaseEntity* PEntity, uint16 itemid, uint16 droprate);
     void	AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck = EMobDifficulty::TooWeak, bool isexpchain = false);
 
-    void	TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl);
+    void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl, bool HighChance);
     void	BuildingCharSkillsTable(CCharEntity* PChar);
     void    BuildingCharWeaponSkills(CCharEntity* PChar);
     void	BuildingCharAbilityTable(CCharEntity* PChar);
@@ -105,8 +105,8 @@ namespace charutils
     void    SetStyleLock(CCharEntity* PChar, bool isStyleLocked);
     void    UpdateWeaponStyle(CCharEntity* PChar, uint8 equipSlotID, CItemEquipment* PItem);
     void    UpdateArmorStyle(CCharEntity* PChar, uint8 equipSlotID);
-    void AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity);
-    void EmptyRecycleBin(CCharEntity* PChar);
+    void    AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity);
+    void    EmptyRecycleBin(CCharEntity* PChar);
 
     bool	hasKeyItem(CCharEntity* PChar, uint16 KeyItemID);	        // проверяем наличие ключевого предмета
     bool	seenKeyItem(CCharEntity* PChar, uint16 KeyItemID);	        // проверяем, было ли описание ключевого предмета прочитано
@@ -167,6 +167,7 @@ namespace charutils
     void    SaveCharGMLevel(CCharEntity* PChar);                        // saves the char's gm level and nameflags
     void    SaveMentorFlag(CCharEntity* PChar);                         // saves the char's mentor flag
     void    SaveMenuConfigFlags(CCharEntity* PChar);                    // saves the char's unnamed flags
+    void    SaveChatFilterFlags(CCharEntity* PChar);                    // saves the char's chat filters
     void	SaveCharNation(CCharEntity* PChar);							// Save the character's nation of allegiance.
     void    SaveCampaignAllegiance(CCharEntity* PChar);                 // Save the character's campaign allegiance.
     void	SaveCharMoghancement(CCharEntity* PChar);                   // Save the character's current moghancement
@@ -207,6 +208,7 @@ namespace charutils
     int32   GetCharVar(CCharEntity* PChar, const char* var);
     bool AddCharVar(CCharEntity* PChar, const char* var, int32 increment);
     bool SetCharVar(CCharEntity* PChar, const char* var, int32 value);
+    int32 ClearCharVarsWithPrefix(CCharEntity* PChar, std::string const& prefix);
 
 
     uint16 getWideScanRange(JOBTYPE job, uint8 level);

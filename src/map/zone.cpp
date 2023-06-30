@@ -71,6 +71,8 @@
 #include "utils/petutils.h"
 #include "utils/zoneutils.h"
 
+#include "ai/helpers/event_handler.h"
+
 
 /************************************************************************
 *                                                                       *
@@ -126,6 +128,46 @@ int32 zone_update_weather(time_point tick, CTaskMgr::CTask* PTask)
     return 0;
 }
 
+
+const uint16 CZone::ReducedVerticalAggroZones[] = {
+    ZONE_PHOMIUNA_AQUEDUCTS,
+    ZONE_PSOXJA,
+    ZONE_THE_GARDEN_OF_RUHMET,
+    ZONE_GRAND_PALACE_OF_HUXZOI,
+    ZONE_KING_RANPERRES_TOMB,
+    ZONE_PALBOROUGH_MINES,
+    ZONE_BEADEAUX,
+    ZONE_BEADEAUX_S,
+    ZONE_CASTLE_OZTROJA,
+    ZONE_CASTLE_OZTROJA_S,
+    ZONE_CASTLE_ZVAHL_BAILEYS,
+    ZONE_CASTLE_ZVAHL_BAILEYS_S,
+    ZONE_CASTLE_ZVAHL_KEEP,
+    ZONE_CASTLE_ZVAHL_KEEP_S,
+    ZONE_GUSGEN_MINES,
+    ZONE_KORROLOKA_TUNNEL,
+    ZONE_SHIP_BOUND_FOR_MHAURA,
+    ZONE_SHIP_BOUND_FOR_MHAURA_PIRATES,
+    ZONE_SHIP_BOUND_FOR_SELBINA,
+    ZONE_SHIP_BOUND_FOR_SELBINA_PIRATES,
+    ZONE_SILVER_SEA_ROUTE_TO_AL_ZAHBI,
+    ZONE_SILVER_SEA_ROUTE_TO_NASHMAU,
+    ZONE_DYNAMIS_BASTOK,
+    ZONE_DYNAMIS_BASTOK_D,
+    ZONE_DYNAMIS_BEAUCEDINE,
+    ZONE_DYNAMIS_BUBURIMU,
+    ZONE_DYNAMIS_JEUNO,
+    ZONE_DYNAMIS_JEUNO_D,
+    ZONE_DYNAMIS_QUFIM,
+    ZONE_DYNAMIS_SAN_DORIA,
+    ZONE_DYNAMIS_SAN_DORIA_D,
+    ZONE_DYNAMIS_TAVNAZIA,
+    ZONE_DYNAMIS_VALKURM,
+    ZONE_DYNAMIS_WINDURST,
+    ZONE_DYNAMIS_WINDURST_D,
+    ZONE_DYNAMIS_XARCABARD
+};
+
 /************************************************************************
 *                                                                       *
 *  Класс CZone                                                          *
@@ -146,6 +188,7 @@ CZone::CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID)
     m_WeatherChangeTime = 0;
     m_navMesh = nullptr;
     m_zoneEntities = new CZoneEntities(this);
+    PEventHandler = new CAIEventHandler;
 
     // settings should load first
     LoadZoneSettings();
@@ -155,9 +198,15 @@ CZone::CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID)
     LoadNavMesh();
 }
 
+bool CZone::HasReducedVerticalAggro()
+{
+    return std::find(std::begin(ReducedVerticalAggroZones), std::end(ReducedVerticalAggroZones), this->m_zoneID) != std::end(ReducedVerticalAggroZones);
+}
+
 CZone::~CZone()
 {
     delete m_zoneEntities;
+    delete PEventHandler;
 }
 
 /************************************************************************
@@ -342,17 +391,18 @@ void CZone::LoadZoneSettings()
 {
     static const char* Query =
         "SELECT "
-        "zone.name,"
-        "zone.zoneip,"
-        "zone.zoneport,"
-        "zone.music_day,"
-        "zone.music_night,"
-        "zone.battlesolo,"
-        "zone.battlemulti,"
-        "zone.tax,"
-        "zone.misc,"
-        "zone.zonetype,"
-        "bcnm.name "
+        "zone.name," // 0
+        "zone.zoneip,"// 1
+        "zone.zoneport," // 2
+        "zone.music_day," // 3
+        "zone.music_night," // 4
+        "zone.battlesolo," // 5
+        "zone.battlemulti," // 6
+        "zone.tax," // 7
+        "zone.misc," // 8
+        "zone.zonetype," // 9
+        "zone.fame_type," // 10
+        "bcnm.name " // 11
         "FROM zone_settings AS zone "
         "LEFT JOIN bcnm_info AS bcnm "
         "USING (zoneid) "
@@ -376,7 +426,9 @@ void CZone::LoadZoneSettings()
 
         m_zoneType = (ZONETYPE)Sql_GetUIntData(SqlHandle, 9);
 
-        if (Sql_GetData(SqlHandle, 10) != nullptr) // сейчас нельзя использовать bcnmid, т.к. они начинаются с нуля
+        m_fameType = (uint8)Sql_GetUIntData(SqlHandle, 10);
+
+        if (Sql_GetData(SqlHandle, 11) != nullptr) // сейчас нельзя использовать bcnmid, т.к. они начинаются с нуля
         {
             m_BattlefieldHandler = new CBattlefieldHandler(this);
         }
@@ -574,13 +626,17 @@ void CZone::UpdateWeather()
         Weather = weatherType.normal;
     }
 
-    // Fog in the morning between the hours of 2 and 7 if there is not a specific elemental weather to override it
-    if ((CurrentVanaDate >= StartFogVanaDate) && (CurrentVanaDate < EndFogVanaDate) && (Weather < WEATHER_HOT_SPELL) && (GetType() > ZONETYPE_CITY))
+    // Fog isn't guaranteed, roll for chance at fog
+    if (tpzrand::GetRandomNumber(100) < 20)
     {
-        Weather = WEATHER_FOG;
-        //Force the weather to change by 7 am
-        //  2.4 vanadiel minutes = 1 earth second
-        WeatherNextUpdate = (uint32)((EndFogVanaDate - CurrentVanaDate) * 2.4);
+        // Fog in the morning between the hours of 2 and 7 if there is not a specific elemental weather to override it
+        if ((CurrentVanaDate >= StartFogVanaDate) && (CurrentVanaDate < EndFogVanaDate) && (Weather < WEATHER_HOT_SPELL) && (GetType() > ZONETYPE_CITY))
+        {
+            Weather = WEATHER_FOG;
+            // Force the weather to change by 7 am
+            //   2.4 vanadiel minutes = 1 earth second
+            WeatherNextUpdate = (uint32)((EndFogVanaDate - CurrentVanaDate) * 2.4);
+        }
     }
 
     SetWeather((WEATHER)Weather);
@@ -753,6 +809,11 @@ void CZone::TOTDChange(TIMETYPE TOTD)
 void CZone::SavePlayTime()
 {
     m_zoneEntities->SavePlayTime();
+}
+
+void CZone::SaveCharacterData()
+{
+    m_zoneEntities->SaveCharacterData();
 }
 
 /************************************************************************
