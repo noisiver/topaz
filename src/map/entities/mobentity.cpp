@@ -1179,30 +1179,32 @@ void CMobEntity::DropItems(CCharEntity* PChar)
 
         for (const DropItem_t& item : DropList->Items)
         {
-            uint16 rate = item.DropRate;
-            uint16 category = 7;
-            if (rate < 5)
-                category = 6;
-            else if (rate < 10)
-                category = 5;
-            else if (rate < 50)
-                category = 4;
-            else if (rate < 100)
-                category = 3;
-            else if (rate < 150)
-                category = 2;
-            else if (rate < 240)
-                category = 1;
-            else if (rate < 1000)
-                category = 0;
-
-            if ((category == 7) || (tpzrand::GetRandomNumber(10000) < gDropBase[category][th]))
+            if (item.DropType == 0)
             {
-                if (AddItemToPool(item.ItemID, ++dropCount))
-                    return;
+                uint16 rate = item.DropRate;
+                uint16 category = 7;
+                if (rate < 5)
+                    category = 6;
+                else if (rate < 10)
+                    category = 5;
+                else if (rate < 50)
+                    category = 4;
+                else if (rate < 100)
+                    category = 3;
+                else if (rate < 150)
+                    category = 2;
+                else if (rate < 240)
+                    category = 1;
+                else if (rate < 1000)
+                    category = 0;
+
+                if ((category == 7) || (tpzrand::GetRandomNumber(10000) < gDropBase[category][th]))
+                {
+                    if (AddItemToPool(item.ItemID, ++dropCount))
+                        return;
+                }
             }
         }
-    }
     // Roll for random rare items
     if (tpzrand::GetRandomNumber(500) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0 && GetMLevel() >= 11)
     {
