@@ -5,6 +5,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 ---------------------------------------------
 function onAbilityCheck(player, target, ability)
     return 0, 0
@@ -37,6 +38,8 @@ function onUseAbility(pet, target, skill, action)
 
     local hpRecovered = math.floor((hp * (breathMultiplier/256)) + breathBase + (breathJP) * (1 + (breathAug)))
     -- print(string.format("hp %s\ngear %s\nbreathMultiplier %s\nbreathBase %s\ndeepBreathing %s\nbreathJP %s\nbreathAug %s\nhpRecovered %s", hp, gear, breathMultiplier, breathBase, deepBreathing, breathJP, breathAug, hpRecovered)) 
+
+    hpRecovered = utils.CapHealAmount(target, hpRecovered)
 
     skill:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
     target:addHP(hpRecovered)
