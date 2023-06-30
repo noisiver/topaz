@@ -17891,6 +17891,7 @@ INSERT INTO `item_mods` VALUES (15525,72,2);
 INSERT INTO `item_mods` VALUES (15526,1,1);
 INSERT INTO `item_mods` VALUES (15527,8,3);       -- praecis_gorget STR+3
 INSERT INTO `item_mods` VALUES (15527,48,15);     -- Weapon Skill Accuracy+15
+INSERT INTO `item_mods` VALUES (15529,291,5);     -- Ace's Locket: Counter +5
 INSERT INTO `item_mods` VALUES (15531,1,3);
 INSERT INTO `item_mods` VALUES (15531,23,-4);
 INSERT INTO `item_mods` VALUES (15531,24,8);
