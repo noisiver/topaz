@@ -1091,3 +1091,11 @@ function utils.ScarletDeliriumBonus(player, dmg)
 
     return dmg
 end
+
+function utils.CapHealAmount(target, healamount)
+    if ((target:getMaxHP() - target:getHP()) < healamount) then
+        healamount = (target:getMaxHP() - target:getHP())
+    end
+
+    return healamount
+end
