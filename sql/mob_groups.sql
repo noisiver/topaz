@@ -10998,6 +10998,9 @@ INSERT INTO `mob_groups` VALUES (52,992,161,'Demon_Secretary',0,128,0,0,0,61,61,
 INSERT INTO `mob_groups` VALUES (53,994,161,'Demons_Elemental',0,128,623,0,0,43,45,0);
 INSERT INTO `mob_groups` VALUES (54,994,161,'Grand_Dukes_Demons_Elemental',0,128,623,0,0,73,73,0);
 INSERT INTO `mob_groups` VALUES (55,3931,161,'Celestial_Avatar',0,128,0,30000,0,73,73,0);
+INSERT INTO 'mob_groups' VALUES (56,994,161,'Magistrate_Demons_Elemental',0,128,623,0,0,55,55,0);
+INSERT INTO 'mob_groups' VALUES (57,994,161,'Abyssal_Demons_Elemental',0,128,623,0,0,62,62,0);
+INSERT INTO 'mob_groups' VALUES (58,994,161,'Stygian_Demons_Elemental',0,128,623,0,0,69,69,0);
 
 INSERT INTO `mob_groups` VALUES (8534,3992,161,'Treasure_Chest',0,0,0,0,0,0,0,0);
 
