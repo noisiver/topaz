@@ -11454,7 +11454,6 @@ INSERT INTO `mob_droplist` VALUES (2155,0,0,1000,2640,100);
 INSERT INTO `mob_droplist` VALUES (2155,0,0,1000,2888,100);
 INSERT INTO `mob_droplist` VALUES (2156,2,0,1000,838,0);
 INSERT INTO `mob_droplist` VALUES (2156,0,0,1000,838,50);
-INSERT INTO `mob_droplist` VALUES (2156,0,0,1000,1054,50);
 INSERT INTO `mob_droplist` VALUES (2157,0,0,1000,914,150);
 INSERT INTO `mob_droplist` VALUES (2157,0,0,1000,1165,100);
 INSERT INTO `mob_droplist` VALUES (2157,4,0,1000,1165,0);
@@ -16984,6 +16983,26 @@ INSERT INTO `mob_droplist` VALUES (3202,0,0,1000,5736,1000); -- (F3-F4 Boss) Lin
 INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
 INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
 INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x1 100%
+INSERT INTO `mob_droplist` VALUES (3205,4,0,1000,846,0); -- Helm Beetle (QSC. No Coffer Key)
+INSERT INTO `mob_droplist` VALUES (3205,0,0,1000,846,240);
+INSERT INTO `mob_droplist` VALUES (3205,0,0,1000,889,100);
+INSERT INTO `mob_droplist` VALUES (3205,0,0,1000,894,150);
+INSERT INTO `mob_droplist` VALUES (3206,0,0,1000,644,50); -- Antican_Hastatus (QSC No Coffer Key)
+INSERT INTO `mob_droplist` VALUES (3206,2,0,1000,749,0);
+INSERT INTO `mob_droplist` VALUES (3206,0,0,1000,1118,100);
+--INSERT INTO `mob_droplist` VALUES (124,0,0,1000,1540,50); Garrison
+INSERT INTO `mob_droplist` VALUES (3206,0,0,1000,644,10);
+INSERT INTO `mob_droplist` VALUES (3206,0,0,1000,16995,240);
+INSERT INTO `mob_droplist` VALUES (3207,0,0,1000,644,10);    -- Antican_Princeps (QSC No Coffer Key)
+INSERT INTO `mob_droplist` VALUES (3207,0,0,1000,1118,100);
+--INSERT INTO `mob_droplist` VALUES (3207,0,0,1000,1540,90); Garrison
+INSERT INTO `mob_droplist` VALUES (3207,0,0,1000,16995,240);
+INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,644,10);    -- Antican_Signifer (QSC No Coffer Key)
+INSERT INTO `mob_droplist` VALUES (3208,2,0,1000,749,0);
+INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,1121,100);
+INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,1477,10);
+INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,1980,240);
+INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,16995,240);
 
 
 
@@ -17833,7 +17852,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1618,240); -- (Harajnite) Uragn
 INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 -- free 22, 644, 1665, 2331
--- NEXT: 
+-- NEXT: 3209
 -- NEXT: 6100
 
 
