@@ -4,12 +4,10 @@
 --   JA Autos
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(125)
-    mob:setMod(tpz.mod.ATT, 522)
-    mob:setMod(tpz.mod.DEF, 555)
-    mob:setMod(tpz.mod.EVA, 360)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.UDMGPHYS, -50)
     mob:setMod(tpz.mod.UDMGRANGE, 0)
     mob:setMod(tpz.mod.UDMGMAGIC, -38)

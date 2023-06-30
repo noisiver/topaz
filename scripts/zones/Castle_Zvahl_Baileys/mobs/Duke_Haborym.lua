@@ -3,9 +3,10 @@
 --   NM: Duke Haborym
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(50)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.UDMGPHYS, 200)
     mob:setMod(tpz.mod.UDMGRANGE, 200)
     mob:setMod(tpz.mod.UDMGMAGIC, 200)
@@ -28,10 +29,7 @@ function onMobFight(mob, target)
         mob:useMobAbility(2110) -- Wings Of Gehenna
         mob:setHP(30000)
         mob:setModelId(1845) -- Vampyr
-        mob:setDamage(50)
-        mob:setMod(tpz.mod.ATT, 522)
-        mob:setMod(tpz.mod.DEF, 555)
-        mob:setMod(tpz.mod.EVA, 360)
+        mob:setDamage(25)
         mob:setMod(tpz.mod.MDEF, 20)
         mob:setMod(tpz.mod.UDMGPHYS, -50)
         mob:setMod(tpz.mod.UDMGRANGE, 0)

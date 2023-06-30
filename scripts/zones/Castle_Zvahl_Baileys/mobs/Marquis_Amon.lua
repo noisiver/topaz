@@ -1,17 +1,17 @@
 -----------------------------------
 -- Area: Castle Zvahl Baileys (161)
 --   NM: Marquis Amon
------------------------------------
+------------------------------
+require("scripts/globals/hunts")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+------------------------------
 
 function onMobSpawn(mob)
-    mob:setDamage(110)
-    mob:setMod(tpz.mod.ATT, 522)
-    mob:setMod(tpz.mod.DEF, 555)
-    mob:setMod(tpz.mod.EVA, 360)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.MATT, 32) 
     mob:addMod(tpz.mod.MDEF, 24) 
     mob:setMod(tpz.mod.UFASTCAST, 50) 
-    mob:setMod(tpz.mod.REFRESH, 300)
     mob:addImmunity(tpz.immunity.SLEEP)
     mob:addImmunity(tpz.immunity.GRAVITY)
     mob:addImmunity(tpz.immunity.BIND)

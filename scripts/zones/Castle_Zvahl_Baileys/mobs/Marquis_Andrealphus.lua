@@ -5,9 +5,14 @@
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 --Every 33% health, he'll Escape whoever has hate out to Xarcabard (unless it's a solo player).
+
+function onMobSpawn(mob)
+    SetGenericNMStats(mob)
+end
 
 function onMobDeath(mob, player, isKiller)
 end
