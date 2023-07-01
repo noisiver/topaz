@@ -1205,6 +1205,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                 }
             }
         }
+    }
     // Roll for random rare items
     if (tpzrand::GetRandomNumber(500) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0 && GetMLevel() >= 11)
     {
