@@ -10,7 +10,6 @@ require("scripts/globals/mobs")
 
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
-    mob:setMod(tpz.mod.MACC, 100) 
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
 end
 
