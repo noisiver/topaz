@@ -483,7 +483,7 @@ INSERT INTO `mob_skills` VALUES (543,287,'meltdown',1,15.0,2000,5000,4,0,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES (1906, 917, 'ultimate_terror', 1, 10.0, 2000, 1500, 4, 0, 0, 0, 0, 0, 0);
 -- INSERT INTO `mob_skills` VALUES (1908, 918, 'nightmare', 1, 10.0, 2000, 2000, 4, 0, 0, 0, 0, 0, 0);
 INSERT INTO `mob_skills` VALUES (548,292,'blindeye',0,7.0,2000,3000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (549,293,'eyes_on_me',0,13.0,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (549,293,'eyes_on_me',0,7.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (550,294,'hypnosis',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (551,295,'mind_break',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (552,296,'binding_wave',1,15.0,2000,1500,4,0,0,0,0,0,0);
