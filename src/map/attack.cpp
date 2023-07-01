@@ -407,7 +407,7 @@ bool CAttack::IsCountered()
 
 bool CAttack::CheckCounter()
 {
-    if (!m_victim->StatusEffectContainer->HasPreventActionEffect(false))
+    if (m_victim->StatusEffectContainer->HasPreventActionEffect(false))
     {
         return false;
     }
