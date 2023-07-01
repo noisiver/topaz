@@ -94,8 +94,8 @@ function onUseAbility(player, target, ability)
     end
 
     -- Empathy copying
-    local empathyTotal = player:getMerit(tpz.merit.EMPATHY)
-    if empathyTotal > 0 then
+    local merits = player:getMerit(tpz.merit.EMPATHY)
+    if merits > 0 then
         local effects = player:getStatusEffects()
         local validEffects = { }
         local i = 0 -- highest existing index
@@ -108,14 +108,14 @@ function onUseAbility(player, target, ability)
             end
         end
 
-        if i < empathyTotal then
-            empathyTotal = i
-        elseif i > empathyTotal then
-            validEffects = cutEmpathyEffectTable(validEffects, i, empathyTotal)
+        if i < merits then
+            merits = i
+        elseif i > merits then
+            validEffects = cutEmpathyEffectTable(validEffects, i, merits)
         end
 
         local copyEffect = nil
-        while copyi < empathyTotal do
+        while copyi < merits do
             copyEffect = validEffects[copyi+1]
             if pet:hasStatusEffect(copyEffect:getType()) then
                 pet:delStatusEffectSilent(copyEffect:getType())
@@ -126,6 +126,7 @@ function onUseAbility(player, target, ability)
         end
     end
 
+    pet:addExp(200 * merits)
     pet:addHP(healPet) --add the hp to pet
     player:updateEnmityFromCure(pet, healPet)
     pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 18, 0, 0, 0) -- Was 90 seconds of regen. Changed to 15s due to being reduced in CD
