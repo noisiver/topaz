@@ -8,7 +8,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.ALWAYS_AGGRO , 1)
+    mob:setMobMod(tpz.mobMod.ALWAYS_AGGRO, 1)
 end
 
 function onMobDeath(mob, player, isKiller)
