@@ -17,7 +17,7 @@ end
 function onMobSpawn(mob)
     local KingArthroID = mob:getID()
 	mob:setDamage(100)
-    mob:setMod(tpz.mod.ATT, 500)
+    mob:setMod(tpz.mod.ATTP, 50)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.EVA, 15)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)

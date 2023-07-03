@@ -12,15 +12,13 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setDamage(130)
-    mob:setMod(tpz.mod.ATT, 500)
+	mob:setDamage(100)
+    mob:setMod(tpz.mod.ATTP, 50)
     mob:addMod(tpz.mod.DEFP, 50) 
-    mob:setMod(tpz.mod.ACC, 400) 
-    mob:addMod(tpz.mod.EVA, 140)
-    mob:setMod(tpz.mod.MACC, 1000) 
+    mob:addMod(tpz.mod.EVA, 15)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setLocalVar("[rage]timer", 1200) -- 20 minutes
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
 end
 
 function onMobDeath(mob, player, isKiller)
