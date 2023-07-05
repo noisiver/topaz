@@ -878,3 +878,10 @@ function SetGenericNMStats(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 25) 
 end
+
+function CheckQuadavModel(mob, skill, model, animationId)
+    local modelId = mob:getModelId()
+    if (modelId < model) then -- Adjust animation for non-WoTG Quadavs
+        skill:setAnimation(animationId)
+    end
+end

@@ -6,9 +6,11 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    CheckQuadavModel(mob, skill, 2116, 358)
 	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
 		return 1
 	end
