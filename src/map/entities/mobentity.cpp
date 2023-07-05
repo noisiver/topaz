@@ -884,6 +884,14 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         target.animation = PSkill->getAnimationID();
         target.messageID = PSkill->getMsg();
 
+        // Set player avatar 2 hours to 15 yard radius
+        // TODO: Are these the correct IDs? What are 839 - 919 for?
+        if (PSkill->getID() == 616 || PSkill->getID() == 838 || PSkill->getID() == 848 || PSkill->getID() == 856 || PSkill->getID() == 866 ||
+                PSkill->getID() == 875 || PSkill->getID() == 884 || PSkill->getID() == 893 || PSkill->getID() == 912 || PSkill->getID() == 2498)
+        {
+            PSkill->setDistance(15);
+        }
+
 
         // reset the skill's message back to default
         PSkill->setMsg(defaultMessage);
