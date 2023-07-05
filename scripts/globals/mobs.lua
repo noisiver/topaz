@@ -862,9 +862,9 @@ function SetGenericNMStats(mob)
     elseif (level < 60) then
         wepDMG = 80
     elseif (level < 70) then
-        wepDMG = 100
+        wepDMG = 90
     else
-        wepDMG = 125
+        wepDMG = 100
     end
 
     if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP or utils.getWeaponStyle(mob) == 'H2H' then
