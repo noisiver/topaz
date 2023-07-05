@@ -54,7 +54,7 @@ public:
     int32 setMsg(lua_State*);
     int32 getMsg(lua_State*);
     int32 getTotalTargets(lua_State*);
-    int32 setAnimationID(lua_State*);
+    int32 setAnimation(lua_State*);
     int32 setAoe(lua_State*);
     int32 setDistance(lua_State*);
     int32 setFlag(lua_State*);
