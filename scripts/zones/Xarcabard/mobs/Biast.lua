@@ -15,10 +15,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.ACC, 20) 
-    mob:addMod(tpz.mod.EVA, 20)
+    SetGenericNMStats(mob)
     mob:addMod(tpz.mod.MDEF, 24) 
     mob:setMod(tpz.mod.SDT_WATER, 5)
     mob:setMod(tpz.mod.SDT_LIGHT, 100)
@@ -29,8 +26,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_FIRE, 50)
     mob:setMod(tpz.mod.SDT_ICE, 85)
     mob:setMod(tpz.mod.REFRESH, 300)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 10000)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 10000) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 6000) 
     mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
 end
 

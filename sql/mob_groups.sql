@@ -8007,7 +8007,7 @@ INSERT INTO `mob_groups` VALUES (1,2442,112,'Lost_Soul',330,0,1539,0,0,42,45,0);
 INSERT INTO `mob_groups` VALUES (2,1260,112,'Etemmu',330,0,793,0,0,43,46,0);
 INSERT INTO `mob_groups` VALUES (3,1264,112,'Evil_Eye',330,0,794,0,0,46,48,0);
 INSERT INTO `mob_groups` VALUES (4,3575,112,'Shadow_Dragon',600,0,0,0,0,52,53,0);
-INSERT INTO `mob_groups` VALUES (5,410,112,'Biast',0,128,266,35000,0,85,86,0);
+INSERT INTO `mob_groups` VALUES (5,410,112,'Biast',0,128,266,12500,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (6,2043,112,'Ice_Elemental',330,4,1347,0,0,48,50,0);
 INSERT INTO `mob_groups` VALUES (7,868,112,'Cursed_Weapon',330,0,548,0,0,43,45,0);
 INSERT INTO `mob_groups` VALUES (8,913,112,'Dark_Elemental',330,4,568,0,0,48,50,0);
