@@ -1,7 +1,7 @@
 
 ---------------------------------------------------------------------------------------------------
--- func: setmodel
--- desc: Sets the mobs model
+-- func: setdelay
+-- desc: Sets the mobs weapon delay
 ---------------------------------------------------------------------------------------------------
 
 require("scripts/globals/status")
@@ -14,21 +14,21 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!setmodel {npcID} <modelID>")
+    player:PrintToPlayer("!setmodel {npcID} <delay>")
 end
 
 function onTrigger(player, arg1, arg2)
     local targ
-    local modelID
+    local delay
 
     if (arg2 == nil) then
         -- player did not provide npcId.  Shift arguments by one.
         targ = player:getCursorTarget()
-        modelID = arg1
+        delay = arg1
     else
-        -- player provided npcId and modelID.
+        -- player provided npcId and delay.
         targ = GetMobByID(tonumber(arg1))
-        modelID = arg2
+        delay = arg2
     end
 
     -- validate target
@@ -37,5 +37,5 @@ function onTrigger(player, arg1, arg2)
         return
     end
 
-    targ:setModelId(modelID)
+    targ:setDelay(delay)
 end

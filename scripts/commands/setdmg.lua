@@ -1,7 +1,7 @@
 
 ---------------------------------------------------------------------------------------------------
--- func: setmodel
--- desc: Sets the mobs model
+-- func: setdmg
+-- desc: Sets the mobs weapon damage
 ---------------------------------------------------------------------------------------------------
 
 require("scripts/globals/status")
@@ -14,21 +14,21 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!setmodel {npcID} <modelID>")
+    player:PrintToPlayer("!setmodel {npcID} <damage>")
 end
 
 function onTrigger(player, arg1, arg2)
     local targ
-    local modelID
+    local damage
 
     if (arg2 == nil) then
         -- player did not provide npcId.  Shift arguments by one.
         targ = player:getCursorTarget()
-        modelID = arg1
+        damage = arg1
     else
-        -- player provided npcId and modelID.
+        -- player provided npcId and damage.
         targ = GetMobByID(tonumber(arg1))
-        modelID = arg2
+        damage = arg2
     end
 
     -- validate target
@@ -37,5 +37,5 @@ function onTrigger(player, arg1, arg2)
         return
     end
 
-    targ:setModelId(modelID)
+    targ:setDamage(damage)
 end
