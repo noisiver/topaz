@@ -1186,6 +1186,17 @@ INSERT INTO `item_latents` VALUES(14277, 13, 3, 53, 0);     -- MND +3 in areas i
 INSERT INTO `item_latents` VALUES(14278, 13, 4, 53, 0);     -- MND +4 in areas inside own nation's control
 
 -- -------------------------------------------------------
+-- Nesanica ring
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(28567, 368, 10, 13, 2);     -- Sleeping +10 regain
+INSERT INTO `item_latents` VALUES(28567, 368, 10, 13, 19);    -- Sleeping +10 regain
+INSERT INTO `item_latents` VALUES(28567, 368, 10, 13, 193);   -- Sleeping +10 regain
+INSERT INTO `item_latents` VALUES(28567, 370, 1, 13, 2);      -- Sleeping +1 regen
+INSERT INTO `item_latents` VALUES(28567, 370, 1, 13, 19);     -- Sleeping +1 regen
+INSERT INTO `item_latents` VALUES(28567, 370, 1, 13, 193);    -- Sleeping +1 regen
+
+
+-- -------------------------------------------------------
 -- Luna Subligar
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(14287, 9, 2, 37, 4);      -- Full moon DEX+2
