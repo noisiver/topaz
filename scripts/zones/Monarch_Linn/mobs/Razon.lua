@@ -7,19 +7,22 @@
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/mobs")
 -----------------------------------
 local ThreeClusters = 571
 local TwoClusters = 573
 local OneCluster = 572
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.ATTP, 10)
-     mob:addMod(tpz.mod.DEFP, 20) 
-     mob:addMod(tpz.mod.ACC, 15) 
-     mob:addMod(tpz.mod.EVA, 15)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-     mob:AnimationSub(0)
-     mob:setLocalVar("ElementSwapTime", 120)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.HTHRES, 250)
+    mob:setMod(tpz.mod.SLASHRES, 250)
+    mob:setMod(tpz.mod.PIERCERES, 250)
+    mob:setMod(tpz.mod.RANGEDRES, 1000)
+    mob:setMod(tpz.mod.IMPACTRES, 250)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:AnimationSub(0)
+    mob:setLocalVar("ElementSwapTime", 120)
 end
 
 function onMobEngaged(mob, target)

@@ -349,9 +349,10 @@ tpz.shop =
                 6215,     400,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pepperoni Slice
                 5752,    3500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pot-auf-feu
                 4488,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Jack-o'-Lantern
-                5176,    5000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Bream Sushi
-                5178,    4000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Dorado Sushi
                 5721,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Crab Sushi
+                5148,    1250,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Squid Sushi
+                5176,    1000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Bream Sushi
+                5178,    1666,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Dorado Sushi
                 5775,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocolate Crepe
                 5766,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Butter Crepe
                 4413,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Apple Pie

@@ -9,8 +9,12 @@
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
+require("scripts/globals/mobs")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+    if mob:getSystem() == 7 then -- Quadavs
+        CheckQuadavModel(mob, skill, 2116, 356)
+    end
     return 0
 end
 

@@ -40,6 +40,7 @@ function onMobDeathEx(mob, player, isKiller, isWeaponSkillKill)
         end
     end
 
+    tpz.magian.checkMagianTrial(player, {['mob'] = mob})
 end
 
 -------------------------------------------------
@@ -861,9 +862,9 @@ function SetGenericNMStats(mob)
     elseif (level < 60) then
         wepDMG = 80
     elseif (level < 70) then
-        wepDMG = 100
+        wepDMG = 90
     else
-        wepDMG = 125
+        wepDMG = 100
     end
 
     if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP or utils.getWeaponStyle(mob) == 'H2H' then
@@ -876,4 +877,11 @@ function SetGenericNMStats(mob)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 25) 
+end
+
+function CheckQuadavModel(mob, skill, model, animationId)
+    local modelId = mob:getModelId()
+    if (modelId < model) then -- Adjust animation for non-WoTG Quadavs
+        skill:setAnimation(animationId)
+    end
 end

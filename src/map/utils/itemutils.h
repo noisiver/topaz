@@ -35,10 +35,10 @@
 #include "../items/item_usable.h"
 #include "../items/item_weapon.h"
 
-#define MAX_ITEMID  32768
-#define MAX_DROPID  20000
-#define MAX_LOOTID  1300
-#define MAX_DROP_GROUP_ID  255
+#define MAX_ITEMID  999999
+#define MAX_DROPID  999999
+#define MAX_LOOTID  9999
+#define MAX_DROP_GROUP_ID  9999
 
 enum DROP_TYPE
 {

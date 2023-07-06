@@ -433,7 +433,7 @@ local battlefields = {
     {
      -- { 0,    ?,    0},   -- When Wills Collide (WOTG46)
      -- { 1,  385,    0},   -- Maiden of the Dusk (WOTG51)
-     -- { 2,    ?,    0},   -- Champion of the Dawn (Quest)
+    { 2,    388,    0},   -- Champion of the Dawn (Quest)
      -- { 3,    ?,    0},   -- A Forbidden Reunion (Quest)
     },
 
@@ -598,6 +598,7 @@ function checkReqs(player, npc, bfid, registrant)
         [ 292] = function() return ( roz == mi.zilart.ARK_ANGELS and rozStat == 1 and npcid == getEntranceOffset(4) and not player:hasKeyItem(tpz.ki.SHARD_OF_RAGE)         ) end, -- ZM14: Ark Angels (Galka)
         [ 293] = function() return ( dm1 == QUEST_ACCEPTED or dm2 == QUEST_ACCEPTED                                                                                         ) end, -- ZM14 Divine Might
         [ 320] = function() return ( roz == mi.zilart.THE_CELESTIAL_NEXUS                                                                                                   ) end, -- ZM16: The Celestial Nexus
+        [ 388] = function() return ( player:getCharVar("TrialByCaitSeenCS") == 1                                                                                            ) end, -- Quest: Chamption of the Dawn and The Dawn Also Rises
         [ 416] = function() return ( player:hasKeyItem(tpz.ki.TUNING_FORK_OF_WIND)                                                                                          ) end, -- Quest: Trial by Wind
         [ 417] = function() return ( player:getCharVar("CarbuncleDebacleProgress") == 6                                                                                     ) end, -- Quest: Carbuncle Debacle
         [ 418] = function() return ( mjob == tpz.job.SMN and mlvl >= 20                                                                                                     ) end, -- Quest: Trial-size Trial by Wind

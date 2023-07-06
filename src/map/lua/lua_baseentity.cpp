@@ -15975,6 +15975,31 @@ inline int32 CLuaBaseEntity::getTHlevel(lua_State* L)
     return 1;
 }
 
+/************************************************************************
+ *  Function: setSuperJump(1)
+ *  Purpose : sets super jump flag to evade spells and abilities
+ *  Example : setSuperJump(1), setSuperJump(0)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setSuperJump(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    bool superJump = false;
+
+    if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
+        superJump = lua_tointeger(L, 1);
+
+    CBattleEntity* PEntity = static_cast<CMobEntity*>(m_PBaseEntity);
+
+    if (PEntity)
+        PEntity->isSuperJumped = superJump;
+
+    return 1;
+}
+
+
 //=======================================================//
 
 const char CLuaBaseEntity::className[] = "CBaseEntity";
@@ -16638,16 +16663,17 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addImmunity),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delImmunity),
 
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, tryInterruptSpell),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, getGuardRate),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, getParryRate),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, getBlockRate),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, getBlockedDamage),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, trySkillUp),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setSuperJump),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,tryInterruptSpell),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getGuardRate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getParryRate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getBlockRate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getBlockedDamage),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,trySkillUp),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addRoamFlag),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delRoamFlag),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, deaggroPlayer),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, deaggroAll),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,deaggroPlayer),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,deaggroAll),
 
 
 

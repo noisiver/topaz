@@ -6,6 +6,7 @@
 local ID = require("scripts/zones/Castle_Zvahl_Baileys/IDs")
 require("scripts/globals/status")
 require("scripts/globals/utils")
+require("scripts/globals/mobs")
 -----------------------------------
 local avatars =
 {
@@ -131,7 +132,7 @@ function onMobSpawn(mob)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, skillList)
         mob:setSpellList(spellList)
     end
-    mob:setDamage(110)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.UDMGPHYS, 200)
     mob:setMod(tpz.mod.UDMGRANGE, 200)
     mob:setMod(tpz.mod.UDMGMAGIC, 200)
@@ -139,14 +140,14 @@ function onMobSpawn(mob)
     mob:addImmunity(tpz.immunity.SLEEP)
     mob:addImmunity(tpz.immunity.GRAVITY)
     mob:addImmunity(tpz.immunity.BIND)
-        -- First set all SDT's and EEM's to 100
-        for v = tpz.mod.SDT_FIRE, tpz.mod.SDT_DARK, 1 do
-            mob:setMod(v, 100)
-        end
-        for v = tpz.mod.EEM_AMNESIA, tpz.mod.EEM_BLIND, 1 do
-            mob:setMod(v, 100)
-        end
-        setCelestialResistances(mob)
+    -- First set all SDT's and EEM's to 100
+    for v = tpz.mod.SDT_FIRE, tpz.mod.SDT_DARK, 1 do
+        mob:setMod(v, 100)
+    end
+    for v = tpz.mod.EEM_AMNESIA, tpz.mod.EEM_BLIND, 1 do
+        mob:setMod(v, 100)
+    end
+    setCelestialResistances(mob)
 end
 
 function onMobDeath(mob, player, isKiller)

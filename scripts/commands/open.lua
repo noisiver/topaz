@@ -2,6 +2,9 @@
 -- func: open
 -- desc: Opens and Closes doors
 ---------------------------------------------------------------------------------------------------
+require("scripts/globals/status")
+---------------------------------------------------------------------------------------------------
+
 
 cmdprops =
 {
@@ -22,10 +25,10 @@ function onTrigger(player)
         error(player, "you must select a target door with the cursor first")
     end
     if  targ:getAnimation() == 9 then
-        targ:setAnimation(8)
+        targ:setAnimation(tpz.anim.OPEN_DOOR)
         player:PrintToPlayer(string.format("%s is now open!", targ:getName()))
     elseif targ:getAnimation() == 8 then
-        targ:setAnimation(9)
+        targ:setAnimation(tpz.anim.CLOSE_DOOR)
         player:PrintToPlayer(string.format("%s is now closed!", targ:getName()))
     end
  end

@@ -12,14 +12,9 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setDamage(110)
-    mob:setMod(tpz.mod.ATT, 522)
-    mob:setMod(tpz.mod.DEF, 555)
-    mob:setMod(tpz.mod.EVA, 360)
-    mob:setMod(tpz.mod.MATT, 32) 
+    SetGenericNMStats(mob)
     mob:addMod(tpz.mod.MDEF, 24) 
     mob:setMod(tpz.mod.UFASTCAST, 50) 
-    mob:setMod(tpz.mod.REFRESH, 300)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
     mob:addImmunity(tpz.immunity.SLEEP)
     mob:addImmunity(tpz.immunity.GRAVITY)
@@ -43,8 +38,8 @@ function onMobFight(mob, target)
                 zonePlayer:PrintToPlayer("Is engulfed in an aura of flame!",0,"Naberius")
             end
             v:delStatusEffectSilent(tpz.effect.BURN)
-            v:addStatusEffectEx(tpz.effect.BURN, tpz.effect.BURN, 20, 3, 60)
-            local dmg = 300
+            v:addStatusEffectEx(tpz.effect.BURN, tpz.effect.BURN, 3, 3, 60)
+            local dmg = 15
             dmg = v:magicDmgTaken(dmg, tpz.magic.ele.FIRE)
             v:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
             mob:useMobAbility(307) -- 2 hour "cloud" animation (Fire / Red)
@@ -64,7 +59,7 @@ function onMobFight(mob, target)
 end
 
 function onAdditionalEffect(mob, target, damage)
-	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE, {chance = 100, power = math.random(100, 150)})
+	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE, {chance = 100, power = math.random(15, 25)})
 end
 
 function onMobDeath(mob, player, isKiller)

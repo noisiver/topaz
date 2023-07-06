@@ -661,6 +661,7 @@ public:
 
     time_point  	charmTime;					// to hold the time entity is charmed
     bool			isCharmed;					// is the battle entity charmed?
+    bool            isSuperJumped;              // is the battle entity super jumping?
 
     uint8			m_ModelSize;			    // размер модели сущности, для расчета дальности физической атаки
     ECOSYSTEM		m_EcoSystem;			    // эко-система сущности

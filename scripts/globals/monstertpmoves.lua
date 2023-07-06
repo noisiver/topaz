@@ -852,7 +852,14 @@ end
 -- function MobMagicAoEHit()
 -- end
 
-function MobDrainMove(mob, target, drainType, drain, attackType, damageType)
+function MobDrainMove(mob, target, skill, drainType, drain, attackType, damageType)
+
+    -- Check if the skill was absorbed by shadows
+    -- Either wipes, ignores, or only takes 1 shadow so far
+    -- If a TP move is ever found that takes multiple shadows, this needs to also get the mobparam for shadows
+    if (skill:getMsg() == tpz.msg.basic.SHADOW_ABSORB) then
+        return 1
+    end
 
     if (target:isUndead() == false) then
         if (drainType == MOBDRAIN_MP) then
@@ -903,7 +910,7 @@ end
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
     -- Check if the skill fully missed. Blocks should also drain and not display a miss!
     if (MobPhysicalHit(mob, skill)) or mob:getLocalVar("isBlocked") > 0 then
-        return MobDrainMove(mob, target, drainType, drain)
+        return MobDrainMove(mob, target, skill, drainType, drain)
     end
 
     return tpz.msg.basic.SKILL_MISS

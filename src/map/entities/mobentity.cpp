@@ -884,9 +884,29 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         target.animation = PSkill->getAnimationID();
         target.messageID = PSkill->getMsg();
 
+        // Set player avatar 2 hours to 15 yard radius
+        // TODO: Are these the correct IDs? What are 839 - 919 for?
+        if (objtype == TYPE_PET && PMaster->objtype == TYPE_PC)
+        {
+            if (PSkill->getID() == 616 || PSkill->getID() == 838 || PSkill->getID() == 848 || PSkill->getID() == 856 || PSkill->getID() == 866 ||
+                PSkill->getID() == 875 || PSkill->getID() == 884 || PSkill->getID() == 893 || PSkill->getID() == 912 || PSkill->getID() == 2498)
+            {
+                PSkill->setDistance(15);
+            }
+        }
+
 
         // reset the skill's message back to default
         PSkill->setMsg(defaultMessage);
+
+        if (PTarget->isSuperJumped)
+        {
+            target.reaction = REACTION_EVADE;
+            target.speceffect = SPECEFFECT_NONE;
+            target.messageID = 188; // skill miss
+            continue;
+        }
+
 
         if (objtype == TYPE_PET && static_cast<CPetEntity*>(this)->getPetType() != PETTYPE_JUG_PET)
         {
@@ -1170,27 +1190,30 @@ void CMobEntity::DropItems(CCharEntity* PChar)
 
         for (const DropItem_t& item : DropList->Items)
         {
-            uint16 rate = item.DropRate;
-            uint16 category = 7;
-            if (rate < 5)
-                category = 6;
-            else if (rate < 10)
-                category = 5;
-            else if (rate < 50)
-                category = 4;
-            else if (rate < 100)
-                category = 3;
-            else if (rate < 150)
-                category = 2;
-            else if (rate < 240)
-                category = 1;
-            else if (rate < 1000)
-                category = 0;
-
-            if ((category == 7) || (tpzrand::GetRandomNumber(10000) < gDropBase[category][th]))
+            if (item.DropType == 0)
             {
-                if (AddItemToPool(item.ItemID, ++dropCount))
-                    return;
+                uint16 rate = item.DropRate;
+                uint16 category = 7;
+                if (rate < 5)
+                    category = 6;
+                else if (rate < 10)
+                    category = 5;
+                else if (rate < 50)
+                    category = 4;
+                else if (rate < 100)
+                    category = 3;
+                else if (rate < 150)
+                    category = 2;
+                else if (rate < 240)
+                    category = 1;
+                else if (rate < 1000)
+                    category = 0;
+
+                if ((category == 7) || (tpzrand::GetRandomNumber(10000) < gDropBase[category][th]))
+                {
+                    if (AddItemToPool(item.ItemID, ++dropCount))
+                        return;
+                }
             }
         }
     }

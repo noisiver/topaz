@@ -97,6 +97,7 @@ function onUseAbility(player, target, ability, action)
                 end
             end
         end
+        return effect
     end
 
     return stolen

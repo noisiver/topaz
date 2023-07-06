@@ -62,6 +62,10 @@ function onUseAbility(player, target, ability, action)
         recover = (player:getMaxHP() - player:getHP())
     end
 
+    if target:isUndead() then
+        recover = 0
+    end
+
     player:addHP(recover)
     player:updateEnmityFromCure(player, recover)
 

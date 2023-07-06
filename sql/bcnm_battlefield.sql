@@ -764,6 +764,7 @@ INSERT INTO `bcnm_battlefield` VALUES (320,3,17518606,3);
 INSERT INTO `bcnm_battlefield` VALUES (320,3,17518607,2);
 INSERT INTO `bcnm_battlefield` VALUES (320,3,17518608,1);
 INSERT INTO `bcnm_battlefield` VALUES (320,3,17518609,1);
+INSERT INTO `bcnm_battlefield` VALUES (388,1,17523197,3); -- Chamption of the Dawn and The Dawn Also Rises
 INSERT INTO `bcnm_battlefield` VALUES (416,1,17600513,3); -- trial_by_wind
 INSERT INTO `bcnm_battlefield` VALUES (416,2,17600514,3);
 INSERT INTO `bcnm_battlefield` VALUES (416,3,17600515,3);
