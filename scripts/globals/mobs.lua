@@ -791,6 +791,19 @@ function BreakMob(mob, target, power, duration, proc)
     end
 end
 
+function MessageGroup(mob, target, msg, textcolor, sender)
+    if target == nil then
+        return
+    end
+
+    local party = target:getParty()
+
+    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    for _, players in pairs(party) do
+        players:PrintToPlayer(msg, textcolor, sender)
+    end
+end
+
 function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
     local party = target:getParty()
     local msgTimer = mob:getLocalVar("msgTimer")
