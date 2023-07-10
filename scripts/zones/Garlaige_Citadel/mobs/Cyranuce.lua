@@ -32,21 +32,19 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local buffone = tpz.effect.ICE_SPIKES
-    local bufftwo = tpz.effect.SHOCK_SPIKES
-    local buffthree = tpz.effect.DREAD_SPIKES
+    local buffs = { tpz.effect.ICE_SPIKES, tpz.effect.SHOCK_SPIKES, DREAD_SPIKES }
 
     if skill:getID() == 819 then -- Blizzard Breath
         mob:addStatusEffect(tpz.effect.ICE_SPIKES, 20, 0, 30)
-        mob:getStatusEffect(buffone):unsetFlag(tpz.effectFlag.DISPELABLE)
+        mob:getStatusEffect(buffs[1]):unsetFlag(tpz.effectFlag.DISPELABLE)
     end
     if skill:getID() == 820 then -- Thunder Breath
         mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 20, 0, 30)
-        mob:getStatusEffect(bufftwo):unsetFlag(tpz.effectFlag.DISPELABLE)
+        mob:getStatusEffect(buffs[2]):unsetFlag(tpz.effectFlag.DISPELABLE)
     end
     if skill:getID() == 822 then -- Chaos Breath
         mob:addStatusEffect(tpz.effect.DREAD_SPIKES, 0, 0, 30, 0, 2000, 1)
-        mob:getStatusEffect(buffthree):unsetFlag(tpz.effectFlag.DISPELABLE)
+        mob:getStatusEffect(buffs[3]):unsetFlag(tpz.effectFlag.DISPELABLE)
     end
 end
 
