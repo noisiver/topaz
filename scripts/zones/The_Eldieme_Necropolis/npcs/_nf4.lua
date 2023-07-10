@@ -5,9 +5,6 @@
 local ID = require("scripts/zones/The_Eldieme_Necropolis/IDs")
 require("scripts/globals/npc_util")
 -----------------------------------
-
-
-
 function onTrade(player, npc, trade)
     if npcUtil.tradeHasExactly(trade, 478) then -- Clear Chip
         if npcUtil.popFromQM(player, npc, ID.mob.MURGLEIS) then -- items and mob id here under mob = in IDs.lua

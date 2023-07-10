@@ -645,6 +645,7 @@ INSERT INTO `mob_family_system` VALUES (592,'Pet-CaitSith',5,'Avatar',0,40,100,1
 
 
 -- Mythic Weapon Fights (Custom)
+INSERT INTO `mob_family_system` VALUES (887,'Cyranuce',13,'Humanoid',0,40,100,120,1,3,3,7,7,7,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);
 INSERT INTO `mob_family_system` VALUES (888,'Balpah',13,'Humanoid',0,40,100,120,5,5,5,7,7,7,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);
 INSERT INTO `mob_family_system` VALUES (899,'Nashmeira',13,'Humanoid',0,40,100,120,7,7,7,7,7,7,7,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);
 INSERT INTO `mob_family_system` VALUES (900,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);

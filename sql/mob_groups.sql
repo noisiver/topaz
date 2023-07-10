@@ -12959,6 +12959,7 @@ INSERT INTO `mob_groups` VALUES (44,5147,200,'Roly-Poly',0,128,0,0,9999,91,93,0)
 INSERT INTO `mob_groups` VALUES (45,6544,200,'Fallen_Evacuee',330,0,809,0,0,42,43,0);
 INSERT INTO `mob_groups` VALUES (46,6547,200,'Fallen_Officer',330,0,814,0,0,52,55,0);
 INSERT INTO `mob_groups` VALUES (47,6548,200,'Fallen_Soldier',330,0,815,0,0,47,49,0);
+INSERT INTO `mob_groups` VALUES (48,9015,200,'Cyranuce',0,128,3189,6250,0,81,81,0);
 
 INSERT INTO `mob_groups` VALUES (9900,2413,200,'Light_Elemental',0,128,0,0,0,52,57,0);
 INSERT INTO `mob_groups` VALUES (9901,2456,200,'Lycopodium',0,0,0,0,0,0,0,0);
