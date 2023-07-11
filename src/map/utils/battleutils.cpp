@@ -2892,6 +2892,12 @@ int getSDTTier(int SDT)
                     baseTp += ((CCharEntity*)PAttacker)->PMeritPoints->GetMeritValue(MERIT_IKISHOTEN, (CCharEntity*)PAttacker);
                 }
 
+                // Players gain 2x base TP
+                if (PAttacker->objtype == TYPE_PC)
+                {
+                    baseTp *= 2;
+                }
+
                 PAttacker->addTP((int16)(tpMultiplier * (baseTp * (1.0f + 0.01f * (float)((PAttacker->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker)))))));
             }
 
