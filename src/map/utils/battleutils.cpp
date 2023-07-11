@@ -2262,6 +2262,9 @@ int getSDTTier(int SDT)
         else {
             x = (int16)(173 + ((delay - 900) * 28.f) / 360);
         }
+        // Double TP gained
+        x *= 2.0f;
+
         return x;
     }
 
