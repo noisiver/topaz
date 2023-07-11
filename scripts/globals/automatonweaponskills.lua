@@ -42,13 +42,14 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
 
     local jas =
     {1944, 1945, 1946, 1947, 1948, 1949, 2021, 2068, 2745, 2746, 2747, 3485}
+
     for _, skillId in pairs(jas) do
         if (skill:getID() == skillId) then
             tp = 1000
         end
     end
     -- printf("TP: %i", tp)
-    --printf("tp %i", tp)
+    -- printf("tp %i", tp)
     local acc = 0
     local TPAccBonus = 0
 
@@ -639,7 +640,9 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
         skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
     else
 	    target:takeDamage(dmg, auto, attackType, damageType)
-        target:tryInterruptSpell(auto, numberofhits)
+        if (skill:getID() ~= 1949) then -- Ranged attacks do not interrupt spellcasting
+            target:tryInterruptSpell(auto, numberofhits)
+        end
     end
 
     if params.NO_ENMITY == nil then -- Ruinous Omen generates no enmity
