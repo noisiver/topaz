@@ -136,7 +136,7 @@ bool CMagicState::Update(time_point tick)
             
         Complete();
     }
-    else if (IsCompleted() && tick > GetEntryTime() + m_castTime + std::chrono::milliseconds(m_PSpell->getAnimationTime()))
+    else if (IsCompleted() && tick > GetEntryTime() + m_castTime)
     {
         // Add TP from Occult Acumen to non-damaging spells
         if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENFEEBLING_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENHANCING_MAGIC ||
