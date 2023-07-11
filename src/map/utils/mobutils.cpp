@@ -296,22 +296,23 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
             if ((PMob->m_Family == 189) || (PMob->m_Family == 190) || (PMob->m_Family == 334) || (PMob->m_Family == 407) || (PMob->m_Family == 944) ||
                 (PMob->m_Family == 945))
             {
-                mobHP = (baseMobHP + sjHP) * 1.05;
+                mobHP = (baseMobHP + sjHP) * 1.575;
             }
             // Quadavs 5% less hp
             else if ((PMob->m_Family == 200) || (PMob->m_Family == 201) || (PMob->m_Family == 202) || (PMob->m_Family == 337) || (PMob->m_Family == 397) ||
                      (PMob->m_Family == 408) || (PMob->m_Family == 942))
             {
-                mobHP = (baseMobHP + sjHP) * .95;
+                mobHP = (baseMobHP + sjHP) * 1.425;
             }
             // Manticore family has 50% more HP
             else if (PMob->m_Family == 179)
             {
-                mobHP = (baseMobHP + sjHP) * 1.5;
+                mobHP = (baseMobHP + sjHP) * 2.25;
             }
             else
             {
-                mobHP = baseMobHP + sjHP;
+                // Increase mob HP by 50% to account for doubling player TP gain and reducing nuke recasts
+                mobHP = (baseMobHP + sjHP) * 1.5;
             }
 
             if (PMob->PMaster != nullptr)
