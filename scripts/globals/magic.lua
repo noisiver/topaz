@@ -2829,7 +2829,7 @@ function calculateDuration(duration, magicSkill, spellGroup, caster, target, use
 end
 
 function calculatePotency(basePotency, magicSkill, caster, target)
-    if magicSkill ~= tpz.skill.ENFEEBLING_MAGIC then
+    if (magicSkill ~= tpz.skill.ENFEEBLING_MAGIC) then
         return basePotency
     end
 

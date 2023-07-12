@@ -1006,9 +1006,24 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
                 static_cast<CBlueSpell*>(PSpell)->getPrimarySkillchain() != 0)
             {
                 auto PBlueSpell = static_cast<CBlueSpell*>(PSpell);
-                SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PBlueSpell->getPrimarySkillchain(), PBlueSpell->getSecondarySkillchain(), 0 );
+                SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PBlueSpell->getPrimarySkillchain(), PBlueSpell->getSecondarySkillchain(), 0);
                 if (effect != SUBEFFECT_NONE)
                 {
+                    // Apply Inundation weapon skill type tracking
+                    if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                    {
+                        CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                        auto power = PEffect->GetPower();
+                        auto duration = PEffect->GetDuration();
+                        auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
+                        auto subPower = PEffect->GetSubPower();
+                        if ((subPower & currentFlag) == 0)
+                        {
+                            PEffect->SetPower(power * 12);
+                            PEffect->SetSubPower(subPower | currentFlag);
+                        }
+                    }
+
                     uint16 skillChainDamage = battleutils::TakeSkillchainDamage(static_cast<CBattleEntity*>(this), PTarget, actionTarget.param, nullptr);
 
                     actionTarget.addEffectParam = skillChainDamage;
@@ -1103,6 +1118,8 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
     PLatentEffectContainer->CheckLatentsTP();
 
     SLOTTYPE damslot = SLOT_MAIN;
+    CItemWeapon* PItem = (CItemWeapon*)this->getEquip(SLOT_MAIN);
+
     // Check if target is alive
     if (PBattleTarget->GetHPP() < 1)
         return;
@@ -1112,6 +1129,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
         if (PWeaponSkill->getID() >= 192 && PWeaponSkill->getID() <= 221)
         {
             damslot = SLOT_RANGED;
+            CItemWeapon* PItem = (CItemWeapon*)this->getEquip(SLOT_RANGED);
         }
         if (PWeaponSkill->getID() >= 1 && PWeaponSkill->getID() <= 15)
         {
@@ -1196,9 +1214,25 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                     {
                         // NOTE: GetSkillChainEffect is INSIDE this if statement because it
                         //  ALTERS the state of the resonance, which misses and non-elemental skills should NOT do.
-                        SUBEFFECT effect = battleutils::GetSkillChainEffect(PBattleTarget, PWeaponSkill->getPrimarySkillchain(), PWeaponSkill->getSecondarySkillchain(), PWeaponSkill->getTertiarySkillchain() );
+
+                        SUBEFFECT effect = battleutils::GetSkillChainEffect(PBattleTarget, PWeaponSkill->getPrimarySkillchain(), PWeaponSkill->getSecondarySkillchain(), PWeaponSkill->getTertiarySkillchain());
                         if (effect != SUBEFFECT_NONE)
                         {
+                            // Apply Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto power = PEffect->GetPower();
+                                auto duration = PEffect->GetDuration();
+                                auto currentFlag = PItem->getSkillTypeFlag();
+                                auto subPower = PEffect->GetSubPower();
+                                if ((subPower & currentFlag) == 0)
+                                {
+                                    PEffect->SetPower(power * 12);
+                                    PEffect->SetSubPower(subPower | currentFlag);
+                                }
+                            }
+
                             actionTarget.addEffectParam = battleutils::TakeSkillchainDamage(this, PBattleTarget, damage, taChar);
                             if (actionTarget.addEffectParam < 0)
                             {

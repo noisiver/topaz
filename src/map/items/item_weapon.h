@@ -35,6 +35,7 @@ public:
 	virtual ~CItemWeapon();
 
 	uint8	getSkillType();
+    uint16  getSkillTypeFlag();
 	uint8	getSubSkillType();
     uint16  getILvlSkill();
     uint16  getILvlParry();

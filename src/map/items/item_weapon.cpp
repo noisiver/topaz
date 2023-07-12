@@ -166,6 +166,51 @@ uint8 CItemWeapon::getSkillType()
 	return m_skillType;
 }
 
+uint16 CItemWeapon::getSkillTypeFlag()
+{
+    uint8 skillType = this->getSkillType();
+
+    switch (skillType)
+    {
+        case SKILL_NONE:
+            return 0x0000;
+        case SKILL_HAND_TO_HAND:
+            return 0x0001;
+        case SKILL_DAGGER:
+            return 0x0002;
+        case SKILL_SWORD:
+            return 0x0004;
+        case SKILL_GREAT_SWORD:
+            return 0x0008;
+        case SKILL_AXE:
+            return 0x0010;
+        case SKILL_GREAT_AXE:
+            return 0x0020;
+        case SKILL_SCYTHE:
+            return 0x0040;
+        case SKILL_POLEARM:
+            return 0x0080;
+        case SKILL_KATANA:
+            return 0x0100;
+        case SKILL_GREAT_KATANA:
+            return 0x0200;
+        case SKILL_CLUB:
+            return 0x0400;
+        case SKILL_STAFF:
+            return 0x0800;
+        case SKILL_AUTOMATON_MELEE:
+        case SKILL_AUTOMATON_RANGED:
+        case SKILL_AUTOMATON_MAGIC:
+            return 0x1000;
+        case SKILL_ARCHERY:
+            return 0x2000;
+        case SKILL_MARKSMANSHIP:
+            return 0x4000;
+        case SKILL_BLUE_MAGIC:
+            return 0x8000;
+    }
+}
+
 /************************************************************************
 *                                                                       *
 *   Set/get sub skillType.  Used for guns vs crossbows and other		*

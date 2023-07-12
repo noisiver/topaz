@@ -472,6 +472,21 @@ void CTrustEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& act
                     SUBEFFECT effect = battleutils::GetSkillChainEffect(PBattleTarget, PWeaponSkill->getPrimarySkillchain(), PWeaponSkill->getSecondarySkillchain(), PWeaponSkill->getTertiarySkillchain());
                     if (effect != SUBEFFECT_NONE)
                     {
+                        // Apply Inundation weapon skill type tracking
+                        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                        {
+                            CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                            auto power = PEffect->GetPower();
+                            auto duration = PEffect->GetDuration();
+                            auto currentFlag = WEAPONTYPE_PET;
+                            auto subPower = PEffect->GetSubPower();
+                            if ((subPower & currentFlag) == 0)
+                            {
+                                PEffect->SetPower(power * 12);
+                                PEffect->SetSubPower(subPower | currentFlag);
+                            }
+                        }
+
                         actionTarget.addEffectParam = battleutils::TakeSkillchainDamage(this, PBattleTarget, damage, taChar);
                         if (actionTarget.addEffectParam < 0)
                         {

@@ -3002,7 +3002,7 @@ INSERT INTO `mob_groups` VALUES (15,437,62,'Black_Pudding',600,0,0,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (16,4281,62,'Wamouracampa',600,0,2609,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (17,642,62,'Magmatic_Eruca',600,0,419,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (18,5209,62,'Copper_Borer',14400,0,6025,22500,0,81,82,0);
-INSERT INTO `mob_groups` VALUES (19,2686,62,'Moblin_Billionaire',600,0,1704,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (19,2686,62,'Moblin_Billionaire',600,0,1704,0,0,76,77,0);
 INSERT INTO `mob_groups` VALUES (20,1341,62,'Fire_Elemental',600,4,831,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,1426,62,'Friars_Lantern',600,0,908,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (22,5210,62,'Flammeri',7200,0,6026,10000,0,83,83,0);
@@ -3038,7 +3038,7 @@ INSERT INTO `mob_groups` VALUES (52,3339,62,'Reacton',0,128,2082,30000,0,85,85,0
 INSERT INTO `mob_groups` VALUES (53,34,62,'Achamoth',0,128,14,40000,0,88,88,0);
 INSERT INTO `mob_groups` VALUES (54,35,62,'Achamothcampa',0,128,0,6000,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (55,36,62,'Achamoth_Nympha',0,128,0,12000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (56,2697,62,'Moblin_Millionaire',600,0,1712,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (56,2697,62,'Moblin_Millionaire',600,0,1712,0,0,76,77,0);
 INSERT INTO `mob_groups` VALUES (57,6587,62,'Friars_Lantern_Grow',600,0,3143,0,0,76,76,0);
 
 INSERT INTO `mob_groups` VALUES (2132,4493,62,'Zazarg',0,128,0,0,0,0,0,0);

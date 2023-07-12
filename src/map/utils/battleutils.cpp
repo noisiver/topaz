@@ -4471,6 +4471,16 @@ int getSDTTier(int SDT)
         {
             damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
+
+        // Add Inundation multiplier
+        CStatusEffect* inundation = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+        auto power = inundation->GetPower();
+        auto duration = inundation->GetSubPower();
+
+        power /= 10.0f;
+
+        damage = (int32)(damage * power);
+
         // Add SKillchain Damage Taken mod
         int32 DMGSC = PDefender->getMod(Mod::DMGSC);
 

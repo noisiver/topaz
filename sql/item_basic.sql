@@ -4790,7 +4790,7 @@ INSERT INTO `item_basic` VALUES (5102,840,'scroll_of_foil','foil',1,34444,28,0,0
 INSERT INTO `item_basic` VALUES (5103,0,'scroll_of_crusade','crusade',1,34444,28,0,0);
 INSERT INTO `item_basic` VALUES (5104,845,'scroll_of_flurry','flurry',1,1548,28,0,43);
 INSERT INTO `item_basic` VALUES (5105,846,'scroll_of_flurry_ii','flurry_ii',1,34316,28,0,43);
-INSERT INTO `item_basic` VALUES (5106,0,'scroll_of_inundation','inundation',1,34444,28,0,0);
+INSERT INTO `item_basic` VALUES (5106,879,'scroll_of_inundation','inundation',1,34444,28,0,0);
 INSERT INTO `item_basic` VALUES (5109,0,'frayed_sack_of_abundance_+1','frayed_sack_(a1)',12,30296,0,0,0);
 INSERT INTO `item_basic` VALUES (5110,0,'frayed_sack_of_abundance_+2','frayed_sack_(a2)',12,30296,0,0,0);
 INSERT INTO `item_basic` VALUES (5111,0,'frayed_sack_of_mortality_+1','frayed_sack_(m1)',12,30296,0,1,0);

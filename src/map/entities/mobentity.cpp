@@ -971,6 +971,21 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
                                                                             PSkill->getTertiarySkillchain());
                         if (effect != SUBEFFECT_NONE)
                         {
+                            // Apply Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto power = PEffect->GetPower();
+                                auto duration = PEffect->GetDuration();
+                                auto currentFlag = WEAPONTYPE_PET;
+                                auto subPower = PEffect->GetSubPower();
+                                if ((subPower & currentFlag) == 0)
+                                {
+                                    PEffect->SetPower(power * 12);
+                                    PEffect->SetSubPower(subPower | currentFlag);
+                                }
+                            }
+
                             int32 skillChainDamage = battleutils::TakeSkillchainDamage(this, PTarget, target.param, nullptr);
                             if (skillChainDamage < 0)
                             {
