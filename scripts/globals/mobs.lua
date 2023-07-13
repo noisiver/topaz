@@ -866,19 +866,10 @@ end
 function SetGenericNMStats(mob)
     local level = mob:getMainLvl()
     local wepDMG
-    local dmgBonus
 
-    if (level < 30) then
-        wepDMG = 50
-    elseif (level < 50) then
-        wepDMG = 70
-    elseif (level < 60) then
-        wepDMG = 80
-    elseif (level < 70) then
-        wepDMG = 90
-    else
-        wepDMG = 100
-    end
+    -- Weapon damage is mob level +20
+    -- Mobs normal weapon damage formula is mob level + 2
+    wepDMG = level + 20
 
     if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP or utils.getWeaponStyle(mob) == 'H2H' then
         local h2hskill = math.floor(utils.getSkillLvl(1, mob:getMainLvl())) 
