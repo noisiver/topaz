@@ -3,6 +3,7 @@
 --  Mob: Raogrimm
 -- Note: Monk mythic weapon fight
 -- !spawnmob 17584514
+-- Mythic weapon fight
 -----------------------------------
 local ID = require("scripts/zones/Crawlers_Nest/IDs")
 require("scripts/globals/mobs")
@@ -16,6 +17,7 @@ end
 
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobEngaged(mob, target)
@@ -28,10 +30,10 @@ function onMobFight(mob, target)
     local enmityList = mob:getEnmityList()
     local KOTarget
 
-    -- Picks a target target, draws them in, then sets their HP to 1 and gives them weakness for 30 seconds
+    -- Picks a target target, draws them in, then sets their HP to 1 and resets their hate
     if enmityList and #enmityList > 0 then
         if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
-            mob:actionQueueEmpty() and (tp < 1000) then 
+            mob:actionQueueEmpty() then 
             if (os.time() >= KOTimer) then
                 KOTarget = math.random(#enmityList)
                 if not GetPlayerByID(KOTarget):isDead() then
@@ -60,9 +62,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    if isKiller or noKiller then
-        utils.MessageParty(player, "I...return....to...the...crystal...once...again.....", 0, "Raogrimm")
-    end
+    utils.MessageParty(player, "I...return....to...the...crystal...once...again.....", 0, "Raogrimm")
 end
 
 function onMobDespawn(mob)

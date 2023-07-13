@@ -2,6 +2,7 @@
 -- Area: Ordelle's Caves
 --   NM: Zeid
 -- !additem 474
+-- Mythic weapon fight
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/hunts")
@@ -10,7 +11,7 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(75)
+	mob:setDamage(50)
 	mob:setMod(tpz.mod.ATTP, 0)
 	mob:setMod(tpz.mod.DEFP, 0)
 	mob:setMod(tpz.mod.MDEF, 0)
@@ -23,9 +24,6 @@ function onMobSpawn(mob)
 	mob:setLocalVar("TwoHourUsed", 0)
 end
 
-function onMobInitialize(mob)
-end
-
 function onMobFight(mob, target)
 	local BerserkTime = mob:getLocalVar("BerserkTime")
 	local DefenderTime = mob:getLocalVar("DefenderTime")
@@ -36,7 +34,7 @@ function onMobFight(mob, target)
 		mob:setLocalVar("BerserkTime", BattleTime + 30)
 	elseif BattleTime >= BerserkTime and Stance == 0 then
 		mob:useMobAbility(697) -- Berserk
-		mob:setDamage(150)
+		mob:setDamage(100)
 		mob:setMod(tpz.mod.ATTP, 25)
 		mob:setMod(tpz.mod.DEFP, -50)
 		mob:setMod(tpz.mod.MDEF, 0)
@@ -53,7 +51,7 @@ function onMobFight(mob, target)
 
 	if DefenderTime > 0 and BattleTime >= DefenderTime and Stance == 1 then
 		mob:useMobAbility(698) -- Defender
-		mob:setDamage(75)
+		mob:setDamage(50)
 		mob:setMod(tpz.mod.DEFP, 150)
 		mob:setMod(tpz.mod.MDEF, 24)
 		mob:setMod(tpz.mod.UDMGPHYS, -12) 

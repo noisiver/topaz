@@ -1,16 +1,16 @@
 ------------------------------
 -- Area: Outer Horutoto Ruins
 --   Goblin Tomb Raider
---   !additem 479 
+--   !additem 479
+-- Mythic weapon fight
 ------------------------------
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.ACC, 15) 
+    SetGenericNMStats(mob)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobFight(mob, target)

@@ -3,6 +3,7 @@
 --  Mob: Nashmeira
 -- Note: PUP mythic weapon fight
 -- !spawnmob 17584515
+-- Mythic weapon fight
 -----------------------------------
 local ID = require("scripts/zones/Crawlers_Nest/IDs")
 require("scripts/globals/mobs")
@@ -16,6 +17,7 @@ end
 
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     SpawnMob(mob:getID()+1)
 end
 
@@ -51,9 +53,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    if isKiller or noKiller then
-        utils.MessageParty(player, "Not fair! You cheated!", 0, "Nashmeira")
-    end
+    utils.MessageParty(player, "Not fair! You cheated!", 0, "Nashmeira")
     DespawnMob(mob:getID()+1)
 end
 
@@ -93,7 +93,6 @@ function getCurrentFrameStats(mob, target, pet)
         pet:setModelId(1982)
         pet:SetMagicCastingEnabled(false)
         utils.MessageParty(target, "Mnejing, slash them to pieces!", 0, "Nashmeira")
-        printf("Current Frame: Valoredge")
     elseif frame == tpz.frames.SHARPSHOT then
         pet:setDamage(120)
         pet:setDelay(4000)
@@ -112,7 +111,6 @@ function getCurrentFrameStats(mob, target, pet)
         pet:setModelId(1980)
         pet:SetMagicCastingEnabled(false)
         utils.MessageParty(target, "Mnejing, pierce them with arrows!", 0, "Nashmeira")
-        printf("Current Frame: Sharpshot")
     elseif frame == tpz.frames.STORMWAKER then
         pet:setDamage(120)
         pet:setDelay(4000)
@@ -133,6 +131,5 @@ function getCurrentFrameStats(mob, target, pet)
         pet:setSpellList(511) -- T4, -GA, AM, Enfeebles
         pet:SetMagicCastingEnabled(true)
         utils.MessageParty(target, "Mnejing, turn them to ashes!", 0, "Nashmeira")
-        printf("Current Frame: Stormwaker")
     end
 end

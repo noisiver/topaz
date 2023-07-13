@@ -2,6 +2,7 @@
 -- Area: Ordelle's Caves
 --   NM: Zeid
 -- !additem 481
+-- Mythic weapon fight
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
@@ -9,8 +10,8 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(120)
-    mob:addMod(tpz.mod.ATTP, 50)
+    SetGenericNMStats(mob)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
 	mob:setMobMod(tpz.mobMod.SKILL_LIST, 6063)
@@ -31,7 +32,7 @@ function onMobFight(mob, target)
 			mob:setLocalVar("StunTime", BattleTime + 45)
 		elseif BattleTime >= StunTime then
 			mob:castSpell(252) -- Stun
-			target:PrintToPlayer("No, pay closer attention and copy my technique.",0,"Zeid")
+            MessageGroup(mob, target, "No, pay closer attention and copy my technique.",0,"Zeid")
 			mob:setLocalVar("StunTime", BattleTime + 45)
 		end
 	end
@@ -42,7 +43,7 @@ function onMobFight(mob, target)
 		elseif BattleTime >= DreadSpikesTime then
 			local typeEffect = tpz.effect.DREAD_SPIKES
 			mob:addStatusEffect(typeEffect, 0, 0, 60, 0, 1000, 1)
-			target:PrintToPlayer("Give me all you've got!",0,"Zeid")
+            MessageGroup(mob, target, "Give me all you've got!",0,"Zeid")
 			mob:setLocalVar("DreadSpikesTime", BattleTime + 45)
 		end
 	end
@@ -52,7 +53,7 @@ function onMobFight(mob, target)
 			mob:setLocalVar("DrainTime", BattleTime)
 		elseif BattleTime >= DrainTime then
 			mob:castSpell(246) -- Drain II
-			target:PrintToPlayer("I feed off your rage!",0,"Zeid")
+            MessageGroup(mob, target, "I feed off your rage!",0,"Zeid")
 			mob:setLocalVar("DrainTime", BattleTime + 45)
 		end
 	end
@@ -61,7 +62,7 @@ function onMobFight(mob, target)
 	if mob:getHPP() <= 50 and TwoHourUsed == 0 then
 		mob:useMobAbility(695) -- Blood weapon
 		mob:setMobMod(tpz.mobMod.SKILL_LIST, 6064)
-		target:PrintToPlayer("I must fight with you longer!",0,"Zeid")
+        MessageGroup(mob, target, "I must fight with you longer!",0,"Zeid")
 		mob:setLocalVar("TwoHourUsed", 1)
 	end
 end
@@ -84,5 +85,5 @@ function onMobDisengage(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
-		player:PrintToPlayer("You have learned well.",0,"Zeid")
+    MessageGroup(mob, player, "You have learned well.",0,"Zeid")
 end

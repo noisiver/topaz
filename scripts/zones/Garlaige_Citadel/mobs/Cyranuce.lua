@@ -6,6 +6,7 @@
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, 1014)
     mob:setUnkillable(true)
 end
@@ -49,4 +50,5 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller)
+    MessageGroup(mob, player, "Hear my last wish! You must again believe in dragons, as we did long ago. Surely somewhere there is one of holy will!", 0, "Cyranuce")
 end

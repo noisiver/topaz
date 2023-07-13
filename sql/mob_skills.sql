@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `mob_skills` (
 
 INSERT INTO `mob_skills` VALUES (1,16,'combo',0,5.0,2000,0,4,0,0,0,8,0,0);
 INSERT INTO `mob_skills` VALUES (2,17,'shoulder_tackle',0,5.0,2000,0,4,0,0,0,5,8,0);
-INSERT INTO `mob_skills` VALUES (3,18,'one_inch_punch',0,7.0,2000,0,4,2,0,0,0,0,0); -- Raogrimm (Consumes no TP)
+INSERT INTO `mob_skills` VALUES (3,18,'one_inch_punch',0,7.0,2000,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4,19,'backhand_blow',0,7.0,2000,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (5,20,'raging_fists',0,7.0,2000,0,4,0,64,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (6,21,'spinning_attack',0,7.0,2000,0,4,0,0,0,0,0,0);
@@ -3265,8 +3265,8 @@ INSERT INTO `mob_skills` VALUES (3304,2348,'cruel_joke',1,18.0,2000,1000,4,0,0,0
 INSERT INTO `mob_skills` VALUES (3305,2349,'regurgitated_swarm',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3306,302,'setting_the_stage',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3307,303,'last_laugh',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3308,1714,'thorned_dance',0,18.0,2000,1000,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3309,1715,'sensual_dance',1,18.0,2000,1000,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3308,1714,'thorned_dance',0,18.0,2000,1000,1,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3309,1715,'sensual_dance',1,18.0,2000,1000,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3310,1712,'dancers_fury',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3311,1713,'whirling_edge',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3312,1716,'rousing_samba',1,18.0,2000,1000,1,0,0,0,0,0,0);
