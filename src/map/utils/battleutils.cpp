@@ -4473,13 +4473,13 @@ int getSDTTier(int SDT)
         }
 
         // Add Inundation multiplier
-        CStatusEffect* inundation = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
-        auto power = inundation->GetPower();
-        auto duration = inundation->GetSubPower();
-
-        power /= 10.0f;
-
-        damage = (int32)(damage * power);
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+        {
+            CStatusEffect* inundation = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+            auto power = inundation->GetPower();
+            float multiplier = pow(1.2f, power);
+            damage = (int32)(damage * multiplier);
+        }
 
         // Add SKillchain Damage Taken mod
         int32 DMGSC = PDefender->getMod(Mod::DMGSC);

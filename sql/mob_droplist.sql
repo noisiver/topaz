@@ -8849,9 +8849,11 @@ INSERT INTO `mob_droplist` VALUES (1703,0,0,1000,1861,100);
 INSERT INTO `mob_droplist` VALUES (1703,0,0,1000,3494,240); -- Forgotten hope
 INSERT INTO `mob_droplist` VALUES (1703,0,0,1000,3494,150);
 INSERT INTO `mob_droplist` VALUES (1703,0,0,1000,3494,100);
-INSERT INTO `mob_droplist` VALUES (1704,0,0,1000,1631,50);  -- Moblin Billionaire
+INSERT INTO `mob_droplist` VALUES (1704,0,0,1000,1631,50);      -- Moblin Billionaire
 INSERT INTO `mob_droplist` VALUES (1704,0,0,1000,1638,100);
 INSERT INTO `mob_droplist` VALUES (1704,0,0,1000,2221,1000);
+INSERT INTO `mob_droplist` VALUES (1704,1,1,100,4850,500);      -- Refresh II
+INSERT INTO `mob_droplist` VALUES (1704,1,1,100,5106,500);      -- Inundation
 INSERT INTO `mob_droplist` VALUES (1705,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (1705,0,0,1000,1631,50);
 INSERT INTO `mob_droplist` VALUES (1705,0,0,1000,1638,100);
@@ -8894,7 +8896,9 @@ INSERT INTO `mob_droplist` VALUES (1711,0,0,1000,1638,100);
 INSERT INTO `mob_droplist` VALUES (1712,0,0,1000,1631,50);      -- Moblin Millionaire
 INSERT INTO `mob_droplist` VALUES (1712,0,0,1000,1638,100);
 INSERT INTO `mob_droplist` VALUES (1712,0,0,1000,1861,100);
-INSERT INTO `mob_droplist` VALUES (1712,0,0,1000,2221,1000);  -- Halvung Shakudo Key
+INSERT INTO `mob_droplist` VALUES (1712,0,0,1000,2221,1000);    -- Halvung Shakudo Key
+INSERT INTO `mob_droplist` VALUES (1712,1,1,100,4692,500);      -- Haste II
+INSERT INTO `mob_droplist` VALUES (1712,1,1,100,4849,500);      -- Addle
 INSERT INTO `mob_droplist` VALUES (1713,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (1713,0,0,1000,1625,40);
 INSERT INTO `mob_droplist` VALUES (1713,0,0,1000,1631,50);

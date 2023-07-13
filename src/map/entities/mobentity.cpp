@@ -976,12 +976,11 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
                             {
                                 CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
                                 auto power = PEffect->GetPower();
-                                auto duration = PEffect->GetDuration();
                                 auto currentFlag = WEAPONTYPE_PET;
                                 auto subPower = PEffect->GetSubPower();
                                 if ((subPower & currentFlag) == 0)
                                 {
-                                    PEffect->SetPower(power * 12);
+                                    PEffect->SetPower(power + 1);
                                     PEffect->SetSubPower(subPower | currentFlag);
                                 }
                             }
@@ -998,6 +997,17 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
                                 target.addEffectMessage = 287 + effect;
                             }
                             target.additionalEffect = effect;
+                        }
+                        else if (effect == SUBEFFECT_NONE)
+                        {
+                            // Reset Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto currentFlag = WEAPONTYPE_PET;
+                                PEffect->SetPower(0);
+                                PEffect->SetSubPower(currentFlag);
+                            }
                         }
                     }
                     first = false;

@@ -1014,12 +1014,11 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
                     {
                         CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
                         auto power = PEffect->GetPower();
-                        auto duration = PEffect->GetDuration();
                         auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
                         auto subPower = PEffect->GetSubPower();
                         if ((subPower & currentFlag) == 0)
                         {
-                            PEffect->SetPower(power * 12);
+                            PEffect->SetPower(power + 1);
                             PEffect->SetSubPower(subPower | currentFlag);
                         }
                     }
@@ -1030,6 +1029,17 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
                     actionTarget.addEffectMessage = 287 + effect;
                     actionTarget.additionalEffect = effect;
 
+                }
+                else if (effect == SUBEFFECT_NONE)
+                {
+                    // Reset Inundation weapon skill type tracking
+                    if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                    {
+                        CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                        auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
+                        PEffect->SetPower(0);
+                        PEffect->SetSubPower(currentFlag);
+                    }
                 }
                 if (StatusEffectContainer->HasStatusEffect({EFFECT_SEKKANOKI, EFFECT_MEIKYO_SHISUI}))
                 {
@@ -1223,12 +1233,11 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                             {
                                 CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
                                 auto power = PEffect->GetPower();
-                                auto duration = PEffect->GetDuration();
                                 auto currentFlag = PItem->getSkillTypeFlag();
                                 auto subPower = PEffect->GetSubPower();
                                 if ((subPower & currentFlag) == 0)
                                 {
-                                    PEffect->SetPower(power * 12);
+                                    PEffect->SetPower(power + 1);
                                     PEffect->SetSubPower(subPower | currentFlag);
                                 }
                             }
@@ -1249,6 +1258,17 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                                 wspoints += 2;
                             else
                                 wspoints += 4;
+                        }
+                        else if (effect == SUBEFFECT_NONE)
+                        {
+                            // Reset Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto currentFlag = PItem->getSkillTypeFlag();
+                                PEffect->SetPower(0);
+                                PEffect->SetSubPower(currentFlag);
+                            }
                         }
                     }
                     // check for ws points
