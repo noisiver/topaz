@@ -10,6 +10,7 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(20)
     mob:addMod(tpz.mod.SLEEPRESTRAIT, 100)
     mob:addMod(tpz.mod.LULLABYRESTRAIT, 100)
     mob:addMod(tpz.mod.GRAVITYRESTRAIT, 100)
@@ -21,11 +22,9 @@ function onMobSpawn(mob)
 end
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN, {chance = 20, duration = 5})
 end
 
 function onMobDeath(mob, player, isKiller)
