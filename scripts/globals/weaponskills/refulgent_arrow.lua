@@ -1,8 +1,8 @@
 -----------------------------------
 -- Refulgent Arrow
 -- Archery weapon skill
--- Skill level: 290
--- Delivers a twofold attack. Damage varies with TP.
+-- Skill level: 280
+-- Delivers a twofold attack. Damage varies with TP. (ONly 1 hit)
 -- Aligned with the Aqua Gorget & Light Gorget.
 -- Aligned with the Aqua Belt & Light Belt.
 -- Element: None
@@ -18,8 +18,8 @@ require("scripts/globals/weaponskills")
 function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
-    params.numHits = 2
-    params.ftp100 = 3 params.ftp200 = 4.25 params.ftp300 = 5
+    params.numHits = 1
+    params.ftp100 = 3.0 params.ftp200 = 4.25 params.ftp300 = 5.0
     params.str_wsc = 0.16 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.25 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
@@ -32,8 +32,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
-		if damage > 0 then player:trySkillUp(target, tpz.skill.ARCHERY, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.ARCHERY, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     return tpHits, extraHits, criticalHit, damage
-
 end

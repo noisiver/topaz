@@ -43,7 +43,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         end
     end
 	
-	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 50)
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 50, tpz.effect.MAGIC_DEF_DOWN)
     if damage > 0 and resist >= 0.5 then
         local duration = tp / 1000 * 60
         target:delStatusEffect(tpz.effect.MAGIC_DEF_BOOST)
@@ -52,7 +52,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         end
     end
 	
-	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 50)
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 50, tpz.effect.MAGIC_EVASION_DOWN)
     if damage > 0 and resist >= 0.5 then
         local duration = tp / 1000 * 60
         if not target:hasStatusEffect(tpz.effect.MAGIC_EVASION_DOWN) then

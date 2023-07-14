@@ -40,7 +40,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.STAFF, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
-	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 50)
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 50, tpz.effect.MAGIC_DEF_DOWN)
     if (damage > 0 and target:hasStatusEffect(tpz.effect.MAGIC_DEF_DOWN) == false) and resist >= 0.5  then
         target:addStatusEffect(tpz.effect.MAGIC_DEF_DOWN, 10, 0, 120 * resist)
     end

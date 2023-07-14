@@ -1,7 +1,7 @@
 -----------------------------------
 -- Sanguine Blade
 -- Sword weapon skill
--- Skill Level: 300
+-- Skill Level: 280
 -- Drains a percentage of damage dealt to HP varies with TP.
 -- Will not stack with Sneak Attack.
 -- Not aligned with any "elemental gorgets" or "elemental belts" due to it's absence of Skillchain properties.
@@ -53,7 +53,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
 
-    if (target:isUndead() == false) then
+    if not target:isUndead() then
         player:addHP((damage/100) * drain)
     end
 
