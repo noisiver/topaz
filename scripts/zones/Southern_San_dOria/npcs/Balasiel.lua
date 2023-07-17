@@ -3,6 +3,7 @@
 -- NPC: Balasiel
 -- Starts and Finishes: A Squire's Test, A Squire's Test II, A Knight's Test, Methods Create Madness
 -- !pos -136 -11 64 230
+-- PLD job quest NPC
 -------------------------------------
 local ID = require("scripts/zones/Southern_San_dOria/IDs")
 require("scripts/globals/keyitems")
@@ -12,6 +13,9 @@ require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/wsquest")
 -----------------------------------
+-- Spartoi Warrior (KRT) drop
+-- Doom Guard (Gustav Tunnel) drop
+-- Smolenkos drop
 
 local wsQuest = tpz.wsquest.impulse_drive
 

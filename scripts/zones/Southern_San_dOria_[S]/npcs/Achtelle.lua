@@ -2,9 +2,13 @@
 -- Area: Southern SandOria [S]
 --  NPC: Achtelle
 -- !pos 108 2 -11 80
+-- DRG job quest NPC
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    -- Bark Tarantula(Boyahda Tree) drop
+    -- Demonic Millstone (Psox'ja) drop
+    -- Hypnos Eft drop
 end
 
 function onTrigger(player, npc)

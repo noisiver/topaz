@@ -4,6 +4,7 @@
 -- Starts and Finishes Quest: Dark Legacy
 -- Involved in Quest: The Usual, Riding on the Clouds
 -- !pos -27 -10 -1 237
+-- DRK job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Metalworks/IDs")
 require("scripts/globals/keyitems")
@@ -12,6 +13,9 @@ require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 -----------------------------------
+-- Bight Rarab drop
+-- Erlik(Gustav Tunnel) drop
+-- Ladon drop
 
 function onTrade(player, npc, trade)
 

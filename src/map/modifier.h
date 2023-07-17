@@ -377,14 +377,14 @@ enum class Mod
     DESPOIL                   = 896, // Increases THF Despoil chance
     PERFECT_DODGE             = 883, // Increases Perfect Dodge duration in seconds
     TRIPLE_ATTACK             = 302, // Percent chance
-    TREASURE_HUNTER           = 303, // Percent chance
+    TREASURE_HUNTER           = 303, // Treasure hunter, probably
     SNEAK_ATK_DEX             = 874, // % DEX boost to Sneak Attack (if gear mod, needs to be equipped on hit)
     TRICK_ATK_AGI             = 520, // % AGI boost to Trick Attack (if gear mod, needs to be equipped on hit)
     MUG_EFFECT                = 835, // Mug effect as multiplier
     ACC_COLLAB_EFFECT         = 884, // Increases amount of enmity transferred for Accomplice/Collaborator
     HIDE_DURATION             = 885, // Hide duration increase (percentage based)
     GILFINDER                 = 897, // Gilfinder, duh
-    TP_GAIN_ON_EVADE          = 1305, // Gain TP upon a successful evade
+    TP_GAIN_ON_EVADE          = 1305,// Gain TP upon a successful evade
 
     // Paladin
     HOLY_CIRCLE_DURATION      = 857, // Holy Circle extended duration in seconds

@@ -208,7 +208,7 @@ INSERT INTO `item_mods_pet` VALUES (20822,68,40,0);     -- Pet: Evasion +40
 INSERT INTO `item_mods_pet` VALUES (20831,288,2,0);     -- Aalak' Axe Pet: Double Attack +2%
 INSERT INTO `item_mods_pet` VALUES (20832,288,3,0);     -- Aalak' Axe +1 Pet: Double Attack +3%
 INSERT INTO `item_mods_pet` VALUES (20944,370,2,2);     -- Pelagos Lance Wyvern: "Regen"+2
-INSERT INTO `item_mods_pet` VALUES (20944,161,3,2);     -- Wyvern: Physical damage taken -3%
+INSERT INTO `item_mods_pet` VALUES (20944,161,-3,2);     -- Wyvern: Physical damage taken -3%
 INSERT INTO `item_mods_pet` VALUES (21141,126,40,1);    -- Nirvana 119 Avatar: Increases "Blood Pact: Rage" damage
 INSERT INTO `item_mods_pet` VALUES (21142,126,40,1);    -- Nirvana 119 AG Avatar: Increases "Blood Pact: Rage" damage
 INSERT INTO `item_mods_pet` VALUES (21155,30,35,1);     -- Marquetry Staff Avatar: Magic Accuracy+35 un
@@ -589,12 +589,13 @@ INSERT INTO `item_mods_pet` VALUES (10436,163,-5,0);    -- Chelona Hat Pet: Magi
 INSERT INTO `item_mods_pet` VALUES (10437,163,-6,0);    -- Chelona Hat +1 Pet: Magic damage taken -6% 
 INSERT INTO `item_mods_pet` VALUES (17492,25,8,0);      -- Shiva's Claws: Accuracy+8
 INSERT INTO `item_mods_pet` VALUES (17492,12,3,0);      -- Shiva's Claws: INT+3
-INSERT INTO `item_mods_pet` VALUES (27589,25,20,0);      -- Thurandaut Ring: Accuracy+20
-INSERT INTO `item_mods_pet` VALUES (27589,26,20,0);      -- Thurandaut Ring: Ranged Accuracy+20
-INSERT INTO `item_mods_pet` VALUES (27589,23,20,0);      -- Thurandaut Ring: Attack+20
-INSERT INTO `item_mods_pet` VALUES (27589,24,20,0);      -- Thurandaut Ring: Ranged Attack+20
-INSERT INTO `item_mods_pet` VALUES (27589,384,300,0);    -- Thurandaut Ring: Haste+3%
-INSERT INTO `item_mods_pet` VALUES (27589,160,-3,0);     -- Thurandaut Ring: Damage taken -3%
+INSERT INTO `item_mods_pet` VALUES (27589,25,20,0);     -- Thurandaut Ring: Accuracy+20
+INSERT INTO `item_mods_pet` VALUES (27589,26,20,0);     -- Thurandaut Ring: Ranged Accuracy+20
+INSERT INTO `item_mods_pet` VALUES (27589,23,20,0);     -- Thurandaut Ring: Attack+20
+INSERT INTO `item_mods_pet` VALUES (27589,24,20,0);     -- Thurandaut Ring: Ranged Attack+20
+INSERT INTO `item_mods_pet` VALUES (27589,384,300,0);   -- Thurandaut Ring: Haste+3%
+INSERT INTO `item_mods_pet` VALUES (27589,160,-3,0);    -- Thurandaut Ring: Damage taken -3%
+INSERT INTO `item_mods_pet` VALUES (25495,160,-15,2);     -- Dragoon's Collar: Wyvern damage taken -15%
 
 
 
