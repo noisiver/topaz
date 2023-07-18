@@ -13,9 +13,9 @@ require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/wsquest")
 -----------------------------------
--- Spartoi Warrior (KRT) drop
--- Doom Guard (Gustav Tunnel) drop
--- Smolenkos drop
+-- Spartoi Warrior (KRT) drop 9903
+-- Doom Guard (Gustav Tunnel) drop 9904
+-- Boyahda Sapling drop 9905
 
 local wsQuest = tpz.wsquest.impulse_drive
 

@@ -13,9 +13,9 @@ require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 -----------------------------------
--- Bight Rarab drop
--- Erlik(Gustav Tunnel) drop
--- Ladon drop
+-- Bight Rarab drop 9900
+-- Erlik(Gustav Tunnel) drop 9901
+-- Ladon drop 9902
 
 function onTrade(player, npc, trade)
 

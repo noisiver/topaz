@@ -8,9 +8,9 @@ local ID = require("scripts/zones/Bastok_Markets_[S]/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    -- Scowlenkos drop
-    -- Lemures drop
-    -- Tartarus Eft drop
+    -- Scowlenkos drop 9897
+    -- Lemures drop 9898
+    -- Million Eyes(Psox'ja) drop 9899
 end
 
 function onTrigger(player, npc)

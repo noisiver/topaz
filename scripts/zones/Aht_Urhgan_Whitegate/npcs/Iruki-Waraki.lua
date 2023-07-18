@@ -13,9 +13,9 @@ require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/pets")
 -----------------------------------
--- Spinner(Mamook) drop
--- Wamoura (Halvung) drop
--- Great Ameretat (Aydeewa Subterrane) drop
+-- Spinner(Mamook) drop 9894
+-- Wamoura (Halvung) drop 9895
+-- Great Ameretat (Aydeewa Subterrane) drop 9896
 
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, {{"gil", 10000}}) and player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.NO_STRINGS_ATTACHED) == QUEST_COMPLETED and not player:hasItem(17859) then
