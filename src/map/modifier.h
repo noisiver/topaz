@@ -516,6 +516,7 @@ enum class Mod
     // Blue Mage
     BLUE_POINTS               = 309, // Tracks extra blue points
     BLUE_LEARN_CHANCE         = 945, // Additional chance to learn blue magic
+    BLUE_SPELLCASTING_TIME    = 1322,// Reduces Blue Magic spellcasting time
 
     // Corsair
     EXP_BONUS                 = 382, //
@@ -978,7 +979,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1322 NEXT
+    // 1323 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

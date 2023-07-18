@@ -1728,7 +1728,7 @@ tpz.mod =
     PENGUIN_RING_EFFECT = 1190,   
     ALBATROSS_RING_EFFECT = 1191,   
     PELICAN_RING_EFFECT = 1192,
-    
+
     VERMIN_CIRCLE           = 1224,
     BIRD_CIRCLE             = 1225,
     AMORPH_CIRCLE           = 1226,
@@ -1787,17 +1787,17 @@ tpz.mod =
     EXCAVATION_SKILL        = 1319, -- Adds Excavation Skill
     PHALANX_RECIEVED        = 1320, -- Phalanx effect received.
     DEF_TRAIT               = 1321, -- Defense bonus traits
+    BLUE_SPELLCASTING_TIME  = 1322, -- Reduces Blue Magic spellcasting time
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1322 NEXT
+    -- 1323 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-   TP_BOOST_WHEN_DMGD               = 1239    -- Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- SPARE = 988, -- stuff

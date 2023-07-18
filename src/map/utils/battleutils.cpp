@@ -6907,6 +6907,11 @@ int getSDTTier(int SDT)
             uint16 songcasting = PEntity->getMod(Mod::SONG_SPELLCASTING_TIME);
             cast = (uint32)(cast * (1.0f - ((songcasting > 50 ? 50 : songcasting) / 100.0f)));
         }
+        else if (PSpell->getSpellGroup() == SPELLGROUP_BLUE)
+        {
+            uint16 bluecasting = PEntity->getMod(Mod::BLUE_SPELLCASTING_TIME);
+            cast = (uint32)(cast * (1.0f - ((bluecasting > 50 ? 50 : bluecasting) / 100.0f)));
+        }
 
         int16 fastCast = std::clamp<int16>(PEntity->getMod(Mod::FASTCAST), -100, 50);
         if (PSpell->getSkillType() == SKILLTYPE::SKILL_ELEMENTAL_MAGIC) // Elemental Celerity reductions
