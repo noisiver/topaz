@@ -33284,15 +33284,17 @@ INSERT INTO `item_mods` VALUES (25449,25,25);     -- Asn. Gorget +2: Accuracy+25
 INSERT INTO `item_mods` VALUES (25449,30,25);     -- Asn. Gorget +2: Magic Accuracy+25
 INSERT INTO `item_mods` VALUES (25449,409,5);     -- Asn. Gorget +2: "Triple Attack" damage +5
 INSERT INTO `item_mods` VALUES (25453,1,30);      -- Knight's Beads: DEF:30
-INSERT INTO `item_mods` VALUES (25453,27,5);      -- Knight's Beads: Enmity+5
+INSERT INTO `item_mods` VALUES (25453,25,10);     -- Knight's Beads: Accuracy+10
+INSERT INTO `item_mods` VALUES (25453,109,10);    -- Knight's Beads: Shield skill +10
+INSERT INTO `item_mods` VALUES (25453,27,10);     -- Knight's Beads: Enmity+10
 INSERT INTO `item_mods` VALUES (25454,1,35);      -- Kgt. Beads +1: DEF:35
 INSERT INTO `item_mods` VALUES (25454,27,7);      -- Kgt. Beads +1: Enmity+7
 INSERT INTO `item_mods` VALUES (25455,1,40);      -- Kgt. Beads +2: DEF:40
 INSERT INTO `item_mods` VALUES (25455,27,10);     -- Kgt. Beads +2: Enmity+10
-INSERT INTO `item_mods` VALUES (25459,23,30);     -- Abyssal Beads: Attack+30
-INSERT INTO `item_mods` VALUES (25459,25,5);      -- Abyssal Beads: Accuracy+5
-INSERT INTO `item_mods` VALUES (25459,30,5);      -- Abyssal Beads: Magic Accuracy+5
-INSERT INTO `item_mods` VALUES (25459,165,2);     -- Abyssal Beads: Critical hit rate +2%
+INSERT INTO `item_mods` VALUES (25459,2,100);     -- Abyssal Beads: HP+100
+INSERT INTO `item_mods` VALUES (25459,25,10);     -- Abyssal Beads: Accuracy+10
+INSERT INTO `item_mods` VALUES (25459,30,10);     -- Abyssal Beads: Magic Accuracy+10
+INSERT INTO `item_mods` VALUES (25459,160,-5);    -- Abyssal Beads: Damage taken -5%
 INSERT INTO `item_mods` VALUES (25460,23,35);     -- Abyssal Beads +1: Attack+35
 INSERT INTO `item_mods` VALUES (25460,25,10);     -- Abyssal Beads +1: Accuracy+10
 INSERT INTO `item_mods` VALUES (25460,30,10);     -- Abyssal Beads +1: Magic Accuracy+10
@@ -33307,30 +33309,37 @@ INSERT INTO `item_mods` VALUES (25466,25,20);     -- Bst. Collar +1: Accuracy+20
 INSERT INTO `item_mods` VALUES (25466,30,20);     -- Bst. Collar +1: Magic Accuracy+20
 INSERT INTO `item_mods` VALUES (25467,25,25);     -- Bst. Collar +2: Accuracy+25
 INSERT INTO `item_mods` VALUES (25467,30,25);     -- Bst. Collar +2: Magic Accuracy+25
-INSERT INTO `item_mods` VALUES (25471,25,20);     -- Bard's Charm: Accuracy+20
-INSERT INTO `item_mods` VALUES (25471,430,1);     -- Bard's Charm: "Quadruple Attack"+1%
+INSERT INTO `item_mods` VALUES (25471,5,50);      -- Bard's Charm: MP+50
+INSERT INTO `item_mods` VALUES (25471,14,5);      -- Bard's Charm: CHR+5
+INSERT INTO `item_mods` VALUES (25471,30,10);     -- Bard's Charm: Magic Accuracy+10
+INSERT INTO `item_mods` VALUES (25471,455,15);    -- Bard's Charm: Song spellcasting time -15%
 INSERT INTO `item_mods` VALUES (25472,25,25);     -- Bard's Charm +1: Accuracy+25
 INSERT INTO `item_mods` VALUES (25472,430,2);     -- Bard's Charm +1: "Quadruple Attack"+2%
 INSERT INTO `item_mods` VALUES (25473,25,30);     -- Bard's Charm +2: Accuracy+30
 INSERT INTO `item_mods` VALUES (25473,430,3);     -- Bard's Charm +2: "Quadruple Attack"+3%
 INSERT INTO `item_mods` VALUES (25477,26,15);     -- Scout's Gorget: Ranged Accuracy+15
 INSERT INTO `item_mods` VALUES (25477,30,15);     -- Scout's Gorget: Magic Accuracy+15
-INSERT INTO `item_mods` VALUES (25477,365,2);     -- Scout's Gorget: "Snapshot"+2
+INSERT INTO `item_mods` VALUES (25477,365,5);     -- Scout's Gorget: "Snapshot"+5
+INSERT INTO `item_mods` VALUES (25477,305,10);    -- Scout's Gorget: "Recycle"+10
 INSERT INTO `item_mods` VALUES (25478,26,20);     -- Scout's Gorget +1: Ranged Accuracy+20
 INSERT INTO `item_mods` VALUES (25478,30,20);     -- Scout's Gorget +1: Magic Accuracy+20
 INSERT INTO `item_mods` VALUES (25478,365,3);     -- Scout's Gorget +1: "Snapshot"+3
 INSERT INTO `item_mods` VALUES (25479,26,25);     -- Scout's Gorget +2: Ranged Accuracy+25
 INSERT INTO `item_mods` VALUES (25479,30,25);     -- Scout's Gorget +2: Magic Accuracy+25
 INSERT INTO `item_mods` VALUES (25479,365,4);     -- Scout's Gorget +2: "Snapshot"+4
-INSERT INTO `item_mods` VALUES (25483,25,20);     -- Samurai's Nodowa: Accuracy+20
-INSERT INTO `item_mods` VALUES (25483,73,3);      -- Samurai's Nodowa: "Store TP"+3
+INSERT INTO `item_mods` VALUES (25483,8,5);       -- Samurai's Nodowa: STR+5
+INSERT INTO `item_mods` VALUES (25483,25,10);     -- Samurai's Nodowa: Accuracy+10
+INSERT INTO `item_mods` VALUES (25483,73,5);      -- Samurai's Nodowa: "Store TP"+5
+INSERT INTO `item_mods` VALUES (25483,160,-5);    -- Samurai's Nodowa: Damage taken -5%
 INSERT INTO `item_mods` VALUES (25484,25,25);     -- Sam. Nodowa +1: Accuracy+25
 INSERT INTO `item_mods` VALUES (25484,73,5);      -- Sam. Nodowa +1: "Store TP"+5
 INSERT INTO `item_mods` VALUES (25485,25,30);     -- Sam. Nodowa +2: Accuracy+30
 INSERT INTO `item_mods` VALUES (25485,73,7);      -- Sam. Nodowa +2: "Store TP"+7
-INSERT INTO `item_mods` VALUES (25489,25,15);     -- Ninja Nodowa: Accuracy+15
-INSERT INTO `item_mods` VALUES (25489,26,15);     -- Ninja Nodowa: Ranged Accuracy+15
-INSERT INTO `item_mods` VALUES (25489,73,3);      -- Ninja Nodowa: "Store TP"+3
+INSERT INTO `item_mods` VALUES (25489,25,10);     -- Ninja Nodowa: Accuracy+10
+INSERT INTO `item_mods` VALUES (25489,26,10);     -- Ninja Nodowa: Ranged Accuracy+10
+INSERT INTO `item_mods` VALUES (25489,30,10);     -- Ninja Nodowa: Magic Accuracy+10
+INSERT INTO `item_mods` VALUES (25489,289,5);     -- Ninja Nodowa: "Subtle Blow"+5
+INSERT INTO `item_mods` VALUES (25489,160,-5);    -- Ninja Nodowa: Damage taken -5%
 INSERT INTO `item_mods` VALUES (25490,25,20);     -- Ninja Nodowa +1: Accuracy+20
 INSERT INTO `item_mods` VALUES (25490,26,20);     -- Ninja Nodowa +1: Ranged Accuracy+20
 INSERT INTO `item_mods` VALUES (25490,73,5);      -- Ninja Nodowa +1: "Store TP"+5
@@ -33352,9 +33361,10 @@ INSERT INTO `item_mods` VALUES (25502,2,40);      -- Smn. Collar +1: HP+40
 INSERT INTO `item_mods` VALUES (25502,160,-4);    -- Smn. Collar +1: Damage taken -4%
 INSERT INTO `item_mods` VALUES (25503,2,50);      -- Smn. Collar +2: HP+50
 INSERT INTO `item_mods` VALUES (25503,160,-5);    -- Smn. Collar +2: Damage taken -5%
-INSERT INTO `item_mods` VALUES (25507,25,15);     -- Mirage Stole: Accuracy+15
-INSERT INTO `item_mods` VALUES (25507,30,15);     -- Mirage Stole: Magic Accuracy+15
-INSERT INTO `item_mods` VALUES (25507,122,10);    -- Mirage Stole: Blue magic skill +10
+INSERT INTO `item_mods` VALUES (25507,25,10);     -- Mirage Stole: Accuracy+10
+INSERT INTO `item_mods` VALUES (25507,30,10);     -- Mirage Stole: Magic Accuracy+10
+INSERT INTO `item_mods` VALUES (25507,122,5);     -- Mirage Stole: Blue magic skill +5
+INSERT INTO `item_mods` VALUES (25507,1322,10);   -- Mirage Stole: Blue magic spellcasting time -10%
 INSERT INTO `item_mods` VALUES (25508,25,20);     -- Mirage Stole +1: Accuracy+20
 INSERT INTO `item_mods` VALUES (25508,30,20);     -- Mirage Stole +1: Magic Accuracy+20
 INSERT INTO `item_mods` VALUES (25508,122,15);    -- Mirage Stole +1: Blue magic skill +15
@@ -33363,7 +33373,8 @@ INSERT INTO `item_mods` VALUES (25509,30,25);     -- Mirage Stole +2: Magic Accu
 INSERT INTO `item_mods` VALUES (25509,122,20);    -- Mirage Stole +2: Blue magic skill +20
 INSERT INTO `item_mods` VALUES (25513,26,15);     -- Commodore Charm: Ranged Accuracy+15
 INSERT INTO `item_mods` VALUES (25513,30,15);     -- Commodore Charm: Magic Accuracy+15
-INSERT INTO `item_mods` VALUES (25513,365,2);     -- Commodore Charm: "Snapshot"+2
+INSERT INTO `item_mods` VALUES (25513,365,5);     -- Commodore Charm: "Snapshot"+5
+INSERT INTO `item_mods` VALUES (25513,882,30);    -- Commodore Charm: "Phantom Roll" duration+30
 INSERT INTO `item_mods` VALUES (25514,26,20);     -- Comm. Charm +1: Ranged Accuracy+20
 INSERT INTO `item_mods` VALUES (25514,30,20);     -- Comm. Charm +1: Magic Accuracy+20
 INSERT INTO `item_mods` VALUES (25514,365,3);     -- Comm. Charm +1: "Snapshot"+3
@@ -33375,15 +33386,17 @@ INSERT INTO `item_mods` VALUES (25520,25,25);     -- Pup. Collar +1: Accuracy+25
 INSERT INTO `item_mods` VALUES (25521,25,30);     -- Pup. Collar +2: Accuracy+30
 INSERT INTO `item_mods` VALUES (25525,25,15);     -- Etoile Gorget: Accuracy+15
 INSERT INTO `item_mods` VALUES (25525,30,15);     -- Etoile Gorget: Magic Accuracy+15
-INSERT INTO `item_mods` VALUES (25525,491,5);     -- Etoile Gorget: "Waltz" potency +5%
+INSERT INTO `item_mods` VALUES (25525,491,10);    -- Etoile Gorget: "Waltz" potency +10%
+INSERT INTO `item_mods` VALUES (25525,368,1);     -- Etoile Gorget: "Regain" +1
 INSERT INTO `item_mods` VALUES (25526,25,20);     -- Etoile Gorget +1: Accuracy+20
 INSERT INTO `item_mods` VALUES (25526,30,20);     -- Etoile Gorget +1: Magic Accuracy+20
 INSERT INTO `item_mods` VALUES (25526,491,7);     -- Etoile Gorget +1: "Waltz" potency +7%
 INSERT INTO `item_mods` VALUES (25527,25,25);     -- Etoile Gorget +2: Accuracy+25
 INSERT INTO `item_mods` VALUES (25527,30,25);     -- Etoile Gorget +2: Magic Accuracy+25
 INSERT INTO `item_mods` VALUES (25527,491,10);    -- Etoile Gorget +2: "Waltz" potency +10%
-INSERT INTO `item_mods` VALUES (25531,30,20);     -- Argute Stole: Magic Accuracy+20
+INSERT INTO `item_mods` VALUES (25531,30,15);     -- Argute Stole: Magic Accuracy+15
 INSERT INTO `item_mods` VALUES (25531,487,5);     -- Argute Stole: Magic burst damage +5
+INSERT INTO `item_mods` VALUES (25531,477,20);    -- Argute Stole: Helix Duration +20%
 INSERT INTO `item_mods` VALUES (25532,30,25);     -- Argute Stole +1: Magic Accuracy+25
 INSERT INTO `item_mods` VALUES (25532,487,7);     -- Argute Stole +1: Magic burst damage +7
 INSERT INTO `item_mods` VALUES (25533,30,30);     -- Argute Stole +2: Magic Accuracy+30
