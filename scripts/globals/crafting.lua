@@ -3,7 +3,7 @@
 --  Info from:
 --      http://wiki.ffxiclopedia.org/wiki/Crafts_%26_Hobbies
 -------------------------------------------------
-
+require("scripts/globals/items")
 -----------------------------------
 -- IDs for signupGuild bitmask
 -----------------------------------
@@ -38,6 +38,10 @@ local TI_Woodworking =  {   22,    23, 17354, 17348, 17053, 17156, 17054,    56,
 local TI_Synergy =      {}
 
 local HQCrystals = {
+    [0] = {
+        id = tpz.items.ROBBER_RIG,
+        cost = 1500
+    },
     [1] = {
         id = 4238,
         cost = 200
@@ -272,7 +276,7 @@ function unionRepresentativeTriggerFinish(player, option, target, guildID, curre
                player:messageText(target, text.NOT_HAVE_ENOUGH_GP, false, 6)
             end
         end
-    elseif (category == 0 and option ~= 1073741824) then -- HQ crystal
+    elseif (category == 0 and option ~= 1073741824) then -- HQ crystal or robber rig
         local i = HQCrystals[bit.band(bit.rshift(option, 5), 15)]
         local quantity = bit.rshift(option, 9)
         local cost = quantity * i.cost
