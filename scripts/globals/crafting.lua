@@ -177,7 +177,7 @@ function tradeTestItem(player, npc, trade, craftID)
         trade:getItemCount() == 1) then
         newRank = player:getSkillRank(craftID) + 1
         if player:getCharVar('[GUILD]currentGuild') == guildID + 1 then
-            player:setCharVar('[GUILD]daily_points', -1)
+            player:setCharVar('[GUILD]daily_points', 1)
         end
     end
 
@@ -241,7 +241,7 @@ function unionRepresentativeTriggerFinish(player, option, target, guildID, curre
             player:messageSpecial(text.GUILD_NEW_CONTRACT, guildID)
         else
             player:messageSpecial(text.GUILD_TERMINATE_CONTRACT, guildID, oldGuild)
-            player:setCharVar('[GUILD]daily_points', -1)
+            player:setCharVar('[GUILD]daily_points', 1)
         end
     elseif (category == 3) then -- keyitem
         local ki = keyitems[bit.band(bit.rshift(option, 5), 15) - 1]
