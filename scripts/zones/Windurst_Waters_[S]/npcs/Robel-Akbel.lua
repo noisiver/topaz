@@ -8,9 +8,9 @@ local ID = require("scripts/zones/Windurst_Waters_[S]/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    -- Spartoi Sorcerer drop
-    -- Kindred Black Mage (ule range) drop
-    -- Wekufe drop
+    -- Spartoi Sorcerer drop 9921
+    -- Kindred Black Mage (ule range) drop 9922
+    -- Wekufe drop 9923
 end
 
 function onTrigger(player, npc)

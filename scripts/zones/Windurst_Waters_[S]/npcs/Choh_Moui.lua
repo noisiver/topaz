@@ -8,9 +8,9 @@ local ID = require("scripts/zones/Windurst_Waters_[S]/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    -- Abraxas drop
-    -- Typhoon Wyvern(Gustav Tunnel) drop
-    -- Greater Manticore drop (Cape Terrigan)
+    -- Abraxas drop 9915
+    -- Typhoon Wyvern(Gustav Tunnel) drop 9916
+    -- Greater Manticore drop (Cape Terrigan) 9917
 end
 
 function onTrigger(player, npc)

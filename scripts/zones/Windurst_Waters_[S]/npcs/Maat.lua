@@ -8,9 +8,9 @@ local ID = require("scripts/zones/Windurst_Waters_[S]/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    -- Arch Corse drop
-    -- Diremite Dominator drop
-    -- Wyvern Skull
+    -- Arch Corse drop 9918
+    -- Diremite Dominator drop 9919
+    -- Hurricane Fang(Ifrit's) drop 9920
 end
 
 function onTrigger(player, npc)

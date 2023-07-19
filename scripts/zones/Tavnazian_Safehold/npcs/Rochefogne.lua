@@ -8,9 +8,9 @@ local ID = require("scripts/zones/Tavnazian_Safehold/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    -- Cave Antlion drop
-    -- Molech drop
-    -- Antares drop
+    -- Cave Antlion drop 9912
+    -- Molech drop 9913
+    -- Antares drop 9914
 end
 
 function onTrigger(player, npc)

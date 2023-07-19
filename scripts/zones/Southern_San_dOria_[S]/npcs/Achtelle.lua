@@ -6,9 +6,9 @@
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    -- Bark Tarantula(Boyahda Tree) drop
-    -- Demonic Millstone (Psox'ja) drop
-    -- Hypnos Eft drop
+    -- Bark Tarantula(Boyahda Tree) drop 9906
+    -- Demonic Millstone (Psox'ja) drop 9907
+    -- Hypnos Eft drop 9908
 end
 
 function onTrigger(player, npc)
