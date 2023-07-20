@@ -12,6 +12,7 @@ require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/wsquest")
+require("scripts/globals/jsequests")
 -----------------------------------
 -- Spartoi Warrior (KRT) drop 9903
 -- Doom Guard (Gustav Tunnel) drop 9904
@@ -29,7 +30,7 @@ function onTrade(player, npc, trade)
             player:startEvent(617)
         end
     end
-
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.PLD)
 end
 
 function onTrigger(player, npc)
@@ -38,6 +39,9 @@ function onTrigger(player, npc)
     local aSquiresTest = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.A_SQUIRE_S_TEST)
     local aSquiresTestII = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.A_SQUIRE_S_TEST_II)
     local aKnightsTest = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.A_KNIGHT_S_TEST)
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.PLD)
 
     if (wsQuestEvent ~= nil) then
         player:startEvent(wsQuestEvent)

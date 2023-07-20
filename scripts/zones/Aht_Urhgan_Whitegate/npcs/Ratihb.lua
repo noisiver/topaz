@@ -3,19 +3,28 @@
 --  NPC: Ratihb
 -- Standard Info NPC
 -- !pos 75.225 -6.000 -137.203 50
+-- COR job quest NPC
 -----------------------------------
 require("scripts/globals/keyitems")
 require("scripts/globals/npc_util")
 require("scripts/globals/settings")
 require("scripts/globals/quests")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    -- Heraldic Imp(Caedara Mire) drop 9927
+    -- Ebony Pudding(Mount Z) drop 9928
+    -- Nostokulshedra drop 9929
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.COR)
 end
 
 function onTrigger(player, npc)
     local luckOfTheDraw = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.LUCK_OF_THE_DRAW)
     local againstAllOdds = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.AGAINST_ALL_ODDS)
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.COR)
 
     if luckOfTheDraw == QUEST_AVAILABLE and player:getMainLvl() >= ADVANCED_JOB_LEVEL then
         player:startEvent(547)

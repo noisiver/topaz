@@ -3,9 +3,11 @@
 --  NPC: Matthias
 -- Standard Info NPC
 -- Involved in Quest:
+-- DNC job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Bastok_Markets/IDs")
 require("scripts/globals/quests")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 --local variables for item IDs to make things clearer
@@ -22,6 +24,10 @@ local moblinWeave = 1636
 local goldBrocade = 1999
 
 function onTrade(player, npc, trade)
+    -- Gargouille(Glacier[S]) drop 9930
+    -- Caracal(Xarcabard[S]) drop 9931
+    -- Virulent Peiste(Pashhow Marshlands[S]) drop 9932
+    -- Gnat(Meriphataud Mountains [S]) drop 9933
 
     if (player:getCharVar("dancerTailorCS") == 4) then
         local playersAFChoice = player:getCharVar("dancerAFChoice")
@@ -54,6 +60,7 @@ function onTrade(player, npc, trade)
             rewardThePlayer(player)
         end
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.DNC)
 end
 
 function rewardThePlayer(player)
@@ -74,6 +81,9 @@ function onTrigger(player, npc)
 
     local playersAFChoice = player:getCharVar("dancerAFChoice")
     local tailorStartedWorkDay = player:getCharVar("dancerTailorWorkDay")
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.DNC)
 
     if (player:getCharVar("dancerTailorCS") == 2) then
         player:startEvent(492)

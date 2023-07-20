@@ -7499,6 +7499,15 @@ INSERT INTO `item_basic` VALUES (9921,0,'spartoi_staff','spartoi_staff',1,57428,
 INSERT INTO `item_basic` VALUES (9922,0,'kindred_staff','kindred_staff',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9923,0,'weightless_cloth','weightless_cloth',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9924,0,'carafe_core','carafe_core',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9925,0,'cockatrice_beak','cockatrice_beak',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9926,0,'darter_wing','darter_wing',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9927,0,'imp_eye','imp_eye',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9928,0,'pudding_putty','pudding_putty',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9929,0,'kraken_tentacle','kraken_tentacle',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9930,0,'gargouille_wing','gargouille_wing',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9931,0,'caracal_whisker','caracal_whisker',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9932,0,'peiste_fang','peiste_fang',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9933,0,'gnat_eye','gnat_eye',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (10049,0,'♪raptor','♪raptor',1,61504,0,0,0);
 INSERT INTO `item_basic` VALUES (10050,0,'♪tiger','♪tiger',1,61504,0,0,0);
 INSERT INTO `item_basic` VALUES (10051,0,'♪crab','♪crab',1,61504,0,0,0);

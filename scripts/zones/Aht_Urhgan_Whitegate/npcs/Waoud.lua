@@ -4,6 +4,7 @@
 -- Standard Info NPC
 -- Involved in quests: An Empty Vessel (BLU Unlock), Beginnings (BLU AF Quest 1), Omens (BLU AF Quest 2)
 -- !pos 65 -6 -78 50
+-- BLU job quest NPC
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -11,6 +12,7 @@ require("scripts/globals/missions")
 require("scripts/globals/quests")
 require("scripts/globals/npc_util")
 local ID = require("scripts/zones/Aht_Urhgan_Whitegate/IDs")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -22,6 +24,7 @@ function onTrade(player, npc, trade)
     if anEmptyVessel == QUEST_ACCEPTED and anEmptyVesselProgress == 3 and trade:hasItemQty(StoneID, 1) and trade:getItemCount() == 1 then
         player:startEvent(67, StoneID) -- get the stone to Aydeewa
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.BLU)
 end
 
 function onTrigger(player, npc)
@@ -34,6 +37,9 @@ function onTrigger(player, npc)
     local transformationsProgress = player:getCharVar("TransformationsProgress")
     local currentJob = player:getMainJob()
     local waoudNeedToZone = player:getLocalVar("WaoudNeedToZone")
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.BLU)
 
     -- AN EMPTY VESSEL
     if anEmptyVessel == QUEST_AVAILABLE and anEmptyVesselProgress <= 1 and player:getMainLvl() >= ADVANCED_JOB_LEVEL then

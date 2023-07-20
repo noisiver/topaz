@@ -12,6 +12,7 @@ require("scripts/globals/npc_util")
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/pets")
+require("scripts/globals/jsequests")
 -----------------------------------
 -- Spinner(Mamook) drop 9894
 -- Wamoura (Halvung) drop 9895
@@ -24,6 +25,7 @@ function onTrade(player, npc, trade)
     elseif npcUtil.tradeHas(trade, {4161, 5570}) and player:getCharVar("OperationTeatimeProgress") == 1 then -- Chai, Sleeping Potion
         player:startEvent(780)
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.PUP)
 end
 
 function onTrigger(player, npc)
@@ -37,6 +39,9 @@ function onTrigger(player, npc)
     local isCurrentlyPuppetmaster = player:getMainJob() == tpz.job.PUP
     local LvL = player:getMainLvl()
     local Job = player:getMainJob()
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.PUP)
 
     --Quest: PuppetMaster Blues
     local PuppetmasterBlues = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES)
