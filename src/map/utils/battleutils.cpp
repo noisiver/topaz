@@ -7002,6 +7002,11 @@ int getSDTTier(int SDT)
         {
             cost = 0;
         }
+        // No MP cost if the spell is a black or BLU breath and magic bursted
+        if (PSpell->getMessage() == MSGBASIC_MAGIC_BURST_BLACK || PSpell->getMessage() == MSGBASIC_MAGIC_BURST_BREATH)
+        {
+            cost = 0;
+        }
         return std::clamp<int16>(cost, 0, 9999);
     }
     uint32 CalculateSpellRecastTime(CBattleEntity* PEntity, CSpell* PSpell)
