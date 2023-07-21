@@ -2,7 +2,7 @@
 -- Refulgent Arrow
 -- Archery weapon skill
 -- Skill level: 280
--- Delivers a twofold attack. Damage varies with TP. (ONly 1 hit)
+-- Delivers a twofold attack. Damage varies with TP. (Only 1 hit)
 -- Aligned with the Aqua Gorget & Light Gorget.
 -- Aligned with the Aqua Belt & Light Belt.
 -- Element: None
