@@ -7484,7 +7484,7 @@ INSERT INTO `item_basic` VALUES (9906,0,'tarantula_fang','tarantula_fang',1,5742
 INSERT INTO `item_basic` VALUES (9907,0,'demonic_shard','demonic_shard',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9908,0,'eft_claw','eft_claw',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9909,0,'ovinnik_tail','ovinnik_tail',1,57428,0,1,0);
-INSERT INTO `item_basic` VALUES (9910,0,'catoblepas_hoof','catoblepas_hoof',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9910,0,'camelopard_hoof','camelopard_hoof',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9911,0,'king_horn','king_horn',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9912,0,'antlion_claw','antlion_claw',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9913,0,'molech_wing','molech_wing',1,57428,0,1,0);
