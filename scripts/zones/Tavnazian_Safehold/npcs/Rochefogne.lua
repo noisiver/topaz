@@ -11,7 +11,7 @@ require("scripts/globals/jsequests")
 function onTrade(player, npc, trade)
     -- Cave Antlion drop 9912
     -- Molech drop 9913
-    -- Antares drop 9914
+    -- Antares(Gustav Tunnel) drop 9914
     tpz.jsequest.onTrade(player, npc, trade, tpz.job.WHM)
 end
 
