@@ -1223,7 +1223,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                     if (PWeaponSkill->getPrimarySkillchain() != 0)
                     {
                         // NOTE: GetSkillChainEffect is INSIDE this if statement because it
-                        //  ALTERS the state of the resonance, which misses and non-elemental skills should NOT do.
+                        //  ALTERS the state of the resonance, which misses and non-elemental(i.e. spirits within) skills should NOT do.
 
                         SUBEFFECT effect = battleutils::GetSkillChainEffect(PBattleTarget, PWeaponSkill->getPrimarySkillchain(), PWeaponSkill->getSecondarySkillchain(), PWeaponSkill->getTertiarySkillchain());
                         if (effect != SUBEFFECT_NONE)
