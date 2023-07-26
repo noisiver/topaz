@@ -14440,6 +14440,27 @@ int32 CLuaBaseEntity::getRespawnTime(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: setDespawnTime()
+ *  Purpose : Setting the despawn time for a Mob
+ *  Example : mob:setDespawnTime(60)
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setDespawnTime(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+
+    if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
+    {
+        PMob->SetDespawnTime(std::chrono::seconds(lua_tointeger(L, 1)));
+    }
+
+    return 0;
+}
+
+/************************************************************************
 *  Function: setRespawnTime()
 *  Purpose : Setting the respawn time for a Mob
 *  Example : mob:setRespawnTime(math.random(3600, 7200))

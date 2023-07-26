@@ -674,6 +674,7 @@ public:
     int32 setSpawn(lua_State*);             // Sets spawn point
     int32 getRespawnTime(lua_State*);
     int32 setRespawnTime(lua_State*);       // set respawn time
+    int32 setDespawnTime(lua_State* L);    // set derespawn time
 
     int32 instantiateMob(lua_State* L);
 
