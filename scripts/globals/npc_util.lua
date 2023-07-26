@@ -347,6 +347,39 @@ function npcUtil.giveKeyItem(player, keyitems)
 end
 
 --[[ *******************************************************************************
+    Deletes key item(s) from player.
+    Message is displayed showing key items obtained.
+
+    Examples of valid keyitems parameter:
+        tpz.ki.ZERUHN_REPORT
+        {tpz.ki.PALBOROUGH_MINES_LOGS}
+        {tpz.ki.BLUE_ACIDITY_TESTER, tpz.ki.RED_ACIDITY_TESTER}
+******************************************************************************* --]]
+function npcUtil.deleteKeyItem(player, keyitems)
+    local ID = zones[player:getZoneID()]
+
+    -- create table of keyitems
+    local givenKeyItems = {}
+    if type(keyitems) == "number" then
+        givenKeyItems = {keyitems}
+    elseif type(keyitems) == "table" then
+        givenKeyItems = keyitems
+    else
+        print(string.format("ERROR: invalid keyitems parameter given to npcUtil.deleteKeyItem in zone %s.", player:getZoneName()))
+        return false
+    end
+
+    -- delete key items to player, with message
+    for _, v in pairs(givenKeyItems) do
+        if player:hasKeyItem(v) then
+            player:delKeyItem(v)
+            player:messageSpecial(ID.text.KEYITEM_OBTAINED +1, v)
+        end
+    end
+    return true
+end
+
+--[[ *******************************************************************************
     Complete a quest.
     If quest rewards items, and the player cannot carry them, return false.
     Otherwise, return true.
