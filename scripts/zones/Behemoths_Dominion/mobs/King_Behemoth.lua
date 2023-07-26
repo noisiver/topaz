@@ -16,12 +16,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(145)
     mob:addMod(tpz.mod.DEFP, 44) 
     mob:addMod(tpz.mod.ATTP, 39)
-	mob:setDamage(145)
     mob:addMod(tpz.mod.EVA, 40)
     mob:setMod(tpz.mod.MP, 5000)
-    mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 20000) 
     mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
@@ -34,15 +33,6 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-	local MeteorTime = mob:getLocalVar("MeteorTime")
-	local BattleTime = mob:getBattleTime()
-
-	if (MeteorTime == 0) then
-		mob:setLocalVar("MeteorTime", BattleTime + 60)
-	elseif (BattleTime >= MeteorTime) then
-		mob:castSpell(218) -- Meteor
-		mob:setLocalVar("MeteorTime", BattleTime + 70)
-	end
 end
 
 function onAdditionalEffect(mob, target, damage)
@@ -50,13 +40,6 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 function onSpellPrecast(mob, spell)
-    if spell:getID() == 218 then
-        spell:setAoE(tpz.magic.aoe.RADIAL)
-        spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
-        spell:setRadius(30)
-        spell:setAnimation(280)
-        spell:setMPCost(1)
-    end
 end
 
 function onMobDeath(mob, player, isKiller)
