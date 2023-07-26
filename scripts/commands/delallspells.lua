@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
--- func: addallspells
--- desc: Adds all valid spells EXCEPT TRUSTS to the given target. If no target then to the current player.
+-- func: delallspells
+-- desc: Deletess all valid spells EXCEPT TRUSTS to the given target. If no target then to the current player.
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
@@ -11,7 +11,7 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!addallspells {player}")
+    player:PrintToPlayer("!delallspells {player}")
 end
 
 function onTrigger(player, target)
@@ -65,14 +65,14 @@ function onTrigger(player, target)
         end
     end
 
-    -- add all spells
+    -- delete all spells
     local save = true
     local silent = true    -- prevent packet spam
     for i = 1, #ValidSpells do
         if i == #ValidSpells then
             silent = false
         end
-        targ:addSpell(ValidSpells[i], silent, save)
+        targ:delSpell(ValidSpells[i], silent, save)
     end
-    player:PrintToPlayer(string.format("%s now has all spells.", targ:getName()))
+    player:PrintToPlayer(string.format("%s no longer has all spells.", targ:getName()))
 end
