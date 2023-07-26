@@ -511,16 +511,18 @@ int16 CBattleEntity::addTP(int16 tp)
     {
         updatemask |= UPDATE_HP;
     }
-    int16 tpDown = 1;
     // Check for TP down effect
     CStatusEffect* PEffect = this->StatusEffectContainer->GetStatusEffect(EFFECT_MAX_TP_DOWN);
-    if (PEffect && PEffect->GetPower())
+    if (PEffect)
     {
-        tpDown = PEffect->GetPower() / 100; // Turn max TP down into a decimal
+        int32 mod = std::clamp<int32>(100 - PEffect->GetPower(), 0, 100);
+        int32 max = (3000 * mod) / 100;
+        if (health.tp > max)
+        {
+            tp -= (health.tp - max);
+            health.tp = max;
+        }
     }
-    int16 cap = std::clamp(health.tp + tp, 0, 3000 * tpDown); // Clamp max TP to max TP downs effect if applicable
-    tp = health.tp - cap;
-    health.tp = cap;
     return abs(tp);
 }
 
