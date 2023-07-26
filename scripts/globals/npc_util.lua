@@ -669,11 +669,11 @@ end
 
 function npcUtil.giveAvatarQuest(npc, player, region, quest, keyitem, timer)
     local ID = zones[player:getZoneID()]
-        if (player:getQuestStatus(region, quest) == QUEST_COMPLETED) then
-            player:delQuest(region, quest)
-        end
-        player:addQuest(region, quest)
-        player:setCharVar(timer, 0)
-        player:addKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.TUNING_FORK_OF_FIRE)
+    if (player:getQuestStatus(region, quest) == QUEST_COMPLETED) then
+        player:delQuest(region, quest)
+    end
+    player:addQuest(region, quest)
+    player:setCharVar(timer, 0)
+    player:addKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)
+    player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.TUNING_FORK_OF_FIRE)
 end
