@@ -500,12 +500,9 @@ int16 CBattleEntity::addTP(int16 tp)
         {
             TPMulti = map_config.mob_tp_multiplier;
         }
-        else if (objtype == TYPE_PET)
+        else if (objtype == TYPE_PET || (objtype == TYPE_MOB && this->PMaster)) // normal pet or charmed pet
         {
-            if (static_cast<CPetEntity*>(this)->getPetType() != PETTYPE_AUTOMATON || !this->PMaster)
-                TPMulti = map_config.mob_tp_multiplier * 3;
-            else
-                TPMulti = map_config.player_tp_multiplier;
+            TPMulti = map_config.player_tp_multiplier;
         }
 
         tp = (int16)(tp * TPMulti);

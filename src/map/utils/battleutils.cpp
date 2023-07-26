@@ -2874,14 +2874,6 @@ int getSDTTier(int SDT)
                     ratio = 2.0f;
 
                 baseTp = CalculateBaseTP((int16)(delay * 60.0f / 1000.0f / ratio));
-
-                auto PPet = dynamic_cast<CPetEntity*>(PAttacker);
-
-                // Pets gain ~84 tp per hit
-                if (PAttacker->objtype == TYPE_PET && PPet->getPetType() != PETTYPE_AUTOMATON)
-                {
-                    baseTp = (baseTp / 4) + 5;
-                }
             }
 
 
@@ -2923,14 +2915,10 @@ int getSDTTier(int SDT)
                 }
 
                 auto PPet = dynamic_cast<CPetEntity*>(PDefender);
-                //mobs get basetp+30 whereas pcs get basetp/3 when hit
-                if (PDefender->objtype == TYPE_PC)
+                //mobs get basetp+30 whereas pcs and their pets get basetp/3 when hit
+                if (PDefender->objtype == TYPE_PC || PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
-                }
-                else if (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC)
-                {
-                    PDefender->addTP((int16)(tpMultiplier * ((baseTp / 7) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker)))))));
                 }
                 else
                     PDefender->addTP((uint16)(tpMultiplier * ((baseTp + 30) * sBlowMult * (1.0f + 0.01f * (float)PDefender->getMod(Mod::STORETP))))); //subtle blow also reduces the "+30" on mob tp gain
