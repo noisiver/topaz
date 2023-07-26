@@ -34,6 +34,10 @@ function afterInstanceRegister(player)
     player:addTempItem(5826)    -- Lucid Potion III
     player:addTempItem(5827)    -- Lucid ether
     player:addTempItem(5432)    -- Dusty ether
+    player:addTempItem(5835)    -- Healing Salve
+    player:addTempItem(5836)    -- Healing Salve II
+    player:addTempItem(5837)    -- Clear Salve
+    player:addTempItem(5838)    -- Clear Salve II
     afterAssaultRegister(player, 5347, ID.text, ID.mob)
 end
 
