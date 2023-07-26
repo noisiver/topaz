@@ -195,7 +195,7 @@ end
         { {640, 2} }         -- copper ore x2
         { {640, 2}, 641 }    -- copper ore x2, tin ore x1
 ******************************************************************************* --]]
-function npcUtil.giveItem(player, items) -- TODO: ability to give augmented items
+function npcUtil.giveItem(player, items)
     local ID = zones[player:getZoneID()]
 
     -- create table of items, with key/val of itemId/itemQty
@@ -236,6 +236,31 @@ function npcUtil.giveItem(player, items) -- TODO: ability to give augmented item
             return false
         end
     end
+    return true
+end
+
+--[[ *******************************************************************************
+    Give an augmented item to the player
+    If player has inventory space, give items, display message, and return true.
+    If not, do not give items, display a message to indicate this, and return false.
+
+    Examples of valid parameters:
+        25417, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5
+******************************************************************************* --]]
+function npcUtil.giveAugmentedItem(player, itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, aug4, aug4val)
+    local ID = zones[player:getZoneID()]
+
+    -- does player have enough inventory space?
+    if player:getFreeSlotsCount() < 1 then
+        player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, itemId)
+        return false
+    end
+
+    -- give augmented item to player
+    if player:addItem(itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, aug4, aug4val) then
+        player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
+    end
+
     return true
 end
 
