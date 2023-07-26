@@ -26,8 +26,8 @@ local questItems =
     [tpz.job.PUP] = { items =  { tpz.items.SPINNER_HEART, tpz.items.WAMOURA_FEELER }, reward = { tpz.items.PUPS_COLLAR } },
     [tpz.job.DNC] = { items =  { tpz.items.GARGOUILLE_WING, tpz.items.PEISTE_FANG }, reward = { tpz.items.ETOILE_GORGET } },
     [tpz.job.SCH] = { items =  { tpz.items.CARACAL_WHISKER, tpz.items.GNAT_EYE }, reward = { tpz.items.ARGUTE_STOLE } },
-    [tpz.job.GEO] = { items =  { items = {}, reward = { tpz.items.BAGUA_CHARM } },
-    [tpz.job.RUN] = { items =  { items = {}, reward = { tpz.items.FUTHARK_TORQUE } },
+    [tpz.job.GEO] = { items = {}, reward = { tpz.items.BAGUA_CHARM } },
+    [tpz.job.RUN] = { items = {}, reward = { tpz.items.FUTHARK_TORQUE } },
 }
 
 tpz = tpz or {}
