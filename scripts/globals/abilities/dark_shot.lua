@@ -29,7 +29,7 @@ function onUseAbility(player, target, ability)
     --print(string.format("step1: %u",magicacc))
 	--GetPlayerByID(6):PrintToPlayer(string.format("Hit chance: %u",magicacc))
 
-    if resist < 0.25 then
+    if resist < 0.5 then
         ability:setMsg(tpz.msg.basic.JA_MISS_2) -- resist message
         return 0
     end

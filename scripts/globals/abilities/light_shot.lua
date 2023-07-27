@@ -28,8 +28,8 @@ function onUseAbility(player, target, ability)
 
     --print(string.format("step1: %u",resist))
 	--GetPlayerByID(6):PrintToPlayer(string.format("Hit chance: %u",resist))
-    if (target:hasImmunity(1)) then
-        spell:setMsg(tpz.msg.basic.JA_MISS_2)
+    if (target:hasImmunity(tpz.immunity.SLEEP) or target:hasImmunity(tpz.immunity.LIGHTSLEEP)) then
+        spell:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     elseif resist < 0.5 then
         ability:setMsg(tpz.msg.basic.JA_MISS_2) -- resist message
         return tpz.effect.SLEEP_I
