@@ -3079,6 +3079,9 @@ int getSDTTier(int SDT)
             PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SENGIKORI, EFFECT_SENGIKORI, 1, 0, 30));
         }
 
+        // Add listener
+        PDefender->PAI->EventHandler.triggerListener("WS_DMG_TAKEN", PDefender, PAttacker, damage, (uint16)attackType, (uint16)damageType, slot);
+
         return damage;
     }
 

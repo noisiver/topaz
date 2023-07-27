@@ -4,6 +4,8 @@ ABILITY_START - Entity, Ability
 ABILITY_USE - Entity, Target, Ability, action
 ABILITY_STATE_EXIT - Entity, Ability
 
+WS_DMG_TAKEN - Target, Entity, damage, attackType, damageType, equipslot
+
 WEAPONSKILL_START - Entity, Skillid 
 WEAPONSKILL_STATE_ENTER - Entity, skill ID (Works for mobs)
 WEAPONSKILL_USE - Entity, Target, Skillid, TP, action (Also works for mobs)
