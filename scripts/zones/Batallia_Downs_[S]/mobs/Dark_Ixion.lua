@@ -38,11 +38,10 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    printf("Spawned Batallia")
+    -- printf("Spawned Batallia")
     mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.EVA, 374) 
+    mob:setMod(tpz.mod.EVA, 324) 
     mob:setMod(tpz.mod.REGAIN, 0)
-    mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:SetMobSkillAttack(6096) -- JA Autoattacks
     mob:SetAutoAttackEnabled(true)
