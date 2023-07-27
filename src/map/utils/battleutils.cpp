@@ -1595,33 +1595,40 @@ int getSDTTier(int SDT)
 
             uint8 element = 1;
             uint8 SDTdivisor = 1;
+            uint16 resistDownEle = 0;
 
             switch (enspell)
             {
                 case ENSPELL_I_FIRE:
                 case ENSPELL_II_FIRE:
                     element = ELEMENT_FIRE;
+                    resistDownEle = ELEMENT_WATER;
                     break;
                 case ENSPELL_I_ICE:
                 case ENSPELL_II_ICE:
                     element = ELEMENT_ICE;
+                    resistDownEle = ELEMENT_FIRE;
                     break;
                 case ENSPELL_I_WIND:
                 case ENSPELL_II_WIND:
                     element = ELEMENT_WIND;
+                    resistDownEle = ELEMENT_ICE;
                     break;
                 case ENSPELL_I_EARTH:
                 case ENSPELL_II_EARTH:
                     element = ELEMENT_EARTH;
+                    resistDownEle = ELEMENT_WIND;
                     break;
                 case ENSPELL_I_THUNDER:
                 case ENSPELL_II_THUNDER:
                 case ENSPELL_ROLLING_THUNDER:
                     element = ELEMENT_THUNDER;
+                    resistDownEle = ELEMENT_EARTH;
                     break;
                 case ENSPELL_I_WATER:
                 case ENSPELL_II_WATER:
                     element = ELEMENT_WATER;
+                    resistDownEle = ELEMENT_THUNDER;
                     break;
                 case ENSPELL_I_LIGHT:
                 case ENSPELL_II_LIGHT:
@@ -1638,7 +1645,7 @@ int getSDTTier(int SDT)
                     break;
             }
 
-            if (enspell > 0 && enspell <= 6)
+            if (enspell >= ENSPELL_I_FIRE && enspell <= ENSPELL_I_WATER)
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 1];
                 Action->addEffectMessage = 163;
@@ -1653,7 +1660,7 @@ int getSDTTier(int SDT)
 
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
-            else if (enspell > 8 && enspell <= 14 && isFirstSwing)
+            else if (enspell >= ENSPELL_II_FIRE && enspell <= ENSPELL_II_WATER && isFirstSwing)
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 9];
                 Action->addEffectMessage = 163;
@@ -1665,10 +1672,11 @@ int getSDTTier(int SDT)
                     Action->addEffectParam = -Action->addEffectParam;
                     Action->addEffectMessage = 384;
                 }
-
+                // Add -30 element resist down effect based on the enspell for 15 seconds
+                PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_NINJUTSU_ELE_DEBUFF, 0, 30, 0, 10, 0, resistDownEle, 0));
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
-            else if (enspell > 6 && enspell <= 8)
+            else if (enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK)
             {
                 Action->additionalEffect = enspell_subeffects[enspell -1];
                 Action->addEffectMessage = 163;
