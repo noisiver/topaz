@@ -36,7 +36,6 @@ ATTACK - Attacker, defender, action
 ATTACKED - Defender, attacker, action
 
 FRONT_CRITICAL_TAKE - Entity, target
-FRONT_CRITICAL_TAKE - Entity, target
 
 ITEM_START - Entity, Item, action
 ITEM_USE - Entity, Item, action
