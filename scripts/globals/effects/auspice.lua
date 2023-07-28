@@ -14,6 +14,8 @@ function onEffectGain(target, effect)
     --printf("AUSPICE: Adding Subtle Blow +%d!", subtleBlowBonus)
     effect:setSubPower(subtleBlowBonus)
     target:addMod(tpz.mod.SUBTLE_BLOW, subtleBlowBonus)
+    -- Add Store TP
+    target:addMod(tpz.mod.STORETP, 50)
 
     --Afflatus Misery Bonuses
     if (target:hasStatusEffect(tpz.effect.AFFLATUS_MISERY)) then
@@ -30,6 +32,7 @@ function onEffectLose(target, effect)
     local subtleBlow = effect:getSubPower()
     --printf("AUSPICE: Removing Subtle Blow +%d!", subtleBlow)
     target:delMod(tpz.mod.SUBTLE_BLOW, subtleBlow)
+    target:delMod(tpz.mod.STORETP, 50)
 
     --Clean Up Any Bonuses That From Afflatus Misery Combo
     if (target:hasStatusEffect(tpz.effect.AFFLATUS_MISERY)) then
