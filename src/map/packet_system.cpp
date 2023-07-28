@@ -120,12 +120,15 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "packets/inventory_item.h"
 #include "packets/inventory_modify.h"
 #include "packets/inventory_size.h"
+#include "packets/jobpoint_details.h"
+#include "packets/jobpoint_update.h"
 #include "packets/lock_on.h"
 #include "packets/linkshell_equip.h"
 #include "packets/linkshell_message.h"
 #include "packets/macroequipset.h"
 #include "packets/map_marker.h"
 #include "packets/menu_config.h"
+#include "packets/menu_jobpoints.h"
 #include "packets/menu_merit.h"
 #include "packets/merit_points_categories.h"
 #include "packets/message_basic.h"
@@ -341,6 +344,7 @@ void SmallPacket0x00C(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     PChar->pushPacket(new CInventorySizePacket(PChar));
     PChar->pushPacket(new CMenuConfigPacket(PChar));
     PChar->pushPacket(new CCharJobsPacket(PChar));
+    PChar->pushPacket(new CJobPointDetailsPacket(PChar));
 
     // TODO: While in mog house; treasure pool is not created.
     if (PChar->PTreasurePool != nullptr)
@@ -3327,6 +3331,8 @@ void SmallPacket0x061(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     PChar->pushPacket(new CCharSkillsPacket(PChar));
     PChar->pushPacket(new CCharRecastPacket(PChar));
     PChar->pushPacket(new CMenuMeritPacket(PChar));
+    PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+    PChar->pushPacket(new CJobPointDetailsPacket(PChar));
     PChar->pushPacket(new CCharJobExtraPacket(PChar, true));
     PChar->pushPacket(new CCharJobExtraPacket(PChar, false));
     PChar->pushPacket(new CStatusEffectPacket(PChar));
@@ -4822,6 +4828,38 @@ void SmallPacket0x0BE(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     break;
     }
     return;
+}
+
+/************************************************************************
+ *                                                                        *
+ *  Increase Job Point                                                    *
+ *                                                                        *
+ ************************************************************************/
+
+void SmallPacket0x0BF(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
+{
+    if (PChar->m_moghouseID)
+    {
+    JOBPOINT_TYPE jp_type = (JOBPOINT_TYPE)data.ref<uint16>(0x04);
+
+    if (PChar->PJobPoints->IsJobPointExist(jp_type))
+    {
+        PChar->PJobPoints->RaiseJobPoint(jp_type);
+        PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+        PChar->pushPacket(new CJobPointUpdatePacket(PChar, jp_type));
+    }
+    }
+}
+
+/************************************************************************
+ *                                                                       *
+ *  Job Points Details                                                   *
+ *                                                                       *
+ ************************************************************************/
+
+void SmallPacket0x0C0(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
+{
+    PChar->pushPacket(new CJobPointDetailsPacket(PChar));
 }
 
 /************************************************************************
@@ -6840,6 +6878,19 @@ void SmallPacket0x117(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 }
 
 /************************************************************************
+ *                                                                        *
+ *  Set Job Master Display                                                *
+ *                                                                        *
+ ************************************************************************/
+void SmallPacket0x11B(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
+{
+    PChar->m_jobMasterDisplay = data.ref<uint8>(0x04) > 0;
+
+    charutils::SaveJobMasterDisplay(PChar);
+    PChar->pushPacket(new CCharUpdatePacket(PChar));
+}
+
+/************************************************************************
 *                                                                       *
 *  Packet Array Initialization                                          *
 *                                                                       *
@@ -6917,7 +6968,9 @@ void PacketParserInitialize()
     PacketSize[0x0AD] = 0x00; PacketParser[0x0AD] = &SmallPacket0x0AD;
     PacketSize[0x0B5] = 0x00; PacketParser[0x0B5] = &SmallPacket0x0B5;
     PacketSize[0x0B6] = 0x00; PacketParser[0x0B6] = &SmallPacket0x0B6;
-    PacketSize[0x0BE] = 0x00; PacketParser[0x0BE] = &SmallPacket0x0BE;    //  merit packet
+    PacketSize[0x0BE] = 0x00; PacketParser[0x0BE] = &SmallPacket0x0BE;    // merit packet
+    PacketSize[0x0BF] = 0x00; PacketParser[0x0BF] = &SmallPacket0x0BF;
+    PacketSize[0x0C0] = 0x00; PacketParser[0x0C0] = &SmallPacket0x0C0;
     PacketSize[0x0C3] = 0x00; PacketParser[0x0C3] = &SmallPacket0x0C3;
     PacketSize[0x0C4] = 0x0E; PacketParser[0x0C4] = &SmallPacket0x0C4;
     PacketSize[0x0CB] = 0x04; PacketParser[0x0CB] = &SmallPacket0x0CB;
@@ -6964,6 +7017,7 @@ void PacketParserInitialize()
     PacketSize[0x115] = 0x02; PacketParser[0x115] = &SmallPacket0x115;
     PacketSize[0x116] = 0x02; PacketParser[0x116] = &SmallPacket0xFFF; // not implemented
     PacketSize[0x117] = 0x00; PacketParser[0x117] = &SmallPacket0x117;
+    PacketSize[0x11B] = 0x00; PacketParser[0x11B] = &SmallPacket0x11B;
     // clang-format on
 }
 

@@ -121,7 +121,7 @@ endif()
 
 add_executable(topaz_game
     ${SOURCES}
-    ${resource})
+    ${resource}    "job_points.cpp" "job_points.h")
 
 if(WIN32)
     set_target_properties(topaz_game PROPERTIES OUTPUT_NAME topaz_game${spacer}${platform_suffix})
