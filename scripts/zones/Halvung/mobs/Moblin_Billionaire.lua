@@ -3,6 +3,9 @@
 --  Mob: Moblin_Billionaire
 -----------------------------------
 -----------------------------------
+function onMobSpawn(mob)
+    mob:setRespawnTime(300)
+end
 
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 
