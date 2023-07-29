@@ -21,7 +21,6 @@
 
 #include "../../common/socket.h"
 
-#include "../job_points.h"
 #include "menu_merit.h"
 
 #include "../entities/charentity.h"
@@ -49,10 +48,10 @@ CMenuMeritPacket::CMenuMeritPacket(CCharEntity* PChar)
             bluePointBonus += PChar->PMeritPoints->GetMeritValue(MERIT_ASSIMILATION, PChar);
         }
         // TODO: JP
-        if (PChar->GetMLevel() >= 99)
-        {
-            bluePointBonus += PChar->PJobPoints->GetJobPointValue(JP_BLUE_MAGIC_POINT_BONUS);
-        }
+        //if (PChar->GetMLevel() >= 99)
+        //{
+        //    bluePointBonus += PChar->PJobPoints->GetJobPointValue(JP_BLUE_MAGIC_POINT_BONUS);
+        //}
 
         ref<uint16>(0x0A) |= bluePointBonus << 7;
     }
