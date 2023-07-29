@@ -58,7 +58,6 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../packets/inventory_modify.h"
 #include "../packets/key_items.h"
 #include "../packets/linkshell_equip.h"
-#include "../packets/menu_jobpoints.h"
 #include "../packets/menu_merit.h"
 #include "../packets/message_basic.h"
 #include "../packets/message_combat.h"
@@ -4598,15 +4597,6 @@ namespace charutils
         const char* Query = "UPDATE %s SET %s %u WHERE charid = %u;";
 
         Sql_Query(SqlHandle, Query, "chars", "mentor =", PChar->m_mentorUnlocked, PChar->id);
-    }
-
-    void SaveJobMasterDisplay(CCharEntity* PChar)
-    {
-        TracyZoneScoped;
-
-        const char* Query = "UPDATE %s SET %s %u WHERE charid = %u;";
-
-        Sql_Query(SqlHandle, Query, "chars", "job_master =", PChar->m_jobMasterDisplay, PChar->id);
     }
 
     /************************************************************************
