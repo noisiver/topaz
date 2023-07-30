@@ -35,8 +35,6 @@ function onTrigger(player, npc)
     local theSacredKatana   = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.THE_SACRED_KATANA)
     local yomiOkuri         = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.YOMI_OKURI)
     local aThiefinNorg      = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.A_THIEF_IN_NORG)
-    local swordTimer        = player:getCharVar("ForgeYourDestiny_timer")
-    local swordTimeLeft     = swordTimer - os.time()
     local yomiOkuriCS       = player:getCharVar("yomiOkuriCS")
     local aThiefinNorgCS    = player:getCharVar("aThiefinNorgCS")
     local mLvl              = player:getMainLvl()
@@ -51,13 +49,7 @@ function onTrigger(player, npc)
     elseif (forgeYourDestiny == QUEST_AVAILABLE and mLvl >= ADVANCED_JOB_LEVEL) then
         player:startEvent(25, 1153, 1152) -- start quest
     elseif (forgeYourDestiny == QUEST_ACCEPTED) then
-        if (swordTimer == 0) then
-            player:startEvent(26) -- remind objective
-        elseif (swordTimeLeft > 0) then
-            player:startEvent(28, swordTimeLeft / 144) -- wait longer
-        else
-            player:startEvent(29, 17809) -- finish quest
-        end
+        player:startEvent(29, 17809) -- finish quest
 
     -- THE SACRED KATANA
     elseif (forgeYourDestiny == QUEST_COMPLETED and theSacredKatana == QUEST_AVAILABLE and mJob == tpz.job.SAM and mLvl >= AF1_QUEST_LEVEL) then
@@ -115,8 +107,7 @@ function onEventFinish(player, csid, option)
         player:addQuest(OUTLANDS, tpz.quest.id.outlands.FORGE_YOUR_DESTINY)
     elseif (csid == 27) then
         player:confirmTrade()
-        player:setCharVar("ForgeYourDestiny_timer", os.time() + 10368) -- 3 game days
-    elseif (csid == 29 and npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.FORGE_YOUR_DESTINY, {item=17809, fame=30, fameArea=NORG, title=tpz.title.BUSHIDO_BLADE, var={"ForgeYourDestiny_timer", "ForgeYourDestiny_Event"}})) then -- Mumeito
+    elseif (csid == 29 and npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.FORGE_YOUR_DESTINY, {item=17809, fame=30, fameArea=NORG, title=tpz.title.BUSHIDO_BLADE, var={"ForgeYourDestiny_Event"}})) then -- Mumeito
         player:messageSpecial(ID.text.YOU_CAN_NOW_BECOME_A_SAMURAI, 17809)
         player:unlockJob(tpz.job.SAM)
 
