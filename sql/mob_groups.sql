@@ -12294,8 +12294,8 @@ INSERT INTO `mob_groups` VALUES (48,4169,187,'Vanguard_Partisan',1800,0,9002,0,0
 INSERT INTO `mob_groups` VALUES (49,4190,187,'Vanguards_Wyvern',0,128,0,0,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (50,4168,187,'Vanguard_Oracle',1800,0,9002,0,0,70,71,0);
 INSERT INTO `mob_groups` VALUES (51,4185,187,'Vanguards_Avatar',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (52,295,187,'Avatar_Idol',0,128,0,1000,1000,70,71,0);
-INSERT INTO `mob_groups` VALUES (53,294,187,'Avatar_Icon',0,128,195,1000,1000,70,71,0);
+INSERT INTO `mob_groups` VALUES (52,295,187,'Avatar_Idol',0,128,0,750,750,70,71,0);
+INSERT INTO `mob_groups` VALUES (53,294,187,'Avatar_Icon',0,128,195,750,750,70,71,0);
 INSERT INTO `mob_groups` VALUES (54,4185,187,'Vanguards_Avatar',0,128,0,2400,0,77,78,0); -- Haa Pevi's Avatar
 
 -- ------------------------------------------------------------
