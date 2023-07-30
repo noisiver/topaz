@@ -810,11 +810,13 @@ namespace charutils
         PChar->PMeritPoints = new CMeritPoints(PChar);
         PChar->PMeritPoints->SetMeritPoints(meritPoints);
         PChar->PMeritPoints->SetLimitPoints(limitPoints);
+        PChar->PJobPoints = new CJobPoints(PChar);
 
         fmtQuery =
             "SELECT "
             "gmlevel, "    // 0
             "mentor, "     // 1
+            "job_master, " // 2
             "nnameflags, "  // 2
             "chatfilters " // 3
             "FROM chars "
