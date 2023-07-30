@@ -905,9 +905,9 @@ int getSDTTier(int SDT)
         {
             //Tier 2 enspells calculate the damage on each hit and increment the potency in Mod::ENSPELL_DMG per hit
             uint16 skill = PAttacker->GetSkill(SKILL_ENHANCING_MAGIC);
-            uint16 cap = 6 + ((34 * skill) / 100); //  uint16 cap = 3 + ((6 * skill) / 100);
+            uint16 cap = 6 + ((16 * skill) / 100); //  uint16 cap = 3 + ((6 * skill) / 100);
             if (skill > 200) {
-                cap = 14 + ((30 * skill) / 100); // cap = 5 + ((5 * skill) / 100);
+                cap = 14 + ((15 * skill) / 100); // cap = 5 + ((5 * skill) / 100);
             }
             cap *= 2;
 
