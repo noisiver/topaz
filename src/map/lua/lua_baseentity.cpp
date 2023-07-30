@@ -123,6 +123,7 @@
 #include "../packets/inventory_modify.h"
 #include "../packets/inventory_size.h"
 #include "../packets/key_items.h"
+#include "../packets/menu_jobpoints.h"
 #include "../packets/menu_mog.h"
 #include "../packets/menu_merit.h"
 #include "../packets/menu_raisetractor.h"
@@ -7662,6 +7663,46 @@ inline int32 CLuaBaseEntity::setMerits(lua_State *L)
     PChar->pushPacket(new CMenuMeritPacket(PChar));
 
     charutils::SaveCharExp(PChar, PChar->GetMJob());
+    return 0;
+}
+
+/************************************************************************
+ *  Function: getJobPointLevel()
+ *  Purpose : Returns the current value a specific job point
+ *  Example : player:getJobPointLevel(JP_MIGHTY_STRIKES_EFFECT)
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    if (m_PBaseEntity->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+        lua_pushinteger(L, PChar->PJobPoints->GetJobPointValue((JOBPOINT_TYPE)lua_tointeger(L, 1)));
+    }
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: setJobPoints()
+ *  Purpose : Sets the job points for a player to a specified amount
+ *  Example : player:setJobPoints(30)
+ *  Notes   : Used in GM command
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setJobPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+
+    PChar->PJobPoints->SetJobPoints(lua_tointeger(L, 1));
+    PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+
     return 0;
 }
 
@@ -16325,6 +16366,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMerit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMeritCount),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMerits),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getJobPointLevel),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setJobPoints),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getGil),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addGil),

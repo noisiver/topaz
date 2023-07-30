@@ -175,6 +175,7 @@ enum CHAR_PERSIST : uint8
 
 class CBasicPacket;
 class CLinkshell;
+class CJobPoints;
 class CMeritPoints;
 class CCharRecastContainer;
 class CLatentEffectContainer;
@@ -301,6 +302,7 @@ public:
     CLinkshell*       PLinkshell2;                  // linkshell 2
     CTreasurePool*	  PTreasurePool;                // сокровища, добытые с монстров
     CMeritPoints*     PMeritPoints;                 //
+    CJobPoints*       PJobPoints;
     bool			  MeritMode;					//If true then player is meriting
 
     CLatentEffectContainer* PLatentEffectContainer;
@@ -358,6 +360,7 @@ public:
     location_t m_previousLocation;
 
     bool              m_mentorUnlocked;
+    bool              m_jobMasterDisplay; // Job Master Stars display
     uint32            m_moghouseID;
     uint16            m_moghancementID;
 

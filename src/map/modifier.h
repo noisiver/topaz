@@ -515,6 +515,7 @@ enum class Mod
 
     // Blue Mage
     BLUE_POINTS               = 309, // Tracks extra blue points
+    MONSTER_CORRELATION_BONUS = 936, // AF head
     BLUE_LEARN_CHANCE         = 945, // Additional chance to learn blue magic
     BLUE_SPELLCASTING_TIME    = 1322,// Reduces Blue Magic spellcasting time
 
@@ -891,11 +892,21 @@ enum class Mod
     CONQUEST_BONUS            = 933, // Conquest points bonus granted (percentage)
     CONQUEST_REGION_BONUS     = 934, // Increases the influence points awarded to the player's nation when receiving conquest points
     CAMPAIGN_BONUS            = 935, // Increases the evaluation for allied forces by percentage
-	MONSTER_CORRELATION_BONUS = 936, // AF head
 
-    SUBTLE_BLOW_II            = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
-    GARDENING_WILT_BONUS      = 1011, // Increases the number of Vanadays a plant can survive before it wilts
-    TP_BOOST_WHEN_DMGD        = 1239, // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
+    // Pet Modifiers (Job Point Gifts)
+    PET_ATK_DEF             = 990, // Increases pet physical attack, ranged attack, and physical defense
+    PET_ACC_EVA             = 991, // Increases pet physical accuracy, ranged accuracy, and evasion
+    PET_MAB_MDB             = 992, // Increases pet magic attack and magic defense
+    PET_MACC_MEVA           = 993, // Increases pet magic accuracy and evasion
+    PET_ATTR_BONUS          = 994, // Increases pet attributes
+    PET_TP_BONUS            = 995, // Increases pet TP bonus
+
+    ONE_HOUR_RECAST         = 996, // Decreases the recast time of one-hour abilities by n minutes.
+    SUPERIOR_LEVEL          = 997, // SU0..5
+
+    SUBTLE_BLOW_II          = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
+    GARDENING_WILT_BONUS    = 1011, // Increases the number of Vanadays a plant can survive before it wilts
+    TP_BOOST_WHEN_DMGD      = 1239, // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
 
     SPDEF_DOWN = 958,
