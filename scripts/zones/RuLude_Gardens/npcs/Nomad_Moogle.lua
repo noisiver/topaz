@@ -38,10 +38,10 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    if (player:hasKeyItem(tpz.ki.JOB_BREAKER) == false and player:getMainLvl() >= 75) then -- Job points unlock quest
-        player:startEvent(10240)
-    elseif (player:hasKeyItem(tpz.ki.LIMIT_BREAKER) == false and player:getMainLvl() >= 75) then
+    if (player:hasKeyItem(tpz.ki.LIMIT_BREAKER) == false and player:getMainLvl() >= 75) then
         player:startEvent(10045, 75, 2, 10, 7, 30, 302895, 4095)
+    elseif (player:hasKeyItem(tpz.ki.JOB_BREAKER) == false and player:getMainLvl() >= 75) then -- Job points unlock quest
+        player:startEvent(10240)
     elseif (player:getMainLvl() == 75 and player:levelCap() == 75 and MAX_LEVEL >= 80 and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.NEW_WORLDS_AWAIT) == QUEST_AVAILABLE) then
         player:startEvent(10045, 0, 1, 1, 0)
     elseif (player:getMainLvl() >= 76 and player:levelCap() == 80 and MAX_LEVEL >= 85 and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.EXPANDING_HORIZONS) == QUEST_AVAILABLE) then
