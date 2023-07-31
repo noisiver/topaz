@@ -4906,7 +4906,7 @@ namespace charutils
         {
             if (hasKeyItem(PChar, i))
             {
-                rovBonus += 30;
+                rovBonus += 50;
             }
             else
             {
