@@ -156,7 +156,7 @@ JobPoints_t* CJobPoints::GetAllJobPoints()
 
 uint8 CJobPoints::GetJobPointValue(JOBPOINT_TYPE jp_type)
 {
-    if (IsJobPointExist(jp_type) && jp_PChar->GetMLevel() >= 99 && jp_PChar->GetMJob() == JobPointsCategoryIndexByJpType(jp_type))
+    if (IsJobPointExist(jp_type) && jp_PChar->GetMLevel() >= 75 && jp_PChar->GetMJob() == JobPointsCategoryIndexByJpType(jp_type))
     {
         return GetJobPointType(jp_type)->value;
     }
@@ -201,7 +201,7 @@ void AddGiftMods(CCharEntity* PChar)
 
     for (auto&& gift : jp_gifts[jobid])
     {
-        if (gift.jp_needed > current_jp || PChar->GetMLevel() < 99)
+        if (gift.jp_needed > current_jp || PChar->GetMLevel() < 75)
             break;
 
         current_gifts->push_back(CModifier(static_cast<Mod>(gift.modid), gift.value));

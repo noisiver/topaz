@@ -304,9 +304,9 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
         if (!tp)
         {
             // Cap haste at appropriate levels.
-            int16 hasteMagic = std::clamp<int16>(getMod(Mod::HASTE_MAGIC), -99999, 4375); // 43.75% cap -- handle 100% slow for weakness
-            int16 hasteAbility = std::clamp<int16>(getMod(Mod::HASTE_ABILITY), -99999, 2500); // 25% cap
-            int16 hasteGear = std::clamp<int16>(getMod(Mod::HASTE_GEAR), -99999, 2500); // 25%
+            int16 hasteMagic = std::clamp<int16>(getMod(Mod::HASTE_MAGIC), -10000, 4375); // 43.75% cap -- handle 100% slow for weakness
+            int16 hasteAbility = std::clamp<int16>(getMod(Mod::HASTE_ABILITY), -2500, 2500); // 25% cap
+            int16 hasteGear = std::clamp<int16>(getMod(Mod::HASTE_GEAR), -2500, 2500); // 25%
 
             if (StatusEffectContainer->HasStatusEffect(EFFECT_HUNDRED_FISTS))
             {
@@ -522,6 +522,12 @@ int16 CBattleEntity::addTP(int16 tp)
             tp -= (health.tp - max);
             health.tp = max;
         }
+    }
+    else
+    {
+        int16 cap = std::clamp(health.tp + tp, 0, 3000);
+        tp = health.tp - cap;
+        health.tp = cap;
     }
     return abs(tp);
 }
