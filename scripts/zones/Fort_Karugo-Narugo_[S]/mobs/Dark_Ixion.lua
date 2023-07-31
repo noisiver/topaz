@@ -45,7 +45,7 @@ end
 
 function onMobSpawn(mob)
     -- mob:delRoamFlag(512)
-    printf("Spawned Karugo")
+    -- printf("Spawned Karugo")
     mob:setMod(tpz.mod.DEF, 522)
     mob:setMod(tpz.mod.EVA, 324) 
     mob:setMod(tpz.mod.REGAIN, 0)
