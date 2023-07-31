@@ -1602,33 +1602,33 @@ int getSDTTier(int SDT)
                 case ENSPELL_I_FIRE:
                 case ENSPELL_II_FIRE:
                     element = ELEMENT_FIRE;
-                    resistDownEle = ELEMENT_WATER;
+                    resistDownEle = (uint16)Mod::WATERRES;
                     break;
                 case ENSPELL_I_ICE:
                 case ENSPELL_II_ICE:
                     element = ELEMENT_ICE;
-                    resistDownEle = ELEMENT_FIRE;
+                    resistDownEle = (uint16)Mod::FIRERES;
                     break;
                 case ENSPELL_I_WIND:
                 case ENSPELL_II_WIND:
                     element = ELEMENT_WIND;
-                    resistDownEle = ELEMENT_ICE;
+                    resistDownEle = (uint16)Mod::ICERES;
                     break;
                 case ENSPELL_I_EARTH:
                 case ENSPELL_II_EARTH:
                     element = ELEMENT_EARTH;
-                    resistDownEle = ELEMENT_WIND;
+                    resistDownEle = (uint16)Mod::WINDRES;
                     break;
                 case ENSPELL_I_THUNDER:
                 case ENSPELL_II_THUNDER:
                 case ENSPELL_ROLLING_THUNDER:
                     element = ELEMENT_THUNDER;
-                    resistDownEle = ELEMENT_EARTH;
+                    resistDownEle = (uint16)Mod::EARTHRES;
                     break;
                 case ENSPELL_I_WATER:
                 case ENSPELL_II_WATER:
                     element = ELEMENT_WATER;
-                    resistDownEle = ELEMENT_THUNDER;
+                    resistDownEle = (uint16)Mod::THUNDERRES;
                     break;
                 case ENSPELL_I_LIGHT:
                 case ENSPELL_II_LIGHT:
