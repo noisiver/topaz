@@ -804,6 +804,12 @@ function MessageGroup(mob, target, msg, textcolor, sender)
     end
 end
 
+function OnDeathMessage(mob, player, isKiller, noKiller, msg, textcolor, mob)
+    if isKiller or noKiller then
+        MessageGroup(mob, player, msg, textcolor, mob)
+    end
+end
+
 function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
     local party = target:getParty()
     local msgTimer = mob:getLocalVar("msgTimer")
