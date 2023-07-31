@@ -90,11 +90,28 @@ struct profile_t
     uint8      campaign_allegiance;
 };
 
-
 struct expChain_t
 {
     uint16 chainNumber;
     uint32 chainTime;
+
+    expChain_t()
+    {
+        chainNumber = 0;
+        chainTime = 0;
+    }
+};
+
+struct capacityChain_t
+{
+    uint16 chainNumber;
+    uint32 chainTime;
+
+    capacityChain_t()
+    {
+        chainNumber = 0;
+        chainTime = 0;
+    }
 };
 
 struct Telepoint_t
@@ -210,6 +227,7 @@ public:
 
     profile_t				profile;						// профиль персонажа (все, что связывает города и персонажа)
     expChain_t				expChain;						// Exp Chains
+    capacityChain_t         capacityChain;                                                              // Capacity Point Chains
     search_t				search;							// данные и комментарий, отображаемые в окне поиска
     bazaar_t				bazaar;							// все данные, необходимые для таботы bazaar
     uint16					m_EquipFlag;					// текущие события, обрабатываемые экипировкой (потом упакую в структуру, вместе с equip[])

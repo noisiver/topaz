@@ -74,11 +74,13 @@ namespace charutils
 
     void	DelExperiencePoints(CCharEntity* PChar, float retainpct, uint16 forcedXpLoss);
     void	DistributeExperiencePoints(CCharEntity* PChar, CMobEntity* PMob);
+    void    DistributeCapacityPoints(CCharEntity* PChar, CMobEntity* PMob);
     void	DistributeGil(CCharEntity* PChar, CMobEntity* PMob);
     void	DistributeItem(CCharEntity* PChar, CBaseEntity* PEntity, uint16 itemid, uint16 droprate);
     void	AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck = EMobDifficulty::TooWeak, bool isexpchain = false);
+    void    AddCapacityPoints(CCharEntity* PChar, CBaseEntity* PMob, uint32 capacityPoints, int16 levelDiff, bool isCapacityChain);
 
-    void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl, bool HighChance);
+    void    TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl, bool HighChance);
     void	BuildingCharSkillsTable(CCharEntity* PChar);
     void    BuildingCharWeaponSkills(CCharEntity* PChar);
     void	BuildingCharAbilityTable(CCharEntity* PChar);
@@ -179,6 +181,7 @@ namespace charutils
     bool	hasMogLockerAccess(CCharEntity* PChar);						// true if have access, false otherwise.
 
     float  AddExpBonus(CCharEntity* PChar, float exp);
+    uint16 AddCapacityBonus(CCharEntity* PChar, uint16 capacityPoints);
 
     void    RemoveAllEquipment(CCharEntity* PChar);
 

@@ -124,6 +124,11 @@ void CJobPoints::RaiseJobPoint(JOBPOINT_TYPE jp_type)
     }
 }
 
+uint16 CJobPoints::GetJobPoints()
+{
+    return job_points[jp_PChar->GetMJob()].job_points;
+}
+
 void CJobPoints::SetJobPoints(int16 amount)
 {
     int8 job = (int8)jp_PChar->GetMJob();
@@ -152,6 +157,54 @@ uint16 CJobPoints::GetJobPointsSpent()
 JobPoints_t* CJobPoints::GetAllJobPoints()
 {
     return job_points;
+}
+
+bool CJobPoints::AddCapacityPoints(uint16 amount)
+{
+    uint32 adjustedCapacity = job_points[jp_PChar->GetMJob()].capacity_points + amount;
+    uint16 currentJobPoints = this->GetJobPoints();
+
+    if (adjustedCapacity >= 30000)
+    {
+        // check if player has reached cap
+        if (currentJobPoints == 500)
+        {
+            this->SetCapacityPoints(30000 - 1);
+            return false;
+        }
+
+        uint16 jobPoints = std::min((int)(currentJobPoints + adjustedCapacity / 30000), 500);
+
+        this->SetCapacityPoints(adjustedCapacity % 30000);
+
+        if (currentJobPoints != jobPoints)
+        {
+            this->SetJobPoints(jobPoints);
+            return true;
+        }
+    }
+    else
+    {
+        this->SetCapacityPoints(adjustedCapacity);
+    }
+
+    return false;
+}
+
+uint32 CJobPoints::GetCapacityPoints()
+{
+    return job_points[jp_PChar->GetMJob()].capacity_points;
+}
+
+void CJobPoints::SetCapacityPoints(uint16 amount)
+{
+    uint8 currentJob = static_cast<uint8>(jp_PChar->GetMJob());
+    amount = std::clamp<int16>(amount, 0, 30000);
+    job_points[currentJob].capacity_points = amount;
+
+    Sql_Query(SqlHandle, "INSERT INTO char_job_points SET charid='%u', jobid='%u', capacity_points='%u' ON DUPLICATE KEY UPDATE capacity_points='%u'",
+              jp_PChar->id,
+               currentJob, amount, amount);
 }
 
 uint8 CJobPoints::GetJobPointValue(JOBPOINT_TYPE jp_type)
