@@ -135,7 +135,7 @@ function onMagicHit(caster, target, spell)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    MessageGroup(mob, player, "Maybe...you...are...worthy...of...my...power...",0,"Murgleis")
+    OnDeathMessage(mob, player, isKiller, noKiller, "Maybe...you...are...worthy...of...my...power...",0,"Murgleis")
 end
 
 

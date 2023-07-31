@@ -31,7 +31,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    MessageGroup(mob, player, "Maybe...you...are...worthy...of...my...power...",0,"Burtgang")
+    OnDeathMessage(mob, player, isKiller, noKiller, "Maybe...you...are...worthy...of...my...power...",0,"Burtgang")
 end
 
 

@@ -43,9 +43,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    if isKiller or noKiller then
-        utils.MessageParty(player, "The beasts are calmer now.", 0, "Balpah")
-    end
+    OnDeathMessage(mob, player, isKiller, noKiller, "The beasts are calmer now.", 0, "Balpah")
     DespawnMob(mob:getID()+1)
 end
 

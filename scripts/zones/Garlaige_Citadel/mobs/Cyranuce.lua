@@ -50,5 +50,5 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    OnDeathMessage(mob, player, isKiller, "Hear my last wish! You must again believe in dragons, as we did long ago. Surely somewhere there is one of holy will!", 0, "Cyranuce")
+    OnDeathMessage(mob, player, isKiller, noKiller, "Hear my last wish! You must again believe in dragons, as we did long ago. Surely somewhere there is one of holy will!", 0, "Cyranuce")
 end

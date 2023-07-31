@@ -85,5 +85,5 @@ function onMobDisengage(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    OnDeathMessage(mob, player, isKiller, "You have learned well.",0,"Zeid")
+    OnDeathMessage(mob, player, isKiller, noKiller, "You have learned well.",0,"Zeid")
 end

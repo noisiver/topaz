@@ -45,7 +45,7 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    MessageGroup(mob, player, "Let's dance again some other time!",0,"Lilisette")
+    OnDeathMessage(mob, player, isKiller, noKiller, "Let's dance again some other time!",0,"Lilisette")
 end
 
 

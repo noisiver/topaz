@@ -61,7 +61,7 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    OnDeathMessage(mob, player, isKiller, "Maybe...you...are...worthy...of...my...power...", 0, "Kogarasumaru")
+    OnDeathMessage(mob, player, isKiller, noKiller, "Maybe...you...are...worthy...of...my...power...", 0, "Kogarasumaru")
 end
 
 

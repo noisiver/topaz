@@ -58,7 +58,7 @@ end
 
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    MessageGroup(mob, player, "...and you too shall succumb.",0,"Soulflayer")
+    OnDeathMessage(mob, player, isKiller, noKiller, "...and you too shall succumb.",0,"Soulflayer")
 end
 
 

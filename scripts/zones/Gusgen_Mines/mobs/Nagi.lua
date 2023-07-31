@@ -72,5 +72,5 @@ function onMobDeath(mob, player, isKiller, noKiller)
     DespawnMob(GuardThree)
     DespawnMob(GuardFour)
     DespawnMob(GuardFive)
-    OnDeathMessage(mob, player, isKiller, "Fighting you was an honor.",0,"Nagi")
+    OnDeathMessage(mob, player, isKiller, noKiller, "Fighting you was an honor.",0,"Nagi")
   end
