@@ -40,7 +40,7 @@ function onAdditionalEffect(mob, target, damage)
 	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER, {chance = 100, power = math.random(100, 120)})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 476)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse

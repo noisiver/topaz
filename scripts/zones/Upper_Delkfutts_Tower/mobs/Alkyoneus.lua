@@ -104,7 +104,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- Allow Gigas on the Tweltch Floor to respawn
     for v = 17424452, 17424478, 1 do
         DisallowRespawn(v, false)

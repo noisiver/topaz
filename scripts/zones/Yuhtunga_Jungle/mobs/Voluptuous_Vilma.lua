@@ -5,7 +5,7 @@
 local ID = require("scripts/zones/Yuhtunga_Jungle/IDs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

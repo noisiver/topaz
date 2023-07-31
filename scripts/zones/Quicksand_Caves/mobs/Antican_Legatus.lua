@@ -118,7 +118,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- Allow Anticans in his room to respawn
     for v = 17629632, 17629638, 1 do
         DisallowRespawn(v, false)

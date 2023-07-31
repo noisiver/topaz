@@ -24,5 +24,5 @@ function onMobSpawn(mob)
     mob:SetMobSkillAttack(6034) -- Knockback on auto-attacks
 end	
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

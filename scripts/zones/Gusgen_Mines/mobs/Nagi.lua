@@ -66,11 +66,11 @@ function onSpellPrecast(mob, spell)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     DespawnMob(Guard)
     DespawnMob(GuardTwo)
     DespawnMob(GuardThree)
     DespawnMob(GuardFour)
     DespawnMob(GuardFive)
-    MessageGroup(mob, player, "Fighting you was an honor.",0,"Nagi")
+    OnDeathMessage(mob, player, isKiller, "Fighting you was an honor.",0,"Nagi")
   end

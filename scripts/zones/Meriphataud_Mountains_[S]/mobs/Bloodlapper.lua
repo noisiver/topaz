@@ -41,6 +41,6 @@ function onMonsterMagicPrepare(mob, target)
     return 0 -- Still need a return, so use 0 when not casting
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 526)
 end

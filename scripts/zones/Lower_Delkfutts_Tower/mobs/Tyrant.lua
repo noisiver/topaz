@@ -10,6 +10,6 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 14)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 343)
 end

@@ -24,7 +24,7 @@ function onPath(mob)
 	mob:pathTo(Unruly:getXPos(), Unruly:getYPos(), Unruly:getZPos())
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end

@@ -21,5 +21,5 @@ function onMobSpawn(mob)
     mob:setLocalVar("text", 7920)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

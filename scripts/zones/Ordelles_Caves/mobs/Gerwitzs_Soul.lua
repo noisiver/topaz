@@ -29,7 +29,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 25, power = math.random(150, 200)})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("darkPuppetCS") >= 4 then
         player:setCharVar("darkPuppetCS", 5)
     end

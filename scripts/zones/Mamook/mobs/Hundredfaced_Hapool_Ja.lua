@@ -80,7 +80,7 @@ function onMobDespawn(mob)
     DespawnMob(GuardFour)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 461)
     DespawnMob(Guard)
     DespawnMob(GuardTwo)

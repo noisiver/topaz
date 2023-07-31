@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("aCraftsmanWork") == 1 then
         player:setCharVar("Decurio_I_IIIKilled", 1)
     end

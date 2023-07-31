@@ -32,7 +32,7 @@ function onMobFight(mob, target)
 	mob:setMod(tpz.mod.REGAIN, 250)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("TransformationsProgress") == 4 then
         player:setCharVar("TransformationsProgress", 5)
     end

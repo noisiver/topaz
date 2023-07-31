@@ -22,5 +22,5 @@ function onMobWeaponSkill(target, mob, skill)
     mob:setHP(0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

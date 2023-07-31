@@ -4,7 +4,7 @@
 -- Involved in Quests: Dark Legacy
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local darkLegacyCS = player:getCharVar("darkLegacyCS")
 
     if (darkLegacyCS == 3 or darkLegacyCS == 4) then

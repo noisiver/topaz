@@ -20,7 +20,7 @@ function onMobFight(mob, target)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 	if isKiller  then 
 		player:addTreasure(5736, mob)--Linen Coin Purse
 	end

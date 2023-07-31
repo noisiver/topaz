@@ -76,7 +76,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     DespawnMob(17047947, instance)
     instance:setProgress(instance:getProgress() + 1)

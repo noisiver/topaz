@@ -20,5 +20,5 @@ function onPath(mob)
 	mob:pathTo(Swashtox:getXPos(), Swashtox:getYPos(), Swashtox:getZPos())
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

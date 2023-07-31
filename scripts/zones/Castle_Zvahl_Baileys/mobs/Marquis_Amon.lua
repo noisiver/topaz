@@ -52,7 +52,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller then
         local Revives = GetServerVariable("Revives")
 	    SetServerVariable("Revives", Revives + 1)

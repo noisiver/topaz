@@ -32,7 +32,7 @@ function onMobRoam(mob)
     mob:setHP(10000)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onEventUpdate(player, csid, option)

@@ -10,7 +10,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (isKiller) then
         GetMobByID(mob:getID()-1):setLocalVar("timeToGrow", os.time() + math.random(36000, 43200)) -- Colorful in 11 to 12 hours
     end

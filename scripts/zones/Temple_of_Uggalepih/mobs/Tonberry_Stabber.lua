@@ -6,7 +6,7 @@ mixins = {require("scripts/mixins/families/tonberry")}
 require("scripts/globals/regimes")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 790, 1, tpz.regime.type.GROUNDS)
     tpz.regime.checkRegime(player, mob, 791, 1, tpz.regime.type.GROUNDS)
     tpz.regime.checkRegime(player, mob, 792, 1, tpz.regime.type.GROUNDS)

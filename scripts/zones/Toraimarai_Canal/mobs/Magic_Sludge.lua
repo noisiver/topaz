@@ -15,6 +15,6 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.UFASTCAST, 150) 
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:setCharVar("rootProblem", 3)
 end

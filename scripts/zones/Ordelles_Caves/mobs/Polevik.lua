@@ -22,7 +22,7 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("sharpeningTheSwordCS") == 3 then
         player:setCharVar("PolevikKilled", 1)
     end

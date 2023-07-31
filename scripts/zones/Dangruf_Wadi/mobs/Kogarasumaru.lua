@@ -60,8 +60,8 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
-    utils.MessageParty(player, "Maybe...you...are...worthy...of...my...power...", 0, "Kogarasumaru")
+function onMobDeath(mob, player, isKiller, noKiller)
+    OnDeathMessage(mob, player, isKiller, "Maybe...you...are...worthy...of...my...power...", 0, "Kogarasumaru")
 end
 
 

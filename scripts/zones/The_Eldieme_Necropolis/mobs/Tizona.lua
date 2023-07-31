@@ -57,7 +57,7 @@ function onMobFight(mob, target)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     MessageGroup(mob, player, "...and you too shall succumb.",0,"Soulflayer")
 end
 

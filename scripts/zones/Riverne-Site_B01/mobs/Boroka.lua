@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.BOROKA_BELEAGUERER)
     mob:setRespawnTime(math.random(36000, 43200)) -- 11-12 hour respawn
 end

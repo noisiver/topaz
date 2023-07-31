@@ -11,5 +11,5 @@ function onMobSpawn(mob)
      mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

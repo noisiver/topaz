@@ -36,7 +36,7 @@ end
 function onMobFight(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local battlefield = mob:getBattlefield()
     local SnowDevilWaves = battlefield:getLocalVar("SnowDevilWaves")
     -- Despawn mob holding chest closed until all waves are cleared

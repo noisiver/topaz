@@ -45,7 +45,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wsquest.handleWsnmDeath(tpz.wsquest.steel_cyclone, player)
 end
 

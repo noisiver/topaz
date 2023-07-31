@@ -36,7 +36,7 @@ function onMobEngaged(mob, target)
     naja:setLocalVar("ready", 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

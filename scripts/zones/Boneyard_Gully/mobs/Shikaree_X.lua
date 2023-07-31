@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
     mob:showText(mob, ID.text.MY_TURN_MY_TURN)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:showText(mob, mob:getLocalVar("chat"))
     DespawnMob(mob:getID()+2)
 end

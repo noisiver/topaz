@@ -35,7 +35,7 @@ function onMonsterMagicPrepare(mob, target)
 
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.SEARCHING_FOR_THE_RIGHT_WORDS) == QUEST_ACCEPTED and not player:hasKeyItem(tpz.ki.MOONDROP) then
         player:setCharVar("Searching_AgasKilled", 1)
     end

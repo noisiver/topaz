@@ -270,7 +270,7 @@ function onMobDespawn(mob)
     mob:AnimationSub(0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:setLocalVar("Ashed", 0)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i]

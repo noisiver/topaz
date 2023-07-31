@@ -68,7 +68,7 @@ function changeForm(mob)
     mob:setLocalVar('changeTime', mob:getBattleTime())
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- find mob offset for given battlefield instance
     local inst = mob:getBattlefield():getArea()
     local instOffset = ID.mob.ONE_TO_BE_FEARED_OFFSET + (7 * (inst - 1))

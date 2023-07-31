@@ -42,7 +42,7 @@ function onMobFight(mob, target)
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276929)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCurrentMission(BASTOK) == tpz.mission.id.bastok.THE_FINAL_IMAGE and player:getCharVar("MissionStatus") == 1 then
         player:setCharVar("Mission7-1MobKilled", 1)
     end

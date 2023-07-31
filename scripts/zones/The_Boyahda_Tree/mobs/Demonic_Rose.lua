@@ -7,7 +7,7 @@ local ID = require("scripts/zones/The_Boyahda_Tree/IDs")
 require("scripts/globals/mobs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

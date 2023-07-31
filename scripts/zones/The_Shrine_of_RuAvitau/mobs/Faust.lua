@@ -61,7 +61,7 @@ function onMobDisengage(mob)
     mob:setTP(0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 

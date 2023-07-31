@@ -20,7 +20,7 @@ function onMobFight(mob, target)
     tpz.annm.PetShield(mob, 17142114, 17142119)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.annm.SpawnChest(mob, player, isKiller)
 end
 

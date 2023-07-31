@@ -20,7 +20,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:showText(mob, ID.text.GOWAM_DEATH)
 end
 

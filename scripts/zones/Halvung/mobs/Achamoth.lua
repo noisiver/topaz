@@ -97,7 +97,7 @@ function onAdditionalEffect(mob, target, damage)
 	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.RECOVER_MP, {power = 30})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 300)
     for v = 17031601, 17031604, 1 do
         DespawnMob(v)

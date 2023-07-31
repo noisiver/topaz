@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("unbridledPassion") == 4 then
         player:setCharVar("unbridledPassion", 5)
     end

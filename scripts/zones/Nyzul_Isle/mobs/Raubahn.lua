@@ -119,7 +119,7 @@ function onSpellPrecast(mob, spell)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- If he's out of reraises, display text
     if (isKiller and mob:getMobMod(tpz.mobMod.BEHAVIOR) == 0) then
         mob:showText(mob, ID.text.MIRACLE)

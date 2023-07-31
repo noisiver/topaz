@@ -24,6 +24,6 @@ function onMobFight(mob, target)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.promyvion.receptacleOnDeath(mob, isKiller)
 end

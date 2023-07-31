@@ -92,7 +92,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.SCYLLA_SKINNER)
     tpz.hunts.checkHunt(mob, player, 539)
     tpz.wotg.MagianT4(mob, player, isKiller)

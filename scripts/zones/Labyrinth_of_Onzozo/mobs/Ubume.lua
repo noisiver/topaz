@@ -12,7 +12,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.EVA, 30)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.YOMI_OKURI) == QUEST_ACCEPTED and player:getCharVar("yomiOkuriCS") <= 3 then
         player:setCharVar("yomiOkuriKilledNM", 1)
     end

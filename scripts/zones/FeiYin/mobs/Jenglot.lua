@@ -14,7 +14,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SLEEPRES, 75)
     mob:setMod(tpz.mod.GRAVITYRES, 75)
     end
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 348)
     -- Curses, Foiled A-Golem!?
     if (player:hasKeyItem(tpz.ki.SHANTOTTOS_NEW_SPELL)) then

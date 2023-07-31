@@ -33,6 +33,6 @@ function onMobFight(mob, target)
     mob:setMod(tpz.mod.STORETP, power)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 346)
 end

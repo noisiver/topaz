@@ -18,6 +18,6 @@ function onMobSpawn(mob)
     mob:addImmunity(tpz.immunity.STUN)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 399)
 end

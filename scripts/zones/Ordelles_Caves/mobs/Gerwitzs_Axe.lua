@@ -28,7 +28,7 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("darkPuppetCS") >= 2 then
         player:setCharVar("darkPuppetCS", 3)
     end

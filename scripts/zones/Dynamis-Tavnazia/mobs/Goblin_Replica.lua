@@ -14,6 +14,6 @@ function onMobFight(mob, target)
     dynamis.refillStatueRestore(mob, player, isKiller)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     dynamis.refillStatueOnDeath(mob, player, isKiller)
 end

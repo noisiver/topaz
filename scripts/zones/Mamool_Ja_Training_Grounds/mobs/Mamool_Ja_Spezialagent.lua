@@ -132,7 +132,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
         local instance = mob:getInstance()
         local mobX = mob:getXPos()

@@ -6,7 +6,7 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobSpawn(mob)

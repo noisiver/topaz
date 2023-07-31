@@ -89,6 +89,6 @@ function onMobFight(mob,target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:messageText(mob, ID.text.SHAMARHAAN_MAGNIFICENT)
 end

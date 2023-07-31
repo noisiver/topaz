@@ -3,5 +3,5 @@
 --  Mob: Anders's Guard
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

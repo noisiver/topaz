@@ -26,7 +26,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.EVA, 30)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.THE_HORNSPLITTER)
     tpz.tutorial.onMobDeath(player)
 end

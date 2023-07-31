@@ -22,5 +22,5 @@ function onMobSpawn(mob)
 	mob:addMod(tpz.mod.SILENCERESTRAIT, 100)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

@@ -27,7 +27,7 @@ function onAdditionalEffect(mob, target, damage)
 	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE, {chance = 100, power = math.random(30, 50)})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCharVar("TheRequiemCS") == 3) then
         player:setCharVar("TheRequiemYumKilled", 1)
     end

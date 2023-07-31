@@ -14,7 +14,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 16793859)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

@@ -45,7 +45,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     local target = mob:getTarget(instance)
     local Wamoura = GetMobByID(mob:getID(instance)+1, instance)

@@ -29,7 +29,7 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     if (player:hasKeyItem(tpz.ki.YOMOTSU_HIRASAKA)) then
         player:addCharVar("OkuriNMKilled", 1)

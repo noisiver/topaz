@@ -8,7 +8,7 @@ require("scripts/globals/missions")
 require("scripts/globals/titles")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     if (player:getCurrentMission(player:getNation()) == 6) then
         if (player:getCharVar("MissionStatus") == 4) then

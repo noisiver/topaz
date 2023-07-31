@@ -140,7 +140,7 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 478)
     player:addTitle(tpz.title.OUPIRE_IMPALER)
     tpz.wotg.MagianT4(mob, player, isKiller)

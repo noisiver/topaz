@@ -28,7 +28,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.ARCHMAGE_ASSASSIN)
     DespawnMob(mob:getID()+1)
     DespawnMob(mob:getID()+2)

@@ -7,7 +7,7 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/keyitems")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if not player:hasKeyItem(tpz.ki.SEEDSPALL_CAERULUM) and not player:hasKeyItem(tpz.ki.VIRIDIAN_KEY) then
         player:addKeyItem(tpz.ki.SEEDSPALL_CAERULUM)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SEEDSPALL_CAERULUM)

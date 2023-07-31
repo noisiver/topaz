@@ -59,7 +59,7 @@ function onMobDisengage(mob)
     mob:setLocalVar("wait", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:getBattlefield():lose()
         for _, player in ipairs(mob:getBattlefield():getPlayers()) do
             player:messageSpecial(ID.text.UNABLE_TO_PROTECT)

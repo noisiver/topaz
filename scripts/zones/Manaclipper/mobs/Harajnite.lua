@@ -11,5 +11,5 @@ function onMobSpawn(mob)
     mob:setLocalVar("[uragnite]inShellRegen", 100)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

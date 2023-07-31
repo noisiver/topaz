@@ -9,7 +9,7 @@ require("scripts/globals/mobs")
 require("scripts/quests/tutorial")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 156)
     tpz.tutorial.onMobDeath(player)
 end

@@ -84,7 +84,7 @@ function onMobFight(mob,target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:messageText(mob, ID.text.QULTADA_NOT_BAD)
 end
 

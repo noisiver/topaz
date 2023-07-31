@@ -7,7 +7,7 @@ require("scripts/globals/regimes")
 local ID = require("scripts/zones/FeiYin/IDs")
 require("scripts/globals/mobs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 712, 1, tpz.regime.type.GROUNDS)
 end
 

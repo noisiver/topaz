@@ -19,7 +19,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- check for Rompaulion death
     if player:getCharVar("KnightStalker_Progress") == 4 and GetMobByID(mob:getID() + 1):isDead() then
         player:setCharVar("KnightStalker_Kill", 1)

@@ -5,7 +5,7 @@
 -- !pos 23.935 -48.474 35.489 141
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (isKiller) then
         local mobId = mob:getID()
         local nq = GetMobByID(mobId + 1) -- Orcish Fighter

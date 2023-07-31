@@ -26,7 +26,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mobid = mob:getID()
     for cloneid = mobid + 1, mobid + 4 do
         if GetMobAction(cloneid) ~= 0 then

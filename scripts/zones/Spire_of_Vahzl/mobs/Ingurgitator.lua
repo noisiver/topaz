@@ -49,7 +49,7 @@ end
 
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.promyvion.onEmptyDeath(mob)
     DespawnMob(mob:getID()+2)
     DespawnMob(mob:getID()+3)

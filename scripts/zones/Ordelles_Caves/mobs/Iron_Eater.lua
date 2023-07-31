@@ -67,7 +67,7 @@ function onMobFight(mob, target)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local zonePlayers = mob:getZone():getPlayers()
     for _, zonePlayer in pairs(zonePlayers) do
         player:PrintToPlayer("All rivers eventually lead out to sea... May we meet again.",0,"Iron Eater")

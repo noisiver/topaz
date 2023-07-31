@@ -33,5 +33,5 @@ function onMobDisengage(mob, weather)
     mob:setLocalVar("everyonesRancorUsed", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

@@ -8,7 +8,7 @@ require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/families/gargouille")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

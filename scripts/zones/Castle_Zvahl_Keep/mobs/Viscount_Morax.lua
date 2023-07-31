@@ -18,7 +18,7 @@ end
 function onMobFight(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 356)
     player:addTitle(tpz.title.HELLSBANE)
 end

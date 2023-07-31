@@ -15,7 +15,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.ATTACK_SKILL_LIST, 1157)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

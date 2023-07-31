@@ -6,7 +6,7 @@
 local ID = require("scripts/zones/Beaucedine_Glacier/IDs")
 require("scripts/globals/mobs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

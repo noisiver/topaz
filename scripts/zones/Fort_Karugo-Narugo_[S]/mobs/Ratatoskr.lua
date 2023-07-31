@@ -36,6 +36,6 @@ function onMonsterMagicPrepare(mob, target)
     return 2 -- Cure II
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 522)
 end

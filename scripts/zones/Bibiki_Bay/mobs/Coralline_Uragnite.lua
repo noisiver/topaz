@@ -5,5 +5,5 @@
 mixins = {require("scripts/mixins/families/uragnite")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

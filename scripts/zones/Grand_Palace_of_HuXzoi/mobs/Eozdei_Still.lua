@@ -28,7 +28,7 @@ function onPath(mob)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller then
         local mobId = mob:getID()
         local nm = GetMobByID(ID.mob.JAILER_OF_TEMPERANCE)

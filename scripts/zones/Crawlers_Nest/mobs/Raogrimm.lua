@@ -60,9 +60,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    if isKiller or noKiller then
-        utils.MessageParty(player, "I...return....to...the...crystal...once...again.....", 0, "Raogrimm")
-    end
+    OnDeathMessage(mob, player, isKiller, "I...return....to...the...crystal...once...again.....", 0, "Raogrimm")
 end
 
 function onMobDespawn(mob)

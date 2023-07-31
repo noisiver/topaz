@@ -75,7 +75,7 @@ end
 function onMobDisengage(mob)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- Both Gargoyles are dead
     if GetMobByID(ID.mob.GARGOYLE_LAMBDA):isDead() and GetMobByID(ID.mob.GARGOYLE_MU):isDead() then
         player:setCharVar("AReputationInRuins", 4)

@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 50)
     if isKiller then
 	    if mob:AnimationSub() >= 1 then

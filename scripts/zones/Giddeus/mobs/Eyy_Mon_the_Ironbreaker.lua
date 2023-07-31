@@ -3,7 +3,7 @@
 --   NM: Eyy Mon the Ironbreaker
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

@@ -22,6 +22,6 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.SPELLINTERRUPT, 95)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 321)
 end

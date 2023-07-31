@@ -26,5 +26,5 @@ function onMobDespawn(mob)
     BigBoss:spawn()
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

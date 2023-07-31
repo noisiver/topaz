@@ -54,7 +54,7 @@ local mobSkills =
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     moblinId = mob:getID() - 2 -- Moblin Fantocinniman is always offset by -2
     local moblin = GetMobByID(moblinId)
     if moblin:isAlive() then

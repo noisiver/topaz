@@ -15,5 +15,5 @@ function onMobWeaponSkillPrepare(mob, target)
     return 643 -- Only uses Poison Breath
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

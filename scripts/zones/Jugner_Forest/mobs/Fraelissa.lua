@@ -7,7 +7,7 @@ local ID = require("scripts/zones/Jugner_Forest/IDs")
 require("scripts/globals/mobs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 158)
 end
 

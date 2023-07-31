@@ -6,7 +6,7 @@
 local ID = require("scripts/zones/Uleguerand_Range/IDs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

@@ -78,7 +78,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local zonePlayers = mob:getZone():getPlayers()
     for _, zonePlayer in pairs(zonePlayers) do
         player:PrintToPlayer("I..guess..you...deserve...it...m...m..more...",0,"Goblin")

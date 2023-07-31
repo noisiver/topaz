@@ -95,7 +95,7 @@ function onMobDespawn(mob)
     mob:setRespawnTime(math.random(14400, 18000)) -- 4 to 5 hours
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.ZIRNITRA_WINGCLIPPER)
     tpz.hunts.checkHunt(mob, player, 543)
     tpz.wotg.MagianT4(mob, player, isKiller)

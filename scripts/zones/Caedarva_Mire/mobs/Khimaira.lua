@@ -25,7 +25,7 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.KHIMAIRA_CARVER)
 	if isKiller  then 
 		player:addTreasure(5736, mob)--Linen Coin Purse

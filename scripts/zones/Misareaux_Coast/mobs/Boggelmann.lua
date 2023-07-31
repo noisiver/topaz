@@ -33,7 +33,7 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCurrentMission(COP) == tpz.mission.id.cop.CALM_BEFORE_THE_STORM and player:getCharVar("COP_Boggelmann_KILL") == 0) then
         player:setCharVar("COP_Boggelmann_KILL", 1)
     end

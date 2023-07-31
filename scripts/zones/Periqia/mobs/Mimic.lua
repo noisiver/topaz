@@ -28,7 +28,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTempItem(5389) -- spy's drink
     player:addTempItem(5440) -- dusty wing
     player:addTempItem(5840) -- stalwarts gambir

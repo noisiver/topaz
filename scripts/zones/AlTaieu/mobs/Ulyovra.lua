@@ -42,5 +42,5 @@ function onMobDisengage(mob)
     mob:AnimationSub(5)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

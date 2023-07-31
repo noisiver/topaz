@@ -70,7 +70,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return 1794 -- Only uses Perdition
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

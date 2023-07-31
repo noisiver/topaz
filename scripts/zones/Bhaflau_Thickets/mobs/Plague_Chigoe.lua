@@ -27,7 +27,7 @@ function onMobSpawn(mob)
     mob:untargetable(false)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCharVar("ThePrankster") == 3) then
         player:setCharVar("ThePrankster", 4)
     end

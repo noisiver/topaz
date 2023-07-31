@@ -9,7 +9,7 @@ local ID = require("scripts/zones/Mamook/IDs")
 function onMobSpawn(mob)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.THE_PRINCE_AND_THE_HOPPER) == QUEST_ACCEPTED and player:getCharVar("princeandhopper") == 4 then
         player:setCharVar("princeandhopper", 5)
     end

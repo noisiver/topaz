@@ -21,7 +21,7 @@ function onMobFight( mob, target )
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCurrentMission(COP) == tpz.mission.id.cop.THE_ROAD_FORKS and player:getCharVar("EMERALD_WATERS_Status") == 4) then
         player:setCharVar("EMERALD_WATERS_Status", 5)
     end

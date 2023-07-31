@@ -45,7 +45,7 @@ function onMobFight(mob,target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- Adds die with parent
     if isKiller then
         local bfID = mob:getBattlefield():getArea()

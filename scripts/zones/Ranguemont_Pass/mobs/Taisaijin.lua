@@ -6,7 +6,7 @@ local ID = require("scripts/zones/Ranguemont_Pass/IDs")
 require("scripts/globals/titles")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.BYEBYE_TAISAI)
 end
 

@@ -20,5 +20,5 @@ end
 function onAdditionalEffect(mob, target, damage)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

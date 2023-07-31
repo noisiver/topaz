@@ -18,7 +18,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.EVA, 30)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:hasKeyItem(tpz.ki.MERTAIRES_BRACELET)) then
         player:setCharVar("TrosKilled", 1)
         player:setCharVar("Tros_Timer", os.time())

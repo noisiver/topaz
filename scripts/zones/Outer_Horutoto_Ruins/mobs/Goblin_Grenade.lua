@@ -20,5 +20,5 @@ function onMobFight(mob, target)
 	mob:useMobAbility(509) -- Self-destruct_Goblin_Grenade
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

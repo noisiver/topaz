@@ -10,6 +10,6 @@ function onMobInitialize(mob)
     mob:addMod(tpz.mod.REGAIN, 100)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 217)
 end

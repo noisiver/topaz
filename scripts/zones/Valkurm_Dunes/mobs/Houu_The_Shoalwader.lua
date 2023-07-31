@@ -68,7 +68,7 @@ function onMobDespawn(mob)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local crab = GetMobByID(ID.mob.HEIKE_CRAB)
     local monk = GetMobByID(ID.mob.BEACH_MONK)
     local barnacle = GetNPCByID(ID.npc.BARNACLED_BOX)

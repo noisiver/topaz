@@ -53,7 +53,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    utils.MessageParty(player, "Not fair! You cheated!", 0, "Nashmeira")
+    OnDeathMessage(mob, player, isKiller, "Not fair! You cheated!", 0, "Nashmeira")
     DespawnMob(mob:getID()+1)
 end
 

@@ -12,7 +12,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.EVA, 30)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.THE_SACRED_KATANA) == QUEST_ACCEPTED then
         player:setCharVar("IsonadeKilled", 1)
     end

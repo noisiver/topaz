@@ -3,7 +3,7 @@
 --   NM: Lost Soul
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("EquippedforAllOccasions") == 1 then
         player:setCharVar("EquippedforAllOccasions", 2)
     end

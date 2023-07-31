@@ -11,7 +11,7 @@ mixins =
 }
 local ID = require("scripts/zones/Temenos/IDs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller then
         mob:setLocalVar("killer", player:getID())
     end

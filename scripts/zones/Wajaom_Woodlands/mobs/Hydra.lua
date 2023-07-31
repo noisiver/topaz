@@ -66,7 +66,7 @@ function onCriticalHit(mob)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     player:addTitle(tpz.title.HYDRA_HEADHUNTER)
 	if isKiller  then 

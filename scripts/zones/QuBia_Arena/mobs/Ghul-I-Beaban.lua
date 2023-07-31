@@ -42,7 +42,7 @@ function onMobInitialize(mob)
     end)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if mob:getLocalVar("RERAISES") == 4 then
         mob:getBattlefield():setLocalVar("lootSpawned", 0)
     end

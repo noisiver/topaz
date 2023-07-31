@@ -70,5 +70,5 @@ function changeForm(mob)
     mob:setLocalVar('changeTime', mob:getBattleTime())
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

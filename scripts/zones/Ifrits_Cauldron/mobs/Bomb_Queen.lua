@@ -79,7 +79,7 @@ function onMobFight(mob,target)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- pets die with queen
     if isKiller then
         local mobId = mob:getID()

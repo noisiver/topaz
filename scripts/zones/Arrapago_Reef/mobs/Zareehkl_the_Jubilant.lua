@@ -65,7 +65,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 200)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse

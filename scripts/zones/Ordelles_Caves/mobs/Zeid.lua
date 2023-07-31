@@ -84,6 +84,6 @@ function onMobDisengage(mob)
 	mob:setLocalVar("TwoHourUsed", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
-    MessageGroup(mob, player, "You have learned well.",0,"Zeid")
+function onMobDeath(mob, player, isKiller, noKiller)
+    OnDeathMessage(mob, player, isKiller, "You have learned well.",0,"Zeid")
 end

@@ -13,7 +13,7 @@ function onMobEngaged(mob, target)
     mob:showText(mob, ID.text.YAGUDO_AVATAR_ENGAGE)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller then
         mob:showText(mob, ID.text.YAGUDO_AVATAR_DEATH)
     end

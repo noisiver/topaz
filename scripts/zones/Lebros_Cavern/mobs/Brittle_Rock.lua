@@ -14,7 +14,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 900)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     if mob:getID() == ID.mob[21].BRITTLE_ROCK1 then
         GetNPCByID(ID.npc._1rx, instance):setAnimation(8)

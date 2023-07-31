@@ -45,7 +45,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     if mob:getID(instance) == 17060180 then
          GetMobByID(17060179,instance):setMobMod(tpz.mobMod.DRAW_IN, 2) 

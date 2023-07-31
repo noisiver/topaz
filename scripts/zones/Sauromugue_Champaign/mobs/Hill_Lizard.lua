@@ -6,7 +6,7 @@ local ID = require("scripts/zones/Sauromugue_Champaign/IDs")
 require("scripts/globals/regimes")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 40, 1, tpz.regime.type.FIELDS)
 end
 

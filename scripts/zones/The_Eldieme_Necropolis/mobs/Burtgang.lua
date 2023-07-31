@@ -30,7 +30,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     MessageGroup(mob, player, "Maybe...you...are...worthy...of...my...power...",0,"Burtgang")
 end
 

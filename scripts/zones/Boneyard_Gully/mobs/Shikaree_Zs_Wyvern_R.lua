@@ -12,5 +12,5 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

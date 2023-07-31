@@ -10,5 +10,5 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.REGAIN, 100)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

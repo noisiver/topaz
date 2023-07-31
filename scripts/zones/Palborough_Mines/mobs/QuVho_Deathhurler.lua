@@ -6,7 +6,7 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/hunts")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 221)
 end
 

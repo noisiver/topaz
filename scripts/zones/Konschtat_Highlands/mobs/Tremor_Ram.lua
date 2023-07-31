@@ -7,7 +7,7 @@ require("scripts/globals/mobs")
 require("scripts/quests/tutorial")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.tutorial.onMobDeath(player)
 end
 

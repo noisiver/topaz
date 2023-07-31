@@ -16,7 +16,7 @@ function onMobFight(mob, target)
     mob:setMod(tpz.mod.REGAIN, 1000)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onEventUpdate(player, csid, option)

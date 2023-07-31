@@ -15,5 +15,5 @@ function onMobWeaponSkillPrepare(mob, target)
     return 644 -- Only uses Wind Breath
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

@@ -16,6 +16,6 @@ end
 function onMobEngaged(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     dynamis.megaBossOnDeath(mob, player, isKiller)
 end

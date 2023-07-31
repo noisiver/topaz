@@ -6,7 +6,7 @@
 require("scripts/globals/keyitems")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     if (player:hasKeyItem(tpz.ki.SEANCE_STAFF) and player:getCharVar("Enagakure_Killed") == 0) then
         player:setCharVar("Enagakure_Killed", 1)

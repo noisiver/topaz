@@ -150,7 +150,7 @@ function onMobSpawn(mob)
     setCelestialResistances(mob)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local Batym = GetMobByID(17436927)
     Batym:setLocalVar("AvatarPhase", 0)
 end

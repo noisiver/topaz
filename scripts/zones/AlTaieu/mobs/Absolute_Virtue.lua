@@ -150,7 +150,7 @@ function onMagicHit(caster, target, spell)
     return 1
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     for i = 16912877, 16912882, 1 do
         if GetMobByID(i):isSpawned() then
             DespawnMob(i)

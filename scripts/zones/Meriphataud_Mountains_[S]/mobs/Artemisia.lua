@@ -55,7 +55,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 500)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(3510, mob)-- Silver Mirror 

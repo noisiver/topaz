@@ -6,7 +6,7 @@
 local ID = require("scripts/zones/King_Ranperres_Tomb/IDs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local allSaplingsDead = true
     for i = ID.mob.CHERRY_SAPLING_OFFSET, ID.mob.CHERRY_SAPLING_OFFSET + 12 do
         local mob = GetMobByID(i)
