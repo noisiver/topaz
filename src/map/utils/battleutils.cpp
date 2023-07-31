@@ -3052,8 +3052,10 @@ int getSDTTier(int SDT)
         else if (PDefender->objtype == TYPE_MOB)
             ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, 0);
 
-        if (!isRanged)
+        if (!isRanged && attackType == ATTACK_PHYSICAL)
+        {
             PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
+        }
 
         // Apply TP
         if (!PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI))
