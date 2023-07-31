@@ -1393,6 +1393,11 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             action.recast -= getMod(Mod::REWARD_RECAST);
         }
 
+        if (PAbility->getRecastId() == ABILITYRECAST_TWO_HOUR)
+        {
+            action.recast -= getMod(Mod::ONE_HOUR_RECAST);
+        }
+
         action.id = this->id;
         action.actiontype = PAbility->getActionType();
         action.actionid = PAbility->getID();

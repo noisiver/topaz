@@ -201,7 +201,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
         if (battleutils::IsParalyzed(PChar))
         {
             // 2 hours can be paraylzed but it won't reset their timers
-            if (PAbility->getRecastId() != 0)
+            if (PAbility->getRecastId() != ABILITYRECAST_TWO_HOUR)
             {
                 PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
             }
