@@ -70,9 +70,9 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- Place a 60 second duration terror effect on any targets hit by Whip Tongue
+    -- Place a 30 second duration terror effect on any targets hit by Whip Tongue
     if skill:getID() == 486 then
-        target:addStatusEffect(tpz.effect.TERROR, 1, 0, 180)
+        target:addStatusEffect(tpz.effect.TERROR, 1, 0, 30)
     end
 end
 

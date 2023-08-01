@@ -16997,8 +16997,24 @@ INSERT INTO `mob_droplist` VALUES (3199,0,0,1000,5735,240); -- (Kanoloa) Cotton 
 INSERT INTO `mob_droplist` VALUES (3200,0,0,1000,5735,240); -- (Trash / F1 Boss) Cotton Coin Purse x1 24%
 INSERT INTO `mob_droplist` VALUES (3201,0,0,1000,5735,1000); -- (F2 Boss / Random HNM) Cotton Coin Purse x1 100% 
 INSERT INTO `mob_droplist` VALUES (3202,0,0,1000,5736,1000); -- (F3-F4 Boss) Linen Coin Purse x1 100%
-INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
-INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
+
+INSERT INTO `mob_droplist` VALUES (3203,1,1,240,15716,142); -- Njord's Ledelsens (Professor P. - Arrapago Remnants)
+INSERT INTO `mob_droplist` VALUES (3203,1,1,240,15720,142); -- Hoshikazu Kyahan
+INSERT INTO `mob_droplist` VALUES (3203,1,1,240,15638,142); -- Anu's Brais
+INSERT INTO `mob_droplist` VALUES (3203,1,1,240,15724,142); -- Anu's Gaiters
+INSERT INTO `mob_droplist` VALUES (3203,1,1,240,15642,142); -- Nemains Slops
+INSERT INTO `mob_droplist` VALUES (3203,1,1,240,15728,142); -- Nemains Sabots
+INSERT INTO `mob_droplist` VALUES (3203,1,1,240,15712,148); -- Enyo's Leggings
+INSERT INTO `mob_droplist` VALUES (3203,1,2,150,15638,142); -- Anu's Brais
+INSERT INTO `mob_droplist` VALUES (3203,1,2,150,15724,142); -- Anu's Gaiters
+INSERT INTO `mob_droplist` VALUES (3203,1,2,150,15712,148); -- Enyo's Leggings
+INSERT INTO `mob_droplist` VALUES (3203,1,2,150,15716,142); -- Njord's Ledelsens
+INSERT INTO `mob_droplist` VALUES (3203,1,2,150,15720,142); -- Hoshikazu Kyahan
+INSERT INTO `mob_droplist` VALUES (3203,1,2,150,15642,142); -- Nemain's Slops
+INSERT INTO `mob_droplist` VALUES (3203,1,2,150,15728,142); -- Nemain's Sabots
+INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- Linen Coin Purse x2 100%
+INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- Linen Coin Purse x2 100%
+
 INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x1 100%
 INSERT INTO `mob_droplist` VALUES (3205,4,0,1000,846,0); -- Helm Beetle (QSC. No Coffer Key)
 INSERT INTO `mob_droplist` VALUES (3205,0,0,1000,846,240);
@@ -17020,6 +17036,36 @@ INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,1121,100);
 INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,1477,10);
 INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,1980,240);
 INSERT INTO `mob_droplist` VALUES (3208,0,0,1000,16995,240);
+
+INSERT INTO `mob_droplist` VALUES (3209,1,1,240,15630,166); -- Njord's Trousers (Medusa - Arrapago Remnants) 
+INSERT INTO `mob_droplist` VALUES (3209,1,1,240,14970,166); -- Hoshikazu Tekko
+INSERT INTO `mob_droplist` VALUES (3209,1,1,240,15634,166); -- Hoshikazu Hakama
+INSERT INTO `mob_droplist` VALUES (3209,1,1,240,14974,166); -- Anu's Gages
+INSERT INTO `mob_droplist` VALUES (3209,1,1,240,14978,166); -- Nemain's Cuffs
+INSERT INTO `mob_droplist` VALUES (3209,1,1,240,15626,170); -- Enyo's Cuisses
+INSERT INTO `mob_droplist` VALUES (3209,1,2,150,15630,166); -- Njord's Trousers
+INSERT INTO `mob_droplist` VALUES (3209,1,2,150,14970,166); -- Hoshikazu Tekko
+INSERT INTO `mob_droplist` VALUES (3209,1,2,150,15634,166); -- Hoshikazu Hakama
+INSERT INTO `mob_droplist` VALUES (3209,1,2,150,14974,166); -- Anu's Gages
+INSERT INTO `mob_droplist` VALUES (3209,1,2,150,14978,166); -- Nemain's Cuffs
+INSERT INTO `mob_droplist` VALUES (3209,1,2,150,15626,170); -- Enyo's Cuisses
+INSERT INTO `mob_droplist` VALUES (3209,0,0,1000,5736,1000); -- Linen Coin Purse x2 100%
+INSERT INTO `mob_droplist` VALUES (3209,0,0,1000,5736,1000); -- Linen Coin Purse x2 100%
+
+INSERT INTO `mob_droplist` VALUES (3210,1,1,240,14962,166); -- Enyo's Gauntlets (Alucard - Arrapago Remnants) 
+INSERT INTO `mob_droplist` VALUES (3210,1,1,240,14551,166); -- Njord's Jerkin
+INSERT INTO `mob_droplist` VALUES (3210,1,1,240,14966,166); -- Njord's Gloves
+INSERT INTO `mob_droplist` VALUES (3210,1,1,240,14555,166); -- Hoshikazu Gi
+INSERT INTO `mob_droplist` VALUES (3210,1,1,240,14559,166); -- Anu's Doublet
+INSERT INTO `mob_droplist` VALUES (3210,1,1,240,14563,170); -- Nemain's Robe
+INSERT INTO `mob_droplist` VALUES (3210,1,2,150,14962,166); -- Enyo's Gauntlets 
+INSERT INTO `mob_droplist` VALUES (3210,1,2,150,14551,166); -- Njord's Jerkin
+INSERT INTO `mob_droplist` VALUES (3210,1,2,150,14966,166); -- Njord's Gloves
+INSERT INTO `mob_droplist` VALUES (3210,1,2,150,14555,166); -- Hoshikazu Gi
+INSERT INTO `mob_droplist` VALUES (3210,1,2,150,14559,166); -- Anu's Doublet
+INSERT INTO `mob_droplist` VALUES (3210,1,2,150,14563,170); -- Nemain's Robe
+INSERT INTO `mob_droplist` VALUES (3210,0,0,1000,5736,1000); -- Linen Coin Purse x2 100%
+INSERT INTO `mob_droplist` VALUES (3210,0,0,1000,5736,1000); -- Linen Coin Purse x2 100%
 
 
 
@@ -17947,7 +17993,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1618,240); -- (Harajnite) Uragn
 INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 -- free 22, 644, 1665, 2331
--- NEXT: 3209
+-- NEXT: 3211
 -- NEXT: 6100
 
 
