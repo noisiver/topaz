@@ -40,7 +40,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
-    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+    if (mob:isNM()) then
         if (MobPhysicalHit(mob, skill)) then
             mob:resetEnmity(target)
         end

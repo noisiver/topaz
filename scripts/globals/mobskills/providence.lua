@@ -14,7 +14,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:isMobType(MOBTYPE_NOTORIOUS)) or mob:getPool() == 9061 then -- Poroggo_Shifu(Imperial Agent Rescue - Assault)
+    if (mob:isNM()) or mob:getPool() == 9061 then -- Poroggo_Shifu(Imperial Agent Rescue - Assault)
         return 0
     end
     return 1

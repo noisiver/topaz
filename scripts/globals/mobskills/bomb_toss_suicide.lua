@@ -9,7 +9,7 @@ require("scripts/globals/status")
 
 function onMobSkillCheck(target, mob, skill)
     -- notorious monsters shouldn't explode, nor dynamis
-    if mob:isMobType(MOBTYPE_NOTORIOUS) or mob:isInDynamis() then
+    if mob:isNM() or mob:isInDynamis() then
         return 1
     end
 

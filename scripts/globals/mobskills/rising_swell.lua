@@ -13,7 +13,7 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+    if (mob:isNM()) then
         return 0
     end
     return 1

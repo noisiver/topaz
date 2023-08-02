@@ -9,7 +9,7 @@ require("scripts/globals/status")
 
 function onMobSkillCheck(target, mob, skill)
     local zone = mob:getZoneID()
-    if zone > 99 and zone < 214 and mob:isMobType(MOBTYPE_NOTORIOUS) == false then -- Only used by NM's and CoP and onward Giant Bats
+    if zone > 99 and zone < 214 and mob:isNM() == false then -- Only used by NM's and CoP and onward Giant Bats
         return 1
     end
     return 0

@@ -14174,7 +14174,7 @@ inline int32 CLuaBaseEntity::getFamily(lua_State* L)
 /************************************************************************
 *  Function: isMobType()
 *  Purpose : Returns true if a Mob is of a specified type (if !Mob->false)
-*  Example : if (mob:isMobType(MOBTYPE_NOTORIOUS)
+*  Example : if (mob:isNM()
 *  Notes   : Oddly, this is only being used to check if Mob is NM...?
 *  Notes   : To Do: This isn't the intended function for NM checks...
 ************************************************************************/

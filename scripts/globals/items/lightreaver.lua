@@ -11,7 +11,7 @@ require("scripts/globals/msg")
 function onAdditionalEffect(player, target, damage)
     -- AddEffect Death does not Proc on Notorious Monsters
     if (target:isMob()) then
-        if (target:isMobType(MOBTYPE_NOTORIOUS)) then
+        if (target:isNM()) then
             return 0, 0, 0
         end
     end

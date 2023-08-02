@@ -15,7 +15,7 @@ function onAdditionalEffect(player, target, damage)
     if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0) <= 0.5) then
         return 0, 0, 0
     elseif (target:isMob()) then
-        if (target:isMobType(MOBTYPE_NOTORIOUS)) then
+        if (target:isNM()) then
             return 0, 0, 0
         else
             target:setHP(0)
