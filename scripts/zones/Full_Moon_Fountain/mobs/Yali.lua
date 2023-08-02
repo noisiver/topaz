@@ -4,10 +4,11 @@
 -- Windurst Mission 9-2
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 local ID = require("scripts/zones/Full_Moon_Fountain/IDs")
-
-function onMobInitialize(mob)
-    mob:setSpellList(135)
+-----------------------------------
+function onMobSpawn(mob)
+    SetGenericNMStats(mob)
 end
 
 function onMobSpawn(mob)

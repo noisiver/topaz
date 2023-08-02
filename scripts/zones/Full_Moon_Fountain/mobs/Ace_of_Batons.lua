@@ -1,10 +1,14 @@
 -----------------------------------
 -- Area: Full Moon Fountain
 --  Mob: Ace of Batons
--- Windurst Mission 9-2
+-- Involved in Moon Reading (Windurst 9-2)
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/Full_Moon_Fountain/IDs")
 -----------------------------------
+function onMobSpawn(mob)
+    SetGenericNMStats(mob)
+end
 
 function allMoonMobsDead(player)
     local inst = player:getBattlefield():getArea()

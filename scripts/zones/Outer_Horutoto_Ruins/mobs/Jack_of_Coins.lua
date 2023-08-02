@@ -1,12 +1,14 @@
 -----------------------------------
 -- Area: Outer Horutoto Ruins
 --   NM: Jack of Coins
+-- Involved in Full Moon Fountain (Windurst 6-1)
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/missions")
 -----------------------------------
 
 function onMobSpawn(mob)
+    SetGenericNMStats(mob)
     mob:setLocalVar("popTime", os.time())
 end
 

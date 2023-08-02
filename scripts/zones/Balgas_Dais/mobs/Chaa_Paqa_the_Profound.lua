@@ -1,16 +1,16 @@
 -----------------------------------
--- Area: Davoi
---   NM: Dirtyhanded Gochakzuk
--- Involved in mission Vain (Windurst 8-1)
+-- Area: Balgas Dais
+--   NM: Chaa Paqa the Profound
+-- Involved in mission Saintly Invitation (Windurst 6-2)
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
+
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
-    mob:setMod(tpz.mod.UFASTCAST, 70)
-    mob:setMod(tpz.mod.DMGMAGIC, -50)
-    mob:setMod(tpz.mod.EEM_SILENCE, 15)
-    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
+end
+
+function onMobRoam(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
