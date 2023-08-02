@@ -340,7 +340,7 @@ bool CMobEntity::CanLink(position_t* pos, int16 superLink)
 
 bool CMobEntity::CanDeaggro()
 {
-    return !(m_Type & MOBTYPE_NOTORIOUS || m_Type & MOBTYPE_BATTLEFIELD);
+    return !(m_Type & MOBTYPE_NOTORIOUS || m_Type & MOBTYPE_BATTLEFIELD || m_Type & MOBTYPE_QUEST);
 }
 
 bool CMobEntity::IsFarFromHome()
@@ -350,7 +350,7 @@ bool CMobEntity::IsFarFromHome()
 
 bool CMobEntity::CanBeNeutral()
 {
-    return !(m_Type & MOBTYPE_NOTORIOUS);
+    return !(m_Type & MOBTYPE_NOTORIOUS || m_Type & MOBTYPE_QUEST);
 }
 
 uint16 CMobEntity::TPUseChance()

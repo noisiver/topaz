@@ -14228,6 +14228,18 @@ inline int32 CLuaBaseEntity::isNM(lua_State* L)
     {
         lua_pushboolean(L, true);
     }
+    else if (m_PBaseEntity->objtype == TYPE_MOB && ((CMobEntity*)m_PBaseEntity)->m_Type & MOBTYPE_BATTLEFIELD)
+    {
+        lua_pushboolean(L, true);
+    }
+    else if (m_PBaseEntity->objtype == TYPE_MOB && ((CMobEntity*)m_PBaseEntity)->m_Type & MOBTYPE_QUEST)
+    {
+        lua_pushboolean(L, true);
+    }
+    else if (m_PBaseEntity->objtype == TYPE_MOB && ((CMobEntity*)m_PBaseEntity)->getMobMod(MOBMOD_CHECK_AS_NM) > 0)
+    {
+        lua_pushboolean(L, true);
+    }
     else
     {
         lua_pushboolean(L, false);

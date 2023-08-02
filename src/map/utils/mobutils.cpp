@@ -212,7 +212,8 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
     PMob->restoreModifiers();
     PMob->restoreMobModifiers();
 
-    bool isNM = PMob->m_Type & MOBTYPE_NOTORIOUS;
+    bool isNM = PMob->m_Type & MOBTYPE_NOTORIOUS || PMob->m_Type & MOBTYPE_BATTLEFIELD || PMob->m_Type & MOBTYPE_QUEST ||
+        PMob->getMobMod(MOBMOD_CHECK_AS_NM) > 0;
     JOBTYPE mJob = PMob->GetMJob();
     JOBTYPE sJob = PMob->GetSJob();
     uint8 mLvl = PMob->GetMLevel();
@@ -630,7 +631,8 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
         SetupStrongholdsMob(PMob);
     }
 
-    if(PMob->m_Type & MOBTYPE_NOTORIOUS)
+    if (PMob->m_Type & MOBTYPE_NOTORIOUS || PMob->m_Type & MOBTYPE_BATTLEFIELD || PMob->m_Type & MOBTYPE_QUEST ||
+        PMob->getMobMod(MOBMOD_CHECK_AS_NM) > 0)
     {
         SetupNMMob(PMob);
     }
