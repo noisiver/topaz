@@ -39,6 +39,8 @@
 #include "../lua/luautils.h"
 #include "../packets/action.h"
 #include "../packets/chat_message.h"
+#include "../packets/release.h"
+#include "../packets/message_system.h"
 #include "../recast_container.h"
 #include "../roe.h"
 #include "../status_effect_container.h"
@@ -2019,6 +2021,27 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
     /////////////////////////////////////////////////////////////////////////////////////////////
     // End of attack loop
     /////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Interrupt(event skip) players currently in a cutscene
+    if (PTarget->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)PTarget;
+        if (PChar->status == STATUS_CUTSCENE_ONLY || PChar->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+        {
+            RELEASE_TYPE releaseType = RELEASE_STANDARD;
+
+            if (PChar->m_event.EventID != -1)
+            {
+                // Message: Event skipped
+                releaseType = RELEASE_SKIPPING;
+                PChar->pushPacket(new CMessageSystemPacket(0, 0, 117));
+            }
+            PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+            PChar->status = STATUS_NORMAL;
+            PChar->pushPacket(new CReleasePacket(PChar, releaseType));
+            PChar->pushPacket(new CReleasePacket(PChar, RELEASE_EVENT));
+        }
+    }
 
     this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK | EFFECTFLAG_DETECTABLE);
 
