@@ -65,7 +65,6 @@ protected:
     bool CanPursueTarget(CBattleEntity* PTarget);
     bool CheckHide(CBattleEntity* PTarget);
     bool CheckDetection(CBattleEntity* PTarget);
-    bool CanSeePoint(position_t pos);
     virtual bool CanCastSpells();
     void CastSpell(SpellID spellid);
     virtual void Move();

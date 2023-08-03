@@ -45,7 +45,7 @@ CWeaponSkillState::CWeaponSkillState(CBattleEntity* PEntity, uint16 targid, uint
     {
         throw CStateInitException(std::move(m_errorMsg));
     }
-    if (!m_PEntity->PAI->TargetFind->canSee(&PTarget->loc.p))
+    if (!m_PEntity->CanSeeTarget(PTarget, false))
     {
         throw CStateInitException(std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION));
     }

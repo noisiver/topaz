@@ -33,6 +33,7 @@
 #include "vana_time.h"
 #include "battlefield_handler.h"
 
+#include "los/zone_los.h"
 #include "packets/weather.h"
 #include "navmesh.h"
 
@@ -440,19 +441,21 @@ enum TELEPORT_TYPE
 
 enum ZONEMISC
 {
-    MISC_NONE       = 0x0000,   // Able to be used in any area
-    MISC_ESCAPE     = 0x0001,   // Ability to use Escape Spell
-    MISC_FELLOW     = 0x0002,   // Ability to summon Fellow NPC
-    MISC_MOUNT      = 0x0004,   // Ability to use Chocobos and mounts
-    MISC_MAZURKA    = 0x0008,   // Ability to use Mazurka Spell
-    MISC_TRACTOR    = 0x0010,   // Ability to use Tractor Spell
-    MISC_MOGMENU    = 0x0020,   // Ability to communicate with Nomad Moogle (menu access mog house)
-    MISC_COSTUME    = 0x0040,   // Ability to use a Costumes
-    MISC_PET        = 0x0080,   // Ability to summon Pets
-    MISC_TREASURE   = 0x0100,   // Presence in the global zone TreasurePool
-    MISC_AH         = 0x0200,   // Ability to use the auction house
-    MISC_YELL       = 0x0400,   // Send and receive /yell commands
-    MISC_TRUST      = 0x0800,   // Ability to summon Trust NPC
+    MISC_NONE             = 0x0000, // Able to be used in any area
+    MISC_ESCAPE           = 0x0001, // Ability to use Escape Spell
+    MISC_FELLOW           = 0x0002, // Ability to summon Fellow NPC
+    MISC_MOUNT            = 0x0004, // Ability to use Chocobos and mounts
+    MISC_MAZURKA          = 0x0008, // Ability to use Mazurka Spell
+    MISC_TRACTOR          = 0x0010, // Ability to use Tractor Spell
+    MISC_MOGMENU          = 0x0020, // Ability to communicate with Nomad Moogle (menu access mog house)
+    MISC_COSTUME          = 0x0040, // Ability to use a Costumes
+    MISC_PET              = 0x0080, // Ability to summon Pets
+    MISC_TREASURE         = 0x0100, // Presence in the global zone TreasurePool
+    MISC_AH               = 0x0200, // Ability to use the auction house
+    MISC_YELL             = 0x0400, // Send and receive /yell commands
+    MISC_TRUST            = 0x0800, // Ability to summon Trust NPC
+    MISC_LOS_PLAYER_BLOCK = 0x1000, // Players can't use magic/JAs through walls if this is set
+    MISC_LOS_OFF          = 0x2000, // Zone should not have LoS checks
 };
 
 enum ZONEFAME
@@ -571,7 +574,7 @@ public:
     virtual CCharEntity*    GetCharByName(int8* name);                              // finds the player if exists in zone
     virtual CCharEntity*    GetCharByID(uint32 id);
     // Gets an entity - ignores instances (use CBaseEntity->GetEntity if possible)
-    virtual CBaseEntity*    GetEntity(uint16 targid, uint8 filter = -1);            // получаем указатель на любую сущность в зоне
+    virtual CBaseEntity*    GetEntity(uint16 targid, uint8 filter = -1);            // we get a pointer to any entity in the zone
 
     bool            IsWeatherStatic();                                              // the weather in the zone does not require changing (never changes)
     bool            CanUseMisc(uint16 misc);
@@ -643,6 +646,8 @@ public:
 
     CNavMesh*       m_navMesh;              // zones navmesh for finding paths
 
+    ZoneLos* lineOfSight = nullptr;
+
      time_point m_LoadedAt; // time zone was loaded
 
 private:
@@ -670,7 +675,7 @@ private:
     void    LoadZoneLines();                // список zonelines (можно было бы заменить этот метод методом InsertZoneLine)
     void    LoadZoneSettings();             // настройки зоны
     void    LoadNavMesh();                  // Load the zones navmesh. Must exist in scripts/zones/:zone/NavMesh.nav
-
+    void    LoadZoneLos();
 
     CTreasurePool*  m_TreasurePool;         // глобальный TreasuerPool
     time_point m_timeZoneEmpty;    // The time_point when the last player left the zone
@@ -679,7 +684,7 @@ private:
 
 protected:
 
-    CTaskMgr::CTask* ZoneTimer;             // указатель на созданный таймер - ZoneServer. необходим для возможности его остановки
+    CTaskMgr::CTask* ZoneTimer;             // /The pointer to the created timer is Zoneserver.necessary for the possibility of stopping it
     void createZoneTimer();
     void CharZoneIn(CCharEntity* PChar);
     void CharZoneOut(CCharEntity* PChar);

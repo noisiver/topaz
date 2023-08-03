@@ -228,6 +228,9 @@ public:
     bool            IsTargetable();      // checks if entity is targetable
     virtual bool    isWideScannable();   // checks if the entity should show up on wide scan
 
+    bool CanSeeTarget(CBaseEntity* target, bool fallbackNavMesh = true);
+    bool CanSeeTarget(const position_t& targetPoint, bool fallbackNavMesh = true);
+
     CBaseEntity*    GetEntity(uint16 targid, uint8 filter = -1);
 
     void            ResetLocalVars();

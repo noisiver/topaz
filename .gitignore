@@ -23,7 +23,6 @@ x64/
 *_p.c
 *.ilk
 *.meta
-*.obj
 *.pch
 *.pdb
 *.pgc
@@ -122,7 +121,6 @@ UpgradeLog*.XML
 *.slo
 *.lo
 *.o
-*.obj
 
 # Executables
 *.exe

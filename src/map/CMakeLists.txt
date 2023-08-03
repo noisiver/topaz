@@ -110,6 +110,7 @@ add_subdirectory(ai)
 add_subdirectory(entities)
 add_subdirectory(items)
 add_subdirectory(lua)
+add_subdirectory(los)
 add_subdirectory(packets)
 add_subdirectory(utils)
 
@@ -141,6 +142,7 @@ target_link_libraries(topaz_game
     entities
     items
     lua
+    los
     packets
     utils
     project_options

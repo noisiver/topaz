@@ -204,6 +204,11 @@ bool CMagicState::CanCastSpell(CBattleEntity* PTarget)
     {
         return false;
     }
+    if (m_PEntity == PTarget)
+    {
+        // Remaining checks are distance/visibility checks, which aren't needed if target is self.
+        return true;
+    }
     if (distance(m_PEntity->loc.p, PTarget->loc.p) > 40)
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, static_cast<uint16>(m_PSpell->getID()), 0, MSGBASIC_TOO_FAR_AWAY);
@@ -221,7 +226,7 @@ bool CMagicState::CanCastSpell(CBattleEntity* PTarget)
             return false;
         }
     }
-    if (!m_PEntity->PAI->TargetFind->canSee(&PTarget->loc.p))
+    if (m_PEntity->objtype == TYPE_PC && m_PEntity->loc.zone->CanUseMisc(MISC_LOS_PLAYER_BLOCK) && !m_PEntity->CanSeeTarget(PTarget, false))
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, static_cast<uint16>(m_PSpell->getID()), 0, MSGBASIC_CANNOT_PERFORM_ACTION);
         return false;

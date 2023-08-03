@@ -132,6 +132,25 @@ bool CBaseEntity::isWideScannable()
     return status != STATUS_DISAPPEAR && !IsNameHidden() && IsTargetable();
 }
 
+bool CBaseEntity::CanSeeTarget(CBaseEntity* target, bool fallbackNavMesh)
+{
+    return CanSeeTarget(target->loc.p, fallbackNavMesh);
+}
+
+bool CBaseEntity::CanSeeTarget(const position_t& targetPointBase, bool fallbackNavMesh)
+{
+    if (loc.zone->lineOfSight)
+    {
+                return loc.zone->lineOfSight->CanEntitySee(this, targetPointBase);
+    }
+    else if (fallbackNavMesh && loc.zone->m_navMesh)
+    {
+                return loc.zone->m_navMesh->raycast(loc.p, targetPointBase);
+    }
+
+    return true;
+}
+
 CBaseEntity* CBaseEntity::GetEntity(uint16 targid, uint8 filter)
 {
     if (targid == 0)

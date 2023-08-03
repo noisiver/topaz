@@ -250,6 +250,8 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     bool hasInvisible = false;
     bool hasSneak = false;
 
+    bool isTargetAndInRange = PMob->GetBattleTargetID() == PTarget->targid && currentDistance <= PMob->GetMeleeRange();
+
     if (PMob->m_TrueDetection == 0 && PMob->getMobMod(MOBMOD_TRUE_SIGHT_SOUND) == 0 && PMob->getMobMod(MOBMOD_TRUE_SIGHT) == 0 &&
         PMob->getMobMod(MOBMOD_TRUE_SOUND) == 0) // No True Detection
     {
@@ -274,7 +276,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     // ShowDebug("Sight Range after %u \n", sightRange);
     if (detectSight && !hasInvisible && currentDistance < sightRange && facing(PMob->loc.p, PTarget->loc.p, 64))
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((PMob->m_Behaviour & BEHAVIOUR_AGGRO_AMBUSH) && currentDistance < 3 && !hasSneak)
@@ -300,23 +302,23 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 
     if ((detectSound) && currentDistance < soundRange && !hasSneak)
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((detectMagic) && currentDistance < PMob->getMobMod(MOBMOD_MAGIC_RANGE) && PTarget->PAI->IsCurrentState<CMagicState>() &&
         static_cast<CMagicState*>(PTarget->PAI->GetCurrentState())->GetSpell()->hasMPCost())
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((detectWS) && currentDistance < PMob->getMobMod(MOBMOD_WS_RANGE) && PTarget->PAI->IsCurrentState<CWeaponSkillState>())
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((detectJA) && currentDistance < PMob->getMobMod(MOBMOD_JA_RANGE) && PTarget->PAI->IsCurrentState<CAbilityState>())
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     // ShowDebug("Blood Range before %u \n", PMob->getMobMod(MOBMOD_HP_RANGE));
@@ -324,7 +326,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     // ShowDebug("Blood Range after %u \n", bloodRange);
     if ((detectHP) && currentDistance < bloodRange && PTarget->GetHPP() < 75)
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     return false;
@@ -509,17 +511,6 @@ bool CMobController::IsUndead()
     {
         return false;
     }
-}
-
-bool CMobController::CanSeePoint(position_t pos)
-{
-    TracyZoneScoped;
-    if (PMob->PAI->PathFind && PMob->m_Family != 6) // Amphiptere paths don't match player's level very well, so pathfind checks mostly fail
-    {
-        return PMob->PAI->PathFind->CanSeePoint(pos);
-    }
-
-    return true;
 }
 
 bool CMobController::MobSkill(int wsList)
