@@ -11386,8 +11386,8 @@ INSERT INTO `mob_groups` VALUES (2,32,170,'Ace_of_Cups',0,128,12,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (3,30,170,'Ace_of_Batons',0,128,10,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (4,33,170,'Ace_of_Swords',0,128,13,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (5,31,170,'Ace_of_Coins',0,128,11,0,0,77,77,0);
-INSERT INTO `mob_groups` VALUES (6,3851,170,'Tatzlwurm',0,128,0,0,0,78,78,0);
-INSERT INTO `mob_groups` VALUES (7,4462,170,'Yali',0,128,0,0,0,78,78,0);
+INSERT INTO `mob_groups` VALUES (6,3851,170,'Tatzlwurm',0,128,0,7500,0,78,78,0);
+INSERT INTO `mob_groups` VALUES (7,4462,170,'Yali',0,128,0,7500,0,78,78,0);
 INSERT INTO `mob_groups` VALUES (8,636,170,'Carbuncle_Prime',0,128,414,0,0,80,85,0);
 INSERT INTO `mob_groups` VALUES (9,2050,170,'Ifrit_Prime',0,128,0,0,0,80,85,0);
 INSERT INTO `mob_groups` VALUES (10,3607,170,'Shiva_Prime',0,128,0,0,0,80,85,0);
@@ -11396,7 +11396,7 @@ INSERT INTO `mob_groups` VALUES (12,3931,170,'Titan_Prime',0,128,0,0,0,80,85,0);
 INSERT INTO `mob_groups` VALUES (13,3317,170,'Ramuh_Prime',0,128,0,0,0,80,85,0);
 INSERT INTO `mob_groups` VALUES (14,2402,170,'Leviathan_Prime',0,128,0,0,0,80,85,0);
 
-INSERT INTO `mob_groups` VALUES (8847,75,170,'Ajido-Marujido',0,0,0,0,0,0,0,0);
+INSERT INTO `mob_groups` VALUES (8847,75,170,'Ajido-Marujido',0,128,0,600,0,75,75,1);
 INSERT INTO `mob_groups` VALUES (8852,2258,170,'King_of_Batons',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8853,2260,170,'King_of_Cups',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8854,2261,170,'King_of_Swords',0,0,0,0,0,0,0,0);
@@ -11404,7 +11404,7 @@ INSERT INTO `mob_groups` VALUES (8856,3283,170,'Queen_of_Batons',0,0,0,0,0,0,0,0
 INSERT INTO `mob_groups` VALUES (8857,3285,170,'Queen_of_Cups',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8858,3286,170,'Queen_of_Swords',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8860,3584,170,'Shantotto',0,0,0,0,0,0,0,0);
-INSERT INTO `mob_groups` VALUES (14184,75,170,'Ajido-Marujido',0,128,0,0,0,75,75,1);
+INSERT INTO `mob_groups` VALUES (14184,75,170,'Ajido-Marujido',0,128,0,600,0,75,75,1);
 
 -- ------------------------------------------------------------
 -- Crawlers_Nest_[S] (Zone 171)

@@ -1,7 +1,7 @@
 -----------------------------------
 -- Area: Full Moon Fountain
 --  Mob: Yali
--- Windurst Mission 9-2
+-- Involved in Moon Reading (Windurst 9-2)
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
@@ -9,6 +9,8 @@ local ID = require("scripts/zones/Full_Moon_Fountain/IDs")
 -----------------------------------
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 5)
 end
 
 function onMobSpawn(mob)
