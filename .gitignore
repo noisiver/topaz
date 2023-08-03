@@ -121,6 +121,7 @@ UpgradeLog*.XML
 *.slo
 *.lo
 *.o
+*.obj
 
 # Executables
 *.exe
