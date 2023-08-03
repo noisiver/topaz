@@ -3479,7 +3479,7 @@ INSERT INTO `mob_groups` VALUES (117,2254,74,'King_Arthro_random',0,128,3201,100
 INSERT INTO `mob_groups` VALUES (118,3630,74,'Simurgh_random',0,128,3201,10000,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (119,3376,74,'Roc_random',0,128,3201,10000,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (120,2664,74,'Mimic',0,128,3201,3500,0,76,76,0);
-INSERT INTO `mob_groups` VALUES (121,9087,74,'Ruins_Oil',0,128,3201,8000,0,76,0);
+INSERT INTO `mob_groups` VALUES (121,9087,74,'Ruins_Oil',0,128,3201,8000,0,76,76,0);
 INSERT INTO `mob_groups` VALUES (122,9088,74,'Verrottendes_Fleisch',0,128,3201,8000,0,76,0);
 INSERT INTO `mob_groups` VALUES (123,9089,74,'Disciple_Of_Mammon',0,128,3201,8000,0,76,0);
 INSERT INTO `mob_groups` VALUES (124,9090,74,'Mammon_Loyalist',0,128,0,1,0,71,71,0);

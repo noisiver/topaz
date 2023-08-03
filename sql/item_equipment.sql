@@ -14292,7 +14292,7 @@ INSERT INTO `item_equipment` VALUES (21430,'hesperiidae',99,0,155904,0,0,0,8,0,0
 INSERT INTO `item_equipment` VALUES (21432,'epitaph',99,119,16384,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (21431,'coiste_bodhar',99,0,2473971,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (21568,'acrontica',99,119,262176,615,0,0,3,0,0);
-INSERT INTO `item_equipment` VALUES (21926,'tsuru',99,119,4096,312,0,0,3,0,0);
+-- INSERT INTO `item_equipment` VALUES (21926,'tsuru',99,119,4096,312,0,0,3,0,0); -- Custom changed to initiates pickaxe
 INSERT INTO `item_equipment` VALUES (26116,'schere_earring',99,0,133251,0,0,0,6144,0,0);
 INSERT INTO `item_equipment` VALUES (26362,'tellen_belt',99,0,66560,0,0,0,1024,0,0);
 INSERT INTO `item_equipment` VALUES (26363,'obstin._sash',99,0,524820,0,0,0,1024,0,0);
