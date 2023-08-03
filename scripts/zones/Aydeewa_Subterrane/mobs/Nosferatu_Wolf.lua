@@ -16,9 +16,17 @@ function onMobSpawn(mob)
     if GetServerVariable("NosferatuAF") == 0 or GetServerVariable("NosferatuAF") == 2 then
         mob:useMobAbility(468) -- Dirty Claw
     end
+    mob:addTP(3000) -- Safety check to ensure mob still despawns
 end
 
 function onMobFight(mob, target)
+    -- Safety check to ensure mob still despawns
+    if GetServerVariable("NosferatuAF") == 1 then
+        mob:useMobAbility(470) --  Methane Breath
+    end
+    if GetServerVariable("NosferatuAF") == 0 or GetServerVariable("NosferatuAF") == 2 then
+        mob:useMobAbility(468) -- Dirty Claw
+    end
 end
 
 function onMobWeaponSkill(target, mob, skill)

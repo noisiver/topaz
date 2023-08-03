@@ -34,12 +34,10 @@ function onMobFight(mob, target)
     if (summonMines > 0) then
         while minesplaced < summonMines do
             local currentMine = GetMobByID(mob:getID() + minesplaced)
-            if not currentMine:isSpawned() then
-                currentMine:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
-                currentMine:spawn()
-                currentMine:addStatusEffect(tpz.effect.STUN, 1, 0, 10)
-                currentMine:updateEnmity(target)
-            end
+            currentMine:spawn()
+            currentMine:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+            currentMine:addStatusEffect(tpz.effect.STUN, 1, 0, 10)
+            currentMine:updateEnmity(target)
             minesplaced = minesplaced +1
         end
         mob:setLocalVar("summonMines", 0)
