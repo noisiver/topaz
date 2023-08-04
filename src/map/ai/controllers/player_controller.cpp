@@ -134,6 +134,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
         if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+            return false;
         }
         if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) ||
             (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
