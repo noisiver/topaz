@@ -38,5 +38,9 @@ CCharSyncPacket::CCharSyncPacket(CCharEntity* PChar)
     ref<uint32>(0x08) = PChar->id;
     ref<uint8>(0x10) = PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC) ? 4 : 0; 	// 0x02 - Campaign Battle, 0x04 - Level Sync
     ref<uint8>(0x25) = PChar->jobs.job[PChar->GetMJob()];	// реальный уровень персонажа (при ограничении уровня отличается от m_mlvl)
-    ref<uint8>(0x27) = 0x01;
+
+    // Moghouse menu flags?
+    auto mhflag = PChar->profile.mhflag;
+    bool enableChangeFloors = (mhflag & 0x04) && (mhflag & 0x02) && (mhflag & 0x01) ? 0x01 : 0x00;
+    ref<uint8>(0x27) = enableChangeFloors;
 }
