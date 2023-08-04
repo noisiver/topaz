@@ -13,7 +13,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-   local kickDmg = 36 + player:getWeaponDmg()
+   local kickDmg = 72 + player:getWeaponDmg()
    local doubleAttackRate = 5 + player:getMerit(tpz.merit.KICK_ATTACK_RATE)
    player:addStatusEffect(tpz.effect.FOOTWORK, kickDmg, 0, 300, 0, doubleAttackRate)
 end
