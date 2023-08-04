@@ -1,9 +1,9 @@
 -----------------------------------
 -- Ability: Climactic Flourish
--- Description: Allows you to deal critical hits. Requires at least one finishing move.
+-- Description: Grants +5% double attack per finishing move consumed to nearby allies.
 -- Obtained: DNC Level 80
 -- Recast Time: 00:01:30 (Flourishes III)
--- Duration: 00:01:00
+-- Duration: 00:03:00
 -- Cost: 1-5 Finishing Move charges
 -----------------------------------
 require("scripts/globals/settings")
@@ -15,8 +15,23 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    for move = tpz.effect.FINISHING_MOVE_1, tpz.effect.FINISHING_MOVE_5 do
-        player:delStatusEffect(move)
-        player:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 3, 0, 60, 0, player:getMerit(tpz.merit.CLIMACTIC_FLOURISH_EFFECT))
+    if (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_1)) then
+        player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_1)
+        target:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 5, 0, 180)
+    elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_2)) then
+        player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_2)
+        target:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 10, 0, 180)
+    elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_3)) then
+        player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_3)
+        player:addStatusEffect(tpz.effect.FINISHING_MOVE_1, 1, 0, 7200)
+        target:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 15, 0, 180)
+    elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_4)) then
+        player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_4)
+        player:addStatusEffect(tpz.effect.FINISHING_MOVE_2, 1, 0, 7200)
+        target:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 20, 0, 180)
+    elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_5)) then
+        player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_5)
+        player:addStatusEffect(tpz.effect.FINISHING_MOVE_3, 1, 0, 7200)
+        target:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 25, 0, 180)
     end
 end

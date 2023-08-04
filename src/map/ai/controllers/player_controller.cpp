@@ -186,8 +186,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
         }
         // Check for Finish Move costing JA's
         if (PAbility->getID() >= ABILITY_ANIMATED_FLOURISH && PAbility->getID() <= ABILITY_WILD_FLOURISH || PAbility->getID() == ABILITY_CLIMACTIC_FLOURISH ||
-            PAbility->getID() == ABILITY_STRIKING_FLOURISH ||
-            PAbility->getID() == ABILITY_TERNARY_FLOURISH)
+            PAbility->getID() == ABILITY_STRIKING_FLOURISH || PAbility->getID() == ABILITY_TERNARY_FLOURISH)
         {
             if (!PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_FINISHING_MOVE))
             {
