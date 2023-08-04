@@ -74,6 +74,8 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_UNABLE_TO_SEE_TARG		= 5, /* Unable to see <target>. */
 	MSGBASIC_LOSE_SIGHT				= 36, /* You lose sight of <target>. */
 	MSGBASIC_TOO_FAR_AWAY			= 78, /* <target> is too far away. */
+    MSGASIC_CANNOT_SEE_TARGET       = 217,/* <You cannot see <target>. */
+    MSGASIC_CANNOT_SEE_TARGET2      = 219,/* <You cannot see <target>. */
 	/* Weaponskills */
     MSGBASIC_UNABLE_TO_USE_WS       = 89,  /* Unable to use weaponskill. */
 	MSGBASIC_CANNOT_USE_WS			= 190, /* The <player> cannot use that weapon ability. */

@@ -329,6 +329,7 @@ bool CMobEntity::CanLink(position_t* pos, int16 superLink)
     {
         return false;
     }
+
     return true;
 }
 
