@@ -454,7 +454,7 @@ enum ZONEMISC
     MISC_AH               = 0x0200, // Ability to use the auction house
     MISC_YELL             = 0x0400, // Send and receive /yell commands
     MISC_TRUST            = 0x0800, // Ability to summon Trust NPC
-    MISC_LOS_PLAYER_BLOCK = 0x1000, // Players can't use magic/JAs through walls if this is set
+    MISC_LOS_BLOCK        = 0x1000, // Can't use magic/JAs through walls if this is set
     MISC_LOS_OFF          = 0x2000, // Zone should not have LoS checks
 };
 
