@@ -669,7 +669,7 @@ enum class Mod
     DARK_AFFINITY_PERP        = 560,
 
     // Special Modifier+
-    ADDS_WEAPONSKILL          = 355, //
+    ADDS_WEAPONSKILL          = 355, // Needs to be tpz.ws_unlock ID for unlockables, otherwise the WSID itself
     ADDS_WEAPONSKILL_DYN      = 356, // In Dynamis
 
     STEALTH                   = 358, //
