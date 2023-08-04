@@ -527,6 +527,11 @@ bool CMobController::MobSkill(int wsList)
 
     std::shuffle(skillList.begin(), skillList.end(), tpzrand::mt());
     CBattleEntity* PActionTarget {nullptr};
+
+    if (!PMob->CanSeeTarget(PActionTarget, false))
+    {
+        return false;
+    }
 	
     uint16 scriptChoice = luautils::OnMobWeaponSkillPrepare((CBaseEntity*)PMob, (CBaseEntity*)PTarget);
     if (scriptChoice != 0)
