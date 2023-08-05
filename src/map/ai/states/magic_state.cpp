@@ -226,7 +226,7 @@ bool CMagicState::CanCastSpell(CBattleEntity* PTarget, bool isEndOfCast)
             return false;
         }
     }
-    if (!isEndOfCast && m_PEntity->loc.zone->CanUseMisc(MISC_LOS_BLOCK) && !m_PEntity->CanSeeTarget(PTarget, false))
+    if (!isEndOfCast && m_PEntity->objtype == TYPE_PC && m_PEntity->loc.zone->CanUseMisc(MISC_LOS_BLOCK) && !m_PEntity->CanSeeTarget(PTarget, false))
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, static_cast<uint16>(m_PSpell->getID()), 0, MSGASIC_CANNOT_SEE_TARGET);
         return false;
