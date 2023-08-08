@@ -558,16 +558,6 @@ bool CMobController::MobSkill(int wsList)
         {
             return false;
         }
-
-        // Make sure target is in LOS
-        if (PMobSkill->getValidTargets() == TARGET_ENEMY)
-        {
-            if (!PMob->CanSeeTarget(PActionTarget, false))
-            {
-                return false;
-            }
-        }
-
         float currentDistance = distance(PMob->loc.p, PActionTarget->loc.p);
         if (!PMobSkill->isTwoHour() && luautils::OnMobSkillCheck(PActionTarget, PMob, PMobSkill) == 0) //A script says that the move in question is valid
         {
@@ -830,15 +820,15 @@ void CMobController::DoCombatTick(time_point tick)
     luautils::OnMobFight(PMob, PTarget);
 
     // Try to spellcast (this is done first so things like Chainspell spam is prioritised over TP moves etc.
-    if (IsSpecialSkillReady(currentDistance) && TrySpecialSkill())
+    if (IsSpecialSkillReady(currentDistance) && TrySpecialSkill() && PMob->CanSeeTarget(PTarget))
     {
         return;
     }
-    else if (IsSpellReady(currentDistance) && TryCastSpell() && currentDistance <= 20.4)
+    else if (IsSpellReady(currentDistance) && TryCastSpell() && currentDistance <= 20.4 && PMob->CanSeeTarget(PTarget))
     {
         return;
     }
-    else if (m_Tick >= m_LastMobSkillTime && tpzrand::GetRandomNumber(1, 10000) <= PMob->TPUseChance() && MobSkill())
+    else if (m_Tick >= m_LastMobSkillTime && tpzrand::GetRandomNumber(1, 10000) <= PMob->TPUseChance() && MobSkill() && PMob->CanSeeTarget(PTarget))
     {
         return;
     }
