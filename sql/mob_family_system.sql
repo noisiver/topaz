@@ -642,6 +642,7 @@ INSERT INTO `mob_family_system` VALUES (589,'LordOfOnzozo',2,'Aquan',1,40,105,14
 INSERT INTO `mob_family_system` VALUES (590,'Exoplates',13,'Unclassified',0,40,100,100,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0,3,0,85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85);
 INSERT INTO `mob_family_system` VALUES (591,'MamoolJa-Sword',7,'Beastmen',1,60,125,120,2,2,4,3,4,4,4,1,1,1,1,1,1,1,1,1,0.7,1.15,0.7,0.7,1,1,1,3,1,0,100,	100,	70,	70,	115,	100,	100,	130,	130,	100,	100,	100,	100,	115,	115); -- Normal BLU mobs
 INSERT INTO `mob_family_system` VALUES (592,'Pet-CaitSith',5,'Avatar',0,40,100,120,9,9,9,9,9,9,9,1,3,1,3,0.5,0.5,0.5,0.5,1.3,1.3,1.3,1.3,1.3,1.3,0.2,1,0,41,0,130,	130,	130,	130,	130,	20,	20,	130,	130,	130,	130,	130,	130,	150,	150);
+INSERT INTO `mob_family_system` VALUES (593,'Jagil',2,'Aquan',1,40,100,100,4,4,4,3,4,4,5,1,3,1,3,1,1,1,1,1.3,1.5,1.3,1.3,1.5,0.3,1.3,1.3,6,2,1,130,	130,	130,	130,	150,	130,	130,	150,	150,	130,	130,	130,	50,	130,	130);
 
 -- Mythic Weapon Fights (Custom)
 INSERT INTO `mob_family_system` VALUES (887,'Cyranuce',13,'Humanoid',0,40,100,120,1,3,3,7,7,7,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);
@@ -727,7 +728,7 @@ INSERT INTO `mob_family_system` VALUES (969,'Cosmos_Cocora',17,'Plantoid',0,40,1
 INSERT INTO `mob_family_system` VALUES (970,'Goldcap',17,'Plantoid',0,68,125,110,3,4,4,4,5,4,4,1,1,1,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.1,1.3,0.1,8,2,1,50, 50,	50,	50,	50,	50,	50,	50,	50,	50,	50,	50,	50,	50,	50);
 
 -- 10,22,50,96,111,317-318,405,411-434,439-443 available for use
--- NEXT: 593
+-- NEXT: 594
 -- NEXT Custom: 971
 
   -- `familyid` smallint(4) unsigned NOT NULL,
