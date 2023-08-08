@@ -4622,6 +4622,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,350,27,55);
 INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,351,56,89); -- dokumori_ni
 INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,352,90,255); -- dokumori_san
 
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 152, 1, 255);    -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 182, 1, 255);    -- Blizzaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 236, 1, 255);    -- Frost
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 206, 1, 255);    -- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 250, 1, 255);    -- Ice Spikes
+
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5751,7 +5757,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,260,32,255);
 INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,473,1,255); -- Refresh II
 INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,879,1,255); -- Inundation
 
--- NEXT 1021
+-- NEXT 1022
 -- NEXT 2086(Custom)
 
 
