@@ -2361,6 +2361,7 @@ int getSDTTier(int SDT)
                 return false;
             }
             //Otherwise interrupt the spell cast.
+            PDefender->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", PAttacker, PDefender, PSpell);
             return true;
         }
 
