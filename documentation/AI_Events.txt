@@ -32,6 +32,7 @@ DEATH_DAMAGE - target, damage, attacker, attackType, damageType
 DEATH - Entity, Killer
 ENGAGE - Entity, Target
 DISENGAGE - Entity
+MOB_PATH - mob, target
 
 ATTACK - Attacker, defender, action
 ATTACKED - Defender, attacker, action

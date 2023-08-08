@@ -952,6 +952,7 @@ void CMobController::Move()
                                     if (PMob->PAI->PathFind->ValidPosition(new_pos))
                                     {
                                         PMob->PAI->PathFind->PathTo(new_pos, PATHFLAG_WALLHACK | PATHFLAG_RUN);
+                                        PMob->PAI->EventHandler.triggerListener("MOB_PATH", PMob, PTarget);
                                     }
                                     break;
                                 }
@@ -970,6 +971,7 @@ void CMobController::Move()
                     if (distance(new_pos, PTarget->loc.p) - PMob->m_ModelSize <= PTarget->GetMeleeRange())
                     {
                         PMob->PAI->PathFind->StepTo(new_pos);
+                        PMob->PAI->EventHandler.triggerListener("MOB_PATH", PMob, PTarget);
                     }
                 }
                 FaceTarget();
