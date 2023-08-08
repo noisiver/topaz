@@ -29,6 +29,7 @@ CPathFind::CPathFind(CBaseEntity* PTarget)
 {
     m_PTarget = PTarget;
     m_pathFlags = 0;
+    m_carefulPathing = false;
     Clear();
 }
 
@@ -257,7 +258,7 @@ void CPathFind::FollowPath()
 
     StepTo(targetPoint, m_pathFlags & PATHFLAG_RUN);
 
-    if (isNavMeshEnabled())
+    if (isNavMeshEnabled() && m_carefulPathing)
     {
         m_PTarget->loc.zone->m_navMesh->snapToValidPosition(m_PTarget->loc.p);
     }
@@ -548,6 +549,11 @@ bool CPathFind::CanSeePoint(const position_t& point, bool lookOffMesh)
 const position_t& CPathFind::GetDestination() const
 {
     return m_points.back();
+}
+
+void CPathFind::SetCarefulPathing(bool careful)
+{
+    m_carefulPathing = careful;
 }
 
 void CPathFind::Clear()
