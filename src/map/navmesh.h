@@ -85,6 +85,7 @@ public:
     bool raycast(const position_t& start, const position_t& end);
 
     bool validPosition(const position_t& position);
+    void snapToValidPosition(position_t& position);
     bool findClosestValidPoint(const position_t& position, float* validPoint);
     bool findFurthestValidPoint(const position_t& startPosition, const position_t& endPosition, float* validPoint);
 

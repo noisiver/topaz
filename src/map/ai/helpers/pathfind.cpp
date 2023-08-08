@@ -257,6 +257,11 @@ void CPathFind::FollowPath()
 
     StepTo(targetPoint, m_pathFlags & PATHFLAG_RUN);
 
+    if (isNavMeshEnabled())
+    {
+        m_PTarget->loc.zone->m_navMesh->snapToValidPosition(m_PTarget->loc.p);
+    }
+
     if (m_maxDistance && m_distanceMoved >= m_maxDistance)
     {
         // if I have a max distance, check to stop me
