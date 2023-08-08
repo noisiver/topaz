@@ -2,18 +2,10 @@
 -- Area: Mamook
 --  Mob: Mamool_Ja_Philosopher
 -----------------------------------
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
-function onMobRoam(mob)
-local CastTime = mob:getLocalVar("CastTime")
-local SpawnTimer = mob:getLocalVar("SpawnTimer")
 
-	if SpawnTimer == 0 then
-		mob:setLocalVar("CastTime", os.time() + 3)
-		mob:setLocalVar("SpawnTimer", 1)
-	elseif SpawnTimer == 1 and os.time() > CastTime  then
-		mob:setLocalVar("CastTime", os.time() + 180)
-        mob:castSpell(251) -- Shock Spikes
-    end
+function onMobRoam(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

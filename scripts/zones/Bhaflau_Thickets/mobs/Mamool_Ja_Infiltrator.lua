@@ -2,7 +2,6 @@
 -- Area: Bhaflau Thickets
 --  Mob: Mamool_Ja_Infiltrator
 -----------------------------------
-
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 function onMobSpawn(mob)

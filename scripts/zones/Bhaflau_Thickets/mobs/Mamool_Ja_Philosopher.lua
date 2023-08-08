@@ -2,7 +2,7 @@
 -- Area: Bhaflau Thickets
 --  Mob: Mamool_Ja_Philosopher
 -----------------------------------
-
+mixins = {require("scripts/mixins/weapon_break")}
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 function onMobRoam(mob)

@@ -2,8 +2,8 @@
 -- Area: Bhaflau Thickets
 --  Mob: Mamool_Ja_Lurker
 -----------------------------------
-
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller, noKiller)

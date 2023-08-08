@@ -5,6 +5,7 @@
 -----------------------------------
 require("scripts/globals/status")
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 70)

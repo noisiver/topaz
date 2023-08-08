@@ -2,6 +2,7 @@
 -- Area: Mamook
 --  Mob: Mamool_Ja_Strapper
 -----------------------------------
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 function onMobEngaged(mob, target)
 	mob:spawnPet()

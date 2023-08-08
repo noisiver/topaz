@@ -2,6 +2,7 @@
 -- Area: Mamook
 --  Mob: Mamool_Ja_Conservator
 -----------------------------------
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller, noKiller)
