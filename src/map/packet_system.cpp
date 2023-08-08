@@ -2935,11 +2935,13 @@ void SmallPacket0x053(map_session_data_t* session, CCharEntity* PChar, CBasicPac
                 break;
             }
         }
+        charutils::UpdateRemovedSlots(PChar);
         charutils::SaveCharLook(PChar);
     }
     else if (type == 4)
     {
         charutils::SetStyleLock(PChar, true);
+        charutils::UpdateRemovedSlots(PChar);
         charutils::SaveCharLook(PChar);
     }
 
