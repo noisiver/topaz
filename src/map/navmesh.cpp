@@ -29,6 +29,11 @@
 #include "../common/tpzrand.h"
 
 const int8 CNavMesh::ERROR_NEARESTPOLY;
+constexpr float smallPolyPickExt[3] = { 0.5f, 1.0f, 0.5f };
+constexpr float polyPickExt[3] = { 5.0f, 10.0f, 5.0f };
+constexpr float skinnyPolyPickExt[3] = { 0.01f, 10.0f, 0.01f };
+constexpr float verticalLimit = 5.0f;
+
 
 void CNavMesh::ToFFXIPos(const position_t* pos, float* out) {
     float y = pos->y;
@@ -450,6 +455,63 @@ bool CNavMesh::findFurthestValidPoint(const position_t& startPosition, const pos
     return true;
 }
 
+bool CNavMesh::onSameFloor(const position_t& start, float* spos, const position_t& end, float* epos, dtQueryFilter& filter)
+{
+    TracyZoneScoped;
+
+    float verticalDistance = abs(start.y - end.y);
+    if (verticalDistance > 2 * verticalLimit)
+    {
+        // Too far away, abort check
+        return false;
+    }
+    else if (verticalDistance > verticalLimit)
+    {
+        // Far away, but not too far away.
+        // We're going to try and disambiguate any vertical floors.
+        dtPolyRef polys[16];
+        int polyCount = -1;
+        dtStatus status = m_navMeshQuery.queryPolygons(epos, skinnyPolyPickExt, &filter, polys, &polyCount, 16);
+
+        if (dtStatusFailed(status) || polyCount <= 0)
+        {
+            ShowNavError("CNavMesh::Bad vertical polygon query (%f, %f, %f) (%u)\n", epos[0], epos[1], epos[2], m_zoneID);
+            outputError(status);
+            return false;
+        }
+
+        // Collect the heights of queried polygons
+        uint8 verticalLimitTrunc = static_cast<uint8>(verticalLimit);
+        float height;
+        std::set<uint8> heights;
+        for (int i = 0; i < polyCount; i++)
+        {
+            status = m_navMeshQuery.getPolyHeight(polys[i], epos, &height);
+            if (!dtStatusFailed(status))
+            {
+                // Truncate the height and round to nearest multiple of verticalLimitTrunc for easier de-duping
+                heights.insert((uint8)i);
+            }
+        }
+
+        // Multiple floors detected, we need to disambiguate
+        if (heights.size() > 1)
+        {
+            float startHeight = spos[1] + abs(std::fmod(spos[1], verticalLimit) - verticalLimit);
+            float endHeight = epos[1] + abs(std::fmod(epos[1], verticalLimit) - verticalLimit);
+
+            // Since we've already truncated and rounded to nearest multiples of verticalLimitTrunc,
+            // if we are within verticalLimitTrunc of a point, that's our closest.
+            if (startHeight != endHeight)
+            {
+                // ShowInfo("Different Floors");
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
 
 bool CNavMesh::raycast(const position_t& start, const position_t& end)
 {
@@ -476,6 +538,17 @@ bool CNavMesh::raycast(const position_t& start, const position_t& end)
     dtQueryFilter filter;
     filter.setIncludeFlags(0xffff);
     filter.setExcludeFlags(0);
+
+    // Since detour's raycasting ignores the y component of your search, it is possible to
+    // incorrectly raycast between multiple floors. This leads to mobs being able to aggro
+    // you from above/below and then wallhack their way to you. To get around this, we're
+    // going to query in a small column for polys above and below and then test against
+    // the results.
+    if (!onSameFloor(start, spos, end, epos, filter))
+    {
+        return false;
+    }
+
 
     dtPolyRef startRef;
     float snearest[3];

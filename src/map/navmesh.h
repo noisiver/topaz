@@ -91,6 +91,7 @@ public:
 
 private:
     void outputError(uint32 status);
+    bool onSameFloor(const position_t& start, float* spos, const position_t& end, float* epos, dtQueryFilter& filter);
 
     uint16 m_zoneID;
     dtRaycastHit m_hit;

@@ -223,17 +223,7 @@ void CMobController::TryLink()
 bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 {
     TracyZoneScoped;
-    if (PTarget->isDead() || PTarget->isMounted()) return false;
-
-    float verticalDistance = abs(PMob->loc.p.y - PTarget->loc.p.y);
-
-    if (verticalDistance > 12 && PMob->getMobMod(MOBMOD_VERTICAL_AGGRO) == 0)
-    {
-        return false;
-    }
-
-
-    if (PTarget->loc.zone->HasReducedVerticalAggro() && verticalDistance > 3.5f)
+    if (PTarget->isDead() || PTarget->isMounted())
     {
         return false;
     }
