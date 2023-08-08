@@ -10723,6 +10723,29 @@ inline int32 CLuaBaseEntity::addRecast(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: addMaxRecastToAllAbilities()
+ *  Purpose : Manually adds a cooldown for a particular Ability
+ *  Example : mob:addMaxRecastToAllAbilities(true)
+ *  Notes   : True = resets 2 hours, false = don't reste 2 hours
+ *  TODO: bool for 2 hours
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::addMaxRecastToAllAbilities(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    auto PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+    if (PChar && PChar->objtype == TYPE_PC)
+    {
+        battleutils::AddMaxRecastToAllAbilities(PChar);
+        PChar->pushPacket(new CCharSkillsPacket(PChar));
+        PChar->pushPacket(new CCharRecastPacket(PChar));
+    }
+    return 0;
+}
+
+/************************************************************************
 *  Function: hasRecast()
 *  Purpose : Checks to see if a particular Ability is on cooldown
 *  Example : automaton:hasRecast(RECAST_ABILITY, skill:getID(), recast)
@@ -16572,6 +16595,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,timer),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,queue),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addRecast),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,addMaxRecastToAllAbilities),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasRecast),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetRecast),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetRecasts),

@@ -6600,6 +6600,17 @@ int getSDTTier(int SDT)
     }
 
     /************************************************************************
+     *                                                                       *
+     *    Sets all abilities to their maximumr recast timer.                 *
+     *                                                                       *
+     ************************************************************************/
+    void AddMaxRecastToAllAbilities(CCharEntity* PTarget)
+    {
+        //TODO: bool for 2 hours
+        PTarget->PRecastContainer->PutAllAbilitiesOnCooldown();
+    }
+
+    /************************************************************************
     *                                                                       *
     *   Get the Snapshot shot time reduction                                *
     *                                                                       *
