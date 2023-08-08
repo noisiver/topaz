@@ -8543,12 +8543,18 @@ inline int32 CLuaBaseEntity::takeDamage(lua_State *L)
         {
             PDefender->StatusEffectContainer->WakeUp();
         }
-    }
 
-    // Bind has a chance to break from all direct attacks, even if they don't deal damage
-    if (PAttacker && breakBind)
-    {
-        battleutils::BindBreakCheck(PAttacker, PDefender);
+        // Bind has a chance to break from all direct attacks.
+        if (PAttacker && breakBind)
+        {
+            battleutils::BindBreakCheck(PAttacker, PDefender);
+        }
+
+        // Add listener to get the attack type and damage type that dealt the killing blow
+        if (damage >= PDefender->health.hp)
+        {
+            PDefender->PAI->EventHandler.triggerListener("DEATH", PDefender, damage, PAttacker, (uint16)attackType, (uint16)damageType);
+        }
     }
 
     return 0;

@@ -31,6 +31,7 @@ DESPAWN - Entity
 DEATH - Entity, Killer
 ENGAGE - Entity, Target
 DISENGAGE - Entity
+DEATH - target, damage, attacker, attackType, damageType
 
 ATTACK - Attacker, defender, action
 ATTACKED - Defender, attacker, action
