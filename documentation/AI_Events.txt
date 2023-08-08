@@ -28,10 +28,10 @@ SKILLCHAIN_TAKE - Entity, target, element
 
 SPAWN - Entity
 DESPAWN - Entity
+DEATH_DAMAGE - target, damage, attacker, attackType, damageType
 DEATH - Entity, Killer
 ENGAGE - Entity, Target
 DISENGAGE - Entity
-DEATH - target, damage, attacker, attackType, damageType
 
 ATTACK - Attacker, defender, action
 ATTACKED - Defender, attacker, action
