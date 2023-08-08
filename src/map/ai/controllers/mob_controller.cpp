@@ -527,11 +527,6 @@ bool CMobController::MobSkill(int wsList)
 
     std::shuffle(skillList.begin(), skillList.end(), tpzrand::mt());
     CBattleEntity* PActionTarget {nullptr};
-
-    if (!PMob->CanSeeTarget(PActionTarget, false))
-    {
-        return false;
-    }
 	
     uint16 scriptChoice = luautils::OnMobWeaponSkillPrepare((CBaseEntity*)PMob, (CBaseEntity*)PTarget);
     if (scriptChoice != 0)
@@ -563,16 +558,6 @@ bool CMobController::MobSkill(int wsList)
         {
             return false;
         }
-
-        // Make sure target is in LOS
-        if (PMobSkill->getValidTargets() == TARGET_ENEMY)
-        {
-            if (!PMob->CanSeeTarget(PActionTarget, false))
-            {
-                return false;
-            }
-        }
-
         float currentDistance = distance(PMob->loc.p, PActionTarget->loc.p);
         if (!PMobSkill->isTwoHour() && luautils::OnMobSkillCheck(PActionTarget, PMob, PMobSkill) == 0) //A script says that the move in question is valid
         {
