@@ -201,7 +201,7 @@ void CPetEntity::FadeOut()
 void CPetEntity::Die()
 {
     PAI->ClearStateStack();
-    PAI->Internal_Die(0s);
+    PAI->Internal_Die(2500ms);
     m_unkillable = false;
     PAI->GetController()->SetAutoAttackEnabled(true);
     PAI->GetController()->SetMagicCastingEnabled(true);
