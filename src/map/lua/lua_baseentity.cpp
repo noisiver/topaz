@@ -3014,18 +3014,21 @@ inline int32 CLuaBaseEntity::setPos(lua_State *L)
         if (!lua_isnil(L, 4) && lua_isnumber(L, 4))
             m_PBaseEntity->loc.p.rotation = (uint8)lua_tointeger(L, 4);
 
-        // Also set the position of the enity's pet
-        CBattleEntity* PPet = ((CBattleEntity*)m_PBaseEntity)->PPet;
-        if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+        // Also set the position of the enity's pet if a player
+        if (m_PBaseEntity->objtype == TYPE_PC)
         {
-            if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
-                PPet->loc.p.x = (float)lua_tonumber(L, 1);
-            if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
-                PPet->loc.p.y = (float)lua_tonumber(L, 2);
-            if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
-                PPet->loc.p.z = (float)lua_tonumber(L, 3);
-            if (!lua_isnil(L, 4) && lua_isnumber(L, 4))
-                PPet->loc.p.rotation = (uint8)lua_tointeger(L, 4);
+            CBattleEntity* PPet = ((CBattleEntity*)m_PBaseEntity)->PPet;
+            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+            {
+                if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
+                    PPet->loc.p.x = (float)lua_tonumber(L, 1);
+                if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
+                    PPet->loc.p.y = (float)lua_tonumber(L, 2);
+                if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
+                    PPet->loc.p.z = (float)lua_tonumber(L, 3);
+                if (!lua_isnil(L, 4) && lua_isnumber(L, 4))
+                    PPet->loc.p.rotation = (uint8)lua_tointeger(L, 4);
+            }
         }
     }
     else
