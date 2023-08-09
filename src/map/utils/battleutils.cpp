@@ -1274,7 +1274,7 @@ int getSDTTier(int SDT)
                     break;
 
                 case SPIKE_REPRISAL:
-                    if (Action->reaction == REACTION_BLOCK)
+                            if ((Action->reaction & REACTION_BLOCK) == REACTION_BLOCK)
                     {
                         PAttacker->takeDamage(Action->spikesParam,
                                               PDefender, ATTACK_MAGICAL,
@@ -2416,7 +2416,6 @@ int getSDTTier(int SDT)
             {
                 base = PMob->getMobMod(MOBMOD_BLOCK);
                 base += PMob->getMod(Mod::SHIELDBLOCKRATE);
-                base = std::clamp(base, 0, 100);
                 return base;
             }
             else
@@ -2425,7 +2424,6 @@ int getSDTTier(int SDT)
         else if (PDefender->objtype == TYPE_PET)
         {
             base = PDefender->getMod(Mod::SHIELDBLOCKRATE);
-            base = std::clamp(base, 0, 100);
             return base;
         }
         else
