@@ -1673,7 +1673,7 @@ int getSDTTier(int SDT)
                     Action->addEffectMessage = 384;
                 }
                 // Add -30 element resist down effect based on the enspell for 15 seconds
-                PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_NINJUTSU_ELE_DEBUFF, 0, 30, 0, 10, 0, resistDownEle, 0));
+                ((CBattleEntity*)PDefender)->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_NINJUTSU_ELE_DEBUFF, 0, 30, 0, 10, 0, resistDownEle, 0, false));
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
             else if (enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK)
