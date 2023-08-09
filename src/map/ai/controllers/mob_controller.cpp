@@ -809,16 +809,22 @@ void CMobController::DoCombatTick(time_point tick)
     PMob->PAI->EventHandler.triggerListener("COMBAT_TICK", PMob);
     luautils::OnMobFight(PMob, PTarget);
 
+    // If target is not in LOS, move towards them
+    if (!PMob->CanSeeTarget(PTarget))
+    {
+        Move();
+    }
+
     // Try to spellcast (this is done first so things like Chainspell spam is prioritised over TP moves etc.
-    if (IsSpecialSkillReady(currentDistance) && TrySpecialSkill() && PMob->CanSeeTarget(PTarget))
+    if (IsSpecialSkillReady(currentDistance) && TrySpecialSkill())
     {
         return;
     }
-    else if (IsSpellReady(currentDistance) && TryCastSpell() && currentDistance <= 20.4 && PMob->CanSeeTarget(PTarget))
+    else if (IsSpellReady(currentDistance) && TryCastSpell() && currentDistance <= 20.4)
     {
         return;
     }
-    else if (m_Tick >= m_LastMobSkillTime && tpzrand::GetRandomNumber(1, 10000) <= PMob->TPUseChance() && MobSkill() && PMob->CanSeeTarget(PTarget))
+    else if (m_Tick >= m_LastMobSkillTime && tpzrand::GetRandomNumber(1, 10000) <= PMob->TPUseChance() && MobSkill())
     {
         return;
     }
