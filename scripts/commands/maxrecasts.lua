@@ -31,7 +31,5 @@ function onTrigger(player, target)
 
     -- reset target recasts
     targ:addMaxRecastToAllAbilities()
-    if (targ:getID() ~= player:getID()) then
-        player:PrintToPlayer( string.format( "Maxed %s's JA timers.", targ:getName() ) )
-    end
+    player:PrintToPlayer( string.format( "Maxed %s's JA timers.", targ:getName() ) )
 end
