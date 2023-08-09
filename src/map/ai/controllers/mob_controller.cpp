@@ -1434,11 +1434,19 @@ bool CMobController::Cast(uint16 targid, SpellID spellid)
 bool CMobController::CanMoveForward(float currentDistance)
 {
     TracyZoneScoped;
+    // Move forward if target is not in LOS
+    if (!PMob->CanSeeTarget(PTarget))
+    {
+        return true;
+    }
+
+    // If behavior bitflag is standback, don't move if < 20 yards from target
     if(PMob->m_Behaviour & BEHAVIOUR_STANDBACK && currentDistance < 20)
     {
         return false;
     }
 
+    // If mob mod no standback is 0, or HP is above MOBMOD_HP_STANDBACK, don't move forward
     if (PMob->getMobMod(MOBMOD_NO_STANDBACK) == 0 && PMob->getMobMod(MOBMOD_HP_STANDBACK) > 0 && currentDistance < 15 && PMob->GetHPP() >= PMob->getMobMod(MOBMOD_HP_STANDBACK)
         && currentDistance > PMob->GetMeleeRange() * 2)
     {
