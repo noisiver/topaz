@@ -4588,6 +4588,14 @@ int getSDTTier(int SDT)
             else if (PPlayer->isSitting())
             {
                 PPlayer->animation = ANIMATION_NONE;
+                PPlayer->updatemask |= UPDATE_HP;
+
+                CPetEntity* PPet = dynamic_cast<CPetEntity*>(PPlayer->PPet);
+                if (PPet && (PPet->getPetType() == PETTYPE_WYVERN || PPet->getPetType() == PETTYPE_AUTOMATON))
+                {
+                    PPet->animation = ANIMATION_NONE;
+                    PPet->updatemask |= UPDATE_HP;
+                }
             }
         }
     }

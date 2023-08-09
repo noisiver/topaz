@@ -5655,8 +5655,19 @@ void SmallPacket0x0EA(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     if(PChar->StatusEffectContainer->HasPreventActionEffect())
         return;
 
-    PChar->animation = (PChar->animation == ANIMATION_SIT ? ANIMATION_NONE : ANIMATION_SIT);
+    PChar->animation = PChar->animation == ANIMATION_SIT ? ANIMATION_NONE : ANIMATION_SIT;
     PChar->updatemask |= UPDATE_HP;
+
+    CPetEntity* PPet = dynamic_cast<CPetEntity*>(PChar->PPet);
+    if (PPet)
+    {
+        if (PPet->getPetType() == PETTYPE_WYVERN || PPet->getPetType() == PETTYPE_AUTOMATON)
+        {
+            PPet->animation = PChar->animation;
+            PPet->updatemask |= UPDATE_HP;
+        }
+    }
+
     return;
 }
 
