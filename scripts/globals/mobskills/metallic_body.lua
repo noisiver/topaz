@@ -7,6 +7,7 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/pets")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -14,14 +15,17 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = 25 
+    local typeEffect = tpz.effect.STONESKIN
+    local power = 25
+    local tick = 0
+    local duration = 300
 
     if (mob:isNM()) then
         power = math.floor((25 + (mob:getMainLvl() / 1)) * 2)
-    elseif mob:isPet() then
-        power = math.floor(mob:getMaxHP() * 0.10)
     end
 
-    skill:setMsg(MobBuffMove(mob, tpz.effect.STONESKIN, power, 0, 300))
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))
+    tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, math.floor(mob:getMaxHP() * 0.10), tick, duration)
+
     return tpz.effect.STONESKIN
 end

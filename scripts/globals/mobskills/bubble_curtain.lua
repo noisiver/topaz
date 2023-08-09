@@ -10,6 +10,7 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/pets")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -22,12 +23,15 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SHELL
     local power = 50
+    local tick = 0
+    local duration = 180
 
 	if (mob:getPool() == 2612) then -- Megapod Megalops(Blade: Ku WSNM)
 		power = 100
 	end
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 180))
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, tick, duration))
+    tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, power, tick, duration)
 
     return typeEffect
 end

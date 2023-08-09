@@ -3,6 +3,9 @@
 --  PETS ID
 --
 -----------------------------------
+require("scripts/globals/monstertpmoves")
+require("scripts/globals/status")
+-----------------------------------
 tpz = tpz or {}
 tpz.pet = tpz.pet or {}
 
@@ -1235,5 +1238,18 @@ function tpz.pet.spawnPet(player, petID)
         local power = statusEffect:getPower()
         local duration = math.floor(statusEffect:getTimeRemaining()/1000)
         pet:addStatusEffectEx(effect, effect, power, 0, duration)
+    end
+end
+
+function tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, power, tick, duration, subid, subpower, tier)
+    if mob:isPet() then
+        local master = mob:getMaster()
+        local tp = mob:getLocalVar("tp")
+        if master:isPC() then
+            if not IsNonScalingBuff(typeEffect) then
+                finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))
+            end
+            master:addStatusEffect(typeEffect, power, tick, finalDuration, subid, subpower, tier)
+        end
     end
 end

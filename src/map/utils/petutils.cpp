@@ -1121,10 +1121,19 @@ namespace petutils
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (240.0f / 60.0f))));
 
+        // innate -25 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
+        PPet->setModifier(Mod::UDMGPHYS, -25);
+        PPet->setModifier(Mod::UDMGBREATH, -25);
+        PPet->setModifier(Mod::UDMGMAGIC, -25);
+        PPet->setModifier(Mod::UDMGRANGE, -25);
+
+        // innate + 40 subtle blow
+        PPet->setModifier(Mod::SUBTLE_BLOW, 40);
+
         // Get the Jug pet cap level
         uint8 highestLvl = PPetData->maxLevel;
 
-        // Increase the pet's level cal by the bonus given by BEAST AFFINITY merits.
+        // Increase the pet's level calc by the bonus given by BEAST AFFINITY merits.
         CCharEntity* PChar = (CCharEntity*)PMaster;
         highestLvl += PChar->PMeritPoints->GetMeritValue(MERIT_BEAST_AFFINITY, PChar);
         // TODO: Does not work properly

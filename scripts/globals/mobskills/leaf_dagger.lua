@@ -36,8 +36,14 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*2)
 
     local typeEffect = tpz.effect.POISON
-    local power = math.floor(mob:getMainLvl()/10) 
-    if (power < 1 ) then
+    local power = math.floor(mob:getMainLvl()/10)
+    if mob:isPet() then
+        local master = mob:getMaster()
+        if master:isPC() then
+            power = math.floor(mob:getMainLvl() / 3)
+        end
+    end
+    if (power < 1) then
         power = 1
     end
 
