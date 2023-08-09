@@ -700,6 +700,7 @@ public:
     int32 SetMagicCastingEnabled(lua_State*); // halt/resumes casting magic
     int32 SetMobAbilityEnabled(lua_State*);   // halt/resumes mob skills
     int32 SetMobSkillAttack(lua_State*);      // enable/disable using mobskills as regular attacks
+    int32 SetClaimable(lua_State*);           // set the enmity claimable or not
 
     int32 getMobMod(lua_State*);
     int32 setMobMod(lua_State*);

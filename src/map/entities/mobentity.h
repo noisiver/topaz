@@ -255,6 +255,8 @@ public:
     CMobSpellContainer* SpellContainer;                // retrieves spells for the mob
     uint8     m_HasSpellScript;                        // 1 if they have a spell script to use for working out what to cast.
 
+    bool m_IsClaimable;
+
     static constexpr float sound_range {8.f};
     static constexpr float sight_range {10.f};
     static constexpr float magic_range{ 20.f };
