@@ -29,7 +29,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.skill = tpz.skill.CLUB
     params.includemab = true
 	params.enmityMult = 2.0
-	params.bonusmacc = 100
+	params.bonusmacc = 156
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.str_wsc = 0.5 params.mnd_wsc = 0.5
