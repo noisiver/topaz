@@ -202,7 +202,7 @@ void CPetEntity::FadeOut()
 void CPetEntity::Die()
 {
     PAI->ClearStateStack();
-    PAI->Internal_Die(2500ms);
+    PAI->Internal_Die(0s);
     m_unkillable = false;
     
     if ((PAI != nullptr) && (PAI->GetController() != nullptr))
