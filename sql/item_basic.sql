@@ -19478,7 +19478,6 @@ INSERT INTO `item_basic` VALUES (23793,0,'ziamet_peti','ziamet_peti',1,63552,0,1
 INSERT INTO `item_basic` VALUES (23794,0,'ziamet_bazubands','ziamet_bazubands',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (23795,0,'ziamet_salvars','ziamet_salvars',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (23796,0,'ziamet_nails','ziamet_nails',1,63552,0,1,0);
-INSERT INTO `item_basic` VALUES (23797,0,'crepuscular_helm','crepuscular_helm',1,63572,0,1,0);
 INSERT INTO `item_basic` VALUES (23797,0,'crepuscular_helm','crepuscular_helm',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (23798,0,'crepuscular_mail','crepuscular_mail',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (23799,0,'crepuscular_cloak','crepuscular_cloak',1,63568,0,1,0);
