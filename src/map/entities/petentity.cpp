@@ -48,7 +48,6 @@ CPetEntity::CPetEntity(PETTYPE petType)
 	objtype = TYPE_PET;
 	m_EcoSystem = SYSTEM_UNCLASSIFIED;
 	allegiance = ALLEGIANCE_PLAYER;
-    m_IsClaimable = false;
     m_MobSkillList = 0;
     m_HasSpellScript = 0;
     namevis = 0; 

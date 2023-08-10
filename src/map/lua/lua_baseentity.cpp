@@ -14934,24 +14934,6 @@ inline int32 CLuaBaseEntity::SetMobSkillAttack(lua_State* L)
 }
 
 /************************************************************************
- *  Function: SetClaimable()
- *  Purpose : Sets an entity as claimable
- *  Example : mob:SetClaimable()
- *  Notes   :
- ************************************************************************/
-
-int32 CLuaBaseEntity::SetClaimable(lua_State* L)
-{
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_PC);
-
-    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
-    PMob->m_IsClaimable = lua_toboolean(L, 1);
-
-    return 1;
-}
-
-/************************************************************************
 *  Function: getMobMod()
 *  Purpose : Returns the power value of a Mob Mod in effect
 *  Example : mob:getMobMod(tpz.mobMod.MUG_GIL)
@@ -16821,7 +16803,6 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetMagicCastingEnabled),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetMobAbilityEnabled),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetMobSkillAttack),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetClaimable),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMobMod),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMobMod),
