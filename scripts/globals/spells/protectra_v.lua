@@ -13,7 +13,8 @@ end
 function onSpellCast(caster, target, spell)
     local duration = calculateDuration(1800, spell:getSkillType(), spell:getSpellGroup(), caster, target, false)
     duration = calculateDurationForLvl(duration, 75, target:getMainLvl())
-    local power = 60 -- changed to 75 era was 220
+    local meritBonus = caster:getMerit(tpz.merit.PROTECTRA_V)
+    local power = 60 + meritBonus -- changed to 75 era was 220
 
     local typeEffect = tpz.effect.PROTECT
     if ApplyProtectShell(caster, target, typeEffect, power, duration) then
