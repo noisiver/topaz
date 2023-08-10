@@ -750,12 +750,8 @@ void CMobEntity::Spawn()
     SetMLevel(level);
     SetSLevel(level);//calculated in function
 
-    // Don't calculate spells/stats again if a monster pet, they've already been calculated in petutils.cpp
-    if (objtype != TYPE_PET)
-    {
-        mobutils::CalculateMobStats(this, true);
-        mobutils::GetAvailableSpells(this);
-    }
+    mobutils::CalculateMobStats(this, true);
+    mobutils::GetAvailableSpells(this);
 
     // spawn somewhere around my point
     loc.p = m_SpawnPoint;
