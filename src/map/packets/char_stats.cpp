@@ -76,13 +76,12 @@ CCharStatsPacket::CCharStatsPacket(CCharEntity * PChar)
 	ref<uint8>(0x50) = PChar->profile.nation;
 
     //0x51 = New character has this as 0x01, 0x03 on seasoned 99
-    ref<uint8>(0x52) = PChar->getMod(Mod::SUPERIOR_LEVEL);
-    ref<uint8>(0x54) = charutils::getMaxItemLevel(PChar);        // Maximum Item Level
-    ref<uint8>(0x55) = charutils::getItemLevelDifference(PChar); // itemlevel over 99
-    ref<uint8>(0x56) = charutils::getMainhandItemLevel(PChar);   // Item level of Main Hand weapon
-    ref<uint8>(0x57) = charutils::getRangedItemLevel(PChar);     // Item level of Ranged (Ranged priority, ammo if only)
-    ref<uint8>(0x65) =  0;                                       // Master Level
-    ref<uint8>(0x66) =  0;                                       // Bit0 - Master Breaker
-    ref<uint32>(0x68) = 0;                                       // Current Exemplar Points
-    ref<uint32>(0x6C) = 0;                                       // Required Exemplar Points
+    //0x52 = superior level (1 or 2)
+    //0x54 = maximum item level
+    //0x55 = itemlevel over 99
+    //0x56 = main weapon item level
+    // 0x65: master level
+    // 0x66: bitflags, bit 0 = master breaker
+    // 0x68: current exemplar points
+    // 0x6C: required exemplar points
 }
