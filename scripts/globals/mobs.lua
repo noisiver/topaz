@@ -105,6 +105,15 @@ tpz.mob.phOnDespawn = function(ph, phList, chance, cooldown, immediate)
     return false
 end
 
+-----------------------------------
+-- Mob skills
+-----------------------------------
+tpz.mob.skills =
+{
+    RECOIL_DIVE = 641,
+    CYTOKINESIS = 2514
+}
+
 -------------------------------------------------
 -- mob additional melee effects
 -------------------------------------------------
