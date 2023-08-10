@@ -38,7 +38,7 @@ function onEffectGain(target, effect)
     end
 
     if target:isPC() then
-        if (player:getGMLevel() > 1) then
+        if (target:getGMLevel() > 1) then
             tpz.voidwalker.onHealing(target)
         end
     end
