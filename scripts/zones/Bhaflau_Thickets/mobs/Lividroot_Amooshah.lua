@@ -36,7 +36,7 @@ end
 
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if mob:getID() ~= 16990473 then -- First form
         if mob:getID() == 16990631 then -- Final Form
             return

@@ -8,7 +8,7 @@ require("scripts/globals/keyitems")
 local ID = require("scripts/zones/Batallia_Downs/IDs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 74, 2, tpz.regime.type.FIELDS)
     if (ENABLE_ACP == 1 and (player:hasKeyItem(tpz.ki.BOWL_OF_BLAND_GOBLIN_SALAD) == false) and player:getCurrentMission(ACP) >= tpz.mission.id.acp.THE_ECHO_AWAKENS) then
         -- Guesstimating 15% chance

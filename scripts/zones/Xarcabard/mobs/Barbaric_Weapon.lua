@@ -11,6 +11,6 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.STORETP, 50) -- "Possesses extremely high Store TP."
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 318)
 end

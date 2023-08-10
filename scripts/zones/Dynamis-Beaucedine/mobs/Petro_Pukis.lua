@@ -15,5 +15,5 @@ function onMobWeaponSkillPrepare(mob, target)
     return 648 -- Only uses Petro Eyes
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

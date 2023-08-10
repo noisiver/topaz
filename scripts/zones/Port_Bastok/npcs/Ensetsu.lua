@@ -4,6 +4,7 @@
 -- Finish Quest: Ayame and Kaede
 -- Involved in Quest: 20 in Pirate Years, I'll Take the Big Box
 -- !pos 33 -6 67 236
+-- NIN job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Port_Bastok/IDs")
 require("scripts/globals/keyitems")
@@ -11,14 +12,19 @@ require("scripts/globals/settings")
 require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.NIN)
 end
 
 function onTrigger(player, npc)
 
     AyameAndKaede = player:getQuestStatus(BASTOK, tpz.quest.id.bastok.AYAME_AND_KAEDE)
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.NIN)
 
     if (AyameAndKaede == QUEST_ACCEPTED) then
 

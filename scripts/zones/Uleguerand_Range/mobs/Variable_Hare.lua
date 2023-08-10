@@ -12,5 +12,5 @@ function onMobSpawn(mob)
    -- mob:setMobMod(tpz.MobMod.EXP_BONUS, 1000)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

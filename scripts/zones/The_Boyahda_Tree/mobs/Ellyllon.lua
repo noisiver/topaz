@@ -16,6 +16,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 357)
 end

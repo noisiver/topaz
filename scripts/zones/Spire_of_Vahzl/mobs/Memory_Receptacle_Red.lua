@@ -67,7 +67,7 @@ end
 
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     for v = 16871447, 16871454 do
         DespawnMob(v)
     end

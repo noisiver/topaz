@@ -14,7 +14,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local duration = calculateDuration(150, spell:getSkillType(), spell:getSpellGroup(), caster, target)
-    duration = calculateDurationForLvl(duration, 82, target:getMainLvl())
+    duration = calculateDurationForLvl(duration, 75, target:getMainLvl())
     duration = duration + target:getMod(tpz.mod.REFRESH_DURATION)
 
     local mp = 6 + caster:getMod(tpz.mod.ENHANCES_REFRESH)

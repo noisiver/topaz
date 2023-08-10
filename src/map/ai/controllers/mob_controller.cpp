@@ -223,17 +223,7 @@ void CMobController::TryLink()
 bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 {
     TracyZoneScoped;
-    if (PTarget->isDead() || PTarget->isMounted()) return false;
-
-    float verticalDistance = abs(PMob->loc.p.y - PTarget->loc.p.y);
-
-    if (verticalDistance > 12 && PMob->getMobMod(MOBMOD_VERTICAL_AGGRO) == 0)
-    {
-        return false;
-    }
-
-
-    if (PTarget->loc.zone->HasReducedVerticalAggro() && verticalDistance > 3.5f)
+    if (PTarget->isDead() || PTarget->isMounted())
     {
         return false;
     }
@@ -249,6 +239,8 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     bool detectHP = detects & DETECT_LOWHP || PMob->getMobMod(MOBMOD_AGGRO_HP) > 0;
     bool hasInvisible = false;
     bool hasSneak = false;
+
+    bool isTargetAndInRange = PMob->GetBattleTargetID() == PTarget->targid && currentDistance <= PMob->GetMeleeRange();
 
     if (PMob->m_TrueDetection == 0 && PMob->getMobMod(MOBMOD_TRUE_SIGHT_SOUND) == 0 && PMob->getMobMod(MOBMOD_TRUE_SIGHT) == 0 &&
         PMob->getMobMod(MOBMOD_TRUE_SOUND) == 0) // No True Detection
@@ -274,7 +266,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     // ShowDebug("Sight Range after %u \n", sightRange);
     if (detectSight && !hasInvisible && currentDistance < sightRange && facing(PMob->loc.p, PTarget->loc.p, 64))
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((PMob->m_Behaviour & BEHAVIOUR_AGGRO_AMBUSH) && currentDistance < 3 && !hasSneak)
@@ -300,23 +292,23 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 
     if ((detectSound) && currentDistance < soundRange && !hasSneak)
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((detectMagic) && currentDistance < PMob->getMobMod(MOBMOD_MAGIC_RANGE) && PTarget->PAI->IsCurrentState<CMagicState>() &&
         static_cast<CMagicState*>(PTarget->PAI->GetCurrentState())->GetSpell()->hasMPCost())
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((detectWS) && currentDistance < PMob->getMobMod(MOBMOD_WS_RANGE) && PTarget->PAI->IsCurrentState<CWeaponSkillState>())
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     if ((detectJA) && currentDistance < PMob->getMobMod(MOBMOD_JA_RANGE) && PTarget->PAI->IsCurrentState<CAbilityState>())
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     // ShowDebug("Blood Range before %u \n", PMob->getMobMod(MOBMOD_HP_RANGE));
@@ -324,7 +316,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     // ShowDebug("Blood Range after %u \n", bloodRange);
     if ((detectHP) && currentDistance < bloodRange && PTarget->GetHPP() < 75)
     {
-        return CanSeePoint(PTarget->loc.p);
+        return isTargetAndInRange || PMob->CanSeeTarget(PTarget);
     }
 
     return false;
@@ -509,17 +501,6 @@ bool CMobController::IsUndead()
     {
         return false;
     }
-}
-
-bool CMobController::CanSeePoint(position_t pos)
-{
-    TracyZoneScoped;
-    if (PMob->PAI->PathFind && PMob->m_Family != 6) // Amphiptere paths don't match player's level very well, so pathfind checks mostly fail
-    {
-        return PMob->PAI->PathFind->CanSeePoint(pos);
-    }
-
-    return true;
 }
 
 bool CMobController::MobSkill(int wsList)
@@ -828,6 +809,12 @@ void CMobController::DoCombatTick(time_point tick)
     PMob->PAI->EventHandler.triggerListener("COMBAT_TICK", PMob);
     luautils::OnMobFight(PMob, PTarget);
 
+    // If target is not in LOS, move towards them
+    if (!PMob->CanSeeTarget(PTarget))
+    {
+        Move();
+    }
+
     // Try to spellcast (this is done first so things like Chainspell spam is prioritised over TP moves etc.
     if (IsSpecialSkillReady(currentDistance) && TrySpecialSkill())
     {
@@ -971,6 +958,7 @@ void CMobController::Move()
                                     if (PMob->PAI->PathFind->ValidPosition(new_pos))
                                     {
                                         PMob->PAI->PathFind->PathTo(new_pos, PATHFLAG_WALLHACK | PATHFLAG_RUN);
+                                        PMob->PAI->EventHandler.triggerListener("MOB_PATH", PMob, PTarget);
                                     }
                                     break;
                                 }
@@ -989,6 +977,7 @@ void CMobController::Move()
                     if (distance(new_pos, PTarget->loc.p) - PMob->m_ModelSize <= PTarget->GetMeleeRange())
                     {
                         PMob->PAI->PathFind->StepTo(new_pos);
+                        PMob->PAI->EventHandler.triggerListener("MOB_PATH", PMob, PTarget);
                     }
                 }
                 FaceTarget();
@@ -1451,11 +1440,19 @@ bool CMobController::Cast(uint16 targid, SpellID spellid)
 bool CMobController::CanMoveForward(float currentDistance)
 {
     TracyZoneScoped;
+    // Move forward if target is not in LOS
+    if (!PMob->CanSeeTarget(PTarget))
+    {
+        return true;
+    }
+
+    // If behavior bitflag is standback, don't move if < 20 yards from target
     if(PMob->m_Behaviour & BEHAVIOUR_STANDBACK && currentDistance < 20)
     {
         return false;
     }
 
+    // If mob mod no standback is 0, or HP is above MOBMOD_HP_STANDBACK, don't move forward
     if (PMob->getMobMod(MOBMOD_NO_STANDBACK) == 0 && PMob->getMobMod(MOBMOD_HP_STANDBACK) > 0 && currentDistance < 15 && PMob->GetHPP() >= PMob->getMobMod(MOBMOD_HP_STANDBACK)
         && currentDistance > PMob->GetMeleeRange() * 2)
     {
@@ -1508,7 +1505,7 @@ bool CMobController::IsSpellReady(float currentDistance)
         bonusTime = PMob->getBigMobMod(MOBMOD_STANDBACK_COOL);
     }
 
-    if (PMob->StatusEffectContainer->HasStatusEffect({EFFECT_CHAINSPELL,EFFECT_MANAFONT,EFFECT_TABULA_RASA}))
+    if (PMob->StatusEffectContainer->HasStatusEffect({EFFECT_CHAINSPELL, EFFECT_MANAFONT, EFFECT_AZURE_LORE, EFFECT_TABULA_RASA}))
     {
         return true;
     }

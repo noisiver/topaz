@@ -1,9 +1,9 @@
 -----------------------------------
 -- Area: Aht Urhgan Whitegate
 --  NPC: Iruki-Waraki
--- Type: Standard NPC
 --  Involved in quest: No Strings Attached
 -- !pos 101.329 -6.999 -29.042 50
+-- PUP job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Aht_Urhgan_Whitegate/IDs")
 require("scripts/globals/settings")
@@ -12,8 +12,11 @@ require("scripts/globals/npc_util")
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/pets")
+require("scripts/globals/jsequests")
 -----------------------------------
-
+-- Spinner(Mamook) drop 9894
+-- Wamoura (Halvung) drop 9895
+-- Great Ameretat (Aydeewa Subterrane) drop 9896
 
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, {{"gil", 10000}}) and player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.NO_STRINGS_ATTACHED) == QUEST_COMPLETED and not player:hasItem(17859) then
@@ -22,6 +25,7 @@ function onTrade(player, npc, trade)
     elseif npcUtil.tradeHas(trade, {4161, 5570}) and player:getCharVar("OperationTeatimeProgress") == 1 then -- Chai, Sleeping Potion
         player:startEvent(780)
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.PUP)
 end
 
 function onTrigger(player, npc)
@@ -35,6 +39,9 @@ function onTrigger(player, npc)
     local isCurrentlyPuppetmaster = player:getMainJob() == tpz.job.PUP
     local LvL = player:getMainLvl()
     local Job = player:getMainJob()
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.PUP)
 
     --Quest: PuppetMaster Blues
     local PuppetmasterBlues = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES)

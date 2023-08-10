@@ -76,6 +76,6 @@ function onMobRoam(mob)
 	
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.promyvion.onEmptyDeath(mob)
 end

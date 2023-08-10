@@ -15,5 +15,5 @@ function onMobWeaponSkillPrepare(mob, target)
     return 642 -- Only uses Flame Breath
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

@@ -1,11 +1,12 @@
 -----------------------------------
 -- Area: Full Moon Fountain
 --  Mob: Ajido-Marujido
--- Ally during Windurst Mission 9-2
+-- Involved in Moon Reading (Windurst 9-2)
 -----------------------------------
 local ID = require("scripts/zones/Full_Moon_Fountain/IDs")
 require("scripts/globals/status")
 require("scripts/globals/magic")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -23,6 +24,8 @@ function onMobSpawn(mob)
             mob:showText(mob, ID.text.YOU_SHOULD_BE_THANKFUL)
         end
     end)
+    -- Uses Chainspell after 3 minutes
+    tpz.mix.jobSpecial.config(mob, { delay  = 180 })
 end
 
 function onMobRoam(mob)
@@ -59,9 +62,9 @@ function onMobDisengage(mob)
     mob:setLocalVar("wait", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:getBattlefield():lose()
-        for _, player in ipairs(mob:getBattlefield():getPlayers()) do
-            player:messageSpecial(ID.text.UNABLE_TO_PROTECT)
-        end
+    for _, player in ipairs(mob:getBattlefield():getPlayers()) do
+        player:messageSpecial(ID.text.UNABLE_TO_PROTECT)
+    end
 end

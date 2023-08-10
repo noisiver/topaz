@@ -23,7 +23,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 100, power = math.random(100, 200)})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 347)
 
     -- Curses, Foiled A-Golem!?

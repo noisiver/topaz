@@ -8,6 +8,6 @@ require("scripts/globals/regimes")
 function onMobSpawn(mob)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 726, 2, tpz.regime.type.GROUNDS)
 end

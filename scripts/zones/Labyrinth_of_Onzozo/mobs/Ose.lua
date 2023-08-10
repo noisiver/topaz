@@ -19,5 +19,5 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {chance = 50, power = 50})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

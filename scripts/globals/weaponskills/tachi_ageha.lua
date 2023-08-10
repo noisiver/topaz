@@ -1,7 +1,7 @@
 -----------------------------------
 -- Tachi Ageha
 -- Great Katana weapon skill
--- Skill Level: 300
+-- Skill Level: 280
 -- Lowers target's defense. Chance of lowering target's defense varies with TP.
 -- 30% Defense Down
 -- Duration of effect is exactly 3 minutes.
@@ -11,7 +11,7 @@
 -- Skillchain Properties: Compression/Scission
 -- Modifiers: CHR:60% STR:40%
 -- 100%TP    200%TP    300%TP
--- 2.625     2.625      2.625
+-- 1.5     1.5      1.5
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/settings")
@@ -22,8 +22,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.numHits = 1
-    params.ftp100 = 2.80 params.ftp200 = 2.80 params.ftp300 = 2.80
-    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.50
+    params.ftp100 = 1.5 params.ftp200 = 1.5 params.ftp300 = 1.5
+    params.str_wsc = 0.4 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.60
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
     params.acc100 = 0.0 params.acc200= 0.0 params.acc300= 0.0
@@ -46,8 +46,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         player:addStatusEffect(tpz.effect.LUX, 1, 0, RuneDuration)
     end
 
-	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5 then
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 100, tpz.effect.DEFENSE_DOWN)
+    if (damage > 0 and not target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) and resist >= 0.5) then
         local duration = (tp/1000 * 60)
         target:delStatusEffect(tpz.effect.DEFENSE_BOOST)
         target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 25, 0, duration * resist)

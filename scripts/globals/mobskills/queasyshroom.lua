@@ -25,6 +25,12 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
     local power = 1 + math.floor(mob:getMainLvl() / 10)
+    if mob:isPet() then
+        local master = mob:getMaster()
+        if master:isPC() then
+            power = math.floor(mob:getMainLvl() / 3)
+        end
+    end
     mob:setMobMod(tpz.mobMod.VAR, 1)
     local numhits = 1
     local accmod = 1

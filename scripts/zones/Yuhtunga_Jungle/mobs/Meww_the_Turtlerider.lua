@@ -6,6 +6,6 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/regimes")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 127, 1, tpz.regime.type.FIELDS)
 end

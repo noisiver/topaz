@@ -863,7 +863,7 @@ int32 map_cleanup(time_point tick, CTaskMgr::CTask* PTask)
 
                 PChar->nameflags.flags |= FLAG_DC;
                 PChar->updatemask |= UPDATE_HP;
-                if (PChar->status == STATUS_NORMAL)
+                if (PChar->status == STATUS_NORMAL || PChar->status == STATUS_CUTSCENE_ONLY)
                 {
                     PChar->loc.zone->SpawnPCs(PChar);
                 }
@@ -941,7 +941,7 @@ int32 map_cleanup(time_point tick, CTaskMgr::CTask* PTask)
             PChar->nameflags.flags &= ~FLAG_DC;
             PChar->updatemask |= UPDATE_HP;
 
-            if (PChar->status == STATUS_NORMAL)
+            if (PChar->status == STATUS_NORMAL || PChar->status == STATUS_CUTSCENE_ONLY)
             {
                 PChar->loc.zone->SpawnPCs(PChar);
             }

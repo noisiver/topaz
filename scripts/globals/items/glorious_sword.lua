@@ -13,6 +13,6 @@ function onAdditionalEffect(player, target, damage)
     local duration = 12
     local subpower = 0
     local tier = 1
-    local bonus = 200
+    local bonus = 256
     return TryApplyAdditionalEffect(player, target, tpz.effect.FLASH, tpz.magic.ele.LIGHT, power, tick, duration, subpower, tier, chance, bonus)
  end

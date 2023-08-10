@@ -20,7 +20,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getCharVar("darkPuppetCS") >= 3 then
         player:setCharVar("darkPuppetCS", 4)
     end

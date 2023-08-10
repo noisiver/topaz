@@ -17,7 +17,7 @@ function onMobSpawn(mob)
     mob:addImmunity(tpz.immunity.SLEEP)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     if (player:getCharVar("theDoormanMyMob") == 1) then
         player:addCharVar("theDoormanKilledNM", 1)

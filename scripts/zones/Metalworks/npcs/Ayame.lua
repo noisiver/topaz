@@ -4,6 +4,7 @@
 -- Involved in Missions
 -- Starts and Finishes Quest: True Strength
 -- !pos 133 -19 34 237
+-- SAM job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Metalworks/IDs")
 require("scripts/globals/keyitems")
@@ -14,6 +15,7 @@ require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/utils")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 local TrustMemory = function(player)
@@ -53,7 +55,7 @@ function onTrade(player, npc, trade)
             player:startEvent(749) -- Finish Quest "True Strength"
         end
     end
-
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.SAM)
 end
 
 function onTrigger(player, npc)
@@ -62,6 +64,9 @@ function onTrigger(player, npc)
     local WildcatBastok = player:getCharVar("WildcatBastok")
     local FadedPromises = player:getQuestStatus(BASTOK, tpz.quest.id.bastok.FADED_PROMISES)
     local Rank3 = player:getRank() >= 3 and 1 or 0
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.SAM)
 
     if (player:getQuestStatus(BASTOK, tpz.quest.id.bastok.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and not utils.mask.getBit(WildcatBastok, 9)) then
         player:startEvent(935)

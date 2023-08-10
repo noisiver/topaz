@@ -133,6 +133,19 @@ CCharPacket::CCharPacket(CCharEntity * PChar, ENTITYUPDATE type, uint8 updatemas
             }
 
             ref<uint16>(0x30) = PChar->m_Costume;
+
+            if (PChar->getMod(Mod::SUPERIOR_LEVEL) == 5 && PChar->m_jobMasterDisplay)
+            {
+                // TODO: This bitfield may be used more, update to shift
+                ref<uint8>(0x33) = 0x40;
+            }
+
+            // Geomancer (GEO) Indi spell effect on the char.
+            if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_COLURE_ACTIVE))
+            {
+                ref<uint8>(0x42) = 0x50 + PChar->StatusEffectContainer->GetStatusEffect(EFFECT_COLURE_ACTIVE)->GetPower();
+            }
+
             ref<uint8>(0x43) = 0x04;
 
             if (updatemask & UPDATE_LOOK)

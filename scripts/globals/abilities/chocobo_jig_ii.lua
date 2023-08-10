@@ -1,10 +1,10 @@
 -----------------------------------
 -- Ability: Chocobo jig ii
--- Increases Grants Reraise II effect to the Dancer
+-- Increases Grants nearby allies haste.
 -- Obtained: Dancer Level 70
 -- TP Required: 0
 -- Recast Time: 1:00
--- Duration: 2:00
+-- Duration: 3:00
 -----------------------------------
  require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -15,7 +15,7 @@ end
 
 function onUseAbility(player, target, ability)
     local effect = tpz.effect.HASTE
-    local power = 1465 -- 150/1024 ~14.65%
+    local power = 2998 -- 307/1024 ~29.98%
     local baseDuration = 180 -- 3m base
 	local gear = player:getMod(tpz.mod.JIG_DURATION)
 	local gearBonus =  baseDuration * (gear / 100)

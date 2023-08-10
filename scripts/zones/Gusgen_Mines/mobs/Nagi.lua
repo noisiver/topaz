@@ -3,13 +3,13 @@
 --   Nagi
 --   !additem 474 
 --	  !pos 220.5291 -39.6000 254.1887
+-- Mythic weapon fight
 ------------------------------
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 ------------------------------
 function onMobSpawn(mob)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
-	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    SetGenericNMStats(mob)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
@@ -66,11 +66,11 @@ function onSpellPrecast(mob, spell)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     DespawnMob(Guard)
     DespawnMob(GuardTwo)
     DespawnMob(GuardThree)
     DespawnMob(GuardFour)
     DespawnMob(GuardFive)
-	player:PrintToPlayer("Fighting you was an honor.",0,"Nagi")
+    OnDeathMessage(mob, player, isKiller, noKiller, "Fighting you was an honor.",0,"Nagi")
   end

@@ -29,6 +29,7 @@ CPathFind::CPathFind(CBaseEntity* PTarget)
 {
     m_PTarget = PTarget;
     m_pathFlags = 0;
+    m_carefulPathing = false;
     Clear();
 }
 
@@ -256,6 +257,11 @@ void CPathFind::FollowPath()
     position_t& targetPoint = m_points[m_currentPoint];
 
     StepTo(targetPoint, m_pathFlags & PATHFLAG_RUN);
+
+    if (isNavMeshEnabled() && m_carefulPathing)
+    {
+        m_PTarget->loc.zone->m_navMesh->snapToValidPosition(m_PTarget->loc.p);
+    }
 
     if (m_maxDistance && m_distanceMoved >= m_maxDistance)
     {
@@ -537,17 +543,17 @@ bool CPathFind::InWater()
 
 bool CPathFind::CanSeePoint(const position_t& point, bool lookOffMesh)
 {
-    if (isNavMeshEnabled())
-    {
-        return m_PTarget->loc.zone->m_navMesh->raycast(m_PTarget->loc.p, point, lookOffMesh);
-    }
-
-    return true;
+    return m_PTarget->loc.zone->lineOfSight->Raycast(m_PTarget->loc.p, point).has_value();
 }
 
 const position_t& CPathFind::GetDestination() const
 {
     return m_points.back();
+}
+
+void CPathFind::SetCarefulPathing(bool careful)
+{
+    m_carefulPathing = careful;
 }
 
 void CPathFind::Clear()

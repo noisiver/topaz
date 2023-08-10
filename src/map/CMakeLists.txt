@@ -110,6 +110,7 @@ add_subdirectory(ai)
 add_subdirectory(entities)
 add_subdirectory(items)
 add_subdirectory(lua)
+add_subdirectory(los)
 add_subdirectory(packets)
 add_subdirectory(utils)
 
@@ -121,7 +122,7 @@ endif()
 
 add_executable(topaz_game
     ${SOURCES}
-    ${resource})
+    ${resource}    "job_points.cpp" "job_points.h")
 
 if(WIN32)
     set_target_properties(topaz_game PROPERTIES OUTPUT_NAME topaz_game${spacer}${platform_suffix})
@@ -141,6 +142,7 @@ target_link_libraries(topaz_game
     entities
     items
     lua
+    los
     packets
     utils
     project_options

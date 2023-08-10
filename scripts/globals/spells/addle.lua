@@ -2,8 +2,7 @@
 -- Spell: Addle
 -- Increases the casting time of the target
 -- Exact formula is unknown.
---
--- Raw Value is said to be 30%
+-- https://wiki.ffo.jp/html/21127.html
 -----------------------------------------
 require("scripts/globals/magic")
 require("scripts/globals/msg")
@@ -19,11 +18,8 @@ function onSpellCast(caster, target, spell)
     local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
 
     -- Spell casting increase
-    local power = calculatePotency(30, spell:getSkillType(), caster, target)
-
-    -- Magic Accuracy reduction (not affected by enfeebling skill)
-    local subPower = 20 + utils.clamp(math.floor(dMND / 5), 0, 20)
-
+    local power = 20 + utils.clamp(math.floor(dMND / 5), 0, 20)
+    power = calculatePotency(30, spell:getSkillType(), caster, target)
 
     local params = {}
     params.diff = dMND

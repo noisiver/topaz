@@ -63,7 +63,7 @@ function onMobWeaponSkill(target, mob, skill)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
         mob:getEntity(bit.band(ID.npc._1KX, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Door H-9
         local zonePlayers = mob:getZone():getPlayers()

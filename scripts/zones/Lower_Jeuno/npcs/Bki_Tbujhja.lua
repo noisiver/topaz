@@ -4,6 +4,7 @@
 -- Involved in Quest: The Old Monument
 -- Starts and Finishes Quests: Path of the Bard (just start), The Requiem (BARD AF2)
 -- !pos -22 0 -60 245
+-- BRD job quest NPC
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -11,6 +12,7 @@ require("scripts/globals/keyitems")
 require("scripts/globals/quests")
 require("scripts/globals/shop")
 local ID = require("scripts/zones/Lower_Jeuno/IDs")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -20,12 +22,16 @@ function onTrade(player, npc, trade)
     if (theRequiem == QUEST_ACCEPTED and player:getCharVar("TheRequiemCS") == 2 and trade:hasItemQty(4154, 1) and trade:getItemCount() == 1) then
         player:startEvent(151)
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.BRD)
 end
 
 function onTrigger(player, npc)
     local aMinstrelInDespair = player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.A_MINSTREL_IN_DESPAIR)
     local painfulMemory = player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.PAINFUL_MEMORY)
     local theRequiem = player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.THE_REQUIEM)
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.BRD)
 
     -- THE OLD MONUMENT
     if (player:getCharVar("TheOldMonument_Event") == 1) then

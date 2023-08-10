@@ -39,7 +39,7 @@ function onMobSpawn(mob)
 	mob:SetAutoAttackEnabled(true)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCurrentMission(COP) == tpz.mission.id.cop.THE_ROAD_FORKS and player:getCharVar("MEMORIES_OF_A_MAIDEN_Status") >= 7 and not player:hasKeyItem(tpz.ki.MIMEO_JEWEL)) then
         player:setCharVar("MEMORIES_OF_A_MAIDEN_Status", 8)
         player:setCharVar("LioumereKilled", os.time())

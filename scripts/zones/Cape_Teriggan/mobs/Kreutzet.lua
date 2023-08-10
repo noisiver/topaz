@@ -41,7 +41,7 @@ function onMobDisengage(mob, weather)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

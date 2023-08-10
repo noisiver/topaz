@@ -470,8 +470,10 @@ INSERT INTO `mob_family_mods` VALUES (499,388,100,0); -- Stray +100% BDT(Bonus)
 INSERT INTO `mob_family_mods` VALUES (499,389,100,0); -- Stray +100% MDT(Bonus)
 
 -- Jugs
-INSERT INTO `mob_family_mods` VALUES (556,62,60,0);		  -- Tiger +60% Attack
-INSERT INTO `mob_family_mods` VALUES (556,63,-10,0);	  -- Tiger -10% Defense
+INSERT INTO `mob_family_mods` VALUES (556,62,60,0);		-- Tiger +60% Attack
+INSERT INTO `mob_family_mods` VALUES (556,63,-10,0);	-- Tiger -10% Defense
+INSERT INTO `mob_family_mods` VALUES (571,62,40,0);		-- Pugil +40% Attack
+INSERT INTO `mob_family_mods` VALUES (571,63,-10,0);	-- Pugil -10% Defense
 INSERT INTO `mob_family_mods` VALUES (560,62,-10,0);    -- Crab Familiar -10% Attack
 INSERT INTO `mob_family_mods` VALUES (560,63,10,0);     -- Crab Familiar +10% Def
 INSERT INTO `mob_family_mods` VALUES (588,62,-10,0);    -- Courier Carrie -10% Attack
@@ -483,7 +485,11 @@ INSERT INTO `mob_family_mods` VALUES (558,62,20,0);     -- Beetle Familiar +20% 
 INSERT INTO `mob_family_mods` VALUES (565,62,30,0);     -- Diremite Familiar +30% Attack
 INSERT INTO `mob_family_mods` VALUES (561,162,-35,0);   -- Funguar Familiar -35% BDT
 INSERT INTO `mob_family_mods` VALUES (561,163,-35,0);   -- Funguar Familiar -35% MDT
-INSERT INTO `mob_family_mods` VALUES (568,28,30,0);     -- FLy Familiar -+30 MAB
+INSERT INTO `mob_family_mods` VALUES (568,28,30,0);     -- Fly Familiar +30 MAB
+INSERT INTO `mob_family_mods` VALUES (574,28,30,0);     -- Coeurl Familiar +30 MAB
+INSERT INTO `mob_family_mods` VALUES (559,30,50,0);     -- Flytrap Familiar +50 MACC
+INSERT INTO `mob_family_mods` VALUES (559,29,50,0);     -- Flytrap Familiar +50 MDB
+INSERT INTO `mob_family_mods` VALUES (559,63,25,0);     -- Flytrap Familiar +25% Def
 
 -- Dynamis Mobs
 INSERT INTO `mob_family_mods` VALUES (337,62,25,0);	-- Quadav +25% Attk
@@ -1098,7 +1104,7 @@ INSERT INTO `mob_family_mods` VALUES (171,59,10,1); -- Lamia +10 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (182,59,10,1); -- Merrow +10 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (176,59,20,1); -- Mamool Ja +20 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (177,59,20,1); -- Mamool Ja +20 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (591,59,10,1); -- Mamool Ja (BLU) +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (591,59,10,1); -- Mamool Ja (Sword) +10 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (128,59,20,1); -- WoTG Gigas +20 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (942,59,15,1); -- WoTG Quadav +15 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (943,59,10,1); -- WoTG Yagudo +10 Weapon dmg

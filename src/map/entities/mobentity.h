@@ -68,12 +68,12 @@ enum ROAMFLAG : uint16
 enum MOBTYPE
 {
     MOBTYPE_NORMAL      = 0x00,
-    MOBTYPE_QUEST       = 0x01, // Quest / Mission mobs
-    MOBTYPE_NOTORIOUS   = 0x02,
-    MOBTYPE_FISHED      = 0x04,
-    MOBTYPE_CALLED      = 0x08,
-    MOBTYPE_BATTLEFIELD = 0x10,
-    MOBTYPE_EVENT       = 0x20
+    MOBTYPE_QUEST       = 0x01, // 1
+    MOBTYPE_NOTORIOUS   = 0x02, // 2
+    MOBTYPE_FISHED      = 0x04, // 4
+    MOBTYPE_CALLED      = 0x08, // 8
+    MOBTYPE_BATTLEFIELD = 0x10, // 16
+    MOBTYPE_EVENT       = 0x20  // 32
 };
 
 enum DETECT : uint16
@@ -254,6 +254,8 @@ public:
 
     CMobSpellContainer* SpellContainer;                // retrieves spells for the mob
     uint8     m_HasSpellScript;                        // 1 if they have a spell script to use for working out what to cast.
+
+    bool m_IsClaimable;
 
     static constexpr float sound_range {8.f};
     static constexpr float sight_range {10.f};

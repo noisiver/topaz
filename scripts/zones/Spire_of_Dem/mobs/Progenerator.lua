@@ -86,7 +86,7 @@ function onMobFight(mob, target)
 	
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.promyvion.onEmptyDeath(mob)
     local momma = mob:getID()
     for i = momma + 1, momma + mob:getLocalVar("maxBabies") do

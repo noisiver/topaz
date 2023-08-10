@@ -22,6 +22,12 @@ function onMobWeaponSkill(target, mob, skill)
     if mob:isNM() then
         power = 25
     end
+    if mob:isPet() then
+        local master = mob:getMaster()
+        if master:isPC() then
+            power = math.floor(mob:getMainLvl() / 3)
+        end
+    end
     local dmgmod = 1.5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*1, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)

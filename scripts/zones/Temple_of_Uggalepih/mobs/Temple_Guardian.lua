@@ -5,6 +5,6 @@
 local ID = require("scripts/zones/Temple_of_Uggalepih/IDs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     GetNPCByID(ID.npc.TEMPLE_GUARDIAN_DOOR):openDoor(300) -- 5min
 end

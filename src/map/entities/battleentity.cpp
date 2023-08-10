@@ -39,6 +39,8 @@
 #include "../lua/luautils.h"
 #include "../packets/action.h"
 #include "../packets/chat_message.h"
+#include "../packets/release.h"
+#include "../packets/message_system.h"
 #include "../recast_container.h"
 #include "../roe.h"
 #include "../status_effect_container.h"
@@ -321,10 +323,17 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
         }
         WeaponDelay = (uint16)(WeaponDelay * ((100.0f + getMod(Mod::DELAYP)) / 100.0f));
 
-        // Global delay reduction cap of "about 80%" being enforced.
+        // Global delay reduction cap of "about 60%" being enforced, and 80% for Hundred Fists
         // This should be enforced on -delay equipment, martial arts, dual wield, and haste, hence MinimumDelay * 0.2.
         // TODO: Could be converted to value/1024 if the exact cap is ever determined.
-        MinimumDelay -= (uint16)(MinimumDelay * 0.8);
+        if (StatusEffectContainer->HasStatusEffect(EFFECT_HUNDRED_FISTS))
+        {
+            MinimumDelay -= (uint16)(MinimumDelay * 0.8);
+        }
+        else
+        {
+            MinimumDelay -= (uint16)(MinimumDelay * 0.6);
+        }
         WeaponDelay = (WeaponDelay < MinimumDelay) ? MinimumDelay : WeaponDelay;
         //ShowDebug("Your weapon delay is... %i \n", WeaponDelay);
     }
@@ -493,12 +502,9 @@ int16 CBattleEntity::addTP(int16 tp)
         {
             TPMulti = map_config.mob_tp_multiplier;
         }
-        else if (objtype == TYPE_PET)
+        else if (objtype == TYPE_PET || (objtype == TYPE_MOB && this->PMaster)) // normal pet or charmed pet
         {
-            if (static_cast<CPetEntity*>(this)->getPetType() != PETTYPE_AUTOMATON || !this->PMaster)
-                TPMulti = map_config.mob_tp_multiplier * 3;
-            else
-                TPMulti = map_config.player_tp_multiplier;
+            TPMulti = map_config.player_tp_multiplier;
         }
 
         tp = (int16)(tp * TPMulti);
@@ -507,9 +513,24 @@ int16 CBattleEntity::addTP(int16 tp)
     {
         updatemask |= UPDATE_HP;
     }
-    int16 cap = std::clamp(health.tp + tp, 0, 3000);
-    tp = health.tp - cap;
-    health.tp = cap;
+    // Check for TP down effect
+    CStatusEffect* PEffect = this->StatusEffectContainer->GetStatusEffect(EFFECT_MAX_TP_DOWN);
+    if (PEffect)
+    {
+        int32 mod = std::clamp<int32>(100 - PEffect->GetPower(), 0, 100);
+        int32 max = (3000 * mod) / 100;
+        if (health.tp > max)
+        {
+            tp -= (health.tp - max);
+            health.tp = max;
+        }
+    }
+    else
+    {
+        int16 cap = std::clamp(health.tp + tp, 0, 3000);
+        tp = health.tp - cap;
+        health.tp = cap;
+    }
     return abs(tp);
 }
 
@@ -2000,6 +2021,27 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
     /////////////////////////////////////////////////////////////////////////////////////////////
     // End of attack loop
     /////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Interrupt(event skip) players currently in a cutscene
+    if (PTarget->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)PTarget;
+        if (PChar->status == STATUS_CUTSCENE_ONLY || PChar->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+        {
+            RELEASE_TYPE releaseType = RELEASE_STANDARD;
+
+            if (PChar->m_event.EventID != -1)
+            {
+                // Message: Event skipped
+                releaseType = RELEASE_SKIPPING;
+                PChar->pushPacket(new CMessageSystemPacket(0, 0, 117));
+            }
+            PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+            PChar->status = STATUS_NORMAL;
+            PChar->pushPacket(new CReleasePacket(PChar, releaseType));
+            PChar->pushPacket(new CReleasePacket(PChar, RELEASE_EVENT));
+        }
+    }
 
     this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK | EFFECTFLAG_DETECTABLE);
 

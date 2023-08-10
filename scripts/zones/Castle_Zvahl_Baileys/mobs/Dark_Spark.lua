@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if
         player:getCharVar("BorghertzSparkKilled") == 0 and
         player:hasKeyItem(tpz.ki.OLD_GAUNTLETS) and

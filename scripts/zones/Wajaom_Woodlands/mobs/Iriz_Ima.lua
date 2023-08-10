@@ -52,7 +52,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return 1703 -- Always keeps Barrier Tusk up
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 200)
 	if mob:AnimationSub() >= 1 then
 		if math.random(1,100) <= 10 then 

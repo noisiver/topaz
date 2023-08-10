@@ -102,6 +102,26 @@ enum ELEMENT
     ELEMENT_DARK = 8
 };
 
+enum WEAPONTYPE
+{
+    WEAPONTYPE_NONE =           0x0000,
+    WEAPONTYPE_HAND_TO_HAND =   0x0001,
+    WEAPONTYPE_DAGGER =         0x0002,
+    WEAPONTYPE_SWORD =          0x0004,            
+    WEAPONTYPE_GREAT_SWORD =    0X0008,      
+    WEAPONTYPE_AXE =            0x0010,              
+    WEAPONTYPE_GREAT_AXE =      0x0020,        
+    WEAPONTYPE_SCYTHE =         0x0040,         
+    WEAPONTYPE_POLEARM =        0x0080,     
+    WEAPONTYPE_KATANA =         0x0100,
+    WEAPONTYPE_GREAT_KATANA =   0x0200,        
+    WEAPONTYPE_CLUB =           0x0400,                
+    WEAPONTYPE_STAFF =          0x0800,               
+    WEAPONTYPE_PET =            0x1000,     
+    WEAPONTYPE_ARCHERY =        0x2000,         
+    WEAPONTYPE_MARKSMANSHIP =   0x4000,    
+    WEAPONTYPE_BLUE_MAGIC =     0x8000,
+};
 
 namespace battleutils
 {
@@ -132,7 +152,7 @@ namespace battleutils
     void                FreeWeaponSkillsList();
     void                FreeMobSkillList();
 
-    SUBEFFECT            GetSkillChainEffect(CBattleEntity* PDefender, uint8 primary, uint8 secondary, uint8 tertiary);
+    SUBEFFECT GetSkillChainEffect(CBattleEntity* PDefender, uint8 primary, uint8 secondary, uint8 tertiary);
     SKILLCHAIN_ELEMENT   FormSkillchain(const std::list<SKILLCHAIN_ELEMENT>& resonance, const std::list<SKILLCHAIN_ELEMENT>& skill);
     uint8                GetSkillchainTier(SKILLCHAIN_ELEMENT skillchain);
     uint8                GetSkillchainSubeffect(SKILLCHAIN_ELEMENT skillchain);
@@ -248,6 +268,7 @@ namespace battleutils
     WEATHER             GetWeather(CBattleEntity* PEntity, bool ignoreScholar, uint16 zoneWeather);
     bool                WeatherMatchesElement(WEATHER weather, uint8 element);
     bool                DrawIn(CBattleEntity* PEntity, CMobEntity* PMob, float offset);
+    void                AddMaxRecastToAllAbilities(CCharEntity* PTarget);
     void                DoWildCardToEntity(CCharEntity* PCaster, CCharEntity* PTarget, uint8 roll);
     void                AddTraits(CBattleEntity* PEntity, TraitList_t* TraitList, uint8 level);
     void                DelTraits(CBattleEntity* PEntity, TraitList_t* TraitList, uint8 level);

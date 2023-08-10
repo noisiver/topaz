@@ -6,7 +6,7 @@ require("scripts/globals/regimes")
 require("scripts/globals/keyitems")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     tpz.regime.checkRegime(player, mob, 713, 2, tpz.regime.type.GROUNDS)
     -- Curses, Foiled A-Golem!?

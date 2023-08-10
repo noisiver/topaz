@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: The Ashu Talif (Against All Odds)
 --  Mob: Yazquhl
+-- COR AF3 Fight
 -----------------------------------
 require("scripts/globals/status")
 local ID = require("scripts/zones/The_Ashu_Talif/IDs")
@@ -8,8 +9,8 @@ mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.SLEEPRES, 150)
-    mob:addMod(tpz.mod.SILENCERES, 150)
+    SetGenericNMStats(mob)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:addListener("WEAPONSKILL_STATE_ENTER", "WS_START_MSG", function(mob, skillID)
         -- Vorpal Blade
         if skillId == 40 then
@@ -24,7 +25,7 @@ function onMobSpawn(mob)
     end)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:showText(mob, ID.text.YAZQUHL_DEATH)
 end
 

@@ -49,6 +49,7 @@ CTrustEntity::CTrustEntity(CCharEntity* PChar)
     allegiance = ALLEGIANCE_PLAYER;
     m_MobSkillList = 0;
     PMaster = PChar;
+    m_IsClaimable = false;
     PAI = std::make_unique<CAIContainer>(this, std::make_unique<CPathFind>(this), std::make_unique<CTrustController>(PChar, this), std::make_unique<CTargetFind>(this));
 }
 
@@ -81,6 +82,14 @@ void CTrustEntity::Die()
     luautils::OnMobDeath(this, nullptr);
     PAI->ClearStateStack();
     PAI->Internal_Die(0s);
+
+    if ((PAI != nullptr) && (PAI->GetController() != nullptr))
+    {    
+        PAI->GetController()->SetAutoAttackEnabled(true);
+        PAI->GetController()->SetMagicCastingEnabled(true);
+        PAI->GetController()->SetWeaponSkillEnabled(true);
+    }
+    
     ((CCharEntity*)PMaster)->RemoveTrust(this);
     CBattleEntity::Die();
 }
@@ -472,6 +481,20 @@ void CTrustEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& act
                     SUBEFFECT effect = battleutils::GetSkillChainEffect(PBattleTarget, PWeaponSkill->getPrimarySkillchain(), PWeaponSkill->getSecondarySkillchain(), PWeaponSkill->getTertiarySkillchain());
                     if (effect != SUBEFFECT_NONE)
                     {
+                        // Apply Inundation weapon skill type tracking
+                        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                        {
+                            CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                            auto power = PEffect->GetPower();
+                            auto currentFlag = WEAPONTYPE_PET;
+                            auto subPower = PEffect->GetSubPower();
+                            if ((subPower & currentFlag) == 0)
+                            {
+                                PEffect->SetPower(power + 1);
+                                PEffect->SetSubPower(subPower | currentFlag);
+                            }
+                        }
+
                         actionTarget.addEffectParam = battleutils::TakeSkillchainDamage(this, PBattleTarget, damage, taChar);
                         if (actionTarget.addEffectParam < 0)
                         {
@@ -483,6 +506,17 @@ void CTrustEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& act
                             actionTarget.addEffectMessage = 287 + effect;
                         } 
                         actionTarget.additionalEffect = effect;
+                    }
+                    else if (effect == SUBEFFECT_NONE)
+                    {
+                        // Reset Inundation weapon skill type tracking
+                        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                        {
+                            CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                            auto currentFlag = WEAPONTYPE_PET;
+                            PEffect->SetPower(0);
+                            PEffect->SetSubPower(currentFlag);
+                        }
                     }
                 }
             }

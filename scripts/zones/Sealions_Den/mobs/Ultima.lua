@@ -74,7 +74,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {duration = 60})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.ULTIMA_UNDERTAKER)
     player:setLocalVar("[OTBF]cs", 0)
 end

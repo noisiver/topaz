@@ -29,5 +29,5 @@ function onMobWeaponSkill(target, mob, skill)
         return typeEffect
     end
 
-    return typeEffect
+    return shadows
 end

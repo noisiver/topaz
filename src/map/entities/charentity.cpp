@@ -1001,20 +1001,45 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     {
         for (auto&& actionTarget : actionList.actionTargets)
         {
-            if (actionTarget.param > 0 && PSpell->dealsDamage() && PSpell->getSpellGroup() == SPELLGROUP_BLUE &&
+            if (PSpell->dealsDamage() && PSpell->getSpellGroup() == SPELLGROUP_BLUE &&
                 StatusEffectContainer->HasStatusEffect(EFFECT_CHAIN_AFFINITY) &&
                 static_cast<CBlueSpell*>(PSpell)->getPrimarySkillchain() != 0)
             {
                 auto PBlueSpell = static_cast<CBlueSpell*>(PSpell);
-                SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PBlueSpell->getPrimarySkillchain(), PBlueSpell->getSecondarySkillchain(), 0 );
+                SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PBlueSpell->getPrimarySkillchain(), PBlueSpell->getSecondarySkillchain(), 0);
                 if (effect != SUBEFFECT_NONE)
                 {
+                    // Apply Inundation weapon skill type tracking
+                    if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                    {
+                        CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                        auto power = PEffect->GetPower();
+                        auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
+                        auto subPower = PEffect->GetSubPower();
+                        if ((subPower & currentFlag) == 0)
+                        {
+                            PEffect->SetPower(power + 1);
+                            PEffect->SetSubPower(subPower | currentFlag);
+                        }
+                    }
+
                     uint16 skillChainDamage = battleutils::TakeSkillchainDamage(static_cast<CBattleEntity*>(this), PTarget, actionTarget.param, nullptr);
 
                     actionTarget.addEffectParam = skillChainDamage;
                     actionTarget.addEffectMessage = 287 + effect;
                     actionTarget.additionalEffect = effect;
 
+                }
+                else if (effect == SUBEFFECT_NONE)
+                {
+                    // Reset Inundation weapon skill type tracking
+                    if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                    {
+                        CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                        auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
+                        PEffect->SetPower(0);
+                        PEffect->SetSubPower(currentFlag);
+                    }
                 }
                 if (StatusEffectContainer->HasStatusEffect({EFFECT_SEKKANOKI, EFFECT_MEIKYO_SHISUI}))
                 {
@@ -1103,6 +1128,8 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
     PLatentEffectContainer->CheckLatentsTP();
 
     SLOTTYPE damslot = SLOT_MAIN;
+    CItemWeapon* PItem = (CItemWeapon*)this->getEquip(SLOT_MAIN);
+
     // Check if target is alive
     if (PBattleTarget->GetHPP() < 1)
         return;
@@ -1112,6 +1139,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
         if (PWeaponSkill->getID() >= 192 && PWeaponSkill->getID() <= 221)
         {
             damslot = SLOT_RANGED;
+            CItemWeapon* PItem = (CItemWeapon*)this->getEquip(SLOT_RANGED);
         }
         if (PWeaponSkill->getID() >= 1 && PWeaponSkill->getID() <= 15)
         {
@@ -1195,10 +1223,25 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                     if (PWeaponSkill->getPrimarySkillchain() != 0)
                     {
                         // NOTE: GetSkillChainEffect is INSIDE this if statement because it
-                        //  ALTERS the state of the resonance, which misses and non-elemental skills should NOT do.
-                        SUBEFFECT effect = battleutils::GetSkillChainEffect(PBattleTarget, PWeaponSkill->getPrimarySkillchain(), PWeaponSkill->getSecondarySkillchain(), PWeaponSkill->getTertiarySkillchain() );
+                        //  ALTERS the state of the resonance, which misses and non-elemental(i.e. spirits within) skills should NOT do.
+
+                        SUBEFFECT effect = battleutils::GetSkillChainEffect(PBattleTarget, PWeaponSkill->getPrimarySkillchain(), PWeaponSkill->getSecondarySkillchain(), PWeaponSkill->getTertiarySkillchain());
                         if (effect != SUBEFFECT_NONE)
                         {
+                            // Apply Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto power = PEffect->GetPower();
+                                auto currentFlag = PItem->getSkillTypeFlag();
+                                auto subPower = PEffect->GetSubPower();
+                                if ((subPower & currentFlag) == 0)
+                                {
+                                    PEffect->SetPower(power + 1);
+                                    PEffect->SetSubPower(subPower | currentFlag);
+                                }
+                            }
+
                             actionTarget.addEffectParam = battleutils::TakeSkillchainDamage(this, PBattleTarget, damage, taChar);
                             if (actionTarget.addEffectParam < 0)
                             {
@@ -1215,6 +1258,17 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                                 wspoints += 2;
                             else
                                 wspoints += 4;
+                        }
+                        else if (effect == SUBEFFECT_NONE)
+                        {
+                            // Reset Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto currentFlag = PItem->getSkillTypeFlag();
+                                PEffect->SetPower(0);
+                                PEffect->SetSubPower(currentFlag);
+                            }
                         }
                     }
                     // check for ws points
@@ -1337,6 +1391,11 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 
         if (PAbility->getID() == ABILITY_REWARD) {
             action.recast -= getMod(Mod::REWARD_RECAST);
+        }
+
+        if (PAbility->getRecastId() == ABILITYRECAST_TWO_HOUR)
+        {
+            action.recast -= getMod(Mod::ONE_HOUR_RECAST);
         }
 
         action.id = this->id;

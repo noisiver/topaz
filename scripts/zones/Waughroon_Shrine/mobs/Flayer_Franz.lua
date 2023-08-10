@@ -10,5 +10,5 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

@@ -8,7 +8,7 @@ require("scripts/globals/keyitems")
 require("scripts/globals/mobs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- Curses, Foiled A-Golem!?
     if player:hasKeyItem(tpz.ki.SHANTOTTOS_NEW_SPELL) then
         player:delKeyItem(tpz.ki.SHANTOTTOS_NEW_SPELL)

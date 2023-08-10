@@ -14,5 +14,5 @@ function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.MORGMOX_MOLDNOGGIN_PH, 50, 3600) -- 20 minutes
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

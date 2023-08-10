@@ -37,7 +37,7 @@ function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.MAHISHASURA_PH, 20, 10800) -- 3 hours
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 50)
     if isKiller then
 	    if mob:AnimationSub() >= 1 then

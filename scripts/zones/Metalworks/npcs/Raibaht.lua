@@ -4,6 +4,7 @@
 -- Starts and Finishes Quest: Dark Legacy
 -- Involved in Quest: The Usual, Riding on the Clouds
 -- !pos -27 -10 -1 237
+-- DRK job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Metalworks/IDs")
 require("scripts/globals/keyitems")
@@ -11,7 +12,11 @@ require("scripts/globals/settings")
 require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/utils")
+require("scripts/globals/jsequests")
 -----------------------------------
+-- Bight Rarab drop 9900
+-- Erlik(Gustav Tunnel) drop 9901
+-- Ladon drop 9902
 
 function onTrade(player, npc, trade)
 
@@ -23,7 +28,7 @@ function onTrade(player, npc, trade)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SMILING_STONE)
         end
     end
-
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.DRK)
 end
 
 function onTrigger(player, npc)
@@ -33,6 +38,9 @@ function onTrigger(player, npc)
     local mJob = player:getMainJob()
 
     local WildcatBastok = player:getCharVar("WildcatBastok")
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.DRK)
 
     if (player:getQuestStatus(BASTOK, tpz.quest.id.bastok.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and not utils.mask.getBit(WildcatBastok, 5)) then
         player:startEvent(933)

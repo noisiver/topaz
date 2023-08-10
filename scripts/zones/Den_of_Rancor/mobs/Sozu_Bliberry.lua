@@ -23,6 +23,6 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 393)
 end

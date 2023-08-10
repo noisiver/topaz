@@ -7,7 +7,7 @@ local ID = require("scripts/zones/Yughott_Grotto/IDs")
 require("scripts/globals/mobs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

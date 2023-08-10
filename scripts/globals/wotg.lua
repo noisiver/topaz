@@ -31,23 +31,23 @@ end
 
 tpz.wotg.QuadavTrashDrops = function(mob, player, isKiller, noKiller)
 	if isKiller or noKiller then
-        if  math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             player:addTreasure(tpz.items.CONDENSED_EMPTYNESS, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             player:addTreasure(tpz.items.CONDENSED_EMPTYNESS, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 15) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 1500) then
             player:addTreasure(tpz.items.CONDENSED_EMPTYNESS, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 10) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 1000) then
             player:addTreasure(tpz.items.CONDENSED_EMPTYNESS, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 5) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 500) then
             player:addTreasure(tpz.items.CONDENSED_EMPTYNESS, mob)
         end
         -- Campaign Ops KI
-        if  math.random(1,100) <= 1 then
+        if  math.random(1,10000) <= 1 then
             utils.givePartyKeyItem(player, tpz.ki.DIAMOND_SEAL)
         end
     end
@@ -55,23 +55,23 @@ end
 
 tpz.wotg.YagudoTrashDrops = function(mob, player, isKiller, noKiller)
 	if isKiller or noKiller then
-        if  math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             player:addTreasure(tpz.items.ZILARTIAN_ORB, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             player:addTreasure(tpz.items.ZILARTIAN_ORB, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 15) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 1500) then
             player:addTreasure(tpz.items.ZILARTIAN_ORB, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 10) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 1000) then
             player:addTreasure(tpz.items.ZILARTIAN_ORB, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 5) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 500) then
             player:addTreasure(tpz.items.ZILARTIAN_ORB, mob)
         end
         -- Campaign Ops KI
-        if  math.random(1,100) <= 1 then
+        if  math.random(1,10000) <= 1 then
             utils.givePartyKeyItem(player, tpz.ki.XICUS_ROSARY)
         end
     end
@@ -79,23 +79,23 @@ end
 
 tpz.wotg.OrcTrashDrops = function(mob, player, isKiller, noKiller)
 	if isKiller or noKiller then
-        if  math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             player:addTreasure(tpz.items.KULUU_SPHERE, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             player:addTreasure(tpz.items.KULUU_SPHERE, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 15) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 1500) then
             player:addTreasure(tpz.items.KULUU_SPHERE, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 10) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 1000) then
             player:addTreasure(tpz.items.KULUU_SPHERE, mob)
         end
-        if  math.random(1,100) <= utils.getDropRate(mob, 5) then
+        if  math.random(1,10000) <= utils.getDropRate(mob, 500) then
             player:addTreasure(tpz.items.KULUU_SPHERE, mob)
         end
         -- Campaign Ops KI
-        if  math.random(1,100) <= 1 then
+        if  math.random(1,10000) <= 1 then
             utils.givePartyKeyItem(player, tpz.ki.TIGRIS_STONE)
         end
     end
@@ -104,7 +104,7 @@ end
 tpz.wotg.MagianT1 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 200)
 	if isKiller or noKiller then
-        if math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             if math.random(2) == 2 then
 		        player:addTreasure(tpz.items.DAYBREAK_SOUL, mob)
             else
@@ -117,7 +117,7 @@ end
 tpz.wotg.MagianT2 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 300)
 	if isKiller or noKiller then
-        if math.random(1,100) <= utils.getDropRate(mob, 24) then
+        if math.random(1,10000) <= utils.getDropRate(mob, 2400) then
             if math.random(2) == 2 then
 		        player:addTreasure(tpz.items.INCRESCENT_SHADE, mob)
             else
@@ -130,7 +130,7 @@ end
 tpz.wotg.MagianT3 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 400)
 	if isKiller or noKiller then 
-        if math.random(1,100) <= utils.getDropRate(mob, 24) then 
+        if math.random(1,10000) <= utils.getDropRate(mob, 2400) then 
 		    player:addTreasure(tpz.items.SILVER_MIRROR, mob)
 	    end
     end
@@ -139,7 +139,7 @@ end
 tpz.wotg.MagianT4 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 500)
 	if isKiller or noKiller then
-        if math.random(1,100) <= utils.getDropRate(mob, 24) then 
+        if math.random(1,10000) <= utils.getDropRate(mob, 2400) then 
 		    player:addTreasure(tpz.items.CHUNK_OF_RIFTSAND, mob)
 	    end
     end

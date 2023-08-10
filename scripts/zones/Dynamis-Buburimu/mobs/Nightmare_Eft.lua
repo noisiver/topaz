@@ -9,5 +9,5 @@ function onMobSpawn(mob)
     mob:setLocalVar("dynamis_currency", 1452)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

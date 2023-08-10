@@ -115,6 +115,7 @@ public:
     // int32 WarpTo(lua_State* L);           // warp to the given point
     // int32 RoamAround(lua_State* L);       // pick a random point to walk to
     // int32 LimitDistance(lua_State* L);    // limits the current path distance to given max distance
+    int32 setCarefulPathing(lua_State*); // enables/disables careful pathing for a mob
 
     int32 openDoor(lua_State*);              // открываем дверь
     int32 closeDoor(lua_State*);             // npc.closeDoor(timeToStayClosed)
@@ -344,6 +345,8 @@ public:
     int32 getMerit(lua_State*);
     int32 getMeritCount(lua_State*);        // Gets a players current merit count.
     int32 setMerits(lua_State*);            // set merits (testing only!)
+    int32 getJobPointLevel(lua_State* L);   // Returns the current value a specific job point
+    int32 setJobPoints(lua_State* L);       // Sets the job points for a player to a specified amount
 
     int32 getGil(lua_State*);               // Gets character's gil amount
     int32 addGil(lua_State*);               // adds gil to character
@@ -493,6 +496,7 @@ public:
     int32 timer(lua_State* L);                //execute lua closure after some time
     int32 queue(lua_State* L);
     int32 addRecast(lua_State*);
+    int32 addMaxRecastToAllAbilities(lua_State*); // Sets all abilities to their maximumr recast timer.
     int32 hasRecast(lua_State*);
     int32 resetRecast(lua_State*);            // Reset one recast ID
     int32 resetRecasts(lua_State*);           // Reset recasts for the caller
@@ -674,6 +678,7 @@ public:
     int32 setSpawn(lua_State*);             // Sets spawn point
     int32 getRespawnTime(lua_State*);
     int32 setRespawnTime(lua_State*);       // set respawn time
+    int32 setDespawnTime(lua_State* L);    // set derespawn time
 
     int32 instantiateMob(lua_State* L);
 
@@ -695,6 +700,7 @@ public:
     int32 SetMagicCastingEnabled(lua_State*); // halt/resumes casting magic
     int32 SetMobAbilityEnabled(lua_State*);   // halt/resumes mob skills
     int32 SetMobSkillAttack(lua_State*);      // enable/disable using mobskills as regular attacks
+    int32 SetClaimable(lua_State*);           // set the enmity claimable or not
 
     int32 getMobMod(lua_State*);
     int32 setMobMod(lua_State*);

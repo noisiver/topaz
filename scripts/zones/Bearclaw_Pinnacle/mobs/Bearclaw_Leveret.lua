@@ -21,7 +21,7 @@ end
 function onMobFight(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local battlefield = mob:getBattlefield()
     local RandomRabit = battlefield:getLocalVar("RandomRabit")
     if mob:getID() == RandomRabit then

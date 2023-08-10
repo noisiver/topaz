@@ -4,6 +4,7 @@
 -- Involved in Mission 2-1
 -- Involved In Quest: Know One's Onions, Onion Rings, The Puppet Master, Class Reunion
 -- !pos -26 -13 260 239
+-- SMN job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Walls/IDs")
 require("scripts/globals/settings")
@@ -11,9 +12,11 @@ require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/quests")
 require("scripts/globals/status")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.SMN)
 end
 
 function onTrigger(player, npc)
@@ -21,6 +24,9 @@ function onTrigger(player, npc)
     local classReunion = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CLASS_REUNION)
     local carbuncleDebacle = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CARBUNCLE_DEBACLE)
     local iCanHearARainbow = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.I_CAN_HEAR_A_RAINBOW)
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.SMN)
 
     -- LOST FOR WORDS
     if player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.LOST_FOR_WORDS and player:getCharVar("MissionStatus") == 5 then

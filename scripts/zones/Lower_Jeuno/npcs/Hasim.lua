@@ -70,6 +70,7 @@ function onTrigger(player, npc)
         --4849, 130378,    -- Scroll of Addle
         4629,  35000,    -- Scroll of Holy
         4647,  20000,    -- Scroll of Banishga II
+        4705,  45000,    -- Scroll of Temper
         --4737, 119240,    -- Scroll of Protecra V
         --4742, 124540,    -- Scroll of Shellra V
         --4633, 139135,    -- Scroll of Dia III

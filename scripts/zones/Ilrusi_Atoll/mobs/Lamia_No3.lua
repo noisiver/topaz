@@ -74,7 +74,7 @@ end
 function onMobWeaponSkillPrepare(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     instance:setProgress(instance:getProgress() + 1)
 end

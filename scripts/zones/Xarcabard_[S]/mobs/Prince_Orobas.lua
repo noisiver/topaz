@@ -44,7 +44,7 @@ return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENDARK, {chance = 100
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 541)
 end

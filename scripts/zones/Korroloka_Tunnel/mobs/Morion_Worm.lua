@@ -21,5 +21,5 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.SLEEPRESTRAIT, 75)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

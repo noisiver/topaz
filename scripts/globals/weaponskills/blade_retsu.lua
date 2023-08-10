@@ -37,11 +37,11 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0, tpz.effect.PARALYSIS)
     local power = 25
 
-    if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
+    if damage > 0 and not target:hasStatusEffect(effect) and resist >= 0.5 then
         local duration = 60 * resist
-        target:delStatusEffectSilent(effect)
         target:addStatusEffect(effect, power, 3, duration)
     end
+
 	if damage > 0 then player:trySkillUp(target, tpz.skill.KATANA, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 

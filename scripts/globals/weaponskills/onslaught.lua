@@ -38,7 +38,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.RELIC)
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, 0)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, 0, tpz.effect.ACCURACY_DOWN)
     if damage > 0 and (target:hasStatusEffect(tpz.effect.ACCURACY_DOWN) == false) and resist >= 0.5 then
         local duration = tp / 1000 * 60
         target:delStatusEffect(tpz.effect.ACCURACY_BOOST)

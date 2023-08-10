@@ -19,7 +19,7 @@ function onMobDisengage(mob)
     mob:setLocalVar("initiate", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCurrentMission(COP) == tpz.mission.id.cop.A_PLACE_TO_RETURN and player:getCharVar("PromathiaStatus") == 1) then
         player:setCharVar("Warder_Euphrosyne_KILL", 1)
     end

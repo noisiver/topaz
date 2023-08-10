@@ -195,7 +195,7 @@ end
         { {640, 2} }         -- copper ore x2
         { {640, 2}, 641 }    -- copper ore x2, tin ore x1
 ******************************************************************************* --]]
-function npcUtil.giveItem(player, items) -- TODO: ability to give augmented items
+function npcUtil.giveItem(player, items)
     local ID = zones[player:getZoneID()]
 
     -- create table of items, with key/val of itemId/itemQty
@@ -236,6 +236,31 @@ function npcUtil.giveItem(player, items) -- TODO: ability to give augmented item
             return false
         end
     end
+    return true
+end
+
+--[[ *******************************************************************************
+    Give an augmented item to the player
+    If player has inventory space, give items, display message, and return true.
+    If not, do not give items, display a message to indicate this, and return false.
+
+    Examples of valid parameters:
+        25417, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5
+******************************************************************************* --]]
+function npcUtil.giveAugmentedItem(player, itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, aug4, aug4val)
+    local ID = zones[player:getZoneID()]
+
+    -- does player have enough inventory space?
+    if player:getFreeSlotsCount() < 1 then
+        player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, itemId)
+        return false
+    end
+
+    -- give augmented item to player
+    if player:addItem(itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, aug4, aug4val) then
+        player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
+    end
+
     return true
 end
 
@@ -316,6 +341,39 @@ function npcUtil.giveKeyItem(player, keyitems)
         if not player:hasKeyItem(v) then
             player:addKeyItem(v)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, v)
+        end
+    end
+    return true
+end
+
+--[[ *******************************************************************************
+    Deletes key item(s) from player.
+    Message is displayed showing key items obtained.
+
+    Examples of valid keyitems parameter:
+        tpz.ki.ZERUHN_REPORT
+        {tpz.ki.PALBOROUGH_MINES_LOGS}
+        {tpz.ki.BLUE_ACIDITY_TESTER, tpz.ki.RED_ACIDITY_TESTER}
+******************************************************************************* --]]
+function npcUtil.deleteKeyItem(player, keyitems)
+    local ID = zones[player:getZoneID()]
+
+    -- create table of keyitems
+    local givenKeyItems = {}
+    if type(keyitems) == "number" then
+        givenKeyItems = {keyitems}
+    elseif type(keyitems) == "table" then
+        givenKeyItems = keyitems
+    else
+        print(string.format("ERROR: invalid keyitems parameter given to npcUtil.deleteKeyItem in zone %s.", player:getZoneName()))
+        return false
+    end
+
+    -- delete key items to player, with message
+    for _, v in pairs(givenKeyItems) do
+        if player:hasKeyItem(v) then
+            player:delKeyItem(v)
+            player:messageSpecial(ID.text.KEYITEM_OBTAINED +1, v)
         end
     end
     return true
@@ -611,11 +669,11 @@ end
 
 function npcUtil.giveAvatarQuest(npc, player, region, quest, keyitem, timer)
     local ID = zones[player:getZoneID()]
-        if (player:getQuestStatus(region, quest) == QUEST_COMPLETED) then
-            player:delQuest(region, quest)
-        end
-        player:addQuest(region, quest)
-        player:setCharVar(timer, 0)
-        player:addKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.TUNING_FORK_OF_FIRE)
+    if (player:getQuestStatus(region, quest) == QUEST_COMPLETED) then
+        player:delQuest(region, quest)
+    end
+    player:addQuest(region, quest)
+    player:setCharVar(timer, 0)
+    player:addKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)
+    player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.TUNING_FORK_OF_FIRE)
 end

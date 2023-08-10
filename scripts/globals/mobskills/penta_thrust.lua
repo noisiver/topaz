@@ -1,7 +1,6 @@
 ---------------------------------------------
 --  Penta Thrust
---  Description: Delivers a fivefold attack. Additional efect: Bind
---  Type: Physical only when weapon is broken
+--  Description: Delivers a fivefold attack.
 ---------------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")

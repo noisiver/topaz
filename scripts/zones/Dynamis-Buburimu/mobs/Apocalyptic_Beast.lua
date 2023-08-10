@@ -6,6 +6,6 @@
 require("scripts/globals/dynamis")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     dynamis.megaBossOnDeath(mob, player, isKiller)
 end

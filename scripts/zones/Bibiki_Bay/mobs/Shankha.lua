@@ -19,7 +19,7 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.REGAIN, 200) -- "Seemed to have very high TP gain." (guessing 200 after watching video)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 266)
 end
 

@@ -7,7 +7,7 @@ local ID = require("scripts/zones/Beaucedine_Glacier/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 46, 1, tpz.regime.type.FIELDS)
     tpz.regime.checkRegime(player, mob, 47, 1, tpz.regime.type.FIELDS)
 end

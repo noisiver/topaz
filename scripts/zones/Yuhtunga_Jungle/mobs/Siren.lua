@@ -15,7 +15,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local party = player:getParty()
     for _, member in ipairs(party) do
         if member:getCurrentMission(ROV) == tpz.mission.id.rov.THE_LOST_AVATAR then

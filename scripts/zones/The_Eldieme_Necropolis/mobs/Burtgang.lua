@@ -1,7 +1,8 @@
 ------------------------------
 -- Area: The Eldieme Necropolis
 --   Burtgang
---  !additem 480 
+--  !additem 480
+-- Mythic weapon fight
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
@@ -10,11 +11,12 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
+    SetGenericNMStats(mob)
     mob:addMod(tpz.mod.DEFP, 300) 
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMod(tpz.mod.UDMGMAGIC, 200)
     mob:setMod(tpz.mod.UDMGPHYS, -10)
-    mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     --mob:setModelId(640) -- Dullahan
 end
 
@@ -28,8 +30,8 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
-player:PrintToPlayer("Maybe...you...are...worthy...of...my...power...",0,"Burtgang")
+function onMobDeath(mob, player, isKiller, noKiller)
+    OnDeathMessage(mob, player, isKiller, noKiller, "Maybe...you...are...worthy...of...my...power...",0,"Burtgang")
 end
 
 

@@ -86,7 +86,7 @@ uint8 CGuild::addGuildPoints(CCharEntity* PChar, CItem* PItem, int16& pointsAdde
     {
         int32 curPoints = charutils::GetCharVar(PChar, "[GUILD]daily_points");
 
-        if (curPoints >= 0)
+        if (curPoints != 1)
         {
             for (auto& GPItem : m_GPItems[rank - 3])
             {
@@ -120,7 +120,7 @@ std::pair<uint16, uint16> CGuild::getDailyGPItem(CCharEntity* PChar)
 
     auto GPItem = m_GPItems[rank - 3];
     auto curPoints = (uint16)charutils::GetCharVar(PChar, "[GUILD]daily_points");
-    if (curPoints == -1)
+    if (curPoints == 1) // char_var set to 1 in crafting.lua file when done getting points forthe day. Deleted in guildutils.cpp
     {
         return std::make_pair(GPItem[0].item->getID(), 0);
     }

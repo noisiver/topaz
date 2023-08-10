@@ -44,12 +44,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:delRoamFlag(512)
-    printf("Spawned Karugo")
+    -- mob:delRoamFlag(512)
+    -- printf("Spawned Karugo")
     mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.EVA, 374) 
+    mob:setMod(tpz.mod.EVA, 324) 
     mob:setMod(tpz.mod.REGAIN, 0)
-    mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:SetMobSkillAttack(6096) -- JA Autoattacks
     mob:SetAutoAttackEnabled(true)
@@ -279,7 +278,7 @@ function onMobDespawn(mob)
     mob:AnimationSub(0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:setLocalVar("Ashed", 0)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i]

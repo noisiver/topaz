@@ -33,7 +33,7 @@ function onMobFight(mob, target)
         if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
             mob:actionQueueEmpty() and (tp < 1000) then 
             if (os.time() >= KOTimer) then
-                KOTarget = math.random(#enmityList)
+                KOTarget = math.random(15, 16)
                 if not GetPlayerByID(KOTarget):isDead() then
                     mob:setLocalVar("KOTimer", os.time() + 60)
                     ForceDrawIn(mob, KOTarget)
@@ -60,9 +60,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    if isKiller or noKiller then
-        utils.MessageParty(player, "I...return....to...the...crystal...once...again.....", 0, "Raogrimm")
-    end
+    OnDeathMessage(mob, player, isKiller, noKiller, "I...return....to...the...crystal...once...again.....", 0, "Raogrimm")
 end
 
 function onMobDespawn(mob)

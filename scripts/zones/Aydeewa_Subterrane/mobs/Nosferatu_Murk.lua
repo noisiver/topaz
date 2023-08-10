@@ -19,6 +19,13 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+    -- Safety check to ensure mob still despawns
+    if GetServerVariable("NosferatuAF") == 1 then
+        mob:useMobAbility(247) -- Foxfire
+    end
+    if GetServerVariable("NosferatuAF") == 0 or GetServerVariable("NosferatuAF") == 2 then
+        mob:useMobAbility(253) -- Barbed Crescent
+    end
 end
 
 function onMobWeaponSkill(target, mob, skill)

@@ -21,7 +21,7 @@ function onMobSpawn(mob)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCurrentMission(COP) == tpz.mission.id.cop.DISTANT_BELIEFS and player:getCharVar("PromathiaStatus") == 0) then
         player:setCharVar("PromathiaStatus", 1)
     end

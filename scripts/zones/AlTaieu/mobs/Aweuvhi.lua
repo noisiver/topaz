@@ -11,7 +11,7 @@ function onMobSpawn(mob)
     mob:AnimationSub(6)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local mobID = mob:getID()
 
     if (mobID == ID.mob.EUVHIS_WHITE+0 or mobID == ID.mob.EUVHIS_WHITE+2 or mobID == ID.mob.EUVHIS_WHITE+4) then

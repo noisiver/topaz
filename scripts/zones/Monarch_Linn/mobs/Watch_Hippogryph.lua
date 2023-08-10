@@ -50,6 +50,6 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN, {chance = 25, duration = 5})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     DespawnMob(mob:getID()+1)
 end

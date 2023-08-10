@@ -1853,6 +1853,18 @@ namespace luautils
             PChar->pushPacket(new CRaiseTractorMenuPacket(PChar, TYPE_HOMEPOINT));
             PChar->updatemask |= UPDATE_HP;
         }
+        // Set player pets position to the player for cutscenes that teleport the player (i.e promyvion teleports)
+        if (PChar->objtype == TYPE_PC)
+        {
+            CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+            {
+                PPet->loc.p.x = PChar->loc.p.x;
+                PPet->loc.p.y = PChar->loc.p.y;
+                PPet->loc.p.z = PChar->loc.p.z;
+                PPet->loc.p.rotation = PChar->loc.p.rotation;
+            }
+        }
         return 0;
     }
 

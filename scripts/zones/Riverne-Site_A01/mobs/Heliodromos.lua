@@ -46,7 +46,7 @@ function onMobEngaged(mob)
 	HeliodromosThree:updateEnmity(target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- one of the heliodromos was killed. set a 10 minute despawn timer before the others despawn
     if (isKiller and GetServerVariable("Heliodromos_Despawn") == 0) then
         SetServerVariable("Heliodromos_Despawn", os.time() + 600)

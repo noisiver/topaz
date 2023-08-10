@@ -38,6 +38,8 @@ function onTrigger(player, npc)
         player:addTempItem(5431) -- dusty potion
         player:addTempItem(5825)    -- Lucid Potion II
         player:addTempItem(5826)    -- Lucid Potion III
+        player:addTempItem(5835)    -- Healing Salve
+        player:addTempItem(5836)    -- Healing Salve II
         for _, member in pairs(player:getAlliance()) do
             if member:getZoneID() == player:getZoneID() then
                 member:messageName(ID.text.PLAYER_OBTAINS_ITEM, player, 5431, param2, param3, param4, nil)
@@ -51,6 +53,16 @@ function onTrigger(player, npc)
         for _, member in pairs(player:getAlliance()) do
             if member:getZoneID() == player:getZoneID() then
                 member:messageName(ID.text.PLAYER_OBTAINS_ITEM, player, 5826, param2, param3, param4, nil)
+            end
+        end
+        for _, member in pairs(player:getAlliance()) do
+            if member:getZoneID() == player:getZoneID() then
+                member:messageName(ID.text.PLAYER_OBTAINS_ITEM, player, 5835, param2, param3, param4, nil)
+            end
+        end
+        for _, member in pairs(player:getAlliance()) do
+            if member:getZoneID() == player:getZoneID() then
+                member:messageName(ID.text.PLAYER_OBTAINS_ITEM, player, 5836, param2, param3, param4, nil)
             end
         end
     elseif npc:getID() == 17002778 then -- J-5

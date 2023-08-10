@@ -34,6 +34,6 @@ function onMobDisengage(mob)
 	mob:setLocalVar("TwoHourUsed", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 249)
 end

@@ -37,7 +37,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0, tpz.effect.BURN)
 
     if (damage > 0 and not target:hasStatusEffect(tpz.effect.BURN) and not target:hasStatusEffect(tpz.effect.DROWN) and  resist >= 0.5) then
         local duration = 180 * resist

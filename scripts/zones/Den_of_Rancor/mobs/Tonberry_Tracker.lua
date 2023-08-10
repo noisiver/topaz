@@ -18,7 +18,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 9000)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 798, 1, tpz.regime.type.GROUNDS)
     tpz.regime.checkRegime(player, mob, 799, 2, tpz.regime.type.GROUNDS)
     tpz.regime.checkRegime(player, mob, 800, 2, tpz.regime.type.GROUNDS)

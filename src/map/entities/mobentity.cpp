@@ -126,6 +126,7 @@ CMobEntity::CMobEntity()
 
     // For Dyna Stats
     m_StatPoppedMobs = false;
+    m_IsClaimable = true;
 
     PAI = std::make_unique<CAIContainer>(this, std::make_unique<CPathFind>(this), std::make_unique<CMobController>(this),
         std::make_unique<CTargetFind>(this));
@@ -325,10 +326,11 @@ bool CMobEntity::CanLink(position_t* pos, int16 superLink)
         return false;
     }
 
-    if (!PAI->PathFind->CanSeePoint(*pos))
+    if (!CanSeeTarget(*pos))
     {
         return false;
     }
+
     return true;
 }
 
@@ -340,7 +342,7 @@ bool CMobEntity::CanLink(position_t* pos, int16 superLink)
 
 bool CMobEntity::CanDeaggro()
 {
-    return !(m_Type & MOBTYPE_NOTORIOUS || m_Type & MOBTYPE_BATTLEFIELD);
+    return !(m_Type & MOBTYPE_NOTORIOUS || m_Type & MOBTYPE_BATTLEFIELD || m_Type & MOBTYPE_QUEST);
 }
 
 bool CMobEntity::IsFarFromHome()
@@ -350,7 +352,7 @@ bool CMobEntity::IsFarFromHome()
 
 bool CMobEntity::CanBeNeutral()
 {
-    return !(m_Type & MOBTYPE_NOTORIOUS);
+    return !(m_Type & MOBTYPE_NOTORIOUS || m_Type & MOBTYPE_QUEST);
 }
 
 uint16 CMobEntity::TPUseChance()
@@ -748,8 +750,12 @@ void CMobEntity::Spawn()
     SetMLevel(level);
     SetSLevel(level);//calculated in function
 
-    mobutils::CalculateMobStats(this, true);
-    mobutils::GetAvailableSpells(this);
+    // Don't calculate spells/stats again if a monster pet, they've already been calculated in petutils.cpp
+    if (objtype != TYPE_PET)
+    {
+        mobutils::CalculateMobStats(this, true);
+        mobutils::GetAvailableSpells(this);
+    }
 
     // spawn somewhere around my point
     loc.p = m_SpawnPoint;
@@ -971,6 +977,20 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
                                                                             PSkill->getTertiarySkillchain());
                         if (effect != SUBEFFECT_NONE)
                         {
+                            // Apply Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto power = PEffect->GetPower();
+                                auto currentFlag = WEAPONTYPE_PET;
+                                auto subPower = PEffect->GetSubPower();
+                                if ((subPower & currentFlag) == 0)
+                                {
+                                    PEffect->SetPower(power + 1);
+                                    PEffect->SetSubPower(subPower | currentFlag);
+                                }
+                            }
+
                             int32 skillChainDamage = battleutils::TakeSkillchainDamage(this, PTarget, target.param, nullptr);
                             if (skillChainDamage < 0)
                             {
@@ -983,6 +1003,17 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
                                 target.addEffectMessage = 287 + effect;
                             }
                             target.additionalEffect = effect;
+                        }
+                        else if (effect == SUBEFFECT_NONE)
+                        {
+                            // Reset Inundation weapon skill type tracking
+                            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                            {
+                                CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                                auto currentFlag = WEAPONTYPE_PET;
+                                PEffect->SetPower(0);
+                                PEffect->SetSubPower(currentFlag);
+                            }
                         }
                     }
                     first = false;

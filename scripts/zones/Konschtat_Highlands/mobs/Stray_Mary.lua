@@ -7,7 +7,7 @@ require("scripts/globals/titles")
 require("scripts/quests/tutorial")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 203)
     player:addTitle(tpz.title.MARYS_GUIDE)
     tpz.tutorial.onMobDeath(player)

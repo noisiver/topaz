@@ -6,7 +6,7 @@
 require("scripts/globals/settings")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     player:setCharVar("BCNM_Killed", 1)
     record = 300

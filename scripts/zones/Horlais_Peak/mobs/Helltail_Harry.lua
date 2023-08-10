@@ -12,5 +12,5 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.LULLABYRES, 700)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

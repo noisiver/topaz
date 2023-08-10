@@ -90,11 +90,28 @@ struct profile_t
     uint8      campaign_allegiance;
 };
 
-
 struct expChain_t
 {
     uint16 chainNumber;
     uint32 chainTime;
+
+    expChain_t()
+    {
+        chainNumber = 0;
+        chainTime = 0;
+    }
+};
+
+struct capacityChain_t
+{
+    uint16 chainNumber;
+    uint32 chainTime;
+
+    capacityChain_t()
+    {
+        chainNumber = 0;
+        chainTime = 0;
+    }
 };
 
 struct Telepoint_t
@@ -175,6 +192,7 @@ enum CHAR_PERSIST : uint8
 
 class CBasicPacket;
 class CLinkshell;
+class CJobPoints;
 class CMeritPoints;
 class CCharRecastContainer;
 class CLatentEffectContainer;
@@ -209,6 +227,7 @@ public:
 
     profile_t				profile;						// профиль персонажа (все, что связывает города и персонажа)
     expChain_t				expChain;						// Exp Chains
+    capacityChain_t         capacityChain;                                                              // Capacity Point Chains
     search_t				search;							// данные и комментарий, отображаемые в окне поиска
     bazaar_t				bazaar;							// все данные, необходимые для таботы bazaar
     uint16					m_EquipFlag;					// текущие события, обрабатываемые экипировкой (потом упакую в структуру, вместе с equip[])
@@ -301,6 +320,7 @@ public:
     CLinkshell*       PLinkshell2;                  // linkshell 2
     CTreasurePool*	  PTreasurePool;                // сокровища, добытые с монстров
     CMeritPoints*     PMeritPoints;                 //
+    CJobPoints*       PJobPoints;
     bool			  MeritMode;					//If true then player is meriting
 
     CLatentEffectContainer* PLatentEffectContainer;
@@ -358,6 +378,7 @@ public:
     location_t m_previousLocation;
 
     bool              m_mentorUnlocked;
+    bool              m_jobMasterDisplay; // Job Master Stars display
     uint32            m_moghouseID;
     uint16            m_moghancementID;
 

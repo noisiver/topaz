@@ -3,6 +3,7 @@
 --  NPC: Parih Vashai
 -- Starts and Finishes Quest: The Fanged One, From Saplings Grow
 -- !pos 117 -3 92 241
+-- RNG job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Woods/IDs")
 require("scripts/globals/keyitems")
@@ -13,6 +14,7 @@ require("scripts/globals/wsquest")
 require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 local wsQuest = tpz.wsquest.empyreal_arrow
@@ -28,6 +30,7 @@ function onTrade(player, npc, trade)
     elseif player:getCharVar("fireAndBrimstone") == 5 and npcUtil.tradeHas(trade, 1113) then -- old earring
         player:startEvent(537, 0, 13360)
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.RNG)
 end
 
 function onTrigger(player, npc)
@@ -42,6 +45,9 @@ function onTrigger(player, npc)
     local unbridledPassionCS = player:getCharVar("unbridledPassion")
     local lvl = player:getMainLvl()
     local job = player:getMainJob()
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.RNG)
 
     -- FROM SAPLINGS GROW
     if wsQuestEvent ~= nil then

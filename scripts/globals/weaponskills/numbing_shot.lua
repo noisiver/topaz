@@ -1,7 +1,7 @@
 -----------------------------------
 -- Numbing Shot
 -- Marksmanship weapon skill
--- Skill level: 290
+-- Skill level: 280
 -- Main of sub must be Ranger or Corsair
 -- Aligned with the Thunder & Breeze Gorget.
 -- Aligned with the Thunder Belt & Breeze Belt.
@@ -19,7 +19,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.numHits = 1
-    params.ftp100 = 3 params.ftp200 = 3 params.ftp300 = 3
+    params.ftp100 = 3.0 params.ftp200 = 3.0 params.ftp300 = 3.0
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.6 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
@@ -31,13 +31,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 100, tpz.effect.PARALYSIS)
+    local duration = (tp/1000 * 60) * resist
 
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.PARALYSIS) == false) then
-        local duration = (tp/1000 * 60) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0,tpz.effect.PARALYSIS)
+    if (damage > 0 not target:hasStatusEffect(tpz.effect.PARALYSIS) and resist >= 0.5) then
         target:addStatusEffect(tpz.effect.PARALYSIS, 30, 0, duration)
     end
-    return tpHits, extraHits, criticalHit, damage
-		if damage > 0 then player:trySkillUp(target, tpz.skill.MARKSMANSHIP, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
+	if damage > 0 then player:trySkillUp(target, tpz.skill.MARKSMANSHIP, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     return tpHits, extraHits, criticalHit, damage
 end

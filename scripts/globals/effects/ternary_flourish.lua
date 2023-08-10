@@ -3,13 +3,16 @@
 --   tpz.effect.TERNARY_FLOURISH
 --
 -----------------------------------
+require("scripts/globals/status")
+-----------------------------------
+
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.TRIPLE_ATTACK, 100)
+    target:addMod(tpz.mod.CRITHITRATE, effect:getPower())
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.TRIPLE_ATTACK, 100)
+    target:delMod(tpz.mod.CRITHITRATE, effect:getPower())
 end

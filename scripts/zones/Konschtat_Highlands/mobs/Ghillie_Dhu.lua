@@ -38,7 +38,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.TP_DRAIN, {power = math.random(10, 30)})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 204)
     -- I think he still counts for the FoV page? Most NM's do not though.
     tpz.regime.checkRegime(player, mob, 81, 1, tpz.regime.type.FIELDS)

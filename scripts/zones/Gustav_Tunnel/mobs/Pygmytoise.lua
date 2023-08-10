@@ -24,6 +24,6 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.DARKDEF, 128)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 770, 2, tpz.regime.type.GROUNDS)
 end

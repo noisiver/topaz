@@ -1,13 +1,13 @@
 -----------------------------------
 -- Infernal Scythe
 -- Scythe weapon skill
--- Skill Level: 300
+-- Skill Level: 280
 -- Deals darkness elemental damage and lowers target's attack. Duration of effect varies with TP.
 -- Attack Down effect is -25% attack.
 -- Aligned with the Shadow Gorget & Aqua Gorget.
 -- Aligned with the Shadow Belt & Aqua Belt.
 -- Element: None
--- Modifiers: STR: 30% INT: 30%
+-- Modifiers: STR: 30% INT: 70%
 -- 100%TP    200%TP    300%TP
 -- 3.50        3.50      3.50
 -----------------------------------
@@ -20,7 +20,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.ftp100 = 3.5 params.ftp200 = 3.5 params.ftp300 = 3.5
-    params.str_wsc = 0.3 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.3 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
+    params.str_wsc = 0.3 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.7 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.ele = tpz.magic.ele.DARK
     params.skill = tpz.skill.SCYTHE
     params.includemab = true
@@ -32,16 +32,15 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
-		if damage > 0 then player:trySkillUp(target, tpz.skill.SCYTHE, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.SCYTHE, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
    
-	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
-	if (damage > 0 and target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 100, tpz.effect.ATTACK_DOWN)
+	if (damage > 0 and not target:hasStatusEffect(tpz.effect.ATTACK_DOWN) and resist >= 0.5) then
         local duration =  (tp/1000 * 180)
         target:delStatusEffect(tpz.effect.ATTACK_BOOST)
         target:addStatusEffect(tpz.effect.ATTACK_DOWN, 25, 0, duration * resist)
     end
 	
     return tpHits, extraHits, criticalHit, damage
-
 end

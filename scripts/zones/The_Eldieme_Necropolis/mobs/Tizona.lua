@@ -3,6 +3,7 @@
 --   Raubahn
 --  !additem 475 
 --	!pos 105.9537 0.4000 -179.0539
+-- Mythic weapon fight
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
@@ -11,7 +12,9 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REFRESH, 400)
+    SetGenericNMStats(mob)
+	mob:setMod(tpz.mod.ATTP, 0)
+	mob:setMod(tpz.mod.DEFP, 0) 
 	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setUnkillable(true)
@@ -28,7 +31,7 @@ function onMobFight(mob, target)
 		mob:addMod(tpz.mod.DEFP, 20) 
         mob:setModelId(1799) -- Yellow Flan
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 112)
-        target:PrintToPlayer("This power...I cannot contain it much longer...",0,"Raubahn")
+        MessageGroup(mob, target, "This power...I cannot contain it much longer...",0,"Raubahn")
 	end
     if HP < 25 and Phase == 1 then
 		printf("Phase 2");
@@ -38,7 +41,7 @@ function onMobFight(mob, target)
 		mob:addMod(tpz.mod.DEFP, 20) 
 		mob:setModelId(1774) -- Qutrub
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 203)
-		target:PrintToPlayer("It's...too....powerful.....",0,"Raubahn")
+        MessageGroup(mob, target, "It's...too....powerful.....",0,"Raubahn")
 	end
     if HP < 25 and Phase == 2 then
 		printf("Phase 3");
@@ -48,14 +51,14 @@ function onMobFight(mob, target)
 		mob:addMod(tpz.mod.DEFP, 20) 
 		mob:setModelId(1775) -- Soulflayer
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 233)
-		target:PrintToPlayer("...All will succumb to the void....",0,"Soulflayer")
+        MessageGroup(mob, target, "...All will succumb to the void....",0,"Soulflayer")
 		mob:setUnkillable(false)
 	end
 end
 
 
-function onMobDeath(mob, player, isKiller)
-	player:PrintToPlayer("...and you too shall succumb.",0,"Soulflayer")
+function onMobDeath(mob, player, isKiller, noKiller)
+    OnDeathMessage(mob, player, isKiller, noKiller, "...and you too shall succumb.",0,"Soulflayer")
 end
 
 

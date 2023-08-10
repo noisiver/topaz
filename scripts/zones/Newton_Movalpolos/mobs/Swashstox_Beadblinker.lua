@@ -16,6 +16,6 @@ function onMobSpawn(mob)
     GuardTwo:spawn()
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 247)
 end

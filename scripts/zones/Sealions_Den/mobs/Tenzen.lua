@@ -147,7 +147,7 @@ function onMagicHit(caster, target, spell)
     cheru:showText(cheru, 7928) -- Go for the eyes! The eyes!
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller then
         defeated(mob)
     end

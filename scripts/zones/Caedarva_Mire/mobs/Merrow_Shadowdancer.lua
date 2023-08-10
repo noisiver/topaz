@@ -17,5 +17,5 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

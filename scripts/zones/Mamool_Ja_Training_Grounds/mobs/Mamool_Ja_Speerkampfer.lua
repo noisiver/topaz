@@ -5,6 +5,7 @@
 -----------------------------------
 require("scripts/globals/status")
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 70)
@@ -76,7 +77,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     DespawnMob(17047947, instance)
     instance:setProgress(instance:getProgress() + 1)

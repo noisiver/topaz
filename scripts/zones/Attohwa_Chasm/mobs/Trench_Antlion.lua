@@ -7,7 +7,7 @@ mixins = {require("scripts/mixins/families/antlion_ambush")}
 local ID = require("scripts/zones/Attohwa_Chasm/IDs")
 require("scripts/globals/mobs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

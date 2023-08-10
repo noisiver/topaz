@@ -26,6 +26,6 @@ function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.TRAILBLIX_GOATMUG_PH, 50, 3600) -- 20 minutes
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     dynamis.refillStatueOnDeath(mob, player, isKiller)
 end

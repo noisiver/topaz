@@ -68,7 +68,7 @@ function onMobFight(mob,target)
     end
 end;
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 	DespawnMob(mob:getID()+1)
 	DespawnMob(mob:getID()+2)
 	DespawnMob(mob:getID()+3)
@@ -85,5 +85,5 @@ function onAdditionalEffect(mob, target, damage)
 return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.DISPEL, {chance = 100})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

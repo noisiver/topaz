@@ -21,7 +21,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local Red = GetMobByID(mob:getID() - 2)
     local Add = GetMobByID(mob:getID()+3)
     Add:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))

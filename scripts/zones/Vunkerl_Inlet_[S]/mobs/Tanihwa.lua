@@ -64,7 +64,7 @@ function onSpellPrecast(mob, spell)
     spell:setRadius(15)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 500)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(3510, mob)-- Silver Mirror 

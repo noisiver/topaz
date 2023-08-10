@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 400)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     GetNPCByID(ID.npc.SKULL_OF_GLUTTONY):updateNPCHideTime(3600) -- 1 Hr
     tpz.hunts.checkHunt(mob, player, 184)
 end

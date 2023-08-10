@@ -45,8 +45,8 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local buffone = tpz.effect.ICE_SPIKES
-    local bufftwo = tpz.effect.ICE_SPIKES
-    local buffthree = tpz.effect.ICE_SPIKES
+    local bufftwo = tpz.effect.SHOCK_SPIKES
+    local buffthree = tpz.effect.DREAD_SPIKES
 
     if skill:getID() == 819 then -- Blizzard Breath
         mob:addStatusEffect(tpz.effect.ICE_SPIKES, 20, 0, 30)
@@ -62,6 +62,6 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 375)
 end

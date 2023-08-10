@@ -11,7 +11,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.ALWAYS_AGGRO, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local KingArthro = GetMobByID(ID.mob.KING_ARTHRO)
     local mobId = mob:getID()
 

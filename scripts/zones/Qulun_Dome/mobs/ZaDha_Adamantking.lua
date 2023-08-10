@@ -13,10 +13,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setDamage(130)
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.ACC, 20) 
-    mob:addMod(tpz.mod.EVA, 20)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.DEF, 10000)
     mob:setMod(tpz.mod.UDMGPHYS, -50)
     mob:setMod(tpz.mod.UFASTCAST, 50)
@@ -171,7 +168,7 @@ function onAdditionalEffect(mob, target, damage)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.ADAMANTKING_USURPER)
     if isKiller then
         mob:showText(mob, ID.text.QUADAV_KING_DEATH)

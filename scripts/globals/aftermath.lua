@@ -4,6 +4,36 @@
 require("scripts/globals/common")
 require("scripts/globals/status")
 require("scripts/globals/weaponskillids")
+-----------------------------------------
+--[[
+    https://www.bluegartr.com/threads/112776-Dev-Tracker-Findings-Posts-%28NO-DISCUSSION%29?p=6712150&viewfull=1#post6712150
+    Below are the potential effects of magic accuracy and magic attack from the Mythic Aftermath.
+
+    Mythic Weapon Carnwenhan (Bard)
+    Magic Accuracy +30~49
+
+    Mythic Weapon Murgleis (Red Mage)
+    Magic Accuracy +30~49
+    Magic Attack +30~49
+
+    Mythic Weapon Tizona (Blue Mage)
+    Magic Accuracy +30~49
+    Magic Attack +30~49
+
+    Mythic Weapon Yagrush (White Mage)
+    Magic Accuracy +30~49
+
+    Mythic Weapon Laevateinn (Black mage)
+    Magic Accuracy +30~49
+    Magic Attack +30~49
+
+    Mythic Weapon Tupsimati (Scholar)
+    Magic Accuracy +30~49
+    Magic Attack +30~49
+
+    Ergon Weapon Idris (Geomancer)
+    Magic Accuracy +30~49
+]]--
 
 tpz = tpz or {}
 

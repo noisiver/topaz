@@ -4,5 +4,5 @@
 -- Mission 2-3 BCNM Fight
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

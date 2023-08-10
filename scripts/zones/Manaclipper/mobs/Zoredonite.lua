@@ -18,5 +18,5 @@ function onMobDespawn(mob)
     mob:setLocalVar("respawn", os.time() + 43200) -- 12 hour respawn
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

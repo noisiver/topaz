@@ -11,7 +11,7 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 600)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 153)
     tpz.tutorial.onMobDeath(player)
 end

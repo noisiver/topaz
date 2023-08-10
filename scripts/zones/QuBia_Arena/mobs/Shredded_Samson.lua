@@ -25,5 +25,5 @@ function onMobEngaged (mob, target)
     DespawnMob(mobId + 2)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

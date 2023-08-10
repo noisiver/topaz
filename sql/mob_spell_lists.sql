@@ -4622,6 +4622,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,350,27,55);
 INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,351,56,89); -- dokumori_ni
 INSERT INTO `mob_spell_lists` VALUES ('Caithleann',1020,352,90,255); -- dokumori_san
 
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 152, 1, 255);    -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 182, 1, 255);    -- Blizzaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 236, 1, 255);    -- Frost
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 206, 1, 255);    -- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('Bhoot',1021, 250, 1, 255);    -- Ice Spikes
+
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5632,8 +5638,127 @@ INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,274,56,255);
 INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,255,1,255); -- Break
 INSERT INTO `mob_spell_lists` VALUES ('Lamia_Necromancer',2083,365,1,255); -- Break
 
--- NEXT 1021
--- NEXT 2084(Custom)
+
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,1,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,2,11,20);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,3,21,40);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,4,41,84);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,5,85,255); -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,6,95,255); -- Cure VI
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,21,50,94); -- Holy
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,22,95,255); -- Holy II
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,23,3,35);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,24,36,84);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,25,85,255); -- Dia III
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,28,5,29);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,29,30,60);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,30,61,89);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,31,90,255); -- banish_iv
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,33,18,54);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,34,60,84);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,35,85,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,38,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,39,40,89);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,40,90,255); -- banishga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,43,7,26);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,44,27,46);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,45,47,62);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,46,63,75);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,47,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,48,17,36);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,49,37,56);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,50,57,67);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,51,68,75);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,52,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,53,19,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,54,28,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,55,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,56,13,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,58,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,59,15,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,108,21,43);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,110,44,65);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,111,66,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,112,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,477,86,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,511,1,255); -- Haste II
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Millionaire',2084,286,1,255); -- Addle
+
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,1,3,13);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,2,14,25);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,3,26,48);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,4,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,23,1,30);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,24,31,84);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,25,85,255); -- Dia III
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,33,15,54);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,34,55,89);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,35,90,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,43,7,26);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,44,27,46);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,45,47,62);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,46,63,89);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,47,90,255); -- Protect V
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,48,17,36);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,49,37,56);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,50,57,67);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,51,68,90);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,52,90,255); -- Shell V
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,53,23,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,54,34,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,55,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,56,13,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,57,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,58,6,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,59,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,100,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,101,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,102,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,103,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,104,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,105,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,108,21,75);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,110,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,144,19,49);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,145,50,70);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,146,71,99);
+--INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,147,86,255); fire_iv
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,149,24,54);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,150,55,72);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,151,73,99);
+--INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,152,89,255); --blizzard_iv
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,154,14,44);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,155,45,68);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,156,69,99);
+--INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,157,83,255); -- aero_iv
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,159,4,34);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,160,35,64);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,161,65,99);
+--INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,162,77,255); -- stone_iv
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,164,29,59);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,165,60,74);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,166,75,99);
+--INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,167,89,255); -- thunder_iv
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,169,9,39);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,170,40,66);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,171,67,99);
+--INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,172,80,255); -- water_iv
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,216,21,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,220,5,45);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,221,46,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,230,10,35);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,231,36,84);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,253,25,45);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,254,8,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,258,11,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,259,46,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,260,32,255);
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,473,1,255); -- Refresh II
+INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,879,1,255); -- Inundation
+
+-- NEXT 1022
+-- NEXT 2086(Custom)
 
 
 

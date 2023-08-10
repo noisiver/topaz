@@ -15,5 +15,5 @@ function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.SCRUFFIX_SHAGGYCHEST_PH, 50, 3600) -- 20 minutes
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

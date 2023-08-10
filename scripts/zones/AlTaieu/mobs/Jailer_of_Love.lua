@@ -228,7 +228,7 @@ function onMobFight(mob, target, pet)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- despawn pets
     for i = ID.mob.JAILER_OF_LOVE + 1, ID.mob.JAILER_OF_LOVE + 27 do
         if GetMobByID(i):isSpawned() then

@@ -11,6 +11,6 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.BLACK_DRAGON_SLAYER)
 end

@@ -28,7 +28,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DELAY, -150)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if OLDSCHOOL_G2 then
         -- show ??? for desired duration
         -- notify people on the quest who need the KI

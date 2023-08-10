@@ -22,6 +22,6 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 20, power = math.random(300, 400)}) -- "... more than occasionally for 300 damage or more."
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:setCharVar("circleTime", 8) -- Set flag so that final CS will show when you interact with alter again
 end

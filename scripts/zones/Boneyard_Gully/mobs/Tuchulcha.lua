@@ -74,7 +74,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- Used to grab the mob IDs
     -- Despawn the hunters
     if isKiller then

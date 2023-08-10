@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 300)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (isKiller) then
         SpawnMob(mob:getID() + 1):updateClaim(player)
     end

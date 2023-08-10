@@ -10,5 +10,5 @@ function onMobSpawn(mob)
     tpz.promyvion.setEmptyModel(mob)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

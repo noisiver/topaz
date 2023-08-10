@@ -12,6 +12,11 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local raogrimm = mob:getPool() == 9011
+    -- Don't consume TP if Raogrimm
+    if raogrimm then
+        skill:setFlag(2)
+    end
     return 0
 end
 
@@ -32,13 +37,14 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.chr_wsc = 0.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_IGNORE_DEFENSE, params_phys, 1.75, 2.50)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.HTH, info.hitslanded)
-    local raogrimm = mob:getPool() == 9011
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.HTH)
+
+    local raogrimm = mob:getPool() == 9011
     if raogrimm then
-        target:addStatusEffect(tpz.effect.WEAKNESS, 1, 0, 30)
         target:setHP(1)
         mob:resetEnmity(target)
     end
+
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

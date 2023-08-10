@@ -40,7 +40,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     -- Apply Aftermath
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.MYTHIC)
-	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 50)
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 50, tpz.effect.MAGIC_ATK_DOWN)
     if damage > 0 and resist >= 0.5 then
         if not target:hasStatusEffect(tpz.effect.MAGIC_ATK_DOWN) then
             local duration = tp / 1000 * 60

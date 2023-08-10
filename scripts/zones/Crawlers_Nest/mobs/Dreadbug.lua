@@ -5,5 +5,5 @@
 -- !pos -18 -8 124 197
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

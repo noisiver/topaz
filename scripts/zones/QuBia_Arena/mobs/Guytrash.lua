@@ -4,5 +4,5 @@
 -- BCNM: Let Sleeping Dogs Die
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

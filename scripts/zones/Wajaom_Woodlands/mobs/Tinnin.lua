@@ -186,7 +186,7 @@ function onMobDrawIn(mob, target)
     mob:addTP(3000) -- Uses a mobskill upon drawing in a player. Not necessarily on the person drawn in.
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 400)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse

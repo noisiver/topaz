@@ -43,7 +43,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local battlefield = player:getBattlefield()
     if battlefield and phaseChangeReady(battlefield) then
         player:release() -- prevents event collision if player kills multiple remaining mobs with an AOE move/spell

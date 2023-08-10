@@ -131,7 +131,7 @@ function onMobRoam(mob)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.CACTROT_DESACELERADOR)
 end
 

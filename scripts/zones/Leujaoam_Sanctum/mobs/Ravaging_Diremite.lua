@@ -70,7 +70,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     SpawnMob(17060198, instance)
     local zonePlayers = mob:getZone():getPlayers()

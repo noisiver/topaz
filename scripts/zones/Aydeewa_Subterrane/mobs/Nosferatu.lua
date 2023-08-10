@@ -84,7 +84,7 @@ function onMobFight(mob, target)
             for v = 17056158, 17056160, 1 do -- Bats
             local pet = GetMobByID(v)
                 if not pet:isSpawned() then
-                    pet:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                    pet:setSpawn(mob:getXPos() + math.random(0, 2), mob:getYPos(), mob:getZPos() + math.random(0, 2))
                     spawnPetInBattle(mob, pet)
                 end
             end
@@ -94,7 +94,7 @@ function onMobFight(mob, target)
             for v = 17056161, 17056163, 1 do
             local pet = GetMobByID(v)
                 if not pet:isSpawned() then
-                    pet:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                    pet:setSpawn(mob:getXPos() + math.random(0, 2), mob:getYPos(), mob:getZPos() + math.random(0, 2))
                     spawnPetInBattle(mob, pet)
                 end
             end
@@ -104,7 +104,7 @@ function onMobFight(mob, target)
             for v = 17056164, 17056166, 1 do -- Fomors
             local pet = GetMobByID(v)
                 if not pet:isSpawned() then
-                    pet:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                    pet:setSpawn(mob:getXPos() + math.random(0, 2), mob:getYPos(), mob:getZPos() + math.random(0, 2))
                     spawnPetInBattle(mob, pet)
                 end
             end
@@ -132,12 +132,12 @@ function onMobWeaponSkill(target, mob, skill)
         local mobX = mob:getXPos()
         local mobY = mob:getYPos()
         local mobZ = mob:getZPos()
-        GetMobByID(17056158):setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+        GetMobByID(17056158):setSpawn(mob:getXPos() + math.random(0, 2), mob:getYPos(), mob:getZPos() + math.random(0, 2))
         GetMobByID(17056158):updateEnmity(mob:getTarget())
-        GetMobByID(17056161):setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+        GetMobByID(17056161):setSpawn(mob:getXPos() + math.random(0, 2), mob:getYPos(), mob:getZPos() + math.random(0, 2))
         GetMobByID(17056161):spawn()
         GetMobByID(17056161):updateEnmity(mob:getTarget())
-        GetMobByID(17056164):setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+        GetMobByID(17056164):setSpawn(mob:getXPos() + math.random(0, 2), mob:getYPos(), mob:getZPos() + math.random(0, 2))
         GetMobByID(17056164):spawn()
         GetMobByID(17056164):updateEnmity(mob:getTarget())
         syncAbilityUseWithPet(mob, 2110) -- Wings of Gehenna
@@ -148,7 +148,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 20, power = 80})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 300)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse

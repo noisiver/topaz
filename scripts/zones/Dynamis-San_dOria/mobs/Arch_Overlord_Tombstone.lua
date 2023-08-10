@@ -34,5 +34,5 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

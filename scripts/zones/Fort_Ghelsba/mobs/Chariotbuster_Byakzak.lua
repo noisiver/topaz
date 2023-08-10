@@ -7,7 +7,7 @@ mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/Fort_Ghelsba/IDs")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 174)
 end
 

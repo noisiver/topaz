@@ -7,6 +7,7 @@
 -----------------------------------
 require("scripts/globals/wsquest")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
@@ -27,24 +28,24 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 75 and hitTrigger == 0 then
         mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 15)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 1500)
+        mob:setDelay(3500)
         mob:setLocalVar("TriggerHit", 1)
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
         mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 20)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 3000)
+        mob:setDelay(2500)
         mob:setLocalVar("TriggerHit", 2)
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
         mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 4500)
+        mob:setDelay(2000)
         mob:setLocalVar("TriggerHit", 3)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wsquest.handleWsnmDeath(tpz.wsquest.steel_cyclone, player)
 end
 

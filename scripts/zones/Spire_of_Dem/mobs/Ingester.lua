@@ -93,7 +93,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.MP_DRAIN, {chance = 50, power = math.random(20, 40)})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.promyvion.onEmptyDeath(mob)
     local momma = mob:getID()
     for i = momma + 1, momma + mob:getLocalVar("maxBabies") do

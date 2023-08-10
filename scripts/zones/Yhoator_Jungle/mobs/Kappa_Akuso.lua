@@ -12,7 +12,7 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.TRUE_WILL) == QUEST_ACCEPTED then
         local lastNM = not (GetMobByID(ID.mob.KAPPA_BONZE):isAlive() or GetMobByID(ID.mob.KAPPA_BIWA):isAlive())
         if lastNM then -- Only count the kill for the last alive/spawned NM dying

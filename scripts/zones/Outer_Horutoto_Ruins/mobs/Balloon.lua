@@ -6,7 +6,7 @@
 local func = require("scripts/zones/Outer_Horutoto_Ruins/globals")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

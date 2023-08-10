@@ -15,7 +15,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     local TheWaywardAutomation = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.THE_WAYWARD_AUTOMATION)
     local TheWaywardAutomationProgress = player:getCharVar("TheWaywardAutomationProgress")

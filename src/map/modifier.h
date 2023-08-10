@@ -377,14 +377,14 @@ enum class Mod
     DESPOIL                   = 896, // Increases THF Despoil chance
     PERFECT_DODGE             = 883, // Increases Perfect Dodge duration in seconds
     TRIPLE_ATTACK             = 302, // Percent chance
-    TREASURE_HUNTER           = 303, // Percent chance
+    TREASURE_HUNTER           = 303, // Treasure hunter, probably
     SNEAK_ATK_DEX             = 874, // % DEX boost to Sneak Attack (if gear mod, needs to be equipped on hit)
     TRICK_ATK_AGI             = 520, // % AGI boost to Trick Attack (if gear mod, needs to be equipped on hit)
     MUG_EFFECT                = 835, // Mug effect as multiplier
     ACC_COLLAB_EFFECT         = 884, // Increases amount of enmity transferred for Accomplice/Collaborator
     HIDE_DURATION             = 885, // Hide duration increase (percentage based)
     GILFINDER                 = 897, // Gilfinder, duh
-    TP_GAIN_ON_EVADE          = 1305, // Gain TP upon a successful evade
+    TP_GAIN_ON_EVADE          = 1305,// Gain TP upon a successful evade
 
     // Paladin
     HOLY_CIRCLE_DURATION      = 857, // Holy Circle extended duration in seconds
@@ -515,7 +515,9 @@ enum class Mod
 
     // Blue Mage
     BLUE_POINTS               = 309, // Tracks extra blue points
+    MONSTER_CORRELATION_BONUS = 936, // AF head
     BLUE_LEARN_CHANCE         = 945, // Additional chance to learn blue magic
+    BLUE_SPELLCASTING_TIME    = 1322,// Reduces Blue Magic spellcasting time
 
     // Corsair
     EXP_BONUS                 = 382, //
@@ -667,7 +669,7 @@ enum class Mod
     DARK_AFFINITY_PERP        = 560,
 
     // Special Modifier+
-    ADDS_WEAPONSKILL          = 355, //
+    ADDS_WEAPONSKILL          = 355, // Needs to be tpz.ws_unlock ID for unlockables, otherwise the WSID itself
     ADDS_WEAPONSKILL_DYN      = 356, // In Dynamis
 
     STEALTH                   = 358, //
@@ -890,11 +892,21 @@ enum class Mod
     CONQUEST_BONUS            = 933, // Conquest points bonus granted (percentage)
     CONQUEST_REGION_BONUS     = 934, // Increases the influence points awarded to the player's nation when receiving conquest points
     CAMPAIGN_BONUS            = 935, // Increases the evaluation for allied forces by percentage
-	MONSTER_CORRELATION_BONUS = 936, // AF head
 
-    SUBTLE_BLOW_II            = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
-    GARDENING_WILT_BONUS      = 1011, // Increases the number of Vanadays a plant can survive before it wilts
-    TP_BOOST_WHEN_DMGD        = 1239, // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
+    // Pet Modifiers (Job Point Gifts)
+    PET_ATK_DEF             = 990, // Increases pet physical attack, ranged attack, and physical defense
+    PET_ACC_EVA             = 991, // Increases pet physical accuracy, ranged accuracy, and evasion
+    PET_MAB_MDB             = 992, // Increases pet magic attack and magic defense
+    PET_MACC_MEVA           = 993, // Increases pet magic accuracy and evasion
+    PET_ATTR_BONUS          = 994, // Increases pet attributes
+    PET_TP_BONUS            = 995, // Increases pet TP bonus
+
+    ONE_HOUR_RECAST         = 996, // Decreases the recast time of one-hour abilities by n minutes.
+    SUPERIOR_LEVEL          = 997, // SU0..5
+
+    SUBTLE_BLOW_II          = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
+    GARDENING_WILT_BONUS    = 1011, // Increases the number of Vanadays a plant can survive before it wilts
+    TP_BOOST_WHEN_DMGD      = 1239, // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
 
     SPDEF_DOWN = 958,
@@ -978,7 +990,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1322 NEXT
+    // 1323 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

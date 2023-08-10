@@ -123,6 +123,7 @@
 #include "../packets/inventory_modify.h"
 #include "../packets/inventory_size.h"
 #include "../packets/key_items.h"
+#include "../packets/menu_jobpoints.h"
 #include "../packets/menu_mog.h"
 #include "../packets/menu_merit.h"
 #include "../packets/menu_raisetractor.h"
@@ -2055,6 +2056,30 @@ inline int32 CLuaBaseEntity::wait(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: setCarefulPathing(...)
+ *  Purpose : Enables or disables careful pathing for an entity.
+ *  Example : mob:setCarefulPathing(true)
+ *  Notes   : !!! THIS IS VERY EXPENSIVE !!!. Only use this as a last resort!
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setCarefulPathing(lua_State* L)
+{
+    bool careful = true;
+    if (lua_isboolean(L, 1))
+    {
+        careful = lua_toboolean(L, 1);
+    }
+
+    if (m_PBaseEntity->PAI->PathFind)
+    {
+        m_PBaseEntity->PAI->PathFind->SetCarefulPathing(careful);
+        return 0;
+    }
+    return 1;
+}
+
+
+/************************************************************************
 *  Function: openDoor()
 *  Purpose : Opens a door for 7 seconds; different time can be specified
 *  Example : npc:openDoor(30) -- Open for 30 sec; npc:openDoor() -- 7 sec
@@ -2988,6 +3013,23 @@ inline int32 CLuaBaseEntity::setPos(lua_State *L)
             m_PBaseEntity->loc.p.z = (float)lua_tonumber(L, 3);
         if (!lua_isnil(L, 4) && lua_isnumber(L, 4))
             m_PBaseEntity->loc.p.rotation = (uint8)lua_tointeger(L, 4);
+
+        // Also set the position of the enity's pet if a player
+        if (m_PBaseEntity->objtype == TYPE_PC)
+        {
+            CBattleEntity* PPet = ((CBattleEntity*)m_PBaseEntity)->PPet;
+            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+            {
+                if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
+                    PPet->loc.p.x = (float)lua_tonumber(L, 1);
+                if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
+                    PPet->loc.p.y = (float)lua_tonumber(L, 2);
+                if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
+                    PPet->loc.p.z = (float)lua_tonumber(L, 3);
+                if (!lua_isnil(L, 4) && lua_isnumber(L, 4))
+                    PPet->loc.p.rotation = (uint8)lua_tointeger(L, 4);
+            }
+        }
     }
     else
     {
@@ -7666,6 +7708,46 @@ inline int32 CLuaBaseEntity::setMerits(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: getJobPointLevel()
+ *  Purpose : Returns the current value a specific job point
+ *  Example : player:getJobPointLevel(JP_MIGHTY_STRIKES_EFFECT)
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    if (m_PBaseEntity->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+        lua_pushinteger(L, PChar->PJobPoints->GetJobPointValue((JOBPOINT_TYPE)lua_tointeger(L, 1)));
+    }
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: setJobPoints()
+ *  Purpose : Sets the job points for a player to a specified amount
+ *  Example : player:setJobPoints(30)
+ *  Notes   : Used in GM command
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setJobPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+
+    PChar->PJobPoints->SetJobPoints(lua_tointeger(L, 1));
+    PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+
+    return 0;
+}
+
+/************************************************************************
 *  Function: getGil()
 *  Purpose : Returns the total amount of a gil a player has
 *  Example : player:getGil()
@@ -8464,12 +8546,18 @@ inline int32 CLuaBaseEntity::takeDamage(lua_State *L)
         {
             PDefender->StatusEffectContainer->WakeUp();
         }
-    }
 
-    // Bind has a chance to break from all direct attacks, even if they don't deal damage
-    if (PAttacker && breakBind)
-    {
-        battleutils::BindBreakCheck(PAttacker, PDefender);
+        // Bind has a chance to break from all direct attacks.
+        if (PAttacker && breakBind)
+        {
+            battleutils::BindBreakCheck(PAttacker, PDefender);
+        }
+
+        // Add listener to get the attack type and damage type that dealt the killing blow
+        if (damage >= PDefender->health.hp)
+        {
+            PDefender->PAI->EventHandler.triggerListener("DEATH_DAMAGE", PDefender, damage, PAttacker, (uint16)attackType, (uint16)damageType);
+        }
     }
 
     return 0;
@@ -10633,6 +10721,29 @@ inline int32 CLuaBaseEntity::addRecast(lua_State* L)
             PChar->pushPacket(new CCharSkillsPacket(PChar));
             PChar->pushPacket(new CCharRecastPacket(PChar));
         }
+    }
+    return 0;
+}
+
+/************************************************************************
+ *  Function: addMaxRecastToAllAbilities()
+ *  Purpose : Manually adds a cooldown for a particular Ability
+ *  Example : mob:addMaxRecastToAllAbilities(true)
+ *  Notes   : True = resets 2 hours, false = don't reste 2 hours
+ *  TODO: bool for 2 hours
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::addMaxRecastToAllAbilities(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    auto PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+    if (PChar && PChar->objtype == TYPE_PC)
+    {
+        battleutils::AddMaxRecastToAllAbilities(PChar);
+        PChar->pushPacket(new CCharSkillsPacket(PChar));
+        PChar->pushPacket(new CCharRecastPacket(PChar));
     }
     return 0;
 }
@@ -14119,7 +14230,7 @@ inline int32 CLuaBaseEntity::getFamily(lua_State* L)
 /************************************************************************
 *  Function: isMobType()
 *  Purpose : Returns true if a Mob is of a specified type (if !Mob->false)
-*  Example : if (mob:isMobType(MOBTYPE_NOTORIOUS)
+*  Example : Example : if mob:isMobType(MOBTYPE_NOTORIOUS)
 *  Notes   : Oddly, this is only being used to check if Mob is NM...?
 *  Notes   : To Do: This isn't the intended function for NM checks...
 ************************************************************************/
@@ -14170,6 +14281,18 @@ inline int32 CLuaBaseEntity::isNM(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
 
     if (m_PBaseEntity->objtype == TYPE_MOB && ((CMobEntity*)m_PBaseEntity)->m_Type & MOBTYPE_NOTORIOUS)
+    {
+        lua_pushboolean(L, true);
+    }
+    else if (m_PBaseEntity->objtype == TYPE_MOB && ((CMobEntity*)m_PBaseEntity)->m_Type & MOBTYPE_BATTLEFIELD)
+    {
+        lua_pushboolean(L, true);
+    }
+    else if (m_PBaseEntity->objtype == TYPE_MOB && ((CMobEntity*)m_PBaseEntity)->m_Type & MOBTYPE_QUEST)
+    {
+        lua_pushboolean(L, true);
+    }
+    else if (m_PBaseEntity->objtype == TYPE_MOB && ((CMobEntity*)m_PBaseEntity)->getMobMod(MOBMOD_CHECK_AS_NM) > 0)
     {
         lua_pushboolean(L, true);
     }
@@ -14437,6 +14560,27 @@ int32 CLuaBaseEntity::getRespawnTime(lua_State* L)
         lua_pushinteger(L, 0);
         return 1;
     }
+}
+
+/************************************************************************
+ *  Function: setDespawnTime()
+ *  Purpose : Setting the despawn time for a Mob
+ *  Example : mob:setDespawnTime(60)
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setDespawnTime(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+
+    if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
+    {
+        PMob->SetDespawnTime(std::chrono::seconds(lua_tointeger(L, 1)));
+    }
+
+    return 0;
 }
 
 /************************************************************************
@@ -14787,6 +14931,24 @@ inline int32 CLuaBaseEntity::SetMobSkillAttack(lua_State* L)
     static_cast<CMobEntity*>(m_PBaseEntity)->setMobMod(MOBMOD_ATTACK_SKILL_LIST, (int16)lua_tointeger(L, 1));
 
     return 0;
+}
+
+/************************************************************************
+ *  Function: SetClaimable()
+ *  Purpose : Sets an entity as claimable
+ *  Example : mob:SetClaimable()
+ *  Notes   :
+ ************************************************************************/
+
+int32 CLuaBaseEntity::SetClaimable(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_PC);
+
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+    PMob->m_IsClaimable = lua_toboolean(L, 1);
+
+    return 1;
 }
 
 /************************************************************************
@@ -16078,6 +16240,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,clearPath),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,checkDistance),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,wait),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setCarefulPathing),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,openDoor),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,closeDoor),
@@ -16304,6 +16467,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMerit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMeritCount),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMerits),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getJobPointLevel),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setJobPoints),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getGil),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addGil),
@@ -16451,6 +16616,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,timer),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,queue),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addRecast),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,addMaxRecastToAllAbilities),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasRecast),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetRecast),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetRecasts),
@@ -16655,6 +16821,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetMagicCastingEnabled),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetMobAbilityEnabled),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetMobSkillAttack),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,SetClaimable),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMobMod),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMobMod),

@@ -134,6 +134,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
         if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+            return false;
         }
         if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) ||
             (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
@@ -177,18 +178,15 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
                 }
             }
         }
-
         // Check for TP costing JA's
         if (playerTP < PAbility->getTPCost() && !PChar->StatusEffectContainer->HasStatusEffect(EFFECT_TRANCE))
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_NOT_ENOUGH_TP));
             return false;
         }
-
         // Check for Finish Move costing JA's
         if (PAbility->getID() >= ABILITY_ANIMATED_FLOURISH && PAbility->getID() <= ABILITY_WILD_FLOURISH || PAbility->getID() == ABILITY_CLIMACTIC_FLOURISH ||
-            PAbility->getID() == ABILITY_STRIKING_FLOURISH ||
-            PAbility->getID() == ABILITY_TERNARY_FLOURISH)
+            PAbility->getID() == ABILITY_STRIKING_FLOURISH || PAbility->getID() == ABILITY_TERNARY_FLOURISH)
         {
             if (!PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_FINISHING_MOVE))
             {
@@ -196,12 +194,11 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
                 return false;
             }
         }
-
         // Check for paraylze
         if (battleutils::IsParalyzed(PChar))
         {
             // 2 hours can be paraylzed but it won't reset their timers
-            if (PAbility->getRecastId() != 0)
+            if (PAbility->getRecastId() != ABILITYRECAST_TWO_HOUR)
             {
                 PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
             }

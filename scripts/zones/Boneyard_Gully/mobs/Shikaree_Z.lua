@@ -41,7 +41,7 @@ function onMobWeaponSkill(target, mob, skill)
     mob:showText(mob, ID.text.TIME_TO_DIE)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:showText(mob, mob:getLocalVar("chat"))
     DespawnMob(mob:getID()+3)
 end

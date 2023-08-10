@@ -196,6 +196,7 @@ CZone::CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID)
     LoadZoneLines();
     LoadZoneWeather();
     LoadNavMesh();
+    LoadZoneLos();
 }
 
 bool CZone::HasReducedVerticalAggro()
@@ -459,6 +460,23 @@ void CZone::LoadNavMesh()
         delete m_navMesh;
         m_navMesh = nullptr;
     }
+}
+
+void CZone::LoadZoneLos()
+{
+    if (GetType() == ZONETYPE_CITY || (m_miscMask & MISC_LOS_OFF))
+    {
+        // Skip cities and zones with line of sight turned off
+        return;
+    }
+
+    if (lineOfSight)
+    {
+        // Clean up previous object if one exists.
+        delete lineOfSight;
+    }
+
+    lineOfSight = ZoneLos::Load((uint16)GetID(), fmt::sprintf("losmeshes/%s.obj", GetName()));
 }
 
 /************************************************************************

@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     mob:addImmunity(tpz.immunity.STUN)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getQuestStatus(BASTOK, tpz.quest.id.bastok.THE_TALEKEEPER_S_GIFT) == QUEST_ACCEPTED then
         player:addCharVar("theTalekeepersGiftKilledNM", 1)
     end

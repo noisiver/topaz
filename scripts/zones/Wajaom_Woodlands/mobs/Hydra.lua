@@ -11,11 +11,10 @@ function onMobSpawn(mob)
 	mob:setDamage(130)
     mob:setMod(tpz.mod.ATT, 975)
     mob:setMod(tpz.mod.DEF, 630)
-    mob:setMod(tpz.mod.EVA, 457) --Hydra family * 1.15
+    mob:setMod(tpz.mod.EVA, 357) --TODO: Hydra family * 1.15
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.REGEN, 100)
-    mob:setMod(tpz.mod.REFRESH, 50)
     mob:setLocalVar("Raged", 0)
     mob:AnimationSub(0)
     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
@@ -67,7 +66,7 @@ function onCriticalHit(mob)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 
     player:addTitle(tpz.title.HYDRA_HEADHUNTER)
 	if isKiller  then 

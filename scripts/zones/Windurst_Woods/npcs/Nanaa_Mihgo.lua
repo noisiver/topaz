@@ -17,7 +17,11 @@ require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/utils")
+require("scripts/globals/jsequests")
 -----------------------------------
+-- Stolen item from Sentient Carafe 9924
+-- Stolen item from Greater Cockatrice(Kuftal) 9925
+-- Stolen item from Darter(Boyahda) 9926
 
 local TrustMemory = function(player)
     local memories = 0
@@ -48,10 +52,6 @@ local TrustMemory = function(player)
     return memories
 end
 
-    -- Stolen item from Sentient Carafe
-    -- Stolen item from Greater Cockatrice(Kuftal)
-    -- Stolen item from Abraxas
-
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, {{498, 4}}) then -- Yagudo Necklace x4
         local mihgosAmigo = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.MIHGO_S_AMIGO)
@@ -62,6 +62,7 @@ function onTrade(player, npc, trade)
             player:startEvent(494, GIL_RATE * 200)
         end
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.THF)
 end
 
 function onTrigger(player, npc)
@@ -79,6 +80,9 @@ function onTrigger(player, npc)
     local hittingTheMarquisateNanaaCS = player:getCharVar("hittingTheMarquisateNanaaCS")
     local job = player:getMainJob()
     local lvl = player:getMainLvl()
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.THF)
 
     -- LURE OF THE WILDCAT (WINDURST 2-1)
     -- Simply checks this NPC as talked to for the PC, should be highest priority

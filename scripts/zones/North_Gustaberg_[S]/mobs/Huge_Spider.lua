@@ -6,7 +6,7 @@
 local ID = require("scripts/zones/North_Gustaberg_[S]/IDs")
 require("scripts/globals/mobs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

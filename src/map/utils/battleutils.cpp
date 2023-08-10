@@ -905,9 +905,9 @@ int getSDTTier(int SDT)
         {
             //Tier 2 enspells calculate the damage on each hit and increment the potency in Mod::ENSPELL_DMG per hit
             uint16 skill = PAttacker->GetSkill(SKILL_ENHANCING_MAGIC);
-            uint16 cap = 6 + ((34 * skill) / 100); //  uint16 cap = 3 + ((6 * skill) / 100);
+            uint16 cap = 6 + ((16 * skill) / 100); //  uint16 cap = 3 + ((6 * skill) / 100);
             if (skill > 200) {
-                cap = 14 + ((30 * skill) / 100); // cap = 5 + ((5 * skill) / 100);
+                cap = 14 + ((15 * skill) / 100); // cap = 5 + ((5 * skill) / 100);
             }
             cap *= 2;
 
@@ -1274,7 +1274,7 @@ int getSDTTier(int SDT)
                     break;
 
                 case SPIKE_REPRISAL:
-                    if (Action->reaction == REACTION_BLOCK)
+                            if ((Action->reaction & REACTION_BLOCK) == REACTION_BLOCK)
                     {
                         PAttacker->takeDamage(Action->spikesParam,
                                               PDefender, ATTACK_MAGICAL,
@@ -1595,33 +1595,40 @@ int getSDTTier(int SDT)
 
             uint8 element = 1;
             uint8 SDTdivisor = 1;
+            uint16 resistDownEle = 0;
 
             switch (enspell)
             {
                 case ENSPELL_I_FIRE:
                 case ENSPELL_II_FIRE:
                     element = ELEMENT_FIRE;
+                    resistDownEle = (uint16)Mod::WATERRES;
                     break;
                 case ENSPELL_I_ICE:
                 case ENSPELL_II_ICE:
                     element = ELEMENT_ICE;
+                    resistDownEle = (uint16)Mod::FIRERES;
                     break;
                 case ENSPELL_I_WIND:
                 case ENSPELL_II_WIND:
                     element = ELEMENT_WIND;
+                    resistDownEle = (uint16)Mod::ICERES;
                     break;
                 case ENSPELL_I_EARTH:
                 case ENSPELL_II_EARTH:
                     element = ELEMENT_EARTH;
+                    resistDownEle = (uint16)Mod::WINDRES;
                     break;
                 case ENSPELL_I_THUNDER:
                 case ENSPELL_II_THUNDER:
                 case ENSPELL_ROLLING_THUNDER:
                     element = ELEMENT_THUNDER;
+                    resistDownEle = (uint16)Mod::EARTHRES;
                     break;
                 case ENSPELL_I_WATER:
                 case ENSPELL_II_WATER:
                     element = ELEMENT_WATER;
+                    resistDownEle = (uint16)Mod::THUNDERRES;
                     break;
                 case ENSPELL_I_LIGHT:
                 case ENSPELL_II_LIGHT:
@@ -1638,7 +1645,7 @@ int getSDTTier(int SDT)
                     break;
             }
 
-            if (enspell > 0 && enspell <= 6)
+            if (enspell >= ENSPELL_I_FIRE && enspell <= ENSPELL_I_WATER)
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 1];
                 Action->addEffectMessage = 163;
@@ -1653,7 +1660,7 @@ int getSDTTier(int SDT)
 
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
-            else if (enspell > 8 && enspell <= 14 && isFirstSwing)
+            else if (enspell >= ENSPELL_II_FIRE && enspell <= ENSPELL_II_WATER && isFirstSwing)
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 9];
                 Action->addEffectMessage = 163;
@@ -1665,10 +1672,11 @@ int getSDTTier(int SDT)
                     Action->addEffectParam = -Action->addEffectParam;
                     Action->addEffectMessage = 384;
                 }
-
+                // Add -30 element resist down effect based on the enspell for 15 seconds
+                ((CBattleEntity*)PDefender)->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_NINJUTSU_ELE_DEBUFF, 0, 30, 0, 10, 0, resistDownEle, 0, false));
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
-            else if (enspell > 6 && enspell <= 8)
+            else if (enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK)
             {
                 Action->additionalEffect = enspell_subeffects[enspell -1];
                 Action->addEffectMessage = 163;
@@ -2353,6 +2361,7 @@ int getSDTTier(int SDT)
                 return false;
             }
             //Otherwise interrupt the spell cast.
+            PDefender->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", PAttacker, PDefender, PSpell);
             return true;
         }
 
@@ -2407,7 +2416,6 @@ int getSDTTier(int SDT)
             {
                 base = PMob->getMobMod(MOBMOD_BLOCK);
                 base += PMob->getMod(Mod::SHIELDBLOCKRATE);
-                base = std::clamp(base, 0, 100);
                 return base;
             }
             else
@@ -2416,7 +2424,6 @@ int getSDTTier(int SDT)
         else if (PDefender->objtype == TYPE_PET)
         {
             base = PDefender->getMod(Mod::SHIELDBLOCKRATE);
-            base = std::clamp(base, 0, 100);
             return base;
         }
         else
@@ -2874,14 +2881,6 @@ int getSDTTier(int SDT)
                     ratio = 2.0f;
 
                 baseTp = CalculateBaseTP((int16)(delay * 60.0f / 1000.0f / ratio));
-
-                auto PPet = dynamic_cast<CPetEntity*>(PAttacker);
-
-                // Pets gain ~84 tp per hit
-                if (PAttacker->objtype == TYPE_PET && PPet->getPetType() != PETTYPE_AUTOMATON)
-                {
-                    baseTp = (baseTp / 4) + 5;
-                }
             }
 
 
@@ -2917,14 +2916,10 @@ int getSDTTier(int SDT)
                 }
 
                 auto PPet = dynamic_cast<CPetEntity*>(PDefender);
-                //mobs get basetp+30 whereas pcs get basetp/3 when hit
-                if (PDefender->objtype == TYPE_PC)
+                //mobs get basetp+30 whereas pcs and their pets get basetp/3 when hit
+                if (PDefender->objtype == TYPE_PC || PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
-                }
-                else if (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC)
-                {
-                    PDefender->addTP((int16)(tpMultiplier * ((baseTp / 7) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker)))))));
                 }
                 else
                     PDefender->addTP((uint16)(tpMultiplier * ((baseTp + 30) * sBlowMult * (1.0f + 0.01f * (float)PDefender->getMod(Mod::STORETP))))); //subtle blow also reduces the "+30" on mob tp gain
@@ -3056,8 +3051,10 @@ int getSDTTier(int SDT)
         else if (PDefender->objtype == TYPE_MOB)
             ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, 0);
 
-        if (!isRanged)
+        if (!isRanged && attackType == ATTACK_PHYSICAL)
+        {
             PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
+        }
 
         // Apply TP
         if (!PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI))
@@ -3076,6 +3073,9 @@ int getSDTTier(int SDT)
         {
             PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SENGIKORI, EFFECT_SENGIKORI, 1, 0, 30));
         }
+
+        // Add listener
+        PDefender->PAI->EventHandler.triggerListener("WS_DMG_TAKEN", PDefender, PAttacker, damage, (uint16)attackType, (uint16)damageType, slot);
 
         return damage;
     }
@@ -4183,7 +4183,7 @@ int getSDTTier(int SDT)
             // Chainbound active on target
             if (PCBEffect)
             {
-                if (PCBEffect->GetStartTime() + 3s < server_clock::now())
+                if (PCBEffect->GetStartTime() + 2s < server_clock::now())
                 {
                     // Konzen-Ittai
                     if (PCBEffect->GetPower() > 1)
@@ -4465,6 +4465,16 @@ int getSDTTier(int SDT)
         {
             damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
+
+        // Add Inundation multiplier
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+        {
+            CStatusEffect* inundation = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+            auto power = inundation->GetPower();
+            float multiplier = pow(1.2f, power);
+            damage = (int32)(damage * multiplier);
+        }
+
         // Add SKillchain Damage Taken mod
         int32 DMGSC = PDefender->getMod(Mod::DMGSC);
 
@@ -4576,6 +4586,14 @@ int getSDTTier(int SDT)
             else if (PPlayer->isSitting())
             {
                 PPlayer->animation = ANIMATION_NONE;
+                PPlayer->updatemask |= UPDATE_HP;
+
+                CPetEntity* PPet = dynamic_cast<CPetEntity*>(PPlayer->PPet);
+                if (PPet && (PPet->getPetType() == PETTYPE_WYVERN || PPet->getPetType() == PETTYPE_AUTOMATON))
+                {
+                    PPet->animation = ANIMATION_NONE;
+                    PPet->updatemask |= UPDATE_HP;
+                }
             }
         }
     }
@@ -5564,6 +5582,12 @@ int getSDTTier(int SDT)
             {
                 mob->PEnmityContainer->UpdateEnmity(original, 0, 0, true, true);
             }
+
+            if (!mob->m_IsClaimable)
+            {
+                return;
+            }
+
             if (PAttacker)
             {
                 CCharEntity* attacker = static_cast<CCharEntity*>(PAttacker);
@@ -6425,13 +6449,22 @@ int getSDTTier(int SDT)
             return false;
         }
 
+        // Snap nearEntity to a guaranteed valid position
+        if (PMob->loc.zone->m_navMesh)
+        {
+            PMob->loc.zone->m_navMesh->snapToValidPosition(nearEntity);
+        }
+
+        // Move the target a little higher, just in case
+        nearEntity.y -= 1.0f;
+
         bool success = false;
         float drawInDistance = (float)(PMob->getMobMod(MOBMOD_DRAW_IN) > 1 ? PMob->getMobMod(MOBMOD_DRAW_IN) : PMob->GetMeleeRange() * 2);
 
         if (std::chrono::time_point_cast<std::chrono::seconds>(server_clock::now()).time_since_epoch().count() - PMob->GetLocalVar("DrawInTime") < 2)
             return false;
 
-        std::function <void(CBattleEntity*)> drawInFunc = [PMob, drawInDistance, &nearEntity, &success](CBattleEntity* PMember)
+        std::function<void(CBattleEntity*)> drawInFunc = [PMob, drawInDistance, &nearEntity, &success](CBattleEntity* PMember)
         {
             float pDistance = distance(PMob->loc.p, PMember->loc.p);
 
@@ -6447,13 +6480,12 @@ int getSDTTier(int SDT)
                 {
                     // draw in!
                     PMember->loc.p.x = nearEntity.x;
-                    // move a little higher to prevent getting stuck
-                    PMember->loc.p.y = nearEntity.y - 0.5f;
+                    PMember->loc.p.y = nearEntity.y;
                     PMember->loc.p.z = nearEntity.z;
 
                     if (PMember->objtype == TYPE_PC)
                     {
-                        CCharEntity* PChar = (CCharEntity*)PMember;
+                        CCharEntity* PChar = static_cast<CCharEntity*>(PMember);
                         PChar->pushPacket(new CPositionPacket(PChar));
                     }
                     else
@@ -6577,6 +6609,17 @@ int getSDTTier(int SDT)
                 PTarget->addMP(PTarget->health.maxmp);
                 break;
         }
+    }
+
+    /************************************************************************
+     *                                                                       *
+     *    Sets all abilities to their maximumr recast timer.                 *
+     *                                                                       *
+     ************************************************************************/
+    void AddMaxRecastToAllAbilities(CCharEntity* PTarget)
+    {
+        //TODO: bool for 2 hours
+        PTarget->PRecastContainer->PutAllAbilitiesOnCooldown();
     }
 
     /************************************************************************
@@ -6891,6 +6934,11 @@ int getSDTTier(int SDT)
             uint16 songcasting = PEntity->getMod(Mod::SONG_SPELLCASTING_TIME);
             cast = (uint32)(cast * (1.0f - ((songcasting > 50 ? 50 : songcasting) / 100.0f)));
         }
+        else if (PSpell->getSpellGroup() == SPELLGROUP_BLUE)
+        {
+            uint16 bluecasting = PEntity->getMod(Mod::BLUE_SPELLCASTING_TIME);
+            cast = (uint32)(cast * (1.0f - ((bluecasting > 50 ? 50 : bluecasting) / 100.0f)));
+        }
 
         int16 fastCast = std::clamp<int16>(PEntity->getMod(Mod::FASTCAST), -100, 50);
         if (PSpell->getSkillType() == SKILLTYPE::SKILL_ELEMENTAL_MAGIC) // Elemental Celerity reductions
@@ -6981,6 +7029,7 @@ int getSDTTier(int SDT)
         {
             cost = 0;
         }
+
         return std::clamp<int16>(cost, 0, 9999);
     }
     uint32 CalculateSpellRecastTime(CBattleEntity* PEntity, CSpell* PSpell)

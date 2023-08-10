@@ -43,7 +43,7 @@ enum PATHFLAG {
   PATHFLAG_WALLHACK		= 0x02, // run through walls if path is too long
   PATHFLAG_REVERSE		= 0x04, // reverse the path
   PATHFLAG_SCRIPT		= 0x08,	// don't overwrite this path before completion (except via another script)
-  PATHFLAG_SLIDE                = 0x10  // Slide to end point if close enough (so no over shoot)
+  PATHFLAG_SLIDE        = 0x10  // Slide to end point if close enough (so no over shoot)
 };
 
 class CPathFind
@@ -114,8 +114,17 @@ class CPathFind
     // returns true if raycast didn't hit any walls
     bool CanSeePoint(const position_t& point, bool lookOffMesh = true);
 
+    // checks if raycast was broken between current point and given
+    // returns true if raycast didn't hit any walls
+
     // returns the final destination of the current path
     const position_t& GetDestination() const;
+
+    // If careful pathing is set, the owner will continually be "snapped" back
+    // onto a valid poly every time FollowPath() is called.
+    // THIS IS 4-5x MORE EXPENSIVE THAN A REGULAR CALL TO FollowPath()!
+    // YOU HAVE BEEN WARNED!
+    void SetCarefulPathing(bool careful);
 
   private:
 
@@ -148,6 +157,8 @@ class CPathFind
 
     float m_distanceMoved;
     float m_maxDistance;
+
+    bool m_carefulPathing;
 };
 
 #endif

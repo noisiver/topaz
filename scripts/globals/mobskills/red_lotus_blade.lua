@@ -25,9 +25,9 @@ function onMobWeaponSkill(target, mob, skill)
         target:showText(mob, zones[tpz.zone.THRONE_ROOM].text.FEEL_MY_PAIN)
     end
 
-    local dmgmod = 1.5
+    local dmgmod = 3.0
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_DMG_BONUS, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_1_SHADOW)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     return dmg

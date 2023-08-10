@@ -82,15 +82,20 @@ public:
     // Recast Detour Docs:
     // Casts a 'walkability' ray along the surface of the navigation mesh from the start position toward the end position.
     // Note: This is not a point-to-point in 3D space calculation, it is 2D across the navmesh!
-    bool raycast(const position_t& start, const position_t& end, bool lookOffMesh);
+    bool raycast(const position_t& start, const position_t& end);
 
     bool validPosition(const position_t& position);
+
+    // Like validPosition(), but will also set the given position to the valid position that it finds.
+    void snapToValidPosition(position_t& position);
+
     bool findClosestValidPoint(const position_t& position, float* validPoint);
     bool findFurthestValidPoint(const position_t& startPosition, const position_t& endPosition, float* validPoint);
 
 
 private:
     void outputError(uint32 status);
+    bool onSameFloor(const position_t& start, float* spos, const position_t& end, float* epos, dtQueryFilter& filter);
 
     uint16 m_zoneID;
     dtRaycastHit m_hit;

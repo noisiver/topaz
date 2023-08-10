@@ -541,8 +541,8 @@ void LoadMOBList()
                 // can be set in mob_spawn_mods or in their onInitialize
                 if (
                     PMob->m_Type & MOBTYPE_EVENT || PMob->m_Type & MOBTYPE_FISHED || PMob->m_Type & MOBTYPE_BATTLEFIELD ||
-                    PMob->m_Type & MOBTYPE_NOTORIOUS || zoneType == ZONETYPE_BATTLEFIELD || zoneType == ZONETYPE_DYNAMIS ||
-                    zoneType == ZONETYPE_LIMBUS)
+                    PMob->m_Type & MOBTYPE_NOTORIOUS || PMob->m_Type & MOBTYPE_QUEST || zoneType == ZONETYPE_BATTLEFIELD ||
+                    zoneType == ZONETYPE_DYNAMIS || zoneType == ZONETYPE_LIMBUS || PMob->getMobMod(MOBMOD_CHECK_AS_NM) > 0)
                 {
                     PMob->setMobMod(MOBMOD_CHARMABLE, 0);
                 }

@@ -332,7 +332,7 @@ void CTrustController::PathOutToDistance(CBattleEntity* PTarget, float amount)
             // Validate position
             if (!position_found &&
                 POwner->PAI->PathFind->ValidPosition(potential_position) &&
-                POwner->PAI->PathFind->CanSeePoint(potential_position, false))
+                POwner->CanSeeTarget(potential_position, true))
             {
                 position_found = true;
                 target_position = potential_position;

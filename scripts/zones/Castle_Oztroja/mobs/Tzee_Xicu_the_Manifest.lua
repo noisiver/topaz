@@ -14,9 +14,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setDamage(120)
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 50) 
+    SetGenericNMStats(mob)
     mob:addMod(tpz.mod.MDEF, 250)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
     mob:setMod(tpz.mod.UFASTCAST, 50)
@@ -76,7 +74,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {duration = 60})
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.DEITY_DEBUNKER)
     if isKiller then
         mob:showText(mob, ID.text.YAGUDO_KING_DEATH)

@@ -14,7 +14,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:hasKeyItem(tpz.ki.AQUAFLORA3) then
         player:setCharVar("DabotzKilled", 1)
     end

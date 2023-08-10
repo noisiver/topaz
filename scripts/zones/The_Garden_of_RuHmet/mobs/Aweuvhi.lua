@@ -9,5 +9,5 @@ function onMobSpawn(mob)
     mob:AnimationSub(animations[math.random(#animations)])
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

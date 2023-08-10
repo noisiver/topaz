@@ -39,7 +39,7 @@ function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.GRAND_MARID2_PH, 20, 1800)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("zeni_point", 10)
     if isKiller then
 	    if mob:AnimationSub() >= 1 then

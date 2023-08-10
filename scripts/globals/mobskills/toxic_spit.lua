@@ -18,7 +18,13 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
     local power = 14
-    local dmgmod = 1
+    if mob:isPet() then
+        local master = mob:getMaster()
+        if master:isPC() then
+            power = math.floor(mob:getMainLvl() / 4)
+        end
+    end
+    power = math.floor(mob:getMainLvl() / 2)
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*1, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)

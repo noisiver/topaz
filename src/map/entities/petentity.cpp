@@ -48,6 +48,7 @@ CPetEntity::CPetEntity(PETTYPE petType)
 	objtype = TYPE_PET;
 	m_EcoSystem = SYSTEM_UNCLASSIFIED;
 	allegiance = ALLEGIANCE_PLAYER;
+    m_IsClaimable = false;
     m_MobSkillList = 0;
     m_HasSpellScript = 0;
     namevis = 0; 
@@ -201,11 +202,16 @@ void CPetEntity::FadeOut()
 void CPetEntity::Die()
 {
     PAI->ClearStateStack();
-    PAI->Internal_Die(0s);
+    PAI->Internal_Die(2500ms);
     m_unkillable = false;
-    PAI->GetController()->SetAutoAttackEnabled(true);
-    PAI->GetController()->SetMagicCastingEnabled(true);
-    PAI->GetController()->SetWeaponSkillEnabled(true);
+    
+    if ((PAI != nullptr) && (PAI->GetController() != nullptr))
+    {    
+        PAI->GetController()->SetAutoAttackEnabled(true);
+        PAI->GetController()->SetMagicCastingEnabled(true);
+        PAI->GetController()->SetWeaponSkillEnabled(true);
+    }
+    
     luautils::OnMobDeath(this, nullptr);
     CBattleEntity::Die();
     if (PMaster && PMaster->PPet == this && PMaster->objtype == TYPE_PC)

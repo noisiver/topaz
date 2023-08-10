@@ -28,6 +28,7 @@ g_mixins.weapon_break = function(mob)
             -- break weapon
             if animationSub == 0 or animationSub > 1 then
                 mob:AnimationSub(1)
+                -- Mamool JA deal reduced damage when their weapon is broken(lose weapon damage bonus mod)
                 if (mob:getFamily() == 176) or (mob:getFamily() == 305) or (mob:getFamily() == 591) then
                     mob:setMobMod(tpz.mobMod.WEAPON_BONUS, 0)
                 end

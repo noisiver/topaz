@@ -17,7 +17,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller then
         if mob:getLocalVar("lastDoll") < 5 then
             mob:getBattlefield():lose()

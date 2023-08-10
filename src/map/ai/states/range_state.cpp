@@ -40,8 +40,14 @@ CRangeState::CRangeState(CBattleEntity* PEntity, uint16 targid) :
         throw CStateInitException(std::move(m_errorMsg));
     }
 
-    if (!CanUseRangedAttack(PTarget))
+    if (!CanUseRangedAttack(PTarget, false))
     {
+        throw CStateInitException(std::move(m_errorMsg));
+    }
+
+    if (distance(m_PEntity->loc.p, PTarget->loc.p) > 25)
+    {
+        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGASIC_CANNOT_SEE_TARGET2);
         throw CStateInitException(std::move(m_errorMsg));
     }
 
@@ -151,7 +157,7 @@ void CRangeState::Cleanup(time_point tick)
 
 }
 
-bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
+bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget, bool isEndOfAttack)
 {
     if (!PTarget)
     {
@@ -208,9 +214,15 @@ bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY);
         return false;
     }
-    if (!m_PEntity->PAI->TargetFind->canSee(&PTarget->loc.p))
+    if (!isEndOfAttack && distance(m_PEntity->loc.p, PTarget->loc.p) > 25)
     {
-        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION);
+        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY);
+        return false;
+    }
+
+    if (!isEndOfAttack && !m_PEntity->CanSeeTarget(PTarget, false))
+    {
+        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGASIC_CANNOT_SEE_TARGET2);
         return false;
     }
 

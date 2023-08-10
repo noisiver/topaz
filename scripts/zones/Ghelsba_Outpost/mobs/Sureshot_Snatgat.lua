@@ -10,5 +10,5 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

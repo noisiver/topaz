@@ -410,7 +410,7 @@ namespace ability
                 PAbility->setVE(Sql_GetIntData(SqlHandle, 17));
                 PAbility->setMeritModID(Sql_GetIntData(SqlHandle, 18));
                 PAbility->setAddType(Sql_GetUIntData(SqlHandle, 19));
-                PAbility->setTPCost(Sql_GetUIntData(SqlHandle, 20));
+                PAbility->setTPCost(Sql_GetUIntData(SqlHandle, 21));
 
                 PAbilityList[PAbility->getID()] = PAbility;
                 PAbilitiesList[PAbility->getJob()].push_back(PAbility);

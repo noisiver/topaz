@@ -33,7 +33,7 @@ function onAdditionalEffect(mob, target, damage)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if player:getQuestStatus(BASTOK, tpz.quest.id.bastok.BLADE_OF_EVIL) == QUEST_ACCEPTED then
         player:setCharVar("bladeOfEvilCS", 1)
     end

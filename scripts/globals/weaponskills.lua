@@ -792,7 +792,7 @@ end
 function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack, wsResults, action)
     local finaldmg = wsResults.finalDmg
     -- Magic absorb
-    if finaldmg < 0 then
+    if (finaldmg < 0) then
         action:messageID(defender:getID(), tpz.msg.basic.SKILL_RECOVERS_HP)
         action:reaction(defender:getID(), tpz.reaction.HIT)
         action:speceffect(defender:getID(), tpz.specEffect.RECOIL)
@@ -805,14 +805,14 @@ function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack,
     local targetTPMult = wsParams.targetTPMult or 1
     finaldmg = defender:takeWeaponskillDamage(attacker, finaldmg, attack.type, attack.damageType, attack.slot, primaryMsg, wsResults.tpHitsLanded, (wsResults.extraHitsLanded * 10) + wsResults.bonusTP, targetTPMult)
     if wsResults.tpHitsLanded + wsResults.extraHitsLanded > 0 then
-        if finaldmg >= 0 then
+        if (finaldmg >= 0) then
             if primaryMsg then
                 action:messageID(defender:getID(), tpz.msg.basic.DAMAGE)
             else
                 action:messageID(defender:getID(), tpz.msg.basic.DAMAGE_SECONDARY)
             end
 
-            if finaldmg > 0 then
+            if (finaldmg >= 0) then
                 action:reaction(defender:getID(), tpz.reaction.HIT)
                 action:speceffect(defender:getID(), tpz.specEffect.RECOIL)
             end

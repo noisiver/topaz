@@ -15,7 +15,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCharVar("ChasingQuotas_Progress") == 5) then
         player:setCharVar("SturmtigerKilled", 1)
     end

@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 143, 2, tpz.regime.type.FIELDS)
     tpz.regime.checkRegime(player, mob, 144, 1, tpz.regime.type.FIELDS)
     if isKiller then

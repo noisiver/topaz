@@ -28,6 +28,6 @@ function onMobEngaged(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     GetNPCByID(ID.npc.CHANDELIER_QM):setLocalVar("chandelierCooldown", os.time() + 600) -- 10 minute timeout
 end

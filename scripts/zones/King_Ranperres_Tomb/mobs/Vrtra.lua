@@ -75,7 +75,7 @@ function onMobDisengage(mob, weather)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.VRTRA_VANQUISHER)
 end
 

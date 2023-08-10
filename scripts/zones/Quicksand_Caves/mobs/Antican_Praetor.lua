@@ -16,7 +16,7 @@ function onMobFight(mob, target)
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17629640)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local legatus = GetMobByID(ID.mob.ANTICAN_LEGATUS)
     if GetMobByID(ID.mob.ANTICAN_CONSUL):isDead() and GetMobByID(ID.mob.ANTICAN_PRAETOR):isDead() then
         legatus:setLocalVar("Guards", 0)

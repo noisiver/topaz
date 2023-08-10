@@ -499,13 +499,16 @@ namespace petutils
         uint16 mMND = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 7), PMob->GetMLevel());
         uint16 mCHR = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 8), PMob->GetMLevel());
 
-        PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f);
-        PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f);
-        PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f);
-        PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f);
-        PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f);
-        PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f);
-        PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f);
+        if (PMob->PMaster != nullptr)
+        {
+            PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+        }
 
     }
 
@@ -688,6 +691,19 @@ namespace petutils
                 PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(10, mlvl > 99 ? 99 : mlvl);
                 PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(12, mlvl > 99 ? 99 : mlvl));
                 break;
+        }
+
+        // Add Job Point Stat Bonuses
+        if (PMaster->GetMJob() == JOB_PUP)
+        {
+            PPet->addModifier(Mod::ATT, PMaster->getMod(Mod::PET_ATK_DEF));
+            PPet->addModifier(Mod::DEF, PMaster->getMod(Mod::PET_ATK_DEF));
+            PPet->addModifier(Mod::ACC, PMaster->getMod(Mod::PET_ACC_EVA));
+            PPet->addModifier(Mod::EVA, PMaster->getMod(Mod::PET_ACC_EVA));
+            PPet->addModifier(Mod::MATT, PMaster->getMod(Mod::PET_MAB_MDB));
+            PPet->addModifier(Mod::MDEF, PMaster->getMod(Mod::PET_MAB_MDB));
+            PPet->addModifier(Mod::MACC, PMaster->getMod(Mod::PET_MACC_MEVA));
+            PPet->addModifier(Mod::MEVA, PMaster->getMod(Mod::PET_MACC_MEVA));
         }
     }
 
@@ -1105,10 +1121,19 @@ namespace petutils
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (240.0f / 60.0f))));
 
+        // innate -25 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
+        PPet->setModifier(Mod::UDMGPHYS, -25);
+        PPet->setModifier(Mod::UDMGBREATH, -25);
+        PPet->setModifier(Mod::UDMGMAGIC, -25);
+        PPet->setModifier(Mod::UDMGRANGE, -25);
+
+        // innate + 40 subtle blow
+        PPet->setModifier(Mod::SUBTLE_BLOW, 40);
+
         // Get the Jug pet cap level
         uint8 highestLvl = PPetData->maxLevel;
 
-        // Increase the pet's level cal by the bonus given by BEAST AFFINITY merits.
+        // Increase the pet's level calc by the bonus given by BEAST AFFINITY merits.
         CCharEntity* PChar = (CCharEntity*)PMaster;
         highestLvl += PChar->PMeritPoints->GetMeritValue(MERIT_BEAST_AFFINITY, PChar);
         // TODO: Does not work properly

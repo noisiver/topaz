@@ -37,7 +37,7 @@ function onMobSpawn(mob)
     })
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.SIMURGH_POACHER)
 end
 

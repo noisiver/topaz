@@ -38,13 +38,13 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.MAX_HP_DOWN
     local typeEffectTwo = tpz.effect.MAX_MP_DOWN
-    --local typeEffectThree = tpz.effect.MAX_TP_DOWN
+    local typeEffectThree = tpz.effect.MAX_TP_DOWN
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 180)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffectTwo, 50, 0, 180)
-    --MobPhysicalStatusEffectMove(mob, target, skill, typeEffectThree, 1500, 0, 180)
-    --TODO: TP Down
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffectThree, 50, 0, 180)
+
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

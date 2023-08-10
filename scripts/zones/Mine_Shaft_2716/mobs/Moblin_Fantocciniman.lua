@@ -105,7 +105,7 @@ mob:setMod(tpz.mod.REGAIN, 500) -- normaly 100, set high for testing
     end]]
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:messageText(mob, ID.text.HUFF_YOU_PLAY_TOO_ROUGH)
     local fantocinni = GetMobByID(mob:getID() + 2) -- Fantocinni is always offset by 2
     if fantocinni and fantocinni:isAlive() then

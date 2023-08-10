@@ -41,7 +41,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     for v = mob:getID()+1, mob:getID()+9, 1 do
         DespawnMob(v)
     end

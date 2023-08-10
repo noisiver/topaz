@@ -8,7 +8,7 @@ local ID = require("scripts/zones/Beadeaux/IDs")
 require("scripts/globals/missions")
 require("scripts/globals/mobs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCurrentMission(BASTOK) == tpz.mission.id.bastok.THE_FOUR_MUSKETEERS) then
         local missionStatus = player:getCharVar("MissionStatus")
 

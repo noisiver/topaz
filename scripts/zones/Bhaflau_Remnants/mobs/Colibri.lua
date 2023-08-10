@@ -5,5 +5,5 @@
 mixins = {require("scripts/mixins/families/colibri_mimic")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

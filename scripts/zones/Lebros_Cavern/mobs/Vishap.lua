@@ -43,7 +43,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     if isKiller or noKiller then
         SpawnMob(17035614, instance)

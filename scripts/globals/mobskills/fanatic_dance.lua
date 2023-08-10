@@ -19,7 +19,7 @@ function onMobSkillCheck(target, mob, skill)
     if falsespinner then
         return 0
     end
-    if (mob:isInDynamis() and mob:isMobType(MOBTYPE_NOTORIOUS)) then
+    if (mob:isInDynamis() and mob:isNM()) then
         return 0
     end
     return 1

@@ -58,6 +58,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../packets/inventory_modify.h"
 #include "../packets/key_items.h"
 #include "../packets/linkshell_equip.h"
+#include "../packets/menu_jobpoints.h"
 #include "../packets/menu_merit.h"
 #include "../packets/message_basic.h"
 #include "../packets/message_combat.h"
@@ -809,11 +810,13 @@ namespace charutils
         PChar->PMeritPoints = new CMeritPoints(PChar);
         PChar->PMeritPoints->SetMeritPoints(meritPoints);
         PChar->PMeritPoints->SetLimitPoints(limitPoints);
+        PChar->PJobPoints = new CJobPoints(PChar);
 
         fmtQuery =
             "SELECT "
             "gmlevel, "    // 0
             "mentor, "     // 1
+            "job_master, " // 2
             "nnameflags, "  // 2
             "chatfilters " // 3
             "FROM chars "
@@ -2246,7 +2249,59 @@ namespace charutils
         }
     }
 
-        void AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity)
+    void UpdateRemovedSlots(CCharEntity* PChar)
+    {
+        if (!PChar || !PChar->getStyleLocked())
+        {
+            return;
+        }
+
+        auto items = PChar->styleItems;
+        for (auto i = 0; i < 16; i++)
+        {
+            if (items[i] == 0)
+            {
+                continue;
+            }
+
+            auto PItem = dynamic_cast<CItemEquipment*>(itemutils::GetItem(items[i]));
+            if (!PItem)
+            {
+                continue;
+            }
+
+            auto removeSlotID = PItem->getRemoveSlotId();
+            if (removeSlotID > 0)
+            {
+                for (auto i = 4u; i <= 8u; i++)
+                {
+                    if (removeSlotID & (1 << i))
+                    {
+                        switch (i)
+                        {
+                            case SLOT_HEAD:
+                                PChar->mainlook.head = PItem->getModelId();
+                                break;
+                            case SLOT_BODY:
+                                PChar->mainlook.body = PItem->getModelId();
+                                break;
+                            case SLOT_HANDS:
+                                PChar->mainlook.hands = PItem->getModelId();
+                                break;
+                            case SLOT_LEGS:
+                                PChar->mainlook.legs = PItem->getModelId();
+                                break;
+                            case SLOT_FEET:
+                                PChar->mainlook.feet = PItem->getModelId();
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    void AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity)
     {
         CItem*      PItem          = PChar->getStorage(container)->GetItem(slotID);
         const char* Query          = "UPDATE char_inventory SET location = %u, slot = %u WHERE charid = %u AND location = %u AND slot = %u;";
@@ -3825,6 +3880,192 @@ namespace charutils
     }
 
     /************************************************************************
+     *                                                                       *
+     *  Allocate capacity points                                             *
+     *                                                                       *
+     ************************************************************************/
+
+    void DistributeCapacityPoints(CCharEntity* PChar, CMobEntity* PMob)
+    {
+        TracyZoneScoped;
+
+        // Retail: Capacity Points cannot be gained in Abyssea or Reives.  In addition, Gates areas,
+        //       Ra'Kaznar, Escha, and Reisenjima reduce party penalty for capacity points earned.
+        // Custom: Capacity points can only be gained from level 81+ enemies in ToAU+ zones(WotG etc)
+        ZONEID zone = PChar->loc.zone->GetID();
+        REGIONTYPE region = PChar->loc.zone->GetRegionID();
+        uint8 mobLevel = PMob->GetMLevel();
+
+        PChar->ForAlliance(
+            [&PMob, &zone, &mobLevel](CBattleEntity* PPartyMember)
+            {
+                CCharEntity* PMember = dynamic_cast<CCharEntity*>(PPartyMember);
+
+                if (!PMember || PMember->isDead() || (PMember->loc.zone->GetID() != zone))
+                {
+                    // Do not grant Capacity points if null, Dead, or in a different area
+                    return;
+                }
+
+                if (!hasKeyItem(PMember, 2544) || PMember->GetMLevel() < 75)
+                {
+                    // Do not grant Capacity points without Job Breaker or below Level 75
+                    return;
+                }
+
+                if (PMember->loc.zone->GetRegionID() < REGION_WEST_AHT_URHGAN)
+                {
+                    // Do not grant Capacity points in zones before ToAU(i.e Zilart)
+                    return;
+                }
+
+                bool chainActive = false;
+                int16 levelDiff = mobLevel - 80; // Passed previous 80 check, no need to calculate
+
+                // Capacity Chains are only granted for Mobs level 81+
+                // Ref: https://www.bg-wiki.com/ffxi/Job_Points
+                float capacityPoints = 0;
+
+                if (mobLevel > 80)
+                {
+                    // Base Capacity Point formula derived from the table located at:
+                    // https://ffxiclopedia.fandom.com/wiki/Job_Points#Capacity_Points
+                    capacityPoints = 0.0089 * std::pow(levelDiff, 3) + 0.0533 * std::pow(levelDiff, 2) + 3.7439 * levelDiff + 89.7;
+
+                    if (PMember->capacityChain.chainTime > gettick() || PMember->capacityChain.chainTime == 0)
+                    {
+                        chainActive = true;
+
+                        // TODO: Needs verification, pulled from:
+                        // https://www.bluegartr.com/threads/120445-Job-Points-discussion?p=6138288&viewfull=1#post6138288 Assumption: Chain0 is no bonus,
+                        // Chains 10+ capped at 1.5 value, f(chain) = 1 + 0.05 * chain
+                        float chainModifier = std::min(1 + 0.05 * PMember->capacityChain.chainNumber, 1.5);
+                        capacityPoints *= chainModifier;
+                    }
+                    else
+                    {
+                        // TODO: Capacity Chain Timer is reduced after Chain 30
+                        PMember->capacityChain.chainTime = gettick() + 30000;
+                        PMember->capacityChain.chainNumber = 1;
+                    }
+
+                    if (chainActive)
+                    {
+                        PMember->capacityChain.chainTime = gettick() + 30000;
+                    }
+
+                    capacityPoints = AddCapacityBonus(PMember, capacityPoints);
+                    AddCapacityPoints(PMember, PMob, capacityPoints, levelDiff, chainActive);
+                }
+            });
+    }
+
+    /************************************************************************
+     *                                                                       *
+     *  Return adjusted Capacity point value based on bonuses                *
+     *  Note: rawBonus uses whole number percentage values until returning   *
+     *                                                                       *
+     ************************************************************************/
+
+    uint16 AddCapacityBonus(CCharEntity* PChar, uint16 capacityPoints)
+    {
+        TracyZoneScoped;
+
+        float rawBonus = 0;
+
+        // COMMITMENT from Capacity Bands
+
+        if (PChar->StatusEffectContainer->GetStatusEffect(EFFECT_COMMITMENT) && PChar->loc.zone->GetRegionID() != REGION_ABYSSEA)
+        {
+            CStatusEffect* commitment = PChar->StatusEffectContainer->GetStatusEffect(EFFECT_COMMITMENT);
+            int16 percentage = commitment->GetPower();
+            int16 cap = commitment->GetSubPower();
+            rawBonus += std::clamp<int32>(((capacityPoints * percentage) / 100), 0, cap);
+            commitment->SetSubPower(cap -= rawBonus);
+
+            if (cap <= 0)
+            {
+                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_COMMITMENT);
+            }
+        }
+
+        // Mod::CAPACITY_BONUS is currently used for JP Gifts, and can easily be used elsewhere
+        // This value is stored as uint, as a whole number percentage value
+        rawBonus += PChar->getMod(Mod::CAPACITY_BONUS);
+
+        // TODO: Unity stuff
+        //// Unity Concord Ranking: 2 * (Unity Ranking - 1)
+        //uint8 unity = PChar->profile.unity_leader;
+        //if (unity >= 1 && unity <= 11)
+        //{
+        //    rawBonus += 2 * (roeutils::RoeSystem.unityLeaderRank[unity - 1] - 1);
+        //}
+
+        //// RoE Objectives
+        //for (auto const& recordValue : roeCapacityBonusRecords)
+        //{
+        //    if (roeutils::GetEminenceRecordCompletion(PChar, recordValue.first))
+        //    {
+        //        rawBonus += recordValue.second;
+        //    }
+        //}
+
+        capacityPoints *= 1.f + rawBonus / 100;
+        return capacityPoints;
+    }
+
+    /************************************************************************
+     *                                                                       *
+     *  Add Capacity Points to an individual player                          *
+     *                                                                       *
+     ************************************************************************/
+
+    void AddCapacityPoints(CCharEntity* PChar, CBaseEntity* PMob, uint32 capacityPoints, int16 levelDiff, bool isCapacityChain)
+    {
+        TracyZoneScoped;
+
+        if (PChar->isDead())
+        {
+            return;
+        }
+
+        capacityPoints = (uint32)(capacityPoints * map_config.exp_rate);
+
+        if (capacityPoints > 0)
+        {
+            // Capacity Chains start at lv100 mobs
+            if (levelDiff >= 1 && isCapacityChain)
+            {
+                if (PChar->capacityChain.chainNumber != 0)
+                {
+                    PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, capacityPoints, PChar->capacityChain.chainNumber, 735));
+                }
+                else
+                {
+                    PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, capacityPoints, 0, 718));
+                }
+                PChar->capacityChain.chainNumber++;
+            }
+            else
+            {
+                PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, capacityPoints, 0, 718));
+            }
+
+            // Add capacity points
+            if (PChar->PJobPoints->AddCapacityPoints(capacityPoints))
+            {
+                PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PMob, PChar->PJobPoints->GetJobPoints(), 0, 719));
+            }
+            PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+
+            if (PMob != PChar) // Only mob kills count for gain EXP records
+            {
+                roeutils::event(ROE_EXPGAIN, PChar, RoeDatagram("capacity", capacityPoints));
+            }
+        }
+    }
+
+    /************************************************************************
     *                                                                       *
     *  Losing exp on death. retainPercent is the amount of exp to be        *
     *  saved on death, e.g. 0.05 = retain 5% of lost exp. A value of        *
@@ -4599,6 +4840,15 @@ namespace charutils
         Sql_Query(SqlHandle, Query, "chars", "mentor =", PChar->m_mentorUnlocked, PChar->id);
     }
 
+    void SaveJobMasterDisplay(CCharEntity* PChar)
+    {
+        TracyZoneScoped;
+
+        const char* Query = "UPDATE %s SET %s %u WHERE charid = %u;";
+
+        Sql_Query(SqlHandle, Query, "chars", "job_master =", PChar->m_jobMasterDisplay, PChar->id);
+    }
+
     /************************************************************************
     *                                                                       *
     *  Save the char's menu config flags                                    *
@@ -4890,19 +5140,23 @@ namespace charutils
         }
 
         int32 rovBonus = 0;
-        for (auto i = 2884; i <= 2892; ++i) // RHAPSODY KI are sequential, so start at WHITE and end at OCHRE
+        // Only apply RoV bonuses for players below 75, to not effect merits
+        if (PChar->GetMLevel() < 75)
         {
-            if (hasKeyItem(PChar, i))
+            for (auto i = 2884; i <= 2892; ++i) // RHAPSODY KI are sequential, so start at WHITE and end at OCHRE
             {
-                rovBonus += 30;
-            }
-            else
-            {
-                break; // No need to check further as you can't get KI out of order, so break out.
+                if (hasKeyItem(PChar, i))
+                {
+                    rovBonus += 50;
+                }
+                else
+                {
+                    break; // No need to check further as you can't get KI out of order, so break out.
+                }
             }
         }
 
-        bonus += (int32)(exp * ((PChar->getMod(Mod::EXP_BONUS) + rovBonus) / 100.0f));
+         bonus += (int32)(exp * ((PChar->getMod(Mod::EXP_BONUS) + rovBonus) / 100.0f));
 
         if (bonus + (int32)exp < 0)
         {

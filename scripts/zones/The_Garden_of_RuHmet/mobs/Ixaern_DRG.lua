@@ -30,7 +30,7 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- despawn pets
     local mobId = mob:getID()
     for i = mobId + 1, mobId + 3 do

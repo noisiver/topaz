@@ -5,7 +5,7 @@
 require("scripts/globals/regimes")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 74, 1, tpz.regime.type.FIELDS)
     tpz.regime.checkRegime(player, mob, 75, 1, tpz.regime.type.FIELDS)
 end

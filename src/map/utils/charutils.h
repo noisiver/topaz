@@ -74,11 +74,13 @@ namespace charutils
 
     void	DelExperiencePoints(CCharEntity* PChar, float retainpct, uint16 forcedXpLoss);
     void	DistributeExperiencePoints(CCharEntity* PChar, CMobEntity* PMob);
+    void    DistributeCapacityPoints(CCharEntity* PChar, CMobEntity* PMob);
     void	DistributeGil(CCharEntity* PChar, CMobEntity* PMob);
     void	DistributeItem(CCharEntity* PChar, CBaseEntity* PEntity, uint16 itemid, uint16 droprate);
     void	AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck = EMobDifficulty::TooWeak, bool isexpchain = false);
+    void    AddCapacityPoints(CCharEntity* PChar, CBaseEntity* PMob, uint32 capacityPoints, int16 levelDiff, bool isCapacityChain);
 
-    void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl, bool HighChance);
+    void    TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl, bool HighChance);
     void	BuildingCharSkillsTable(CCharEntity* PChar);
     void    BuildingCharWeaponSkills(CCharEntity* PChar);
     void	BuildingCharAbilityTable(CCharEntity* PChar);
@@ -105,6 +107,7 @@ namespace charutils
     void    SetStyleLock(CCharEntity* PChar, bool isStyleLocked);
     void    UpdateWeaponStyle(CCharEntity* PChar, uint8 equipSlotID, CItemEquipment* PItem);
     void    UpdateArmorStyle(CCharEntity* PChar, uint8 equipSlotID);
+    void    UpdateRemovedSlots(CCharEntity* PChar);
     void    AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity);
     void    EmptyRecycleBin(CCharEntity* PChar);
 
@@ -133,7 +136,7 @@ namespace charutils
     int32   hasTitle(CCharEntity* PChar, uint16 Title);
     int32   addTitle(CCharEntity* PChar, uint16 Title);
     int32   delTitle(CCharEntity* PChar, uint16 Title);
-    void   setTitle(CCharEntity* PChar, uint16 Title); // set title if not, save and update player
+    void    setTitle(CCharEntity* PChar, uint16 Title); // set title if not, save and update player
 
     int32	hasPetAbility(CCharEntity* PChar, uint16 AbilityID);	    //same as Ability but for pet commands (e.g. Healing Ruby)
     int32	addPetAbility(CCharEntity* PChar, uint16 AbilityID);
@@ -166,6 +169,7 @@ namespace charutils
     void	SaveCharStats(CCharEntity* PChar);					        // сохраняем флаги, текущие значения жихней, маны и профессий
     void    SaveCharGMLevel(CCharEntity* PChar);                        // saves the char's gm level and nameflags
     void    SaveMentorFlag(CCharEntity* PChar);                         // saves the char's mentor flag
+    void    SaveJobMasterDisplay(CCharEntity* PChar);                      // Saves the char's job master display status
     void    SaveMenuConfigFlags(CCharEntity* PChar);                    // saves the char's unnamed flags
     void    SaveChatFilterFlags(CCharEntity* PChar);                    // saves the char's chat filters
     void	SaveCharNation(CCharEntity* PChar);							// Save the character's nation of allegiance.
@@ -178,6 +182,7 @@ namespace charutils
     bool	hasMogLockerAccess(CCharEntity* PChar);						// true if have access, false otherwise.
 
     float  AddExpBonus(CCharEntity* PChar, float exp);
+    uint16 AddCapacityBonus(CCharEntity* PChar, uint16 capacityPoints);
 
     void    RemoveAllEquipment(CCharEntity* PChar);
 

@@ -3,6 +3,7 @@
 --  NPC: Erlene
 -- Involved in Quest: "A Little Knowledge"
 -- !pos 376.936 -39.999 17.914 175
+-- SCH job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/The_Eldieme_Necropolis_[S]/IDs")
 require("scripts/globals/keyitems")
@@ -10,6 +11,7 @@ require("scripts/globals/quests")
 require("scripts/globals/titles")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -32,6 +34,7 @@ function onTrade(player, npc, trade)
             player:startEvent(38)
         end
     end
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.SCH)
 end
 
 function onTrigger(player, npc)
@@ -43,6 +46,9 @@ function onTrigger(player, npc)
     local onSabbatical = player:getQuestStatus(CRYSTAL_WAR, tpz.quest.id.crystalWar.ON_SABBATICAL)
     local downwardHelix = player:getQuestStatus(CRYSTAL_WAR, tpz.quest.id.crystalWar.DOWNWARD_HELIX)
     local seeingBloodRed = player:getQuestStatus(CRYSTAL_WAR, tpz.quest.id.crystalWar.SEEING_BLOOD_RED)
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.SCH)
 
     if (ALittleKnowledge == QUEST_AVAILABLE) then
         if (mLvl >= ADVANCED_JOB_LEVEL) then

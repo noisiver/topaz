@@ -11,5 +11,5 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.EVA, 50)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

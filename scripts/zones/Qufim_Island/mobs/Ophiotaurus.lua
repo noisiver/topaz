@@ -11,7 +11,7 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 5)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local party = player:getParty()
     for _, member in ipairs(party) do
         if member:getCurrentMission(ROV) == tpz.mission.id.rov.THE_LIONS_ROAR then

@@ -435,10 +435,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     if (tpeffect == TP_IGNORE_MACC) then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
-        resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
-        local eleres = target:getMod(element+53)
-        if     eleres < 0  and resist < 0.5  then resist = 0.5
-        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+        resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
     end
 
     -- get weather
@@ -479,14 +476,13 @@ function MobNeedlesMagicalMove(mob, target, skill, damage, element, tpeffect)
     returninfo = {}
 
     local resist = 1
+    local statmod = INT_BASED
+    local dStat = getMobDStat(statmod, mob, target)
     if bonus == nil then bonus = 50 end -- bonus macc
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
 
     -- get resist
-    resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
-    local eleres = target:getMod(element+53)
-    if     eleres < 0  and resist < 0.5  then resist = 0.5
-    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+    resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
 
     -- get weather
     local weatherBonus = getMobWeatherDayBonus(mob, element)
@@ -632,6 +628,7 @@ end
 -- cap is optional, defines a maximum damage
 function MobHPBasedMove(mob, target, percent, base, element, cap)
     local damage = (mob:getHP() * percent) + (mob:getMainLvl() / base)
+    local resist = 1
     local bonus = 0
 
     if not mob:isPet() then
@@ -648,12 +645,7 @@ function MobHPBasedMove(mob, target, percent, base, element, cap)
 
     -- elemental resistence
     if (element ~= nil and element > 0) then
-        -- no skill available, pass nil
-        local resist = applyPlayerResistance(mob, nil, target, 0, bonus, element)
-        local eleres = target:getMod(element+53)
-        if     eleres < 0  and resist < 0.5  then resist = 0.5
-        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
-
+        resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, 0, bonus, element)
         damage = damage * resist
     end
 
@@ -1043,13 +1035,11 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, par
 
     if target:canGainStatusEffect(typeEffect, power) and ShouldApplyDiaBioEffect(target, typeEffect) then
         local statmod = tpz.mod.INT
+        local dStat = mob:getStat(statmod)-target:getStat(statmod)
         local element = mob:getStatusEffectElement(typeEffect)
         local bonus = math.floor(mob:getMainLvl() / 2)
 
-        local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
-        local eleres = target:getMod(element+53)
-        if     eleres < 0  and resist < 0.5  then resist = 0.5
-        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+        local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
 
         target:addEnmity(mob, 1, 320)
 
@@ -1099,13 +1089,11 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
 
     if target:canGainStatusEffect(typeEffect, power) and ShouldApplyDiaBioEffect(target, typeEffect) then
         local statmod = tpz.mod.INT
+        local dStat = mob:getStat(statmod)-target:getStat(statmod)
         local element = mob:getStatusEffectElement(typeEffect)
         local bonus = math.floor(mob:getMainLvl() / 2)
 
-        local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
-        local eleres = target:getMod(element+53)
-        if     eleres < 0  and resist < 0.5  then resist = 0.5
-        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+        local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
 
         target:addEnmity(mob, 1, 320)
 
@@ -1268,13 +1256,11 @@ end
 
 function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
+    local dStat = mob:getStat(statmod)-target:getStat(statmod)
     local element = tpz.magic.ele.WATER
     local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_II, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
-    local eleres = target:getMod(element+53)
-    if     eleres < 0  and resist < 0.5  then resist = 0.5
-    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.ENCUMBRANCE_II, dStat, bonus, element)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) or not target:isPC() then
 	    resist = 0.25
@@ -1326,13 +1312,12 @@ end
 function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
     local statmod = tpz.mod.CHR
+    local dStat = mob:getStat(statmod)-target:getStat(statmod)
     local element = tpz.magic.ele.LIGHT
     local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
-    local eleres = target:getMod(element+53)
-    if     eleres < 0  and resist < 0.5  then resist = 0.5
-    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.ENCUMBRANCE_II, dStat, bonus, element)
+
 	--GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 
     target:addEnmity(mob, 1, 320)
@@ -1341,7 +1326,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
 		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 	
-	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
+	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
@@ -1356,15 +1341,14 @@ function MobCharmMove(mob, target, skill, costume, duration)
 end
 
 function MobDeathMove(mob, target, skill)
-        local statmod = tpz.mod.INT
-        local element = tpz.magic.ele.DARK
-        local bonus = 50
+    local statmod = tpz.mod.INT
+    local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local element = tpz.magic.ele.DARK
+    local bonus = 50
 
-        local resist = applyPlayerResistance(mob, tpz.effect.KO, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
-        local eleres = target:getMod(element+53)
-        if     eleres < 0  and resist < 0.5  then resist = 0.5
-        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
-	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.KO, dStat, bonus, element)
+
+	 --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
 		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
@@ -1394,13 +1378,11 @@ end
 
 function MobFullDispelMove(mob, target, skill, param1, param2)
     local statmod = tpz.mod.INT
+    local dStat = mob:getStat(statmod)-target:getStat(statmod)
     local element = tpz.magic.ele.DARK
     local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.NONE, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
-    local eleres = target:getMod(element+53)
-    if     eleres < 0  and resist < 0.5  then resist = 0.5
-    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
 
     target:addEnmity(mob, 1, 320)
 
@@ -1931,6 +1913,23 @@ function ShouldApplyDiaBioEffect(target, typeEffect)
     end
 
     return true
+end
+
+function ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
+    -- Determines if a players +/- resist on gear allows them to change the resist tier of the spell
+    -- Flash has a +256 MACC bonus
+    if (typeEffect ~= nil) then
+        if (typeEffect == tpz.effect.FLASH) then
+            bonus = 256
+        end
+    end
+
+    local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < bonus  and resist < 0.5  then resist = 0.5
+    elseif eleres < (bonus + 1) and resist < 0.25 then resist = 0.25 end
+
+    return resist
 end
 
 function MobDmgTPModifier(tp)

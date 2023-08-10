@@ -10,6 +10,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/zone")
 require("scripts/globals/roe")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onEffectGain(target, effect)
@@ -34,6 +35,12 @@ function onEffectGain(target, effect)
                 target:setCharVar("GEO_DWL_Luopan", 1)
             end
         end)
+    end
+
+    if target:isPC() then
+        if (target:getGMLevel() > 1) then
+            tpz.voidwalker.onHealing(target)
+        end
     end
 end
 

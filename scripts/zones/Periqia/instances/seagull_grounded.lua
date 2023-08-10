@@ -36,6 +36,10 @@ function  afterInstanceRegister(player)
     player:addTempItem(5385)    -- Barbarian's Drink
     player:addTempItem(5393)    -- Monarch's Drink
     player:addTempItem(5387)    -- Oracle's Drink
+    player:addTempItem(5835)    -- Healing Salve
+    player:addTempItem(5836)    -- Healing Salve II
+    player:addTempItem(5837)    -- Clear Salve
+    player:addTempItem(5838)    -- Clear Salve II
     afterAssaultRegister(player, 5346, ID.text, ID.mob)
 end
 

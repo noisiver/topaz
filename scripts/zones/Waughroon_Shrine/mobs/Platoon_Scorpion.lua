@@ -58,7 +58,7 @@ function onMobSpawn(mob)
    -- mob:setMod(tpz.mod.RESBUILD_LULLABY, 15)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if mob:getLocalVar('HasTriggeredDeathScriptOnce') == 0 then
         mob:setLocalVar('HasTriggeredDeathScriptOnce', 1)
         for _, allyId in ipairs(ID.operationDesertSwarm[mob:getBattlefield():getArea()]) do

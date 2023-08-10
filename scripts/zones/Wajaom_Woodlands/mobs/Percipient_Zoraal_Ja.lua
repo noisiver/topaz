@@ -30,7 +30,7 @@ function onMobFight(mob, target)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     -- make pkuucha killable
     local pet = GetMobByID(ID.mob.ZORAAL_JA_S_PKUUCHA)
     if (pet ~= nil) then

@@ -7,7 +7,7 @@ local ID = require("scripts/zones/Garlaige_Citadel/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 703, 2, tpz.regime.type.FIELDS)
 end
 

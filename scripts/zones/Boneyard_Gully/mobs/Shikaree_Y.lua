@@ -29,6 +29,6 @@ function onMobWeaponSkill(target, mob, skill)
     mob:showText(mob, ID.text.MASSACRRRE_BEGIN)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     mob:showText(mob, mob:getLocalVar("chat"))
 end

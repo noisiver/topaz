@@ -17,7 +17,7 @@ function onMobInitialize(mob)
     mob:addMod(tpz.mod.ATT, 50) -- May need adjustment along with cmbDmgMult in mob_pools.sql
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 206)
     -- I think he still counts the FoV pages? Most NM's do not though.
     tpz.regime.checkRegime(player, mob, 20, 2, tpz.regime.type.FIELDS)

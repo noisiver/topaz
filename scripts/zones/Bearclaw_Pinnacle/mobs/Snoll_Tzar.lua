@@ -66,7 +66,7 @@ function onMobFight(mob, player, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local bf = mob:getBattlefield() 
     local changeTime = mob:getLocalVar("changeTime")
     local gameOver = mob:getLocalVar("gameover")

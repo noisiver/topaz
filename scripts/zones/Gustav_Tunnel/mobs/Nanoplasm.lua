@@ -20,7 +20,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if (player:getCurrentMission(BASTOK) == tpz.mission.id.bastok.THE_SALT_OF_THE_EARTH and player:getCharVar("BASTOK91") == 2) then
         local victory = true
         for i = ID.mob.GIGAPLASM, ID.mob.GIGAPLASM + 14 do
