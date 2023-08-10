@@ -20121,7 +20121,7 @@ INSERT INTO `item_basic` VALUES (26104,0,'njordr_earring','njordr_earring',1,635
 INSERT INTO `item_basic` VALUES (26105,0,'gna_earring','gna_earring',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (26106,0,'fulla_earring','fulla_earring',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (26107,0,'thrud_earring','thrud_earring',1,63572,0,1,0);
-INSERT INTO `item_basic` VALUES (26108,0,'odr_earring','odr_earring',1,63552,0,1,0);x
+INSERT INTO `item_basic` VALUES (26108,0,'odr_earring','odr_earring',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (26109,0,'snotra_earring','snotra_earring',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (26110,0,'sjofn_earring','sjofn_earring',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (26111,0,'beyla_earring','beyla_earring',1,63552,0,1,0);
