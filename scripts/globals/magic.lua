@@ -582,10 +582,6 @@ function applyResistance(caster, target, spell, params)
         softcap = 10
     end
 
-    if (params.bonus == nil) then
-        params.bonus = 0
-    end
-
     -- Apply dStat Macc bonus
     magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
@@ -622,8 +618,8 @@ function applyResistance(caster, target, spell, params)
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
         -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
         local eleres = target:getMod(element+53)
-        if     eleres < params.bonus  and res < 0.5  then res = 0.5
-        elseif eleres < (params.bonus + 1) and res < 0.25 then res = 0.25 end
+        if     eleres < 0  and res < 0.5  then res = 0.5
+        elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
     -- print(string.format("res was %f",res))
     
