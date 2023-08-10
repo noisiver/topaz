@@ -204,9 +204,14 @@ void CPetEntity::Die()
     PAI->ClearStateStack();
     PAI->Internal_Die(2500ms);
     m_unkillable = false;
-    PAI->GetController()->SetAutoAttackEnabled(true);
-    PAI->GetController()->SetMagicCastingEnabled(true);
-    PAI->GetController()->SetWeaponSkillEnabled(true);
+    
+    if ((PAI != nullptr) && (PAI->GetController() != nullptr))
+    {    
+        PAI->GetController()->SetAutoAttackEnabled(true);
+        PAI->GetController()->SetMagicCastingEnabled(true);
+        PAI->GetController()->SetWeaponSkillEnabled(true);
+    }
+    
     luautils::OnMobDeath(this, nullptr);
     CBattleEntity::Die();
     if (PMaster && PMaster->PPet == this && PMaster->objtype == TYPE_PC)
