@@ -82,6 +82,14 @@ void CTrustEntity::Die()
     luautils::OnMobDeath(this, nullptr);
     PAI->ClearStateStack();
     PAI->Internal_Die(0s);
+
+    if ((PAI != nullptr) && (PAI->GetController() != nullptr))
+    {    
+        PAI->GetController()->SetAutoAttackEnabled(true);
+        PAI->GetController()->SetMagicCastingEnabled(true);
+        PAI->GetController()->SetWeaponSkillEnabled(true);
+    }
+    
     ((CCharEntity*)PMaster)->RemoveTrust(this);
     CBattleEntity::Die();
 }
