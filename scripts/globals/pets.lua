@@ -1245,6 +1245,7 @@ function tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, power, tick, dur
     if mob:isPet() then
         local master = mob:getMaster()
         local tp = mob:getLocalVar("tp")
+        local finalDuration = duration
         if master:isPC() then
             if not IsNonScalingBuff(typeEffect) then
                 finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))

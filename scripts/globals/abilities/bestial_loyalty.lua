@@ -20,6 +20,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
+    local pet = player:getPet()
     local effects = player:getStatusEffects()
     for _, effect in ipairs(effects) do
         pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.ceil((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
