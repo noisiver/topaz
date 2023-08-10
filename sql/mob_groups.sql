@@ -2894,8 +2894,8 @@ INSERT INTO `mob_groups` VALUES (2014,4112,59,'Utukku',0,128,2091,0,0,55,56,0);
 -- The_Ashu_Talif (Zone 60)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1776,60,'Gowam',0,128,0,0,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (2,4468,60,'Yazquhl',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (1,1776,60,'Gowam',0,128,0,6000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (2,4468,60,'Yazquhl',0,128,0,6000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (3,1506,60,'Gessho',0,128,0,0,0,68,68,1);
 INSERT INTO `mob_groups` VALUES (4,5430,60,'Ashu_Talif_Crew2',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (5,5431,60,'Ashu_Talif_Crew3',0,128,0,0,0,60,60,0);
@@ -12894,7 +12894,7 @@ INSERT INTO `mob_groups` VALUES (38,228,198,'Argus',108000,128,165,3500,0,36,37,
 INSERT INTO `mob_groups` VALUES (39,2386,198,'Leech_King',108000,128,1505,4500,0,35,36,0);
 INSERT INTO `mob_groups` VALUES (40,4386,198,'Wyrmfly',0,128,0,0,0,30,30,0);
 INSERT INTO `mob_groups` VALUES (41,5533,198,'Dark_Elemental',0,128,0,0,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (42,4675,198,'Lost_Soul',0,128,0,3500,0,50,50,0);
+INSERT INTO `mob_groups` VALUES (42,4675,198,'Lost_Soul',0,128,0,7500,0,45,45,0); -- COR AF1 (Equipped for All Occasions)
 INSERT INTO `mob_groups` VALUES (43,5161,198,'Ogbunabali',0,128,0,0,0,94,95,0);
 INSERT INTO `mob_groups` VALUES (44,250,198,'Aroma_Crawler',0,128,172,3500,0,38,40,0);
 INSERT INTO `mob_groups` VALUES (45,6570,198,'Wight',330,0,2654,0,0,32,35,0);
