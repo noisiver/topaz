@@ -694,17 +694,18 @@ namespace petutils
         }
 
         // Add Job Point Stat Bonuses
-        if (PMaster->GetMJob() == JOB_PUP)
-        {
-            PPet->addModifier(Mod::ATT, PMaster->getMod(Mod::PET_ATK_DEF));
-            PPet->addModifier(Mod::DEF, PMaster->getMod(Mod::PET_ATK_DEF));
-            PPet->addModifier(Mod::ACC, PMaster->getMod(Mod::PET_ACC_EVA));
-            PPet->addModifier(Mod::EVA, PMaster->getMod(Mod::PET_ACC_EVA));
-            PPet->addModifier(Mod::MATT, PMaster->getMod(Mod::PET_MAB_MDB));
-            PPet->addModifier(Mod::MDEF, PMaster->getMod(Mod::PET_MAB_MDB));
-            PPet->addModifier(Mod::MACC, PMaster->getMod(Mod::PET_MACC_MEVA));
-            PPet->addModifier(Mod::MEVA, PMaster->getMod(Mod::PET_MACC_MEVA));
-        }
+        // TODO: Breaks Puppet entirely...
+        // if (PMaster->GetMJob() == JOB_PUP)
+        // {
+        //     PPet->addModifier(Mod::ATT, PMaster->getMod(Mod::PET_ATK_DEF));
+        //     PPet->addModifier(Mod::DEF, PMaster->getMod(Mod::PET_ATK_DEF));
+        //     PPet->addModifier(Mod::ACC, PMaster->getMod(Mod::PET_ACC_EVA));
+        //     PPet->addModifier(Mod::EVA, PMaster->getMod(Mod::PET_ACC_EVA));
+        //     PPet->addModifier(Mod::MATT, PMaster->getMod(Mod::PET_MAB_MDB));
+        //     PPet->addModifier(Mod::MDEF, PMaster->getMod(Mod::PET_MAB_MDB));
+        //     PPet->addModifier(Mod::MACC, PMaster->getMod(Mod::PET_MACC_MEVA));
+        //     PPet->addModifier(Mod::MEVA, PMaster->getMod(Mod::PET_MACC_MEVA));
+        // }
     }
 
     void LoadAvatarStats(CPetEntity* PPet)
