@@ -18257,7 +18257,6 @@ INSERT INTO `item_basic` VALUES (21650,0,'prime_blade','prime_blade',1,63552,0,1
 INSERT INTO `item_basic` VALUES (21651,0,'helheim','helheim',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (21652,0,'helheim','helheim',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (21653,0,'helheim','helheim',1,63552,0,1,0);
-INSERT INTO `item_basic` VALUES (21640,0,'onion_sword_iii','onion_sword_iii',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (21654,0,'arasy_claymore','arasy_claymore',1,2084,4,0,0);
 INSERT INTO `item_basic` VALUES (21655,0,'arasy_claymore_+1','arasy_claymore_+1',1,2080,4,0,0);
 INSERT INTO `item_basic` VALUES (21656,0,'dyrnwyn','dyrnwyn',1,2084,4,0,0);
