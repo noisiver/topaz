@@ -735,6 +735,7 @@ function AddMobAura(mob, target, radius, effect, power, duration)
                 v:delStatusEffectSilent(effect)
                 v:addStatusEffectEx(effect, effect, power, 3, duration)
                 local buffEffect = v:getStatusEffect(effect)
+                buffEffect:setFlag(tpz.effectFlag.HIDE_TIMER)
                 buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
             end
         end
