@@ -17,6 +17,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/pets")
 require("scripts/globals/msg")
+require("scripts/globals/magic")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
