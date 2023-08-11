@@ -3887,6 +3887,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Sharpshot',1175,1942);
 INSERT INTO `mob_skill_lists` VALUES ('Blighting_Brand',1176,1560); -- Whispers of Ire only
 INSERT INTO `mob_skill_lists` VALUES ('Eldritch_Edge',1177,1559); -- Flurry of Rage only
 
+INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 16);
+INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 17);
+INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 18);
+INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 2314);
+INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 2315);
+INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 2316);
+INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 2317);
+
+
 
 -- Custom Content
 
@@ -4590,6 +4599,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,71); -- Mistral Axe
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,72); -- Decimation
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,74); -- Primal Rend
 
--- Next available ID: 1178
+-- Next available ID: 1179
 -- Next custom ID: 6138
 

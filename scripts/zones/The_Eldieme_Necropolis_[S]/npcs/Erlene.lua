@@ -113,7 +113,6 @@ function onTrigger(player, npc)
     else
         player:startEvent(15)
     end
-
 end
 
 function onEventUpdate(player, csid, option)

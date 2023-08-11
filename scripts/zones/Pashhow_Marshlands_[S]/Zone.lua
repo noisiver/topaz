@@ -26,22 +26,14 @@ function onRegionEnter(player, region)
 end
 
 function onZoneWeatherChange(weather)
-    local npc = GetNPCByID(ID.npc.INDESCRIPT_MARKINGS_OFFSET + 1) -- Indescript Markings (BOOTS)
+    local npc = GetNPCByID(ID.npc.INDESCRIPT_MARKINGS_OFFSET + 1) -- Indescript Markings (PANTS)
     if npc then
-        if weather == tpz.weather.RAIN or weather == tpz.weather.THUNDER then
-            npc:setStatus(tpz.status.DISAPPEAR)
-        else
-            npc:setStatus(tpz.status.NORMAL)
-        end
+        npc:setStatus(tpz.status.NORMAL)
     end
 
     npc = GetNPCByID(ID.npc.INDESCRIPT_MARKINGS_OFFSET + 2) -- Indescript Markings (BODY)
     if npc then
-        if weather == tpz.weather.RAIN then
-            npc:setStatus(tpz.status.DISAPPEAR)
-        else
-            npc:setStatus(tpz.status.NORMAL)
-        end
+        npc:setStatus(tpz.status.NORMAL)
     end
 end
 

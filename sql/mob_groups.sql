@@ -6197,7 +6197,7 @@ INSERT INTO `mob_groups` VALUES (4655,3823,93,'Swarmspawn',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (4656,3986,93,'Trained_Bat',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (4657,3987,93,'Trained_Crab',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (4658,3988,93,'Trained_Scorpion',0,0,0,0,0,0,0,0);
-INSERT INTO `mob_groups` VALUES (4659,4078,93,'Ulbrecht',0,0,0,0,0,0,0,0);
+INSERT INTO `mob_groups` VALUES(4659, 4078, 93, 'Ulbrecht', 0, 128, 0, 18000, 3000, 65, 65, 0);
 INSERT INTO `mob_groups` VALUES (4660,4249,93,'Volker',0,0,0,0,0,0,0,0);
 
 -- ------------------------------------------------------------

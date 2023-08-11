@@ -28,11 +28,7 @@ function onGameHour(zone)
     local hour = VanadielHour()
 
     if npc then
-        if hour == 17 then
-            npc:setStatus(tpz.status.DISAPPEAR)
-        elseif hour == 7 then
-            npc:setStatus(tpz.status.NORMAL)
-        end
+        npc:setStatus(tpz.status.NORMAL)
     end
 end
 

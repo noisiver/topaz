@@ -25,12 +25,8 @@ end
 
 function onZoneWeatherChange(weather)
     npc = GetNPCByID(ID.npc.INDESCRIPT_MARKINGS)
-    if (npc ~= nil) then
-        if (weather == tpz.weather.DUST_STORM or weather == tpz.weather.SAND_STORM) then
-            npc:setStatus(tpz.status.DISAPPEAR)
-        else
-            npc:setStatus(tpz.status.NORMAL)
-        end
+    if npc then
+        npc:setStatus(tpz.status.NORMAL)
     end
 end
 
