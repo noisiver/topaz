@@ -878,7 +878,14 @@ namespace petutils
         }
         LoadAvatarStats(PPet); // follows PC calcs (w/o SJ)
 
-        PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(PPetData->spellList);
+        if (PPetData != nullptr)
+        {
+            PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(PPetData->spellList);
+        }
+        else
+        { // should never happen
+            ShowDebug("%s summoned an avatar but the petID was nil! Please report. \n", PMaster->GetName());
+        }
 
         // High refresh so Elementals don't oom
         PPet->setModifier(Mod::REFRESH, 500);
