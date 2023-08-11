@@ -676,10 +676,13 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return 0
     end
 
-    -- MNK mobs have a -50% end multiplier for wep damage and need to do 2x for physical moves to do proper damage
-    if (mob:getMainJob() == tpz.job.MNK) and (mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND) and (damageType ~= tpz.damageType.NONE) then -- Throat stab and special moves like Mijin Gakure
-        if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
-            dmg = dmg * 2
+    -- MNK and PUP mobs have a -50% end multiplier for wep damage and need to do 2x for physical moves to do proper damage
+    local isH2H = mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND
+    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP then
+        if isH2H then
+            if (attackType == tpz.attackType.PHYSICAL) or (attackType == tpz.attackType.RANGED) then
+                dmg = dmg * 2
+            end
         end
     end
 
