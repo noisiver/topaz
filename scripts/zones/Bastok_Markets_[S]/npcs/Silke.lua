@@ -2,6 +2,7 @@
 -- Area: Bastok Markets (S)
 --  NPC: Silke
 -- Standard Merchant NPC
+-- !gotoid 17134152
 -----------------------------------
 local ID = require("scripts/zones/Bastok_Markets_[S]/IDs")
 require("scripts/globals/shop")
