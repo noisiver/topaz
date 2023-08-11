@@ -32,9 +32,6 @@ function jobUtil.ConsumeIgnisRune(player, effect, power)
         player:delStatusEffectSilent(tpz.effect.IGNIS)
         player:setLocalVar("IgnisRunes", 0)
         player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, effect, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
-        local buffEffect = player:getStatusEffect(effect)
-        buffEffect:setFlag(tpz.effectFlag.HIDE_TIMER)
-        buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
         return true
     end
     return false
