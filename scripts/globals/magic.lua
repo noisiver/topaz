@@ -2170,6 +2170,7 @@ function GetCharmHitRate(player, target)
 
     chance = utils.clamp(chance, 5, 95)
     --print(string.format("chance final %i", chance))
+    player:PrintToPlayer(string.format( "Your charm hit rate is %i.", chance))
 
     return chance
 end
