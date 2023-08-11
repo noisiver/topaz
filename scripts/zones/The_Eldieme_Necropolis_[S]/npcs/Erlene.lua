@@ -67,7 +67,7 @@ function onTrigger(player, npc)
         else
             player:startEvent(13)
         end
-    elseif (ALittleKnowledge == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= 5 and not (player:hasSpell(478) and player:hasSpell(502))) then
+    elseif (ALittleKnowledge == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= 5 and not (player:hasSpell(478) and player:hasSpell(502))) then -- Embrava and Kaustra
             player:startEvent(47) 
     elseif (onSabbatical == QUEST_AVAILABLE and mJob == tpz.job.SCH and mLvl >= AF1_QUEST_LEVEL) then
             player:startEvent(18)
