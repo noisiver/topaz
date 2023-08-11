@@ -2113,7 +2113,7 @@ function getDstatBonus(softcap, diff)
     return dstatMaccBonus
 end
 
-function GetCharmHitRate(player, target)
+function `rmHitRate(player, target)
     -- Immune to charm
     if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
         return 0
@@ -2170,7 +2170,7 @@ function GetCharmHitRate(player, target)
 
     chance = utils.clamp(chance, 5, 95)
     --print(string.format("chance final %i", chance))
-    player:PrintToPlayer(string.format( "Your charm hit rate is %i.", chance))
+    --player:PrintToPlayer(string.format( "Your charm hit rate is %i.", chance))
 
     return chance
 end
