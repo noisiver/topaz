@@ -2121,7 +2121,7 @@ function GetCharmHitRate(player, target)
 
     -- formula is 50% - family reduct - dLvl (3/lvl until 50, 5/lvl 51+, 10/lvl at some level)) * charm multiplier + dCHR + Light Staff bonus (10/15)
     -- dLVL can never go above 0, and dCHR goes below 0
-    local chance = 50
+    local chance = 75
     local familyReduction = GetCharmFamilyReduction(player, target)
     local element = tpz.magic.ele.LIGHT
     local diff = player:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
