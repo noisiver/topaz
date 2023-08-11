@@ -20,7 +20,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.numHits = 1
-    params.ftp100 = 1.2 params.ftp200 = 1.2 params.ftp300 = 1.2
+    params.ftp100 = 1.0 params.ftp200 = 1.0 params.ftp300 = 1.0
     params.str_wsc = 0.35 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
@@ -33,8 +33,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     -- Defense ignored is 0%, 35%, 50% as per wiki.bluegartr.com
     params.ignoresDef = true
-    params.ignored100 = 0.3
-    params.ignored200 = 0.4
+    params.ignored100 = 0.2
+    params.ignored200 = 0.5
     params.ignored300 = 0.5
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
