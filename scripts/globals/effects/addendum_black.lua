@@ -23,6 +23,11 @@ function onEffectGain(target, effect)
         target:addMod(tpz.mod.HELIX_EFFECT, helix)
         target:addMod(tpz.mod.HELIX_DURATION, 72)
     end
+
+    -- Accuracy bonus to SCH main only
+    if (target:getMainJob() == tpz.job.SCH) then
+        target:addMod(tpz.mod.ACC, 50)
+    end
     target:recalculateSkillsTable()
 end
 
@@ -47,6 +52,11 @@ function onEffectLose(target, effect)
         target:delMod(tpz.mod.WHITE_MAGIC_RECAST, 20)
         target:delMod(tpz.mod.HELIX_EFFECT, helix)
         target:delMod(tpz.mod.HELIX_DURATION, 72)
+    end
+
+    -- Accuracy bonus to SCH main only
+    if (target:getMainJob() == tpz.job.SCH) then
+        target:delMod(tpz.mod.ACC, 50)
     end
     target:recalculateSkillsTable()
 end

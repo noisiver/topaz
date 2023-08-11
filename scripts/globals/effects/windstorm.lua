@@ -6,7 +6,7 @@
 
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.AGI, effect:getPower())
-    target:addMod(tpz.mod.FASTCAST, 10)
+    target:addMod(tpz.mod.FASTCAST, 20)
 end
 
 function onEffectTick(target, effect)
@@ -14,5 +14,5 @@ end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.AGI, effect:getPower())
-    target:delMod(tpz.mod.FASTCAST, 10)
+    target:delMod(tpz.mod.FASTCAST, 20)
 end

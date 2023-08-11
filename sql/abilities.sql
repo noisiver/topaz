@@ -261,7 +261,7 @@ INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,
 INSERT INTO `abilities` VALUES (207,'violent_flourish',19,45,4,20,221,522,0,26,2000,0,14,5.4,0,1,0,0,0,'WOTG',0);
 INSERT INTO `abilities` VALUES (208,'building_flourish',19,50,1,10,222,0,0,183,2000,0,6,20.0,0,1,0,0,0,'WOTG',0);
 INSERT INTO `abilities` VALUES (209,'wild_flourish',19,60,4,20,222,529,0,26,2000,0,14,5.4,0,1,0,0,0,'WOTG',0);
-INSERT INTO `abilities` VALUES (210,'tabula_rasa',20,0,1,7200,0,0,0,190,2000,0,6,20.0,0,1,300,0,0,'WOTG',0);
+INSERT INTO `abilities` VALUES (210,'tabula_rasa',20,0,1,600,0,0,0,190,2000,0,6,20.0,0,1,300,0,0,'WOTG',0);
 INSERT INTO `abilities` VALUES (211,'light_arts',20,10,1,60,228,0,0,171,2000,0,6,20.0,0,1,80,1600,0,'WOTG',0);
 INSERT INTO `abilities` VALUES (212,'dark_arts',20,10,1,60,232,0,0,176,2000,0,6,20.0,0,1,80,1600,0,'WOTG',0);
 INSERT INTO `abilities` VALUES (213,'flourishes_ii',19,40,1,0,222,0,0,0,2000,0,6,20.0,0,0,0,0,0,'WOTG',0);
@@ -359,7 +359,7 @@ INSERT INTO `abilities` VALUES (311,'curing_waltz_v',19,87,27,14,217,102,0,35,20
 INSERT INTO `abilities` VALUES (312,'feather_step',19,83,4,5,220,591,0,17,2000,0,14,5.4,0,1,0,0,0,NULL,50);
 INSERT INTO `abilities` VALUES (313,'striking_flourish',19,60,1,90,226,100,0,243,2000,0,14,20.0,1,1,80,0,0,NULL,0); -- check animation/message1
 INSERT INTO `abilities` VALUES (314,'ternary_flourish',19,70,1,90,226,100,0,260,2000,0,14,20.0,1,1,80,0,0,NULL,0); -- check animation/message1
--- INSERT INTO `abilities` VALUES (316,'perpetuance',20,87,1,1,231,100,0,224,2000,0,6,0.0,0,1,80,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (316,'perpetuance',20,65,1,1,231,100,0,224,2000,0,6,0.0,0,1,80,0,16,'ABYSSEA');
 -- INSERT INTO `abilities` VALUES (317,'immanence',20,87,1,1,231,100,0,245,2000,0,6,0.0,0,1,80,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (318,'smiting_breath',14,40,4,60,238,100,0,94,2000,0,6,8.0,0,1,80,0,0,NULL,0); -- check animation
 INSERT INTO `abilities` VALUES (319,'restoring_breath',14,30,1,60,239,100,0,94,2000,0,6,0.0,0,1,80,0,0,NULL,0); -- check animation
