@@ -36,10 +36,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         mpRestored = 0
     else
         -- Absorb MP from target
-        mpRestored = target:delMP(mpRestored)
-
-        -- Add stolen MP to player
-        mpRestored = player:addMP(mpRestored)
+        target:delMP(mpRestored)
+        player:addMP(mpRestored)
     end
 
     -- Display MP actually given to player
