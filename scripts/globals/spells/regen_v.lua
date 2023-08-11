@@ -1,10 +1,13 @@
 -----------------------------------------
--- Spell: Regen II
+-- Spell: Regen V
 -- Gradually restores target's HP.
 -----------------------------------------
+-- Scale down duration based on level
+-- Composure increases duration 3x
+-----------------------------------------
+require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
-require("scripts/globals/status")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
@@ -12,12 +15,12 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local hp = math.ceil(12 * (1 + 0.01 * caster:getMod(tpz.mod.REGEN_MULTIPLIER))) -- spell base times gear multipliers
+    local hp = math.ceil(40 * (1 + 0.01 * caster:getMod(tpz.mod.REGEN_MULTIPLIER))) -- spell base times gear multipliers
     hp = hp + caster:getMerit(tpz.merit.REGEN_EFFECT) -- bonus hp from merits
     hp = hp + caster:getMod(tpz.mod.LIGHT_ARTS_REGEN) -- bonus hp from light arts
 
     local duration = calculateDuration(60 + caster:getMod(tpz.mod.REGEN_DURATION), spell:getSkillType(), spell:getSpellGroup(), caster, target)
-    duration = calculateDurationForLvl(duration, 37, target:getMainLvl())
+    duration = calculateDurationForLvl(duration, 99, target:getMainLvl())
 
     -- SCH main while Light Arts being active tripled the duration
     if caster:getMainJob() == tpz.job.SCH and caster:hasStatusEffect(tpz.effect.LIGHT_ARTS) then
