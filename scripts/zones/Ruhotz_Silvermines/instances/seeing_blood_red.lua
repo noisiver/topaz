@@ -2,6 +2,7 @@
 --
 -- SCH AF3: Seeing Blood-Red
 --
+-- https://gitlab.com/ffxiwings/wings/-/commit/f14b88073651da884ed5fd2f55de842dda8c2025?page=2
 -----------------------------------
 require("scripts/globals/instance")
 require("scripts/globals/keyitems")
