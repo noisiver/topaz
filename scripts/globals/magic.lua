@@ -2113,7 +2113,7 @@ function getDstatBonus(softcap, diff)
     return dstatMaccBonus
 end
 
-function `rmHitRate(player, target)
+function GetCharmHitRate(player, target)
     -- Immune to charm
     if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
         return 0
