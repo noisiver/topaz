@@ -912,6 +912,8 @@ tpz.effectFlag =
     INFLUENCE       = 0x1000000,
     OFFLINE_TICK    = 0x2000000,
     AURA            = 0x4000000,
+    FINISHING_MOVE  = 0x8000000,  -- Is a finishing move
+    HIDE_TIMER      = 0x10000000, -- Sends "Always" in the packet, even though timer is tracked (used for geo bubbles / infinite duration buffs)
 }
 
 ------------------------------------

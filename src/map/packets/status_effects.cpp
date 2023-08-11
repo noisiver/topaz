@@ -27,7 +27,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 CStatusEffectPacket::CStatusEffectPacket(CCharEntity* PChar)
 {
     this->type = 0x63;
-    this->size = 0x64;
+    this->size = 0xC8;
 
     int i = 0;
 
@@ -36,16 +36,23 @@ CStatusEffectPacket::CStatusEffectPacket(CCharEntity* PChar)
     ref<uint8>(0x04) = 0x09;
     ref<uint8>(0x06) = 0xC4;
 
+    // clang-format off
     PChar->StatusEffectContainer->ForEachEffect([this, &i](CStatusEffect* PEffect)
     {
         if (PEffect->GetIcon() != 0)
         {
             ref<uint16>(0x08 + (i * 0x02)) = PEffect->GetIcon();
             // this value overflows, but the client expects the overflowed timestamp and corrects it
-            ref<uint32>(0x48 + (i * 0x04)) = PEffect->GetDuration() == 0 ? 0x7FFFFFFF :
-                (((PEffect->GetDuration() - (uint32)std::chrono::duration_cast<std::chrono::milliseconds>(server_clock::now() - PEffect->GetStartTime()).count())/1000)
-                + CVanaTime::getInstance()->getVanaTime()) * 60;
+            ref<uint32>(0x48 + (i * 0x04)) =
+                PEffect->GetDuration() == 0 || (PEffect->GetFlag() & EFFECTFLAG_HIDE_TIMER)
+                    ? 0x7FFFFFFF
+                    : (((PEffect->GetDuration() -
+                         (uint32)std::chrono::duration_cast<std::chrono::milliseconds>(server_clock::now() - PEffect->GetStartTime()).count()) /
+                        1000) +
+                       CVanaTime::getInstance()->getVanaTime()) *
+                          60;
             ++i;
         }
     });
+    // clang-format on
 }
