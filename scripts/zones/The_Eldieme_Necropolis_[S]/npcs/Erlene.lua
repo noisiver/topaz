@@ -91,8 +91,6 @@ function onTrigger(player, npc)
         elseif (downwardHelixProgress == 4) then
             player:startEvent(27)
         end
-    elseif (downwardHelix == QUEST_COMPLETED) then
-        player:startEvent(28)
     elseif (seeingBloodRed == QUEST_AVAILABLE and downwardHelix == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= AF3_QUEST_LEVEL) then
         player:startEvent(player:needToZone() and 28 or 29)
     elseif (seeingBloodRed == QUEST_ACCEPTED) then
