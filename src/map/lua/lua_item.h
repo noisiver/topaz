@@ -63,14 +63,13 @@ public:
     int32 getName(lua_State*);              // get the item's name
     int32 getILvl(lua_State*);              // get the item's ilvl
     int32 getReqLvl(lua_State*);            // get the item's level
-    int32 getSuperiorLevel(lua_State*);     // get the item's superior level
 
     int32 getMod(lua_State*);               // get the power of a mod
     int32 addMod(lua_State*);               // add mod to item (or add to a mod already applied on item)
     int32 delMod(lua_State*);               // remove power from mod
 
     int32 getAugment(lua_State*);           // get the augment id and power in slot
-    //int32 setAugment(lua_State*);         // set the augment id and power in slot
+    //int32 setAugment(lua_State*);           // set the augment id and power in slot
 
     int32 getSkillType(lua_State*);         // get skill type
     int32 getWeaponskillPoints(lua_State*); // get current ws points
