@@ -8,6 +8,7 @@ require("scripts/globals/campaign")
 require("scripts/globals/titles")
 require("scripts/globals/quests")
 require("scripts/globals/settings")
+local ID = require("scripts/zones/Sauromugue_Champaign_[S]/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
