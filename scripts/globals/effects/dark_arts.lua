@@ -28,7 +28,9 @@ function onEffectGain(target, effect)
     if (target:getMainJob() == tpz.job.SCH) then
         target:addMod(tpz.mod.ACC, 50)
     end
-    target:recalculateSkillsTable()
+    if target:isPC() then
+        target:recalculateSkillsTable()
+    end
 end
 
 function onEffectTick(target, effect)
@@ -58,5 +60,7 @@ function onEffectLose(target, effect)
     if (target:getMainJob() == tpz.job.SCH) then
         target:delMod(tpz.mod.ACC, 50)
     end
-    target:recalculateSkillsTable()
+    if target:isPC() then
+        target:recalculateSkillsTable()
+    end
 end
