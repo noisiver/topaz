@@ -305,6 +305,7 @@ tpz.shop =
                 6298,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Manji Shuriken Pouch
                 6302,     700,      tpz.ki.RHAPSODY_IN_AZURE,   -- Fuma Shuriken Pouch
                 6303,    1000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Iga Shuriken Pouch
+                5870,    4752,      tpz.ki.RHAPSODY_IN_WHITE,   -- Trump Card Case
         },
         [curio.ninjutsuTools] =
         {
