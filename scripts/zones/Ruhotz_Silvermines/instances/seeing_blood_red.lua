@@ -45,9 +45,9 @@ function onInstanceComplete(instance)
     for i, v in pairs(chars) do
         if (v:getCharVar("SeeingBloodRed") == 3) then
             v:setCharVar("SeeingBloodRed", 4)
-            v:setPos(-277.011, -54.000, -101.048, 89) -- Send back to Grauberg [S]
+            v:setPos(-277.011, -54.000, -101.048, 0, 89) -- Send back to Grauberg [S]
         else
-            v:setPos(-277.011, -54.000, -101.048, 89) -- Send back to Grauberg [S]
+            v:setPos(-277.011, -54.000, -101.048, 0, 89) -- Send back to Grauberg [S]
         end
     end
 end
