@@ -340,29 +340,33 @@ function onSpellPrecast(mob, spell)
     -- local target = mob:getTarget()
     -- local isPlayer = target and target:isPC()
 
-    if mob:hasStatusEffect(tpz.effect.EBULLIENCE) and
-        (spell:getSkillType() == tpz.skill.HEALING_MAGIC or
-        spell:getSkillType() == tpz.skill.ELEMENTAL_MAGIC or
-        spell:getSkillType() == tpz.skill.DARK_MAGIC) then
-            -- if target and isPlayer then
-            --     target:PrintToPlayer("EBULLIENCE")
-            -- end
-        spell:multiplier(spell:multiplier() * 1.4) -- 40% potency increase
+    if mob:hasStatusEffect(tpz.effect.EBULLIENCE) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
+        if
+            (spell:getSkillType() == tpz.skill.HEALING_MAGIC or
+            spell:getSkillType() == tpz.skill.ELEMENTAL_MAGIC or
+            spell:getSkillType() == tpz.skill.DARK_MAGIC) then
+                -- if target and isPlayer then
+                --     target:PrintToPlayer("EBULLIENCE")
+                -- end
+            spell:multiplier(spell:multiplier() * 1.4) -- 40% potency increase
+        end
 
     end
 
-    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) and spell:canTargetEnemy() then
-        -- if target and isPlayer then
-        --     target:PrintToPlayer("MANIFESTATION")
-        -- end
-        spell:setAoE(tpz.magic.aoe.RADIAL)
-        spell:setRadius(10)
-        if(spell:getID() % 5 == 1) then -- t3 spells only (mod 5 == 1)
-            spell:setAnimation(spell:getAnimation() + 30) -- t3 becomes ga-3
+    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
+        if spell:canTargetEnemy() then
+            -- if target and isPlayer then
+            --     target:PrintToPlayer("MANIFESTATION")
+            -- end
+            spell:setAoE(tpz.magic.aoe.RADIAL)
+            spell:setRadius(10)
+            if(spell:getID() % 5 == 1) then -- t3 spells only (mod 5 == 1)
+                spell:setAnimation(spell:getAnimation() + 30) -- t3 becomes ga-3
+            end
         end
     end
 
-    if mob:hasStatusEffect(tpz.effect.PARSIMONY) then
+    if mob:hasStatusEffect(tpz.effect.PARSIMONY) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
         -- if target and isPlayer then
         --     target:PrintToPlayer("PARSIMONY")
         -- end
