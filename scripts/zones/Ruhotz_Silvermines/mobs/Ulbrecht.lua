@@ -294,7 +294,7 @@ end
 function onMobWeaponSkill(target, mob, skill, action)
     local skillID = skill:getID()
     if skillID >= 2314 and skillID < 2318 then
-        mob:setLocalVar("stratagem_cooldown", os.time() + 63)
+        mob:setLocalVar("stratagem_cooldown", os.time() + 30)
         local forceStratagemTP = mob:getLocalVar("force_stratagem_tp")
         if forceStratagemTP > 0 then
             mob:setLocalVar("force_stratagem_tp", 0)
