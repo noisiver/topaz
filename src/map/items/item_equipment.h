@@ -82,6 +82,7 @@ public:
     uint8   getSlotType();
     uint16  getAugment(uint8 slot);
 	uint16  getTrialNumber();
+    uint8   getSuperiorLevel();
 
     bool    IsShield();
 
@@ -95,6 +96,7 @@ public:
 	void	setRemoveSlotId(uint16 removSlot);
     void    setAugment(uint8 slot, uint16 type, uint8 value);
 	void    setTrialNumber(uint16);
+    void    setSuperiorLevel(uint8 level);
 
     void    LoadAugment(uint8 slot, uint16 augment);
     bool    PushAugment(uint16 type, uint8 value);
@@ -119,6 +121,7 @@ private:
     uint8   m_absorption;
 	uint16	m_equipSlotID;
 	uint16	m_removeSlotID;
+    uint8   m_superiorLevel;
 
     void    SetAugmentMod(uint16 type, uint8 value);
 };

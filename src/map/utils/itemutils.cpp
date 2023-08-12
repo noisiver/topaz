@@ -284,50 +284,51 @@ namespace itemutils
     {
         const char* Query =
             "SELECT "
-                "b.itemId,"         //  0
-                "b.name,"           //  1
-                "b.stackSize,"      //  2
-                "b.flags,"          //  3
-                "b.aH,"             //  4
-                "b.BaseSell,"       //  5
-                "b.subid,"          //  6
+                "b.itemId,"    //  0
+                "b.name,"      //  1
+                "b.stackSize," //  2
+                "b.flags,"     //  3
+                "b.aH,"        //  4
+                "b.BaseSell,"  //  5
+                "b.subid,"     //  6
 
-                "u.validTargets,"   //  7
-                "u.activation,"     //  8
-                "u.animation,"      //  9
-                "u.animationTime,"  // 10
-                "u.maxCharges,"     // 11
-                "u.useDelay,"       // 12
-                "u.reuseDelay,"     // 13
-                "u.aoe,"            // 14
+                "u.validTargets,"  //  7
+                "u.activation,"    //  8
+                "u.animation,"     //  9
+                "u.animationTime," // 10
+                "u.maxCharges,"    // 11
+                "u.useDelay,"      // 12
+                "u.reuseDelay,"    // 13
+                "u.aoe,"           // 14
 
-                "a.level,"          // 15
-                "a.ilevel,"         // 16
-                "a.jobs,"           // 17
-                "a.MId,"            // 18
-                "a.shieldSize,"     // 19
-                "a.scriptType,"     // 20
-                "a.slot,"           // 21
-                "a.rslot,"          // 22
+                "a.level,"      // 15
+                "a.ilevel,"     // 16
+                "a.jobs,"       // 17
+                "a.MId,"        // 18
+                "a.shieldSize," // 19
+                "a.scriptType," // 20
+                "a.slot,"       // 21
+                "a.rslot,"      // 22
+                "a.su_level,"   // 23
 
-                "w.skill,"          // 23
-                "w.subskill,"       // 24
-                "w.ilvl_skill,"     // 25
-                "w.ilvl_parry,"     // 26
-                "w.ilvl_macc,"      // 27
-                "w.delay,"          // 28
-                "w.dmg,"            // 29
-                "w.dmgType,"        // 30
-                "w.hit,"            // 31
-                "w.unlock_points,"  // 32
+                "w.skill,"         // 24
+                "w.subskill,"      // 25
+                "w.ilvl_skill,"    // 26
+                "w.ilvl_parry,"    // 27
+                "w.ilvl_macc,"     // 28
+                "w.delay,"         // 29
+                "w.dmg,"           // 30
+                "w.dmgType,"       // 31
+                "w.hit,"           // 32
+                "w.unlock_points," // 33
 
-                "f.storage,"        // 33
-                "f.moghancement,"   // 34
-                "f.element,"        // 35
-                "f.aura,"           // 36
+                "f.storage,"      // 34
+                "f.moghancement," // 35
+                "f.element,"      // 36
+                "f.aura,"         // 37
 
-                "p.slot,"           // 37
-                "p.element "        // 38
+                "p.slot,"    // 38
+                "p.element " // 39
             "FROM item_basic AS b "
             "LEFT JOIN item_usable AS u USING (itemId) "
             "LEFT JOIN item_equipment  AS a USING (itemId) "
@@ -384,6 +385,7 @@ namespace itemutils
                         ((CItemEquipment*)PItem)->setScriptType(Sql_GetUIntData(SqlHandle,20));
                         ((CItemEquipment*)PItem)->setEquipSlotId(Sql_GetUIntData(SqlHandle,21));
                         ((CItemEquipment*)PItem)->setRemoveSlotId(Sql_GetUIntData(SqlHandle,22));
+                        ((CItemEquipment*)PItem)->setSuperiorLevel(Sql_GetUIntData(SqlHandle, 23));
 
                         if (((CItemEquipment*)PItem)->getValidTarget() != 0)
                         {
@@ -392,23 +394,23 @@ namespace itemutils
                     }
                     if (PItem->isType(ITEM_WEAPON))
                     {
-                        ((CItemWeapon*)PItem)->setSkillType(Sql_GetUIntData(SqlHandle,23));
-                        ((CItemWeapon*)PItem)->setSubSkillType(Sql_GetUIntData(SqlHandle,24));
-                        ((CItemWeapon*)PItem)->setILvlSkill(Sql_GetUIntData(SqlHandle, 25));
-                        ((CItemWeapon*)PItem)->setILvlParry(Sql_GetUIntData(SqlHandle, 26));
-                        ((CItemWeapon*)PItem)->setILvlMacc(Sql_GetUIntData(SqlHandle, 27));
-                        ((CItemWeapon*)PItem)->setDelay((Sql_GetIntData(SqlHandle,28)*1000)/60);
-                        ((CItemWeapon*)PItem)->setDamage(Sql_GetUIntData(SqlHandle,29));
-                        ((CItemWeapon*)PItem)->setDmgType(Sql_GetUIntData(SqlHandle,30));
-                        ((CItemWeapon*)PItem)->setMaxHit(Sql_GetUIntData(SqlHandle,31));
-                        ((CItemWeapon*)PItem)->setUnlockablePoints(Sql_GetUIntData(SqlHandle,32));
+                        ((CItemWeapon*)PItem)->setSkillType(Sql_GetUIntData(SqlHandle,24));
+                        ((CItemWeapon*)PItem)->setSubSkillType(Sql_GetUIntData(SqlHandle,25));
+                        ((CItemWeapon*)PItem)->setILvlSkill(Sql_GetUIntData(SqlHandle, 26));
+                        ((CItemWeapon*)PItem)->setILvlParry(Sql_GetUIntData(SqlHandle, 27));
+                        ((CItemWeapon*)PItem)->setILvlMacc(Sql_GetUIntData(SqlHandle, 28));
+                        ((CItemWeapon*)PItem)->setDelay((Sql_GetIntData(SqlHandle,29) * 1000) / 60);
+                        ((CItemWeapon*)PItem)->setDamage(Sql_GetUIntData(SqlHandle,30));
+                        ((CItemWeapon*)PItem)->setDmgType(Sql_GetUIntData(SqlHandle,31));
+                        ((CItemWeapon*)PItem)->setMaxHit(Sql_GetUIntData(SqlHandle,32));
+                        ((CItemWeapon*)PItem)->setUnlockablePoints(Sql_GetUIntData(SqlHandle,33));
                     }
                     if (PItem->isType(ITEM_FURNISHING))
                     {
-                        ((CItemFurnishing*)PItem)->setStorage(Sql_GetUIntData(SqlHandle,33));
-                        ((CItemFurnishing*)PItem)->setMoghancement(Sql_GetUIntData(SqlHandle,34));
-                        ((CItemFurnishing*)PItem)->setElement(Sql_GetUIntData(SqlHandle,35));
-                        ((CItemFurnishing*)PItem)->setAura(Sql_GetUIntData(SqlHandle,36));
+                        ((CItemFurnishing*)PItem)->setStorage(Sql_GetUIntData(SqlHandle,34));
+                        ((CItemFurnishing*)PItem)->setMoghancement(Sql_GetUIntData(SqlHandle,35));
+                        ((CItemFurnishing*)PItem)->setElement(Sql_GetUIntData(SqlHandle,36));
+                        ((CItemFurnishing*)PItem)->setAura(Sql_GetUIntData(SqlHandle,37));
                     }
                     g_pItemList[PItem->getID()] = PItem;
                 }
