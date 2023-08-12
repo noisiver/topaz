@@ -45,9 +45,9 @@ function onInstanceComplete(instance)
     for i, v in pairs(chars) do
         if (v:getCharVar("SeeingBloodRed") == 3) then
             v:setCharVar("SeeingBloodRed", 4)
-            v:startEvent(10000, 300, 23, 1757) -- can't seem to get this to work manually with GM commands?
+            v:setPos(0, 0, 0, 0, 89) -- Send back to Grauberg [S]
         else
-            v:startEvent(10001) -- could be off by 1 or 2 or we just need to send them to grauberg
+            v:setPos(0, 0, 0, 0, 89) -- Send back to Grauberg [S]
         end
     end
 end
@@ -56,7 +56,4 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    if csid == 10000 or csid == 10001 then -- SCH AF3 battle
-        player:setPos(0, 0, 0, 0, 89) -- Send back to Grauberg [S]
-    end
 end
