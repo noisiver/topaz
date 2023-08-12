@@ -19,6 +19,6 @@ function onSpellCast(caster, target, spell)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     end
-
+    spell:setAoE(tpz.magic.aoe.RADIAL_ACCE)
     return tpz.effect.REGAIN
 end
