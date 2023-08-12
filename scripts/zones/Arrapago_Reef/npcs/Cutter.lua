@@ -117,6 +117,8 @@ function onInstanceCreated(player, target, instance)
                 if v:getID() ~= player:getID() and v:getZoneID() == player:getZoneID() then
                     v:setInstance(instance)
                     v:startEvent(222, 6)
+                    v:release()
+                    v:setPos(0, 0, 0, 0, 60)
                 end
             end
         end
