@@ -11,8 +11,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- TODO: Crashes server
-    -- MobBuffMove(mob, tpz.effect.DARK_ARTS, 1, 0, 7200)
+    MobBuffMove(mob, tpz.effect.DARK_ARTS, 1, 0, 7200)
 
     skill:setMsg(tpz.msg.basic.USES)
 
