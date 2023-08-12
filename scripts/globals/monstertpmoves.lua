@@ -1187,7 +1187,9 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
     end
 
     local target = mob:getTarget()
-    target:addEnmity(mob, 320, 320)
+    if target then
+        target:addEnmity(mob, 320, 320)
+    end
 
     if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
@@ -1207,7 +1209,9 @@ function MobBuffMoveSub(mob, typeEffect, power, tick, duration, subid, subpower,
     end
 
     local target = mob:getTarget()
-    target:addEnmity(mob, 320, 320)
+    if target then
+        target:addEnmity(mob, 320, 320)
+    end
 
     if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
