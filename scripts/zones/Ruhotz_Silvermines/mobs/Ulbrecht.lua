@@ -203,6 +203,8 @@ function onMobSpawn(mob)
     mob:setUnkillable(true)
     mob:SetMagicCastingEnabled(false)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
     mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 12)
     mob:setLocalVar("specialThreshold", math.random(45, 55));
