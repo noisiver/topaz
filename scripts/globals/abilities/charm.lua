@@ -32,7 +32,7 @@ end
 
 function onUseAbility(player, target, ability)
     local charmChance = GetCharmHitRate(player, target)
-    player:PrintToPlayer(string.format( "Your charm hit rate is %i.", charmChance))
+    -- player:PrintToPlayer(string.format( "Your charm hit rate is %i.", charmChance))
 
     if target:isPC() then
         ability:setMsg(tpz.msg.basic.NO_EFFECT)
