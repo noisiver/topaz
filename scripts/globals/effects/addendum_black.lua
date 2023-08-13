@@ -5,7 +5,9 @@
 -----------------------------------
 
 function onEffectGain(target, effect)
-    target:recalculateAbilitiesTable()
+    if target:isPC() then
+        target:recalculateAbilitiesTable()
+    end
     local bonus = effect:getPower()
     local helix = effect:getSubPower()
 
@@ -28,14 +30,18 @@ function onEffectGain(target, effect)
     if (target:getMainJob() == tpz.job.SCH) then
         target:addMod(tpz.mod.ACC, 50)
     end
-    target:recalculateSkillsTable()
+    if target:isPC() then
+        target:recalculateSkillsTable()
+    end
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:recalculateAbilitiesTable()
+    if target:isPC() then
+        target:recalculateAbilitiesTable()
+    end
     local bonus = effect:getPower()
     local helix = effect:getSubPower()
 
@@ -58,5 +64,7 @@ function onEffectLose(target, effect)
     if (target:getMainJob() == tpz.job.SCH) then
         target:delMod(tpz.mod.ACC, 50)
     end
-    target:recalculateSkillsTable()
+    if target:isPC() then
+        target:recalculateSkillsTable()
+    end
 end
