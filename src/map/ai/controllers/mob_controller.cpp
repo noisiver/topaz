@@ -1178,6 +1178,7 @@ void CMobController::DoRoamTick(time_point tick)
     if (m_Tick >= m_LastRoamScript + 3s)
     {
         PMob->PAI->EventHandler.triggerListener("ROAM_TICK", PMob);
+        PMob->StatusEffectContainer->DelStatusEffect(EFFECT_HEALING);
         luautils::OnMobRoam(PMob);
         m_LastRoamScript = m_Tick;
     }
