@@ -11,7 +11,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local fTPAnchors = { 1.25, 2.5, 4.125 }
 
     local startingAnchor = math.floor(tp / 1000)
-
+    
     local multiplier = 0
 
     if tp >= 3000 then
@@ -28,17 +28,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local skill = player:getSkillLevel(tpz.skill.DAGGER)
     local wsc   = player:getStat(tpz.mod.MND) * 1.0
-
     local mpRestored = math.floor((math.floor(skill * 0.11) + wsc) * multiplier)
 
     if target:isUndead() then
         mpRestored = 0
     else
         -- Absorb MP from target
-        mpRestored = target:delMP(mpRestored)
-
-        -- Add stolen MP to player
-        mpRestored = player:addMP(mpRestored)
+        target:delMP(mpRestored)
+        player:addMP(mpRestored)
     end
 
     -- Display MP actually given to player

@@ -30,11 +30,7 @@ function onTrigger(player, npc)
     elseif (letterRed == 3) then
         player:startEvent(761) -- i'm waiting for imperial gold piece
     elseif (letterRed == 4) then
-        if (vanaDay() > player:getCharVar("corAfSubmitDay")) then
-            player:startEvent(756) -- here's your cor frac
-        else
-            player:startEvent(757) -- patience. need to wait for vana'diel day
-        end
+        player:startEvent(756) -- here's your cor frac
     elseif (letterRed == 5) then
         player:startEvent(758) -- are you caring for your corsair's frac?
     else

@@ -76,12 +76,4 @@ CCharStatsPacket::CCharStatsPacket(CCharEntity * PChar)
 	ref<uint8>(0x50) = PChar->profile.nation;
 
     //0x51 = New character has this as 0x01, 0x03 on seasoned 99
-    //0x52 = superior level (1 or 2)
-    //0x54 = maximum item level
-    //0x55 = itemlevel over 99
-    //0x56 = main weapon item level
-    // 0x65: master level
-    // 0x66: bitflags, bit 0 = master breaker
-    // 0x68: current exemplar points
-    // 0x6C: required exemplar points
 }

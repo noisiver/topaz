@@ -21,8 +21,16 @@ end
 
 function onUseAbility(player, target, ability)
     local pet = player:getPet()
+    local numberOfEffects = 0
     local effects = player:getStatusEffects()
+    local effectFlags = effect:getFlag()
     for _, effect in ipairs(effects) do
-        pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.ceil((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
+        if (bit.band(effectFlags, tpz.effectFlag.DISPELABLE) == tpz.effectFlag.DISPELABLE) or (bit.band(effectFlags, tpz.effectFlag.ERASABLE) == tpz.effectFlag.ERASABLE) then
+            numberOfEffects = numberOfEffects + 1
+            pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.ceil((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
+        end
     end
+    -- TODO: Msg
+    -- skill:setMsg(tpz.msg.COPIED)
+    -- return numberOfEffects
 end

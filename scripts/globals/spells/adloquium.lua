@@ -11,8 +11,8 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local duration = calculateDuration(1800, spell:getSkillType(), spell:getSpellGroup(), caster, target)
-	duration = calculateDurationForLvl(duration, 40, target:getMainLvl())
+    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+	duration = calculateDurationForLvl(duration, 41, target:getMainLvl())
 
     if not target:addStatusEffect(tpz.effect.REGAIN, 10, 3, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

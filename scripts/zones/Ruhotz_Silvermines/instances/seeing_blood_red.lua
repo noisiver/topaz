@@ -45,9 +45,9 @@ function onInstanceComplete(instance)
     for i, v in pairs(chars) do
         if (v:getCharVar("SeeingBloodRed") == 3) then
             v:setCharVar("SeeingBloodRed", 4)
-            v:startEvent(10000, 300, 23, 1757) -- can't seem to get this to work manually with GM commands?
+            v:setPos(-277.011, -54.000, -101.048, 0, 89) -- Send back to Grauberg [S]
         else
-            v:startEvent(10001) -- could be off by 1 or 2 or we just need to send them to grauberg
+            v:setPos(-277.011, -54.000, -101.048, 0, 89) -- Send back to Grauberg [S]
         end
     end
 end
