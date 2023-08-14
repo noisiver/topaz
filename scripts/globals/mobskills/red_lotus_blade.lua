@@ -12,9 +12,6 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:getPool() ~= 4006 and mob:getPool() ~= 4249) then
-        mob:messageBasic(tpz.msg.basic.READIES_WS, 0, 34)
-    end
     return 0
 end
 
@@ -30,5 +27,6 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
+    mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID())
     return dmg
 end

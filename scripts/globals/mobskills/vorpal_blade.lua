@@ -25,6 +25,9 @@ function onMobSkillCheck(target, mob, skill)
 	-- Raubahn Mythic Fight
 	elseif mob:getFamily() == 919 and mob:getMainJob() == tpz.job.BLU and mob:AnimationSub() == 0 or mob:AnimationSub() > 1 then
 		return 0
+    -- BLU AF Fight
+    elseif mob:getPool() == 1776 or mob:getPool() == 4468 then
+        return 0
     end
 	
     return 1
