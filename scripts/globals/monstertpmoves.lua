@@ -1925,16 +1925,23 @@ end
 function ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
     -- Determines if a players +/- resist on gear allows them to change the resist tier of the spell
     -- Flash has a +256 MACC bonus
+    -- Make a param later if used for more than just flash and add params after element in arg then check all places function is called that they have a params table.
+    local spellBonus = 0 -- Used for resist gear on players.
     if (typeEffect ~= nil) then
         if (typeEffect == tpz.effect.FLASH) then
             bonus = 256
+            spellBonus = 256
         end
     end
 
     local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
-    local eleres = target:getMod(element+53)
-    if     eleres < bonus  and resist < 0.5  then resist = 0.5
-    elseif eleres < (bonus + 1) and resist < 0.25 then resist = 0.25 end
+
+    -- Check +/- resist on gear for players
+    if target:isPC() and element ~= nil and element > 0 and element < 9 then
+        local eleres = target:getMod(element+53)
+        if     eleres < spellBonus  and resist < 0.5  then resist = 0.5
+        elseif eleres < (spellBonus + 1) and resist < 0.25 then resist = 0.25 end
+    end
 
     return resist
 end
