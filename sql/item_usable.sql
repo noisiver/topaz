@@ -1314,7 +1314,7 @@ INSERT INTO `item_usable` VALUES (5473,'bastore_sweeper',1,1,25,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5474,'ca_cuong',1,1,25,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5475,'gigant_octopus',1,1,25,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5476,'abaia',1,1,25,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5477,'warrior_die',1,1,11,0,0,0,0,0);
+INSERT INTO `item_usable` VALUES (5477,'warrior_die',1,1,11,0,0,0,0,0); -- TODO: Dice animations, these are wrong
 INSERT INTO `item_usable` VALUES (5478,'monk_die',1,1,11,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5479,'white_mage_die',1,1,11,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5480,'black_mage_die',1,1,11,0,0,0,0,0);
