@@ -7,6 +7,7 @@ local ID = require("scripts/zones/East_Ronfaure_[S]/IDs")
 require("scripts/globals/missions")
 require("scripts/globals/helm")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
@@ -14,6 +15,7 @@ function onInitialize(zone)
     GetMobByID(ID.mob.MYRADROSH):setRespawnTime(math.random(5400, 7200))
 
     tpz.helm.initZone(zone, tpz.helm.type.LOGGING)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

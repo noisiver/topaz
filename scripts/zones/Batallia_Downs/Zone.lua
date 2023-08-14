@@ -9,6 +9,7 @@ require("scripts/quests/i_can_hear_a_rainbow")
 require("scripts/globals/chocobo_digging")
 require("scripts/globals/missions")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -34,6 +35,7 @@ function onInitialize(zone)
         registerRegionAroundNPC(zone, ID.npc.RAPTOR_FOOD_BASE + i, i + 1)
     end
     registerRegionAroundNPC(zone, ID.npc.SYRILLIA, 9)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

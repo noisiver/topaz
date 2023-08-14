@@ -8,6 +8,7 @@ require("scripts/quests/i_can_hear_a_rainbow")
 require("scripts/globals/missions")
 require("scripts/globals/conquest")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
@@ -15,6 +16,7 @@ function onInitialize(zone)
     GetMobByID(ID.mob.HUMBABA):setRespawnTime(math.random(3600, 4200))
 
     tpz.conq.setRegionalConquestOverseers(zone:getRegionID())
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)
