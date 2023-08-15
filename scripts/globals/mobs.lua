@@ -908,3 +908,15 @@ function CheckQuadavModel(mob, skill, model, animationId)
         skill:setAnimation(animationId)
     end
 end
+
+function SetNukeAnimationsToGa(mob, spell)
+    -- Used with onSpellPrecast
+    -- For setting ST nukes to -ga animations for Tabula Rasa / Manifeistation
+    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.ENHANCED_MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
+        if spell:canTargetEnemy() then
+            if (spell:getID() % 5 == 1) or (spell:getID() % 5 == 2) then -- t3/4 spells only (mod 5 == 1) for t3, (mod 5 == 2) for t4 (remainder)
+                spell:setAnimation(spell:getAnimation() + 30) -- t3/t4 becomes ga-3/ga-4
+            end
+        end
+    end
+end

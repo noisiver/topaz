@@ -56,6 +56,10 @@ end
 function onMobWeaponSkill(target, mob, skill)
 end
 
+function onSpellPrecast(mob, spell)
+    SetNukeAnimationsToGa(mob, spell)
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     -- Despawn adds on death
     for v = mob:getID() +2, mob:getID() +4 do
