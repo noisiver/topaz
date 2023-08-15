@@ -19,5 +19,5 @@ function onItemUse(target)
 	local tp = (1000 * (100 + target:getMod(tpz.mod.STORETP))) / 100
     target:addTP(tp)
     target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 7200)
-    target:messageBasic(tpz.msg.basic.PLAYER_REGAIN_TP, tpz.items.ICARUS_WING, target:getTP())
+    target:messageBasic(tpz.msg.basic.PLAYER_REGAIN_TP, target, tp)
 end

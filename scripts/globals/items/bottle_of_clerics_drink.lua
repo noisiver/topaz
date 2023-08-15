@@ -40,6 +40,5 @@ function onItemUse(target)
     else
         target:messagePublic(tpz.msg.basic.NO_EFFECT, target)
     end
-    
 end
 
