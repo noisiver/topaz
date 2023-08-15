@@ -73,6 +73,10 @@ function onInstanceCreated(player, target, instance)
                 if v:getID() ~= player:getID() and v:getZoneID() == player:getZoneID() then
                     v:setInstance(instance)
                     v:setPos(0, 0, 0, 0, 93)
+                    player:ChangeMusic(0, 217)
+                    player:ChangeMusic(1, 217)
+                    player:ChangeMusic(2, 217)
+                    player:ChangeMusic(3, 217)
                     v:delKeyItem(tpz.ki.PORTING_MAGIC_TRANSCRIPT)
                     v:setCharVar("SeeingBloodRed_Instance", 1)
                 end

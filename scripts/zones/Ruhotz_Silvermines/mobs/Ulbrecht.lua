@@ -7,194 +7,47 @@ require("scripts/globals/instance")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
+local buffs =
+{
+    [45] = 'Protect III'
+    [50] = 'Shell III'
+    [110] = 'Regen II'
+}
+local storms = { 99, 113, 114, 115, 116, 117, 118, 119 }
 
--- Try to give him some decent AI
-function onMonsterMagicPrepare(mob, target)
+function onMobInitialize(mob)
+    mob:addListener("WEAPONSKILL_TAKE", "ULBRECHT_WEAPONSKILL_TAKE", function(target, user, wsid, tp, action)
+        -- this should be high damage weaponskills but can't figure this out yet so, going with 30% chance
 
-    local rnd = math.random()
-    local hpp = mob:getHPP()
+        if user:isPC() and math.random() < 0.3 then
+            target:messageText(target, ID.text.PAINFUL_LESSON)
+        end
+    end)
 
-    -- if target then
-    --     target:PrintToPlayer("STATUS -> MP:" .. mob:getMP() .. " TP:" .. mob:getTP())
-    --     local effectString = "EFFECTS -> "
-    --     local effects = mob:getStatusEffects()
-    --     for _,effect in ipairs(effects) do
-    --         effectString = effectString .. effect:getType() .. ", "
-    --     end
-    --     target:PrintToPlayer(effectString)
-    --     target:PrintToPlayer("onMonsterMagicPrepare random: " .. rnd)
-    -- end
+    mob:addListener("MAGIC_START", "ULBRECHT_MAGIC_START", function(entity, spell, action)
+        if math.random() < 0.5 and spell:canTargetEnemy() then -- check offensive spells only
+            entity:messageText(entity, ID.text.TRUE_TEACHING)
+        end
+    end)
 
-    -- Survival
-    -- If under 30% then 50% chance to cure top priority
-    if hpp < 30 and rnd < 0.5 then
-        mob:setLocalVar("lastSpellID", 4)
-        return 4 -- Cure IV
-    end
+    mob:addListener("MAGIC_USE", "ULBRECHT_MAGIC_USE", function(entity, target, spell, action)
+        local spellID = spell:getID()
+        if spellID == 99 or (spellID >= 113 and spellID < 120) then
+            entity:setMod(tpz.mod.FIREDEF + spell:getElement() - 1, 52) -- 52/256 = 20% reduction
+        end
+    end)
 
-    -- Buffs
-    -- If does not have protect then 70% chance to rebuff
-    if not mob:hasStatusEffect(tpz.effect.PROTECT) and rnd < 0.7 then
-        return 45
-    end
-    -- If does not have shell then 30% chance to rebuff
-    if not mob:hasStatusEffect(tpz.effect.SHELL) and rnd < 0.30 then
-        return 50
-    end
-    -- If does not have regen then 20% chance to rebuff
-    if not mob:hasStatusEffect(tpz.effect.REGEN) and rnd < 0.20 then
-        return 110
-    end
-    
-    -- Enfeeble/Dark spells sleep 10% drain 10% dispel 5% aspir 5%
-    if rnd < 0.1 then
-        return 253 -- sleep
-    elseif rnd < 0.2 then
-        return 245 -- drain
-    elseif rnd < 0.25 then
-        return 260 -- dispel
-    elseif rnd < 0.3 and target:getMP() > 50 then -- make sure they have MP worthy of using aspir
-        return 247 -- aspir
-    end
-
-    local effects = mob:getStatusEffects()
-    local storm = 0
-    for _,effect in ipairs(effects) do
+    mob:addListener("EFFECT_LOSE", "ULBRECHT_EFFECT_LOSE", function(owner, effect)
         local effectType = effect:getType()
         if effectType >= tpz.effect.FIRESTORM and effectType <= tpz.effect.VOIDSTORM then
-            storm = effectType
-            break
+            owner:setMod(tpz.mod.FIREDEF + effectType - tpz.effect.FIRESTORM, 0) -- 0/256 = 0% reduction
         end
-    end
 
-    rnd = math.random() -- new random number needed here
-
-    -- if target then
-    --     target:PrintToPlayer("onMonsterMagicPrepare random2: " .. rnd)
-    -- end
-
-    if storm == 0 then
-        return determineStorm(hpp, rnd)
-    end
-    
-    -- Offensive spells
-    local lastSpellID = mob:getLocalVar("lastSpellID")
-    local switch = { -- cast T3 spell, then next time 60/10/30 cast T3/T1/Storm
-        [178] = function()	-- FIRESTORM
-
-            if lastSpellID == 146 then -- fire iii
-                if rnd < 0.3 then -- new storm
-                    return determineStorm(hpp, rnd)
-                elseif rnd < 0.4 then
-                    return 144 -- fire i
-                end
-            end
-
-            return 146 -- fire iii (if not last spell or 60%)
-        end,
-        [179] = function()	-- HAILSTORM
-
-            if lastSpellID == 151 then -- blizzard iii
-                if rnd < 0.3 then -- new storm
-                    return determineStorm(hpp, rnd)
-                elseif rnd < 0.4 then
-                    return 149 -- blizzard i
-                end
-            end
-
-            return 151-- blizzard iii (if not last spell or 60%)
-        end,
-        [180] = function()	-- WINDSTORM
-
-            if lastSpellID == 156 then -- aero iii
-                if rnd < 0.3 then -- new storm
-                    return determineStorm(hpp, rnd)
-                elseif rnd < 0.4 then
-                    return 154 -- aero i
-                end
-            end
-
-            return 156 -- aero iii (if not last spell or 60%)
-        end,
-        [181] = function()	-- SANDSTORM
-            
-            if lastSpellID == 161 then -- stone iii
-                if rnd < 0.3 then -- new storm
-                    return determineStorm(hpp, rnd)
-                elseif rnd < 0.4 then
-                    return 159 -- stone i
-                end
-            end
-
-            return 161 -- stone iii (if not last spell or 60%)
-        end,
-        [182] = function()	-- THUNDERSTORM
-            
-            if lastSpellID == 166 then -- thunder iii
-                if rnd < 0.3 then -- new storm
-                    return determineStorm(hpp, rnd)
-                elseif rnd < 0.4 then
-                    return 164 -- thunder i
-                end
-            end
-
-            return 166 -- thunder iii (if not last spell or 60%)
-        end,
-        [183] = function()	-- RAINSTORM
-            
-            if lastSpellID == 171 then -- water iii
-                if rnd < 0.3 then -- new storm
-                    return determineStorm(hpp, rnd)
-                elseif rnd < 0.4 then
-                    return 169 -- water i
-                end
-            end
-
-            return 171 -- water iii (if not last spell or 60%)
-        end,
-        [184] = function()	-- AURORASTORM
-            
-            if lastSpellID == 4 and rnd < 0.3 then -- 30% chance for new storm if we have already cast cure iv
-                return determineStorm(hpp, rnd)
-            end
-
-            return 4 -- cure iv
-        end,
-        [185] = function()	-- VOIDSTORM
-            if rnd < 0.9 and (lastSpellID == 245 or lastSpellID == 247) then -- 90% chance to switch storm after use of drain/aspir
-                return determineStorm(hpp, rnd)
-            end
-            if rnd < 0.8 then
-                return 245 -- drain 80%
-            else
-                return 247 -- aspir 20%
-            end
+        if effectType == tpz.effect.TABULA_RASA then
+            owner:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
+            owner:setMod(tpz.mod.REGAIN, 0)
         end
-    }
-
-    local spellFunc = switch[storm];
-
-    if spellFunc then
-        local spellID = spellFunc()
-        mob:setLocalVar("lastSpellID", spellID)
-        return spellID
-    end
-    
-    return 253 -- sleep (this should never be returned but just in case)
-end
-
-function determineStorm(hpp, rnd)
-    -- If under 40% hp then 50% chance to buff auroras (will suggest cures)
-    if hpp < 40 and rnd < 0.5 then
-        return 119
-    end
-
-    local stormID = 113 + math.random(0,7)
-    if stormID == 120 or stormID == 119 and hpp > 80 then -- dont buff auroras unless missing some HP
-        return 99 -- sandstorm 
-    else
-        return stormID
-    end
+    end)
 end
 
 function onMobSpawn(mob)
@@ -211,6 +64,32 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, player)
+    local buffCD = mob:getLocalVar("buffCD")
+    local stormCD = mob:getLocalVar("stormCD")
+    local battleTime = mob:getBattleTime()
+
+    -- Rebuff Shell III > Protect III > Regen II every 30s if not already active and Tabula Rasa is not active
+    if not mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
+        if (battleTime <= buffCD) then
+            mob:setLocalVar("buffCD", battletime + 30)
+            if not mob:hasStatusEffect(tpz.effect.SHELL) then
+                mob:castSpell(50)
+                return
+            elseif not mob:hasStatusEffect(tpz.effect.PROTECT) then
+                mob:castSpell(45)
+                return
+            elseif not mob:hasStatusEffect(tpz.effect.REGEN) then
+                mob:castSpell(110)
+                return
+            end
+        end
+    end
+
+    -- Cast a random storm every minute
+    if (battleTime <= stormCD) then
+        mob:setLocalVar("buffCD", battletime + 60)
+        mob:castSpell(storms[math.random(#storms)])
+    end
 
     if mob:getHPP() < mob:getLocalVar("specialThreshold") then
         mob:messageText(mob, ID.text.MOST_IMPRESSIVE)
@@ -303,27 +182,6 @@ function onMobWeaponSkill(target, mob, skill, action)
     end
 end
 
-function onMobInitialize(mob)
-    mob:setMod(tpz.mod.SLEEPRES, 10)
-    mob:addMod(tpz.mod.INT, 10)
-
-    mob:addListener("WEAPONSKILL_TAKE", "ULBRECHT_WEAPONSKILL_TAKE", function(target, user, wsid, tp, action)
-        -- this should be high damage weaponskills but can't figure this out yet so, going with 30% chance
-
-        if user:isPC() and math.random() < 0.3 then
-            target:messageText(target, ID.text.PAINFUL_LESSON)
-        end
-    end)
-
-    mob:addListener("MAGIC_START", "ULBRECHT_MAGIC_START", function(m, spell, action)
-        if math.random(0,99) < 50 and spell:canTargetEnemy() then -- check offensive spells only
-            m:messageText(m, ID.text.TRUE_TEACHING)
-        end
-    end)
-end
-
-function onMobDeath(mob, player, isKiller)
-end
 
 function onCastStarting(mob, spell)
     if mob:hasStatusEffect(tpz.effect.ALACRITY) then
@@ -372,4 +230,7 @@ function onSpellPrecast(mob, spell)
         -- end
         spell:setMPCost(1) -- normally 50% but superpowered
     end
+end
+
+function onMobDeath(mob, player, isKiller)
 end

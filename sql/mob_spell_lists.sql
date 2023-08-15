@@ -4355,18 +4355,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,56,1,255);  -- Sl
 INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,58,1,255);  -- Paralyze
 INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,59,1,255);  -- Silence
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 4, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 45, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 50, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 99, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 110, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 113, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 114, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 115, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 116, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 117, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 118, 1, 255);
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 119, 1, 255);
 INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 144, 1, 255);
 INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 146, 1, 255);
 INSERT INTO `mob_spell_lists` VALUES('Ulbrecht', 512, 149, 1, 255);
