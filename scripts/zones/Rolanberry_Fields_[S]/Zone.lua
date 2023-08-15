@@ -4,9 +4,11 @@
 --
 -----------------------------------
 local ID = require("scripts/zones/Rolanberry_Fields_[S]/IDs")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

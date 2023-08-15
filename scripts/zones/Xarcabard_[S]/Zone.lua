@@ -4,9 +4,11 @@
 --
 -----------------------------------
 local ID = require("scripts/zones/Xarcabard_[S]/IDs")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)
