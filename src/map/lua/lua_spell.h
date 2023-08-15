@@ -61,6 +61,7 @@ public:
     int32 getMsg(lua_State*);
     int32 getMPCost(lua_State*);
     int32 getSkillType(lua_State*);
+    int32 setSkillType(lua_State*);
     int32 getSpellGroup(lua_State*);
     int32 getFlag(lua_State*);
     int32 castTime(lua_State*);

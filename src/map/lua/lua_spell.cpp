@@ -98,6 +98,15 @@ inline int32 CLuaSpell::setRadius(lua_State* L)
     return 0;
 }
 
+inline int32 CLuaSpell::setSkillType(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaSpell->setSkillType((uint8)lua_tointeger(L, -1));
+    return 0;
+}
+
 
 inline int32 CLuaSpell::base(lua_State* L)
 {
@@ -282,6 +291,7 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,canTargetEnemy),
     LUNAR_DECLARE_METHOD(CLuaSpell,getTotalTargets),
     LUNAR_DECLARE_METHOD(CLuaSpell,getSkillType),
+    LUNAR_DECLARE_METHOD(CLuaSpell,setSkillType),
     LUNAR_DECLARE_METHOD(CLuaSpell,getID),
     LUNAR_DECLARE_METHOD(CLuaSpell,getMsg),
     LUNAR_DECLARE_METHOD(CLuaSpell,getMPCost),
