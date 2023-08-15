@@ -84,6 +84,7 @@
 #include "../packets/status_effects.h"
 #include "../mobskill.h"
 #include "../utils/petutils.h"
+#include "../job_points.h"
 
 
 CCharEntity::CCharEntity()
@@ -1201,7 +1202,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
             {
                 if (PWeaponSkill->getID() >= 192 && PWeaponSkill->getID() <= 218)
                 {
-                    uint16 recycleChance = getMod(Mod::RECYCLE) + PMeritPoints->GetMeritValue(MERIT_RECYCLE, this);
+                    uint16 recycleChance = getMod(Mod::RECYCLE) + PMeritPoints->GetMeritValue(MERIT_RECYCLE, this) + this->PJobPoints->GetJobPointValue(JP_AMMO_CONSUMPTION);
 
                     if (StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))
                     {
@@ -1674,6 +1675,14 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         isSange = true;
         hitCount += getMod(Mod::UTSUSEMI);
     }
+    else if (this->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBLE_SHOT) && tpzrand::GetRandomNumber(100) < (40 + this->getMod(Mod::DOUBLE_SHOT_RATE)))
+    {
+        hitCount = 2;
+    }
+    else if (this->StatusEffectContainer->HasStatusEffect(EFFECT_TRIPLE_SHOT) && tpzrand::GetRandomNumber(100) < (40 + this->getMod(Mod::TRIPLE_SHOT_RATE)))
+    {
+        hitCount = 3;
+    }
 
     // loop for barrage hits, if a miss occurs, the loop will end
     for (uint8 i = 1; i <= hitCount; ++i)
@@ -1746,6 +1755,8 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         {
             recycleChance += PMeritPoints->GetMeritValue(MERIT_RECYCLE, this);
         }
+
+        recycleChance += this->PJobPoints->GetJobPointValue(JP_AMMO_CONSUMPTION);
 
         // Only remove unlimited shot on hit
         if (hitOccured && this->StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))

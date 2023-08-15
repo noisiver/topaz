@@ -520,6 +520,7 @@ enum class Mod
     BLUE_SPELLCASTING_TIME    = 1322,// Reduces Blue Magic spellcasting time
 
     // Corsair
+    TRIPLE_SHOT_RATE          = 987, // The rate that triple shot can proc. Without this, the default is 40%.
     EXP_BONUS                 = 382, //
     ROLL_RANGE                = 528, // Additional range for COR roll abilities.
     JOB_BONUS_CHANCE          = 542, // Chance to apply job bonus to COR roll without having the job in the party.
@@ -988,7 +989,6 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // SPARE = 987, // stuff
     // SPARE = 988, // stuff
     // 1323 NEXT
 };
