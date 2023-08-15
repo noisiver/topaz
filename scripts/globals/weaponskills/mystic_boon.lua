@@ -42,7 +42,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local party = player:getParty()
     local healAmount = math.floor(damage / 2)
-    local regenAmount = math.floor(player:getMainLvl() / 4)
+    local MND = player:getStat(tpz.mod.MND)
+    local stoneskinAmount = 250 + MND
 
     if party ~= nil then
         for _,member in ipairs(party) do
@@ -52,8 +53,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             member:addHP(healAmount)
             player:updateEnmityFromCure(member, healAmount)
             member:removeAllNegativeEffects()
-            if not member:hasStatusEffect(tpz.effect.REGEN) then
-                member:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 30)
+            if not member:hasStatusEffect(tpz.effect.STONESKIN) then
+                member:addStatusEffect(tpz.effect.STONESKIN, stoneskinAmount, 3, 30)
             end
             if not member:hasStatusEffect(tpz.effect.tpz.effect.MAGIC_DEF_BOOST) then
                 member:addStatusEffect(tpz.effect.tpz.effect.MAGIC_DEF_BOOST, 25, 0, 60)
