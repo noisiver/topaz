@@ -56,6 +56,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../packets/message_standard.h"
 #include "../packets/pet_sync.h"
 #include "mobutils.h"
+#include "../job_points.h"
 
 struct Pet_t
 {
@@ -1038,12 +1039,17 @@ namespace petutils
         // Stats from "masters" gear/merits
         if (PMaster->objtype == TYPE_PC)
         {
-            CCharEntity* PChar = (CCharEntity*)PMaster;
-            // Merits
-            PPet->addModifier(Mod::ATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ATTACK, PChar));
-            PPet->addModifier(Mod::ACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ACCURACY, PChar));
+            CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
             PPet->addModifier(Mod::MATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ATTACK, PChar));
+            PPet->addModifier(Mod::ATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ATTACK, PChar));
             PPet->addModifier(Mod::MACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ACCURACY, PChar));
+            PPet->addModifier(Mod::ACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ACCURACY, PChar));
+
+            PPet->addModifier(Mod::ACC, PChar->PJobPoints->GetJobPointValue(JP_SUMMON_ACC_BONUS));
+            PPet->addModifier(Mod::MACC, PChar->PJobPoints->GetJobPointValue(JP_SUMMON_MAGIC_ACC_BONUS));
+            PPet->addModifier(Mod::ATT, PChar->PJobPoints->GetJobPointValue(JP_SUMMON_PHYS_ATK_BONUS) * 2);
+            PPet->addModifier(Mod::MAGIC_DAMAGE, PChar->PJobPoints->GetJobPointValue(JP_SUMMON_MAGIC_DMG_BONUS) * 5);
+            PPet->addModifier(Mod::BP_DAMAGE, PChar->PJobPoints->GetJobPointValue(JP_BLOOD_PACT_DMG_BONUS) * 3);
         }
 
         PMaster->addModifier(Mod::AVATAR_PERPETUATION, PerpetuationCost(petID, PPet->GetMLevel()));
@@ -1094,24 +1100,24 @@ namespace petutils
 
         // innate + 40 subtle blow
         PPet->setModifier(Mod::SUBTLE_BLOW, 40);
-        // TODO: Job points
-        // Job Point: Wyvern Max HP
-        //if (PMaster->objtype == TYPE_PC)
-        //{
-        //    uint8 jpValue = static_cast<CCharEntity*>(PMaster)->PJobPoints->GetJobPointValue(JP_WYVERN_MAX_HP_BONUS);
-        //    if (jpValue > 0)
-        //    {
-        //        PPet->addModifier(Mod::HP, jpValue * 10);
-        //    }
 
-        //    if (PMaster->GetMJob() == JOBTYPE::JOB_DRG)
-        //    {
-        //        PPet->addModifier(Mod::ACC, PMaster->getMod(Mod::PET_ACC_EVA));
-        //        PPet->addModifier(Mod::EVA, PMaster->getMod(Mod::PET_ACC_EVA));
-        //        PPet->addModifier(Mod::MACC, PMaster->getMod(Mod::PET_MACC_MEVA));
-        //        PPet->addModifier(Mod::MEVA, PMaster->getMod(Mod::PET_MACC_MEVA));
-        //    }
-        //}
+        //Job Point: Wyvern Max HP
+        if (PMaster->objtype == TYPE_PC)
+        {
+            uint8 jpValue = static_cast<CCharEntity*>(PMaster)->PJobPoints->GetJobPointValue(JP_WYVERN_MAX_HP_BONUS);
+            if (jpValue > 0)
+            {
+                PPet->addModifier(Mod::HP, jpValue * 10);
+            }
+
+            if (PMaster->GetMJob() == JOBTYPE::JOB_DRG)
+            {
+                PPet->addModifier(Mod::ACC, PMaster->getMod(Mod::PET_ACC_EVA));
+                PPet->addModifier(Mod::EVA, PMaster->getMod(Mod::PET_ACC_EVA));
+                PPet->addModifier(Mod::MACC, PMaster->getMod(Mod::PET_MACC_MEVA));
+                PPet->addModifier(Mod::MEVA, PMaster->getMod(Mod::PET_MACC_MEVA));
+            }
+        }
         FinalizePetStatistics(PMaster, PPet);
     }
 
@@ -1268,10 +1274,22 @@ namespace petutils
 
         PPet->SetMLevel(PMaster->GetMLevel());
         PPet->health.maxhp = (uint32)floor((250 * PPet->GetMLevel()) / 15);
+
+        if (PMaster->StatusEffectContainer->HasStatusEffect(EFFECT_BOLSTER))
+        {
+            uint8 bolsterJPVal = dynamic_cast<CCharEntity*>(PMaster)->PJobPoints->GetJobPointValue(JP_BOLSTER_EFFECT);
+            PPet->health.maxhp += (uint32)floor(PPet->health.maxhp * (0.03 * bolsterJPVal));
+        }
+
         PPet->health.hp = PPet->health.maxhp;
 
+        // This sets the correct visual size for the luopan as pets currently
+        // do not make use of the entity flags in the database
+        // TODO: make pets use entity flags
+        PPet->m_flags = 0x0000008B;
         // Just sit, do nothing
         PPet->speed = 0;
+        FinalizePetStatistics(PMaster, PPet);
     }
 
     /************************************************************************

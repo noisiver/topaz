@@ -77,6 +77,7 @@
 #include "../utils/petutils.h"
 #include "zoneutils.h"
 #include "../packets/chat_message.h"
+#include "../job_points.h"
 
 
 
@@ -1594,7 +1595,6 @@ int getSDTTier(int SDT)
             uint8 enspell = (uint8)PAttacker->getMod(Mod::ENSPELL);
 
             uint8 element = 1;
-            uint8 SDTdivisor = 1;
             uint16 resistDownEle = 0;
 
             switch (enspell)
@@ -1695,10 +1695,15 @@ int getSDTTier(int SDT)
             {
                 Action->additionalEffect = SUBEFFECT_HP_DRAIN;
                 Action->addEffectMessage = 161;
-                if (SDTdivisor == 1)
-                    Action->addEffectParam = PAttacker->addHP(Action->param);
-                else
-                    Action->addEffectParam = 0;
+
+                // Increase HP Absorbed by 2% per JP
+                int32 absorbed = Action->param;
+                if (PAttacker->objtype == TYPE_PC)
+                {
+                    absorbed += (int32)floor(absorbed * 0.02f * static_cast<CCharEntity*>(PAttacker)->PJobPoints->GetJobPointValue(JP_BLOOD_WEAPON_EFFECT));
+                }
+
+                Action->addEffectParam = PAttacker->addHP(absorbed);
 
                 if (PChar != nullptr)
                 {

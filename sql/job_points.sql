@@ -39,8 +39,8 @@ CREATE TABLE `job_points` (
 LOCK TABLES `job_points` WRITE;
 /*!40000 ALTER TABLE `job_points` DISABLE KEYS */;
 INSERT INTO `job_points` VALUES (64,'mighty_strikes_effect',2,1);
-INSERT INTO `job_points` VALUES (66,'berserk_effect',4,1);
-INSERT INTO `job_points` VALUES (68,'brazen_rush_effect',2,1);
+INSERT INTO `job_points` VALUES (66,'berserk_effect',2,1);
+INSERT INTO `job_points` VALUES (68,'brazen_rush_effect',4,1);
 INSERT INTO `job_points` VALUES (70,'defender_effect',3,1);
 INSERT INTO `job_points` VALUES (72,'warcry_effect',3,1);
 INSERT INTO `job_points` VALUES (74,'aggressor_effect',1,1);

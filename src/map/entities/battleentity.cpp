@@ -50,6 +50,7 @@
 #include "../utils/puppetutils.h"
 #include "../weapon_skill.h"
 #include "../lua/luautils.cpp"
+#include "../job_points.h"
 
 CBattleEntity::CBattleEntity()
 {
@@ -1797,6 +1798,20 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                             naturalh2hDMG = (int16)((PTarget->GetSkill(SKILL_HAND_TO_HAND) * 0.11f) + 3);
                         }
 
+                        // Calculate attack bonus for Counterstance Effect Job Points
+                        // Needs verification, as there appears to be conflicting information regarding an attack bonus based on DEX
+                        // vs a base damage increase.
+                        float csJpDmgBonus = 0;
+                        if (PTarget->objtype == TYPE_PC && PTarget->GetMJob() == JOB_MNK &&
+                            PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_COUNTERSTANCE))
+                        {
+                            auto* PChar = static_cast<CCharEntity*>(PTarget);
+                            uint8 csJpModifier = PChar->PJobPoints->GetJobPointValue(JP_COUNTERSTANCE_EFFECT) * 2;
+                            uint16 targetDex = PTarget->DEX();
+
+                            csJpDmgBonus = ((static_cast<float>(targetDex) / 100) * csJpModifier);
+                        }
+
                         float DamageRatio = battleutils::GetDamageRatio(PTarget, this, attack.IsCritical(), 0.f);
                         auto damage = 0;
 
@@ -1807,7 +1822,8 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                         }
                         else
                         {
-                            damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * DamageRatio);
+                            damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN) + csJpDmgBonus) *
+                                             DamageRatio);
                         }
                         actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1, nullptr, true, false, true);
                         actionTarget.spikesMessage = 33;

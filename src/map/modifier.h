@@ -335,7 +335,7 @@ enum class Mod
     DEFENDER_POTENCY          = 1304, // Increases defender defense bonus, in percents
     RETALIATION               = 414,  // Increases damage of Retaliation hits
     BLOOD_RAGE_POTENCY        = 1308, // Increases Blood Rage healing received bonus, in percents
-
+    ENHANCES_RESTRAINT        = 988, // Enhances "Restraint" effect/"Restraint" + (Increases the damage bonus of Restraint by XXX%)
     // Monk
     BOOST_EFFECT              = 97,  // Boost power in tenths
     CHAKRA_MULT               = 123, // Chakra multiplier increase (from gear)
@@ -989,7 +989,6 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // SPARE = 988, // stuff
     // 1323 NEXT
 };
 

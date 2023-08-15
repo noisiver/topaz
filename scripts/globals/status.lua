@@ -1690,6 +1690,7 @@ tpz.mod =
     FENCER_CRITHITRATE              = 904, -- Increased Crit chance from Fencer Trait
     FENCER_JA_HASTE                 = 986, -- Increased JA Haste chance from Fencer Trait
     TRIPLE_SHOT_RATE                = 987,  -- The rate that triple shot can proc. Without this, the default is 40%.
+    ENHANCES_RESTRAINT              = 988, -- Enhances "Restraint" effect/"Restraint" + (Increases the damage bonus of Restraint by XXX%)
     SHIELD_DEF_BONUS                = 905, -- Shield Defense Bonus
     SNEAK_DURATION                  = 946, -- Additional duration in seconds
     INVISIBLE_DURATION              = 947, -- Additional duration in seconds
@@ -1711,8 +1712,6 @@ tpz.mod =
     COVER_DURATION                  = 1016, -- Increases Cover Duration
     WYVERN_SUBJOB_TRAITS            = 1010, -- Adds subjob traits to wyvern
     GARDENING_WILT_BONUS            = 1011, -- Increases the number of Vanadays a plant can survive before it wilts
-    SUPER_JUMP                      = 988,
-    
 
     RESBUILD_SLEEP      = 959,
     RESBUILD_GRAVITY    = 960,
@@ -1812,8 +1811,6 @@ tpz.mod =
     BLUE_SPELLCASTING_TIME  = 1322, -- Reduces Blue Magic spellcasting time
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- SPARE = 986, -- stuff
-    -- super jump taking up 988
     -- 1323 NEXT
 }
 

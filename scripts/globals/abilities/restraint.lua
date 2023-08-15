@@ -26,6 +26,9 @@ function onUseAbility(player, target, ability)
     -- Add stoneskin gear
     power = power + player:getMod(tpz.mod.STONESKIN_BONUS_HP)
 
+    -- Add JP bonus (2% bonus per job point)
+    power = math.floor(power * (1 + player:getMod(tpz.mod.ENHANCES_RESTRAINT) / 100))
+
     player:addStatusEffect(tpz.effect.RESTRAINT, power, 0, duration)
 
     return tpz.effect.RESTRAINT
