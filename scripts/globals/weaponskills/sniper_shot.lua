@@ -38,7 +38,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local power = math.floor((player:getMainLvl() / 10) * (tp / 2000) + 5)
         target:addStatusEffect(tpz.effect.MND_DOWN, power, 0, duration)
     end
-		if damage > 0 then player:trySkillUp(target, tpz.skill.MARKSMANSHIP, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
+    if damage > 0 then player:trySkillUp(target, tpz.skill.MARKSMANSHIP, tpHits+extraHits) end
+
     return tpHits, extraHits, criticalHit, damage
 end
