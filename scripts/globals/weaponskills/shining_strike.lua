@@ -34,7 +34,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.CLUB, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	
 
     local party = player:getParty()
     local healAmount = math.floor(damage / 2)
@@ -54,5 +54,4 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     return tpHits, extraHits, criticalHit, damage
-
 end

@@ -37,7 +37,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.CLUB, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	
 
     local maccBonus = math.floor(MaccTPModifier(tp) * 10) -- 100/200/300
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHT, maccBonus, tpz.effect.FLASH)
