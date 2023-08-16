@@ -26,7 +26,7 @@ function onMobFight(mob, target)
     local tp = mob:getTP()
     local enmityList = mob:getEnmityList()
     local prisonTarget = nil
-    for _, enmity in ipairs(enmitylist) do
+    for _, enmity in ipairs(enmityList) do
         if enmityList and #enmityList > 0 then
             if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
                 mob:actionQueueEmpty() and (tp < 1000) then 
