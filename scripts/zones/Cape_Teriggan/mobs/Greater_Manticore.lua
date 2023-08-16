@@ -37,7 +37,7 @@ function onMobFight(mob, target)
                     GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
                     mob:useMobAbility(486, GetPlayerByID(prisonTarget)) -- Whip Tongue
                 elseif (hpp <= 39) and (prisonUses == 1) then
-                    prisonTarget = enmity.entity[math.random(#enmityList)]
+                    prisonTarget = enmity[math.random(#enmityList)]:getID()
                     mob:setLocalVar("prisonUses", 2)
                     ForceDrawIn(mob, prisonTarget)
                     GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
