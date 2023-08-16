@@ -1618,8 +1618,16 @@ INSERT INTO `mob_droplist` VALUES (250,0,0,1000,846,150);
 INSERT INTO `mob_droplist` VALUES (250,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (250,0,0,1000,894,150);
 INSERT INTO `mob_droplist` VALUES (250,0,0,1000,1029,50);
-INSERT INTO `mob_droplist` VALUES (251,0,0,1000,860,1000); -- (Behemoth) Behemoth hide
-INSERT INTO `mob_droplist` VALUES (251,0,0,1000,860,240); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (251,1,1,1000,12445,200); --(Behemoth) Dusk Mask
+INSERT INTO `mob_droplist` VALUES (251,1,1,1000,12573,200); -- Dusk Jerkin
+INSERT INTO `mob_droplist` VALUES (251,1,1,1000,12701,200); -- Dusk Gloves
+INSERT INTO `mob_droplist` VALUES (251,1,1,1000,12879,200); -- Dusk Trousers
+INSERT INTO `mob_droplist` VALUES (251,1,1,1000,12957,200); -- Dusk Ledelsens
+INSERT INTO `mob_droplist` VALUES (251,1,2,50,13938,200); -- Dusk Mask +1
+INSERT INTO `mob_droplist` VALUES (251,1,2,50,14391,200); -- Dusk Jerkin +1
+INSERT INTO `mob_droplist` VALUES (251,1,2,50,14825,200); -- Dusk Gloves +1
+INSERT INTO `mob_droplist` VALUES (251,1,2,50,14307,200); -- Dusk Trousers +1
+INSERT INTO `mob_droplist` VALUES (251,1,2,50,14188,200); -- Dusk Ledelsens +1
 INSERT INTO `mob_droplist` VALUES (251,0,0,1000,3342,240); -- Savory shank
 INSERT INTO `mob_droplist` VALUES (251,0,0,1000,16869,1000); -- Thundercloud
 INSERT INTO `mob_droplist` VALUES (251,0,0,1000,17294,100); -- Comet tail
@@ -7672,8 +7680,7 @@ INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4172,1000); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4174,1000); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,12924,1000); -- Magic cuisses
 -- INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,15899,50);	-- Velocious Belt
-INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,831,240); -- (King Behemoth) Square of shining cloth
-INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13415,950); -- Pixie earring
+INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13415,950); -- (King Behemoth) Pixie earring
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13566,50); -- Defending ring
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,1527,240); -- Behemoth tongue
 INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1334,250); -- Wyrmal abjuration: head
@@ -7684,8 +7691,18 @@ INSERT INTO `mob_droplist` VALUES (1450,1,3,150,1334,250); -- Wyrmal abjuration:
 INSERT INTO `mob_droplist` VALUES (1450,1,3,150,1322,250); -- Earthen abjuration: legs
 INSERT INTO `mob_droplist` VALUES (1450,1,3,150,1328,250); -- Aquarian abjuration: feet
 INSERT INTO `mob_droplist` VALUES (1450,1,3,150,1332,250); -- Martial abjuration: legs
-INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,860,1000); -- Behemoth hide
-INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,860,240); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (1450,1,4,1000,12445,200); -- Dusk Mask
+INSERT INTO `mob_droplist` VALUES (1450,1,4,1000,12573,200); -- Dusk Jerkin
+INSERT INTO `mob_droplist` VALUES (1450,1,4,1000,12701,200); -- Dusk Gloves
+INSERT INTO `mob_droplist` VALUES (1450,1,4,1000,12879,200); -- Dusk Trousers
+INSERT INTO `mob_droplist` VALUES (1450,1,4,1000,12957,200); -- Dusk Ledelsens
+INSERT INTO `mob_droplist` VALUES (1450,1,5,50,13938,200); -- Dusk Mask +1
+INSERT INTO `mob_droplist` VALUES (1450,1,5,50,14391,200); -- Dusk Jerkin +1
+INSERT INTO `mob_droplist` VALUES (1450,1,5,50,14825,200); -- Dusk Gloves +1
+INSERT INTO `mob_droplist` VALUES (1450,1,5,50,14307,200); -- Dusk Trousers +1
+INSERT INTO `mob_droplist` VALUES (1450,1,5,50,14188,200); -- Dusk Ledelsens +1
+INSERT INTO `mob_droplist` VALUES (1450,1,6,240,12605,950); -- Noble's Tunic
+INSERT INTO `mob_droplist` VALUES (1450,1,6,240,13774,50); -- Aristocrat's Coat
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,883,1000); -- Behemoth horn
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,883,240); -- Behemoth horn
 INSERT INTO `mob_droplist` VALUES (1451,0,0,1000,901,150); -- (King Vinegarroon) Venomous claw
