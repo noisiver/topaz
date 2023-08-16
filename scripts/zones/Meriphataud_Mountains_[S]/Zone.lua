@@ -6,10 +6,12 @@
 local ID = require("scripts/zones/Meriphataud_Mountains_[S]/IDs")
 require("scripts/globals/chocobo")
 require("scripts/globals/status")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
     tpz.chocobo.initZone(zone)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

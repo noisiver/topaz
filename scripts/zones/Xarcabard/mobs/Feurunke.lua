@@ -26,5 +26,5 @@ function onMobDespawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    tpz.voidwalker.onMobDeath(mob, player, isKiller, xi.keyItem.PURPLE_ABYSSITE)
+    tpz.voidwalker.onMobDeath(mob, player, isKiller, tpz.keyitem.PURPLE_ABYSSITE)
 end
