@@ -2869,25 +2869,6 @@ function IgnoreResTraitCheck(caster)
     return false
 end
 
-function CalculateEmbolden(caster, target, enhPower)
-    --------------------
-    -- Enboden effect.
-    --------------------
-    --  Applied before other bonuses, pet buffs seem to not work.
-    if
-        not caster:isPet() and
-        target:hasStatusEffect(tpz.effect.EMBOLDEN) and
-        spellGroup == tpz.magic.spellGroup.WHITE
-    then
-
-        local emboldenPower = 1.5 + target:getJobPointLevel(tpz.jp.EMBOLDEN_EFFECT) / 100 -- 1 point in job point category = 1%
-
-        enhPower = math.floor(enhPower * emboldenPower)
-    end
-
-    return enhPower
-end
-
 -- Output magic hit rate for all levels
 function outputMagicHitRateInfo()
     for casterLvl = 1, 75 do

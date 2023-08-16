@@ -1809,10 +1809,9 @@ tpz.mod =
     PHALANX_RECIEVED        = 1320, -- Phalanx effect received.
     DEF_TRAIT               = 1321, -- Defense bonus traits
     BLUE_SPELLCASTING_TIME  = 1322, -- Reduces Blue Magic spellcasting time
-    NINJUTSU_DURATION       = 1323, -- Increases the effect duration of ninjutsu (in percents)
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1324 NEXT
+    -- 1323 NEXT
 }
 
 tpz.latent =

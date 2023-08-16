@@ -845,7 +845,7 @@ INSERT INTO `job_point_gifts` VALUES (13, 450, 118, 8, 'NIN_Ninjutsu Skill Bonus
 INSERT INTO `job_point_gifts` VALUES (13, 500, 911, 3, 'NIN_Daken Effect');
 INSERT INTO `job_point_gifts` VALUES (13, 500, 997, 1, 'NIN_Superior 3');
 INSERT INTO `job_point_gifts` VALUES (13, 545, 915, 23, 'NIN_Capacity Point Bonus');
-INSERT INTO `job_point_gifts` VALUES (13, 550, 1323, 10, 'NIN_Ninjutsu Effect Duration');
+INSERT INTO `job_point_gifts` VALUES (13, 550, 1000, 10, 'NIN_Ninjutsu Effect Duration');
 INSERT INTO `job_point_gifts` VALUES (13, 605, 1, 16, 'NIN_Physical Defense Bonus');
 INSERT INTO `job_point_gifts` VALUES (13, 655, 915, 25, 'NIN_Capacity Point Bonus');
 INSERT INTO `job_point_gifts` VALUES (13, 660, 23, 20, 'NIN_Attack Bonus');

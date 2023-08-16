@@ -82,10 +82,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local lvltarget = target:getMainLvl()
     local acc = mob:getACC()
     local eva = target:getEVA()
-    if target:isPC() then
-        if (target:hasStatusEffect(tpz.effect.YONIN) and mob:isFacing(target, 23)) then -- Yonin evasion boost if mob is facing target
-            eva = eva + (target:getStatusEffect(tpz.effect.YONIN):getPower() + target:getJobPointLevel(tpz.jp.YONIN_EFFECT))
-        end
+    if (target:hasStatusEffect(tpz.effect.YONIN) and mob:isFacing(target, 23)) then -- Yonin evasion boost if mob is facing target
+        eva = eva + target:getStatusEffect(tpz.effect.YONIN):getPower()
     end
 
     --apply WSC
