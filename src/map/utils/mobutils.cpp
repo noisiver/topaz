@@ -1129,7 +1129,7 @@ void SetupLimbusMob(CMobEntity* PMob)
     // Bonus stats for difficulty
     if (mLvl >= 81)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(150);
         }
@@ -1143,7 +1143,7 @@ void SetupLimbusMob(CMobEntity* PMob)
     }
     else
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(120);
         }
@@ -1173,9 +1173,9 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     // Bonus stats for difficulty
     if (mLvl >= 81)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(150);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(100);
         }
 
         PMob->addModifier(Mod::REGEN, 30);
@@ -1183,9 +1183,9 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     }
     else
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(135);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(90);
         }
 
         PMob->addModifier(Mod::ACC, 30);
@@ -1211,9 +1211,9 @@ void SetupSalvageMob(CMobEntity* PMob)
     // Bonus stats for difficulty
     if (mLvl >= 90)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(125);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(60);
         }
 
         PMob->addModifier(Mod::ATTP, 25);
@@ -1222,9 +1222,9 @@ void SetupSalvageMob(CMobEntity* PMob)
     }
     else if (mLvl >= 85)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(115);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(50);
         }
 
         PMob->addModifier(Mod::ATTP, 25);
@@ -1233,9 +1233,9 @@ void SetupSalvageMob(CMobEntity* PMob)
     }
     else
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(100);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(40);
         }
 
         PMob->addModifier(Mod::ATTP, 25);
