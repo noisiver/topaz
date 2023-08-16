@@ -31,7 +31,7 @@ function onMobFight(mob, target)
             if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
                 mob:actionQueueEmpty() and (tp < 1000) then
                 if (hpp <= 69) and (prisonUses == 0) then
-                    prisonTarget = enmity.entity[math.random(#enmityList)]
+                    prisonTarget = enmity.entity:getID()
                     mob:setLocalVar("prisonUses", 1)
                     ForceDrawIn(mob, prisonTarget)
                     GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
