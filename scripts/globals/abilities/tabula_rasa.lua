@@ -24,6 +24,13 @@ function onUseAbility(player, target, ability)
     if (player:getMainJob() == tpz.job.SCH and player:getMainLvl() >= 20) then
         helixbonus = math.floor(player:getMainLvl() / 4)
     end
+
+    local jpValue = player:getJobPointLevel(tpz.jp.TABULA_RASA_EFFECT)
+
+    if jpValue > 0 then
+        player:addMP(player:getMaxMP() * 0.02 * jpValue)
+    end
+
     player:resetRecast(tpz.recast.ABILITY, 228)
     player:resetRecast(tpz.recast.ABILITY, 231)
     player:resetRecast(tpz.recast.ABILITY, 232)

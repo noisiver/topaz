@@ -15,5 +15,6 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
+    -- TODO: Implement this ability
     player:addStatusEffect(tpz.effect.TENUTO, 0, 0, 60)
 end
