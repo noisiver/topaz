@@ -1,7 +1,7 @@
 -----------------------------------
 -- Ability: Restraint
 -- Grants an absorb shield (stoneskin).
--- Obtained: WAR Level 50
+-- Obtained: WAR Level 40
 -- Recast Time: 1:00
 -- Duration: 00:30
 -----------------------------------
