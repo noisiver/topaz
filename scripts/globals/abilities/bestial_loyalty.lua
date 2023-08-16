@@ -23,8 +23,8 @@ function onUseAbility(player, target, ability)
     local pet = player:getPet()
     local numberOfEffects = 0
     local effects = player:getStatusEffects()
-    local effectFlags = effect:getFlag()
     for _, effect in ipairs(effects) do
+        local effectFlags = effect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.DISPELABLE) == tpz.effectFlag.DISPELABLE) or (bit.band(effectFlags, tpz.effectFlag.ERASABLE) == tpz.effectFlag.ERASABLE) or
         (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) == tpz.effectFlag.WALTZABLE) then
             numberOfEffects = numberOfEffects + 1
