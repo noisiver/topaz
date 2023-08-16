@@ -666,120 +666,116 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
     local fint = utils.clamp(8 + (attacker:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)), -120, 120) 
     local dmg = 0
 
-    -- Magic-based WSes never miss, so we don't need to worry about calculating a miss, only if a shadow absorbed it.
-    -- Check for AOE magic WS 
-    if not shadowAbsorb(target) or (wsParams.aoe ~= nil) then
-
+    -- Magic-based WSes never miss and ignore shadows, but AOE ones wipe shadows
+    if (wsParams.aoe ~= nil) then
         target:delStatusEffect(tpz.effect.COPY_IMAGE)
         target:delStatusEffect(tpz.effect.BLINK)
         target:delStatusEffect(tpz.effect.THIRD_EYE)
+    end
 
-        -- Begin Checks for bonus wsc bonuses. See the following for details:
-        -- https://www.bg-wiki.com/bg/Utu_Grip
-        -- https://www.bluegartr.com/threads/108199-Random-Facts-Thread-Other?p=6826618&viewfull=1#post6826618
+    -- Begin Checks for bonus wsc bonuses. See the following for details:
+    -- https://www.bg-wiki.com/bg/Utu_Grip
+    -- https://www.bluegartr.com/threads/108199-Random-Facts-Thread-Other?p=6826618&viewfull=1#post6826618
 
-        if attacker:getMod(tpz.mod.WS_STR_BONUS) > 0 then
-            wsParams.str_wsc = wsParams.str_wsc + (attacker:getMod(tpz.mod.WS_STR_BONUS) / 100)
+    if attacker:getMod(tpz.mod.WS_STR_BONUS) > 0 then
+        wsParams.str_wsc = wsParams.str_wsc + (attacker:getMod(tpz.mod.WS_STR_BONUS) / 100)
+    end
+
+    if attacker:getMod(tpz.mod.WS_DEX_BONUS) > 0 then
+        wsParams.dex_wsc = wsParams.dex_wsc + (attacker:getMod(tpz.mod.WS_DEX_BONUS) / 100)
+    end
+
+    if attacker:getMod(tpz.mod.WS_VIT_BONUS) > 0 then
+        wsParams.vit_wsc = wsParams.vit_wsc + (attacker:getMod(tpz.mod.WS_VIT_BONUS) / 100)
+    end
+
+    if attacker:getMod(tpz.mod.WS_AGI_BONUS) > 0 then
+        wsParams.agi_wsc = wsParams.agi_wsc + (attacker:getMod(tpz.mod.WS_AGI_BONUS) / 100)
+    end
+
+    if attacker:getMod(tpz.mod.WS_INT_BONUS) > 0 then
+        wsParams.int_wsc = wsParams.int_wsc + (attacker:getMod(tpz.mod.WS_INT_BONUS) / 100)
+    end
+
+    if attacker:getMod(tpz.mod.WS_MND_BONUS) > 0 then
+        wsParams.mnd_wsc = wsParams.mnd_wsc + (attacker:getMod(tpz.mod.WS_MND_BONUS) / 100)
+    end
+
+    if attacker:getMod(tpz.mod.WS_CHR_BONUS) > 0 then
+        wsParams.chr_wsc = wsParams.chr_wsc + (attacker:getMod(tpz.mod.WS_CHR_BONUS) / 100)
+    end
+
+    dmg = attacker:getMainLvl() + 2 + (attacker:getStat(tpz.mod.STR) * wsParams.str_wsc + attacker:getStat(tpz.mod.DEX) * wsParams.dex_wsc +
+            attacker:getStat(tpz.mod.VIT) * wsParams.vit_wsc + attacker:getStat(tpz.mod.AGI) * wsParams.agi_wsc +
+            attacker:getStat(tpz.mod.INT) * wsParams.int_wsc + attacker:getStat(tpz.mod.MND) * wsParams.mnd_wsc +
+            attacker:getStat(tpz.mod.CHR) * wsParams.chr_wsc) + fint
+
+    -- Applying fTP multiplier
+    local ftp = fTP(tp, wsParams.ftp100, wsParams.ftp200, wsParams.ftp300) + bonusfTP
+
+    dmg = dmg * ftp
+
+    -- Factor in "all hits" bonus damage mods
+    local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
+    if (attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then -- For specific WS
+        bonusdmg = bonusdmg + attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
+        --printf("Specific WS dmg increase %u", bonusdmg)
+    end
+
+    -- Add in bonusdmg
+    dmg = dmg * ((100 + bonusdmg)/100) -- Apply our "all hits" WS dmg bonuses
+    dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT))/100) -- Add in our "first hit" WS dmg bonus
+    dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ELEMENTAL_WSDMG))/100) -- Add in our "elemental damage" WS dmg bonus
+
+    -- Handle Positional MDT
+    if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
+            dmg = 0
         end
-
-        if attacker:getMod(tpz.mod.WS_DEX_BONUS) > 0 then
-            wsParams.dex_wsc = wsParams.dex_wsc + (attacker:getMod(tpz.mod.WS_DEX_BONUS) / 100)
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
         end
-
-        if attacker:getMod(tpz.mod.WS_VIT_BONUS) > 0 then
-            wsParams.vit_wsc = wsParams.vit_wsc + (attacker:getMod(tpz.mod.WS_VIT_BONUS) / 100)
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
         end
-
-        if attacker:getMod(tpz.mod.WS_AGI_BONUS) > 0 then
-            wsParams.agi_wsc = wsParams.agi_wsc + (attacker:getMod(tpz.mod.WS_AGI_BONUS) / 100)
+    end
+    if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+            dmg = 0
         end
-
-        if attacker:getMod(tpz.mod.WS_INT_BONUS) > 0 then
-            wsParams.int_wsc = wsParams.int_wsc + (attacker:getMod(tpz.mod.WS_INT_BONUS) / 100)
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
         end
-
-        if attacker:getMod(tpz.mod.WS_MND_BONUS) > 0 then
-            wsParams.mnd_wsc = wsParams.mnd_wsc + (attacker:getMod(tpz.mod.WS_MND_BONUS) / 100)
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
         end
+    end
 
-        if attacker:getMod(tpz.mod.WS_CHR_BONUS) > 0 then
-            wsParams.chr_wsc = wsParams.chr_wsc + (attacker:getMod(tpz.mod.WS_CHR_BONUS) / 100)
-        end
+    -- Handle Scarlet Delirium
+    dmg = utils.ScarletDeliriumBonus(attacker, dmg)
 
-        dmg = attacker:getMainLvl() + 2 + (attacker:getStat(tpz.mod.STR) * wsParams.str_wsc + attacker:getStat(tpz.mod.DEX) * wsParams.dex_wsc +
-             attacker:getStat(tpz.mod.VIT) * wsParams.vit_wsc + attacker:getStat(tpz.mod.AGI) * wsParams.agi_wsc +
-             attacker:getStat(tpz.mod.INT) * wsParams.int_wsc + attacker:getStat(tpz.mod.MND) * wsParams.mnd_wsc +
-             attacker:getStat(tpz.mod.CHR) * wsParams.chr_wsc) + fint
+    dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
 
-        -- Applying fTP multiplier
-        local ftp = fTP(tp, wsParams.ftp100, wsParams.ftp200, wsParams.ftp300) + bonusfTP
+    -- Calculate magical bonuses and reductions
+    dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
+    dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
+    dmg = target:magicDmgTaken(dmg, wsParams.ele)
 
-        dmg = dmg * ftp
+    -- handling absorb
+    if (wsParams.ele ~= 0) then -- Non-elemental damage cannot be absorbed
+        dmg = adjustForTarget(target, dmg, wsParams.ele)
+    end
+    dmg = utils.clamp(dmg, -99999, 99999)
 
-        -- Factor in "all hits" bonus damage mods
-        local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
-        if (attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then -- For specific WS
-            bonusdmg = bonusdmg + attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
-            --printf("Specific WS dmg increase %u", bonusdmg)
-        end
-
-        -- Add in bonusdmg
-        dmg = dmg * ((100 + bonusdmg)/100) -- Apply our "all hits" WS dmg bonuses
-        dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT))/100) -- Add in our "first hit" WS dmg bonus
-        dmg = dmg + ((dmg * attacker:getMod(tpz.mod.ELEMENTAL_WSDMG))/100) -- Add in our "elemental damage" WS dmg bonus
-
-        -- Handle Positional MDT
-        if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
-            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
-                dmg = 0
-            end
-            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
-                dmg = math.floor(dmg * 0.25) -- 75% DR
-            end
-            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
-                dmg = math.floor(dmg * 0.50) -- 50% DR
-            end
-        end
-        if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
-            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
-                dmg = 0
-            end
-            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
-                dmg = math.floor(dmg * 0.25) -- 75% DR
-            end
-            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
-                dmg = math.floor(dmg * 0.50) -- 50% DR
-            end
-        end
-
-        -- Handle Scarlet Delirium
-        dmg = utils.ScarletDeliriumBonus(attacker, dmg)
-
-        dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
-
-        -- Calculate magical bonuses and reductions
-        dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
-        dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
-        dmg = target:magicDmgTaken(dmg, wsParams.ele)
-
-        -- handling absorb
-        if (wsParams.ele ~= 0) then -- Non-elemental damage cannot be absorbed
-            dmg = adjustForTarget(target, dmg, wsParams.ele)
-        end
-        dmg = utils.clamp(dmg, -99999, 99999)
-
-        -- Add HP if absorbed
-        if (dmg < 0) then
-            dmg = (target:addHP(-dmg))
-            calcParams.finalDmg = -dmg
-            dmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
-            return dmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
-        else
-            --handling rampart stoneskin
-            dmg = utils.rampartstoneskin(target, dmg)
-        end
+    -- Add HP if absorbed
+    if (dmg < 0) then
+        dmg = (target:addHP(-dmg))
+        calcParams.finalDmg = -dmg
+        dmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
+        return dmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
     else
-        calcParams.shadowsAbsorbed = 1
+        --handling rampart stoneskin
+        dmg = utils.rampartstoneskin(target, dmg)
     end
 
     calcParams.finalDmg = dmg
