@@ -26,7 +26,7 @@ function onEffectTick(target, effect)
 
     -- The effect changes to "Sublimation: Complete" when the total MP stored is equal to 50% of your matpzmum HP or when the player's HP falls to orange level (<50%).
     local limit = math.floor((target:getBaseHP() + target:getMod(tpz.mod.HP) + target:getMerit(tpz.merit.MAX_HP)) / 4) +
-        target:getMerit(tpz.merit.MAX_SUBLIMATION)
+        target:getMerit(tpz.merit.MAX_SUBLIMATION) + target:getJobPointLevel(tpz.jp.SUBLIMATION_EFFECT) * 3
 
     if not (target:getHPP() < 51 ) then
         if (target:hasStatusEffect(tpz.effect.STONESKIN)) then
