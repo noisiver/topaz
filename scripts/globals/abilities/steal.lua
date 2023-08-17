@@ -72,10 +72,14 @@ function onUseAbility(player, target, ability, action)
 
     -- Attempt Aura steal
     local effect = tpz.effect.NONE
+    local skill = player:getWeaponSkillType(tpz.slot.MAIN)
+    local skillLevel = player:getSkillLevel(skill)
+    player:PrintToPlayer(string.format( "Your skill level used for steal is...", skillLevel))
+    local bonus = 175
     if (stolen == 0 and player:hasTrait(75)) then
-        local resist = applyResistanceAbility(player, target, tpz.magic.ele.WIND, 0, 0)
+        local resist = applyResistanceAbility(player, target, tpz.magic.ele.WIND, skillLevel, bonus)
         local effectStealSuccess = false
-        if (resist > 0.0625) then
+        if (resist >= 0.50) then
             local auraStealChance = math.min(player:getMerit(tpz.merit.AURA_STEAL), 95)
             if (math.random(100) < auraStealChance) then
                 stolen = player:stealStatusEffect(target)
