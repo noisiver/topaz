@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Halvung
---  Mob: Hilltroll Mirror Guard
+--  Mob: Woodtroll Mirror Guard
 -----------------------------------
 mixins = {require("scripts/mixins/weapon_break")}
 require("scripts/globals/status")

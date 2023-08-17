@@ -447,6 +447,11 @@ INSERT INTO `mob_family_mods` VALUES (479,63,20,0);		-- +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (51,62,35,0);		-- +35% Bonus Attack
 INSERT INTO `mob_family_mods` VALUES (51,63,20,0);		-- +20% Defense Bonus
 
+-- Archaic Mirrors
+INSERT INTO `mob_family_mods` VALUES (238,29,112,0);	    -- +112 MDB
+INSERT INTO `mob_family_mods` VALUES (238,388,-50,0);    -- -50% BDT
+INSERT INTO `mob_family_mods` VALUES (238,1,5000,0);     -- +5000 Defense Bonus
+
 -- Promy Mobs
 INSERT INTO `mob_family_mods` VALUES (255,63,-10,0);	-- Wanderer -10 Defense Penalty
 INSERT INTO `mob_family_mods` VALUES (255,68,40,0);		-- Wanderer +40 Evasion Bonus
