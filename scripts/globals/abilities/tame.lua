@@ -25,9 +25,11 @@ function onUseAbility(player, target, ability)
         return 0
     end
     local skill = player:getWeaponSkillType(tpz.slot.MAIN)
+    local skillLevel = player:getSkillLevel(skill)
+    player:PrintToPlayer(string.format( "Your skill level used for tame is...", skillLevel))
     local element = tpz.magic.ele.NONE
     local bonus = player:getMod(tpz.mod.TAME_SUCCESS_RATE)
-    local resist = applyResistanceAbility(player, target, element, skill, bonus)
+    local resist = applyResistanceAbility(player, target, element, skillLevel, bonus)
 
     if resist < 1 then
         ability:setMsg(tpz.msg.basic.JA_MISS_2)
