@@ -15,6 +15,7 @@ require("scripts/globals/chocobo")
 require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -24,6 +25,7 @@ end
 function onInitialize(zone)
     LA_THEINE_PLATEAU.moveFallenEgg()
     tpz.chocobo.initZone(zone)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

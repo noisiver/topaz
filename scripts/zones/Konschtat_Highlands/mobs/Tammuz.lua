@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: La Theine Plateau
---  VNM: Yilbegan
+-- Area: Konschtat Highlands
+--  VNM: Tammuz
 -----------------------------------
 require("scripts/globals/voidwalker")
 -----------------------------------
@@ -26,6 +26,5 @@ function onMobDespawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    player:addTitle(tpz.title.YILBEGAN_HIDEFLAYER)
-    tpz.voidwalker.onMobDeath(mob, player, isKiller, nil)
+    tpz.voidwalker.onMobDeath(mob, player, isKiller, tpz.keyItem.GREY_ABYSSITE)
 end

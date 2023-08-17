@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- Area: Konschtat_Highlands
 -----------------------------------
 require("scripts/globals/zone")
@@ -37,6 +37,16 @@ zones[tpz.zone.KONSCHTAT_HIGHLANDS] =
         NO_COMBINATION               = 7602,  -- You were unable to enter a combination.
         REGIME_REGISTERED            = 9780,  -- New training regime registered!
         COMMON_SENSE_SURVIVAL        = 11906, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        -- Voidwalker
+        VOIDWALKER_NO_MOB        = 10972, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 10973, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 10974, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 10975, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 10976, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 10977, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 10978, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 10979, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 10980, -- Obtained key item: ≺abyssite>! 
     },
     mob =
     {
@@ -61,6 +71,29 @@ zones[tpz.zone.KONSCHTAT_HIGHLANDS] =
         FORGER         = 17219999,
         HATY           = 17220000,
         BENDIGEIT_VRAN = 17220001,
+        VOIDWALKER  =
+        {
+            [tpz.keyItem.CLEAR_ABYSSITE] = {
+                17220019, -- Prickly Sheep
+                17220018, -- Prickly Sheep
+                17220017, -- Prickly Sheep
+                17220016, -- Prickly Sheep
+                17220015,  -- Void Hare
+                17220014,  -- Void Hare
+                17220013,  -- Void Hare
+                17220012,  -- Void Hare
+            },
+            [tpz.keyItem.COLORFUL_ABYSSITE] = {
+                17220011,  -- Chesma
+                17220010, -- Tammuz
+            },
+            [tpz.keyItem.GREY_ABYSSITE] = {
+                17220009  -- Dawon
+            },
+            [tpz.keyItem.BLACK_ABYSSITE] = {
+                17220008  -- Yilbegan
+            }
+        }
     },
     npc =
     {
