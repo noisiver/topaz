@@ -1562,7 +1562,7 @@ INSERT INTO `item_weapon` VALUES (17918,'windy_greens',0,0,0,0,0,0,1,2236,7739,0
 INSERT INTO `item_weapon` VALUES (17919,'tant._broth',0,0,0,0,0,0,1,2237,7996,0);
 INSERT INTO `item_weapon` VALUES (17920,'meaty_broth',0,0,0,0,0,0,1,2228,1603,0);
 INSERT INTO `item_weapon` VALUES (17921,'muddy_broth',0,0,0,0,0,0,1,2229,4420,0);
-INSERT INTO `item_weapon` VALUES (17922,'blackwater_broth',0,0,0,0,0,0,1,2227,8517,0);
+INSERT INTO `item_weapon` VALUES (17922,'blackwater_broth',0,71,0,0,0,0,1,2227,8517,0);
 INSERT INTO `item_weapon` VALUES (17923,'deluxe_animator',0,10,0,0,0,0,1,2232,1,0);
 INSERT INTO `item_weapon` VALUES (17924,'tungi',5,0,0,0,0,2,1,260,41,0);
 INSERT INTO `item_weapon` VALUES (17925,'fransisca',5,0,0,0,0,2,1,288,44,0);
@@ -4358,12 +4358,12 @@ INSERT INTO `item_weapon` VALUES (21442,'sticky_webbing',0,0,0,0,0,0,1,0,9292,0)
 INSERT INTO `item_weapon` VALUES (21443,'slimy_webbing',0,0,0,0,0,0,1,0,9293,0);
 INSERT INTO `item_weapon` VALUES (21444,'livid_broth',0,0,0,0,0,0,1,0,1085,0);
 INSERT INTO `item_weapon` VALUES (21445,'lyrical_broth',0,0,0,0,0,0,1,0,830,0);
-INSERT INTO `item_weapon` VALUES (21446,'airy_broth',0,0,0,0,0,0,1,0,7231,0);
-INSERT INTO `item_weapon` VALUES (21447,'crumbly_soil',0,0,0,0,0,0,1,0,2368,0);
+INSERT INTO `item_weapon` VALUES (21446,'airy_broth',0,69,0,0,0,0,1,0,7231,0);
+INSERT INTO `item_weapon` VALUES (21447,'crumbly_soil',0,74,0,0,0,0,1,0,2368,0);
 INSERT INTO `item_weapon` VALUES (21448,'pale_sap',0,0,0,0,0,0,1,0,1857,0);
-INSERT INTO `item_weapon` VALUES (21449,'dire_broth',0,0,0,0,0,0,1,0,5698,0);
-INSERT INTO `item_weapon` VALUES (21450,'electrified_broth',0,0,0,0,0,0,1,0,8262,0);
-INSERT INTO `item_weapon` VALUES (21451,'bug-ridden_broth',0,0,0,0,0,0,1,0,8263,0);
+INSERT INTO `item_weapon` VALUES (21449,'dire_broth',0,77,0,0,0,0,1,0,5698,0);
+INSERT INTO `item_weapon` VALUES (21450,'electrified_broth',0,78,0,0,0,0,1,0,8262,0);
+INSERT INTO `item_weapon` VALUES (21451,'bug-ridden_broth',0,79,0,0,0,0,1,0,8263,0);
 INSERT INTO `item_weapon` VALUES (21452,'divinator',0,10,0,0,0,0,1,0,0,0);
 INSERT INTO `item_weapon` VALUES (21453,'em._animator',0,10,0,0,0,0,1,0,0,0);
 INSERT INTO `item_weapon` VALUES (21454,'f._animator',0,10,0,0,0,0,1,759,0,0);
@@ -4376,6 +4376,8 @@ INSERT INTO `item_weapon` VALUES (21460,'matre_bell',45,0,0,0,0,0,1,999,0,0);
 INSERT INTO `item_weapon` VALUES (21461,'filiae_bell',45,0,0,0,0,0,1,999,0,0);
 INSERT INTO `item_weapon` VALUES (21462,'eminent_bell',45,0,0,0,0,0,1,999,0,0);
 INSERT INTO `item_weapon` VALUES (21463,'nepote_bell',45,0,0,0,0,0,1,999,0,0);
+INSERT INTO `item_weapon` VALUES (21470,'decaying_broth',0,75,0,0,0,0,1,0,8263,0); -- TODO: What is damage and delay for?
+INSERT INTO `item_weapon` VALUES (21471,'putrescent_broth',0,76,0,0,0,0,1,0,8263,0); -- TODO: What is damage and delay for?
 INSERT INTO `item_weapon` VALUES (21476,'doomsday',26,1,242,0,0,1,1,680,120,0);
 INSERT INTO `item_weapon` VALUES (21477,'atalanta',26,0,228,0,0,1,1,130,69,0);
 INSERT INTO `item_weapon` VALUES (21478,'moros_cross._+1',26,0,228,0,0,1,1,432,131,0);
@@ -4386,14 +4388,15 @@ INSERT INTO `item_weapon` VALUES (21482,'compensator',26,1,242,0,0,1,1,480,89,0)
 INSERT INTO `item_weapon` VALUES (21483,'malison',26,1,242,0,0,1,1,480,92,0);
 INSERT INTO `item_weapon` VALUES (21484,'malison_+1',26,1,242,0,0,1,1,466,93,0);
 INSERT INTO `item_weapon` VALUES (21485,'fomalhaut',26,1,269,0,0,1,1,600,167,0);
+INSERT INTO `item_weapon` VALUES (21490,'aged_humus',0,70,0,0,0,0,1,2211,6734,0); -- TODO: What is damage and delay for?
 INSERT INTO `item_weapon` VALUES (21492,'insipid_broth',0,0,0,0,0,0,1,2211,6734,0);
 INSERT INTO `item_weapon` VALUES (21493,'deepwater_broth',0,0,0,0,0,0,1,2212,6735,0);
 INSERT INTO `item_weapon` VALUES (21494,'wetlands_broth',0,0,0,0,0,0,1,2213,9552,0);
 INSERT INTO `item_weapon` VALUES (21495,'heavenly_broth',0,0,0,0,0,0,1,2214,9553,0);
 INSERT INTO `item_weapon` VALUES (21496,'furious_broth',0,0,0,0,0,0,1,2215,3154,0);
 INSERT INTO `item_weapon` VALUES (21497,'rapid_broth',0,0,0,0,0,0,1,2216,5203,0);
-INSERT INTO `item_weapon` VALUES (21498,'crackling_broth',0,0,0,0,0,0,1,2217,3412,0);
-INSERT INTO `item_weapon` VALUES (21499,'creepy_broth',0,0,0,0,0,0,1,2218,3669,0);
+INSERT INTO `item_weapon` VALUES (21498,'crackling_broth',0,72,0,0,0,0,1,2217,3412,0);
+INSERT INTO `item_weapon` VALUES (21499,'creepy_broth',0,73,0,0,0,0,1,2218,3669,0);
 INSERT INTO `item_weapon` VALUES (21504,'arasy_sainti',1,0,242,242,188,4,1,561,107,0);
 INSERT INTO `item_weapon` VALUES (21505,'arasy_sainti_+1',1,0,242,242,188,4,1,559,108,0);
 INSERT INTO `item_weapon` VALUES (21506,'jolt_counter',1,0,242,242,188,4,1,606,180,0);    -- DMG:+180 Delay:+126
