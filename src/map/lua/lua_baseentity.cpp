@@ -7725,7 +7725,7 @@ inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
         lua_pushinteger(L, PChar->PJobPoints->GetJobPointValue((JOBPOINT_TYPE)lua_tointeger(L, 1)));
     }
 
-    return 0;
+    return 1;
 }
 
 /************************************************************************
