@@ -36,6 +36,7 @@
 #include "../items/item_weapon.h"
 #include "../status_effect_container.h"
 #include "../mob_spell_container.h"
+#include "../ai/ai_container.h"
 #include <vector>
 #include "../packets/action.h"
 
@@ -1126,6 +1127,7 @@ void SetupDynamisMob(CMobEntity* PMob)
     }
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupLimbusMob(CMobEntity* PMob)
@@ -1170,6 +1172,7 @@ void SetupLimbusMob(CMobEntity* PMob)
     PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupDungeonInstancedMob(CMobEntity* PMob)
@@ -1207,6 +1210,7 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     PMob->SetDespawnTime(0s);
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupSalvageMob(CMobEntity* PMob)
@@ -1276,6 +1280,7 @@ void SetupSalvageMob(CMobEntity* PMob)
     PMob->addModifier(Mod::DMGSPIRITS, -75);
     PMob->addModifier(Mod::REFRESH, 400);
     PMob->setModifier(Mod::MOVE, 15);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupStrongholdsMob(CMobEntity* PMob)
@@ -1308,6 +1313,7 @@ void SetupBattlefieldMob(CMobEntity* PMob)
     }
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 
 }
 
@@ -1322,6 +1328,7 @@ void SetupEventMob(CMobEntity* PMob)
     PMob->m_maxRoamDistance = 0.5f; // always go back to spawn
 
     PMob->setMobMod(MOBMOD_NO_DESPAWN, 1);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupNMMob(CMobEntity* PMob)
@@ -1386,6 +1393,7 @@ void SetupNMMob(CMobEntity* PMob)
     }
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void RecalculateSpellContainer(CMobEntity* PMob)
