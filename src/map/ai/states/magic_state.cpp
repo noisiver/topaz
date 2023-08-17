@@ -120,6 +120,19 @@ bool CMagicState::Update(time_point tick)
             m_interrupted = true;
         }
 
+        if (PTarget->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = static_cast<CCharEntity*>(m_PEntity);
+            if (PChar->status == STATUS_CUTSCENE_ONLY || PChar->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+            {
+                m_interrupted = true;
+            }
+            if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
+            {
+                m_interrupted = true;
+            }
+        }
+
         if (m_interrupted)
         {
             m_PEntity->OnCastInterrupted(*this, action, msg);
