@@ -310,6 +310,11 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
             {
                 mobHP = (baseMobHP + sjHP) * 1.5;
             }
+            // Qutrub family has 400% more HP
+            else if (PMob->m_Family >= 203 && PMob->m_Family <= 205)
+            {
+                mobHP = (baseMobHP + sjHP) * 1.5;
+            }
             else
             {
                 mobHP = baseMobHP + sjHP;
