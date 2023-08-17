@@ -935,15 +935,19 @@ function getHitRate(attacker, target, capHitRate, firsthit, bonus)
     if (bonus == nil) then
         bonus = 0
     end
-    if (attacker:hasStatusEffect(tpz.effect.INNIN) and attacker:isBehind(target, 90)) then -- Innin acc boost if attacker is behind target
-        bonus = bonus + attacker:getStatusEffect(tpz.effect.INNIN):getPower()
-    end
-    if (target:hasStatusEffect(tpz.effect.YONIN) and attacker:isFacing(target, 90)) then -- Yonin evasion boost if attacker is facing target
-        bonus = bonus - target:getStatusEffect(tpz.effect.YONIN):getPower()
-    end
-    if attacker:hasTrait(76) then
-        if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
-            bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+
+    if target:isPC() then
+        if (attacker:hasStatusEffect(tpz.effect.INNIN) and attacker:isBehind(target, 90)) then -- Innin acc boost if attacker is behind target
+            bonus = bonus + (attacker:getStatusEffect(tpz.effect.INNIN):getPower() + attacker:getJobPointLevel(tpz.jp.INNIN_EFFECT))
+        end
+        if (target:hasStatusEffect(tpz.effect.YONIN) and attacker:isFacing(target, 90)) then -- Yonin evasion boost if attacker is facing target
+            bonus = bonus - (target:getStatusEffect(tpz.effect.YONIN):getPower() + target:getJobPointLevel(tpz.jp.YONIN_EFFECT))
+        end
+
+        if attacker:hasTrait(76) then
+            if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
+                bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+            end
         end
     end
 
