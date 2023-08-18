@@ -2,6 +2,7 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
+require("scripts/globals/items")
 
 -- The TP modifier
 TPMOD_NONE = 0
@@ -458,10 +459,18 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
-    -- Handle Convergence
+    -- Handle Convergence damage bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
-		dmg = dmg * ConvergenceBonus
+
+        -- Apply Convergence relic augment. 2% damage per Convergence merit
+        -- TODO: Ilvl relic
+        local head = caster:getEquipID(tpz.slot.HEAD)
+        if (head == tpz.items.MIRAGE_KEFFIYEH_HQ or head == tpz.items.MIRAGE_KEFFIYEH_HQTWO) then
+            ConvergenceBonus = ConvergenceBonus + ((caster:getMerit(tpz.merit.CONVERGENCE) / 5) * 0.02)
+        end
+
+        dmg = dmg * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
@@ -582,17 +591,23 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     local resist = applyResistance(caster, target, spell, params)
 
 
-	-- Add convergence damage bonus
+	-- Handle convergence damage bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
+        -- Apply Convergence relic augment 2% damage per Convergence merit
+         -- TODO: Ilvl relic
+        local head = caster:getEquipID(tpz.slot.HEAD)
+        if (head == tpz.items.MIRAGE_KEFFIYEH_HQ or head == tpz.items.MIRAGE_KEFFIYEH_HQTWO) then
+            ConvergenceBonus = ConvergenceBonus + ((caster:getMerit(tpz.merit.CONVERGENCE) / 5) * 0.02)
+        end
+
 		dmg = math.floor(dmg * ConvergenceBonus)
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
 	-- Add breath damage gear
 	local head = caster:getEquipID(tpz.slot.HEAD)
-    -- Saurian Helm and Mirage Keffiyeh(NQ/+1/+2)
-	if head == 16150 or head == 11465 or head == 11466 or head == 10665 then 
+	if (head == tpz.items.SAURIAN_HELM or head == tpz.items.MIRAGE_KEFFIYEH or head == tpz.items.MIRAGE_KEFFIYEH_HQ or head == tpz.items.MIRAGE_KEFFIYEH_HQTWO) then 
 		dmg = math.floor(dmg *1.1) 
 	end
 
