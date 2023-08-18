@@ -15,6 +15,7 @@ require("scripts/globals/aftermath")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/weaponskills")
+require("scripts/globals/utils")
 -----------------------------------
 
 function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
@@ -44,6 +45,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local healAmount = math.floor(damage / 2)
     local MND = player:getStat(tpz.mod.MND)
     local stoneskinAmount = 250 + MND
+
+    stoneskinAmount = utils.ApplyStoneskinBonuses(caster, stoneskinAmount)
 
     if party ~= nil then
         for _,member in ipairs(party) do
