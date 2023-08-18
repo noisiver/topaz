@@ -9,6 +9,7 @@ require("scripts/globals/chocobo_digging")
 require("scripts/globals/conquest")
 require("scripts/globals/missions")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -20,6 +21,7 @@ function onInitialize(zone)
     GetMobByID(ID.mob.BOWHO_WARMONGER):setRespawnTime(36000 + math.random(600, 900)) -- 21 hours, plus 10 to 15 min
 
     tpz.conq.setRegionalConquestOverseers(zone:getRegionID())
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

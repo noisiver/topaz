@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: North Gustaberg_[S]
---  VNM: Yilbegan
+-- Area: Pashhow Marshlands_[S]
+--  VNM: Ground Guzzler
 -----------------------------------
 require("scripts/globals/voidwalker")
 -----------------------------------
@@ -26,6 +26,5 @@ function onMobDespawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    player:addTitle(tpz.title.YILBEGAN_HIDEFLAYER)
-    tpz.voidwalker.onMobDeath(mob, player, isKiller, nil)
+    tpz.voidwalker.onMobDeath(mob, player, isKiller, tpz.keyItem.COLORFUL_ABYSSITE)
 end

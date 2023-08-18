@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: North Gustaberg_[S]
---  VNM: Yilbegan
+-- Area: North Gustaberg
+--  VNM: Blobdingnag
 -----------------------------------
 require("scripts/globals/voidwalker")
 -----------------------------------
@@ -26,6 +26,6 @@ function onMobDespawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    player:addTitle(tpz.title.YILBEGAN_HIDEFLAYER)
-    tpz.voidwalker.onMobDeath(mob, player, isKiller, nil)
+    player:addTitle(tpz.title.BLOBDINGNAG_BURSTER)
+    tpz.voidwalker.onMobDeath(mob, player, isKiller, tpz.keyItem.BLACK_ABYSSITE)
 end
