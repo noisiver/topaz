@@ -15,6 +15,21 @@ tpz.magic.spellFlag =
     IGNORE_SHADOWS = 0x04  -- Ignore shadows and hit player anyways (example: Mobs "Death" spell)
 }
 
+
+------------------------------------
+-- Spell AOE IDs
+------------------------------------
+
+tpz.magic.req =
+{
+    NORMAL             = 0x00,
+    MERIT              = 0x01,
+    ADDENDUM_BLACK     = 0x02,
+    ADDENDUM_WHITE     = 0x04,
+    TABULA_RASA        = 0x08,
+    UNBRIDLED_LEARNING = 0x10
+}
+
 ------------------------------------
 -- Spell AOE IDs
 ------------------------------------

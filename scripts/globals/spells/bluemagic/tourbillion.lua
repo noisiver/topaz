@@ -1,6 +1,6 @@
 -----------------------------------------
--- Spell: Bilgestorm
--- Deals damage in an area of effect. Additional effect: Lowers attack, accuracy, and defense
+-- Spell: Tourbillion
+-- 	Delivers an area attack. Additional effect duration varies with TP. Additional effect: Weakens defense.
 -- Spell cost: 12 MP
 -- Monster Type: Beastmen
 -- Spell Type: Physical (Blunt)
@@ -33,19 +33,19 @@ function onSpellCast(caster, target, spell)
     params.tpmod = TPMOD_DAMAGE
     params.attackType = tpz.attackType.PHYSICAL
     params.damageType = tpz.damageType.BLUNT
-    params.scattr = SC_LIGHT
+    params.scattr = SC_DARKNESS
     params.numhits = 1
     params.multiplier = 4.0
     params.tp150 = 4.0
     params.tp300 = 4.0
     params.azuretp = 4.0
     params.duppercap = 80
-    params.str_wsc = 0.3
+    params.str_wsc = 0.25
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.3
-    params.mnd_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.25
     params.chr_wsc = 0.0
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
@@ -59,23 +59,9 @@ function onSpellCast(caster, target, spell)
 
     -- Spell physically hit, check for additional effect proccing
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL) then
-        params.effect = tpz.effect.ATTACK_DOWN
-        local resist = applyResistanceEffect(caster, target, spell, params)
-        local power = 25
-        -- Check for attack down landing
-        if (resist >= 0.5) then
-            target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, false))
-        end
-
-        params.effect = tpz.effect.ACCURACY_DOWN
-        resist = applyResistanceEffect(caster, target, spell, params)
-        -- Check for accuracy down landing
-        if (resist >= 0.5) then
-            target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, false))
-        end
-
         params.effect = tpz.effect.DEFENSE_DOWN
-        resist = applyResistanceEffect(caster, target, spell, params)
+        local resist = applyResistanceEffect(caster, target, spell, params)
+        local power = 33
         -- Check for defense down landing
         if (resist >= 0.5) then
             target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, false))

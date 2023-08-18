@@ -38,6 +38,9 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
+    -- Apply unbridled duration mod
+    duration = math.floor(duration * (1 + caster:getMod(tpz.mod.UNBRIDLED_DURATION) / 100))
+
     if (target:addStatusEffect(typeEffect, power, 0, duration) == false) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end

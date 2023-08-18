@@ -458,11 +458,19 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
+    -- Handle Convergence
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
 		dmg = dmg * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
+
+    -- Handle Unbridle gear mod
+    if (spell:getRequirements() == tpz.magic.req.UNBRIDLED_LEARNING) then
+        if caster:hasStatusEffect(tpz.effect.UNBRIDLED_LEARNING) or caster:hasStatusEffect(tpz.effect.UNBRIDLED_WISDOM) then
+            dmg = math.floor(dmg * (1 + caster:getMod(tpz.mod.UNBRIDLED_DAMAGE) / 100)) 
+        end
+    end
 
     -- Handle Positional MDT
     if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front

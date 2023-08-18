@@ -3,7 +3,7 @@
 -- Delivers a threefold attack. Damage varies with TP. Additional effect: HP Drain.
 -- Spell cost: 48 MP
 -- Monster Type: Undead
--- Spell Type: Physical (Blunt)
+-- Spell Type: Physical (Slashing)
 -- Blue Magic Points: 5
 -- Stat Bonus: DEX+1, CHR+1, HP+5
 -- Level: 60
@@ -26,9 +26,9 @@ function onSpellCast(caster, target, spell)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_ATTACK
     params.attackType = tpz.attackType.PHYSICAL
-    params.damageType = tpz.damageType.BLUNT
+    params.damageType = tpz.damageType.SLASHING
     params.scattr = SC_IMPACTION
-    params.numhits = 1
+    params.numhits = 3
     params.multiplier = 1.0
     params.tp150 = 1.1375
     params.tp300 = 1.6
@@ -50,7 +50,7 @@ function onSpellCast(caster, target, spell)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if not target:isUndead() and (damage > 0) then
+    if not target:isUndead() and not caster:hasStatusEffect(tpz.effect.CURSE_II) and (damage > 0) then
         caster:addHP(damage)
     end
 

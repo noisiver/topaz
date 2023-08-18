@@ -29,6 +29,8 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    local duration = 180
+
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
 
@@ -39,7 +41,10 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
-    player:addStatusEffect(tpz.effect.MIGHTY_GUARD, 25, 0, 180, 0, 15, 0)
+    -- Apply unbridled duration mod
+    duration = math.floor(duration * (1 + caster:getMod(tpz.mod.UNBRIDLED_DURATION) / 100))
+
+    player:addStatusEffect(tpz.effect.MIGHTY_GUARD, 25, 0, duration, 0, 15, 0)
     spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
 
     return tpz.effect.MIGHTY_GUARD
