@@ -4181,15 +4181,14 @@ INSERT INTO `mob_droplist` VALUES (774,0,0,1000,3074,180);
 INSERT INTO `mob_droplist` VALUES (775,4,0,1000,1783,0); -- (Eo'aern) Sample of Luminian tissue - Despoil
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,1786,100); -- Aern organ
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,1783,50); -- Sample of Luminian tissue
-INSERT INTO `mob_droplist` VALUES (775,0,0,1000,1900,50); -- High-quality aern organ
-INSERT INTO `mob_droplist` VALUES (775,0,0,1000,1900,5);
+INSERT INTO `mob_droplist` VALUES (775,0,0,1000,1900,100); -- High-quality aern organ
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4104,5);
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4105,5);
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4106,5);
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4107,5);
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4108,5);
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4109,5);
-INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4110,60);
+INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4110,5);
 INSERT INTO `mob_droplist` VALUES (775,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (776,0,0,1000,1783,50); -- (Eo'euvhi) Sample of Luminian tissue
 INSERT INTO `mob_droplist` VALUES (776,0,0,1000,1818,10); -- Euvhi organ
@@ -4203,7 +4202,7 @@ INSERT INTO `mob_droplist` VALUES (776,0,0,1000,4110,5);
 INSERT INTO `mob_droplist` VALUES (776,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (777,4,0,1000,1819,0); -- (Eo'ghrah) Luminion chip - Despoil
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,1819,240); -- Luminion chip
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,1872,100); -- Ghrah M chip
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,1872,240); -- Ghrah M chip
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4104,0);
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4105,0);
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4106,0);
@@ -17981,14 +17980,14 @@ INSERT INTO `mob_droplist` VALUES (9052,0,0,1000,11543,240);  -- Hecate's cape
 INSERT INTO `mob_droplist` VALUES (9053,4,0,1000,1783,0); -- (Aw'aern) Sample of Luminian tissue - Despoil
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,1786,100); -- Aern organ
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,1783,50); -- Sample of Luminian tissue
-INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,1900,5);
+INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,1900,100); -- High-quality aern organ
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4104,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4105,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4106,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4107,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4108,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4109,5);
-INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4110,60);
+INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4110,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (9054,0,0,1000,1633,50); -- (Mountain Clot - Mount Zhayolm) Handful Of Clot Plasma
 INSERT INTO `mob_droplist` VALUES (9054,0,0,1000,2591,50); -- Beaker Of Pectin (ZNM - Claret Pop)
