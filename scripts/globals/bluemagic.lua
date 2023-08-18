@@ -281,7 +281,19 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
         local chance = math.random()
         if (chance <= hitrate) then -- it hit
-            -- TODO: Check for shadow absorbs.
+            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+
+            -- dealt zero damage, so shadows took hit
+            if (finaldmg == 0) then
+                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+                return shadowbehav
+            end
+
+            --handle Third Eye using shadowbehav as a guide
+            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
+                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+                return 0
+            end
 
             -- Generate a random pDIF between min and max
             local pdif = 1
