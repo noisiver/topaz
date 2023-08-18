@@ -1,6 +1,6 @@
 -----------------------------------------
--- Spell: Cocoon
--- Enhances defense
+-- Spell: Pyric Bulwark
+-- Grants magical stoneskin.
 -- Spell cost: 10 MP
 -- Monster Type: Vermin
 -- Spell Type: Magical (Earth)
@@ -9,8 +9,8 @@
 -- Level: 8
 -- Casting Time: 1.75 seconds
 -- Recast Time: 60 seconds
--- Duration: 90 seconds
---
+-- Duration: 5 minutes
+-- Absorbs 500 damage + BLU Skill  / 2
 -- Combos: None
 -----------------------------------------
 require("scripts/globals/bluemagic")
@@ -24,9 +24,9 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.DEFENSE_BOOST
-    local power = 50
-    local duration = 90
+    local typeEffect = tpz.effect.MAGIC_SHIELD
+    local power = 500 + (caster:getSkillLevel(tpz.skill.BLUE_MAGIC) / 2)
+    local duration = 300
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)

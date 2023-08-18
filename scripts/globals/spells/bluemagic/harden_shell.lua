@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Cocoon
+-- Spell: Harden Shell
 -- Enhances defense
 -- Spell cost: 10 MP
 -- Monster Type: Vermin
@@ -25,7 +25,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.DEFENSE_BOOST
-    local power = 50
+    local power = 100
     local duration = 90
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
