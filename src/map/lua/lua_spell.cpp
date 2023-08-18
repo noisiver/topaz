@@ -266,6 +266,22 @@ inline int32 CLuaSpell::getFlag(lua_State *L)
     return 1;
 }
 
+inline int32 CLuaSpell::getRequirements(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    lua_pushinteger(L, m_PLuaSpell->getRequirements());
+    return 1;
+}
+
+inline int32 CLuaSpell::setRequirements(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaSpell->setRequirements((uint16)lua_tointeger(L, -1));
+    return 0;
+}
+
 /************************************************************************
 *																		*
 *  Инициализация методов в lua											*
@@ -297,6 +313,8 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,getMPCost),
     LUNAR_DECLARE_METHOD(CLuaSpell,getSpellGroup),
     LUNAR_DECLARE_METHOD(CLuaSpell,getFlag),
+    LUNAR_DECLARE_METHOD(CLuaSpell,getRequirements),
+    LUNAR_DECLARE_METHOD(CLuaSpell,setRequirements),
     LUNAR_DECLARE_METHOD(CLuaSpell,castTime),
     {nullptr,nullptr}
 };
