@@ -49,7 +49,9 @@ enum PETID
     PETID_ODIN               = 18,
     PETID_ATOMOS             = 19,
     PETID_CAIT_SITH          = 20,
+    // 21 - 47 are jug pets
     PETID_WYVERN             = 48,
+    // 49 - 68 are jug pets
     PETID_HARLEQUINFRAME     = 69,
     PETID_VALOREDGEFRAME     = 70,
     PETID_SHARPSHOTFRAME     = 71,
@@ -57,7 +59,8 @@ enum PETID
     PETID_ADVENTURING_FELLOW = 73,
     PETID_CHOCOBO            = 74,
     PETID_LUOPAN             = 75,
-    MAX_PETID                = 76,
+    // 76 - 126 are jug pets
+    MAX_PETID                = 999,
 };
 
 class CBattleEntity;
