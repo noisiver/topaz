@@ -81,8 +81,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- store related values
     local magicskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -- skill + merits + equip bonuses
     local isRanged = params.attackType == tpz.attackType.RANGED
-    -- TODO: Under Efflux?
-    -- TODO: Under Azure Lore.
 
     ---------------------------------
     -- Calculate the final D value  -
@@ -130,14 +128,22 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- If under CA, replace multiplier with fTP(multiplier, tp150, tp300)
     local chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
-    if chainAffinity ~= nil or azureLore ~= nil then
+    local efflux = caster:getStatusEffect(tpz.effect.EFFLUX)
+    local affluxBonus = caster:getStatusEffect(tpz.effect.EFFLUX_BONUS)
+    local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
+    local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
+
+    if (chainAffinity ~= nil) or (azureLore ~= nil) or (efflux ~= nil) then
         -- Calculate the total TP available for the fTP multiplier.
-        local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
-        if tp > 3000 then
+        if (tp > 3000) then
             tp = 3000
         end
-        -- Azure Lore treats all spells like they're 3k TP'
-        if azureLore ~= nil then
+        -- Efflux treats all spells like they're 1k TP
+        if (efflux ~= nil) then
+            tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
+        end
+        -- Azure Lore treats all spells like they're 3k TP
+        if (azureLore ~= nil) then
             tp = 3000
         end
         --printf("%u", tp)
@@ -187,8 +193,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	local CritTPBonus =  0
 	local SpellCritPdifModifier = 0
 
-	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
-	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
 
     if chainAffinity ~= nil then
 		if params.AttkTPModifier == true then --Check if "Attack varies with TP"

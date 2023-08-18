@@ -519,6 +519,8 @@ enum class Mod
     MONSTER_CORRELATION_BONUS = 936, // AF head
     BLUE_LEARN_CHANCE         = 945, // Additional chance to learn blue magic
     BLUE_SPELLCASTING_TIME    = 1322,// Reduces Blue Magic spellcasting time
+    EFFLUX_BONUS              = 1324,// Bonus to Efflux, flat amount
+    EFFLUX_MULTIPLIER         = 1325,// Bonus to Efflux, in percents
 
     // Corsair
     TRIPLE_SHOT_RATE          = 987, // The rate that triple shot can proc. Without this, the default is 40%.
@@ -990,7 +992,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1324 NEXT
+    // 1326 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

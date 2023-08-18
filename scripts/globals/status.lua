@@ -1810,9 +1810,11 @@ tpz.mod =
     DEF_TRAIT               = 1321, -- Defense bonus traits
     BLUE_SPELLCASTING_TIME  = 1322, -- Reduces Blue Magic spellcasting time
     NINJUTSU_DURATION       = 1323, -- Increases the effect duration of ninjutsu (in percents)
+    EFFLUX_BONUS            = 1324, -- Bonus to Efflux, flat amount
+    EFFLUX_MULTIPLIER       = 1325, -- Bonus to Efflux, in percents
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1324 NEXT
+    -- 1326 NEXT
 }
 
 tpz.latent =
