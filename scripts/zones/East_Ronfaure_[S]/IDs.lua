@@ -23,15 +23,15 @@ zones[tpz.zone.EAST_RONFAURE_S] =
         COMMON_SENSE_SURVIVAL    = 8957, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
         ANNM_TREASURE_APPEARED   = 8034, -- A treasure box has/Treasure boxes have appeared! The treasure will disappear after three minutes have elapsed or when the time limit for this battlefield expires, whichever comes first.
         -- Voidwalker
-        VOIDWALKER_NO_MOB        = 8040, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
-        VOIDWALKER_MOB_TOO_FAR   = 8041, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
-        VOIDWALKER_MOB_HINT      = 8042, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
-        VOIDWALKER_SPAWN_MOB     = 8043, -- A monster materializes out of nowhere!
-        VOIDWALKER_DESPAWN       = 8044, -- The monster fades before your eyes, a look of disappointment on its face.
-        VOIDWALKER_UPGRADE_KI_1  = 8045, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
-        VOIDWALKER_UPGRADE_KI_2  = 8046, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
-        VOIDWALKER_BREAK_KI      = 8047, -- The <abyssite> shatters into tiny fragments.
-        VOIDWALKER_OPTAIN_KI     = 8048, -- Obtained key item: ≺abyssite>!
+        VOIDWALKER_NO_MOB        = 8039, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 8040, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 8041, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 8042, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 8043, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 8044, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 8045, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 8046, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 8047, -- Obtained key item: ≺abyssite>!
     },
     mob =
     {

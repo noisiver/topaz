@@ -24,15 +24,15 @@ zones[tpz.zone.NORTH_GUSTABERG_S] =
         CANNOT_ENTER            = 7719, -- You cannot enter at this time. Please wait a moment and try again.
         ANNM_TREASURE_APPEARED  = 8171, -- A treasure box has/Treasure boxes have appeared! The treasure will disappear after three minutes have elapsed or when the time limit for this battlefield expires, whichever comes first.
         -- Voidwalker
-        VOIDWALKER_NO_MOB        = 8177, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
-        VOIDWALKER_MOB_TOO_FAR   = 8178, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
-        VOIDWALKER_MOB_HINT      = 8179, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
-        VOIDWALKER_SPAWN_MOB     = 8180, -- A monster materializes out of nowhere!
-        VOIDWALKER_DESPAWN       = 8181, -- The monster fades before your eyes, a look of disappointment on its face.
-        VOIDWALKER_UPGRADE_KI_1  = 8182, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
-        VOIDWALKER_UPGRADE_KI_2  = 8183, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
-        VOIDWALKER_BREAK_KI      = 8184, -- The <abyssite> shatters into tiny fragments.
-        VOIDWALKER_OPTAIN_KI     = 8185, -- Obtained key item: ≺abyssite>!
+        VOIDWALKER_NO_MOB        = 8176, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 8177, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 8178, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 8179, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 8180, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 8181, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 8182, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 8183, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 8184, -- Obtained key item: ≺abyssite>!
     },
     mob =
     {
