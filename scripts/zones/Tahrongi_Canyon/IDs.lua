@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- Area: Tahrongi_Canyon
 -----------------------------------
 require("scripts/globals/zone")
@@ -46,6 +46,16 @@ zones[tpz.zone.TAHRONGI_CANYON] =
         NO_COMBINATION               = 7566,  -- You were unable to enter a combination.
         REGIME_REGISTERED            = 9818,  -- New training regime registered!
         COMMON_SENSE_SURVIVAL        = 11935, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        -- Voidwalker
+        VOIDWALKER_NO_MOB        = 10991, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 10992, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 10993, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 10994, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 10995, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 10996, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 10997, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 10998, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 10999, -- Obtained key item: ≺abyssite>! 
     },
     mob =
     {
@@ -60,6 +70,29 @@ zones[tpz.zone.TAHRONGI_CANYON] =
         },
         HABROK            = 17256493,
         YARA_MA_YHA_WHO   = 17256900,
+        VOIDWALKER  =
+        {
+            [tpz.keyItem.CLEAR_ABYSSITE] = {
+                17256918, -- Prickly Sheep
+                17256917, -- Prickly Sheep
+                17256916, -- Prickly Sheep
+                17256915, -- Prickly Sheep
+                17256914,  -- Void Hare
+                17256913,  -- Void Hare
+                17256912,  -- Void Hare
+                17256911,  -- Void Hare
+            },
+            [tpz.keyItem.COLORFUL_ABYSSITE] = {
+                17256910,  -- Chesma
+                17256909, -- Tammuz
+            },
+            [tpz.keyItem.GREY_ABYSSITE] = {
+                17256908  -- Dawon
+            },
+            [tpz.keyItem.BLACK_ABYSSITE] = {
+                17256907  -- Yilbegan
+            }
+        }
     },
     npc =
     {

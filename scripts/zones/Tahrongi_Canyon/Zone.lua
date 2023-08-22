@@ -12,6 +12,7 @@ require("scripts/globals/chocobo")
 require("scripts/globals/world")
 require("scripts/globals/helm")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -21,6 +22,7 @@ end
 function onInitialize(zone)
     tpz.helm.initZone(zone, tpz.helm.type.EXCAVATION)
     tpz.chocobo.initZone(zone)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)
