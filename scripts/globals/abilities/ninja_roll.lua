@@ -10,17 +10,17 @@
 --
 -- Die Roll    |With NIN
 -- --------    ----------
--- 1           |+4
--- 2           |+6
--- 3           |+8
--- 4           |+25
--- 5           |+10
--- 6           |+12
--- 7           |+14
--- 8           |+2
--- 9           |+17
--- 10          |+20
--- 11          |+30
+-- 1           |+105
+-- 2           |+106
+-- 3           |+108
+-- 4           |+115
+-- 5           |+100
+-- 6           |+102
+-- 7           |+104
+-- 8           |+95
+-- 9           |+107
+-- 10          |+110
+-- 11          |+120
 -- Bust        |-10
 -----------------------------------
 require("scripts/globals/settings")
@@ -51,7 +51,7 @@ end
 
 function applyRoll(caster, target, ability, action, total)
     local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
-    local effectpowers = {4, 5, 5, 14, 6, 7, 9, 2, 10, 11, 18, 6}
+    local effectpowers = {105, 106, 108, 115, 100, 102, 104, 95, 107, 110, 120}
     local effectpower = effectpowers[total]
     if (caster:getLocalVar("corsairRollBonus") == 1 and total < 12) then
         effectpower = effectpower + 6

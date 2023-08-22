@@ -9,17 +9,17 @@
 --
 -- Die Roll    | Skillchain Bonus
 -- --------    -------
--- 1           |+2
--- 2           |+3
--- 3           |+20
--- 4           |+5
--- 5           |+7
--- 6           |+9
--- 7           |+11
--- 8           |+13
--- 9           |+15
--- 10          |+1
--- 11          |+25
+-- 1           |+32
+-- 2           |+33
+-- 3           |+45
+-- 4           |+35
+-- 5           |+37
+-- 6           |+39
+-- 7           |+41
+-- 8           |+43
+-- 9           |+45
+-- 10          |+21
+-- 11          |+50
 -- Bust        |-5
 -----------------------------------
 require("scripts/globals/settings")
@@ -50,7 +50,7 @@ end
 
 function applyRoll(caster, target, ability, action, total)
     local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
-    local effectpowers = {2, 3, 20, 5, 7, 9, 11, 13, 15, 1, 25, -5}
+    local effectpowers = {32, 33, 45, 35, 37, 39, 41, 43, 45, 21, 50, 5}
     local effectpower = effectpowers[total]
 -- Apply Buffs from Allies' Roll Enhancing Gear if present
     if (math.random(0, 99) < caster:getMod(tpz.mod.ENHANCES_ALLIES_ROLL)) then

@@ -9,18 +9,18 @@
 --
 -- Die Roll    |No DRG  |With DRG
 -- --------    -------  -----------
--- 1           |+10     |+25
--- 2           |+13     |+28
--- 3           |+15     |+30
--- 4           |+40     |+55
--- 5           |+18     |+33
--- 6           |+20     |+35
--- 7           |+25     |+40
--- 8           |+5      |+20
--- 9           |+28     |+43
--- 10          |+30     |+45
--- 11          |+50     |+65
--- Bust        |-15     |-15
+-- 1           |+90     |+105
+-- 2           |+83     |+98
+-- 3           |+85     |+10
+-- 4           |+95     |+110
+-- 5           |+88     |+103
+-- 6           |+90     |+105
+-- 7           |+92     |+107
+-- 8           |+75     |+90
+-- 9           |+87     |+102
+-- 10          |+93     |+108
+-- 11          |+100    |+115
+-- Bust        |-5      |-5
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/ability")
@@ -50,7 +50,7 @@ end
 
 function applyRoll(caster, target, ability, action, total)
     local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
-    local effectpowers = {10, 13, 15, 40, 18, 20, 25, 5, 28, 30, 50, 15}
+    local effectpowers = {90, 83, 85, 95, 88, 90, 92, 75, 87, 93 100, 5}
     local effectpower = effectpowers[total]
     if (caster:getLocalVar("corsairRollBonus") == 1 and total < 12) then
         effectpower = effectpower + 15

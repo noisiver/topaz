@@ -9,17 +9,17 @@
 --
 -- Die Roll    |No WHM  |With WHM
 -- --------    -------  -----------
--- 1           |+3%     |+7%
--- 2           |+4%     |+8%
--- 3           |+12%    |+16%
--- 4           |+5%     |+9%
--- 5           |+6%     |+10%
--- 6           |+7%     |+11%
--- 7           |+1%     |+5%
--- 8           |+8%     |+12%
--- 9           |+9%     |+13%
--- 10          |+10%    |+14%
--- 11          |+16%    |+20%
+-- 1           |+23%    |+27%
+-- 2           |+24%    |+28%
+-- 3           |+32%    |+36%
+-- 4           |+25%    |+29%
+-- 5           |+26%    |+30%
+-- 6           |+27%    |+31%
+-- 7           |+11%    |+15%
+-- 8           |+28%    |+32%
+-- 9           |+29%    |+33%
+-- 10          |+30%    |+34%
+-- 11          |+36%    |+40%
 -- Bust        |-4%     |-4%
 --
 -- Note that this roll will increase potency of cures received, not the potency of the caster's spells
@@ -52,7 +52,7 @@ end
 
 function applyRoll(caster, target, ability, action, total)
     local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
-    local effectpowers = {3, 4, 12, 5, 6, 7, 1, 8, 9, 10, 16, 4}
+    local effectpowers = {23, 24, 32, 25, 26, 27, 11, 28, 29, 30, 36, 4}
     local effectpower = effectpowers[total]
     if (caster:getLocalVar("corsairRollBonus") == 1 and total < 12) then
         effectpower = effectpower + 4
