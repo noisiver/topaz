@@ -2475,7 +2475,7 @@ INSERT INTO `mob_skills` VALUES (2514,1773,'cytokinesis',0,7.0,2000,1500,1,0,0,0
 INSERT INTO `mob_skills` VALUES (2515,2072,'phason_beam',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2516,2260,'gravitic_horn',1,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2517,2261,'quake_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2518,2262,'norn_arrows',2,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2518,1581,'norn_arrows',2,10.0,2000,1500,4,0,0,0,0,0,0); -- animationID was 2262
 INSERT INTO `mob_skills` VALUES (2519,1756,'dexter_wing',1,18.0,2000,1000,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (2520,1757,'sinister_wing',1,18.0,2000,1000,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (2521,1758,'chaos_blast',1,18.0,2000,1000,4,0,0,0,0,0,0);

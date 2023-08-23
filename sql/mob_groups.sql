@@ -4343,9 +4343,16 @@ INSERT INTO `mob_groups` VALUES (42,131,81,'Ancilla_Beetle',0,128,0,0,0,77,77,0)
 INSERT INTO `mob_groups` VALUES (43,1310,81,'Faytrapper_Vashgash',0,128,0,0,0,80,85,0);
 INSERT INTO `mob_groups` VALUES (44,1308,81,'Faygorger_Ram',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (45,1309,81,'Faygorger_Sheep',0,128,0,0,0,0,0,0);
-INSERT INTO `mob_groups` VALUES (46,4736,81,'Yilbegan',0,0,1853,0,5000,90,92,0);
+-- 46 unused
 INSERT INTO `mob_groups` VALUES (47,4656,81,'Cottus',330,128,2838,80000,0,80,85,0);
 INSERT INTO `mob_groups` VALUES (48,6543,81,'Enchanted_Bones',330,1,2697,0,0,44,46,0);
+-- Voidwalker
+INSERT INTO `mob_groups` VALUES (48,6863,81,'Yilbegan',7200,0,3229,39100,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (49,6830,81,'Krabkatoa',7200,0,3223,39100,0,83,83,0);
+INSERT INTO `mob_groups` VALUES (50,6829,81,'Yacumama',3600,0,3212,13500,0,82,82,0);
+INSERT INTO `mob_groups` VALUES (51,6828,81,'Capricornus',3600,0,3211,13500,0,82,82,0);
+INSERT INTO `mob_groups` VALUES (52,6827,81,'Quagmire_Pugil',300,0,0,5200,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (53,6826,81,'Sunderclaw',300,0,0,0,0,80,80,0);
 
 INSERT INTO `mob_groups` VALUES (2952,18,81,'Abenzio',0,128,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (2953,37,81,'Achtelle',0,128,0,0,0,0,0,0);
