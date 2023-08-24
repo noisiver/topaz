@@ -14,9 +14,6 @@ end
 
 function onTrigger(player, npc)
     local gownQuestProgress = player:getCharVar("AF_SCH_BODY")
-    local seeingBloodRed = player:getQuestStatus(CRYSTAL_WAR, tpz.quest.id.crystalWar.SEEING_BLOOD_RED)
-    local seeingBloodRedProgress = player:getCharVar("SeeingBloodRed")
-
     -- SCH AF Quest - Body
     if npc:getID() == 17142581 then
         if gownQuestProgress > 0 and gownQuestProgress < 3 and not player:hasKeyItem(tpz.ki.SAMPLE_OF_GRAUBERG_CHERT) then
@@ -27,11 +24,8 @@ function onTrigger(player, npc)
         end
     -- SCH AF3 Quest - Head
     elseif npc:getID() == 17142586 then
-        if seeingBloodRed == QUEST_ACCEPTED and seeingBloodRedProgress == 2 then
-            player:startEvent(14)
-        elseif player:getCharVar("SeeingBloodRed") == 3 and player:hasKeyItem(tpz.ki.PORTING_MAGIC_TRANSCRIPT) then
-            player:startEvent(15)
-            player:delKeyItem(tpz.ki.PORTING_MAGIC_TRANSCRIPT)
+        if player:getCharVar("SeeingBloodRed") == 3 and player:hasKeyItem(tpz.ki.PORTING_MAGIC_TRANSCRIPT) then
+            player:startEvent(102, 0, 0, 34) -- cs 15 is after you win?
             -- player:setPos(-323.6241, -23.8410, -19.5224, 93)
         else
             player:messageSpecial(ID.text.THERE_IS_NO_RESPONSE)
@@ -40,15 +34,56 @@ function onTrigger(player, npc)
 end
 
 function onEventUpdate(player, csid, option, target)
+    if csid == 102 and option == 546 then
+        if player:hasKeyItem(tpz.ki.PORTING_MAGIC_TRANSCRIPT) then
+            local instanceid = bit.rshift(option, 19) + 89
+            local party = player:getParty()
+        
+            if party ~= nil then
+                for i, v in ipairs(party) do
+                    if v:getZoneID() == player:getZoneID() and v:checkDistance(player) > 50 then
+                        player:messageText(target, ID.text.PARTY_REQUIREMENTS_FAILED, false)
+                        player:instanceEntry(target, 1)
+                        return
+                    end
+                end
+            end
+        
+            player:createInstance(instanceid, 93)
+        end
+    end
 end
 
 function onEventFinish(player, csid, option, target)
-    if csid == 14 then
-        player:setCharVar("SeeingBloodRed", 3)
-    elseif csid == 102 then
-        player:setCharVar("SeeingBloodRed", 4)
+    if csid == 102 and option == 4 then
+        player:setPos(0, 0, 0, 0, 93)
     end
 end
 
 function onInstanceCreated(player, target, instance)
+    if (instance) then
+        player:setInstance(instance)
+        player:instanceEntry(target, 4)
+        player:delKeyItem(tpz.ki.PORTING_MAGIC_TRANSCRIPT)
+        player:setCharVar("SeeingBloodRed_Instance", 1)
+
+        local party = player:getParty()
+        if party ~= nil then
+            for i, v in ipairs(party) do
+                if v:getID() ~= player:getID() and v:getZoneID() == player:getZoneID() then
+                    v:setInstance(instance)
+                    v:setPos(0, 0, 0, 0, 93)
+                    player:ChangeMusic(0, 217)
+                    player:ChangeMusic(1, 217)
+                    player:ChangeMusic(2, 217)
+                    player:ChangeMusic(3, 217)
+                    v:delKeyItem(tpz.ki.PORTING_MAGIC_TRANSCRIPT)
+                    v:setCharVar("SeeingBloodRed_Instance", 1)
+                end
+            end
+        end
+    else
+        player:messageText(target, ID.text.CANNOT_ENTER, false)
+        player:instanceEntry(target, 3)
+    end
 end

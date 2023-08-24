@@ -33,7 +33,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.SCYTHE, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	
    
 	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 100, tpz.effect.ATTACK_DOWN)
 	if (damage > 0 and not target:hasStatusEffect(tpz.effect.ATTACK_DOWN) and resist >= 0.5) then

@@ -17,6 +17,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/pets")
 require("scripts/globals/msg")
+require("scripts/globals/magic")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -30,11 +31,13 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    --TODO: Tame
+    local charmChance = GetCharmHitRate(player, target)
+    -- player:PrintToPlayer(string.format( "Your charm hit rate is %i.", charmChance))
+
     if target:isPC() then
         ability:setMsg(tpz.msg.basic.NO_EFFECT)
     else
-        if math.random(100) <= GetCharmHitRate(player, target) then
+        if math.random(100) <= charmChance then
             player:charmPet(target)
         end
     end

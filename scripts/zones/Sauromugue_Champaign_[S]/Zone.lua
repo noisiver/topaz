@@ -6,11 +6,13 @@
 local ID = require("scripts/zones/Sauromugue_Champaign_[S]/IDs")
 require("scripts/globals/quests")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
     UpdateNMSpawnPoint(ID.mob.COQUECIGRUE)
     GetMobByID(ID.mob.COQUECIGRUE):setRespawnTime(math.random(7200, 7800))
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

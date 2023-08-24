@@ -11,10 +11,14 @@ function onEffectGain(target, effect)
     ]]
 
     if effect:getPower() == 0 then
-        target:ChangeMusic(4, 212)
+        if (target:getCharVar("mountMusic") == 1) then
+            target:ChangeMusic(4, 212)
+        end
         target:setAnimation(tpz.anim.CHOCOBO)
     else
-        target:ChangeMusic(4, 84)
+        if (target:getCharVar("mountMusic") == 1) then
+            target:ChangeMusic(4, 84)
+        end
         target:setAnimation(tpz.anim.MOUNT)
     end
     target:addPetMod(tpz.mod.MOVE, 110)

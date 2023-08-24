@@ -9,6 +9,7 @@ require("scripts/globals/chocobo_digging")
 require("scripts/globals/conquest")
 require("scripts/globals/missions")
 require("scripts/globals/chocobo")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -17,6 +18,7 @@ end
 
 function onInitialize(zone)
     tpz.chocobo.initZone(zone)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn( player, prevZone)

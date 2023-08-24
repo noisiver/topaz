@@ -4,13 +4,11 @@
 -----------------------------------
 require("scripts/globals/world")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setDamage(125)
-    mob:addMod(tpz.mod.ATTP, 35)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.EVA, 20)
+    SetGenericNMStats(mob)
 end
 
 function onMobRoam(mob)
@@ -47,7 +45,5 @@ end
 function onMobDespawn(mob)
     -- Set Kruetzet's spawnpoint and respawn time (9-12 hours)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(32400, 43200))
-    mob:setLocalVar("cooldown", os.time() + mob:getRespawnTime()/1000)
     DisallowRespawn(mob:getID(), true) -- prevents accidental 'pop' during no wind weather and immediate despawn
 end

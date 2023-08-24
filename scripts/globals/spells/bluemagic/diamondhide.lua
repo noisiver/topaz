@@ -29,6 +29,8 @@ function onSpellCast(caster, target, spell)
     local power = ((blueskill)/3) *2
     local duration = 300
 
+    power = utils.ApplyStoneskinBonuses(caster, power)
+
     target:delStatusEffectSilent(typeEffect)
     target:addStatusEffect(typeEffect, power, 0, duration, 0, 0, 2)
 

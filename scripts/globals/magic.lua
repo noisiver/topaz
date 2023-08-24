@@ -521,6 +521,7 @@ function getCureFinal(caster, spell, basecure, minCure, isBlueMagic)
 
     local final = math.floor(math.floor(math.floor(math.floor(basecure) * potency) * dayWeatherBonus) * rapture) * dSeal
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
+    caster:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
     return final
 end
 
@@ -2170,6 +2171,7 @@ function GetCharmHitRate(player, target)
 
     chance = utils.clamp(chance, 5, 95)
     --print(string.format("chance final %i", chance))
+    --player:PrintToPlayer(string.format( "Your charm hit rate is %i.", chance))
 
     return chance
 end
@@ -2865,6 +2867,25 @@ function IgnoreResTraitCheck(caster)
         return true
     end
     return false
+end
+
+function CalculateEmbolden(caster, target, enhPower)
+    --------------------
+    -- Enboden effect.
+    --------------------
+    --  Applied before other bonuses, pet buffs seem to not work.
+    if
+        not caster:isPet() and
+        target:hasStatusEffect(tpz.effect.EMBOLDEN) and
+        spellGroup == tpz.magic.spellGroup.WHITE
+    then
+
+        local emboldenPower = 1.5 + target:getJobPointLevel(tpz.jp.EMBOLDEN_EFFECT) / 100 -- 1 point in job point category = 1%
+
+        enhPower = math.floor(enhPower * emboldenPower)
+    end
+
+    return enhPower
 end
 
 -- Output magic hit rate for all levels

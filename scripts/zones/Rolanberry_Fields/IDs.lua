@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- Area: Rolanberry_Fields
 -----------------------------------
 require("scripts/globals/zone")
@@ -34,6 +34,16 @@ zones[tpz.zone.ROLANBERRY_FIELDS] =
         AWAIT_YOUR_CHALLENGE     = 12165, -- We await your challenge, traveler.
         LACK_LEGION_POINTS       = 12202, -- It would seem that you lack the necessary amount of Legion points.
         COMMON_SENSE_SURVIVAL    = 12259, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        --Voidwalker
+        VOIDWALKER_NO_MOB        = 10940, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 10941, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 10942, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 10943, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 10944, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 10945, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 10946, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 10947, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 10948, -- Obtained key item: ≺abyssite>!   
     },
     mob =
     {
@@ -55,6 +65,29 @@ zones[tpz.zone.ROLANBERRY_FIELDS] =
         SILK_CATERPILLAR  = 17227782,
         SIMURGH           = 17228242,
         CHUGLIX_BERRYPAWS = 17228249,
+        VOIDWALKER        =
+        {
+            [tpz.keyItem.CLEAR_ABYSSITE] = {
+                17228261,  -- Lacus
+                17228260,  -- Thunor
+                17228259, -- Beorht
+                17228258, -- Pruina
+                17228257,  -- Puretos
+                17228256,  -- Eorthe
+                17228255, -- Deorc
+                17228254, -- Aither
+            },
+            [tpz.keyItem.COLORFUL_ABYSSITE] = {
+                17228253, -- Skuld
+                17228252  -- Urd
+            },
+            [tpz.keyItem.YELLOW_ABYSSITE] = {
+                17228251  -- Verthandi
+            },
+            [tpz.keyItem.BLACK_ABYSSITE] = {
+                17228250  -- Yilbegan
+            }
+        }
     },
     npc =
     {

@@ -54,6 +54,7 @@
 #include "../treasure_pool.h"
 #include "../conquest_system.h"
 #include "../utils/zoneutils.h"
+#include "../packets/chat_message.h"
 
 CMobEntity::CMobEntity()
 {
@@ -1459,6 +1460,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
+        loc.zone->PushPacket(this, CHAR_INZONE, new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_2, "An extremely rare item has dropped!!!"));
     }
     uint16 Pzone = PChar->getZone();
 

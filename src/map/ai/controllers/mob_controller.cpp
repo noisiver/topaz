@@ -632,7 +632,8 @@ bool CMobController::TryCastSpell()
     {
         // skip logic and follow script
         auto chosenSpellId = luautils::OnMonsterMagicPrepare(PMob, PTarget);
-        if (chosenSpellId && currentDistance <= 20.4)
+        CSpell* PSpell = spell::GetSpell(chosenSpellId.value());
+        if (chosenSpellId && currentDistance <= PSpell->getRange())
         {
             CastSpell(chosenSpellId.value());
             return true;
@@ -653,7 +654,8 @@ bool CMobController::TryCastSpell()
             chosenSpellId = PMob->SpellContainer->GetSpell();
         }
 
-        if (chosenSpellId && currentDistance <= 20.4)
+        CSpell* PSpell = spell::GetSpell(chosenSpellId.value());
+        if (chosenSpellId && currentDistance <= PSpell->getRange())
         {
             CastSpell(chosenSpellId.value());
             return true;
@@ -1176,6 +1178,7 @@ void CMobController::DoRoamTick(time_point tick)
     if (m_Tick >= m_LastRoamScript + 3s)
     {
         PMob->PAI->EventHandler.triggerListener("ROAM_TICK", PMob);
+        PMob->StatusEffectContainer->DelStatusEffect(EFFECT_HEALING);
         luautils::OnMobRoam(PMob);
         m_LastRoamScript = m_Tick;
     }

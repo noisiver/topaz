@@ -3,6 +3,9 @@
 -----------------------------------
 require("scripts/globals/mobs")
 require("scripts/globals/voidwalkerpos")
+require("scripts/globals/items")
+require("scripts/globals/keyitems")
+require("scripts/globals/titles")
 -----------------------------------
 tpz = tpz or {}
 tpz.voidwalker = tpz.voidwalker or {}

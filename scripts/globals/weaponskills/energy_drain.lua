@@ -8,24 +8,39 @@ require("scripts/globals/weaponskills")
 -----------------------------------
 
 function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
+    local fTPAnchors = { 1.25, 2.5, 4.125 }
 
-    local params = {}
-    params.ftp100 = 0.35 params.ftp200 = 0.4 params.ftp300 = 0.5
-    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 1.0 params.chr_wsc = 0.0
-    params.ele = tpz.magic.ele.DARK
-    params.skill = tpz.skill.DAGGER
-    params.includemab = true
-	params.enmityMult = 0.5
-	params.bonusmacc = 50
+    local startingAnchor = math.floor(tp / 1000)
+    
+    local multiplier = 0
 
-    if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
-        params.str_wsc = 0.4 params.int_wsc = 0.4
+    if tp >= 3000 then
+        multiplier = fTPAnchors[3]
+    else
+        local basefTP   = fTPAnchors[startingAnchor]
+        local nextfTP   = fTPAnchors[startingAnchor + 1]
+        local multPerTP = (nextfTP - basefTP) / 1000 * (tp - 1000 * startingAnchor)
+        -- TP = 1250; multiplier = 1.25 + ( (2.5 - 1.25) / 1000 * (1250 - (1000 * 1))
+        --            multiplier = 1.25 + (1.25 / 1000) * 250)
+        --            multiplier = 1.25 + 0.3125 = 1.5625
+        multiplier = basefTP + multPerTP
     end
 
-    local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
-    if not player:hasStatusEffect(tpz.effect.CURSE_II) then
-        player:addMP(damage)
+    local skill = player:getSkillLevel(tpz.skill.DAGGER)
+    local wsc   = player:getStat(tpz.mod.MND) * 1.0
+    local mpRestored = math.floor((math.floor(skill * 0.11) + wsc) * multiplier)
+
+    if target:isUndead() then
+        mpRestored = 0
+    else
+        -- Absorb MP from target
+        target:delMP(mpRestored)
+        player:addMP(mpRestored)
     end
-    damage = 0
-    return tpHits, extraHits, criticalHit, damage
+
+    -- Display MP actually given to player
+    action:messageID(target:getID(), tpz.msg.basic.SKILL_DRAIN_MP)
+    action:param(target:getID(), mpRestored)
+
+    return 1, 0, false, mpRestored
 end

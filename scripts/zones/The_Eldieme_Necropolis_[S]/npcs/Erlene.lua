@@ -67,8 +67,8 @@ function onTrigger(player, npc)
         else
             player:startEvent(13)
         end
-    -- elseif (ALittleKnowledge == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= 5 and not (player:hasSpell(478) and player:hasSpell(502))) then
-            -- player:startEvent(47) Spells are Out of Era
+    elseif (ALittleKnowledge == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= 5 and not (player:hasSpell(478) and player:hasSpell(502))) then -- Embrava and Kaustra
+            player:startEvent(47) 
     elseif (onSabbatical == QUEST_AVAILABLE and mJob == tpz.job.SCH and mLvl >= AF1_QUEST_LEVEL) then
             player:startEvent(18)
     elseif (onSabbatical == QUEST_ACCEPTED) then
@@ -78,7 +78,7 @@ function onTrigger(player, npc)
         else
             player:startEvent(20)
         end
-    elseif (onSabbatical == QUEST_COMPLETED and player:getCharVar("Erlene_Sabbatical_Timer")~=VanadielDayOfTheYear() and mJob == tpz.job.SCH and mLvl >= AF2_QUEST_LEVEL and downwardHelix == QUEST_AVAILABLE) then
+    elseif (onSabbatical == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= AF2_QUEST_LEVEL and downwardHelix == QUEST_AVAILABLE) then
         player:startEvent(player:needToZone() and 15 or 23)
     elseif (downwardHelix == QUEST_ACCEPTED) then
         local downwardHelixProgress = player:getCharVar("DownwardHelix")
@@ -91,9 +91,7 @@ function onTrigger(player, npc)
         elseif (downwardHelixProgress == 4) then
             player:startEvent(27)
         end
-    elseif (downwardHelix == QUEST_COMPLETED and (player:getCharVar("Erlene_DownwardHelix_Timer")==VanadielDayOfTheYear())) then
-        player:startEvent(28)
-    elseif (seeingBloodRed == QUEST_AVAILABLE and downwardHelix == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= AF3_QUEST_LEVEL and player:getCharVar("Erlene_DownwardHelix_Timer")~=VanadielDayOfTheYear()) then
+    elseif (seeingBloodRed == QUEST_AVAILABLE and downwardHelix == QUEST_COMPLETED and mJob == tpz.job.SCH and mLvl >= AF3_QUEST_LEVEL) then
         player:startEvent(player:needToZone() and 28 or 29)
     elseif (seeingBloodRed == QUEST_ACCEPTED) then
         local seeingBloodRedProgress = player:getCharVar("SeeingBloodRed")
@@ -113,7 +111,6 @@ function onTrigger(player, npc)
     else
         player:startEvent(15)
     end
-
 end
 
 function onEventUpdate(player, csid, option)

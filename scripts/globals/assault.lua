@@ -205,7 +205,7 @@ function onAssaultUpdate(player, csid, option, target, orders, zoneID)
 
     player:setCharVar("AssaultCap", cap)
 
-    if (player:getGMLevel() == 0 or player:getGMLevel() == 1) and player:getPartySize() < 3 then
+    if (player:getGMLevel() == 0 or player:getGMLevel() == 1) and player:getPartySize() <= 1 then
         player:messageSpecial(zones[player:getZoneID()].text.PARTY_MIN_REQS, 3)
         player:instanceEntry(target,1)
         return

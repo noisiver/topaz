@@ -8,10 +8,12 @@ require("scripts/globals/keyitems")
 require("scripts/globals/quests")
 require("scripts/globals/helm")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
     tpz.helm.initZone(zone, tpz.helm.type.MINING)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

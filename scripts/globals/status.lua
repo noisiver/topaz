@@ -912,6 +912,8 @@ tpz.effectFlag =
     INFLUENCE       = 0x1000000,
     OFFLINE_TICK    = 0x2000000,
     AURA            = 0x4000000,
+    FINISHING_MOVE  = 0x8000000,  -- Is a finishing move
+    HIDE_TIMER      = 0x10000000, -- Sends "Always" in the packet, even though timer is tracked (used for geo bubbles / infinite duration buffs)
 }
 
 ------------------------------------
@@ -1687,6 +1689,8 @@ tpz.mod =
     FENCER_TP_BONUS                 = 903, -- TP Bonus to weapon skills from Fencer Trait
     FENCER_CRITHITRATE              = 904, -- Increased Crit chance from Fencer Trait
     FENCER_JA_HASTE                 = 986, -- Increased JA Haste chance from Fencer Trait
+    TRIPLE_SHOT_RATE                = 987,  -- The rate that triple shot can proc. Without this, the default is 40%.
+    ENHANCES_RESTRAINT              = 988, -- Enhances "Restraint" effect/"Restraint" + (Increases the damage bonus of Restraint by XXX%)
     SHIELD_DEF_BONUS                = 905, -- Shield Defense Bonus
     SNEAK_DURATION                  = 946, -- Additional duration in seconds
     INVISIBLE_DURATION              = 947, -- Additional duration in seconds
@@ -1708,8 +1712,6 @@ tpz.mod =
     COVER_DURATION                  = 1016, -- Increases Cover Duration
     WYVERN_SUBJOB_TRAITS            = 1010, -- Adds subjob traits to wyvern
     GARDENING_WILT_BONUS            = 1011, -- Increases the number of Vanadays a plant can survive before it wilts
-    SUPER_JUMP                      = 988,
-    
 
     RESBUILD_SLEEP      = 959,
     RESBUILD_GRAVITY    = 960,
@@ -1807,19 +1809,14 @@ tpz.mod =
     PHALANX_RECIEVED        = 1320, -- Phalanx effect received.
     DEF_TRAIT               = 1321, -- Defense bonus traits
     BLUE_SPELLCASTING_TIME  = 1322, -- Reduces Blue Magic spellcasting time
+    NINJUTSU_DURATION       = 1323, -- Increases the effect duration of ninjutsu (in percents)
+    EFFLUX_BONUS            = 1324, -- Bonus to Efflux, flat amount
+    EFFLUX_MULTIPLIER       = 1325, -- Bonus to Efflux, in percents
+    UNBRIDLED_DAMAGE        = 1326, -- Bonus damage to Unbridled Learning spells, in percents
+    UNBRIDLED_DURATION      = 1327,-- Bonus duration to Unbridled Learning spells, in percents
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- SPARE = 986, -- stuff
-    -- SPARE = 987, -- stuff
-    -- super jump taking up 988
-    -- 1323 NEXT
-
-
-    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
-    -- 570 - 825 used by WS DMG mods these are not spares.
-    -- SPARE = 986, -- stuff
-    -- SPARE = 987, -- stuff
-    -- SPARE = 988, -- stuff
+    -- 1328 NEXT
 }
 
 tpz.latent =

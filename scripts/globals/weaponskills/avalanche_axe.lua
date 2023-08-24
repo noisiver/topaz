@@ -42,7 +42,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         end
 	end
 	if damage > 0 then player:trySkillUp(target, tpz.skill.AXE, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	
     return tpHits, extraHits, criticalHit, damage
 
 end

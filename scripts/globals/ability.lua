@@ -703,7 +703,7 @@ function corsairSetup(caster, ability, action, effect, job)
                              tpz.effect.DOUBLE_UP_CHANCE,
                              roll,
                              0,
-                             60,
+                             45, -- How long you can double up for, in seconds
                              ability:getID(),
                              effect,
                              job,

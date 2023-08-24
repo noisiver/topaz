@@ -8,7 +8,7 @@ require("scripts/globals/mobs")
 local ID = require("scripts/zones/Lufaise_Meadows/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(50)
+	mob:setDamage(90)
     mob:setMod(tpz.mod.MAIN_DMG_RATING, 0)
     mob:setMod(tpz.mod.DMGPHYS, 0)
     mob:setMod(tpz.mod.UFASTCAST, 0)

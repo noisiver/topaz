@@ -20,11 +20,13 @@ function onSpellCast(caster, target, spell)
     hp = hp + caster:getMod(tpz.mod.LIGHT_ARTS_REGEN) -- bonus hp from light arts
 
     local duration = calculateDuration(60 + caster:getMod(tpz.mod.REGEN_DURATION), spell:getSkillType(), spell:getSpellGroup(), caster, target)
-    duration = calculateDurationForLvl(duration, 86, target:getMainLvl())
+    duration = calculateDurationForLvl(duration, 79, target:getMainLvl())
 
     -- SCH main while Light Arts being active tripled the duration
-    if caster:getMainJob() == tpz.job.SCH and caster:hasStatusEffect(tpz.effect.LIGHT_ARTS) then
-        duration = duration * 3
+    if caster:getMainJob() == tpz.job.SCH then 
+        if caster:hasStatusEffect(tpz.effect.LIGHT_ARTS) or caster:hasStatusEffect(tpz.effect.ADDENDUM_WHITE) then
+            duration = duration * 3
+        end
     end
 
     if target:addStatusEffect(tpz.effect.REGEN, hp, 0, duration) then

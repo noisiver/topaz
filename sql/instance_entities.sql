@@ -1214,6 +1214,10 @@ INSERT INTO `instance_entities` VALUES (79,17006761);
 INSERT INTO `instance_entities` VALUES (79,17006762);
 INSERT INTO `instance_entities` VALUES (79,17006763);
 
+
+-- Seeing Blood-red(SCH AF3)
+INSERT INTO `instance_entities` VALUES(89, 17158191);
+
 -- Sandworm (WotG HNM)
 
 INSERT INTO `instance_entities` VALUES(81, 17129519);

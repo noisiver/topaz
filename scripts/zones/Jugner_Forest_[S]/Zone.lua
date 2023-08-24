@@ -7,11 +7,13 @@ local ID = require("scripts/zones/Jugner_Forest_[S]/IDs")
 require("scripts/globals/chocobo")
 require("scripts/globals/quests")
 require("scripts/globals/helm")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
     tpz.helm.initZone(zone, tpz.helm.type.LOGGING)
     tpz.chocobo.initZone(zone)
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

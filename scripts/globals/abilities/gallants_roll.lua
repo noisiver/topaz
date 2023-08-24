@@ -1,6 +1,6 @@
 -----------------------------------
 -- Ability: Gallant's Roll
--- Reduces physical damage taken by party members within area of effect
+-- Reduces physical damage taken by party members within area of effect (PDT)
 -- Optimal Job: Paladin
 -- Lucky Number: 3
 -- Unlucky Number: 7
@@ -9,18 +9,18 @@
 --
 -- Die Roll    |No PLD  |With PLD
 -- --------    -------  -----------
--- 1           |6%      |11%
--- 2           |8%      |13%
--- 3           |24%     |29%
--- 4           |9%      |14%
--- 5           |11%     |16%
--- 6           |12%     |17%
--- 7           |3%      |8%
--- 8           |15%     |20%
--- 9           |17%     |22%
--- 10          |18%     |23%
--- 11          |30%     |35%
--- Bust        |-5%     |-5%
+-- 1           |6%     |9%
+-- 2           |8%     |11%
+-- 3           |22%    |25%
+-- 4           |9%     |12%
+-- 5           |11%    |14%
+-- 6           |12%    |15%
+-- 7           |3%     |8%
+-- 8           |15%    |18%
+-- 9           |17%    |20%
+-- 10          |18%    |21%
+-- 11          |25%    |28%
+-- Bust        |-5%    |-5%
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/ability")
@@ -50,10 +50,10 @@ end
 
 function applyRoll(caster, target, ability, action, total)
     local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
-    local effectpowers = {6, 8, 24, 9, 11, 12, 3, 15, 17, 18, 30, 5}
+    local effectpowers = {6, 8, 22, 9, 11, 12, 3, 15, 17, 18, 25, 5}
     local effectpower = effectpowers[total]
     if (caster:getLocalVar("corsairRollBonus") == 1 and total < 12) then
-        effectpower = effectpower + 5
+        effectpower = effectpower + 3
     end
 -- Apply Additional Phantom Roll+ Buff
     local phantomBase = 2.34 -- Base increment buff

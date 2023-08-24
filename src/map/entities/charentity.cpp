@@ -84,6 +84,7 @@
 #include "../packets/status_effects.h"
 #include "../mobskill.h"
 #include "../utils/petutils.h"
+#include "../job_points.h"
 
 
 CCharEntity::CCharEntity()
@@ -1001,61 +1002,67 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     {
         for (auto&& actionTarget : actionList.actionTargets)
         {
-            if (PSpell->dealsDamage() && PSpell->getSpellGroup() == SPELLGROUP_BLUE &&
-                StatusEffectContainer->HasStatusEffect(EFFECT_CHAIN_AFFINITY) &&
-                static_cast<CBlueSpell*>(PSpell)->getPrimarySkillchain() != 0)
+            if (StatusEffectContainer->HasStatusEffect(EFFECT_CHAIN_AFFINITY) || StatusEffectContainer->HasStatusEffect(EFFECT_AZURE_LORE))
             {
-                auto PBlueSpell = static_cast<CBlueSpell*>(PSpell);
-                SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PBlueSpell->getPrimarySkillchain(), PBlueSpell->getSecondarySkillchain(), 0);
-                if (effect != SUBEFFECT_NONE)
+                if (PSpell->dealsDamage() && PSpell->getSpellGroup() == SPELLGROUP_BLUE && static_cast<CBlueSpell*>(PSpell)->getPrimarySkillchain() != 0)
                 {
-                    // Apply Inundation weapon skill type tracking
-                    if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                    auto PBlueSpell = static_cast<CBlueSpell*>(PSpell);
+                    SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PBlueSpell->getPrimarySkillchain(), PBlueSpell->getSecondarySkillchain(), 0);
+                    if (effect != SUBEFFECT_NONE)
                     {
-                        CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
-                        auto power = PEffect->GetPower();
-                        auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
-                        auto subPower = PEffect->GetSubPower();
-                        if ((subPower & currentFlag) == 0)
+                        // Apply Inundation weapon skill type tracking
+                        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
                         {
-                            PEffect->SetPower(power + 1);
-                            PEffect->SetSubPower(subPower | currentFlag);
+                            CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                            auto power = PEffect->GetPower();
+                            auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
+                            auto subPower = PEffect->GetSubPower();
+                            if ((subPower & currentFlag) == 0)
+                            {
+                                PEffect->SetPower(power + 1);
+                                PEffect->SetSubPower(subPower | currentFlag);
+                            }
+                        }
+
+                        uint16 skillChainDamage = battleutils::TakeSkillchainDamage(static_cast<CBattleEntity*>(this), PTarget, actionTarget.param, nullptr);
+
+                        actionTarget.addEffectParam = skillChainDamage;
+                        actionTarget.addEffectMessage = 287 + effect;
+                        actionTarget.additionalEffect = effect;
+                    }
+                    else if (effect == SUBEFFECT_NONE)
+                    {
+                        // Reset Inundation weapon skill type tracking
+                        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                        {
+                            CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
+                            auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
+                            PEffect->SetPower(0);
+                            PEffect->SetSubPower(currentFlag);
                         }
                     }
-
-                    uint16 skillChainDamage = battleutils::TakeSkillchainDamage(static_cast<CBattleEntity*>(this), PTarget, actionTarget.param, nullptr);
-
-                    actionTarget.addEffectParam = skillChainDamage;
-                    actionTarget.addEffectMessage = 287 + effect;
-                    actionTarget.additionalEffect = effect;
-
-                }
-                else if (effect == SUBEFFECT_NONE)
-                {
-                    // Reset Inundation weapon skill type tracking
-                    if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_INUNDATION))
+                    if (StatusEffectContainer->HasStatusEffect({ EFFECT_SEKKANOKI, EFFECT_MEIKYO_SHISUI }))
                     {
-                        CStatusEffect* PEffect = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_INUNDATION, 0);
-                        auto currentFlag = WEAPONTYPE_BLUE_MAGIC;
-                        PEffect->SetPower(0);
-                        PEffect->SetSubPower(currentFlag);
+                        health.tp = (health.tp > 1000 ? health.tp - 1000 : 0);
                     }
-                }
-                if (StatusEffectContainer->HasStatusEffect({EFFECT_SEKKANOKI, EFFECT_MEIKYO_SHISUI}))
-                {
-                    health.tp = (health.tp > 1000 ? health.tp - 1000 : 0);
-                }
-                else
-                {
-                    health.tp = 0;
-                }
+                    else
+                    {
+                        health.tp = 0;
+                    }
 
-                StatusEffectContainer->DelStatusEffectSilent(EFFECT_CHAIN_AFFINITY);
-            }
+                    StatusEffectContainer->DelStatusEffectSilent(EFFECT_CHAIN_AFFINITY);
+                }
+            }   
         }
     }
     StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
     charutils::RemoveStratagems(this, PSpell);
+    // Delete Elemental Seal if the spell is black magic, blue magic, ninjitsu, a song, or a divine spell
+    if (PSpell->getSpellGroup() >= SPELLGROUP_SONG && PSpell->getSpellGroup() <= SPELLGROUP_NINJUTSU ||
+        PSpell->getSkillType()  == SKILL_DIVINE_MAGIC)
+    {
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_ELEMENTAL_SEAL);
+    }
     if (PSpell->tookEffect())
     {
         if (PSpell->dealsDamage())
@@ -1195,7 +1202,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
             {
                 if (PWeaponSkill->getID() >= 192 && PWeaponSkill->getID() <= 218)
                 {
-                    uint16 recycleChance = getMod(Mod::RECYCLE) + PMeritPoints->GetMeritValue(MERIT_RECYCLE, this);
+                    uint16 recycleChance = getMod(Mod::RECYCLE) + PMeritPoints->GetMeritValue(MERIT_RECYCLE, this) + this->PJobPoints->GetJobPointValue(JP_AMMO_CONSUMPTION);
 
                     if (StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))
                     {
@@ -1668,6 +1675,14 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         isSange = true;
         hitCount += getMod(Mod::UTSUSEMI);
     }
+    else if (this->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBLE_SHOT) && tpzrand::GetRandomNumber(100) < (40 + this->getMod(Mod::DOUBLE_SHOT_RATE)))
+    {
+        hitCount = 2;
+    }
+    else if (this->StatusEffectContainer->HasStatusEffect(EFFECT_TRIPLE_SHOT) && tpzrand::GetRandomNumber(100) < (40 + this->getMod(Mod::TRIPLE_SHOT_RATE)))
+    {
+        hitCount = 3;
+    }
 
     // loop for barrage hits, if a miss occurs, the loop will end
     for (uint8 i = 1; i <= hitCount; ++i)
@@ -1740,6 +1755,8 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         {
             recycleChance += PMeritPoints->GetMeritValue(MERIT_RECYCLE, this);
         }
+
+        recycleChance += this->PJobPoints->GetJobPointValue(JP_AMMO_CONSUMPTION);
 
         // Only remove unlimited shot on hit
         if (hitOccured && this->StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))

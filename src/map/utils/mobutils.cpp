@@ -36,6 +36,7 @@
 #include "../items/item_weapon.h"
 #include "../status_effect_container.h"
 #include "../mob_spell_container.h"
+#include "../ai/ai_container.h"
 #include <vector>
 #include "../packets/action.h"
 
@@ -309,6 +310,11 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
             else if (PMob->m_Family == 179)
             {
                 mobHP = (baseMobHP + sjHP) * 1.5;
+            }
+            // Qutrub family has 400% more HP
+            else if (PMob->m_Family >= 203 && PMob->m_Family <= 205)
+            {
+                mobHP = (baseMobHP + sjHP) * 3.0;
             }
             else
             {
@@ -1121,6 +1127,7 @@ void SetupDynamisMob(CMobEntity* PMob)
     }
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupLimbusMob(CMobEntity* PMob)
@@ -1129,7 +1136,7 @@ void SetupLimbusMob(CMobEntity* PMob)
     // Bonus stats for difficulty
     if (mLvl >= 81)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(150);
         }
@@ -1143,7 +1150,7 @@ void SetupLimbusMob(CMobEntity* PMob)
     }
     else
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(120);
         }
@@ -1165,6 +1172,7 @@ void SetupLimbusMob(CMobEntity* PMob)
     PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupDungeonInstancedMob(CMobEntity* PMob)
@@ -1173,9 +1181,9 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     // Bonus stats for difficulty
     if (mLvl >= 81)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(150);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(100);
         }
 
         PMob->addModifier(Mod::REGEN, 30);
@@ -1183,9 +1191,9 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     }
     else
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(135);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(90);
         }
 
         PMob->addModifier(Mod::ACC, 30);
@@ -1202,6 +1210,7 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     PMob->SetDespawnTime(0s);
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupSalvageMob(CMobEntity* PMob)
@@ -1211,9 +1220,9 @@ void SetupSalvageMob(CMobEntity* PMob)
     // Bonus stats for difficulty
     if (mLvl >= 90)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(125);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(60);
         }
 
         PMob->addModifier(Mod::ATTP, 25);
@@ -1222,9 +1231,9 @@ void SetupSalvageMob(CMobEntity* PMob)
     }
     else if (mLvl >= 85)
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(115);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(50);
         }
 
         PMob->addModifier(Mod::ATTP, 25);
@@ -1233,9 +1242,9 @@ void SetupSalvageMob(CMobEntity* PMob)
     }
     else
     {
-        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() != SKILL_HAND_TO_HAND)
         {
-            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(100);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(40);
         }
 
         PMob->addModifier(Mod::ATTP, 25);
@@ -1271,6 +1280,7 @@ void SetupSalvageMob(CMobEntity* PMob)
     PMob->addModifier(Mod::DMGSPIRITS, -75);
     PMob->addModifier(Mod::REFRESH, 400);
     PMob->setModifier(Mod::MOVE, 15);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupStrongholdsMob(CMobEntity* PMob)
@@ -1303,6 +1313,7 @@ void SetupBattlefieldMob(CMobEntity* PMob)
     }
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 
 }
 
@@ -1317,6 +1328,7 @@ void SetupEventMob(CMobEntity* PMob)
     PMob->m_maxRoamDistance = 0.5f; // always go back to spawn
 
     PMob->setMobMod(MOBMOD_NO_DESPAWN, 1);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void SetupNMMob(CMobEntity* PMob)
@@ -1381,6 +1393,7 @@ void SetupNMMob(CMobEntity* PMob)
     }
 
     PMob->addModifier(Mod::REFRESH, 400);
+    PMob->PAI->PathFind->SetCarefulPathing(true);
 }
 
 void RecalculateSpellContainer(CMobEntity* PMob)

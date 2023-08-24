@@ -77,6 +77,7 @@
 #include "../utils/petutils.h"
 #include "zoneutils.h"
 #include "../packets/chat_message.h"
+#include "../job_points.h"
 
 
 
@@ -1594,7 +1595,6 @@ int getSDTTier(int SDT)
             uint8 enspell = (uint8)PAttacker->getMod(Mod::ENSPELL);
 
             uint8 element = 1;
-            uint8 SDTdivisor = 1;
             uint16 resistDownEle = 0;
 
             switch (enspell)
@@ -1695,10 +1695,15 @@ int getSDTTier(int SDT)
             {
                 Action->additionalEffect = SUBEFFECT_HP_DRAIN;
                 Action->addEffectMessage = 161;
-                if (SDTdivisor == 1)
-                    Action->addEffectParam = PAttacker->addHP(Action->param);
-                else
-                    Action->addEffectParam = 0;
+
+                // Increase HP Absorbed by 2% per JP
+                int32 absorbed = Action->param;
+                if (PAttacker->objtype == TYPE_PC)
+                {
+                    absorbed += (int32)floor(absorbed * 0.02f * static_cast<CCharEntity*>(PAttacker)->PJobPoints->GetJobPointValue(JP_BLOOD_WEAPON_EFFECT));
+                }
+
+                Action->addEffectParam = PAttacker->addHP(absorbed);
 
                 if (PChar != nullptr)
                 {
@@ -2097,6 +2102,12 @@ int getSDTTier(int SDT)
         int acc = 0;
         int hitrate = 75;
 
+        // Check to see if distance is greater than 25 and force hitrate to be 0
+        if (distance(PAttacker->loc.p, PDefender->loc.p) > 25)
+        {
+            return 0;
+        }
+
         if (PAttacker->objtype == TYPE_PC)
         {
             CCharEntity* PChar = (CCharEntity*)PAttacker;
@@ -2136,9 +2147,13 @@ int getSDTTier(int SDT)
             acc = std::max({ archery_acc, marksmanship_acc, throwing_acc });
         }
         // Check for Yonin evasion bonus while in front of target
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_YONIN) && infront(PDefender->loc.p, PAttacker->loc.p, 64))
+        if (PDefender->objtype == TYPE_PC)
         {
-            acc -= PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_YONIN)->GetPower();
+            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_YONIN) && infront(PDefender->loc.p, PAttacker->loc.p, 64))
+            {
+                auto* PChar = static_cast<CCharEntity*>(PDefender);
+                acc -= PChar->StatusEffectContainer->GetStatusEffect(EFFECT_YONIN)->GetPower() + PChar->PJobPoints->GetJobPointValue(JP_YONIN_EFFECT) * 2;
+            }
         }
 
         // Add any specific accuracy bonus, e.g. Daken RAcc +100
@@ -3148,14 +3163,22 @@ int getSDTTier(int SDT)
                 offsetAccuracy -= ((CCharEntity*)PDefender)->PMeritPoints->GetMeritValue(MERIT_CLOSED_POSITION, (CCharEntity*)PDefender);
             }
             // Check for Innin accuracy bonus from behind target
-            if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+            if (PAttacker->objtype == TYPE_PC)
             {
-                offsetAccuracy += PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_INNIN)->GetPower();
+                if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+                {
+                    auto* PChar = static_cast<CCharEntity*>(PAttacker);
+                    offsetAccuracy += PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_INNIN)->GetPower() + PChar->PJobPoints->GetJobPointValue(JP_INNIN_EFFECT);
+                }
             }
             // Check for Yonin evasion bonus while in front of target
-            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_YONIN) && infront(PDefender->loc.p, PAttacker->loc.p, 64))
+            if (PDefender->objtype == TYPE_PC)
             {
-                offsetAccuracy -= PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_YONIN)->GetPower();
+                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_YONIN) && infront(PDefender->loc.p, PAttacker->loc.p, 64))
+                {
+                    auto* PChar = static_cast<CCharEntity*>(PDefender);
+                    offsetAccuracy -= PChar->StatusEffectContainer->GetStatusEffect(EFFECT_YONIN)->GetPower() + PChar->PJobPoints->GetJobPointValue(JP_YONIN_EFFECT) * 2;
+                }
             }
             // ShowDebug("Accuracy mod after direction checks: %d\n", offsetAccuracy);
 

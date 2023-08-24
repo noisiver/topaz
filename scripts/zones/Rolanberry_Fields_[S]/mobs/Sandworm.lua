@@ -12,7 +12,7 @@ require("scripts/globals/monstertpmoves")
 local SandwormID =
 {
     17109357, -- East Ronfaure
-    17121693, -- Batallia Downs
+    17121693, -- Rolanberry Fields_[S]
     17138041, -- North Gustaberg
     --17150317, -- Rolanberry Fields 
     17166720, -- West Sarutabaruta 

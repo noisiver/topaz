@@ -40,6 +40,8 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
+    power = utils.ApplyStoneskinBonuses(caster, power)
+
     target:delStatusEffectSilent(typeEffect)
     target:addStatusEffect(typeEffect, power, 0, duration, 0, 0, 2)
 

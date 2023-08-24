@@ -9,6 +9,7 @@ require("scripts/globals/chocobo_digging")
 require("scripts/globals/conquest")
 require("scripts/globals/missions")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -23,6 +24,7 @@ function onInitialize(zone)
     GetMobByID(ID.mob.COO_KEJA_THE_UNSEEN):setRespawnTime(math.random(900, 10800))
 
     tpz.conq.setRegionalConquestOverseers(zone:getRegionID())
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

@@ -9,10 +9,12 @@ require("scripts/globals/conquest")
 require("scripts/globals/keyitems")
 require("scripts/globals/utils")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onInitialize(zone)
     tpz.conq.setRegionalConquestOverseers(zone:getRegionID())
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

@@ -40,8 +40,6 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
 	if damage > 0 then player:trySkillUp(target, tpz.skill.ARCHERY, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
-    player:addStatusEffectEx(tpz.effect.MEDITATE, 0, 20, 3, 15)
 
     return tpHits, extraHits, criticalHit, damage
 end

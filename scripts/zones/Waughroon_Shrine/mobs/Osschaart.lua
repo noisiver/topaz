@@ -126,6 +126,10 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
+function onSpellPrecast(mob, spell)
+    SetNukeAnimationsToGa(mob, spell)
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
 end
 

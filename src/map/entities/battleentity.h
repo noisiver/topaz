@@ -153,7 +153,7 @@ enum SUBSKILLTYPE
     SUBSKILL_CNN = 2,
     SUBSKILL_SHURIKEN = 3,
 
-    SUBSKILL_ANI = 10,
+    SUBSKILL_ANI = 10, // Animators(PUP)
 
     SUBSKILL_SHEEP = 21,
     SUBSKILL_HARE = 22,
@@ -201,7 +201,58 @@ enum SUBSKILLTYPE
     SUBSKILL_RAPHIE = 65,
     SUBSKILL_MAC = 66,
     SUBSKILL_SILAS = 67,
-    SUBSKILL_TOLOI = 68
+    SUBSKILL_TOLOI = 68,
+    SUBSKILL_Roche = 76,  // Airy Broth
+    SUBSKILL_Caroline = 77,  // Aged Humus
+    SUBSKILL_Ken = 78, // Blackwater Broth
+    SUBSKILL_Jedd = 79,  // Crackling Broth
+    SUBSKILL_Annabelle = 80,  // Creepy Broth
+    SUBSKILL_Waluis = 81,  // Crumbly Soil
+    SUBSKILL_Slime = 82,  // Decaying Broth
+    SUBSKILL_Patrice = 83,  // Putrescent Broth
+    SUBSKILL_Arthur = 84, // Dire Broth
+    SUBSKILL_Candi = 85,  // Electrified Broth
+    SUBSKILL_Honey = 86,  // Bug-Ridden Broth
+    SUBSKILL_Lynx = 87, // Frizzante Broth
+    SUBSKILL_Gaston = 88,  // Spumante Broth
+    SUBSKILL_Kiyomaro = 89,  // Fizzy Broth
+    SUBSKILL_Vickie = 90,  // Tant. Broth
+    SUBSKILL_Alice = 91,  // Furious Broth
+    SUBSKILL_Storm = 92,  // Insipid Broth
+    SUBSKILL_Iyo = 93,  // Deepwater Broth
+    SUBSKILL_Patrick = 94,  // Livid Broth
+    SUBSKILL_Shizuna = 95,  // Lyrical Broth
+    SUBSKILL_Randy = 96,  // Meaty Broth
+    SUBSKILL_Lynn = 97,  // Muddy Broth
+    SUBSKILL_Percival = 98, // Pale Sap
+    SUBSKILL_Acuex = 99,  // Poisonous Broth
+    SUBSKILL_Bredo = 100,  // Venomous Broth
+    SUBSKILL_Weevil = 101,  // Pristine Sap
+    SUBSKILL_Angelina = 102,  // Truly Pristine Sap
+    SUBSKILL_Reinhard = 103,  // Rapid Broth
+    SUBSKILL_Hermes = 104,  // Saline Broth
+    SUBSKILL_Porter_Crab = 105,  // Rancid Broth
+    SUBSKILL_Edwin = 106, // Pungent Broth
+    SUBSKILL_Ibuki = 107,  // Salubrious Broth
+    SUBSKILL_Zhivago = 108, // Windy Greens
+    SUBSKILL_Malfik = 109,  // Shimmering Broth
+    SUBSKILL_Angus = 110,  // Ferm. Broth
+    SUBSKILL_Xerin = 111,  // Spicy Broth
+    SUBSKILL_Bertha = 112,  // Bubbly Broth
+    SUBSKILL_Spider = 113,  // Sticky Webbing
+    SUBSKILL_Hachirobe = 114, // Slimy Webbing
+    SUBSKILL_Colibri = 115,  // Sugary Broth
+    SUBSKILL_Leera = 116,  // Glazed Broth
+    SUBSKILL_Dortwin = 117,  // Swirling Broth
+    SUBSKILL_Peter = 118,  // Vis. Broth
+    SUBSKILL_Henry = 119,  // Trans. Broth
+    SUBSKILL_Hippogryph = 120,  // Turpid Broth
+    SUBSKILL_Roland = 121,  // Feculent Broth
+    SUBSKILL_Mosquito = 122,  // Wetlands Broth
+    SUBSKILL_Yoko = 123,  // Heavenly Broth
+    SUBSKILL_Glenn = 124,  // Wispy Broth
+    SUBSKILL_Yellow_Beetle = 125,  // Zestful Sap
+    SUBSKILL_Sefina = 126,  // Gassy Sap
 };
 
 // ячейки экипировки. монстры используют лишь первые четыре, персонаж использует все

@@ -8,6 +8,7 @@ require("scripts/quests/i_can_hear_a_rainbow")
 require("scripts/globals/chocobo_digging")
 require("scripts/globals/conquest")
 require("scripts/globals/missions")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -16,6 +17,7 @@ end
 
 function onInitialize(zone)
     tpz.conq.setRegionalConquestOverseers(zone:getRegionID())
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn(player, prevZone)

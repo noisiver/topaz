@@ -119,6 +119,7 @@ INSERT INTO `instance_list` VALUES (79,'shades_of_vengeance',79,30,127,-15,-303,
 INSERT INTO `instance_list` VALUES(81, 'ronf_s_sandworm', 81, 60, -323.845, 20, -199.188, 0, -1, -1, -1, -1);
 INSERT INTO `instance_list` VALUES(84, 'batallia_s_sandworm', 84, 60, 382.653, 0.011, -191.599, 74, -1, -1, -1, -1);
 INSERT INTO `instance_list` VALUES(88, 'gusta_s_sandworm', 88, 60, 219.954, -15.320, -180.159, 192, -1, -1, -1, -1);
+INSERT INTO `instance_list` VALUES(89, 'seeing_blood_red', 89, 30, -323.568, -23.825, -19.749, 128, -1, -1, -1, -1);
 -- INSERT INTO `instance_list` VALUES(89, 'seeing_blood_red', 89, 30, -323.568, -23.825, -19.749, 128, -1, -1, -1, -1); NYI
 INSERT INTO `instance_list` VALUES(91, 'rol_s_sandworm', 91, 60, 219.954, -15.320, -180.159, 192, -1, -1, -1, -1);
 INSERT INTO `instance_list` VALUES(95, 'saruta_s_sandworm', 95, 60, -457.998, 0, -057.379, 40, -1, -1, 249, 249);

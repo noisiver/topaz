@@ -993,3 +993,20 @@ function utils.CapHealAmount(target, healamount)
 
     return healamount
 end
+
+function utils.ApplyStoneskinBonuses(caster, power)
+    -- Apply Divine Seal bonus
+    if (caster:hasStatusEffect(tpz.effect.DIVINE_SEAL)) then
+        power = math.floor(power * 2)
+    end
+
+    -- Apply Rapture bonus
+    if (caster:hasStatusEffect(tpz.effect.RAPTURE)) then
+        power = math.floor(power * (1.5 + caster:getMod(tpz.mod.RAPTURE_AMOUNT)/100))
+    end
+
+    caster:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
+    caster:delStatusEffectSilent(tpz.effect.RAPTURE)
+
+    return power
+end

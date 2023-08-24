@@ -115,7 +115,7 @@ bool CMobSkillState::Update(time_point tick)
 {
     if (tick > GetEntryTime() + m_castTime && !IsCompleted())
     {
-        if (!m_PSkill->isTwoHour())
+        if (!m_PSkill->isTwoHour() && !m_PSkill->isJobAbility())
         {
             SpendCost();
         }

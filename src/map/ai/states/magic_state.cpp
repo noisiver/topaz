@@ -32,6 +32,7 @@
 #include "../../packets/action.h"
 #include "../../packets/message_basic.h"
 #include "../../../common/utils.h"
+#include "../../job_points.h"
 
 CMagicState::CMagicState(CBattleEntity* PEntity, uint16 targid, SpellID spellid, uint8 flags) :
     CState(PEntity, targid),
@@ -64,7 +65,7 @@ CMagicState::CMagicState(CBattleEntity* PEntity, uint16 targid, SpellID spellid,
         throw CStateInitException(std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, static_cast<uint16>(m_PSpell->getID()), 0, errorMsg == 1 ? MSGBASIC_CANNOT_CAST_SPELL : errorMsg));
     }
 
-       m_PEntity->OnCastStarting(*this);
+    m_PEntity->OnCastStarting(*this);
 
     m_castTime = std::chrono::milliseconds(battleutils::CalculateSpellCastTime(m_PEntity, this));
     m_startPos = m_PEntity->loc.p;
@@ -119,6 +120,19 @@ bool CMagicState::Update(time_point tick)
             m_interrupted = true;
         }
 
+        if (PTarget->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = static_cast<CCharEntity*>(m_PEntity);
+            if (PChar->status == STATUS_CUTSCENE_ONLY || PChar->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+            {
+                m_interrupted = true;
+            }
+            if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
+            {
+                m_interrupted = true;
+            }
+        }
+
         if (m_interrupted)
         {
             m_PEntity->OnCastInterrupted(*this, action, msg);
@@ -143,6 +157,14 @@ bool CMagicState::Update(time_point tick)
         {
             int16 tp = static_cast<int16>(m_PSpell->getMPCost() * m_PEntity->getMod(Mod::OCCULT_ACUMEN) / 100.f * (1 + (m_PEntity->getMod(Mod::STORETP) / 100.f)));
             m_PEntity->addTP(tp);
+        }
+
+        if (m_PSpell->getRequirements() & SPELLREQ_UNBRIDLED_LEARNING)
+        {
+            if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_UNBRIDLED_LEARNING, EFFECT_UNBRIDLED_WISDOM }))
+            {
+                m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_UNBRIDLED_LEARNING);
+            }
         }
 
         m_PEntity->PAI->EventHandler.triggerListener("MAGIC_STATE_EXIT", m_PEntity, m_PSpell.get());
@@ -271,6 +293,14 @@ void CMagicState::SpendCost()
     else if (m_PSpell->hasMPCost() && !m_PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_MANAFONT) && !(m_flags & MAGICFLAGS_IGNORE_MP))
     {
         int16 cost = battleutils::CalculateSpellCost(m_PEntity, GetSpell());
+
+        // RDM Job Point: Quick Magic Effect
+        if (IsInstantCast() && m_PEntity->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = static_cast<CCharEntity*>(m_PEntity);
+
+            cost = (int16)(cost * (1.f - (float)((PChar->PJobPoints->GetJobPointValue(JP_QUICK_MAGIC_EFFECT) * 2) / 100)));
+        }
 
         // conserve mp
         int16 rate = m_PEntity->getMod(Mod::CONSERVE_MP);

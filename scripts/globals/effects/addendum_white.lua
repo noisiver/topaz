@@ -5,7 +5,9 @@
 -----------------------------------
 
 function onEffectGain(target, effect)
-    target:recalculateAbilitiesTable()
+    if target:isPC() then
+        target:recalculateAbilitiesTable()
+    end
     local bonus = effect:getPower()
     local regen = effect:getSubPower()
 
@@ -23,14 +25,23 @@ function onEffectGain(target, effect)
         target:addMod(tpz.mod.LIGHT_ARTS_REGEN, regen)
         target:addMod(tpz.mod.REGEN_DURATION, regen*2)
     end
-    target:recalculateSkillsTable()
+
+    -- Accuracy bonus to SCH main only
+    if (target:getMainJob() == tpz.job.SCH) then
+        target:addMod(tpz.mod.ACC, 50)
+    end
+    if target:isPC() then
+        target:recalculateSkillsTable()
+    end
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:recalculateAbilitiesTable()
+    if target:isPC() then
+        target:recalculateAbilitiesTable()
+    end
     local bonus = effect:getPower()
     local regen = effect:getSubPower()
 
@@ -48,5 +59,12 @@ function onEffectLose(target, effect)
         target:delMod(tpz.mod.LIGHT_ARTS_REGEN, regen)
         target:delMod(tpz.mod.REGEN_DURATION, regen*2)
     end
-    target:recalculateSkillsTable()
+
+    -- Accuracy bonus to SCH main only
+    if (target:getMainJob() == tpz.job.SCH) then
+        target:delMod(tpz.mod.ACC, 50)
+    end
+    if target:isPC() then
+        target:recalculateSkillsTable()
+    end
 end

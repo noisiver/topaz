@@ -735,6 +735,7 @@ function AddMobAura(mob, target, radius, effect, power, duration)
                 v:delStatusEffectSilent(effect)
                 v:addStatusEffectEx(effect, effect, power, 3, duration)
                 local buffEffect = v:getStatusEffect(effect)
+                buffEffect:setFlag(tpz.effectFlag.HIDE_TIMER)
                 buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
             end
         end
@@ -880,27 +881,42 @@ end
 
 function SetGenericNMStats(mob)
     local level = mob:getMainLvl()
+    local isH2H = mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND
     local wepDMG
 
     -- Weapon damage is mob level +20
     -- Mobs normal weapon damage formula is mob level + 2
     wepDMG = level + 20
 
-    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP or utils.getWeaponStyle(mob) == 'H2H' then
-        local h2hskill = math.floor(utils.getSkillLvl(1, mob:getMainLvl())) 
-        wepDMG = wepDMG * 0.4
-        wepDMG = 0.11 * h2hskill + 3 + 18 * math.floor((mob:getMainLvl() + 20) / 75)
+    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP then
+        if isH2H then
+            local h2hskill = math.floor(utils.getSkillLvl(1, mob:getMainLvl()))
+            wepDMG = 0.11 * h2hskill + 3 + 18 * math.floor((mob:getMainLvl() + 20) / 75)
+            wepDMG = wepDMG * 0.4
+        end
     end
 
 	mob:setDamage(wepDMG)
     mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.DEFP, 25)
+    mob:addMod(tpz.mod.ACC, 25)
 end
 
 function CheckQuadavModel(mob, skill, model, animationId)
     local modelId = mob:getModelId()
     if (modelId < model) then -- Adjust animation for non-WoTG Quadavs
         skill:setAnimation(animationId)
+    end
+end
+
+function SetNukeAnimationsToGa(mob, spell)
+    -- Used with onSpellPrecast
+    -- For setting ST nukes to -ga animations for Tabula Rasa / Manifeistation
+    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.ENHANCED_MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
+        if spell:canTargetEnemy() then
+            if (spell:getID() % 5 == 1) or (spell:getID() % 5 == 2) then -- t3/4 spells only (mod 5 == 1) for t3, (mod 5 == 2) for t4 (remainder)
+                spell:setAnimation(spell:getAnimation() + 30) -- t3/t4 becomes ga-3/ga-4
+            end
+        end
     end
 end

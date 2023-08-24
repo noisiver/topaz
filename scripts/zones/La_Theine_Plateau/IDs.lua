@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- Area: La_Theine_Plateau
 -----------------------------------
 require("scripts/globals/zone")
@@ -48,6 +48,16 @@ zones[tpz.zone.LA_THEINE_PLATEAU] =
         NO_COMBINATION               = 7907,  -- You were unable to enter a combination.
         REGIME_REGISTERED            = 10118, -- New training regime registered!
         COMMON_SENSE_SURVIVAL        = 12326, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        -- Voidwalker
+        VOIDWALKER_NO_MOB        = 11291, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 11292, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 11293, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 11294, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 11295, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 11296, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 11297, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 11298, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 11299, -- Obtained key item: ≺abyssite>! 
     },
     mob =
     {
@@ -69,6 +79,29 @@ zones[tpz.zone.LA_THEINE_PLATEAU] =
             [17195318] = 17195317, -- Bloodtear can't spawn if Lumbering is up
         },
         NIHNIKNOOVI    = 17195475,
+        VOIDWALKER  =
+        {
+            [tpz.keyItem.CLEAR_ABYSSITE] = {
+                17195493, -- Prickly Sheep
+                17195492, -- Prickly Sheep
+                17195491, -- Prickly Sheep
+                17195490, -- Prickly Sheep
+                17195489,  -- Void Hare
+                17195488,  -- Void Hare
+                17195487,  -- Void Hare
+                17195486,  -- Void Hare
+            },
+            [tpz.keyItem.COLORFUL_ABYSSITE] = {
+                17195485,  -- Chesma
+                17195484, -- Tammuz
+            },
+            [tpz.keyItem.GREY_ABYSSITE] = {
+                17195483  -- Dawon
+            },
+            [tpz.keyItem.BLACK_ABYSSITE] = {
+                17195482  -- Yilbegan
+            }
+        }
     },
     npc =
     {

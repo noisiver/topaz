@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- Area: West_Sarutabaruta
 -----------------------------------
 require("scripts/globals/zone")
@@ -51,6 +51,16 @@ zones[tpz.zone.WEST_SARUTABARUTA] =
         DONT_SWAP_JOBS              = 10184, -- hanging your job will result in the cancellation of your current training regime.
         REGIME_CANCELED             = 10185, -- Training regime canceled.
         COMMON_SENSE_SURVIVAL       = 12334, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        -- Voidwalker
+        VOIDWALKER_NO_MOB        = 11343, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 11344, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 11345, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 11346, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 11347, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 11348, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 11349, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 11350, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 11351, -- Obtained key item: ≺abyssite>!
     },
     mob =
     {
@@ -72,6 +82,29 @@ zones[tpz.zone.WEST_SARUTABARUTA] =
             [17248544] = 17248468, -- 239.421 -19.659 583.122
             [17248545] = 17248468, -- 274.296 -20.357 587.339
         },
+        VOIDWALKER        =
+        {
+            [tpz.keyItem.CLEAR_ABYSSITE] = {
+                17248624, -- Raker bee
+                17248623, -- Raker bee
+                17248622, -- Raker bee
+                17248621, -- Raker bee
+                17248620,  -- Rummager beetle
+                17248619,  -- Rummager beetle
+                17248618,  -- Rummager beetle
+                17248617,  -- Rummager beetle
+            },
+            [tpz.keyItem.COLORFUL_ABYSSITE] = {
+                17248616,  -- Jyeshtha
+                17248615, -- Farruca Fly
+            },
+            [tpz.keyItem.BROWN_ABYSSITE] = {
+                17248614  -- Orcus
+            },
+            [tpz.keyItem.BLACK_ABYSSITE] = {
+                17248613  -- Yilbegan
+            }
+        }
     },
     npc =
     {

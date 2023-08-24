@@ -17,5 +17,5 @@ function onItemUse(target)
     local pet = target:getPet()
     local totalHP = pet:getMaxHP()
     pet:addHP(totalHP)
-    pet:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, totalHP)
+    target:messagePublic(tpz.msg.basic.RECOVERS_HP, pet, totalHP)
 end

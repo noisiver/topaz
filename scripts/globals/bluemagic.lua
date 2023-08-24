@@ -2,6 +2,7 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
+require("scripts/globals/items")
 
 -- The TP modifier
 TPMOD_NONE = 0
@@ -81,8 +82,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- store related values
     local magicskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -- skill + merits + equip bonuses
     local isRanged = params.attackType == tpz.attackType.RANGED
-    -- TODO: Under Efflux?
-    -- TODO: Under Azure Lore.
 
     ---------------------------------
     -- Calculate the final D value  -
@@ -130,14 +129,22 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- If under CA, replace multiplier with fTP(multiplier, tp150, tp300)
     local chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
-    if chainAffinity ~= nil or azureLore ~= nil then
+    local efflux = caster:getStatusEffect(tpz.effect.EFFLUX)
+    local affluxBonus = caster:getStatusEffect(tpz.effect.EFFLUX_BONUS)
+    local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
+    local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
+
+    if (chainAffinity ~= nil) or (azureLore ~= nil) or (efflux ~= nil) then
         -- Calculate the total TP available for the fTP multiplier.
-        local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
-        if tp > 3000 then
+        if (tp > 3000) then
             tp = 3000
         end
-        -- Azure Lore treats all spells like they're 3k TP'
-        if azureLore ~= nil then
+        -- Efflux treats all spells like they're 1k TP
+        if (efflux ~= nil) then
+            tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
+        end
+        -- Azure Lore treats all spells like they're 3k TP
+        if (azureLore ~= nil) then
             tp = 3000
         end
         --printf("%u", tp)
@@ -187,8 +194,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	local CritTPBonus =  0
 	local SpellCritPdifModifier = 0
 
-	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
-	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
 
     if chainAffinity ~= nil then
 		if params.AttkTPModifier == true then --Check if "Attack varies with TP"
@@ -281,7 +286,19 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
         local chance = math.random()
         if (chance <= hitrate) then -- it hit
-            -- TODO: Check for shadow absorbs.
+            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+
+            -- dealt zero damage, so shadows took hit
+            if (finaldmg == 0) then
+                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+                return shadowbehav
+            end
+
+            --handle Third Eye using shadowbehav as a guide
+            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
+                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+                return 0
+            end
 
             -- Generate a random pDIF between min and max
             local pdif = 1
@@ -442,11 +459,27 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
+    -- Handle Convergence damage bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
-		dmg = dmg * ConvergenceBonus
+
+        -- Apply Convergence relic augment. 2% damage per Convergence merit
+        -- TODO: Ilvl relic
+        local head = caster:getEquipID(tpz.slot.HEAD)
+        if (head == tpz.items.MIRAGE_KEFFIYEH_HQ or head == tpz.items.MIRAGE_KEFFIYEH_HQTWO) then
+            ConvergenceBonus = ConvergenceBonus + ((caster:getMerit(tpz.merit.CONVERGENCE) / 5) * 0.02)
+        end
+
+        dmg = dmg * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
+
+    -- Handle Unbridle gear mod
+    if (spell:getRequirements() == tpz.magic.req.UNBRIDLED_LEARNING) then
+        if caster:hasStatusEffect(tpz.effect.UNBRIDLED_LEARNING) or caster:hasStatusEffect(tpz.effect.UNBRIDLED_WISDOM) then
+            dmg = math.floor(dmg * (1 + caster:getMod(tpz.mod.UNBRIDLED_DAMAGE) / 100)) 
+        end
+    end
 
     -- Handle Positional MDT
     if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
@@ -558,17 +591,23 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     local resist = applyResistance(caster, target, spell, params)
 
 
-	-- Add convergence damage bonus
+	-- Handle convergence damage bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
+        -- Apply Convergence relic augment 2% damage per Convergence merit
+         -- TODO: Ilvl relic
+        local head = caster:getEquipID(tpz.slot.HEAD)
+        if (head == tpz.items.MIRAGE_KEFFIYEH_HQ or head == tpz.items.MIRAGE_KEFFIYEH_HQTWO) then
+            ConvergenceBonus = ConvergenceBonus + ((caster:getMerit(tpz.merit.CONVERGENCE) / 5) * 0.02)
+        end
+
 		dmg = math.floor(dmg * ConvergenceBonus)
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
 	-- Add breath damage gear
 	local head = caster:getEquipID(tpz.slot.HEAD)
-    -- Saurian Helm and Mirage Keffiyeh(NQ/+1/+2)
-	if head == 16150 or head == 11465 or head == 11466 or head == 10665 then 
+	if (head == tpz.items.SAURIAN_HELM or head == tpz.items.MIRAGE_KEFFIYEH or head == tpz.items.MIRAGE_KEFFIYEH_HQ or head == tpz.items.MIRAGE_KEFFIYEH_HQTWO) then 
 		dmg = math.floor(dmg *1.1) 
 	end
 

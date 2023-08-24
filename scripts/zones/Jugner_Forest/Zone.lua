@@ -9,6 +9,7 @@ require("scripts/globals/chocobo_digging")
 require("scripts/globals/conquest")
 require("scripts/globals/helm")
 require("scripts/globals/zone")
+require("scripts/globals/voidwalker")
 -----------------------------------
 
 function onChocoboDig(player, precheck)
@@ -25,7 +26,7 @@ function onInitialize(zone)
     tpz.conq.setRegionalConquestOverseers(zone:getRegionID())
 
     tpz.helm.initZone(zone, tpz.helm.type.LOGGING)
-
+    tpz.voidwalker.zoneOnInit(zone)
 end
 
 function onZoneIn( player, prevZone)

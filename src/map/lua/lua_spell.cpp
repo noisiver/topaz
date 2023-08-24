@@ -98,6 +98,15 @@ inline int32 CLuaSpell::setRadius(lua_State* L)
     return 0;
 }
 
+inline int32 CLuaSpell::setSkillType(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaSpell->setSkillType((uint8)lua_tointeger(L, -1));
+    return 0;
+}
+
 
 inline int32 CLuaSpell::base(lua_State* L)
 {
@@ -257,6 +266,22 @@ inline int32 CLuaSpell::getFlag(lua_State *L)
     return 1;
 }
 
+inline int32 CLuaSpell::getRequirements(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    lua_pushinteger(L, m_PLuaSpell->getRequirements());
+    return 1;
+}
+
+inline int32 CLuaSpell::setRequirements(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaSpell->setRequirements((uint16)lua_tointeger(L, -1));
+    return 0;
+}
+
 /************************************************************************
 *																		*
 *  Инициализация методов в lua											*
@@ -270,9 +295,9 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,setAoE),
     LUNAR_DECLARE_METHOD(CLuaSpell,setFlag),
     LUNAR_DECLARE_METHOD(CLuaSpell,setRadius),
-    LUNAR_DECLARE_METHOD(CLuaSpell, base),
-    LUNAR_DECLARE_METHOD(CLuaSpell, multiplier),
-    LUNAR_DECLARE_METHOD(CLuaSpell, getAnimation),
+    LUNAR_DECLARE_METHOD(CLuaSpell,base),
+    LUNAR_DECLARE_METHOD(CLuaSpell,multiplier),
+    LUNAR_DECLARE_METHOD(CLuaSpell,getAnimation),
     LUNAR_DECLARE_METHOD(CLuaSpell,setAnimation),
     LUNAR_DECLARE_METHOD(CLuaSpell,setMPCost),
     LUNAR_DECLARE_METHOD(CLuaSpell,isAoE),
@@ -282,11 +307,14 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,canTargetEnemy),
     LUNAR_DECLARE_METHOD(CLuaSpell,getTotalTargets),
     LUNAR_DECLARE_METHOD(CLuaSpell,getSkillType),
+    LUNAR_DECLARE_METHOD(CLuaSpell,setSkillType),
     LUNAR_DECLARE_METHOD(CLuaSpell,getID),
     LUNAR_DECLARE_METHOD(CLuaSpell,getMsg),
     LUNAR_DECLARE_METHOD(CLuaSpell,getMPCost),
     LUNAR_DECLARE_METHOD(CLuaSpell,getSpellGroup),
     LUNAR_DECLARE_METHOD(CLuaSpell,getFlag),
+    LUNAR_DECLARE_METHOD(CLuaSpell,getRequirements),
+    LUNAR_DECLARE_METHOD(CLuaSpell,setRequirements),
     LUNAR_DECLARE_METHOD(CLuaSpell,castTime),
     {nullptr,nullptr}
 };

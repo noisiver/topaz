@@ -7,6 +7,9 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 
 function onItemCheck(target)
+    if target:hasStatusEffect(tpz.effect.REGAIN) then
+        return tpz.msg.basic.EFFECT_ALREADY_ACTIVE
+    end
     return 0
 end
 

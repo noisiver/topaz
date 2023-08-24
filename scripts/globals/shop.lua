@@ -305,6 +305,7 @@ tpz.shop =
                 6298,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Manji Shuriken Pouch
                 6302,     700,      tpz.ki.RHAPSODY_IN_AZURE,   -- Fuma Shuriken Pouch
                 6303,    1000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Iga Shuriken Pouch
+                5870,    4752,      tpz.ki.RHAPSODY_IN_WHITE,   -- Trump Card Case
         },
         [curio.ninjutsuTools] =
         {
@@ -404,6 +405,7 @@ tpz.shop =
                 17892,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fragrant Antica Broth
                 17889,    2000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Blood Broth
                 17890,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Clear Blood Broth
+                21446,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Airy Broth
                 17016,      11,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Alpha Biscuit
                 17017,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Beta Biscuit
         },

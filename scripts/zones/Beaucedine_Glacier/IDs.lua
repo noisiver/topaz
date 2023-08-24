@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- Area: Beaucedine_Glacier
 -----------------------------------
 require("scripts/globals/zone")
@@ -36,6 +36,16 @@ zones[tpz.zone.BEAUCEDINE_GLACIER] =
         NO_COMBINATION                  = 8566,  -- You were unable to enter a combination.
         REGIME_REGISTERED               = 10744, -- New training regime registered!
         COMMON_SENSE_SURVIVAL           = 12770, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        -- Voidwalker
+        VOIDWALKER_NO_MOB        = 11863, -- The <abyssite> quivers ever so slightly, but emits no light. There seem to be no monsters in the area.
+        VOIDWALKER_MOB_TOO_FAR   = 11864, -- The <abyssite> quivers ever so slightly and emits a faint light. There seem to be no monsters in the immediate vicinity.
+        VOIDWALKER_MOB_HINT      = 11865, -- The <abyssite> resonates <hint>, sending a radiant beam of light lancing towards a spot roughly <distance> <direction> of here.
+        VOIDWALKER_SPAWN_MOB     = 11866, -- A monster materializes out of nowhere!
+        VOIDWALKER_DESPAWN       = 11867, -- The monster fades before your eyes, a look of disappointment on its face.
+        VOIDWALKER_UPGRADE_KI_1  = 11868, -- The <current abyssite> takes on a slightly deeper hue and becomes <next abyssite>!
+        VOIDWALKER_UPGRADE_KI_2  = 11869, -- The <current abyssite> takes on a deeper, richer hue and becomes <next abyssite>!
+        VOIDWALKER_BREAK_KI      = 11870, -- The <abyssite> shatters into tiny fragments.
+        VOIDWALKER_OPTAIN_KI     = 11871, -- Obtained key item: ≺abyssite>!    
     },
     mob =
     {
@@ -54,6 +64,29 @@ zones[tpz.zone.BEAUCEDINE_GLACIER] =
             [17231970] = 17231971, -- -322.000 -100.000 116.000
         },
         HUMBABA      = 17232094,
+        VOIDWALKER        =
+        {
+            [tpz.keyItem.CLEAR_ABYSSITE] = {
+                17232159, -- Gorehound
+                17232158, -- Gorehound
+                17232157, -- Gorehound
+                17232156, -- Gorehound
+                17232155, -- Gjenganger
+                17232154, -- Gjenganger
+                17232153, -- Gjenganger
+                17232152, -- Gjenganger
+            },
+            [tpz.keyItem.COLORFUL_ABYSSITE] = {
+                17232151, -- Erebus
+                17232150  -- Feuerunke
+            },
+            [tpz.keyItem.PURPLE_ABYSSITE] = {
+                17232149  -- Lord Ruthven
+            },
+            [tpz.keyItem.BLACK_ABYSSITE] = {
+                17232148  -- Yilbegan
+            }
+        }
     },
     npc =
     {

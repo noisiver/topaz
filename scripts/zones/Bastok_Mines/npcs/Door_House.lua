@@ -29,11 +29,7 @@ function onTrigger(player, npc)
         elseif letterBlue == 3 then
             player:startEvent(535) -- i'm waiting for 4 imperial mythril pieces
         elseif letterBlue == 4 then
-            if vanaDay() > player:getCharVar("corAfSubmitDay") then
-                player:startEvent(522) -- here's your cor bottes
-            else
-                player:startEvent(523) -- patience. need to wait for vana'diel day
-            end
+            player:startEvent(522) -- here's your cor bottes
         end
     end
 end

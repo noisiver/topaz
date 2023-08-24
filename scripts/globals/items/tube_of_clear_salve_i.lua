@@ -18,7 +18,7 @@ function onItemUse(target)
     local effects =
     {
         tpz.effect.FLASH, tpz.effect.BLINDNESS, tpz.effect.ELEGY, tpz.effect.REQUIEM, tpz.effect.PARALYSIS, tpz.effect.POISON,
-        tpz.effect.CURSE_I, tpz.effect.CURSE_II, tpz.effect.DISEASE, tpz.effect.PLAGUE, tpz.effect.WEIGHT, tpz.effect.BIND,
+        tpz.effect.CURSE_I, tpz.effect.DISEASE, tpz.effect.PLAGUE, tpz.effect.WEIGHT, tpz.effect.BIND,
         tpz.effect.BIO, tpz.effect.DIA, tpz.effect.BURN, tpz.effect.FROST, tpz.effect.CHOKE, tpz.effect.RASP, tpz.effect.SHOCK, tpz.effect.DROWN,
         tpz.effect.STR_DOWN, tpz.effect.DEX_DOWN, tpz.effect.VIT_DOWN, tpz.effect.AGI_DOWN, tpz.effect.INT_DOWN, tpz.effect.MND_DOWN,
         tpz.effect.CHR_DOWN, tpz.effect.ADDLE, tpz.effect.SLOW, tpz.effect.HELIX, tpz.effect.ACCURACY_DOWN, tpz.effect.ATTACK_DOWN,
@@ -47,6 +47,12 @@ function onItemUse(target)
         if not removeStatus() then break end
         removed = removed + 1
         if removed >= count then break end
+    end
+
+    if removed > 0 then
+        target:messagePublic(tpz.msg.basic.EFFECTS_DISAPPEAR, pet, removed, removed)
+    else
+        target:messagePublic(tpz.msg.basic.NO_EFFECT, pet)
     end
 
     return removed

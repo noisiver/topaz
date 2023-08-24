@@ -1857,7 +1857,8 @@ namespace luautils
         if (PChar->objtype == TYPE_PC)
         {
             CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
-            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR && !PPet->StatusEffectContainer->HasPreventActionEffect(false) &&
+                !PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
             {
                 PPet->loc.p.x = PChar->loc.p.x;
                 PPet->loc.p.y = PChar->loc.p.y;

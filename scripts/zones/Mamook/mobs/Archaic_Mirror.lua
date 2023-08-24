@@ -6,6 +6,7 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
+    mob:SetAutoAttackEnabled(false)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end

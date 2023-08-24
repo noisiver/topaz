@@ -3018,7 +3018,8 @@ inline int32 CLuaBaseEntity::setPos(lua_State *L)
         if (m_PBaseEntity->objtype == TYPE_PC)
         {
             CBattleEntity* PPet = ((CBattleEntity*)m_PBaseEntity)->PPet;
-            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR && !PPet->StatusEffectContainer->HasPreventActionEffect(false) &&
+                !PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
             {
                 if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
                     PPet->loc.p.x = (float)lua_tonumber(L, 1);
@@ -7724,7 +7725,7 @@ inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
         lua_pushinteger(L, PChar->PJobPoints->GetJobPointValue((JOBPOINT_TYPE)lua_tointeger(L, 1)));
     }
 
-    return 0;
+    return 1;
 }
 
 /************************************************************************

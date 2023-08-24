@@ -335,7 +335,7 @@ enum class Mod
     DEFENDER_POTENCY          = 1304, // Increases defender defense bonus, in percents
     RETALIATION               = 414,  // Increases damage of Retaliation hits
     BLOOD_RAGE_POTENCY        = 1308, // Increases Blood Rage healing received bonus, in percents
-
+    ENHANCES_RESTRAINT        = 988, // Enhances "Restraint" effect/"Restraint" + (Increases the damage bonus of Restraint by XXX%)
     // Monk
     BOOST_EFFECT              = 97,  // Boost power in tenths
     CHAKRA_MULT               = 123, // Chakra multiplier increase (from gear)
@@ -468,6 +468,7 @@ enum class Mod
     NINJA_TOOL                = 308, // Percent chance to not use a tool.
     NIN_NUKE_BONUS            = 522, // magic attack bonus for NIN nukes
     DAKEN                     = 911, // chance to throw a shuriken without consuming it
+    NINJUTSU_DURATION         = 1323, //  Increases the effect duration of ninjutsu (in percents)
 
     // Dragoon
     ANCIENT_CIRCLE_DURATION   = 859, // Ancient Circle extended duration in seconds
@@ -518,8 +519,13 @@ enum class Mod
     MONSTER_CORRELATION_BONUS = 936, // AF head
     BLUE_LEARN_CHANCE         = 945, // Additional chance to learn blue magic
     BLUE_SPELLCASTING_TIME    = 1322,// Reduces Blue Magic spellcasting time
+    EFFLUX_BONUS              = 1324,// Bonus to Efflux, flat amount
+    EFFLUX_MULTIPLIER         = 1325,// Bonus to Efflux, in percents
+    UNBRIDLED_DAMAGE          = 1326,// Bonus damage to Unbridled Learning spells, in percents
+    UNBRIDLED_DURATION        = 1327,// Bonus duration to Unbridled Learning spells, in percents
 
     // Corsair
+    TRIPLE_SHOT_RATE          = 987, // The rate that triple shot can proc. Without this, the default is 40%.
     EXP_BONUS                 = 382, //
     ROLL_RANGE                = 528, // Additional range for COR roll abilities.
     JOB_BONUS_CHANCE          = 542, // Chance to apply job bonus to COR roll without having the job in the party.
@@ -988,9 +994,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // SPARE = 987, // stuff
-    // SPARE = 988, // stuff
-    // 1323 NEXT
+    // 1328 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

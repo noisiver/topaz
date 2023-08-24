@@ -25,7 +25,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.DEFENSE_BOOST
-    local power = 50 -- Percentage, not amount.
+    local power = 50
     local duration = 90
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then

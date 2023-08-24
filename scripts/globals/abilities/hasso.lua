@@ -21,7 +21,7 @@ end
 function onUseAbility(player, target, ability)
     local strboost = target:getMainLvl()/7
     if (target:getMainJob()~=12) then --sjob sam, use sub level
-        strboost = target:getSubLvl()/7
+        strboost = target:getSubLvl()/7 + target:getJobPointLevel(tpz.jp.HASSO_EFFECT)
     end
     if (target:isWeaponTwoHanded()) then
         target:delStatusEffectSilent(tpz.effect.HASSO)
