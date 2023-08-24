@@ -64,7 +64,8 @@ INSERT INTO `blue_traits` VALUES (25, 6, 18, 259, 25); -- Dual Wield III
 INSERT INTO `blue_traits` VALUES (26, 2, 70, 306, 15);
 INSERT INTO `blue_traits` VALUES (27, 2, 110, 407, 5); -- Magic burst bonus
 INSERT INTO `blue_traits` VALUES (28, 2, 20, 0, 0);
-INSERT INTO `blue_traits` VALUES (28, 3, 19, 303, 1);
+INSERT INTO `blue_traits` VALUES (28, 2, 19, 303, 1); -- Treasure Hunter
+INSERT INTO `blue_traits` VALUES (28, 4, 19, 303, 2); -- Treasure Hunter II
 INSERT INTO `blue_traits` VALUES (29, 4, 4, 1, 22); -- Defense Bonus II
 INSERT INTO `blue_traits` VALUES (29, 6, 4, 1, 35); -- Defense Bonus III
 INSERT INTO `blue_traits` VALUES (30, 4, 136, 1310, 10); -- Shield Barrier
