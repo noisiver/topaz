@@ -8945,7 +8945,7 @@ INSERT INTO `item_equipment` VALUES (19244,'verthandis_gem',75,0,4194303,0,0,0,8
 INSERT INTO `item_equipment` VALUES (19245,'jinx_ampulla',75,0,1622044,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19246,'moggiebag',1,0,4194303,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19247,'savants_treatise',80,0,524288,0,0,0,8,0,0);
-INSERT INTO `item_equipment` VALUES (19248,'lucky_coin',76,0,2494498,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (19248,'lucky_coin',75,0,2494498,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19249,'thew_bomblet',78,0,2500642,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19250,'witchstone',79,0,1589788,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19251,'pet_roborant',1,0,4194303,0,0,0,8,4,0);
