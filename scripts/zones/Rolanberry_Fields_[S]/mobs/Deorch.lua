@@ -14,7 +14,7 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-    tpz.voidwalker.function onMobFight(mob, target)
+    tpz.voidwalker.onMobFight(mob, target)
 end
 
 function onMobDisengage(mob)
