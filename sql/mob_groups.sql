@@ -8199,7 +8199,7 @@ INSERT INTO `mob_groups` VALUES (42,981,112,'Demon_Aristocrat',0,128,0,0,0,55,55
 INSERT INTO `mob_groups` VALUES (43,2295,112,'Kulili',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (44,6558,112,'Lost_Soul',330,0,1539,0,0,42,45,0);
 -- Voidwalker
-INSERT INTO `mob_groups` VALUES (45,6842112,'Gorehound',300,0,0,5200,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (45,6842,112,'Gorehound',300,0,0,5200,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (46,6843,112,'Gjenganger',300,0,0,5200,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (47,6844,112,'Erebus',3600,0,3219,13500,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (48,6845,112,'Feuerunke',3600,0,3220,13500,0,82,82,0);
