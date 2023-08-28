@@ -354,13 +354,8 @@ local modByMobName =
         mob:addMod(tpz.mod.UDMGMAGIC, 50)
     end,
 
-    ['Capricornus'] = function(mob)
-        mob:addImmunity(tpz.immunity.PARALYZE)
-    end,
-
     ['Yacumama'] = function(mob)
         mob:addMod(tpz.mod.MOVE, 25)
-        mob:addImmunity(tpz.immunity.SLOW)
     end,
 
     ['Krabkatoa'] = function(mob)
@@ -454,9 +449,6 @@ tpz.voidwalker.onMobSpawn = function(mob)
     local mobName = mob:getName()
     SetGenericNMStats(mob)
     mob:setMod(tpz.mod.MOVE, 50)
-    mob:addImmunity(tpz.immunity.SLEEP)
-    mob:addImmunity(tpz.immunity.BIND)
-    mob:addImmunity(tpz.immunity.PETRIFY)
     mob:setStatus(tpz.status.INVISIBLE)
     mob:hideHP(true)
     mob:hideName(true)

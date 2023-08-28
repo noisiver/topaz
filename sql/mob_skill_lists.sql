@@ -2055,6 +2055,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,725);
 INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,726);
 INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,727);
 INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,728);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,442);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1590);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1591);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1592);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1593);
 -- 412 to 435: free
 INSERT INTO `mob_skill_lists` VALUES ('Bloodlapper',436,2162);
 INSERT INTO `mob_skill_lists` VALUES ('Ghillie_Dhu',437,685);

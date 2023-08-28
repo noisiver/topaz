@@ -2,7 +2,8 @@
 --
 --     tpz.effect.PROTECT
 --
--- 9653 power sets mobs DMGPHYS to 0. This is used for qutrubs fortifying wail.
+-- 9653 power sets mobs DMGPHYS to 0. This is used for Qutrubs fortifying wail.
+-- 9654 grants the mob 90% PDT. This is used for Nighmare crabs Scissor Guard.
 -- Grants PDT based on the protect spell(and merits into Protectra V)
 -- Protect - 5% PDT II
 -- Protect II - 10% PDT II
@@ -34,6 +35,8 @@ function onEffectGain(target, effect)
     end
     if (power == 9653) then
         target:setMod(tpz.mod.UDMGPHYS, 0)
+    elseif (power == 9654) then
+        target:setMod(tpz.mod.UDMGPHYS, -90)
     else
         target:addMod(tpz.mod.DEF, effect:getPower())
     end
@@ -51,6 +54,8 @@ function onEffectLose(target, effect)
     end
     if (power == 9653) then
         target:setMod(tpz.mod.UDMGPHYS, 200)
+    elseif (power == 9654) then
+        target:setMod(tpz.mod.UDMGPHYS, 0)
     else
         target:delMod(tpz.mod.DEF, effect:getPower())
     end

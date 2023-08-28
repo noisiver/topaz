@@ -1,6 +1,5 @@
 ---------------------------------------------------
 -- Big Scissors: Deals damage to a single target.
--- Nightmare Crabs ignore shadows
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
