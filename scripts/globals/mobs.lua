@@ -920,3 +920,8 @@ function SetNukeAnimationsToGa(mob, spell)
         end
     end
 end
+
+function SetBuffUnDispellable(mob, buff)
+    local effect1 = mob:getStatusEffect(buff)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
+end
