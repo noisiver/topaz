@@ -1,6 +1,7 @@
 ---------------------------------------------
--- Spider Web
--- Entangles all targets in an area of effect.
+-- Intimidate
+-- Inflicts slow on targets in a fan-shaped area of effect.
+-- Removes haste, very potent
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -14,10 +15,11 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
     local power = 5000
+    local duration = 10
     local params = {}
     params.overwriteHaste = true
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, 300, params))
+    skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, power, 0, duration, 0, 0, 0, params))
 
     return typeEffect
 end

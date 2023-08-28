@@ -15,7 +15,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local params = {}
-    params.overwriteSlow = true
+    params.overwriteHaste = true
 
     local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 3000)
     dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.2)
