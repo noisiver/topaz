@@ -350,9 +350,21 @@ end
 
 local modByMobName =
 {
+    ['Raker_Bee'] = function(mob)
+        mob:addMod(tpz.mod.UDMGMAGIC, 50)
+    end,
+
+    ['Capricornus'] = function(mob)
+        mob:addImmunity(tpz.immunity.PARALYZE)
+    end,
+
+    ['Yacumama'] = function(mob)
+        mob:addMod(tpz.mod.MOVE, 25)
+        mob:addImmunity(tpz.immunity.SLOW)
+    end,
+
     ['Krabkatoa'] = function(mob)
         mob:addStatusEffect(tpz.effect.REGAIN, 10, 0, 0)
-        mob:addMod(tpz.mod.DOUBLE_ATTACK, 10)
     end,
 
     ['Tammuz'] = function(mob)
@@ -367,10 +379,20 @@ local mixinByMobName =
         if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) and not mobIsBusy(mob) then
             mob:useMobAbility(tpz.mob.skills.RECOIL_DIVE)
         end
+        if mob:getHPP() < 50 then
+            mob:setDamage(100)
+        elseif mob:getHPP() < 15 then
+            mob:setDamage(120)
+        end
     end,
 
     ['Yacumama'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.HUNDRED_FISTS, not mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS))
+        if mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then
+            mob:addMod(tpz.mod.MOVE, 50)
+        else
+            mob:addMod(tpz.mod.MOVE, 25)
+        end
     end,
 
     ['Lamprey_Lord'] = function(mob)
@@ -430,10 +452,15 @@ end
 
 tpz.voidwalker.onMobSpawn = function(mob)
     local mobName = mob:getName()
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.MOVE, 50)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:addImmunity(tpz.immunity.BIND)
+    mob:addImmunity(tpz.immunity.PETRIFY)
     mob:setStatus(tpz.status.INVISIBLE)
     mob:hideHP(true)
     mob:hideName(true)
-    mob:setUntargetable(true)
+    mob:untargetable(true)
     local mods = modByMobName[mobName]
 
     if mods then
@@ -477,7 +504,7 @@ tpz.voidwalker.onMobDisengage = function(mob)
     mob:setStatus(tpz.status.INVISIBLE)
     mob:hideHP(true)
     mob:hideName(true)
-    mob:setUntargetable(true)
+    mob:untargetable(true)
 end
 
 tpz.voidwalker.onMobDespawn = function(mob)
@@ -567,7 +594,7 @@ tpz.voidwalker.onHealing = function(player)
         end
 
         mob:hideName(false)
-        mob:setUntargetable(false)
+        mob:untargetable(false)
         mob:setStatus(tpz.status.UPDATE)
         mob:updateClaim(player)
 
