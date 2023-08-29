@@ -925,3 +925,10 @@ function SetBuffUnDispellable(mob, buff)
     local effect1 = mob:getStatusEffect(buff)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 end
+
+function ResetEnmityList(mob)
+    local enmityList = mob:getEnmityList()
+    for _, enmity in ipairs(enmityList) do
+        mob:resetEnmity(enmity.entity)
+    end
+end
