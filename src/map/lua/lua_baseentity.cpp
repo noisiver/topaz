@@ -14256,7 +14256,7 @@ inline int32 CLuaBaseEntity::isMobType(lua_State *L)
 
 /************************************************************************
 *  Function: isUndead()
-*  Purpose : Returns true if Entity is Undead
+*  Purpose : Returns true if Entity is Undead or has drain immunity mod
 *  Example : if (target:isUndead()) then
 *  Notes   :
 ************************************************************************/
@@ -14266,7 +14266,14 @@ inline int32 CLuaBaseEntity::isUndead(lua_State *L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
 
-    lua_pushboolean(L, ((CBattleEntity*)m_PBaseEntity)->m_EcoSystem == SYSTEM_UNDEAD);
+    if (((CBattleEntity*)m_PBaseEntity)->m_EcoSystem == SYSTEM_UNDEAD)
+    {
+        lua_pushboolean(L, true);
+    }
+    if (((CBattleEntity*)m_PBaseEntity)->getMod(Mod::DRAIN_IMMUNITY) > 0)
+    {
+        lua_pushboolean(L, true);
+    }
     return 1;
 }
 
