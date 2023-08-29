@@ -1266,6 +1266,14 @@ int getSDTTier(int SDT)
                             {
                                 Action->spikesParam = 0;
                             }
+                            // Does not work on undead
+                            if (PAttacker->objtype == TYPE_MOB)
+                            {
+                                if (PAttacker->m_EcoSystem == SYSTEM_UNDEAD)
+                                {
+                                    Action->spikesParam = 0;
+                                }
+                            }
                             PDefender->addHP(Action->spikesParam);
                         }
                             PAttacker->takeDamage(Action->spikesParam,
