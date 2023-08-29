@@ -14211,6 +14211,25 @@ inline int32 CLuaBaseEntity::getSystem(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: setSystem()
+ *  Purpose : Sets the ecosystem of the mob(i.e. dragon)
+ *  Example : mob:setSystem(tpz.ecosystem.DRAGON)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setSystem(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CBattleEntity*)m_PBaseEntity)->m_EcoSystem = (ECOSYSTEM)((lua_tointeger(L, 1)));
+
+    return 0;
+}
+
+/************************************************************************
 *  Function: getFamily()
 *  Purpose : Returns the integer value of the associated Mob Family
 *  Example : if (mob:getFamily() == 123) then
@@ -14226,6 +14245,63 @@ inline int32 CLuaBaseEntity::getFamily(lua_State* L)
 
     lua_pushinteger(L, family);
     return 1;
+}
+
+/************************************************************************
+ *  Function: setFamily()
+ *  Purpose : Sets the mobs family
+ *  Example : mob:setFamily(233)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setFamily(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CMobEntity*)m_PBaseEntity)->m_Family = ((lua_tointeger(L, 1)));
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: getElement()
+ *  Purpose : Returns the integer value of the associated Mob Element
+ *  Example : if (mob:getElement() == 123) then
+ *  Notes   : To Do: Enumerate Mob elements in global script
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::getElement(lua_State* L)
+{
+    auto entity = dynamic_cast<CMobEntity*>(m_PBaseEntity);
+    TPZ_DEBUG_BREAK_IF(!entity);
+    TPZ_DEBUG_BREAK_IF(entity->objtype == TYPE_PC);
+
+    uint16 element = entity->m_Element;
+
+    lua_pushinteger(L, element);
+    return 1;
+}
+
+/************************************************************************
+ *  Function: setElement()
+ *  Purpose : Sets the mobs elements
+ *  Example : mob:setElement(7)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setElement(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_PC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CMobEntity*)m_PBaseEntity)->m_Element = ((lua_tointeger(L, 1)));
+
+    return 0;
 }
 
 /************************************************************************
@@ -16793,7 +16869,11 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     // Mob Entity-Specific
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMobLevel),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getSystem),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setSystem),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getFamily),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setFamily),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getElement),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setElement),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isMobType),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isUndead),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isNM),

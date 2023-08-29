@@ -663,7 +663,11 @@ public:
     // Mob Entity-Specific
     int32 setMobLevel(lua_State*);
     int32 getSystem(lua_State*);
+    int32 setSystem(lua_State*);
     int32 getFamily(lua_State*);
+    int32 setFamily(lua_State*);
+    int32 getElement(lua_State*);
+    int32 setElement(lua_State*);
     int32 isMobType(lua_State*);            // True if mob is of type passed to function
     int32 isUndead(lua_State*);             // True if mob is undead
     int32 isNM(lua_State* L);
