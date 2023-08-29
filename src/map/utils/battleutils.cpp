@@ -4059,6 +4059,40 @@ int getSDTTier(int SDT)
             default: break;
         }
 
+        if (PAttacker->objtype == TYPE_PC)
+        {
+            if (PAttacker->getMod(Mod::VERMIN_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::VERMIN_KILLER);
+            if (PAttacker->getMod(Mod::BIRD_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::BIRD_KILLER);
+            if (PAttacker->getMod(Mod::AMORPH_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::AMORPH_KILLER);
+            if (PAttacker->getMod(Mod::LIZARD_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::LIZARD_KILLER);
+            if (PAttacker->getMod(Mod::AQUAN_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::AQUAN_KILLER);
+            if (PAttacker->getMod(Mod::PLANTOID_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::PLANTOID_KILLER);
+            if (PAttacker->getMod(Mod::BEAST_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::BEAST_KILLER);
+            if (PAttacker->getMod(Mod::UNDEAD_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::UNDEAD_KILLER);
+            if (PAttacker->getMod(Mod::ARCANA_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::ARCANA_KILLER);
+            if (PAttacker->getMod(Mod::DRAGON_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::DRAGON_KILLER);
+            if (PAttacker->getMod(Mod::DEMON_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::DEMON_KILLER);
+            if (PAttacker->getMod(Mod::EMPTY_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::EMPTY_KILLER);
+            if (PAttacker->getMod(Mod::HUMANOID_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::HUMANOID_KILLER);
+            if (PAttacker->getMod(Mod::LUMORIAN_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::LUMORIAN_KILLER);
+            if (PAttacker->getMod(Mod::LUMINION_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::LUMINION_KILLER);
+        }
+
         // Add intimidation rate from Bully
         if (CStatusEffect* PDoubtEffect = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_DOUBT))
         {
