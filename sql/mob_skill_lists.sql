@@ -2060,7 +2060,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1590);
 INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1591);
 INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1592);
 INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1593);
--- 412 to 435: free
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,1864);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,450);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,451);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,453);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,454);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,641);
+INSERT INTO `mob_skill_lists` VALUES ('Shoggoth',414,438);
+INSERT INTO `mob_skill_lists` VALUES ('Shoggoth',414,439);
+-- 415 to 435: free
 INSERT INTO `mob_skill_lists` VALUES ('Bloodlapper',436,2162);
 INSERT INTO `mob_skill_lists` VALUES ('Ghillie_Dhu',437,685);
 INSERT INTO `mob_skill_lists` VALUES ('Highlander_Lizard',438,371);
@@ -3915,7 +3923,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,445); -- Scissor Guard
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2513); -- Mega Scissor
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2512); -- Venom Shower
 
-INSERT INTO `mob_skill_lists` VALUES ('LampreyLord',1181,415); -- Acid Mist
+INSERT INTO `mob_skill_lists` VALUES ('LampreyLord',1181,3907); -- Acid Mist
 
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,431);  -- Fluid_Spread
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,433);  -- Digest

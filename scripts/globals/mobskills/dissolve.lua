@@ -6,6 +6,7 @@
 -- Range: Melee
 -- Notes: Only used by Blobdingnag, Morbid Molasses, and Fistule.
 -- Resets Enmity.
+-- TODO:? No damage?
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")

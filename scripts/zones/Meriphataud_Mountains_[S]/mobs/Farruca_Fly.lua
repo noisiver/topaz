@@ -17,6 +17,12 @@ function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
 end
 
+function onAdditionalEffect(mob, target, damage)
+    if mob:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
+        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {chance = 100, power = 50, duration = 30})
+    end
+end
+
 function onMobDisengage(mob)
     tpz.voidwalker.onMobDisengage(mob)
 end

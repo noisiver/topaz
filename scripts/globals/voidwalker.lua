@@ -358,6 +358,28 @@ local modByMobName =
         mob:addMod(tpz.mod.MOVE, 25)
     end,
 
+    ['Lamprey_Lord'] = function(mob)
+        mob:addMod(tpz.mod.DOUBLE_ATTACK, 50)
+        mob:addMod(tpz.mod.TRIPLE_ATTACK, 75)
+        mob:addMod(tpz.mod.EVA, 50)
+        mob:addMod(tpz.mod.DARKDEF, 256)
+        mob:addMod(tpz.mod.DRAIN_IMMUNITY, 1)
+        mob:addMod(tpz.mod.MOVE, 13)
+    end,
+
+    ['Shoggoth'] = function(mob)
+        mob:addMod(tpz.mod.DOUBLE_ATTACK, 50)
+    end,
+
+    ['Jyeshtha'] = function(mob)
+        mob:setDamage(120)
+    end,
+
+    ['Farruca_Fly'] = function(mob)
+        mob:setDamage(120)
+        mob:addMod(tpz.mod.WINDRES, 256)
+    end,
+
     ['Krabkatoa'] = function(mob)
         mob:addStatusEffect(tpz.effect.REGAIN, 10, 0, 0)
     end,
@@ -384,14 +406,18 @@ local mixinByMobName =
     ['Yacumama'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.HUNDRED_FISTS, not mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS))
         if mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then
-            mob:addMod(tpz.mod.MOVE, 50)
+            mob:setMod(tpz.mod.MOVE, 50)
         else
-            mob:addMod(tpz.mod.MOVE, 25)
+            mob:setMod(tpz.mod.MOVE, 25)
         end
     end,
 
-    ['Lamprey_Lord'] = function(mob)
+    ['Lamprey_Lord'] = function(mob, target)
         randomly(mob, 10, 60, tpz.effect.BLOOD_WEAPON, tpz.jsa.BLOOD_WEAPON)
+        -- Gains a short duration paralysis aura if Acid Mist is interrupted
+        mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "LAMPREY_LORD_WS_INTERRUPTED", function(mob, skill)
+            AddMobAura(mob, target, 10, tpz.effect.PARALYSIS, 50, 15)
+        end)
     end,
 
     ['Shoggoth'] = function(mob)
@@ -406,6 +432,17 @@ local mixinByMobName =
         then
             mob:setLocalVar("MOBSKILL_USE", 0)
         end
+        if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+            mob:setMod(tpz.mod.UFASTCAST, 100)
+        else
+            mob:setMod(tpz.mod.UFASTCAST, 0)
+        end
+        -- Immediately gains 3k TP on Mighty Strikes use
+        mob:addListener("WEAPONSKILL_USE", "JYESHTHA_WS_USE", function(mob, target, skill)
+            if skill == 688 then -- Mighty Strikes
+                mob:addTP(3000)
+            end
+        end)
     end,
 
     ['Blobdingnag'] = function(mob)
@@ -414,6 +451,17 @@ local mixinByMobName =
 
     ['Farruca_Fly'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.PERFECT_DODGE, not mob:hasStatusEffect(tpz.effect.PERFECT_DODGE))
+        if mob:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
+            mob:addMod(tpz.mod.ACC, 100)
+        else
+            mob:delMod(tpz.mod.ACC, 100)
+        end
+        -- Immediately uses Somersault after Aeroga III
+        mob:addListener("MAGIC_STATE_EXIT", "FARRUCA_FLY_MAGIC_STATE_EXIT", function(mob, spell)
+           if spell:getID() == 186 then -- Aeroga III
+                mob:useMobAbility(318)
+            end
+        end)
     end,
 
     ['Skuld'] = function(mob)
@@ -465,7 +513,7 @@ tpz.voidwalker.onMobFight = function(mob, target)
     local mixin   = mixinByMobName[mobName]
 
     if mixin then
-        mixin(mob)
+        mixin(mob, target)
     end
 
     local poptime = mob:getLocalVar("[VoidWalker]PopedAt")

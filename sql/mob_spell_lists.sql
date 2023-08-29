@@ -4379,19 +4379,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Ground_Guzzler',513,54,68,255);  -- Stone
 INSERT INTO `mob_spell_lists` VALUES ('Ground_Guzzler',513,238,18,255); -- Rasp
 INSERT INTO `mob_spell_lists` VALUES ('Ground_Guzzler',513,258,7,255);  -- Bind
 
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,162,1,255);  -- Stone IV
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,147,1,255);  -- Fire IV
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,152,1,255);  -- Blizzard IV
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,157,1,255);  -- Aero IV
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,167,1,255);  -- Thunder IV
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,172,1,255);  -- Water IV
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,176,1,255);  -- Firaga III
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,181,1,255);  -- Blizzaga III
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,186,1,255);  -- Aeroga III
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,191,1,255);  -- Stonega III
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,196,1,255);  -- Thundaga III
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,201,1,255);  -- Waterga III
-INSERT INTO `mob_spell_lists` VALUES ('Shoggoth',514,274,1,255);  -- Sleepga II
+INSERT INTO `mob_spell_lists` VALUES ('Jyeshtha',514,255,7,255);  -- Break
 
 INSERT INTO `mob_spell_lists` VALUES ('FarrucaFly',515,366,1,255);  -- Graviga
 INSERT INTO `mob_spell_lists` VALUES ('FarrucaFly',515,359,1,255);  -- Silencega

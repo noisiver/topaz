@@ -17,6 +17,13 @@ function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+    -- Uses ONLY Wild rage or Death Scissors during Mighty Strikes
+    if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+        return math.random(353, 354)
+    end
+end
+
 function onMobDisengage(mob)
     tpz.voidwalker.onMobDisengage(mob)
 end
