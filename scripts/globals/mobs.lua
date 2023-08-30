@@ -933,3 +933,15 @@ function ResetEnmityList(mob)
         mob:resetEnmity(enmity.entity)
     end
 end
+
+function AllowSelfNuking(mob, true)
+    if true then
+        for v = 144, 173 do
+            getSpell(id):setValidTarget(9)
+        end
+    else
+        for v = 144, 173 do
+            getSpell(id):setValidTarget(tpz.magic.targetType.ENEMY)
+        end
+    end
+end
