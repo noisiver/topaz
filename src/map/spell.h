@@ -922,6 +922,8 @@ public:
     CSpell(SpellID id);
     virtual std::unique_ptr<CSpell> clone();
 
+    uint8 m_ValidTarget{}; // target pc/npc/both
+
     bool        canTargetEnemy();
     bool        isBuff();
     bool        isSevere(); // damage spells that have severe effects like Death or Impact
@@ -1015,7 +1017,6 @@ private:
     uint16      m_totalTargets {};
     uint16      m_mpCost {};                               // mpCost/itemId for ninjitsu tool
     uint8       m_job[MAX_JOBTYPE]{};                      // job
-    uint8       m_ValidTarget {};                          // target pc/npc/both
     SPELLGROUP  m_spellGroup {SPELLGROUP_NONE};            // spellgroup
     SPELLFAMILY m_spellFamily {SPELLFAMILY_NONE};          // spell family
     uint16      m_zoneMisc {};                             // spellcasting conditions

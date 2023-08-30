@@ -52,6 +52,8 @@ public:
     int32 setAnimation(lua_State*);
     int32 setMPCost(lua_State*);
     int32 castTime(lua_State*);
+    int32 getValidTarget(lua_State*);
+    int32 setValidTarget(lua_State*);
     int32 canTargetEnemy(lua_State*);
     int32 isAoE(lua_State*);
     int32 tookEffect(lua_State*);

@@ -180,6 +180,22 @@ inline int32 CLuaSpell::castTime(lua_State* L)
     return 1;
 }
 
+inline int32 CLuaSpell::getValidTarget(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    lua_pushinteger(L, m_PLuaSpell->getValidTarget());
+    return 1;
+}
+
+inline int32 CLuaSpell::setValidTarget(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaSpell->m_ValidTarget = ((uint8)lua_tonumber(L, -1));
+    return 0;
+}
+
 
 inline int32 CLuaSpell::canTargetEnemy(lua_State* L)
 {
@@ -312,6 +328,8 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,getMagicBurstMessage),
     LUNAR_DECLARE_METHOD(CLuaSpell,getElement),
     LUNAR_DECLARE_METHOD(CLuaSpell,castTime),
+    LUNAR_DECLARE_METHOD(CLuaSpell,getValidTarget),
+    LUNAR_DECLARE_METHOD(CLuaSpell,setValidTarget),
     LUNAR_DECLARE_METHOD(CLuaSpell,canTargetEnemy),
     LUNAR_DECLARE_METHOD(CLuaSpell,getTotalTargets),
     LUNAR_DECLARE_METHOD(CLuaSpell,getSkillType),
