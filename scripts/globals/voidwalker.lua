@@ -388,6 +388,12 @@ local modByMobName =
         mob:addMod(tpz.mod.UDMGPHYS, -25)
     end,
 
+    ['Erebus'] = function(mob)
+        mob:addMod(tpz.mod.DOUBLE_ATTACK, 25)
+        AllowSelfNuking(mob, true)
+        mob:setLocalVar("element", math.random(1,6))
+    end,
+
     ['Krabkatoa'] = function(mob)
         mob:addStatusEffect(tpz.effect.REGAIN, 10, 0, 0)
     end,
@@ -508,6 +514,61 @@ local mixinByMobName =
         then
             mob:addStatusEffect(tpz.effect.HUNDRED_FISTS, 1, 0, 30)
         end
+        -- Set spell list and enfeeble resists based on current element Erebus is absorbing
+        local currentAbsorb = mob:getLocalVar("element")
+        -- Reset all enfeeble resists before editing additional ones
+        for v = tpz.mod.EEM_AMNESIA, tpz.mod.EEM_BLIND do
+            mob:setMod(v, 100)
+        end
+        if currentAbsorb == 1 then -- fire
+            mob:setSpellList(485)
+            mob:setMod(tpz.mod.EEM_AMNESIA, 5)
+            mob:setMod(tpz.mod.EEM_VIRUS, 5)
+        elseif currentAbsorb == 2 then -- ice
+            mob:setSpellList(486)
+            mob:setMod(tpz.mod.EEM_PARALYZE, 5)
+        elseif currentAbsorb == 3 then -- wind
+            mob:setSpellList(487)
+        elseif currentAbsorb == 4 then -- earth
+            mob:setMod(tpz.mod.EEM_SLOW, 5)
+            mob:setMod(tpz.mod.EEM_TERROR, 5)
+            mob:setSpellList(488)
+        elseif currentAbsorb == 5 then -- lightning
+            mob:setMod(tpz.mod.EEM_STUN, 5)
+            mob:setSpellList(528)
+        elseif currentAbsorb == 6 then -- water
+            mob:setSpellList(490)
+            mob:setMod(tpz.mod.EEM_POISON, 5)
+        end
+        mob:addListener("MAGIC_TAKE", "EREBUS_MAGIC_TAKE", function(target, caster, spell)
+            if
+                spell:tookEffect() and
+                (caster:isPC() or caster:isPet()) and
+                spell:dealsDamage() 
+            then
+                -- Remove previous absorb mod
+                local previousAbsorb = mob:getLocalVar("element")
+                mob:setMod(tpz.mod.FIRE_ABSORB + mob:getLocalVar("element") - 1, 0)
+                -- Apply new absorb mod
+                mob:setMod(tpz.mod.FIRE_ABSORB + spell:getElement() - 1, 100)
+                mob:setLocalVar("element", spell:getElement())
+                -- Nuke self with a T4 nuke immediately afterwards
+                local t4Nukes =
+                {
+                    { 1, 147 }, -- Fire
+                    { 2, 152 }, -- Ice
+                    { 3, 157 }, -- Wind
+                    { 4, 162 }, -- Earth
+                    { 5, 167 }, -- Thunder
+                    { 6, 172 }, -- Water
+                }
+                for _, spellElement in pairs(t4nukes) do
+                    if (spellElement[1] == spell:getElement())
+                        mob:castSpell(spellElement[2], mob)
+                    end
+                end
+            end
+        end)
     end,
 
     ['Feuerunke'] = function(mob)

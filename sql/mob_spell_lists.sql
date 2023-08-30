@@ -4498,7 +4498,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Lacus',527,55,1,255);    -- Aquaveil
 INSERT INTO `mob_spell_lists` VALUES ('Lacus',527,105,1,255);   -- Enwater
 INSERT INTO `mob_spell_lists` VALUES ('Lacus',527,201,1,255);   -- Waterga III
 
---528 free
+INSERT INTO `mob_spell_lists` VALUES('Erebus', 528, 167, 1, 255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES('Erebus', 528, 196, 1, 255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES('Erebus', 528, 252, 1, 255); -- Stun
 
 INSERT INTO `mob_spell_lists` VALUES ('Urd',529,46,1,255);   -- Protect IV
 INSERT INTO `mob_spell_lists` VALUES ('Urd',529,51,1,255);   -- Shell IV
