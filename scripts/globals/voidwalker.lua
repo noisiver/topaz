@@ -363,7 +363,6 @@ local modByMobName =
         mob:addMod(tpz.mod.TRIPLE_ATTACK, 75)
         mob:addMod(tpz.mod.EVA, 50)
         mob:addMod(tpz.mod.DARKDEF, 256)
-        mob:addMod(tpz.mod.DRAIN_IMMUNITY, 1)
         mob:addMod(tpz.mod.MOVE, 13)
     end,
 

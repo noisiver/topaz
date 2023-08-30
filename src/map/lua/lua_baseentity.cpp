@@ -14342,14 +14342,7 @@ inline int32 CLuaBaseEntity::isUndead(lua_State *L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
 
-    if (((CBattleEntity*)m_PBaseEntity)->m_EcoSystem == SYSTEM_UNDEAD)
-    {
-        lua_pushboolean(L, true);
-    }
-    if (((CBattleEntity*)m_PBaseEntity)->getMod(Mod::DRAIN_IMMUNITY) > 0)
-    {
-        lua_pushboolean(L, true);
-    }
+    lua_pushboolean(L, ((CBattleEntity*)m_PBaseEntity)->m_EcoSystem == SYSTEM_UNDEAD);
     return 1;
 }
 

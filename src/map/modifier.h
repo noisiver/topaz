@@ -1009,11 +1009,9 @@ enum class Mod
     SINGING_NEVER_MISS = 1301,   
     BLUE_NEVER_MISS = 1302,
 
-    DRAIN_IMMUNITY = 1328,// Immunity to Drain / Aspir / Dread Spikes / etc
-
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1329 NEXT
+    // 1328 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

@@ -1833,10 +1833,9 @@ tpz.mod =
     EFFLUX_MULTIPLIER       = 1325, -- Bonus to Efflux, in percents
     UNBRIDLED_DAMAGE        = 1326, -- Bonus damage to Unbridled Learning spells, in percents
     UNBRIDLED_DURATION      = 1327,-- Bonus duration to Unbridled Learning spells, in percents
-    DRAIN_IMMUNITY          = 1328,-- Immunity to Drain / Aspir / Dread Spikes / etc
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1329 NEXT
+    -- 1328 NEXT
 }
 
 tpz.latent =
