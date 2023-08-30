@@ -1862,9 +1862,9 @@ function MobGetStatusEffectDuration(effect)
         elseif (effect == tpz.effect.FLASH) then
             duration = 9
         elseif (effect == tpz.effect.AMNESIA) then
-            duration = 30
+            duration = 15
         elseif (effect == tpz.effect.MUTE) then
-            duration = 20
+            duration = 15
         elseif (effect == tpz.effect.CHARM_I) then
             duration = 60
         elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.LULLABY) then

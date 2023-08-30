@@ -4498,23 +4498,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Lacus',527,55,1,255);    -- Aquaveil
 INSERT INTO `mob_spell_lists` VALUES ('Lacus',527,105,1,255);   -- Enwater
 INSERT INTO `mob_spell_lists` VALUES ('Lacus',527,201,1,255);   -- Waterga III
 
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,162,1,255);  -- Stone IV
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,147,1,255);  -- Fire IV
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,152,1,255);  -- Blizzard IV
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,157,1,255);  -- Aero IV
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,167,1,255);  -- Thunder IV
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,172,1,255);  -- Water IV
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,176,1,255);  -- Firaga III
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,181,1,255);  -- Blizzaga III
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,186,1,255);  -- Aeroga III
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,191,1,255);  -- Stonega III
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,196,1,255);  -- Thundaga III
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,201,1,255);  -- Waterga III
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,356,1,255);  -- Paralyga
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,362,1,255);  -- Bindga
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,360,1,255);  -- Dispelga
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,357,1,255);  -- Slowga
-INSERT INTO `mob_spell_lists` VALUES ('Skuld',528,366,1,255);  -- Graviga
+--528 free
 
 INSERT INTO `mob_spell_lists` VALUES ('Urd',529,46,1,255);   -- Protect IV
 INSERT INTO `mob_spell_lists` VALUES ('Urd',529,51,1,255);   -- Shell IV

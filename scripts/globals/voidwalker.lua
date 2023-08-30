@@ -379,6 +379,15 @@ local modByMobName =
         mob:addMod(tpz.mod.WINDRES, 256)
     end,
 
+    ['Skuld'] = function(mob)
+        mob:addMod(tpz.mod.DARKDEF, 256)
+    end,
+
+    ['Urd'] = function(mob)
+        mob:addMod(tpz.mod.DOUBLE_ATTACK, 25)
+        mob:addMod(tpz.mod.UDMGPHYS, -25)
+    end,
+
     ['Krabkatoa'] = function(mob)
         mob:addStatusEffect(tpz.effect.REGAIN, 10, 0, 0)
     end,
@@ -438,7 +447,7 @@ local mixinByMobName =
         end
         -- Immediately gains 3k TP on Mighty Strikes use
         mob:addListener("WEAPONSKILL_USE", "JYESHTHA_WS_USE", function(mob, target, skill)
-            if skill == 688 then -- Mighty Strikes
+            if (skill == tpz.jsa.MIGHTY_STRIKES) then
                 mob:addTP(3000)
             end
         end)
@@ -465,6 +474,30 @@ local mixinByMobName =
 
     ['Skuld'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.CHAINSPELL, not mob:hasStatusEffect(tpz.effect.CHAINSPELL))
+        mob:addListener("WEAPONSKILL_USE", "SKULD_WS_USE", function(mob, target, skill)
+            if (skill == tpz.jsa.CHAINSPELL) then -- Gains fast cast after ever Chainspell use
+                mob:addMod(tpz.mod.UFASTCAST, 10)
+            elseif (skill >= 2195 and skill <= 2198) then -- Changes element after using a Breeze skill
+                mob:setLocalVar("currentElement", math.random(1, 6))
+            end
+        end)
+        -- Resets hate after every spell
+        mob:addListener("MAGIC_START", "SKULD_MAGIC_START", function(mob, spell)
+            ResetEnmityList(mob)
+        end)
+    end,
+
+    ['Urd'] = function(mob)
+        doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.TRANCE, not mob:hasStatusEffect(tpz.effect.TRANCE))
+        -- Trance causes Urd to: Zephyr Arrow > Lethe Arrows > Cyclonic Turmoil > Cyclonic Torrent 
+        mob:addListener("WEAPONSKILL_USE", "URD_WS_USE", function(mob, target, skill)
+            if (skill == tpz.jsa.TRANCE) then
+                mob:useMobAbility(2193)
+                mob:useMobAbility(2194)
+                mob:useMobAbility(2199)
+                mob:useMobAbility(2200)
+            end
+        end)
     end,
 
     ['Erebus'] = function(mob)

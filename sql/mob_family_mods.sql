@@ -224,18 +224,22 @@ INSERT INTO `mob_family_mods` VALUES (120,68,25,0);		-- Gears +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (166,68,25,0);		-- Jakko(Imp) +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (90,68,25,0);		-- Dvergr +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (131,68,25,0);		-- Gnat +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (6,68,25,0);		  -- Amphiptere +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (6,68,25,0);		-- Amphiptere +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (117,68,25,0);		-- Gargouille +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (118,68,25,0);		-- Gargoyle +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (170,68,25,0);		-- Ladybug +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (192,68,25,0);		-- Peiste +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (195,68,25,0);		-- Pixie +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (517,68,25,0);		-- Pixie +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (604,68,25,0);		-- Pixie +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (616,68,25,0);		-- Pixie +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (617,68,25,0);		-- Pixie +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (231,68,25,0);		-- Slug +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (943,68,25,0);		-- WotG Yagudo +25 Evasion Racial
 
 -- Evasion Penalty
-INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	  -- Bugbear -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	    -- Bugbear -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (180,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (371,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (246,68,-20,0);	-- Troll -20 Evasion
