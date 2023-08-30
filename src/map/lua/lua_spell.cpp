@@ -282,6 +282,13 @@ inline int32 CLuaSpell::setRequirements(lua_State* L)
     return 0;
 }
 
+inline int32 CLuaSpell::dealsDamage(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    lua_pushboolean(L, m_PLuaSpell->dealsDamage());
+    return 1;
+}
+
 /************************************************************************
 *																		*
 *  Инициализация методов в lua											*
@@ -304,6 +311,7 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,tookEffect),
     LUNAR_DECLARE_METHOD(CLuaSpell,getMagicBurstMessage),
     LUNAR_DECLARE_METHOD(CLuaSpell,getElement),
+    LUNAR_DECLARE_METHOD(CLuaSpell,castTime),
     LUNAR_DECLARE_METHOD(CLuaSpell,canTargetEnemy),
     LUNAR_DECLARE_METHOD(CLuaSpell,getTotalTargets),
     LUNAR_DECLARE_METHOD(CLuaSpell,getSkillType),
@@ -315,6 +323,6 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,getFlag),
     LUNAR_DECLARE_METHOD(CLuaSpell,getRequirements),
     LUNAR_DECLARE_METHOD(CLuaSpell,setRequirements),
-    LUNAR_DECLARE_METHOD(CLuaSpell,castTime),
+    LUNAR_DECLARE_METHOD(CLuaSpell,dealsDamage),
     {nullptr,nullptr}
 };
