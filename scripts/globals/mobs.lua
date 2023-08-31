@@ -940,11 +940,11 @@ end
 function AllowSelfNuking(mob, bool)
     if bool then
         for v = 144, 173 do
-            getSpell(id):setValidTarget(9)
+            getSpell(v):setValidTarget(9)
         end
     else
         for v = 144, 173 do
-            getSpell(id):setValidTarget(tpz.magic.targetType.ENEMY)
+            getSpell(v):setValidTarget(tpz.magic.targetType.ENEMY)
         end
     end
 end
