@@ -726,10 +726,13 @@ function UseMultipleTPMoves(mob, uses, skillID)
     end
 end
 
-function AddMobAura(mob, target, radius, effect, power, duration)
-    local auraDuration = mob:getLocalVar("auraDuration")
+function AddMobAura(mob, target, radius, effect, power, duration, auraNumber)
+    if (auraNumber == nil) then
+        auraNumber = 1
+    end
+    local auraDuration = mob:getLocalVar("auraDuration" .. + auraNumber)
     if os.time() >= auraDuration then
-        mob:setLocalVar("auraDuration", os.time() + duration)
+        mob:setLocalVar("auraDuration" .. + auraNumber, os.time() + duration)
         local nearbyPlayers = mob:getPlayersInRange(radius)
         if nearbyPlayers ~= nil then 
             for _,v in ipairs(nearbyPlayers) do
