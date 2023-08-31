@@ -937,8 +937,8 @@ function ResetEnmityList(mob)
     end
 end
 
-function AllowSelfNuking(mob, true)
-    if true then
+function AllowSelfNuking(mob, bool)
+    if bool then
         for v = 144, 173 do
             getSpell(id):setValidTarget(9)
         end
