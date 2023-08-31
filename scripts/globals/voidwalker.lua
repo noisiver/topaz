@@ -581,7 +581,7 @@ local mixinByMobName =
                     { 6, 172 }, -- Water
                 }
                 for _, spellElement in pairs(t4nukes) do
-                    if (spellElement[1] == spell:getElement())
+                    if (spellElement[1] == spell:getElement()) then
                         mob:castSpell(spellElement[2], mob)
                     end
                 end
