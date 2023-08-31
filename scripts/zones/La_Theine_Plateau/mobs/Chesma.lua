@@ -17,6 +17,10 @@ function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
 end
 
+function onAdditionalEffect(mob, target, damage)
+	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER, {chance = 100, power = math.random(25, 35)})
+end
+
 function onMobDisengage(mob)
     tpz.voidwalker.onMobDisengage(mob)
 end

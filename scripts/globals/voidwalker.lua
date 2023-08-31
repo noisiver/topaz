@@ -351,23 +351,23 @@ end
 local modByMobName =
 {
     ['Raker_Bee'] = function(mob)
-        mob:addMod(tpz.mod.UDMGMAGIC, 50)
+        mob:setMod(tpz.mod.UDMGMAGIC, 50)
     end,
 
     ['Yacumama'] = function(mob)
-        mob:addMod(tpz.mod.MOVE, 25)
+        mob:setMod(tpz.mod.MOVE, 25)
     end,
 
     ['Lamprey_Lord'] = function(mob)
-        mob:addMod(tpz.mod.DOUBLE_ATTACK, 50)
-        mob:addMod(tpz.mod.TRIPLE_ATTACK, 75)
-        mob:addMod(tpz.mod.EVA, 50)
-        mob:addMod(tpz.mod.DARKDEF, 256)
-        mob:addMod(tpz.mod.MOVE, 13)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 75)
+        mob:setMod(tpz.mod.EVA, 50)
+        mob:setMod(tpz.mod.DARKDEF, 256)
+        mob:setMod(tpz.mod.MOVE, 13)
     end,
 
     ['Shoggoth'] = function(mob)
-        mob:addMod(tpz.mod.DOUBLE_ATTACK, 50)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
     end,
 
     ['Jyeshtha'] = function(mob)
@@ -376,30 +376,48 @@ local modByMobName =
 
     ['Farruca_Fly'] = function(mob)
         mob:setDamage(120)
-        mob:addMod(tpz.mod.WINDRES, 256)
+        mob:setMod(tpz.mod.WINDRES, 256)
     end,
 
     ['Skuld'] = function(mob)
-        mob:addMod(tpz.mod.DARKDEF, 256)
+        mob:setMod(tpz.mod.DARKDEF, 256)
     end,
 
     ['Urd'] = function(mob)
-        mob:addMod(tpz.mod.DOUBLE_ATTACK, 25)
-        mob:addMod(tpz.mod.UDMGPHYS, -25)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+        mob:setMod(tpz.mod.UDMGPHYS, -25)
     end,
 
     ['Erebus'] = function(mob)
-        mob:addMod(tpz.mod.DOUBLE_ATTACK, 25)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
         AllowSelfNuking(mob, true)
         mob:setLocalVar("element", math.random(1,6))
     end,
 
-    ['Krabkatoa'] = function(mob)
-        mob:addStatusEffect(tpz.effect.REGAIN, 10, 0, 0)
+    ['Feuerunke'] = function(mob)
+        mob:setMod(tpz.mod.RANGEDRES, 1000)
+        mob:setMod(tpz.mod.MDEF, 100)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+        mob:setMod(tpz.mod.DMGSPIRITS, -95)
     end,
 
     ['Tammuz'] = function(mob)
+        mob:setDamage(250)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:addStatusEffect(tpz.effect.MIGHTY_STRIKES, 1, 0, 0)
+    end,
+
+    ['Krabkatoa'] = function(mob)
+        mob:setMod(tpz.mod.REGAIN, 10)
+    end,
+
+    ['Blobdingnag'] = function(mob)
+        mob:setMod(tpz.mod.DARKDEF, 256)
+    end,
+
+    ['Orcus'] = function(mob)
+        mob:setDamage(70)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
     end,
 }
 
@@ -466,9 +484,9 @@ local mixinByMobName =
     ['Farruca_Fly'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.PERFECT_DODGE, not mob:hasStatusEffect(tpz.effect.PERFECT_DODGE))
         if mob:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
-            mob:addMod(tpz.mod.ACC, 100)
+            mob:addJobTraits(tpz.job.RNG, 75)
         else
-            mob:delMod(tpz.mod.ACC, 100)
+            mob:delJobTraits(tpz.job.RNG, 75)
         end
         -- Immediately uses Somersault after Aeroga III
         mob:addListener("MAGIC_STATE_EXIT", "FARRUCA_FLY_MAGIC_STATE_EXIT", function(mob, spell)
@@ -573,6 +591,22 @@ local mixinByMobName =
 
     ['Feuerunke'] = function(mob)
         randomly(mob, 30, 60, tpz.effect.HUNDRED_FISTS, tpz.jsa.HUNDRED_FISTS)
+        -- Melee(and spirit) damage resistance removed during hundred fists, but gains increased magic damage resistance instead
+        if mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then
+            for v = tpz.mod.SLASHRES, tpz.mod.HTHRES do
+                mob:setMod(v, 1000)
+            end
+            mob:setMod(tpz.mod.DMGSPIRITS, 0)
+            mob:setMod(tpz.mod.MDEF, 200)
+            mob:setMod(tpz.mod.UDMGBREATH, -95)
+        else
+            for v = tpz.mod.SLASHRES, tpz.mod.HTHRES do
+                mob:setMod(v, 100)
+            end
+            mob:setMod(tpz.mod.DMGSPIRITS, -95)
+            mob:setMod(tpz.mod.MDEF, 100)
+            mob:setMod(tpz.mod.UDMGBREATH, -50)
+        end
     end,
 
     ['Dawon'] = function(mob)

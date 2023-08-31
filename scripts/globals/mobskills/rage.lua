@@ -31,5 +31,9 @@ function onMobWeaponSkill(target, mob, skill)
     skill:setMsg(MobBuffMoveSub(mob, typeEffect, power, tick, duration, 0, subpower, 0))
     tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, power, tick, duration, subid, subpower, tier)
 
+    if mob:getPool() == 6850 then -- Tammuz
+        MobBuffMove(mob, tpz.effect.HASTE, 5000, 0, 180)
+    end
+
     return typeEffect
 end

@@ -3920,8 +3920,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,448); -- Metallic Body
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,443); -- Bubble Curtain
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,442); -- Bubble Shower
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,445); -- Scissor Guard
-INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2513); -- Mega Scissor
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2512); -- Venom Shower
+INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2513); -- Mega Scissor
 
 INSERT INTO `mob_skill_lists` VALUES ('LampreyLord',1181,3907); -- Acid Mist
 
@@ -3929,7 +3929,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,431);  -- Fluid_Spread
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,433);  -- Digest
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,1317); -- Mucus_Spread
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,1319); -- Epoxy_Spread
-INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,2514); -- Cytokinesis
+INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,2550); -- Dissolve
 
 INSERT INTO `mob_skill_lists` VALUES ('FarrucaFly',1183,659);
 INSERT INTO `mob_skill_lists` VALUES ('FarrucaFly',1183,660);
