@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- The Voidwalker NM System
 -----------------------------------
 require("scripts/globals/mobs")
@@ -396,7 +396,8 @@ local modByMobName =
 
     ['Feuerunke'] = function(mob)
         mob:setMod(tpz.mod.RANGEDRES, 1000)
-        mob:setMod(tpz.mod.MDEF, 100)
+        mob:setMod(tpz.mod.MDEF, 0)
+        mob:setMod(tpz.mod.UDMGMAGIC, 0)
         mob:setMod(tpz.mod.UDMGBREATH, -50)
         mob:setMod(tpz.mod.DMGSPIRITS, -95)
     end,
@@ -418,6 +419,21 @@ local modByMobName =
     ['Orcus'] = function(mob)
         mob:setDamage(70)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
+    end,
+
+    ['Verthandi'] = function(mob)
+        mob:setMod(tpz.mod.MDEF, 70)
+        mob:setMod(tpz.mod.UDMGMAGIC, -25)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+        mob:setMod(tpz.mod.DARKDEF, 256)
+    end,
+
+    ['Lord_Ruthven'] = function(mob)
+        mob:setMod(tpz.mod.MDEF, 70)
+        mob:setMod(tpz.mod.UDMGMAGIC, -25)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+        mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 100, 0, 0)
+        SetBuffUndispellable(mob, tpz.effect.BLAZE_SPIKES)
     end,
 }
 
@@ -597,16 +613,43 @@ local mixinByMobName =
                 mob:setMod(v, 1000)
             end
             mob:setMod(tpz.mod.DMGSPIRITS, 0)
-            mob:setMod(tpz.mod.MDEF, 200)
+            mob:setMod(tpz.mod.MDEF, 70)
+            mob:setMod(tpz.mod.UDMGMAGIC, -25)
             mob:setMod(tpz.mod.UDMGBREATH, -95)
         else
             for v = tpz.mod.SLASHRES, tpz.mod.HTHRES do
                 mob:setMod(v, 100)
             end
             mob:setMod(tpz.mod.DMGSPIRITS, -95)
-            mob:setMod(tpz.mod.MDEF, 100)
+            mob:setMod(tpz.mod.MDEF, 0)
+            mob:setMod(tpz.mod.UDMGMAGIC, 0)
             mob:setMod(tpz.mod.UDMGBREATH, -50)
         end
+    end,
+
+    ['Verthandi'] = function(mob)
+        local tpMoveTimer = mob:getLocalVar("tpMoveTimer")
+        local lastTPMove = mob:getLocalVar("lastTPMove")
+        -- Uses Spring Breeze → Summer Breeze → Autumn Breeze → Winter Breeze → Norn Arrow
+        if (os.time() > tpMoveTimer)
+            for v = tpz.mob.skills.SPRING_BREEZE, tpz.mob.skills.AUTUMN_BREEZE do
+                if (lastTPMove == v) then
+                    mob:useMobAbility(v +1)
+                    mob:setLocalVar("tpMoveTimer", os.time() + 60)
+                    mob:setLocalVar("lastTPMove", v +1)
+                elseif (lastTPMove == 0 or lastTPMove == tpz.mob.skills.WINTER_BREEZE) then
+                     mob:useMobAbility(tpz.mob.skills.SPRING_BREEZE)
+                     mob:setLocalVar("tpMoveTimer", os.time() + 60)
+                     mob:setLocalVar("lastTPMove", tpz.mob.skills.SPRING_BREEZE)
+                end
+            end
+        end
+        -- Will keep trying to use Norn arrows until it successfully lands
+        mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "VERTHANDI_WS_INTERRUPTED", function(mob, skill)
+            if skill == tpz.mob.skills.NORN_ARROWS then
+                mob:useMobAbility(tpz.mob.skills.NORN_ARROWS)
+            end
+        end)
     end,
 
     ['Dawon'] = function(mob)

@@ -1,7 +1,7 @@
 ---------------------------------------------
---  Zephyr Arrow
+--  Norn Arrows
 --
---  Description: Deals a ranged attack to target. Additional effect: Knockback and Bind
+--  Description: Deals a ranged attack to target. Additional effect: Encumberance
 --  Type: Ranged
 --  Utsusemi/Blink absorb: Ignores Utsusemi
 --  Range: Unknown
@@ -19,7 +19,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.BIND
     local numhits = 1
     local accmod = 1
     local dmgmod = 1.5
@@ -38,6 +37,6 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.RANGED)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 45)
+    MobEncumberMove(mob, target, 16, 60)
     return dmg
 end

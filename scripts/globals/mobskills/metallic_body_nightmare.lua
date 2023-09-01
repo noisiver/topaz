@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))
     tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, math.floor(mob:getMaxHP() * 0.10), tick, duration)
-    SetBuffUnDispellable(mob, typeEffect)
+    SetBuffUndispellable(mob, typeEffect)
 
     return tpz.effect.STONESKIN
 end

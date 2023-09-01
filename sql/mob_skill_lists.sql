@@ -3939,24 +3939,21 @@ INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,279);
 INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2517);
 INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2516);
 
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2106);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2107);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2108);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2109);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2110);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2111);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2388);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2534);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2106);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2107);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2108);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2109);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2110);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2111);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2388);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2534);
 
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,270);
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,271);
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,273);
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,2207);
 
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2195); -- spring_breeze
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2196); -- summer_breeze
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2197); -- autumn_breeze
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2198); -- winter_breeze
+-- 1187 free
 
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',1188,2519); -- dexter_wing
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',1188,2520); -- sinister_wing

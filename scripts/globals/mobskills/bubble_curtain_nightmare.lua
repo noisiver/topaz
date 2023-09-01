@@ -28,7 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(MobBuffMove(mob, typeEffect, power, tick, duration))
     tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, power, tick, duration)
-    SetBuffUnDispellable(mob, typeEffect)
+    SetBuffUndispellable(mob, typeEffect)
 
     return typeEffect
 end

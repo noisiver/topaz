@@ -111,7 +111,16 @@ end
 tpz.mob.skills =
 {
     RECOIL_DIVE = 641,
+    ZEPHYR_ARROW = 2193,
+    LETHE_ARROWS = 2194,
+    SPRING_BREEZE = 2195,
+    SUMMER_BREEZE = 2196,
+    AUTUMN_BREEZE = 2197,
+    WINTER_BREEZE = 2198,
+    CYCLONIC_TURMOIL = 2199,
+    CYCLONIC_TORRENT = 2200,
     CYTOKINESIS = 2514,
+    NORN_ARROWS = 2518,
     DISSOLVE = 2550,
 }
 
@@ -925,7 +934,7 @@ function SetNukeAnimationsToGa(mob, spell)
     end
 end
 
-function SetBuffUnDispellable(mob, buff)
+function SetBuffUndispellable(mob, buff)
     local effect1 = mob:getStatusEffect(buff)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 end

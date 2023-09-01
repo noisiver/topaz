@@ -33,7 +33,7 @@ function onMobWeaponSkill(target, mob, skill)
     tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, math.floor(mob:getMaxHP() * 0.10), tick, duration)
 
     if isKrabkatoa then
-        SetBuffUnDispellable(mob, typeEffect)
+        SetBuffUndispellable(mob, typeEffect)
     end
 
     return tpz.effect.STONESKIN
