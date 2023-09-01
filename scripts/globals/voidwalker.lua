@@ -762,6 +762,12 @@ tpz.voidwalker.onMobDeath = function(mob, player, optParams, keyItem)
         then
             checkUpgrade(player, mob, keyItem)
         end
+
+        -- Delete pop key item on a successful kill only from the person who popped the NM
+        if playerpoped then
+            playerpoped:delKeyItem(popkeyitem)
+            playerpoped:messageSpecial(zoneTextTable.VOIDWALKER_BREAK_KI, popkeyitem)
+        end
     end
 end
 
@@ -792,17 +798,7 @@ tpz.voidwalker.onHealing = function(player)
         mob:setLocalVar("[VoidWalker]PopedWith", mobNearest.keyItem)
         mob:setLocalVar("[VoidWalker]PopedAt", os.time())
 
-        if
-            mobNearest.keyItem ~= tpz.keyItem.CLEAR_ABYSSITE and
-            mobNearest.keyItem ~= tpz.keyItem.COLORFUL_ABYSSITE
-        then
-            player:delKeyItem(mobNearest.keyItem)
-            player:messageSpecial(zoneTextTable.VOIDWALKER_BREAK_KI, mobNearest.keyItem)
-        else
-            player:messageSpecial(zoneTextTable.VOIDWALKER_SPAWN_MOB)
-            mob:hideHP(false)
-        end
-
+        player:messageSpecial(zoneTextTable.VOIDWALKER_SPAWN_MOB)
         mob:hideName(false)
         mob:untargetable(false)
         mob:setStatus(tpz.status.UPDATE)
