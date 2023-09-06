@@ -13563,6 +13563,20 @@ inline int32 CLuaBaseEntity::despawnPet(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: isCharmed()
+ *  Purpose : Returns true if the entity is charmed
+ *  Example : if (pet:isCharmed()) then
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::isCharmed(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    lua_pushboolean(L, static_cast<CBattleEntity*>(m_PBaseEntity)->isCharmed);
+    return 1;
+}
+
+/************************************************************************
 *  Function: isJugPet()
 *  Purpose : Returns true if the entity crawled out of a jug after birth
 *  Example : if (pet:isJugPet()) then
@@ -14865,6 +14879,23 @@ inline int32 CLuaBaseEntity::getDelay(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
 
     lua_pushinteger(L, (int16)((CMobEntity*)m_PBaseEntity)->CBattleEntity::GetWeaponDelay(false));
+    return 1;
+}
+
+/************************************************************************
+ *  Function: getRangedDelay()
+ *  Purpose : Gets a players ranged weapon delay
+ *  Example : player:getRangedDelay()
+ *  1000 = 1s.
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::getRangedDelay(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    lua_pushinteger(L, (int16)((CMobEntity*)m_PBaseEntity)->CBattleEntity::GetRangedWeaponDelay(false));
     return 1;
 }
 
@@ -16815,6 +16846,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,spawnPet),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,despawnPet),
 
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,isCharmed),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isJugPet),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasValidJugPetItem),
 
@@ -16894,6 +16926,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,untargetable),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDelay),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getRangedDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDamage),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasSpellList),
