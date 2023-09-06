@@ -86,8 +86,6 @@ end
 function jobUtil.HandleCorsairShoTP(player, target, dmg, tp)
     if (dmg > 0) then
         player:addTP(tp)
-        target:addTP(tp)
-        target:updateEnmityFromDamage(player, dmg)
         target:handleAfflatusMiseryDamage(dmg)
     end
 end
