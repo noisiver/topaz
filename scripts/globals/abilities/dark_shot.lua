@@ -60,7 +60,11 @@ function onUseAbility(player, target, ability)
         local effectId = effect:getType()
         local subId = effect:getSubType()
         power = power * 1.5
-        subpower = subpower * 1.5
+        if bio ~= nil then
+            subpower = subpower + 5
+        else
+            subpower = subpower * 1.5
+        end
         target:delStatusEffectSilent(effectId)
         target:addStatusEffect(effectId, power, tick, duration, subId, subpower, tier)
         local newEffect = target:getStatusEffect(effectId)

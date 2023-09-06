@@ -41,10 +41,6 @@ function onUseAbility(player, target, ability)
     if dia ~= nil then
         table.insert(effects, dia)
     end
-    local threnody = target:getStatusEffect(tpz.effect.THRENODY)
-    if threnody ~= nil and threnody:getSubPower() == tpz.mod.DARKRES then
-        table.insert(effects, threnody)
-    end
 
     if #effects > 0 then
         local effect = effects[math.random(#effects)]
@@ -57,7 +53,7 @@ function onUseAbility(player, target, ability)
         local effectId = effect:getType()
         local subId = effect:getSubType()
         power = power * 1.5
-        subpower = subpower * 1.5
+        subpower = subpower + 5
         target:delStatusEffectSilent(effectId)
         target:addStatusEffect(effectId, power, tick, duration, subId, subpower, tier)
         local newEffect = target:getStatusEffect(effectId)
