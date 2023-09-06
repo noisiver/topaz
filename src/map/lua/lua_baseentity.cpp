@@ -14876,7 +14876,7 @@ inline int32 CLuaBaseEntity::untargetable(lua_State* L)
 inline int32 CLuaBaseEntity::getDelay(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
 
     lua_pushinteger(L, (int16)((CMobEntity*)m_PBaseEntity)->CBattleEntity::GetWeaponDelay(false));
     return 1;
@@ -14893,7 +14893,7 @@ inline int32 CLuaBaseEntity::getDelay(lua_State* L)
 inline int32 CLuaBaseEntity::getRangedDelay(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
 
     lua_pushinteger(L, (int16)((CMobEntity*)m_PBaseEntity)->CBattleEntity::GetRangedWeaponDelay(false));
     return 1;
