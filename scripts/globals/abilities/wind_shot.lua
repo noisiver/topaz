@@ -6,6 +6,8 @@
 require("scripts/globals/ability")
 require("scripts/globals/magic")
 require("scripts/globals/status")
+require("scripts/globals/utils")
+require("scripts/globals/job_util")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -68,9 +70,12 @@ function onUseAbility(player, target, ability, action)
             local newEffect = target:getStatusEffect(effectId)
             newEffect:setStartTime(startTime)
         end
+        local tp = utils.CalcualteTPGiven(player, target, true)
+        jobUtil.HandleCorsairShoTP(player, target, dmg, tp)
     end
 
     local del = player:delItem(2178, 1) or player:delItem(2974, 1)
     target:updateClaim(player)
+
     return dmg
 end
