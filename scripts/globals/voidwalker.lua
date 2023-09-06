@@ -682,7 +682,86 @@ local mixinByMobName =
             mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
         end)
     end
-}
+
+    ['Yilbegan'] = function(mob)
+        -- -50% MDT when wings up, -50% PDT when wings down, (75 total if also not casting or tping)
+        local battleTime = mob:getbattleTime()
+        local wingsTimer = mob:getLocalVar("wingsTimer")
+        local wingsUp = mob:getLocalVar("wingsUp")
+
+        if (wingsTimer == 0) then
+            mob:setLocalVar("twohourTime", math.random(30, 45))
+        elseif (battleTime >= wingsTimer and wingsUp == 0) then
+            mob:addMod(tpz.mod.UDMGMAGIC, -50)
+            mob:delMod(tpz.mod.UDMGPHYS, -50)
+            mob:AnimationSub(2) -- TODO
+            mob:setLocalVar("wingsTimer", battleTime + math.random(30, 45))
+            mob:setLocalVar("wingsUp", 1)
+        elseif (battleTime >= wingsTimer and wingsUp == 1) then
+            mob:addMod(tpz.mod.UDMGPHYS, -50)
+            mob:delMod(tpz.mod.UDMGMAGIC, -50)
+            mob:AnimationSub(0) -- TODO
+            mob:setLocalVar("wingsTimer", battleTime + math.random(30, 45))
+            mob:setLocalVar("wingsUp", 0)
+        end
+
+        -- Occasionally gains a Bio aura which also gives him access to Meteor
+        local auraTimer = mob:getLocalVar("auraTimer")
+
+        if (auraTimer == 0) then
+            mob:setLocalVar("auraTimer", math.random(100, 120))
+        elseif (battleTime >= auraTimer) then
+            AddMobAura(mob, target, 10, tpz.effect.BIO, 15, 3, 30)
+            mob:setLocalVar("auraTimer", math.random(100, 120))
+        end
+
+        local auraDuration = mob:getLocalVar("auraDuration1")
+
+        if (os.time() >= auraDuration) then
+            mob:setSpellList(532)
+        else
+            mob:setSpellList(531)
+        end
+
+        -- -25% PDT and MDT when not casting/tping
+        mob:addListener("WEAPONSKILL_STATE_ENTER", "YILBEGAN_WS_STATE_ENTER", function(mob, skillID)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 50)
+                else
+                    mob:setMod(v, 0)
+                end
+            end
+        end
+        mob:addListener("WEAPONSKILL_STATE_EXIT", "YILBEGAN_MOBSKILL_FINISHED", function(mob)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 75)
+                else
+                    mob:setMod(v, 25)
+                end
+            end
+        end)
+        mob:addListener("MAGIC_START", "YILBEGAN_MAGIC_START", function(mob, spell)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 50)
+                else
+                    mob:setMod(v, 0)
+                end
+            end
+        end)
+        mob:addListener("MAGIC_STATE_EXIT", "YILBEGAN_MAGIC_STATE_EXIT", function(mob, spell)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 75)
+                else
+                    mob:setMod(v, 25)
+                end
+            end
+        end)
+    end
+}   
 
 -----------------------------------
 -- Mob On Init

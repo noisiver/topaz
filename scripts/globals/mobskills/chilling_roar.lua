@@ -14,8 +14,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.TERROR
     local power = 30
-    -- Three minutes is WAY too long, especially on Wyrms. Reduced to Wiki's definition of 'long time'. Reference: http://wiki.ffxiclopedia.org/wiki/Absolute_Terror
-    local duration = 10 -- changed from 30
+    local duration = 10
+
     if skill:isAoE() then
         duration = 10
     end
