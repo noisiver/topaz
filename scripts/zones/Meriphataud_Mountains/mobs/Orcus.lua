@@ -20,7 +20,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 2516 then -- Gravitic Horn
         AddMobAura(mob, target, 10, tpz.effect.WEIGHT, 35, 30)
-        AddMobAura(mob, target, 10, tpz.effect.DEFENSE_DOWN, 33, 30, 2)
+        AddMobAura(mob, target, 10, tpz.effect.DEFENSE_DOWN, 33, 30, 0, 2)
     end
 end
 

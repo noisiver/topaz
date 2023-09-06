@@ -735,18 +735,21 @@ function UseMultipleTPMoves(mob, uses, skillID)
     end
 end
 
-function AddMobAura(mob, target, radius, effect, power, duration, auraNumber)
+function AddMobAura(mob, target, radius, effect, power, duration, subpower, auraNumber)
     if (auraNumber == nil) then
         auraNumber = 1
     end
+    if (subpower == nil) then
+        subpower = 0
+    end
     local auraDuration = mob:getLocalVar("auraDuration" .. auraNumber)
-    if os.time() >= auraDuration then
+    if (os.time() >= auraDuration) then
         mob:setLocalVar("auraDuration" .. auraNumber, os.time() + duration)
         local nearbyPlayers = mob:getPlayersInRange(radius)
         if nearbyPlayers ~= nil then 
             for _,v in ipairs(nearbyPlayers) do
                 v:delStatusEffectSilent(effect)
-                v:addStatusEffectEx(effect, effect, power, 3, duration)
+                v:addStatusEffectEx(effect, effect, power, 3, duration, 0, subpower, 0)
                 local buffEffect = v:getStatusEffect(effect)
                 buffEffect:setFlag(tpz.effectFlag.HIDE_TIMER)
                 buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
