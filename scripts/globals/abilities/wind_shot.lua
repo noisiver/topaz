@@ -47,12 +47,6 @@ function onUseAbility(player, target, ability, action)
         if threnody ~= nil and threnody:getSubPower() == tpz.mod.EARTHRES then
             table.insert(effects, threnody)
         end
-        --TODO: Frightful Roar
-        --[[local frightfulRoar = target:getStatusEffect(tpz.effect.)
-        if (frightfulRoar ~= nil) then
-            effects[counter] = frightfulRoar
-            counter = counter + 1
-        end]]
 
         if #effects > 0 then
             local effect = effects[math.random(#effects)]
@@ -64,7 +58,8 @@ function onUseAbility(player, target, ability, action)
             local tier = effect:getTier()
             local effectId = effect:getType()
             local subId = effect:getSubType()
-            power = power * 1.2
+            -- https://www.bg-wiki.com/ffxi/Quick_Draw
+            power = power + 4
             target:delStatusEffectSilent(effectId)
             target:addStatusEffect(effectId, power, tick, duration, subId, subpower, tier)
             local newEffect = target:getStatusEffect(effectId)

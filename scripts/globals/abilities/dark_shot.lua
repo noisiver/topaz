@@ -59,11 +59,12 @@ function onUseAbility(player, target, ability)
         local tier = effect:getTier()
         local effectId = effect:getType()
         local subId = effect:getSubType()
-        power = power * 1.5
+        -- https://www.bg-wiki.com/ffxi/Quick_Draw
         if bio ~= nil then
+            power = power + 3
             subpower = subpower + 5
         else
-            subpower = subpower * 1.5
+            power = power + 10
         end
         target:delStatusEffectSilent(effectId)
         target:addStatusEffect(effectId, power, tick, duration, subId, subpower, tier)
