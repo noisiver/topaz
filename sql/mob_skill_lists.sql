@@ -3936,8 +3936,8 @@ INSERT INTO `mob_skill_lists` VALUES ('FarrucaFly',1183,660);
 INSERT INTO `mob_skill_lists` VALUES ('FarrucaFly',1183,318);
 
 INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,279);
-INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2517);
-INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2516);
+INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2516); -- gravitic_horn
+INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2517); -- quake_blast
 
 INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2106);
 INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2107);
@@ -3945,13 +3945,13 @@ INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2108);
 INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2109);
 INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2110);
 INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2111);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2388);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2534);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2388); -- dirty_breath
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2534); -- minax_glare
 
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,270);
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,271);
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,273);
-INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,2207);
+INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,2207); -- disorienting_waul
 
 -- 1187 free
 

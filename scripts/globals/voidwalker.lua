@@ -435,6 +435,11 @@ local modByMobName =
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 100, 0, 0)
         SetBuffUndispellable(mob, tpz.effect.BLAZE_SPIKES)
     end,
+
+    ['Dawon'] = function(mob)
+        mob:setMod(tpz.mod.ACC, 50)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 75)
+    end
 }
 
 local mixinByMobName =
@@ -653,7 +658,29 @@ local mixinByMobName =
     end,
 
     ['Dawon'] = function(mob)
-        doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.PERFECT_DODGE, not mob:hasStatusEffect(tpz.effect.PERFECT_DODGE))
+        doMobSkillEveryHPP(mob, 5, 95, tpz.jsa.PERFECT_DODGE, not mob:hasStatusEffect(tpz.effect.PERFECT_DODGE))
+        if mob:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
+            mob:setMod(tpz.mod.REGAIN, 250)
+            AddMobAura(mob, target, 10, tpz.effect.DEFENSE_DOWN, 50, 3)
+        else
+            mob:setMod(tpz.mod.REGAIN, 0)
+        end
+        -- Immune to physical damage while readying TP moves and slightly after using them.
+        mob:addListener("WEAPONSKILL_STATE_ENTER", "DAWON_WS_STATE_ENTER", function(mob, skillID)
+            mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 0, 0)
+        end
+        mob:addListener("WEAPONSKILL_STATE_EXIT", "DAWON_MOBSKILL_FINISHED", function(mob)
+            mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
+        end)
+        -- Immune to magic while casting. "The Dawon resists the spell."
+        mob:addListener("MAGIC_START", "DAWON_MAGIC_START", function(mob, spell)
+            mob:addStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 0, 0)
+        end)
+        -- Gains the effect of a 5-6 shadow Blink effect after casting a spell.
+        mob:addListener("MAGIC_STATE_EXIT", "DAWON_MAGIC_STATE_EXIT", function(mob, spell)
+            mob:addStatusEffect(tpz.effect.BLINK, math.random(4, 6), 0, 30)
+            mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
+        end)
     end
 }
 
@@ -667,6 +694,7 @@ tpz.voidwalker.onMobSpawn = function(mob)
     local mobName = mob:getName()
     SetGenericNMStats(mob)
     mob:setMod(tpz.mod.MOVE, 50)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setStatus(tpz.status.INVISIBLE)
     mob:hideHP(true)
     mob:hideName(true)
