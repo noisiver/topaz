@@ -841,6 +841,11 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
             float angle = 45.0f;
             PAI->TargetFind->findWithinCone(PTarget, distance, angle, findFlags);
         }
+        else if (PSkill->isBack())
+        {
+            float angle = 45.0f;
+            PAI->TargetFind->findWithinCone(PTarget, distance, angle, findFlags, true);
+        }
         else
         {
             if (this->objtype == TYPE_MOB && PTarget->objtype == TYPE_PC)

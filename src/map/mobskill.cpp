@@ -50,8 +50,8 @@ bool CMobSkill::hasMissMsg() const
 
 // 1 = AOE around monster
 // 2 = AOE centered around target (8.0 radius)
-// 3 UNUSED
-// 4 = conal (45.0 degree cone)
+// 3 = Back (45.0 degree cone BEHIND)
+// 4 = conal (45.0 degree cone FRONTAL)
 
 bool CMobSkill::isAoE() const
 {
@@ -61,6 +61,11 @@ bool CMobSkill::isAoE() const
 bool CMobSkill::isConal() const
 {
     return m_Aoe == 4;
+}
+
+bool CMobSkill::isBack() const
+{
+    return m_Aoe == 3;
 }
 
 bool CMobSkill::isSingle() const
