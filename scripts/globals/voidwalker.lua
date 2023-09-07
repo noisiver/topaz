@@ -404,24 +404,29 @@ local modByMobName =
 
     ['Tammuz'] = function(mob)
         mob:setDamage(250)
+        mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:addStatusEffect(tpz.effect.MIGHTY_STRIKES, 1, 0, 0)
     end,
 
     ['Krabkatoa'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.REGAIN, 10)
     end,
 
     ['Blobdingnag'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.DARKDEF, 256)
     end,
 
     ['Orcus'] = function(mob)
         mob:setDamage(70)
+        mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
     end,
 
     ['Verthandi'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.MDEF, 70)
         mob:setMod(tpz.mod.UDMGMAGIC, -25)
         mob:setMod(tpz.mod.UDMGBREATH, -50)
@@ -429,6 +434,7 @@ local modByMobName =
     end,
 
     ['Lord_Ruthven'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.MDEF, 70)
         mob:setMod(tpz.mod.UDMGMAGIC, -25)
         mob:setMod(tpz.mod.UDMGBREATH, -50)
@@ -438,7 +444,12 @@ local modByMobName =
 
     ['Dawon'] = function(mob)
         mob:setMod(tpz.mod.ACC, 50)
+        mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 75)
+    end
+    ['Yilbegan'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 150)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
     end
 }
 
@@ -772,6 +783,7 @@ end
 tpz.voidwalker.onMobSpawn = function(mob)
     local mobName = mob:getName()
     SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.VIT, 115)
     mob:setMod(tpz.mod.MOVE, 50)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setStatus(tpz.status.INVISIBLE)
