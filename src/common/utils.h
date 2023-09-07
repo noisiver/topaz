@@ -55,6 +55,8 @@ bool facing(const position_t& A, const position_t& B, uint8 coneAngle);   // tru
 bool infront(const position_t& A, const position_t& B, uint8 coneAngle);  // true if A is infront of B within coneAngle degrees
 bool behind(const position_t& A, const position_t& B, uint8 coneAngle);   // true if A is behind of B within coneAngle degrees
 bool beside(const position_t& A, const position_t& B, uint8 coneAngle);   // true if A is to a side of B within coneAngle degrees
+bool left(const position_t& A, const position_t& B, uint8 coneAngle);     // true if A is to the left of B within coneAngle degrees
+bool right(const position_t& A, const position_t& B, uint8 coneAngle);    // true if A is to the right of B within coneAngle degrees
 
 position_t nearPosition(const position_t& A, float offset, float radian); // Returns a position near the given position
 

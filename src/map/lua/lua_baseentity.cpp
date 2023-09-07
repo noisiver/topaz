@@ -2676,6 +2676,50 @@ inline int32 CLuaBaseEntity::isBeside(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: isToLeft()
+ *  Purpose : Returns true if an entity is to the left of another entity
+ *  Example : if (attacker:isToLeft(target)) then
+ *  Notes   : Can specify angle for wider/narrower ranges
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::isToLeft(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isuserdata(L, 1));
+
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+
+    auto angle = (uint8)(lua_gettop(L) > 1 ? lua_tointeger(L, 2) : 64);
+
+    TPZ_DEBUG_BREAK_IF(PLuaBaseEntity == nullptr);
+
+    lua_pushboolean(L, left(m_PBaseEntity->loc.p, PLuaBaseEntity->GetBaseEntity()->loc.p, angle));
+    return 1;
+}
+
+/************************************************************************
+ *  Function: isToRight()
+ *  Purpose : Returns true if an entity is to the right of another entity
+ *  Example : if (attacker:isToRight(target)) then
+ *  Notes   : Can specify angle for wider/narrower ranges
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::isToRight(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isuserdata(L, 1));
+
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+
+    auto angle = (uint8)(lua_gettop(L) > 1 ? lua_tointeger(L, 2) : 64);
+
+    TPZ_DEBUG_BREAK_IF(PLuaBaseEntity == nullptr);
+
+    lua_pushboolean(L, right(m_PBaseEntity->loc.p, PLuaBaseEntity->GetBaseEntity()->loc.p, angle));
+    return 1;
+}
+
+/************************************************************************
 *  Function: getZone(isZoning)
 *  Purpose : Returns a pointer to a zone object?
 *  Example : if (player:getZone() == mob:getZone()) then
@@ -16377,6 +16421,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isInfront),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isBehind),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isBeside),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,isToLeft),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,isToRight),
     
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getZone),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getZoneID),

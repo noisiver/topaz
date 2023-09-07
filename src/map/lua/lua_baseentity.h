@@ -145,6 +145,8 @@ public:
     int32 isInfront(lua_State*);             // true if you're infront of the input target
     int32 isBehind(lua_State*);              // true if you're behind the input target
     int32 isBeside(lua_State*);              // true if you're to the side of the input target
+    int32 isToLeft(lua_State*);              // true if you're to the left of the input target
+    int32 isToRight(lua_State*);             // true if you're to the right of the input target
 
     int32 getZone(lua_State*);               // Get Entity zone
     int32 getZoneID(lua_State*);             // Get Entity zone ID
