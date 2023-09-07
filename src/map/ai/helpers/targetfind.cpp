@@ -132,10 +132,14 @@ void CTargetFind::findWithinArea(CBattleEntity* PTarget, AOERADIUS radiusType, f
     else 
     {
         // handle this as a mob
-        if (m_PMasterTarget->objtype == TYPE_PC || m_PBattleEntity->allegiance == ALLEGIANCE_PLAYER){
+        if (m_PMasterTarget->objtype == TYPE_PC || m_PBattleEntity->allegiance == ALLEGIANCE_PLAYER ||
+            (radius > 0 && m_PMasterTarget == m_PBattleEntity && m_PBattleEntity->name == "Dark_Ixion")) // DI targetting himself with AoE mobskill
+        {
             m_findType = FIND_MONSTER_PLAYER;
+
         }
-        else {
+        else
+        {
             m_findType = FIND_MONSTER_MONSTER;
         }
 
@@ -402,7 +406,7 @@ bool CTargetFind::validEntity(CBattleEntity* PTarget)
         return true;
     }
 
-	if (m_PTarget->allegiance != PTarget->allegiance)
+	if (m_PTarget->allegiance != PTarget->allegiance && m_PTarget->name != "Dark_Ixion")
 	{
 		return false;
 	}
