@@ -190,7 +190,7 @@ void CMobController::TryLink()
         {
             CMobEntity* PPartyMember = (CMobEntity*)PMob->PParty->members[i];
 
-            if (PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
+            if (PPartyMember->isAlive() && PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
             {
                 PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
 
