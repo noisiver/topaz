@@ -72,7 +72,7 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local iBoost = caster:getMod(tpz.mod.LULLABY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
 
-    duration = math.ceil(duration + (iBoost * 6 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1))
+    duration = math.ceil(duration + (iBoost * 6 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1) + caster:getJobPointLevel(tpz.jp.LULLABY_DURATION))
 
     if caster:hasStatusEffect(tpz.effect.TROUBADOUR) then
         duration = duration * 2

@@ -14,5 +14,9 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    target:addStatusEffect(tpz.effect.PALISADE, 7, 0, 60)
+    local power = 100
+    local jpValue = player:getJobPointLevel(tpz.jp.PALISADE_EFFECT)
+    power = power + jpValue
+
+    target:addStatusEffect(tpz.effect.PALISADE, power, 0, 60)
 end
