@@ -21,7 +21,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local params = {}
-    params.overwriteSlow = true
+    params.overwriteHaste = true
 
     local dmgmod = 4.0
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT)

@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     tpz.voidwalker.onMobSpawn(mob)
 end
 
-onMobFight(mob, target)
+function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
 end
 

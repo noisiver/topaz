@@ -145,6 +145,8 @@ public:
     int32 isInfront(lua_State*);             // true if you're infront of the input target
     int32 isBehind(lua_State*);              // true if you're behind the input target
     int32 isBeside(lua_State*);              // true if you're to the side of the input target
+    int32 isToLeft(lua_State*);              // true if you're to the left of the input target
+    int32 isToRight(lua_State*);             // true if you're to the right of the input target
 
     int32 getZone(lua_State*);               // Get Entity zone
     int32 getZoneID(lua_State*);             // Get Entity zone ID
@@ -625,6 +627,7 @@ public:
     int32 addFullGambit(lua_State*);
     int32 setTrustTPSkillSettings(lua_State*);
 
+    int32 isCharmed(lua_State*); // If the entity has a pet, test if it is a jug pet.
     int32 isJugPet(lua_State*);              // If the entity has a pet, test if it is a jug pet.
     int32 hasValidJugPetItem(lua_State*);
 
@@ -663,7 +666,11 @@ public:
     // Mob Entity-Specific
     int32 setMobLevel(lua_State*);
     int32 getSystem(lua_State*);
+    int32 setSystem(lua_State*);
     int32 getFamily(lua_State*);
+    int32 setFamily(lua_State*);
+    int32 getElement(lua_State*);
+    int32 setElement(lua_State*);
     int32 isMobType(lua_State*);            // True if mob is of type passed to function
     int32 isUndead(lua_State*);             // True if mob is undead
     int32 isNM(lua_State* L);
@@ -692,6 +699,7 @@ public:
     int32 untargetable(lua_State* L);
 
     int32 getDelay(lua_State*);               // gets a mobs weapon delay
+    int32 getRangedDelay(lua_State*);         // gets a players ranged weapon delay
     int32 setDelay(lua_State*);               // sets a mobs weapon delay
     int32 setDamage(lua_State*);              // sets a mobs weapon damage
     int32 hasSpellList(lua_State*);

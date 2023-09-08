@@ -13,8 +13,14 @@ function onMobSpawn(mob)
     tpz.voidwalker.onMobSpawn(mob)
 end
 
-onMobFight(mob, target)
+function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 2512 then -- Venom Shower
+        AddMobAura(mob, target, 10, tpz.effect.PLAGUE, 3, 30)
+    end
 end
 
 function onMobDisengage(mob)

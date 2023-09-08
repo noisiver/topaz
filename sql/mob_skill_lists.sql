@@ -2055,7 +2055,20 @@ INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,725);
 INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,726);
 INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,727);
 INSERT INTO `mob_skill_lists` VALUES ('Capricious_Cassie',411,728);
--- 412 to 435: free
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,442);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1590);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1591);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1592);
+INSERT INTO `mob_skill_lists` VALUES ('Crab_Nightmare',412,1593);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,1864);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,450);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,451);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,453);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,454);
+INSERT INTO `mob_skill_lists` VALUES ('Capricornus',413,641);
+INSERT INTO `mob_skill_lists` VALUES ('Shoggoth',414,438);
+INSERT INTO `mob_skill_lists` VALUES ('Shoggoth',414,439);
+-- 415 to 435: free
 INSERT INTO `mob_skill_lists` VALUES ('Bloodlapper',436,2162);
 INSERT INTO `mob_skill_lists` VALUES ('Ghillie_Dhu',437,685);
 INSERT INTO `mob_skill_lists` VALUES ('Highlander_Lizard',438,371);
@@ -3907,43 +3920,40 @@ INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,448); -- Metallic Body
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,443); -- Bubble Curtain
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,442); -- Bubble Shower
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,445); -- Scissor Guard
-INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2513); -- Mega Scissor
 INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2512); -- Venom Shower
+INSERT INTO `mob_skill_lists` VALUES ('Krabkatoa',1180,2513); -- Mega Scissor
 
-INSERT INTO `mob_skill_lists` VALUES ('LampreyLord',1181,415); -- Acid Mist
+INSERT INTO `mob_skill_lists` VALUES ('LampreyLord',1181,3907); -- Acid Mist
 
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,431);  -- Fluid_Spread
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,433);  -- Digest
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,1317); -- Mucus_Spread
 INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,1319); -- Epoxy_Spread
-INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,2514); -- Cytokinesis
+INSERT INTO `mob_skill_lists` VALUES ('Blobdingnag',1182,2550); -- Dissolve
 
 INSERT INTO `mob_skill_lists` VALUES ('FarrucaFly',1183,659);
 INSERT INTO `mob_skill_lists` VALUES ('FarrucaFly',1183,660);
 INSERT INTO `mob_skill_lists` VALUES ('FarrucaFly',1183,318);
 
 INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,279);
-INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2517);
-INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2516);
+INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2516); -- gravitic_horn
+INSERT INTO `mob_skill_lists` VALUES ('Orcus',1184,2517); -- quake_blast
 
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2106);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2107);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2108);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2109);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2110);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2111);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2388);
-INSERT INTO `mob_skill_lists` VALUES ('LordRuthen',1185,2534);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2106);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2107);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2108);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2109);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2110);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2111);
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2388); -- dirty_breath
+INSERT INTO `mob_skill_lists` VALUES ('LordRuthven',1185,2534); -- minax_glare
 
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,270);
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,271);
 INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,273);
-INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,2207);
+INSERT INTO `mob_skill_lists` VALUES ('Dawon',1186,2207); -- disorienting_waul
 
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2195); -- spring_breeze
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2196); -- summer_breeze
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2197); -- autumn_breeze
-INSERT INTO `mob_skill_lists` VALUES ('Verthandi',1187,2198); -- winter_breeze
+-- 1187 free
 
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',1188,2519); -- dexter_wing
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',1188,2520); -- sinister_wing

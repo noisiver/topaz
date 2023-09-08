@@ -42,7 +42,7 @@ function onMobFight(mob, target)
         UseMultipleTPMoves(mob, AquaCannonMax, 2441)
         mob:setLocalVar("AquaCannonTime", 0)
     end
-    -- Use Ice Guillotine 4/6/8/10 times in a row after using Frozen mst
+    -- Use Ice Guillotine 4/6/8/10 times in a row after using Frozen mist
     if (IceGuillotineTime == 1) then
         UseMultipleTPMoves(mob, IceGuillotineMax, 2440)
         mob:setLocalVar("IceGuillotineTime", 0)

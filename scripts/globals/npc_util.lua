@@ -331,7 +331,7 @@ function npcUtil.giveKeyItem(player, keyitems)
         givenKeyItems = {keyitems}
     elseif type(keyitems) == "table" then
         givenKeyItems = keyitems
-    else
+    elseif type(keyitems) ~= "number" then
         print(string.format("ERROR: invalid keyitems parameter given to npcUtil.giveKeyItem in zone %s.", player:getZoneName()))
         return false
     end

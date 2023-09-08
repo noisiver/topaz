@@ -2,6 +2,7 @@
 --  Cyclonic Torrent
 --
 --  Description: Area of Effect damage plus Mute to those in range.
+-- Additional effect: Mute.
 --  Type: Enfeebling
 --  Utsusemi/Blink absorb: Wipes Shadows
 --  Range: 20' radial

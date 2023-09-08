@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- The Voidwalker NM System
 -----------------------------------
 require("scripts/globals/mobs")
@@ -350,14 +350,107 @@ end
 
 local modByMobName =
 {
-    ['Krabkatoa'] = function(mob)
-        mob:addStatusEffect(tpz.effect.REGAIN, 10, 0, 0)
-        mob:addMod(tpz.mod.DOUBLE_ATTACK, 10)
+    ['Raker_Bee'] = function(mob)
+        mob:setMod(tpz.mod.UDMGMAGIC, 50)
+    end,
+
+    ['Yacumama'] = function(mob)
+        mob:setMod(tpz.mod.MOVE, 25)
+    end,
+
+    ['Lamprey_Lord'] = function(mob)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 75)
+        mob:setMod(tpz.mod.EVA, 50)
+        mob:setMod(tpz.mod.DARKDEF, 256)
+        mob:setMod(tpz.mod.MOVE, 13)
+    end,
+
+    ['Shoggoth'] = function(mob)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
+    end,
+
+    ['Jyeshtha'] = function(mob)
+        mob:setDamage(120)
+    end,
+
+    ['Farruca_Fly'] = function(mob)
+        mob:setDamage(120)
+        mob:setMod(tpz.mod.WINDRES, 256)
+    end,
+
+    ['Skuld'] = function(mob)
+        mob:setMod(tpz.mod.DARKDEF, 256)
+    end,
+
+    ['Urd'] = function(mob)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+        mob:setMod(tpz.mod.UDMGPHYS, -25)
+    end,
+
+    ['Erebus'] = function(mob)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+        AllowSelfNuking(mob, true)
+        mob:setLocalVar("element", math.random(1,6))
+    end,
+
+    ['Feuerunke'] = function(mob)
+        mob:setMod(tpz.mod.RANGEDRES, 1000)
+        mob:setMod(tpz.mod.MDEF, 0)
+        mob:setMod(tpz.mod.UDMGMAGIC, 0)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+        mob:setMod(tpz.mod.DMGSPIRITS, -95)
     end,
 
     ['Tammuz'] = function(mob)
+        mob:setDamage(250)
+        mob:setMod(tpz.mod.VIT, 130)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:addStatusEffect(tpz.effect.MIGHTY_STRIKES, 1, 0, 0)
     end,
+
+    ['Krabkatoa'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
+        mob:setMod(tpz.mod.REGAIN, 10)
+    end,
+
+    ['Blobdingnag'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
+        mob:setMod(tpz.mod.DARKDEF, 256)
+    end,
+
+    ['Orcus'] = function(mob)
+        mob:setDamage(70)
+        mob:setMod(tpz.mod.VIT, 130)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
+    end,
+
+    ['Verthandi'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
+        mob:setMod(tpz.mod.MDEF, 70)
+        mob:setMod(tpz.mod.UDMGMAGIC, -25)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+        mob:setMod(tpz.mod.DARKDEF, 256)
+    end,
+
+    ['Lord_Ruthven'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 130)
+        mob:setMod(tpz.mod.MDEF, 70)
+        mob:setMod(tpz.mod.UDMGMAGIC, -25)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+        mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 100, 0, 0)
+        SetBuffUndispellable(mob, tpz.effect.BLAZE_SPIKES)
+    end,
+
+    ['Dawon'] = function(mob)
+        mob:setMod(tpz.mod.ACC, 50)
+        mob:setMod(tpz.mod.VIT, 130)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 75)
+    end
+    ['Yilbegan'] = function(mob)
+        mob:setMod(tpz.mod.VIT, 150)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+    end
 }
 
 local mixinByMobName =
@@ -367,14 +460,28 @@ local mixinByMobName =
         if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) and not mobIsBusy(mob) then
             mob:useMobAbility(tpz.mob.skills.RECOIL_DIVE)
         end
+        if mob:getHPP() < 50 then
+            mob:setDamage(100)
+        elseif mob:getHPP() < 15 then
+            mob:setDamage(120)
+        end
     end,
 
     ['Yacumama'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.HUNDRED_FISTS, not mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS))
+        if mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then
+            mob:setMod(tpz.mod.MOVE, 50)
+        else
+            mob:setMod(tpz.mod.MOVE, 25)
+        end
     end,
 
-    ['Lamprey_Lord'] = function(mob)
+    ['Lamprey_Lord'] = function(mob, target)
         randomly(mob, 10, 60, tpz.effect.BLOOD_WEAPON, tpz.jsa.BLOOD_WEAPON)
+        -- Gains a short duration paralysis aura if Acid Mist is interrupted
+        mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "LAMPREY_LORD_WS_INTERRUPTED", function(mob, skill)
+            AddMobAura(mob, target, 10, tpz.effect.PARALYSIS, 50, 15)
+        end)
     end,
 
     ['Shoggoth'] = function(mob)
@@ -389,6 +496,17 @@ local mixinByMobName =
         then
             mob:setLocalVar("MOBSKILL_USE", 0)
         end
+        if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+            mob:setMod(tpz.mod.UFASTCAST, 100)
+        else
+            mob:setMod(tpz.mod.UFASTCAST, 0)
+        end
+        -- Immediately gains 3k TP on Mighty Strikes use
+        mob:addListener("WEAPONSKILL_USE", "JYESHTHA_WS_USE", function(mob, target, skill)
+            if (skill == tpz.jsa.MIGHTY_STRIKES) then
+                mob:addTP(3000)
+            end
+        end)
     end,
 
     ['Blobdingnag'] = function(mob)
@@ -397,10 +515,45 @@ local mixinByMobName =
 
     ['Farruca_Fly'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.PERFECT_DODGE, not mob:hasStatusEffect(tpz.effect.PERFECT_DODGE))
+        if mob:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
+            mob:addJobTraits(tpz.job.RNG, 75)
+        else
+            mob:delJobTraits(tpz.job.RNG, 75)
+        end
+        -- Immediately uses Somersault after Aeroga III
+        mob:addListener("MAGIC_STATE_EXIT", "FARRUCA_FLY_MAGIC_STATE_EXIT", function(mob, spell)
+           if spell:getID() == 186 then -- Aeroga III
+                mob:useMobAbility(318)
+            end
+        end)
     end,
 
     ['Skuld'] = function(mob)
         doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.CHAINSPELL, not mob:hasStatusEffect(tpz.effect.CHAINSPELL))
+        mob:addListener("WEAPONSKILL_USE", "SKULD_WS_USE", function(mob, target, skill)
+            if (skill == tpz.jsa.CHAINSPELL) then -- Gains fast cast after ever Chainspell use
+                mob:addMod(tpz.mod.UFASTCAST, 10)
+            elseif (skill >= 2195 and skill <= 2198) then -- Changes element after using a Breeze skill
+                mob:setLocalVar("currentElement", math.random(1, 6))
+            end
+        end)
+        -- Resets hate after every spell
+        mob:addListener("MAGIC_START", "SKULD_MAGIC_START", function(mob, spell)
+            ResetEnmityList(mob)
+        end)
+    end,
+
+    ['Urd'] = function(mob)
+        doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.TRANCE, not mob:hasStatusEffect(tpz.effect.TRANCE))
+        -- Trance causes Urd to: Zephyr Arrow > Lethe Arrows > Cyclonic Turmoil > Cyclonic Torrent 
+        mob:addListener("WEAPONSKILL_USE", "URD_WS_USE", function(mob, target, skill)
+            if (skill == tpz.jsa.TRANCE) then
+                mob:useMobAbility(2193)
+                mob:useMobAbility(2194)
+                mob:useMobAbility(2199)
+                mob:useMobAbility(2200)
+            end
+        end)
     end,
 
     ['Erebus'] = function(mob)
@@ -411,16 +564,215 @@ local mixinByMobName =
         then
             mob:addStatusEffect(tpz.effect.HUNDRED_FISTS, 1, 0, 30)
         end
+        -- Set spell list and enfeeble resists based on current element Erebus is absorbing
+        local currentAbsorb = mob:getLocalVar("element")
+        -- Reset all enfeeble resists before editing additional ones
+        for v = tpz.mod.EEM_AMNESIA, tpz.mod.EEM_BLIND do
+            mob:setMod(v, 100)
+        end
+        if currentAbsorb == 1 then -- fire
+            mob:setSpellList(485)
+            mob:setMod(tpz.mod.EEM_AMNESIA, 5)
+            mob:setMod(tpz.mod.EEM_VIRUS, 5)
+        elseif currentAbsorb == 2 then -- ice
+            mob:setSpellList(486)
+            mob:setMod(tpz.mod.EEM_PARALYZE, 5)
+        elseif currentAbsorb == 3 then -- wind
+            mob:setSpellList(487)
+        elseif currentAbsorb == 4 then -- earth
+            mob:setMod(tpz.mod.EEM_SLOW, 5)
+            mob:setMod(tpz.mod.EEM_TERROR, 5)
+            mob:setSpellList(488)
+        elseif currentAbsorb == 5 then -- lightning
+            mob:setMod(tpz.mod.EEM_STUN, 5)
+            mob:setSpellList(528)
+        elseif currentAbsorb == 6 then -- water
+            mob:setSpellList(490)
+            mob:setMod(tpz.mod.EEM_POISON, 5)
+        end
+        mob:addListener("MAGIC_TAKE", "EREBUS_MAGIC_TAKE", function(target, caster, spell)
+            if
+                spell:tookEffect() and
+                (caster:isPC() or caster:isPet()) and
+                spell:dealsDamage() 
+            then
+                -- Remove previous absorb mod
+                local previousAbsorb = mob:getLocalVar("element")
+                mob:setMod(tpz.mod.FIRE_ABSORB + mob:getLocalVar("element") - 1, 0)
+                -- Apply new absorb mod
+                mob:setMod(tpz.mod.FIRE_ABSORB + spell:getElement() - 1, 100)
+                mob:setLocalVar("element", spell:getElement())
+                -- Nuke self with a T4 nuke immediately afterwards
+                local t4Nukes =
+                {
+                    { 1, 147 }, -- Fire
+                    { 2, 152 }, -- Ice
+                    { 3, 157 }, -- Wind
+                    { 4, 162 }, -- Earth
+                    { 5, 167 }, -- Thunder
+                    { 6, 172 }, -- Water
+                }
+                for _, spellElement in pairs(t4nukes) do
+                    if (spellElement[1] == spell:getElement()) then
+                        mob:castSpell(spellElement[2], mob)
+                    end
+                end
+            end
+        end)
     end,
 
     ['Feuerunke'] = function(mob)
         randomly(mob, 30, 60, tpz.effect.HUNDRED_FISTS, tpz.jsa.HUNDRED_FISTS)
+        -- Melee(and spirit) damage resistance removed during hundred fists, but gains increased magic damage resistance instead
+        if mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then
+            for v = tpz.mod.SLASHRES, tpz.mod.HTHRES do
+                mob:setMod(v, 1000)
+            end
+            mob:setMod(tpz.mod.DMGSPIRITS, 0)
+            mob:setMod(tpz.mod.MDEF, 70)
+            mob:setMod(tpz.mod.UDMGMAGIC, -25)
+            mob:setMod(tpz.mod.UDMGBREATH, -95)
+        else
+            for v = tpz.mod.SLASHRES, tpz.mod.HTHRES do
+                mob:setMod(v, 100)
+            end
+            mob:setMod(tpz.mod.DMGSPIRITS, -95)
+            mob:setMod(tpz.mod.MDEF, 0)
+            mob:setMod(tpz.mod.UDMGMAGIC, 0)
+            mob:setMod(tpz.mod.UDMGBREATH, -50)
+        end
+    end,
+
+    ['Verthandi'] = function(mob)
+        local tpMoveTimer = mob:getLocalVar("tpMoveTimer")
+        local lastTPMove = mob:getLocalVar("lastTPMove")
+        -- Uses Spring Breeze → Summer Breeze → Autumn Breeze → Winter Breeze → Norn Arrow
+        if (os.time() > tpMoveTimer)
+            for v = tpz.mob.skills.SPRING_BREEZE, tpz.mob.skills.AUTUMN_BREEZE do
+                if (lastTPMove == v) then
+                    mob:useMobAbility(v +1)
+                    mob:setLocalVar("tpMoveTimer", os.time() + 60)
+                    mob:setLocalVar("lastTPMove", v +1)
+                elseif (lastTPMove == 0 or lastTPMove == tpz.mob.skills.WINTER_BREEZE) then
+                     mob:useMobAbility(tpz.mob.skills.SPRING_BREEZE)
+                     mob:setLocalVar("tpMoveTimer", os.time() + 60)
+                     mob:setLocalVar("lastTPMove", tpz.mob.skills.SPRING_BREEZE)
+                end
+            end
+        end
+        -- Will keep trying to use Norn arrows until it successfully lands
+        mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "VERTHANDI_WS_INTERRUPTED", function(mob, skill)
+            if skill == tpz.mob.skills.NORN_ARROWS then
+                mob:useMobAbility(tpz.mob.skills.NORN_ARROWS)
+            end
+        end)
     end,
 
     ['Dawon'] = function(mob)
-        doMobSkillEveryHPP(mob, 20, 80, tpz.jsa.PERFECT_DODGE, not mob:hasStatusEffect(tpz.effect.PERFECT_DODGE))
+        doMobSkillEveryHPP(mob, 5, 95, tpz.jsa.PERFECT_DODGE, not mob:hasStatusEffect(tpz.effect.PERFECT_DODGE))
+        if mob:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
+            mob:setMod(tpz.mod.REGAIN, 250)
+            AddMobAura(mob, target, 10, tpz.effect.DEFENSE_DOWN, 50, 3)
+        else
+            mob:setMod(tpz.mod.REGAIN, 0)
+        end
+        -- Immune to physical damage while readying TP moves and slightly after using them.
+        mob:addListener("WEAPONSKILL_STATE_ENTER", "DAWON_WS_STATE_ENTER", function(mob, skillID)
+            mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 0, 0)
+        end
+        mob:addListener("WEAPONSKILL_STATE_EXIT", "DAWON_MOBSKILL_FINISHED", function(mob)
+            mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
+        end)
+        -- Immune to magic while casting. "The Dawon resists the spell."
+        mob:addListener("MAGIC_START", "DAWON_MAGIC_START", function(mob, spell)
+            mob:addStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 0, 0)
+        end)
+        -- Gains the effect of a 5-6 shadow Blink effect after casting a spell.
+        mob:addListener("MAGIC_STATE_EXIT", "DAWON_MAGIC_STATE_EXIT", function(mob, spell)
+            mob:addStatusEffect(tpz.effect.BLINK, math.random(4, 6), 0, 30)
+            mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
+        end)
     end
-}
+
+    ['Yilbegan'] = function(mob)
+        -- -50% MDT when wings up, -50% PDT when wings down, (75 total if also not casting or tping)
+        local battleTime = mob:getbattleTime()
+        local wingsTimer = mob:getLocalVar("wingsTimer")
+        local wingsUp = mob:getLocalVar("wingsUp")
+
+        if (wingsTimer == 0) then
+            mob:setLocalVar("twohourTime", math.random(30, 45))
+        elseif (battleTime >= wingsTimer and wingsUp == 0) then
+            mob:addMod(tpz.mod.UDMGMAGIC, -50)
+            mob:delMod(tpz.mod.UDMGPHYS, -50)
+            mob:AnimationSub(2) -- TODO
+            mob:setLocalVar("wingsTimer", battleTime + math.random(30, 45))
+            mob:setLocalVar("wingsUp", 1)
+        elseif (battleTime >= wingsTimer and wingsUp == 1) then
+            mob:addMod(tpz.mod.UDMGPHYS, -50)
+            mob:delMod(tpz.mod.UDMGMAGIC, -50)
+            mob:AnimationSub(0) -- TODO
+            mob:setLocalVar("wingsTimer", battleTime + math.random(30, 45))
+            mob:setLocalVar("wingsUp", 0)
+        end
+
+        -- Occasionally gains a Bio aura which also gives him access to Meteor
+        local auraTimer = mob:getLocalVar("auraTimer")
+
+        if (auraTimer == 0) then
+            mob:setLocalVar("auraTimer", math.random(100, 120))
+        elseif (battleTime >= auraTimer) then
+            AddMobAura(mob, target, 10, tpz.effect.BIO, 15, 3, 30)
+            mob:setLocalVar("auraTimer", math.random(100, 120))
+        end
+
+        local auraDuration = mob:getLocalVar("auraDuration1")
+
+        if (os.time() >= auraDuration) then
+            mob:setSpellList(532)
+        else
+            mob:setSpellList(531)
+        end
+
+        -- -25% PDT and MDT when not casting/tping
+        mob:addListener("WEAPONSKILL_STATE_ENTER", "YILBEGAN_WS_STATE_ENTER", function(mob, skillID)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 50)
+                else
+                    mob:setMod(v, 0)
+                end
+            end
+        end
+        mob:addListener("WEAPONSKILL_STATE_EXIT", "YILBEGAN_MOBSKILL_FINISHED", function(mob)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 75)
+                else
+                    mob:setMod(v, 25)
+                end
+            end
+        end)
+        mob:addListener("MAGIC_START", "YILBEGAN_MAGIC_START", function(mob, spell)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 50)
+                else
+                    mob:setMod(v, 0)
+                end
+            end
+        end)
+        mob:addListener("MAGIC_STATE_EXIT", "YILBEGAN_MAGIC_STATE_EXIT", function(mob, spell)
+            for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
+                if mob:getMod(v) >= 50 then
+                    mob:setMod(v, 75)
+                else
+                    mob:setMod(v, 25)
+                end
+            end
+        end)
+    end
+}   
 
 -----------------------------------
 -- Mob On Init
@@ -430,10 +782,14 @@ end
 
 tpz.voidwalker.onMobSpawn = function(mob)
     local mobName = mob:getName()
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.VIT, 115)
+    mob:setMod(tpz.mod.MOVE, 50)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setStatus(tpz.status.INVISIBLE)
     mob:hideHP(true)
     mob:hideName(true)
-    mob:setUntargetable(true)
+    mob:untargetable(true)
     local mods = modByMobName[mobName]
 
     if mods then
@@ -446,7 +802,7 @@ tpz.voidwalker.onMobFight = function(mob, target)
     local mixin   = mixinByMobName[mobName]
 
     if mixin then
-        mixin(mob)
+        mixin(mob, target)
     end
 
     local poptime = mob:getLocalVar("[VoidWalker]PopedAt")
@@ -477,7 +833,7 @@ tpz.voidwalker.onMobDisengage = function(mob)
     mob:setStatus(tpz.status.INVISIBLE)
     mob:hideHP(true)
     mob:hideName(true)
-    mob:setUntargetable(true)
+    mob:untargetable(true)
 end
 
 tpz.voidwalker.onMobDespawn = function(mob)
@@ -525,6 +881,12 @@ tpz.voidwalker.onMobDeath = function(mob, player, optParams, keyItem)
         then
             checkUpgrade(player, mob, keyItem)
         end
+
+        -- Delete pop key item on a successful kill only from the person who popped the NM
+        if playerpoped then
+            playerpoped:delKeyItem(popkeyitem)
+            playerpoped:messageSpecial(zoneTextTable.VOIDWALKER_BREAK_KI, popkeyitem)
+        end
     end
 end
 
@@ -555,19 +917,9 @@ tpz.voidwalker.onHealing = function(player)
         mob:setLocalVar("[VoidWalker]PopedWith", mobNearest.keyItem)
         mob:setLocalVar("[VoidWalker]PopedAt", os.time())
 
-        if
-            mobNearest.keyItem ~= tpz.keyItem.CLEAR_ABYSSITE and
-            mobNearest.keyItem ~= tpz.keyItem.COLORFUL_ABYSSITE
-        then
-            player:delKeyItem(mobNearest.keyItem)
-            player:messageSpecial(zoneTextTable.VOIDWALKER_BREAK_KI, mobNearest.keyItem)
-        else
-            player:messageSpecial(zoneTextTable.VOIDWALKER_SPAWN_MOB)
-            mob:hideHP(false)
-        end
-
+        player:messageSpecial(zoneTextTable.VOIDWALKER_SPAWN_MOB)
         mob:hideName(false)
-        mob:setUntargetable(false)
+        mob:untargetable(false)
         mob:setStatus(tpz.status.UPDATE)
         mob:updateClaim(player)
 

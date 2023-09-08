@@ -13,8 +13,16 @@ function onMobSpawn(mob)
     tpz.voidwalker.onMobSpawn(mob)
 end
 
-onMobFight(mob, target)
+function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
+end
+
+function onSpellPrecast(mob, spell)
+    if spell:getID() == 252 then -- Stun
+        spell:setAoE(tpz.magic.aoe.RADIAL)
+        spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
+        spell:setRadius(10)
+	end
 end
 
 function onMobDisengage(mob)

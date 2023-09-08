@@ -212,6 +212,25 @@ bool beside(const position_t& A, const position_t& B, uint8 coneAngle)
     return (facingDiff > 64 - halfAngle) && (facingDiff < 64 + halfAngle);
 }
 
+bool left(const position_t& A, const position_t& B, uint8 coneAngle)
+{
+    int16 faceAngle = facingAngle(B, A);
+    if (faceAngle > 0)
+        return false;
+    uint8 facingDiff = abs(faceAngle);
+    uint8 halfAngle = static_cast<uint8>(coneAngle / 2);
+    return (facingDiff > 64 - halfAngle) && (facingDiff < 64 + halfAngle);
+}
+bool right(const position_t& A, const position_t& B, uint8 coneAngle)
+{
+    int16 faceAngle = facingAngle(B, A);
+    if (faceAngle < 0)
+        return false;
+    uint8 facingDiff = abs(faceAngle);
+    uint8 halfAngle = static_cast<uint8>(coneAngle / 2);
+    return (facingDiff > 64 - halfAngle) && (facingDiff < 64 + halfAngle);
+}
+
 /**
 Returns a position near the given position.
 

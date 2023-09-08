@@ -1,4 +1,4 @@
-require('scripts/globals/status')
+﻿require('scripts/globals/status')
 
 tpz = tpz or {}
 tpz.magic = tpz.magic or {}
@@ -17,7 +17,7 @@ tpz.magic.spellFlag =
 
 
 ------------------------------------
--- Spell AOE IDs
+-- Spell requirements
 ------------------------------------
 
 tpz.magic.req =
@@ -43,6 +43,23 @@ tpz.magic.aoe =
     RADIAL_ACCE = 4, -- AOE when under SCH stratagem Accession
     PIANISSIMO  = 5, -- Single target when under BRD JA Pianissimo
     DIFFUSION   = 6, -- AOE when under Diffusion
+}
+
+------------------------------------
+-- Spell Target Type (valid target)
+------------------------------------
+
+tpz.magic.targetType =
+{
+    SELF = 0x01,
+    PLAYER_PARTY = 0x02,
+    ENEMY = 0x04,
+    PLAYER_ALLIANCE = 0x08,
+    PLAYER = 0x10,
+    PLAYER_DEAD = 0x20,
+    NPC = 0x40,
+    PLAYER_PARTY_PIANISSIMO = 0x80,
+    PET = 0x100
 }
 
 ------------------------------------

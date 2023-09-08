@@ -9,6 +9,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 6828 then -- Capricornus
+        mob:resetEnmity(target)
+    end
     return 0
 end
 

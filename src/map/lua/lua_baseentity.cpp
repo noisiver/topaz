@@ -2676,6 +2676,50 @@ inline int32 CLuaBaseEntity::isBeside(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: isToLeft()
+ *  Purpose : Returns true if an entity is to the left of another entity
+ *  Example : if (attacker:isToLeft(target)) then
+ *  Notes   : Can specify angle for wider/narrower ranges
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::isToLeft(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isuserdata(L, 1));
+
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+
+    auto angle = (uint8)(lua_gettop(L) > 1 ? lua_tointeger(L, 2) : 64);
+
+    TPZ_DEBUG_BREAK_IF(PLuaBaseEntity == nullptr);
+
+    lua_pushboolean(L, left(m_PBaseEntity->loc.p, PLuaBaseEntity->GetBaseEntity()->loc.p, angle));
+    return 1;
+}
+
+/************************************************************************
+ *  Function: isToRight()
+ *  Purpose : Returns true if an entity is to the right of another entity
+ *  Example : if (attacker:isToRight(target)) then
+ *  Notes   : Can specify angle for wider/narrower ranges
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::isToRight(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isuserdata(L, 1));
+
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+
+    auto angle = (uint8)(lua_gettop(L) > 1 ? lua_tointeger(L, 2) : 64);
+
+    TPZ_DEBUG_BREAK_IF(PLuaBaseEntity == nullptr);
+
+    lua_pushboolean(L, right(m_PBaseEntity->loc.p, PLuaBaseEntity->GetBaseEntity()->loc.p, angle));
+    return 1;
+}
+
+/************************************************************************
 *  Function: getZone(isZoning)
 *  Purpose : Returns a pointer to a zone object?
 *  Example : if (player:getZone() == mob:getZone()) then
@@ -13563,6 +13607,20 @@ inline int32 CLuaBaseEntity::despawnPet(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: isCharmed()
+ *  Purpose : Returns true if the entity is charmed
+ *  Example : if (pet:isCharmed()) then
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::isCharmed(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    lua_pushboolean(L, static_cast<CBattleEntity*>(m_PBaseEntity)->isCharmed);
+    return 1;
+}
+
+/************************************************************************
 *  Function: isJugPet()
 *  Purpose : Returns true if the entity crawled out of a jug after birth
 *  Example : if (pet:isJugPet()) then
@@ -14211,6 +14269,25 @@ inline int32 CLuaBaseEntity::getSystem(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: setSystem()
+ *  Purpose : Sets the ecosystem of the mob(i.e. dragon)
+ *  Example : mob:setSystem(tpz.ecosystem.DRAGON)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setSystem(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CBattleEntity*)m_PBaseEntity)->m_EcoSystem = (ECOSYSTEM)((lua_tointeger(L, 1)));
+
+    return 0;
+}
+
+/************************************************************************
 *  Function: getFamily()
 *  Purpose : Returns the integer value of the associated Mob Family
 *  Example : if (mob:getFamily() == 123) then
@@ -14226,6 +14303,63 @@ inline int32 CLuaBaseEntity::getFamily(lua_State* L)
 
     lua_pushinteger(L, family);
     return 1;
+}
+
+/************************************************************************
+ *  Function: setFamily()
+ *  Purpose : Sets the mobs family
+ *  Example : mob:setFamily(233)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setFamily(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CMobEntity*)m_PBaseEntity)->m_Family = ((lua_tointeger(L, 1)));
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: getElement()
+ *  Purpose : Returns the integer value of the associated Mob Element
+ *  Example : if (mob:getElement() == 123) then
+ *  Notes   : To Do: Enumerate Mob elements in global script
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::getElement(lua_State* L)
+{
+    auto entity = dynamic_cast<CMobEntity*>(m_PBaseEntity);
+    TPZ_DEBUG_BREAK_IF(!entity);
+    TPZ_DEBUG_BREAK_IF(entity->objtype == TYPE_PC);
+
+    uint16 element = entity->m_Element;
+
+    lua_pushinteger(L, element);
+    return 1;
+}
+
+/************************************************************************
+ *  Function: setElement()
+ *  Purpose : Sets the mobs elements
+ *  Example : mob:setElement(7)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setElement(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_PC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CMobEntity*)m_PBaseEntity)->m_Element = ((lua_tointeger(L, 1)));
+
+    return 0;
 }
 
 /************************************************************************
@@ -14256,7 +14390,7 @@ inline int32 CLuaBaseEntity::isMobType(lua_State *L)
 
 /************************************************************************
 *  Function: isUndead()
-*  Purpose : Returns true if Entity is Undead
+*  Purpose : Returns true if Entity is Undead or has drain immunity mod
 *  Example : if (target:isUndead()) then
 *  Notes   :
 ************************************************************************/
@@ -14777,7 +14911,7 @@ inline int32 CLuaBaseEntity::untargetable(lua_State* L)
 
 /************************************************************************
  *  Function: getDelay()
- *  Purpose : Gets a mobs weapon delay
+ *  Purpose : Gets a entities weapon delay
  *  Example : mob:getDelay()
  *  1000 = 1s. 4000 = default delay(for mobs)
  *  Notes   :
@@ -14786,9 +14920,26 @@ inline int32 CLuaBaseEntity::untargetable(lua_State* L)
 inline int32 CLuaBaseEntity::getDelay(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
 
-    lua_pushinteger(L, (int16)((CMobEntity*)m_PBaseEntity)->CBattleEntity::GetWeaponDelay(false));
+    lua_pushinteger(L, (int16)((CBattleEntity*)m_PBaseEntity)->CBattleEntity::GetWeaponDelay(false));
+    return 1;
+}
+
+/************************************************************************
+ *  Function: getRangedDelay()
+ *  Purpose : Gets an entities ranged weapon delay
+ *  Example : player:getRangedDelay()
+ *  1000 = 1s.
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::getRangedDelay(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
+
+    lua_pushinteger(L, (int16)((CBattleEntity*)m_PBaseEntity)->CBattleEntity::GetRangedWeaponDelay(false));
     return 1;
 }
 
@@ -16270,6 +16421,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isInfront),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isBehind),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isBeside),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,isToLeft),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,isToRight),
     
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getZone),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getZoneID),
@@ -16739,6 +16892,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,spawnPet),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,despawnPet),
 
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,isCharmed),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isJugPet),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasValidJugPetItem),
 
@@ -16786,7 +16940,11 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     // Mob Entity-Specific
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMobLevel),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getSystem),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setSystem),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getFamily),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setFamily),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getElement),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setElement),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isMobType),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isUndead),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isNM),
@@ -16814,6 +16972,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,untargetable),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDelay),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getRangedDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDamage),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasSpellList),

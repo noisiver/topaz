@@ -283,6 +283,23 @@ enum class Mod
     LUMORIAN_KILLER           = 237, // Enhances "Lumorian Killer" effect
     LUMINION_KILLER           = 238, // Enhances "Luminion Killer" effect
 
+    // Affinity-Effects
+    VERMIN_AFFINITY         = 2224,// Makes the entity a vermin
+    BIRD_AFFINITY           = 2225,// Makes the entity a bird
+    AMORPH_AFFINITY         = 2226,// Makes the entity a amorph
+    LIZARD_AFFINITY         = 2227,// Makes the entity a lizard
+    AQUAN_AFFINITY          = 2228,// Makes the entity a aquan
+    PLANTOID_AFFINITY       = 2229, // Makes the entity a plantoid
+    BEAST_AFFINITY          = 2230,// Makes the entity a beast
+    UNDEAD_AFFINITY         = 2231,// Makes the entity a undead
+    ARCANA_AFFINITY         = 2232,// Makes the entity a arcana
+    DRAGON_AFFINITY         = 2233,// Makes the entity a dragon
+    DEMON_AFFINITY          = 2234,// Makes the entity a demon
+    EMPTY_AFFINITY          = 2235,// Makes the entity a empty
+    HUMANOID_AFFINITY       = 2236,// Makes the entity a humanoid
+    LUMORIAN_AFFINITY       = 2237,// Makes the entity a lumorian
+    LUMINION_AFFINITY       = 2238,// Makes the entity a luminion
+
     // Resistances to enfeebles - Traits/Job Ability
     SLEEPRES                  = 240, // Enhances "Resist Sleep" effect
     POISONRES                 = 241, // Enhances "Resist Poison" effect
@@ -990,7 +1007,7 @@ enum class Mod
     SUMMONING_NEVER_MISS = 1299, 
     NINJUTSU_NEVER_MISS = 1300,  
     SINGING_NEVER_MISS = 1301,   
-    BLUE_NEVER_MISS = 1302,      
+    BLUE_NEVER_MISS = 1302,
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.

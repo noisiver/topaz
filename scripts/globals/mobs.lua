@@ -111,7 +111,17 @@ end
 tpz.mob.skills =
 {
     RECOIL_DIVE = 641,
-    CYTOKINESIS = 2514
+    ZEPHYR_ARROW = 2193,
+    LETHE_ARROWS = 2194,
+    SPRING_BREEZE = 2195,
+    SUMMER_BREEZE = 2196,
+    AUTUMN_BREEZE = 2197,
+    WINTER_BREEZE = 2198,
+    CYCLONIC_TURMOIL = 2199,
+    CYCLONIC_TORRENT = 2200,
+    CYTOKINESIS = 2514,
+    NORN_ARROWS = 2518,
+    DISSOLVE = 2550,
 }
 
 -------------------------------------------------
@@ -725,15 +735,21 @@ function UseMultipleTPMoves(mob, uses, skillID)
     end
 end
 
-function AddMobAura(mob, target, radius, effect, power, duration)
-    local auraDuration = mob:getLocalVar("auraDuration")
-    if os.time() >= auraDuration then
-        mob:setLocalVar("auraDuration", os.time() + duration)
+function AddMobAura(mob, target, radius, effect, power, duration, subpower, auraNumber)
+    if (auraNumber == nil) then
+        auraNumber = 1
+    end
+    if (subpower == nil) then
+        subpower = 0
+    end
+    local auraDuration = mob:getLocalVar("auraDuration" .. auraNumber)
+    if (os.time() >= auraDuration) then
+        mob:setLocalVar("auraDuration" .. auraNumber, os.time() + duration)
         local nearbyPlayers = mob:getPlayersInRange(radius)
         if nearbyPlayers ~= nil then 
             for _,v in ipairs(nearbyPlayers) do
                 v:delStatusEffectSilent(effect)
-                v:addStatusEffectEx(effect, effect, power, 3, duration)
+                v:addStatusEffectEx(effect, effect, power, 3, duration, 0, subpower, 0)
                 local buffEffect = v:getStatusEffect(effect)
                 buffEffect:setFlag(tpz.effectFlag.HIDE_TIMER)
                 buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
@@ -917,6 +933,30 @@ function SetNukeAnimationsToGa(mob, spell)
             if (spell:getID() % 5 == 1) or (spell:getID() % 5 == 2) then -- t3/4 spells only (mod 5 == 1) for t3, (mod 5 == 2) for t4 (remainder)
                 spell:setAnimation(spell:getAnimation() + 30) -- t3/t4 becomes ga-3/ga-4
             end
+        end
+    end
+end
+
+function SetBuffUndispellable(mob, buff)
+    local effect1 = mob:getStatusEffect(buff)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
+end
+
+function ResetEnmityList(mob)
+    local enmityList = mob:getEnmityList()
+    for _, enmity in ipairs(enmityList) do
+        mob:resetEnmity(enmity.entity)
+    end
+end
+
+function AllowSelfNuking(mob, bool)
+    if bool then
+        for v = 144, 173 do
+            getSpell(v):setValidTarget(9)
+        end
+    else
+        for v = 144, 173 do
+            getSpell(v):setValidTarget(tpz.magic.targetType.ENEMY)
         end
     end
 end

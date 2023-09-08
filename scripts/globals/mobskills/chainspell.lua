@@ -7,6 +7,9 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 6834 then -- Shoggoth
+        ResetEnmityList(mob)
+    end
     return 0
 end
 

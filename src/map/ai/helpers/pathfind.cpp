@@ -541,11 +541,6 @@ bool CPathFind::InWater()
     return false;
 }
 
-bool CPathFind::CanSeePoint(const position_t& point, bool lookOffMesh)
-{
-    return m_PTarget->loc.zone->lineOfSight->Raycast(m_PTarget->loc.p, point).has_value();
-}
-
 const position_t& CPathFind::GetDestination() const
 {
     return m_points.back();

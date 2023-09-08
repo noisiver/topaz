@@ -132,10 +132,14 @@ void CTargetFind::findWithinArea(CBattleEntity* PTarget, AOERADIUS radiusType, f
     else 
     {
         // handle this as a mob
-        if (m_PMasterTarget->objtype == TYPE_PC || m_PBattleEntity->allegiance == ALLEGIANCE_PLAYER){
+        if (m_PMasterTarget->objtype == TYPE_PC || m_PBattleEntity->allegiance == ALLEGIANCE_PLAYER ||
+            (radius > 0 && m_PMasterTarget == m_PBattleEntity && m_PBattleEntity->name == "Dark_Ixion")) // DI targetting himself with AoE mobskill
+        {
             m_findType = FIND_MONSTER_PLAYER;
+
         }
-        else {
+        else
+        {
             m_findType = FIND_MONSTER_MONSTER;
         }
 
@@ -166,7 +170,7 @@ void CTargetFind::findWithinArea(CBattleEntity* PTarget, AOERADIUS radiusType, f
     }
 }
 
-void CTargetFind::findWithinCone(CBattleEntity* PTarget, float distance, float angle, uint8 flags)
+void CTargetFind::findWithinCone(CBattleEntity* PTarget, float distance, float angle, uint8 flags, bool isBehind)
 {
     m_findFlags = flags;
     m_conal = true;
@@ -178,6 +182,12 @@ void CTargetFind::findWithinCone(CBattleEntity* PTarget, float distance, float a
     // Confirmation on the center of cones is still needed for mob skills; player skills seem to be facing angle
     // uint8 angleToTarget = worldAngle(m_PBattleEntity->loc.p, PTarget->loc.p);
     uint8 angleToTarget = m_APoint->rotation;
+
+    // Change target to behind
+    if (isBehind)
+    {
+        uint8 angleToTarget = m_APoint->rotation + 128;
+    }
     
     // "Left" and "Right" are like the entity's face - "left" means "turning to the left" NOT "left when looking overhead"
     // Remember that rotation increases when turning to the right, and decreases when turning to the left
@@ -402,7 +412,7 @@ bool CTargetFind::validEntity(CBattleEntity* PTarget)
         return true;
     }
 
-	if (m_PTarget->allegiance != PTarget->allegiance)
+	if (m_PTarget->allegiance != PTarget->allegiance && m_PTarget->name != "Dark_Ixion")
 	{
 		return false;
 	}

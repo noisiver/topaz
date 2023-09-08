@@ -3,6 +3,7 @@
 --  VNM: Ground Guzzler
 -----------------------------------
 require("scripts/globals/voidwalker")
+mixins = {require("scripts/mixins/families/worm")}
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -13,7 +14,7 @@ function onMobSpawn(mob)
     tpz.voidwalker.onMobSpawn(mob)
 end
 
-onMobFight(mob, target)
+function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
 end
 

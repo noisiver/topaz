@@ -1170,6 +1170,7 @@ tpz.mod =
     FOOD_MACCP                      =  99,
     FOOD_MACC_CAP                   = 100,
     FOOD_DURATION                   = 937, -- Percentage to increase food duration
+
     VERMIN_KILLER                   = 224,
     BIRD_KILLER                     = 225,
     AMORPH_KILLER                   = 226,
@@ -1185,6 +1186,24 @@ tpz.mod =
     HUMANOID_KILLER                 = 236,
     LUMORIAN_KILLER                 = 237,
     LUMINION_KILLER                 = 238,
+
+    -- Affinity-Effects
+    VERMIN_AFFINITY                 = 2224,-- Makes the entity a vermin
+    BIRD_AFFINITY                   = 2225,-- Makes the entity a bird
+    AMORPH_AFFINITY                 = 2226,-- Makes the entity a amorph
+    LIZARD_AFFINITY                 = 2227,-- Makes the entity a lizard
+    AQUAN_AFFINITY                  = 2228,-- Makes the entity a aquan
+    PLANTOID_AFFINITY               = 2229, -- Makes the entity a plantoid
+    BEAST_AFFINITY                  = 2230,-- Makes the entity a beast
+    UNDEAD_AFFINITY                 = 2231,-- Makes the entity a undead
+    ARCANA_AFFINITY                 = 2232,-- Makes the entity a arcana
+    DRAGON_AFFINITY                 = 2233,-- Makes the entity a dragon
+    DEMON_AFFINITY                  = 2234,-- Makes the entity a demon
+    EMPTY_AFFINITY                  = 2235,-- Makes the entity a empty
+    HUMANOID_AFFINITY               = 2236,-- Makes the entity a humanoid
+    LUMORIAN_AFFINITY               = 2237,-- Makes the entity a lumorian
+    LUMINION_AFFINITY               = 2238,-- Makes the entity a luminion
+
     SLEEPRES                        = 240,
     POISONRES                       = 241,
     PARALYZERES                     = 242,
@@ -2992,11 +3011,11 @@ tpz.jobSpecialAbility =
     -- OVERDRIVE            = 1935,
     OVERDRIVE_SHAMARHAAN = 2008,
     -- OVERDRIVE            = 2259,
+    TRANCE              = 2260,
+    -- TRANCE               = 2710,
     -- TABULA_RASA          = 2358,
     TABULA_RASA          = 2261,
     -- TABULA_RASA          = 2358,
-    -- TRANCE               = 2260,
-    -- TRANCE               = 2710,
     -- ELEMENTAL_SFORZO     = 3265,
     -- ELEMENTAL_SFORZO     = 3479,
     BOLSTER              = 3482,

@@ -1005,7 +1005,11 @@ int getSDTTier(int SDT)
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
         // printf("\nElement before enspell damage = %i \n", element);
-
+        // apply elemental damage reduction
+        float magicDefense = 1.0f;
+        magicDefense = 1.0f - (PDefender->getMod((Mod)((int)element + 14)) / 256.0f);
+        damage *= magicDefense;
+        // printf("\nEnspell damage after magic defense mod = %i \n", damage);
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
@@ -1032,6 +1036,7 @@ int getSDTTier(int SDT)
     {
         uint8 element = 1;
         float damage = Action->spikesParam;
+        float magicDefense = 1.0f;
         uint32 spikesMaccBonus = PAttacker->getMod(Mod::SPIKES_MACC) + 30;
         // int16 intStat = PDefender->INT();
         // int16 mattStat = PDefender->getMod(Mod::MATT);
@@ -1041,30 +1046,51 @@ int getSDTTier(int SDT)
             case SPIKE_BLAZE:
                 element = ELEMENT_FIRE;
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::FIRERES) / 256.0f);
+                damage *= magicDefense;
                 break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::ICERES) / 256.0f);
+                damage *= magicDefense;
                 break;
             case SPIKE_GALE:
                 element = ELEMENT_WIND;
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::WINDDEF) / 256.0f);
+                damage *= magicDefense;
                 break;
             case SPIKE_CLOD:
                 element = ELEMENT_EARTH;
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::EARTHDEF) / 256.0f);
+                damage *= magicDefense;
                 break;
             case SPIKE_SHOCK:
                 element = ELEMENT_THUNDER;
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::THUNDERDEF) / 256.0f);
+                damage *= magicDefense;
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::WATERDEF) / 256.0f);
+                damage *= magicDefense;
                 break;
             case SPIKE_REPRISAL:
                 element = ELEMENT_LIGHT;
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DIVINE_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::LIGHTDEF) / 256.0f);
+                damage *= magicDefense;
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
@@ -1072,6 +1098,9 @@ int getSDTTier(int SDT)
                 element = ELEMENT_DARK;
                 // drain same as damage taken
                 damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DARK_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
+                // apply elemental damage reduction
+                magicDefense = 1.0f - (PDefender->getMod(Mod::DARKDEF) / 256.0f);
+                damage *= magicDefense;
                 break;
             default:
                 break;
@@ -1265,6 +1294,14 @@ int getSDTTier(int SDT)
                             if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
                             {
                                 Action->spikesParam = 0;
+                            }
+                            // Does not work on undead
+                            if (PAttacker->objtype == TYPE_MOB)
+                            {
+                                if (PAttacker->m_EcoSystem == SYSTEM_UNDEAD)
+                                {
+                                    Action->spikesParam = 0;
+                                }
                             }
                             PDefender->addHP(Action->spikesParam);
                         }
@@ -4049,6 +4086,40 @@ int getSDTTier(int SDT)
             case SYSTEM_UNDEAD:     KillerEffect = PDefender->getMod(Mod::UNDEAD_KILLER);   break;
             case SYSTEM_VERMIN:     KillerEffect = PDefender->getMod(Mod::VERMIN_KILLER);   break;
             default: break;
+        }
+
+        if (PAttacker->objtype == TYPE_PC)
+        {
+            if (PAttacker->getMod(Mod::VERMIN_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::VERMIN_KILLER);
+            if (PAttacker->getMod(Mod::BIRD_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::BIRD_KILLER);
+            if (PAttacker->getMod(Mod::AMORPH_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::AMORPH_KILLER);
+            if (PAttacker->getMod(Mod::LIZARD_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::LIZARD_KILLER);
+            if (PAttacker->getMod(Mod::AQUAN_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::AQUAN_KILLER);
+            if (PAttacker->getMod(Mod::PLANTOID_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::PLANTOID_KILLER);
+            if (PAttacker->getMod(Mod::BEAST_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::BEAST_KILLER);
+            if (PAttacker->getMod(Mod::UNDEAD_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::UNDEAD_KILLER);
+            if (PAttacker->getMod(Mod::ARCANA_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::ARCANA_KILLER);
+            if (PAttacker->getMod(Mod::DRAGON_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::DRAGON_KILLER);
+            if (PAttacker->getMod(Mod::DEMON_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::DEMON_KILLER);
+            if (PAttacker->getMod(Mod::EMPTY_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::EMPTY_KILLER);
+            if (PAttacker->getMod(Mod::HUMANOID_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::HUMANOID_KILLER);
+            if (PAttacker->getMod(Mod::LUMORIAN_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::LUMORIAN_KILLER);
+            if (PAttacker->getMod(Mod::LUMINION_AFFINITY) > 0)
+                KillerEffect += PDefender->getMod(Mod::LUMINION_KILLER);
         }
 
         // Add intimidation rate from Bully

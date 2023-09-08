@@ -23,7 +23,7 @@ end
 function onUseAbility(player, target, ability)
     local duration = 60
     local bonusAcc = player:getStat(tpz.mod.AGI) / 2 + player:getMerit(tpz.merit.QUICK_DRAW_ACCURACY) + player:getMod(tpz.mod.QUICK_DRAW_MACC)
-    local resist = applyResistanceAbility(player, target, tpz.magic.ele.DARK, tpz.skill.NONE, bonusAcc)
+    local resist = applyResistanceAbility(player, target, tpz.magic.ele.DARK, tpz.skill.MARKSMANSHIP, bonusAcc)
 
     --print(string.format("step1: %u",magicacc))
 	--GetPlayerByID(6):PrintToPlayer(string.format("Hit chance: %u",magicacc))
@@ -59,8 +59,13 @@ function onUseAbility(player, target, ability)
         local tier = effect:getTier()
         local effectId = effect:getType()
         local subId = effect:getSubType()
-        power = power * 1.5
-        subpower = subpower * 1.5
+        -- https://www.bg-wiki.com/ffxi/Quick_Draw
+        if bio ~= nil then
+            power = power + 3
+            subpower = subpower + 5
+        else
+            power = power + 10
+        end
         target:delStatusEffectSilent(effectId)
         target:addStatusEffect(effectId, power, tick, duration, subId, subpower, tier)
         local newEffect = target:getStatusEffect(effectId)

@@ -48,6 +48,7 @@ public:
     bool        hasMissMsg() const;
     bool        isAoE() const;
     bool        isConal() const;
+    bool        isBack() const;
     bool        isSingle() const;
     bool        isJobAbility() const;
     bool        isTwoHour() const;

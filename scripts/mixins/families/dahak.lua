@@ -15,7 +15,7 @@ g_mixins.families.dahak = function(mob)
 		end
     end)
 
-    mob:addListener("WEAPONSKILL_STATE_ENTER", "DAHAK_WS_STATE", function(mob, skillID)
+    mob:addListener("WEAPONSKILL_STATE_ENTER", "DAHAK_WS_STATE_ENTER", function(mob, skillID)
         if (skillID ~= 1792) then -- Nullsong
             mob:setLocalVar("amountOfEffects", 0)
         end

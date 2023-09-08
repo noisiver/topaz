@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Zephyr Arrow
 --
---  Description: Deals a ranged attack to target. Additional effect: Knockback &amp Bind
+--  Description: Deals a ranged attack to target. Additional effect: Knockback and Bind
 --  Type: Ranged
 --  Utsusemi/Blink absorb: Ignores Utsusemi
 --  Range: Unknown

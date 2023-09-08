@@ -13,8 +13,14 @@ function onMobSpawn(mob)
     tpz.voidwalker.onMobSpawn(mob)
 end
 
-onMobFight(mob, target)
+function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
+end
+
+function onAdditionalEffect(mob, target, damage)
+    if mob:hasStatusEffect(tpz.effect.BLOOD_WEAPON) then
+        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.POISON, { chance = 100, power = math.random(200, 300) })
+    end
 end
 
 function onMobDisengage(mob)

@@ -1010,3 +1010,47 @@ function utils.ApplyStoneskinBonuses(caster, power)
 
     return power
 end
+
+function utils.CalcualteTPGain(attacker, target)
+    local delay = attacker:getRangedDelay()
+    local tp = utils.CalculateBaseTP(delay)
+    local tpAdded = math.floor((tp * (100 + attacker:getMod(tpz.mod.STORETP))) / 100)
+
+    return tpAdded
+end
+
+function utils.CalcualteTPGiven(attacker, target, ranged)
+    local delay = attacker:getRangedDelay()
+    local baseTp = utils.CalculateBaseTP(delay)
+    local tpAdded = 0
+
+    if ranged then
+        delay = attacker:getRangedDelay()
+    end
+
+    -- Mobs get basetp+30 whereas pcs and their pets get basetp/3 when hit
+    if target:isPC() then
+        tpAdded = math.floor(((baseTp / 3) * (100 + target:getMod(tpz.mod.STORETP))) / 100)
+    elseif target:isMob() and not target:isCharmed() and not target:isJugPet() then
+        tpAdded = math.floor(((baseTp + 3) * (100 + target:getMod(tpz.mod.STORETP))) / 100)
+    end
+
+    return tpAdded
+end
+
+function utils.CalculateBaseTP(delay)
+    local tp = 1
+    if (delay <= 180) then
+        tp = (61 + ((delay - 180) * 63) / 360)
+    elseif (delay <= 540) then
+        tp = (61 + ((delay - 180) * 88) / 360)
+    else if (delay <= 630) then
+        tp = (149 + ((delay - 540) * 20) / 360)
+    else if (delay <= 720) then
+        tp = (154 + ((delay - 630) * 28) / 360)
+    else if (delay <= 900) then
+        tp = (161 + ((delay - 720) * 24) / 360)
+    else 
+        tp = (173 + ((delay - 900) * 28) / 360)
+    return tp
+end

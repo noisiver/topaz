@@ -51,6 +51,9 @@ public:
     int32 getAnimation(lua_State*);
     int32 setAnimation(lua_State*);
     int32 setMPCost(lua_State*);
+    int32 castTime(lua_State*);
+    int32 getValidTarget(lua_State*);
+    int32 setValidTarget(lua_State*);
     int32 canTargetEnemy(lua_State*);
     int32 isAoE(lua_State*);
     int32 tookEffect(lua_State*);
@@ -66,7 +69,7 @@ public:
     int32 getFlag(lua_State*);
     int32 getRequirements(lua_State*);
     int32 setRequirements(lua_State*);
-    int32 castTime(lua_State*);
+    int32 dealsDamage(lua_State*);
 };
 
 #endif

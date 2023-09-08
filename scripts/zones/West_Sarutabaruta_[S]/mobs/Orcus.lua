@@ -13,8 +13,15 @@ function onMobSpawn(mob)
     tpz.voidwalker.onMobSpawn(mob)
 end
 
-onMobFight(mob, target)
+function onMobFight(mob, target)
     tpz.voidwalker.onMobFight(mob, target)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 2516 then -- Gravitic Horn
+        AddMobAura(mob, target, 10, tpz.effect.WEIGHT, 35, 30)
+        AddMobAura(mob, target, 10, tpz.effect.DEFENSE_DOWN, 33, 30, 0, 2)
+    end
 end
 
 function onMobDisengage(mob)

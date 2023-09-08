@@ -3,6 +3,7 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
+require("scripts/globals/mobs")
 
 -- Foreword: A lot of this is good estimating since the FFXI playerbase has not found all of info for individual moves.
 --            What is known is that they roughly follow player Weaponskill calculations (pDIF, dMOD, ratio, etc) so this is what
@@ -1073,7 +1074,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, par
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteSlow == nil) then
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteHaste == nil) then
                 return tpz.msg.basic.SKILL_NO_EFFECT
             end
 
@@ -1127,7 +1128,7 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteSlow == nil) then
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteHaste == nil) then
                 return tpz.msg.basic.SKILL_NO_EFFECT
             end
 
@@ -1861,9 +1862,9 @@ function MobGetStatusEffectDuration(effect)
         elseif (effect == tpz.effect.FLASH) then
             duration = 9
         elseif (effect == tpz.effect.AMNESIA) then
-            duration = 30
+            duration = 15
         elseif (effect == tpz.effect.MUTE) then
-            duration = 20
+            duration = 15
         elseif (effect == tpz.effect.CHARM_I) then
             duration = 60
         elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.LULLABY) then
