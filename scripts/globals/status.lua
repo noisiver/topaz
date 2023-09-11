@@ -2784,7 +2784,35 @@ tpz.auraTarget =
 {
     ALLIES  = 0,
     ENEMIES = 1,
-};
+}
+
+----------------------------------
+-- Proc type(!)
+----------------------------------
+
+tpz.procType =
+{
+    AMNESIA         = 0,
+    SILENCE         = 1,
+    TERROR          = 2,
+    TERROR_WHITE    = 3,
+}
+
+----------------------------------
+-- Proc effect
+----------------------------------
+
+tpz.procEffect =
+{
+    ALL_NORMAL      = 1, -- All normal damage(not sc/mb/spirits)
+    PHYSICAL        = 2,
+    BREATH          = 3,
+    MAGIC           = 4,
+    RANGED          = 5,
+    SKILLCHAIN      = 6,
+    MAGIC_BURST     = 7,
+    SPIRITS_DAMAGE  = 8  -- Spirits Within / Formless Strikes
+}
 
 ------------------------------------
 -- MOBMODs
