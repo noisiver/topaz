@@ -1065,7 +1065,7 @@ INSERT INTO `mob_skills` VALUES (1119,335,'frag_bomb',1,15.0,2000,2000,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (1120,69,'10000_needles',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1121,770,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- yagudo move
 INSERT INTO `mob_skills` VALUES (1122,771,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- quadav move
-INSERT INTO `mob_skills` VALUES (1123,355,'ore_toss_autoattack',0,25.0,5000,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1123,355,'ore_toss_autoattack',0,25.0,5000,0,4,4,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1124,772,'regain_hp',1,30.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
 INSERT INTO `mob_skills` VALUES (1125,773,'regain_mp',1,30.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
 -- INSERT INTO `mob_skills` VALUES (1126,870,'#870',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1088,7 +1088,7 @@ INSERT INTO `mob_skills` VALUES (1134,321,'tera_slash',4,10.0,2000,1500,4,0,0,0,
 -- INSERT INTO `mob_skills` VALUES (1143,299,'magic_barrier',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1144,888,'level_5_petrify',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1145,889,'soul_drain',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1146, 304, 'hecatomb_wave_autoattack', 4, 25.0, 2000, 2000, 4, 16, 0, 0, 0, 0, 0);
+INSERT INTO `mob_skills` VALUES (1146, 304, 'hecatomb_wave_autoattack', 4, 25.0, 2000, 2000, 4, 4, 0, 0, 0, 0, 0);
 INSERT INTO `mob_skills` VALUES (1147,307,'demonic_howl_autoattack',1,5.0,0,0,4,16,0,4,0,0,0); -- Marquis Allocen Custom Auto
 INSERT INTO `mob_skills` VALUES (1148,311,'condemnation',4,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1149,313,'quadrastrike',0,7.0,2000,1500,4,0,0,0,0,0,0);
