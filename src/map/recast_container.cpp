@@ -314,6 +314,9 @@ void CRecastContainer::PutAllAbilitiesOnCooldown()
 
     for (auto&& recast : *PRecastList)
     {
-        Load(RECAST_ABILITY, recast.ID, recast.RecastTime);
+        if (!HasRecast(RECAST_ABILITY, recast.ID, recast.RecastTime))
+        {
+            Load(RECAST_ABILITY, recast.ID, recast.RecastTime, 0);
+        }
     }
 }
