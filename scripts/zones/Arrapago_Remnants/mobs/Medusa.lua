@@ -70,8 +70,8 @@ function onMobFight(mob, target)
         if (element == tpz.magic.ele.WIND) and (amount >= 300) then
             if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
                 BreakMob(mob, caster, 1, 60, 2)
-                    -- Remove gradual petrification off players
-                    ClearGradualPetri(mob)
+                -- Remove gradual petrification off players
+                ClearGradualPetri(mob)
             end
         end
     end)

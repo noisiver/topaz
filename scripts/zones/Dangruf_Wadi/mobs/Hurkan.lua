@@ -1,0 +1,49 @@
+-----------------------------------
+-- Area: Dangruf Wadi
+--  Mob: Hurkan
+-----------------------------------
+local ID = require("scripts/zones/Dangruf_Wadi/IDs")
+require("scripts/globals/mobs")
+require("scripts/globals/status")
+-----------------------------------
+function onMobInitialize(mob)
+   end
+
+function onMobSpawn(mob)
+    mob:setDamage(90)
+    mob:SetMobSkillAttack(6138)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
+end
+
+function onMobEngaged(mob, target)
+     mob:setLocalVar("msgTimer", os.time() + 45)
+end
+
+function onMobFight(mob, target)
+    -- Can be procced White !! (Terror) by magic bursting earth damage for 1k+ or SCing for 500+
+    mob:addListener("SPELL_DMG_TAKEN", "HURKAN_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)
+        local element = spell:getElement()
+
+        if (element == tpz.magic.ele.EARTH) and (amount >= 1000) then
+            if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
+                BreakMob(mob, caster, tpz.procEffect.ALL_NORMAL, 60, tpz.procType.TERROR)
+            end
+        end
+    end)
+
+    if not mob:hasStatusEffect(tpz.effect.TERROR) then
+        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to earth magic...", 0xD, none, 30)
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+end
+
+function onMobDespawn(mob)
+end

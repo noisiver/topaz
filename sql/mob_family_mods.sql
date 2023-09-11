@@ -237,6 +237,8 @@ INSERT INTO `mob_family_mods` VALUES (617,68,25,0);		-- Pixie +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (231,68,25,0);		-- Slug +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (943,68,25,0);		-- WotG Yagudo +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (460,68,50,0);		-- Waktza(Hurkan) +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (524,68,50,0);		-- Waktza +50 Evasion Racial
 
 -- Evasion Penalty
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	    -- Bugbear -10 Evasion
@@ -266,9 +268,9 @@ INSERT INTO `mob_family_mods` VALUES (205,390,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (1,389,-13,0); 	-- Acrolith -13%
 INSERT INTO `mob_family_mods` VALUES (302,389,-13,0); 	-- Wulgaru(Acrolith) -13%
 INSERT INTO `mob_family_mods` VALUES (112,389,25,0); 	-- Flan +25%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (203,389,200,0);	-- Qutrub +200%(+200% Bonus)
-INSERT INTO `mob_family_mods` VALUES (204,389,200,0);	-- Qutrub +200%(+200% Bonus)
-INSERT INTO `mob_family_mods` VALUES (205,389,200,0);	-- Qutrub +200%(+200% Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,389,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,389,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,389,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (61,389,-25,0); 	-- Cardian -25%
 INSERT INTO `mob_family_mods` VALUES (74,389,-25,0); 	-- Corse -25%
 INSERT INTO `mob_family_mods` VALUES (110,389,-13,0); 	-- EvilWeapon -13%
@@ -316,7 +318,7 @@ INSERT INTO `mob_family_mods` VALUES (164,389,-63,0);	-- Hydra  -63%
 INSERT INTO `mob_family_mods` VALUES (168,389,-63,0);	-- Khimaira  -63%
 INSERT INTO `mob_family_mods` VALUES (252,389,-25,0); 	-- Vampyr(NM) -25%
 INSERT INTO `mob_family_mods` VALUES (284,389,-38,0); 	-- Vampyr(NM) -38%
-
+INSERT INTO `mob_family_mods` VALUES (460,389,35,0);	-- Hurkan +35%(Bonus)
 
 
 

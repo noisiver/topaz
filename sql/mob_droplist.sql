@@ -17703,6 +17703,23 @@ INSERT INTO `mob_droplist` VALUES (6120,0,0,1000,9931,50); -- Caracal Whisker
 INSERT INTO `mob_droplist` VALUES (6121,0,0,1000,2522,240); -- (Gnat - Meriphataud Mountains [S]) Gnat Wing
 INSERT INTO `mob_droplist` VALUES (6121,0,0,1000,9933,50);  -- Gnat Eye
 
+-- Hurkan (Placeholder)
+INSERT INTO `mob_droplist` VALUES (6122,1,1,240,942,500);      -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (6122,1,1,240,1446,500);     -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (6122,1,2,240,823,333);       -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (6122,1,2,240,821,333);       -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (6122,1,2,240,816,334);       -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (6122,1,3,240,644,333);       -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (6122,1,3,240,737,333);       -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (6122,1,3,240,738,334);       -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (6122,1,4,240,703,333);       -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (6122,1,4,240,702,333);       -- Ebony log
+INSERT INTO `mob_droplist` VALUES (6122,1,4,240,700,334);       -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (6122,1,5,150,4175,500);      -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (6122,1,5,150,4174,500);      -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (6122,1,6,150,4173,500);      -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (6122,1,6,150,4172,500);      -- Reraiser
+
 ---------------------Dynamis---------------------
 
 -- Bastok
@@ -18268,7 +18285,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 -- free 22, 644, 1665, 2331
 -- NEXT: 3230
--- NEXT: 6100
+-- NEXT: 6123
 
 
 

@@ -4664,6 +4664,19 @@ INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,71); -- Mistral Axe
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,72); -- Decimation
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,74); -- Primal Rend
 
+-- Marquis Allocen
+-- Autos
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3070); -- waktza_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3071); -- waktza_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3072); -- waktza_auto_three
+-- TP Moves
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3073); -- reverberating_cry
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3074); -- brownout
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3075); -- reverse_current
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3076); -- sparkstorm
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3077); -- static_prison?
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3078); -- crashing_thunder?
+
 -- Next available ID: 1189
--- Next custom ID: 6138
+-- Next custom ID: 6140
 
