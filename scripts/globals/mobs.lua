@@ -960,3 +960,51 @@ function AllowSelfNuking(mob, bool)
         end
     end
 end
+
+function CorruptBuffs(mob, target, amount)
+    local buffsList =
+    {
+        { tpz.effect.HASTE, tpz.effect.SLOW },
+        { tpz.effect.REGEN, tpz.effect.POISON },
+        { tpz.effect.REFRESH, tpz.effect.PLAGUE },
+        { tpz.effect.REGAIN, tpz.effect.PLAGUE },
+        { tpz.effect.BERSERK, tpz.effect.ATTACK_DOWN },
+        { tpz.effect.DEFENDER, tpz.effect.DEFENSE_DOWN },
+        { tpz.effect.AGGRESSOR, tpz.effect.ACCURACY_DOWN },
+        { tpz.effect.FOCUS, tpz.effect.ACCURACY_DOWN },
+        { tpz.effect.DODGE, tpz.effect.EVASION_DOWN },
+        { tpz.effect.STR_BOOST, tpz.effect.STR_DOWN },
+        { tpz.effect.DEX_BOOST, tpz.effect.DEX_DOWN },
+        { tpz.effect.VIT_BOOST, tpz.effect.VIT_DOWN },
+        { tpz.effect.AGI_BOOST, tpz.effect.AGI_DOWN },
+        { tpz.effect.INT_BOOST, tpz.effect.INT_DOWN },
+        { tpz.effect.MND_BOOST, tpz.effect.MND_DOWN },
+        { tpz.effect.CHR_BOOST, tpz.effect.CHR_DOWN },
+        { tpz.effect.MAX_HP_BOOST, tpz.effect.MAX_HP_DOWN },
+        { tpz.effect.MAX_MP_BOOST, tpz.effect.MAX_MP_DOWN },
+        { tpz.effect.ACCURACY_BOOST, tpz.effect.ACCURACY_DOWN },
+        { tpz.effect.ATTACK_BOOST, tpz.effect.ATTACK_DOWN },
+        { tpz.effect.EVASION_BOOST, tpz.effect.EVASION_DOWN },
+        { tpz.effect.DEFENSE_BOOST, tpz.effect.DEFENSE_DOWN },
+        { tpz.effect.MAGIC_ATK_BOOST, tpz.effect.MAGIC_ATK_DOWN },
+        { tpz.effect.INTENSION, tpz.effect.MAGIC_ACC_DOWN },
+        { tpz.effect.MAGIC_DEF_BOOST, tpz.effect.MAGIC_DEF_DOWN },
+        { tpz.effect.MAGIC_EVASION_BOOST_II, tpz.effect.MAGIC_EVASION_DOWN },
+    }
+
+    -- Corrupt as many buffs as specified in the amount arg
+    for _, buff in pairs(buffsList) do
+        while (amount < corruptCount) do
+            if target:hasStatusEffect(buff[1]) then
+                local currentBuff = buff[1]
+                local power = currentBuff:getPower()
+                local tick = currentBuff:getTick()
+                local duration = math.ceil((currentBuff:getTimeRemaining())/1000)
+
+                target:delStatusEffectSilent(buff[1])
+                target:addStatusEffect(buff[2], currentBuff, power, tick, duration)
+                corruptCount = corruptCount + 1
+            end
+        end
+    end
+end
