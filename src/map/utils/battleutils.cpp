@@ -4614,12 +4614,6 @@ int getSDTTier(int SDT)
                     }
                 }
             }
-
-            // Listener (hook)
-            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker);
-
-            // Binding
-            luautils::OnSkillchain(PDefender, PAttacker);
         }
 
         PDefender->takeDamage(damage, PAttacker, ATTACK_SPECIAL, appliedEle == ELEMENT_NONE ? DAMAGE_NONE : (DAMAGETYPE)(DAMAGE_ELEMENTAL + appliedEle));
