@@ -2654,6 +2654,10 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         end
     end
 
+    -- Add Enfeebling Potency gear mod
+    local enfeeblingPotency = 1 + (caster:getMobMod(tpz.mod.ENF_MAG_POTENCY) / 100)
+    power = math.floor(power * enfeeblingPotency)
+
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
         if target:getStatusEffect(effect) then
