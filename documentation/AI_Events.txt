@@ -24,7 +24,7 @@ EN_SPIKES_HIT - attacker, target, enspellID (enum ENSPELL in battleutils.h)
 MAGIC_INTERRUPTED - attacker, Target, Spell
 
 TAKE_DAMAGE - Entity, amount, attacker, attacktype, damagetype
-SKILLCHAIN_TAKE - defender, attacker, element, damage
+SKILLCHAIN_TAKE - defender, attacker, skillchain, damage
 
 SPAWN - Entity
 DESPAWN - Entity
