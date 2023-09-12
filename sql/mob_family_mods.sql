@@ -319,6 +319,7 @@ INSERT INTO `mob_family_mods` VALUES (168,389,-63,0);	-- Khimaira  -63%
 INSERT INTO `mob_family_mods` VALUES (252,389,-25,0); 	-- Vampyr(NM) -25%
 INSERT INTO `mob_family_mods` VALUES (284,389,-38,0); 	-- Vampyr(NM) -38%
 INSERT INTO `mob_family_mods` VALUES (460,389,35,0);	-- Hurkan +35%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (457,389,20,0);	-- Kumhau +20%(Bonus)
 
 
 

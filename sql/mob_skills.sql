@@ -2286,11 +2286,11 @@ INSERT INTO `mob_skills` VALUES (2320,2064,'curing_waltz_iv',0,7.0,2000,1500,1,0
 -- INSERT INTO `mob_skills` VALUES (2326,2070,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2327,1221,'mine_blast',1,20.0,2000,1500,4,0,0,0,0,0,0);
 -- Dark Ixion Autoattacks
-INSERT INTO `mob_skills` VALUES (2328,1634,'ixionauto_one',0,3.0,0,0,4,16,0,0,0,0,0); -- correct animation(horn)
-INSERT INTO `mob_skills` VALUES (2329,1633,'ixionauto_two',0,3.0,0,0,4,16,0,0,0,0,0); -- correct animation(horn)
-INSERT INTO `mob_skills` VALUES (2330,1632,'ixionauto_three',0,3.0,0,0,4,16,0,0,0,0,0); -- correct animation(horn)
-INSERT INTO `mob_skills` VALUES (2331,1631,'ixionauto_four',0,7.0,0,0,4,16,0,0,0,0,0); -- What is this for??
-INSERT INTO `mob_skills` VALUES (2332,1630,'ixionauto_five',0,7.0,0,0,4,16,0,0,0,0,0); -- What is this for??
+INSERT INTO `mob_skills` VALUES (2328,1634,'ixion_auto_one',0,3.0,0,0,4,16,0,0,0,0,0); -- correct animation(horn)
+INSERT INTO `mob_skills` VALUES (2329,1633,'ixion_auto_two',0,3.0,0,0,4,16,0,0,0,0,0); -- correct animation(horn)
+INSERT INTO `mob_skills` VALUES (2330,1632,'ixion_auto_three',0,3.0,0,0,4,16,0,0,0,0,0); -- correct animation(horn)
+INSERT INTO `mob_skills` VALUES (2331,1631,'ixion_auto_four',0,7.0,0,0,4,16,0,0,0,0,0); -- What is this for??
+INSERT INTO `mob_skills` VALUES (2332,1630,'ixion_auto_five',0,7.0,0,0,4,16,0,0,0,0,0); -- What is this for??
 INSERT INTO `mob_skills` VALUES (2333,1629,'ixion_trample',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Firaga explosion
 INSERT INTO `mob_skills` VALUES (2334,1640,'wrath_of_zeus',1,15.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2335,1639,'lightning_spear',4,20.0,2000,2500,4,0,0,0,0,0,0); -- correct animation
@@ -3091,15 +3091,15 @@ INSERT INTO `mob_skills` VALUES (3116,206,'bellatrix_of_shadows',0,7.0,2000,1500
 INSERT INTO `mob_skills` VALUES (3131,227,'sweeping_gouge',4,10.0,2000,1500,4,0,0,0,7,0,0); -- TODO: Animation / cast time
 INSERT INTO `mob_skills` VALUES (3132,228,'zealous_snort',1,7.0,2000,1500,1,0,0,0,0,0,0); -- TODO: Animation / cast time
 -- INSERT INTO `mob_skills` VALUES (3133,2877,'terrifying_snap',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3134,2258,'cehuetzi_melee_left',0,7.0,2000,0,4,16,0,0,0,0,0);  -- kumhau and utkux melee specials
--- INSERT INTO `mob_skills` VALUES (3135,2259,'cehuetzi_melee_right',0,7.0,2000,0,4,16,0,0,0,0,0); -- kumhau and utkux melee specials
--- INSERT INTO `mob_skills` VALUES (3136,2260,'cehuetzi_melee_bite',0,7.0,2000,0,4,16,0,0,0,0,0);  -- kumhau and utkux melee specials
-INSERT INTO `mob_skills` VALUES (3137,2261,'polar_roar',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3138,2262,'brain_freeze',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3139,2263,'biting_abrogation',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3134,2258,'cehuetzi_auto_one',0,7.0,2000,0,4,16,0,0,0,0,0);  -- kumhau and utkux melee specials
+INSERT INTO `mob_skills` VALUES (3135,2259,'cehuetzi_auto_two',0,7.0,2000,0,4,16,0,0,0,0,0); -- kumhau and utkux melee specials
+INSERT INTO `mob_skills` VALUES (3136,2260,'cehuetzi_auto_three',4,10.0,2000,0,4,16,0,0,0,0,0);  -- kumhau and utkux melee specials
+INSERT INTO `mob_skills` VALUES (3137,2261,'polar_roar',1,18.0,2000,1000,4,0,0,7,0,0,0);
+INSERT INTO `mob_skills` VALUES (3138,2262,'brain_freeze',4,10.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3139,2263,'biting_abrogation',0,18.0,2000,1000,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (3140,2264,'permafrost_requiem',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3141,2265,'glacial_tomb',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3142,2266,'glassy_nova',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3142,2266,'glassy_nova',2,18.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3143,2887,'#1351',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3144,2888,'jittering_jig',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3145,2889,'romp',0,7.0,2000,1500,4,0,0,0,0,0,0);

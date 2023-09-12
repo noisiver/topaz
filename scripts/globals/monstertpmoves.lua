@@ -1506,6 +1506,19 @@ function MobTransferEnfeeblesMove(mob, target, skill, range, isAOE)
     return false, 0
 end
 
+function MobAllStatDownMove(mob, target, power, duration)
+    local msg = tpz.msg.basic.SKILL_MISS
+    local effectsLanded = 0
+
+    for v = tpz.effect.STR_DOWN, tpz.effect.CHR_DOWN do
+        MobStatusEffectMove(mob, target, v, power, 3, 120)
+    end
+end
+
+function MobAllStatDownMovePhysical(mob, target, power, tick, count, duration)
+    -- TODO
+end
+
 function MobTakeAoEShadow(mob, target, max)
 
     return max
