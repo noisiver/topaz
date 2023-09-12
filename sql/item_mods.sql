@@ -45128,21 +45128,11 @@ INSERT INTO `item_mods` VALUES (27764,236,2); -- Enhances "Humanoid Killer" effe
 INSERT INTO `item_mods` VALUES (27764,237,2); -- Enhances "Lumorian Killer" effect
 INSERT INTO `item_mods` VALUES (27764,238,2); -- Enhances "Luminion Killer" effect
 INSERT INTO `item_mods` VALUES (27765,1,1);
-INSERT INTO `item_mods` VALUES (27766,1,95);
-INSERT INTO `item_mods` VALUES (27766,2,28);
-INSERT INTO `item_mods` VALUES (27766,5,22);
-INSERT INTO `item_mods` VALUES (27766,8,22);
-INSERT INTO `item_mods` VALUES (27766,9,25);
-INSERT INTO `item_mods` VALUES (27766,10,22);
-INSERT INTO `item_mods` VALUES (27766,11,25);
-INSERT INTO `item_mods` VALUES (27766,12,22);
-INSERT INTO `item_mods` VALUES (27766,13,22);
-INSERT INTO `item_mods` VALUES (27766,14,23);
-INSERT INTO `item_mods` VALUES (27766,29,2);
-INSERT INTO `item_mods` VALUES (27766,31,46);
-INSERT INTO `item_mods` VALUES (27766,68,34);
-INSERT INTO `item_mods` VALUES (27766,165,3);
-INSERT INTO `item_mods` VALUES (27766,384,700);
+INSERT INTO `item_mods` VALUES (27766,1,21);    -- Uk'uxkaj Cap
+INSERT INTO `item_mods` VALUES (27766,2,28);    -- HP+28
+INSERT INTO `item_mods` VALUES (27766,5,22);    -- MP+22
+INSERT INTO `item_mods` VALUES (27766,8,2);     -- STR+2
+INSERT INTO `item_mods` VALUES (27766,165,3);   -- Critical hit rate +3%
 INSERT INTO `item_mods` VALUES (27767,1,84);    -- Buremte Hat: DEF:84
 INSERT INTO `item_mods` VALUES (27767,2,28);    -- HP+28
 INSERT INTO `item_mods` VALUES (27767,5,30);    -- MP+30
@@ -51661,21 +51651,13 @@ INSERT INTO `item_mods` VALUES (28330,236,2);     -- Humanoid Killer
 INSERT INTO `item_mods` VALUES (28330,237,2);     -- Lumorian Killer
 INSERT INTO `item_mods` VALUES (28330,238,2);     -- Luminion Killer
 INSERT INTO `item_mods` VALUES (28330,288,2);     -- Double Attack +2%
-INSERT INTO `item_mods` VALUES (28330,384,300);    -- Haste +3%
-INSERT INTO `item_mods` VALUES (28331,1,58);
-INSERT INTO `item_mods` VALUES (28331,2,10);
-INSERT INTO `item_mods` VALUES (28331,5,13);
-INSERT INTO `item_mods` VALUES (28331,8,8);
-INSERT INTO `item_mods` VALUES (28331,9,9);
-INSERT INTO `item_mods` VALUES (28331,10,8);
-INSERT INTO `item_mods` VALUES (28331,11,28);     -- AGI +28
-INSERT INTO `item_mods` VALUES (28331,12,15);
-INSERT INTO `item_mods` VALUES (28331,13,16);
-INSERT INTO `item_mods` VALUES (28331,14,29);
-INSERT INTO `item_mods` VALUES (28331,29,4);
-INSERT INTO `item_mods` VALUES (28331,31,93);
-INSERT INTO `item_mods` VALUES (28331,68,43);
-INSERT INTO `item_mods` VALUES (28331,290,6);
+INSERT INTO `item_mods` VALUES (28330,384,300);   -- Haste +3%
+INSERT INTO `item_mods` VALUES (28331,1,20);      -- Uk'uxkaj Boots 
+INSERT INTO `item_mods` VALUES (28331,2,10);      -- HP+10
+INSERT INTO `item_mods` VALUES (28331,5,13);      -- MP+13
+INSERT INTO `item_mods` VALUES (28331,8,8);       -- STR+8
+INSERT INTO `item_mods` VALUES (28331,9,9);       -- DEX+9
+INSERT INTO `item_mods` VALUES (28331,290,5);     -- Enhancing magic potency +5%
 INSERT INTO `item_mods` VALUES (28332,1,69);      -- Cizin Greaves: DEF 69
 INSERT INTO `item_mods` VALUES (28332,2,12);      -- HP +12
 INSERT INTO `item_mods` VALUES (28332,8,13);      -- STR +13

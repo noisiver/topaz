@@ -17719,6 +17719,12 @@ INSERT INTO `mob_droplist` VALUES (6122,1,5,150,4175,500);      -- Vile Elixir +
 INSERT INTO `mob_droplist` VALUES (6122,1,5,150,4174,500);      -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (6122,1,6,150,4173,500);      -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (6122,1,6,150,4172,500);      -- Reraiser
+INSERT INTO `mob_droplist` VALUES (6122,1,7,100,27766,500);     -- Uk'uxkaj Cap
+INSERT INTO `mob_droplist` VALUES (6122,1,7,100,28331,500);     -- Uk'uxkaj Boots
+INSERT INTO `mob_droplist` VALUES (6122,1,8,240,28613,250);     -- Kayapa Cape
+INSERT INTO `mob_droplist` VALUES (6122,1,8,240,21386,250);     -- Jukukik Feather
+INSERT INTO `mob_droplist` VALUES (6122,1,8,240,28458,250);     -- Jaq'ij Sash
+INSERT INTO `mob_droplist` VALUES (6122,1,8,240,28576,250);     -- Paqichikaji Ring
 
 ---------------------Dynamis---------------------
 
