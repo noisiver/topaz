@@ -17703,7 +17703,7 @@ INSERT INTO `mob_droplist` VALUES (6120,0,0,1000,9931,50); -- Caracal Whisker
 INSERT INTO `mob_droplist` VALUES (6121,0,0,1000,2522,240); -- (Gnat - Meriphataud Mountains [S]) Gnat Wing
 INSERT INTO `mob_droplist` VALUES (6121,0,0,1000,9933,50);  -- Gnat Eye
 
--- Hurkan (Placeholder)
+-- Hurkan
 INSERT INTO `mob_droplist` VALUES (6122,1,1,240,942,500);      -- Philosopher's Stone
 INSERT INTO `mob_droplist` VALUES (6122,1,1,240,1446,500);     -- Lacquer Tree Log 
 INSERT INTO `mob_droplist` VALUES (6122,1,2,240,823,333);       -- Gold Thread
@@ -17725,6 +17725,29 @@ INSERT INTO `mob_droplist` VALUES (6122,1,8,240,28613,250);     -- Kayapa Cape
 INSERT INTO `mob_droplist` VALUES (6122,1,8,240,21386,250);     -- Jukukik Feather
 INSERT INTO `mob_droplist` VALUES (6122,1,8,240,28458,250);     -- Jaq'ij Sash
 INSERT INTO `mob_droplist` VALUES (6122,1,8,240,28576,250);     -- Paqichikaji Ring
+
+-- Kumhau
+INSERT INTO `mob_droplist` VALUES (6123,1,1,240,942,500);      -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (6123,1,1,240,1446,500);     -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (6123,1,2,240,823,333);       -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (6123,1,2,240,821,333);       -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (6123,1,2,240,816,334);       -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (6123,1,3,240,644,333);       -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (6123,1,3,240,737,333);       -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (6123,1,3,240,738,334);       -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (6123,1,4,240,703,333);       -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (6123,1,4,240,702,333);       -- Ebony log
+INSERT INTO `mob_droplist` VALUES (6123,1,4,240,700,334);       -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (6123,1,5,150,4175,500);      -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (6123,1,5,150,4174,500);      -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (6123,1,6,150,4173,500);      -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (6123,1,6,150,4172,500);      -- Reraiser
+INSERT INTO `mob_droplist` VALUES (6123,1,7,100,27736,500);     -- Quiahuiz Helm
+INSERT INTO `mob_droplist` VALUES (6123,1,7,100,28166,500);     -- Quiahuiz Trousers
+INSERT INTO `mob_droplist` VALUES (6123,1,8,240,28615,250);     -- Toro Cape
+INSERT INTO `mob_droplist` VALUES (6123,1,8,240,28460,250);     -- Cetl Belt
+INSERT INTO `mob_droplist` VALUES (6123,1,8,240,28388,250);     -- Tlamiztli Collar
+INSERT INTO `mob_droplist` VALUES (6123,1,8,240,28514,250);     -- Friomisi Earring
 
 ---------------------Dynamis---------------------
 
@@ -18291,7 +18314,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 -- free 22, 644, 1665, 2331
 -- NEXT: 3230
--- NEXT: 6123
+-- NEXT: 6124
 
 
 

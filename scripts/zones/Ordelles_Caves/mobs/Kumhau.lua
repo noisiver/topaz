@@ -11,7 +11,7 @@ function onMobInitialize(mob)
 
 function onMobSpawn(mob)
     mob:setDamage(90)
-    mob:SetMobSkillAttack(6138)
+    mob:SetMobSkillAttack(6140)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
 end
 

@@ -4664,7 +4664,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,71); -- Mistral Axe
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,72); -- Decimation
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,74); -- Primal Rend
 
--- Marquis Allocen
+-- Harkun
 -- Autos
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3070); -- waktza_auto_one
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3071); -- waktza_auto_two
@@ -4677,6 +4677,18 @@ INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3076); -- sparkstorm
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3077); -- static_prison?
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3078); -- crashing_thunder?
 
+-- Kumhau
+-- Autos
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau_Autos',6140,3134); -- cehuetzi_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau_Autos',6140,3135); -- cehuetzi_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau_Autos',6140,3136); -- cehuetzi_auto_three
+-- TP Moves
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3137); -- polar_roar
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3138); -- brain_freeze
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3139); -- biting_abrogation
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3140); -- permafrost_requiem
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3141); -- glacial_tomb
+INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3142); -- glassy_nova
 -- Next available ID: 1189
--- Next custom ID: 6140
+-- Next custom ID: 6142
 
