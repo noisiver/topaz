@@ -2234,7 +2234,7 @@ INSERT INTO `item_usable` VALUES (18384,'lucent_sword',1,3,0,0,50,30,1800,0);
 INSERT INTO `item_usable` VALUES (18391,'sacred_mace',1,3,0,0,30,30,300,0);
 INSERT INTO `item_usable` VALUES (18392,'sacred_maul',1,3,0,0,30,30,300,0);
 INSERT INTO `item_usable` VALUES (18393,'sacred_wand',1,3,0,0,30,30,300,0);
-INSERT INTO `item_usable` VALUES (18398,'raphaels_rod',1,2,0,0,8,30,120,0);
+INSERT INTO `item_usable` VALUES (18398,'raphaels_rod',1,2,0,0,1,30,120,0);
 INSERT INTO `item_usable` VALUES (18399,'charm_wand',4,2,0,0,10,30,86400,0);
 INSERT INTO `item_usable` VALUES (18400,'charm_wand_+1',4,2,0,0,1,30,432000,0);
 INSERT INTO `item_usable` VALUES (18401,'moogle_rod',4,3,0,0,1,30,72000,0);

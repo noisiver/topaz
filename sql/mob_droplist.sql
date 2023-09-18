@@ -14076,6 +14076,7 @@ INSERT INTO `mob_droplist` VALUES (2580,0,0,1000,1122,100);
 INSERT INTO `mob_droplist` VALUES (2581,0,0,1000,2523,50);  -- (Virulent Peiste)
 INSERT INTO `mob_droplist` VALUES (2581,0,0,1000,2524,100);
 INSERT INTO `mob_droplist` VALUES (2581,0,0,1000,9932,50);  -- Peiste Fang
+INSERT INTO `mob_droplist` VALUES (2581,0,0,1000,8733,50);  -- Partialy Digested Rock x100 traded for Rhapels Rod at (PH)
 INSERT INTO `mob_droplist` VALUES (2582,0,0,1000,886,240);  -- (Viscount_Morax) demon_skull
 INSERT INTO `mob_droplist` VALUES (2582,0,0,1000,902,240);  -- demon_horn
 INSERT INTO `mob_droplist` VALUES (2582,0,0,1000,4903,240); -- dark_spirit_pact
@@ -17749,6 +17750,10 @@ INSERT INTO `mob_droplist` VALUES (6123,1,8,240,28460,250);     -- Cetl Belt
 INSERT INTO `mob_droplist` VALUES (6123,1,8,240,28388,250);     -- Tlamiztli Collar
 INSERT INTO `mob_droplist` VALUES (6123,1,8,240,28514,250);     -- Friomisi Earring
 
+INSERT INTO `mob_droplist` VALUES (6124,0,0,1000,8733,1000);  -- Partialy Digested Rock x100 traded for Rhapels Rod at (PH) (Pixie)
+INSERT INTO `mob_droplist` VALUES (6124,0,0,1000,8733,240);
+INSERT INTO `mob_droplist` VALUES (6124,0,0,1000,8733,150);
+
 ---------------------Dynamis---------------------
 
 -- Bastok
@@ -18314,7 +18319,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 -- free 22, 644, 1665, 2331
 -- NEXT: 3230
--- NEXT: 6124
+-- NEXT: 6125
 
 
 

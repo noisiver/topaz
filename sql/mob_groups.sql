@@ -5764,6 +5764,7 @@ INSERT INTO `mob_groups` VALUES (59,6835,90,'Blobdingnag',7200,0,3224,25000,0,83
 INSERT INTO `mob_groups` VALUES (60,6836,90,'Septic_Boil',300,0,0,0,0,80,80,0); -- Blobdingnag's Pet
 INSERT INTO `mob_groups` VALUES (61,6863,90,'Yilbegan',7200,0,3229,35000,0,85,85,0);
 
+INSERT INTO `mob_groups` VALUES (62,3745,90,'Pixie',0,128,6124,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (4173,1,90,'1st_Gold_Musketeer',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (4174,2,90,'1st_Iron_Musketeer',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (4175,3,90,'1st_Legionnaire',1,0,0,0,0,1,1,0);
