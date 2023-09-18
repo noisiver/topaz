@@ -3046,8 +3046,9 @@ namespace charutils
 
             double random = tpzrand::GetRandomNumber(1.);
 
-            // Ranaged and damage dealing magic and blood pacts have 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
-            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING || SkillID == SKILL_ELEMENTAL_MAGIC || HighChance)
+            // Ranaged, defensive skills(not evasion) and damage dealing magic and blood pacts have 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
+            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING || SkillID >= SKILL_SHIELD && SkillID <= SKILL_PARRY || SkillID == SKILL_GUARD || 
+                SkillID == SKILL_ELEMENTAL_MAGIC || HighChance)
             {
                 if (SkillUpChance > 0.70)
                 {
