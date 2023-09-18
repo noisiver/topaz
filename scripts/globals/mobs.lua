@@ -855,6 +855,42 @@ function MobName(mob)
     return mobName
 end
 
+function GetAvailableMob(mob, table)
+    local ID = zones[mob:getZoneID()]
+    local selectedMob = nil
+    local possibleBosses = {}
+
+    possibleBosses = table
+
+    for _,v in pairs(possibleBosses) do
+        local mob = possibleBosses[math.random(#possibleBosses)]
+        if (GetMobByID(mob) ~= nil and not GetMobByID(mob):isSpawned()) then
+            
+            selectedMob = mob
+            break
+        end
+    end
+    return selectedMob
+end
+
+function SpawnMob(mob, player, mobId, aggro)
+    local spawns = GetMobByID(mobId)
+
+    if not spawns:isSpawned() then
+        spawns:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
+        spawns:spawn()
+        if aggro then
+            local NearbyPlayers = mob:getPlayersInRange(50)
+            if NearbyPlayers == nil then return end
+            if NearbyPlayers then
+                for _,v in ipairs(NearbyPlayers) do
+                    spawns:updateClaim(v)
+                end
+            end
+        end
+    end
+end
+
 function SpawnInstancedMob(mob, player, mobId, aggro)
     local instance = mob:getInstance()
     local spawns = GetMobByID(mobId, instance)
