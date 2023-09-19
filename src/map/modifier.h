@@ -421,6 +421,11 @@ enum class Mod
     SOULEATER_EFFECT          = 96,  // Souleater power in percents
     DESPERATE_BLOWS           = 906, // Adds ability haste to Last Resort
     STALWART_SOUL             = 907, // Reduces damage taken from Souleater
+    DREAD_SPIKES_EFFECT       = 1328,// Percent increase to total HP drain for Dread Spikes
+    ENHANCES_BLOOD_WEAPON     = 1329,// Enhances "Blood Weapon" effect (increases Blood Weapon's duration in seconds)
+    DARK_MAGIC_CAST           = 1330,// Reduces Dark Magic Casting Time by percentage (e.g. mod value -10 = -10% cast time)
+    DARK_MAGIC_DURATION       = 1331,// Increases Dark Magic spell durations by percentage (e.g. mod value 10 = +10% duration)
+    ENHANCES_DARK_SEAL        = 1332,// Enhances "Dark Seal" effect (Increases Dark Magic spell durations by 10% per Dark Seal merit while Dark Seal active)
 
     // Beastmaster
     TAME                      = 304, // Additional percent chance to charm
@@ -1011,7 +1016,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1328 NEXT
+    // 1333 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
