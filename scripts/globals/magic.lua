@@ -2739,7 +2739,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     end
 
     -- Add Enfeebling Potency gear mod
-    local enfeeblingPotency = 1 + (caster:getMobMod(tpz.mod.ENF_MAG_POTENCY) / 100)
+    local enfeeblingPotency = 1 + (caster:getMod(tpz.mod.ENF_MAG_POTENCY) / 100)
     power = math.floor(power * enfeeblingPotency)
 
     -- Calculate duration bonuses
