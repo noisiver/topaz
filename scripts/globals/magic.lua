@@ -1075,12 +1075,12 @@ function getSpellBonusAcc(caster, target, spell, params)
         --magicAccBonus = magicAccBonus + caster:getMerit(tpz.merit.ELEMENTAL_MAGIC_ACCURACY)
     --end
 
-    --Add acc for dark seal
+    -- Add acc for dark seal
     if (skill == tpz.skill.DARK_MAGIC and caster:hasStatusEffect(tpz.effect.DARK_SEAL)) then
         magicAccBonus = magicAccBonus + 256
     end
 
-    --add acc for RDM group 1 merits
+    -- Add acc for RDM group 1 merits
     if (element >= tpz.magic.element.FIRE and element <= tpz.magic.element.WATER) then
         magicAccBonus = magicAccBonus + caster:getMerit(rdmMerit[element])
     end
@@ -1089,6 +1089,9 @@ function getSpellBonusAcc(caster, target, spell, params)
     if (skill == tpz.skill.BLUE_MAGIC) then
         magicAccBonus = magicAccBonus + caster:getMerit(tpz.merit.MAGICAL_ACCURACY)
     end
+
+    -- Add Job points magic accuracy Bonus
+    magicAccBonus = magicAccBonus + JobPointsMacc(caster, spellGroup, skill)
 
     -- Add weather bonus
     magicAccBonus = magicAccBonus + addWeatherMaccBonus(caster, spell, target, params)
@@ -2112,6 +2115,53 @@ function getDstatBonus(softcap, diff)
     dstatMaccBonus = utils.clamp(dstatMaccBonus, -70, 70)
 
     return dstatMaccBonus
+end
+
+-- Magic Accuracy from Job Points.
+function JobPointsMacc(caster, spellGroup, skillType)
+    local magicAcc = 0
+    local casterJob = caster:getMainJob()
+
+    switch (casterJob) : caseof
+    {
+        [tpz.job.WHM] = function()
+            magicAcc = caster:getJobPointLevel(tpz.jp.WHM_MAGIC_ACC_BONUS)
+        end,
+
+        [tpz.job.BLM] = function()
+            magicAcc = caster:getJobPointLevel(tpz.jp.BLM_MAGIC_ACC_BONUS)
+        end,
+
+        [tpz.job.RDM] = function()
+            -- RDM Job Point: During saboteur, Enfeebling MACC +2
+            if
+                skillType == tpz.skill.ENFEEBLING_MAGIC and
+                caster:hasStatusEffect(tpz.effect.SABOTEUR)
+            then
+                magicAcc = caster:getJobPointLevel(tpz.jp.SABOTEUR_EFFECT) * 2
+            end
+
+            -- RDM Job Point: Magic Accuracy Bonus, All MACC + 1
+            magicAcc = magicAcc + caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
+        end,
+
+        [tpz.job.NIN] = function()
+            if skillType == tpz.skill.NINJUTSU then
+                magicAcc = caster:getJobPointLevel(tpz.jp.NINJITSU_ACC_BONUS)
+            end
+        end,
+
+        [tpz.job.SCH] = function()
+            if
+                (spellGroup == tpz.magic.spellGroup.WHITE and caster:hasStatusEffect(tpz.effect.PARSIMONY)) or
+                (spellGroup == tpz.magic.spellGroup.BLACK and caster:hasStatusEffect(tpz.effect.PENURY))
+            then
+                magicAcc = caster:getJobPointLevel(tpz.jp.STRATEGEM_EFFECT_I)
+            end
+        end,
+    }
+
+    return magicAcc
 end
 
 function GetCharmHitRate(player, target)
