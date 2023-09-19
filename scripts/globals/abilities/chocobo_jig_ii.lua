@@ -16,7 +16,7 @@ end
 function onUseAbility(player, target, ability)
     local effect = tpz.effect.HASTE
     local power = 2998 -- 307/1024 ~29.98%
-    local baseDuration = 180 -- 3m base
+    local baseDuration = 180 + player:getJobPointLevel(tpz.jp.JIG_DURATION) -- 3m base
 	local gear = player:getMod(tpz.mod.JIG_DURATION)
 	local gearBonus =  baseDuration * (gear / 100)
     local finalDuration = baseDuration + gearBonus

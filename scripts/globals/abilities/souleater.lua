@@ -14,5 +14,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-   player:addStatusEffect(tpz.effect.SOULEATER, 1, 0, 60)
+    local jpValue  = player:getJobPointLevel(tpz.jp.SOULEATER_DURATION)
+    local duration = 60 + jpValue
+   player:addStatusEffect(tpz.effect.SOULEATER, 1, 0, duration)
 end

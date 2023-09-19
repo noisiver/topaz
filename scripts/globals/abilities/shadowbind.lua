@@ -24,7 +24,7 @@ function onUseAbility(player, target, ability, action)
         action:animation(target:getID(), action:animation(target:getID()) + 1)
     end
 
-    local duration = 30 + player:getMod(tpz.mod.SHADOW_BIND_EXT)
+    local duration = 30 + player:getMod(tpz.mod.SHADOW_BIND_EXT) + player:getJobPointLevel(tpz.jp.SHADOWBIND_DURATION)
     local recycleChance = player:getMod(tpz.mod.RECYCLE) + player:getMerit(tpz.merit.RECYCLE)
     if (player:hasStatusEffect(tpz.effect.UNLIMITED_SHOT)) then
         player:delStatusEffectSilent(tpz.effect.UNLIMITED_SHOT)
@@ -32,7 +32,7 @@ function onUseAbility(player, target, ability, action)
     end
 
      -- TODO: Acc penalty for /RNG, acc vs. mob level?
-    if (math.random(0, 99) >= target:getMod(tpz.mod.BINDRES) and target:hasStatusEffect(tpz.effect.BIND) == false) then
+    if not target:hasStatusEffect(tpz.effect.BIND) then
         target:addStatusEffect(tpz.effect.BIND, 0, 0, duration)
         ability:setMsg(tpz.msg.basic.IS_EFFECT) -- Target is bound.
     else

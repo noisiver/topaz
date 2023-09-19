@@ -76,7 +76,7 @@ function onUseAbility(player, target, ability, action)
         local params = {}
         params.diff = 0
         params.skillType = player:getWeaponSkillType(tpz.slot.MAIN)
-        params.bonus = 0 
+        params.bonus = 0 - target:getMod(tpz.mod.GRAVITYRES) + player:getMod(tpz.mod.VFLOURISH_MACC) + player:getJobPointLevel(tpz.jp.FLOURISH_I_EFFECT) 
         local resist = applyResistanceEffect(player, target, spell, params)
 		
 
