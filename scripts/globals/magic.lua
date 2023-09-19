@@ -1060,7 +1060,7 @@ function getSpellBonusAcc(caster, target, spell, params)
 
     --add macc for skillchains
     if (skillchainTier > 0) then
-        magicAccBonus = magicAccBonus + 50 -- jimmayus said this is 30 not 25
+        magicAccBonus = magicAccBonus + 50 -- 30 in retail
     end
 
     --Add acc for klimaform
