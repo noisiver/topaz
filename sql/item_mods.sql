@@ -52330,7 +52330,26 @@ INSERT INTO `item_mods` VALUES (28507,296,1);
 INSERT INTO `item_mods` VALUES (28508,8,2);       -- Kuwunga Earring: STR +2
 INSERT INTO `item_mods` VALUES (28508,9,2);       -- DEX +2
 INSERT INTO `item_mods` VALUES (28509,2,2);       -- She-Slime Earring: HP +2
-INSERT INTO `item_mods` VALUES (28510,1,2);       -- Metal Slime Earring: DEF 2
+INSERT INTO `item_mods` VALUES (28510,1,10);      -- Metal Slime Earring: DEF 10
+INSERT INTO `item_mods` VALUES (28510,8,2);       -- STR+2
+INSERT INTO `item_mods` VALUES (28510,9,2);       -- DEX+2
+INSERT INTO `item_mods` VALUES (28510,10,2);      -- VIT+2
+INSERT INTO `item_mods` VALUES (28510,11,2);      -- AGI+2
+INSERT INTO `item_mods` VALUES (28510,12,2);      -- INT+2
+INSERT INTO `item_mods` VALUES (28510,13,2);      -- MND+2
+INSERT INTO `item_mods` VALUES (28510,14,2);      -- CHR+2
+INSERT INTO `item_mods` VALUES (28510,23,5);      -- Attack+5
+INSERT INTO `item_mods` VALUES (28510,24,5);      -- Ranged Attack+5
+INSERT INTO `item_mods` VALUES (28510,25,5);      -- Accuracy+5
+INSERT INTO `item_mods` VALUES (28510,26,5);      -- Ranged Accuracy+5
+INSERT INTO `item_mods` VALUES (28510,54,10);
+INSERT INTO `item_mods` VALUES (28510,55,10);
+INSERT INTO `item_mods` VALUES (28510,56,10);
+INSERT INTO `item_mods` VALUES (28510,57,10);
+INSERT INTO `item_mods` VALUES (28510,58,10);
+INSERT INTO `item_mods` VALUES (28510,59,10);
+INSERT INTO `item_mods` VALUES (28510,60,10);
+INSERT INTO `item_mods` VALUES (28510,61,10);
 INSERT INTO `item_mods` VALUES (28511,2,1);
 INSERT INTO `item_mods` VALUES (28512,9,3);
 INSERT INTO `item_mods` VALUES (28512,11,3);

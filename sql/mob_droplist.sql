@@ -15877,7 +15877,8 @@ INSERT INTO `mob_droplist` VALUES (2912,0,0,1000,953,310);
 INSERT INTO `mob_droplist` VALUES (2912,0,0,1000,574,70);
 INSERT INTO `mob_droplist` VALUES (2912,2,0,1000,573,0);
 INSERT INTO `mob_droplist` VALUES (2912,2,0,1000,574,0);
-INSERT INTO `mob_droplist` VALUES (2913,0,0,1000,1617,50);
+INSERT INTO `mob_droplist` VALUES (2913,0,0,1000,1617,50);   -- (Gnoletrap Jugner Forest [S])
+INSERT INTO `mob_droplist` VALUES (2913,0,0,1000,8734,50);   -- Shining Leaf
 INSERT INTO `mob_droplist` VALUES (2914,0,0,1000,1056,50);
 INSERT INTO `mob_droplist` VALUES (2915,2,0,1000,1431,0); -- Platinum Quadav
 INSERT INTO `mob_droplist` VALUES (2915,4,0,1000,748,0); -- Platinum Quadav

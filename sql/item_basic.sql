@@ -6380,7 +6380,7 @@ INSERT INTO `item_basic` VALUES (8730,0,'large_zilartian_orb','l._zilartian_orb'
 INSERT INTO `item_basic` VALUES (8731,0,'large_kuluu_sphere','l._kuluu_sphere',99,4180,0,0,0);
 INSERT INTO `item_basic` VALUES (8732,0,'moogle_coin','moogle_coin',99,4180,0,0,0);
 INSERT INTO `item_basic` VALUES (8733,0,'p._digsted_rock','p._digsted_rock',99,4180,0,0,0);
-INSERT INTO `item_basic` VALUES (8734,0,'mog_kupon_i-s1','kupon_i-s1',99,28736,0,0,0);
+INSERT INTO `item_basic` VALUES (8734,0,'shining_leaf','shining_leaf',99,4180,0,0,0);
 INSERT INTO `item_basic` VALUES (8735,0,'mog_kupon_i-skill','kupon_i-skill',99,28736,0,0,0);
 INSERT INTO `item_basic` VALUES (8736,0,'ake-ome_spirit','ake-ome_spirit',99,28736,0,0,0);
 INSERT INTO `item_basic` VALUES (8737,0,'bottle_of_star_sprinkles','star_sprinkles',99,28736,0,0,0);
