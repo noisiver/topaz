@@ -270,6 +270,7 @@ void CTrustEntity::OnRangedAttack(CRangeState& state, action_t& action)
         }
         else //miss
         {
+            damage = 0;
             actionTarget.reaction = REACTION_EVADE;
             actionTarget.speceffect = SPECEFFECT_NONE;
             actionTarget.messageID = 354;
