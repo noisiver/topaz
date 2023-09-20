@@ -648,7 +648,7 @@ local mixinByMobName =
         local tpMoveTimer = mob:getLocalVar("tpMoveTimer")
         local lastTPMove = mob:getLocalVar("lastTPMove")
         -- Uses Spring Breeze → Summer Breeze → Autumn Breeze → Winter Breeze → Norn Arrow
-        if (os.time() > tpMoveTimer)
+        if (os.time() > tpMoveTimer) then
             for v = tpz.mob.skills.SPRING_BREEZE, tpz.mob.skills.AUTUMN_BREEZE do
                 if (lastTPMove == v) then
                     mob:useMobAbility(v +1)
