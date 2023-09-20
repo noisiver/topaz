@@ -680,7 +680,7 @@ local mixinByMobName =
         -- Immune to physical damage while readying TP moves and slightly after using them.
         mob:addListener("WEAPONSKILL_STATE_ENTER", "DAWON_WS_STATE_ENTER", function(mob, skillID)
             mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 0, 0)
-        end
+        end)
         mob:addListener("WEAPONSKILL_STATE_EXIT", "DAWON_MOBSKILL_FINISHED", function(mob)
             mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
         end)
