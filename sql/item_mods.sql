@@ -10660,24 +10660,30 @@ INSERT INTO `item_mods` VALUES (13405,5,5);
 INSERT INTO `item_mods` VALUES (13406,23,6);
 INSERT INTO `item_mods` VALUES (13406,68,-4);
 INSERT INTO `item_mods` VALUES (13406,163,-2);
-INSERT INTO `item_mods` VALUES (13407,11,2);
+INSERT INTO `item_mods` VALUES (13407,11,2);        -- Nimble Earring
 INSERT INTO `item_mods` VALUES (13407,56,11);
 INSERT INTO `item_mods` VALUES (13407,57,11);
-INSERT INTO `item_mods` VALUES (13408,8,2);
+INSERT INTO `item_mods` VALUES (13407,384,100);     -- Haste+1%
+INSERT INTO `item_mods` VALUES (13408,8,2);         -- Triumph Earring
 INSERT INTO `item_mods` VALUES (13408,54,11);
 INSERT INTO `item_mods` VALUES (13408,55,11);
-INSERT INTO `item_mods` VALUES (13409,12,2);
+INSERT INTO `item_mods` VALUES (13408,841,3);       -- Weapon Skill damage +3%
+INSERT INTO `item_mods` VALUES (13409,12,2);        -- Omniscient earring
 INSERT INTO `item_mods` VALUES (13409,55,11);
 INSERT INTO `item_mods` VALUES (13409,56,11);
-INSERT INTO `item_mods` VALUES (13410,9,2);
+INSERT INTO `item_mods` VALUES (13409,1272,6);      -- Elemental WSD +6% 
+INSERT INTO `item_mods` VALUES (13410,9,2);         -- Adroit Earring
 INSERT INTO `item_mods` VALUES (13410,58,11);
 INSERT INTO `item_mods` VALUES (13410,59,11);
-INSERT INTO `item_mods` VALUES (13411,13,2);
+INSERT INTO `item_mods` VALUES (13410,165,3);       -- Crit hit rate +3%
+INSERT INTO `item_mods` VALUES (13411,13,2);        -- Communion Earring
 INSERT INTO `item_mods` VALUES (13411,54,11);
 INSERT INTO `item_mods` VALUES (13411,59,11);
-INSERT INTO `item_mods` VALUES (13412,10,2);
+INSERT INTO `item_mods` VALUES (13411,890,5);       -- Enhancing magic duration +5%
+INSERT INTO `item_mods` VALUES (13412,10,2);        -- Robust Earring
 INSERT INTO `item_mods` VALUES (13412,57,11);
 INSERT INTO `item_mods` VALUES (13412,58,11);
+INSERT INTO `item_mods` VALUES (13412,161,-2);       -- Physical damage taken -2%
 INSERT INTO `item_mods` VALUES (13413,5,11);
 INSERT INTO `item_mods` VALUES (13413,27,1);
 INSERT INTO `item_mods` VALUES (13413,61,11);
@@ -10935,7 +10941,7 @@ INSERT INTO `item_mods` VALUES (13551,8,3);
 INSERT INTO `item_mods` VALUES (13551,23,3);
 INSERT INTO `item_mods` VALUES (13552,1,3);
 INSERT INTO `item_mods` VALUES (13552,7,50);
-INSERT INTO `item_mods` VALUES (13553,384,100);
+INSERT INTO `item_mods` VALUES (13553,384,100);     -- Blitz Ring
 INSERT INTO `item_mods` VALUES (13554,1,5);
 INSERT INTO `item_mods` VALUES (13555,7,10);
 INSERT INTO `item_mods` VALUES (13555,27,-1);
@@ -15102,30 +15108,36 @@ INSERT INTO `item_mods` VALUES (14710,61,10);
 INSERT INTO `item_mods` VALUES (14711,1,1);
 INSERT INTO `item_mods` VALUES (14711,2,10);
 INSERT INTO `item_mods` VALUES (14711,60,10);
-INSERT INTO `item_mods` VALUES (14712,1,1);
+INSERT INTO `item_mods` VALUES (14712,1,1);         -- Nimble Earring +1
 INSERT INTO `item_mods` VALUES (14712,11,2);
 INSERT INTO `item_mods` VALUES (14712,56,12);
 INSERT INTO `item_mods` VALUES (14712,57,12);
-INSERT INTO `item_mods` VALUES (14713,1,1);
+INSERT INTO `item_mods` VALUES (14712,384,100);     -- Haste+1%
+INSERT INTO `item_mods` VALUES (14713,1,1);         -- Triumph Earring +1
 INSERT INTO `item_mods` VALUES (14713,8,2);
 INSERT INTO `item_mods` VALUES (14713,54,12);
 INSERT INTO `item_mods` VALUES (14713,55,12);
-INSERT INTO `item_mods` VALUES (14714,1,1);
+INSERT INTO `item_mods` VALUES (14713,841,3);       -- Weapon Skill damage +3%
+INSERT INTO `item_mods` VALUES (14714,1,1);         -- Omniscient Earring +1
 INSERT INTO `item_mods` VALUES (14714,12,2);
 INSERT INTO `item_mods` VALUES (14714,55,12);
 INSERT INTO `item_mods` VALUES (14714,56,12);
-INSERT INTO `item_mods` VALUES (14715,1,1);
+INSERT INTO `item_mods` VALUES (14714,1272,6);      -- Elemental WSD +6% 
+INSERT INTO `item_mods` VALUES (14715,1,1);         -- Adroit Earring +1
 INSERT INTO `item_mods` VALUES (14715,9,2);
 INSERT INTO `item_mods` VALUES (14715,58,12);
 INSERT INTO `item_mods` VALUES (14715,59,12);
-INSERT INTO `item_mods` VALUES (14716,1,1);
+INSERT INTO `item_mods` VALUES (14715,165,3);       -- Crit hit rate +3%
+INSERT INTO `item_mods` VALUES (14716,1,1);         -- Communion Earring +1
 INSERT INTO `item_mods` VALUES (14716,13,2);
 INSERT INTO `item_mods` VALUES (14716,54,12);
 INSERT INTO `item_mods` VALUES (14716,59,12);
-INSERT INTO `item_mods` VALUES (14717,1,1);
+INSERT INTO `item_mods` VALUES (14716,890,5);       -- Enhancing magic duration +5%
+INSERT INTO `item_mods` VALUES (14717,1,1);         -- Robust Earring +1
 INSERT INTO `item_mods` VALUES (14717,10,2);
 INSERT INTO `item_mods` VALUES (14717,57,12);
 INSERT INTO `item_mods` VALUES (14717,58,12);
+INSERT INTO `item_mods` VALUES (14717,161,-2);       -- Physical damage taken -2%
 INSERT INTO `item_mods` VALUES (14718,1,1);
 INSERT INTO `item_mods` VALUES (14718,5,12);
 INSERT INTO `item_mods` VALUES (14718,27,2);
