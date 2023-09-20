@@ -446,11 +446,12 @@ local modByMobName =
         mob:setMod(tpz.mod.ACC, 50)
         mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 75)
-    end
+    end,
+
     ['Yilbegan'] = function(mob)
         mob:setMod(tpz.mod.VIT, 150)
         mob:setMod(tpz.mod.UDMGBREATH, -50)
-    end
+    end,
 }
 
 local mixinByMobName =
@@ -647,7 +648,7 @@ local mixinByMobName =
         local tpMoveTimer = mob:getLocalVar("tpMoveTimer")
         local lastTPMove = mob:getLocalVar("lastTPMove")
         -- Uses Spring Breeze → Summer Breeze → Autumn Breeze → Winter Breeze → Norn Arrow
-        if (os.time() > tpMoveTimer)
+        if (os.time() > tpMoveTimer) then
             for v = tpz.mob.skills.SPRING_BREEZE, tpz.mob.skills.AUTUMN_BREEZE do
                 if (lastTPMove == v) then
                     mob:useMobAbility(v +1)
@@ -679,7 +680,7 @@ local mixinByMobName =
         -- Immune to physical damage while readying TP moves and slightly after using them.
         mob:addListener("WEAPONSKILL_STATE_ENTER", "DAWON_WS_STATE_ENTER", function(mob, skillID)
             mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 0, 0)
-        end
+        end)
         mob:addListener("WEAPONSKILL_STATE_EXIT", "DAWON_MOBSKILL_FINISHED", function(mob)
             mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
         end)
@@ -692,7 +693,7 @@ local mixinByMobName =
             mob:addStatusEffect(tpz.effect.BLINK, math.random(4, 6), 0, 30)
             mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
         end)
-    end
+    end,
 
     ['Yilbegan'] = function(mob)
         -- -50% MDT when wings up, -50% PDT when wings down, (75 total if also not casting or tping)
@@ -743,7 +744,7 @@ local mixinByMobName =
                     mob:setMod(v, 0)
                 end
             end
-        end
+        end)
         mob:addListener("WEAPONSKILL_STATE_EXIT", "YILBEGAN_MOBSKILL_FINISHED", function(mob)
             for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
                 if mob:getMod(v) >= 50 then
@@ -771,7 +772,7 @@ local mixinByMobName =
                 end
             end
         end)
-    end
+    end,
 }   
 
 -----------------------------------
