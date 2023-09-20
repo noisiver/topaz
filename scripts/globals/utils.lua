@@ -1052,5 +1052,6 @@ function utils.CalculateBaseTP(delay)
         tp = (161 + ((delay - 720) * 24) / 360)
     else 
         tp = (173 + ((delay - 900) * 28) / 360)
+    end
     return tp
 end
