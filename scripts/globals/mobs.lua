@@ -876,7 +876,7 @@ end
 function SpawnMob(mob, player, mobId, aggro)
     local spawns = GetMobByID(mobId)
 
-    if (spawns ~= nil) and not spawns:isSpawned() then
+    if not spawns:isSpawned() then
         spawns:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
         spawns:spawn()
         if aggro then
