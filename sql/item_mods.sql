@@ -52338,10 +52338,10 @@ INSERT INTO `item_mods` VALUES (28510,11,2);      -- AGI+2
 INSERT INTO `item_mods` VALUES (28510,12,2);      -- INT+2
 INSERT INTO `item_mods` VALUES (28510,13,2);      -- MND+2
 INSERT INTO `item_mods` VALUES (28510,14,2);      -- CHR+2
-INSERT INTO `item_mods` VALUES (28510,23,5);      -- Attack+5
-INSERT INTO `item_mods` VALUES (28510,24,5);      -- Ranged Attack+5
+INSERT INTO `item_mods` VALUES (28510,23,10);     -- Attack+10
 INSERT INTO `item_mods` VALUES (28510,25,5);      -- Accuracy+5
-INSERT INTO `item_mods` VALUES (28510,26,5);      -- Ranged Accuracy+5
+INSERT INTO `item_mods` VALUES (28510,289,5);     -- Subtle Blow +5
+INSERT INTO `item_mods` VALUES (28510,165,3);     -- Critical hit rate +3%
 INSERT INTO `item_mods` VALUES (28510,54,10);
 INSERT INTO `item_mods` VALUES (28510,55,10);
 INSERT INTO `item_mods` VALUES (28510,56,10);
