@@ -446,11 +446,12 @@ local modByMobName =
         mob:setMod(tpz.mod.ACC, 50)
         mob:setMod(tpz.mod.VIT, 130)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 75)
-    end
+    end,
+
     ['Yilbegan'] = function(mob)
         mob:setMod(tpz.mod.VIT, 150)
         mob:setMod(tpz.mod.UDMGBREATH, -50)
-    end
+    end,
 }
 
 local mixinByMobName =
@@ -692,7 +693,7 @@ local mixinByMobName =
             mob:addStatusEffect(tpz.effect.BLINK, math.random(4, 6), 0, 30)
             mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
         end)
-    end
+    end,
 
     ['Yilbegan'] = function(mob)
         -- -50% MDT when wings up, -50% PDT when wings down, (75 total if also not casting or tping)
@@ -771,7 +772,7 @@ local mixinByMobName =
                 end
             end
         end)
-    end
+    end,
 }   
 
 -----------------------------------
