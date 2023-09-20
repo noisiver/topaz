@@ -7,7 +7,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     -- 5% chance to fulll restore MP/HP or party members at 1% HP(basically death)
-    if (math.random(100) <= 5)
+    if (math.random(100) <= 5) then
         mob:setLocalVar("restoreProc", 1)
     end
 end
