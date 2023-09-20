@@ -744,7 +744,7 @@ local mixinByMobName =
                     mob:setMod(v, 0)
                 end
             end
-        end
+        end)
         mob:addListener("WEAPONSKILL_STATE_EXIT", "YILBEGAN_MOBSKILL_FINISHED", function(mob)
             for v = tpz.mod.UDMGPHYS, tpz.mod.UDMGMAGIC do
                 if mob:getMod(v) >= 50 then
