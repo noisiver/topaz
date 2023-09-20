@@ -1044,11 +1044,11 @@ function utils.CalculateBaseTP(delay)
         tp = (61 + ((delay - 180) * 63) / 360)
     elseif (delay <= 540) then
         tp = (61 + ((delay - 180) * 88) / 360)
-    else if (delay <= 630) then
+    elseif (delay <= 630) then
         tp = (149 + ((delay - 540) * 20) / 360)
-    else if (delay <= 720) then
+    elseif (delay <= 720) then
         tp = (154 + ((delay - 630) * 28) / 360)
-    else if (delay <= 900) then
+    elseif (delay <= 900) then
         tp = (161 + ((delay - 720) * 24) / 360)
     else 
         tp = (173 + ((delay - 900) * 28) / 360)
