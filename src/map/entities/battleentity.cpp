@@ -272,7 +272,7 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
 {
     if (StatusEffectContainer->HasStatusEffect(EFFECT_HUNDRED_FISTS) && !tp)
     {
-        if (this->objtype == ENTITYTYPE::TYPE_MOB)
+        if (this->objtype == TYPE_MOB)
         {
             // Captures show mobs swing around 700 delay under hundered fists
             return 700;
