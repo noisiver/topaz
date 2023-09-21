@@ -17343,6 +17343,13 @@ INSERT INTO `mob_droplist` VALUES (3229,0,0,1000,14162,240); -- agronas_leggings
 INSERT INTO `mob_droplist` VALUES (3229,0,0,1000,11629,100); -- zilant_ring
 INSERT INTO `mob_droplist` VALUES (3229,0,0,1000,11633,100); -- galdr_ring
 
+INSERT INTO `mob_droplist` VALUES (3230,0,0,1000,2747,10);   -- Gargouille(Beaucedine Glacier [S])
+INSERT INTO `mob_droplist` VALUES (3230,0,0,1000,2748,240);
+INSERT INTO `mob_droplist` VALUES (3230,0,0,1000,2749,100);
+INSERT INTO `mob_droplist` VALUES (3230,0,0,1000,2823,50);
+INSERT INTO `mob_droplist` VALUES (3230,0,0,1000,9930,50);   -- Gargouille Wing
+INSERT INTO `mob_droplist` VALUES (3230,0,0,1000,8735,50);   -- Glimmering Gargouille Eye
+
 
 
 
@@ -18318,8 +18325,8 @@ INSERT INTO `mob_droplist` VALUES (9059,0,0,1000,18419,240); -- Kugui
 INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1618,240); -- (Harajnite) Uragnite Shell
 INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
--- free 22, 644, 1665, 2331
--- NEXT: 3230
+-- free 22, 1665, 2331
+-- NEXT: 3231
 -- NEXT: 6125
 
 

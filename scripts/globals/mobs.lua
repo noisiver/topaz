@@ -818,15 +818,15 @@ function BreakMob(mob, target, power, duration, proc)
 end
 
 function MessageGroup(mob, target, msg, textcolor, sender)
-    if target == nil then
+    if (target == nil) then
         return
     end
 
     local party = target:getParty()
 
     --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
-    for _, players in pairs(party) do
-        players:PrintToPlayer(msg, textcolor, sender)
+    for _, partyMember in pairs(party) do
+        partyMember:PrintToPlayer(msg, textcolor, sender)
     end
 end
 
