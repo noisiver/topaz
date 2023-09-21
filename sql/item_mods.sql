@@ -4355,16 +4355,21 @@ INSERT INTO `item_mods` VALUES (11316,1,1);
 INSERT INTO `item_mods` VALUES (11317,1,1);
 INSERT INTO `item_mods` VALUES (11318,1,2);
 INSERT INTO `item_mods` VALUES (11319,1,2);
-INSERT INTO `item_mods` VALUES (11321,1,2);       -- Orange Race Silks: DEF 2
-INSERT INTO `item_mods` VALUES (11321,511,10);    -- Chocobo riding time +10
-INSERT INTO `item_mods` VALUES (11322,1,2);
-INSERT INTO `item_mods` VALUES (11323,1,2);       -- Purple Racing Silks
-INSERT INTO `item_mods` VALUES (11323,1017,100);   -- Mount movement speed +100%
+INSERT INTO `item_mods` VALUES (11321,1,2);         -- Orange Race Silks: DEF 2
+INSERT INTO `item_mods` VALUES (11321,511,10);      -- Chocobo riding time +10
+INSERT INTO `item_mods` VALUES (11322,1,2);         -- Black Racing Siks
+INSERT INTO `item_mods` VALUES (11322,1017,200);    -- Mount movement speed +200%
+INSERT INTO `item_mods` VALUES (11323,1,2);         -- Purple Racing Silks
+INSERT INTO `item_mods` VALUES (11323,1017,100);    -- Mount movement speed +100%
 INSERT INTO `item_mods` VALUES (11324,1,2);
-INSERT INTO `item_mods` VALUES (11325,1,2);
-INSERT INTO `item_mods` VALUES (11326,1,2);
-INSERT INTO `item_mods` VALUES (11327,1,2);
-INSERT INTO `item_mods` VALUES (11328,1,2);
+INSERT INTO `item_mods` VALUES (11325,1,2);         -- Blue Racing Silks
+INSERT INTO `item_mods` VALUES (11325,1017,140);    -- Mount movement speed +140%
+INSERT INTO `item_mods` VALUES (11326,1,2);         -- Red Racing Silks
+INSERT INTO `item_mods` VALUES (11326,1017,160);    -- Mount movement speed +160%
+INSERT INTO `item_mods` VALUES (11327,1,2);         -- White Racing Silks
+INSERT INTO `item_mods` VALUES (11327,1017,180);    -- Mount movement speed +180%
+INSERT INTO `item_mods` VALUES (11328,1,2);         -- Green Racing Silks
+INSERT INTO `item_mods` VALUES (11328,1017,120);    -- Mount movement speed +120%
 INSERT INTO `item_mods` VALUES (11329,1,3);
 INSERT INTO `item_mods` VALUES (11329,56,2);
 INSERT INTO `item_mods` VALUES (11329,57,2);
