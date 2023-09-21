@@ -7,6 +7,8 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 require("scripts/globals/zone")
+require("scripts/globals/items")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 tpz = tpz or {}
@@ -60,6 +62,7 @@ local digInfo =
 {
     [tpz.zone.CARPENTERS_LANDING] = -- 2
     {
+        { 5605, 50, digReq.NONE     }, -- Sharug Greens (Blue Racing Silks 140%)
         { 4504, 152, digReq.NONE    },
         {  688, 182, digReq.NONE    },
         {  697,  83, digReq.NONE    },
@@ -87,6 +90,7 @@ local digInfo =
     },
     [tpz.zone.BIBIKI_BAY] = -- 4
     {
+        { 2201, 50, digReq.NONE     }, -- Tokopekko Wildgrass (White Racing Silks 180%)
         {  847,  70, digReq.NONE    },
         {  887,  10, digReq.NONE    },
         {  893,  55, digReq.NONE    },
@@ -120,6 +124,7 @@ local digInfo =
     },
     [tpz.zone.WAJAOM_WOODLANDS] = -- 51
     {
+        { 2205, 50, digReq.NONE     }, -- Gregarious Worm (Black Racing Silks 200%%)
         {  646,   3, digReq.NONE    },
         {  845,  75, digReq.NONE    },
         {  770,  31, digReq.NONE    },
@@ -153,6 +158,7 @@ local digInfo =
     },
     [tpz.zone.BHAFLAU_THICKETS] = -- 52
     {
+        { 2205, 50, digReq.NONE     }, -- Gregarious Worm (Black Racing Silks 200%%)
         {  770,  50, digReq.NONE    },
         { 2150,  60, digReq.NONE    },
         {  622, 197, digReq.NONE    },
@@ -186,6 +192,7 @@ local digInfo =
     },
     [tpz.zone.WEST_RONFAURE] = -- 100
     {
+        { 5607, 50, digReq.NONE     }, -- Vomp Carrot (Green Racing Silks 120%)
         { 4504, 120, digReq.NONE    },
         {  688, 111, digReq.NONE    },
         {17396, 148, digReq.NONE    },
@@ -210,6 +217,7 @@ local digInfo =
     },
     [tpz.zone.EAST_RONFAURE] = -- 101
     {
+        { 5607, 50, digReq.NONE     }, -- Vomp Carrot (Green Racing Silks 120%)
         { 4504, 224, digReq.NONE    },
         {  688, 184, digReq.NONE    },
         {17396, 276, digReq.NONE    },
@@ -234,6 +242,7 @@ local digInfo =
     },
     [tpz.zone.LA_THEINE_PLATEAU] = -- 102
     {
+        { 5605, 50, digReq.NONE     }, -- Sharug Greens (Blue Racing Silks 140%)
         {  688, 153, digReq.NONE    },
         {17396, 155, digReq.NONE    },
         {17296, 134, digReq.NONE    },
@@ -261,6 +270,7 @@ local digInfo =
     },
     [tpz.zone.VALKURM_DUNES] = -- 103
     {
+        { 5605, 50, digReq.NONE     }, -- Sharug Greens (Blue Racing Silks 140%)
         {  770,   1, digReq.NONE    },
         {  880, 166, digReq.NONE    },
         {  864,  96, digReq.NONE    },
@@ -293,6 +303,7 @@ local digInfo =
     },
     [tpz.zone.JUGNER_FOREST] = -- 104
     {
+        { 2210, 50, digReq.NONE     }, -- Vegetable Paste (Red Racing Silks 160%)
         { 4504, 152, digReq.NONE    },
         {  688, 182, digReq.NONE    },
         {  697,  83, digReq.NONE    },
@@ -318,6 +329,7 @@ local digInfo =
     },
     [tpz.zone.BATALLIA_DOWNS] = -- 105
     {
+        { 2210, 50, digReq.NONE     }, -- Vegetable Paste (Red Racing Silks 160%)
         {  847,  69, digReq.NONE    },
         {  880, 137, digReq.NONE    },
         {  845,   4, digReq.NONE    },
@@ -345,6 +357,7 @@ local digInfo =
     },
     [tpz.zone.NORTH_GUSTABERG] = -- 106
     {
+        { 5607, 50, digReq.NONE     }, -- Vomp Carrot (Green Racing Silks 120%)
         {  880, 226, digReq.NONE    },
         {17396, 264, digReq.NONE    },
         {17296, 176, digReq.NONE    },
@@ -370,6 +383,7 @@ local digInfo =
     },
     [tpz.zone.SOUTH_GUSTABERG] = -- 107
     {
+        { 5607, 50, digReq.NONE     }, -- Vomp Carrot (Green Racing Silks 120%)
         {17296, 252, digReq.NONE    },
         {17396, 227, digReq.NONE    },
         {  846, 156, digReq.NONE    },
@@ -393,6 +407,7 @@ local digInfo =
     },
     [tpz.zone.KONSCHTAT_HIGHLANDS] = -- 108
     {
+        { 5605, 50, digReq.NONE     }, -- Sharug Greens (Blue Racing Silks 140%)
         {  847,  13, digReq.NONE    },
         {  880, 165, digReq.NONE    },
         {  690,  68, digReq.NONE    },
@@ -419,6 +434,7 @@ local digInfo =
     },
     [tpz.zone.PASHHOW_MARSHLANDS] = -- 109
     {
+        { 2210, 50, digReq.NONE     }, -- Vegetable Paste (Red Racing Silks 160%)
         {  846, 216, digReq.NONE    },
         {17296, 210, digReq.NONE    },
         {  869, 198, digReq.NONE    },
@@ -443,6 +459,7 @@ local digInfo =
     },
     [tpz.zone.ROLANBERRY_FIELDS] = -- 110
     {
+        { 2210, 50, digReq.NONE     }, -- Vegetable Paste (Red Racing Silks 160%)
         { 4450,  30, digReq.NONE    },
         { 4566,   7, digReq.NONE    },
         {  768, 164, digReq.NONE    },
@@ -471,6 +488,7 @@ local digInfo =
     },
     [tpz.zone.EASTERN_ALTEPA_DESERT] = -- 114
     {
+        { 2201, 50, digReq.NONE     }, -- Tokopekko Wildgrass (White Racing Silks 180%)
         {  880, 167, digReq.NONE    },
         {  893,  88, digReq.NONE    },
         {17296, 135, digReq.NONE    },
@@ -501,6 +519,7 @@ local digInfo =
     },
     [tpz.zone.WEST_SARUTABARUTA] = -- 115
     {
+        { 5607, 50, digReq.NONE     }, -- Vomp Carrot (Green Racing Silks 120%)
         {  689, 205, digReq.NONE    },
         {17396, 295, digReq.NONE    },
         {17296, 341, digReq.NONE    },
@@ -524,6 +543,7 @@ local digInfo =
     },
     [tpz.zone.EAST_SARUTABARUTA] = -- 116
     {
+        { 5607, 50, digReq.NONE     }, -- Vomp Carrot (Green Racing Silks 120%)
         {  689, 132, digReq.NONE    },
         {  938,  79, digReq.NONE    },
         {17296, 132, digReq.NONE    },
@@ -550,6 +570,7 @@ local digInfo =
     },
     [tpz.zone.TAHRONGI_CANYON] = -- 117
     {
+        { 5605, 50, digReq.NONE     }, -- Sharug Greens (Blue Racing Silks 140%)
         {  880, 118, digReq.NONE    },
         {  893, 121, digReq.NONE    },
         {  748,   5, digReq.NONE    },
@@ -582,6 +603,7 @@ local digInfo =
     },
     [tpz.zone.BUBURIMU_PENINSULA] = -- 118
     {
+        { 5605, 50, digReq.NONE     }, -- Sharug Greens (Blue Racing Silks 140%)
         {  847,  45, digReq.NONE    },
         {  887,   1, digReq.NONE    },
         {  893,  53, digReq.NONE    },
@@ -615,6 +637,7 @@ local digInfo =
     },
     [tpz.zone.MERIPHATAUD_MOUNTAINS] = -- 119
     {
+        { 2210, 50, digReq.NONE     }, -- Vegetable Paste (Red Racing Silks 160%)
         {  646,   4, digReq.NONE    },
         {  845,  12, digReq.NONE    },
         {  640, 112, digReq.NONE    },
@@ -647,6 +670,7 @@ local digInfo =
     },
     [tpz.zone.SAUROMUGUE_CHAMPAIGN] = -- 120
     {
+        { 2210, 50, digReq.NONE     }, -- Vegetable Paste (Red Racing Silks 160%)
         {  845,   8, digReq.NONE    },
         {  880, 126, digReq.NONE    },
         {  768, 130, digReq.NONE    },
@@ -681,6 +705,7 @@ local digInfo =
     },
     [tpz.zone.THE_SANCTUARY_OF_ZITAH] = -- 121
     {
+        { 2201, 50, digReq.NONE     }, -- Tokopekko Wildgrass (White Racing Silks 180%)
         {  688, 117, digReq.NONE    },
         {17296, 150, digReq.NONE    },
         {  880, 100, digReq.NONE    },
@@ -709,6 +734,7 @@ local digInfo =
     },
     [tpz.zone.YUHTUNGA_JUNGLE] = -- 123
     {
+        { 2201, 50, digReq.NONE     }, -- Tokopekko Wildgrass (White Racing Silks 180%)
         {  880, 185, digReq.NONE    },
         {  628,  72, digReq.NONE    },
         {  721,  91, digReq.NONE    },
@@ -739,6 +765,7 @@ local digInfo =
     },
     [tpz.zone.YHOATOR_JUNGLE] = -- 124
     {
+        { 2201, 50, digReq.NONE     }, -- Tokopekko Wildgrass (White Racing Silks 180%)
         {  880, 282, digReq.NONE    },
         {  689, 177, digReq.NONE    },
         { 4432, 140, digReq.NONE    },
@@ -767,6 +794,7 @@ local digInfo =
     },
     [tpz.zone.WESTERN_ALTEPA_DESERT] = -- 125
     {
+        { 2201, 50, digReq.NONE     }, -- Tokopekko Wildgrass (White Racing Silks 180%)
         {  880, 224, digReq.NONE    },
         {  887,  39, digReq.NONE    },
         {  645,  14, digReq.NONE    },
@@ -991,5 +1019,40 @@ tpz.chocoboDig.start = function(player, precheck)
         calculateSkillUp(player)
 
         return true
+    end
+end
+
+local itemList =
+{
+    { body =  { tpz.items.PURPLE_RACING_SILKS } , material = { tpz.items.VOMP_CARROT }, reward = { tpz.items.GREEN_RACING_SILKS } },
+    { body =  { tpz.items.GREEN_RACING_SILKS } , material = { tpz.items.BUNCH_OF_SHARUG_GREENS }, reward = { tpz.items.BLUE_RACING_SILKS } },
+    { body =  { tpz.items.BLUE_RACING_SILKS } , material = { tpz.items.BALL_OF_VEGETABLE_PASTE }, reward = { tpz.items.RED_RACING_SILKS } },
+    { body =  { tpz.items.RED_RACING_SILKS } , material = { tpz.items.CLUMP_OF_TOKOPEKKO_WILDGRASS }, reward = { tpz.items.WHITE_RACING_SILKS } },
+    { body =  { tpz.items.WHITE_RACING_SILKS } , material = { tpz.items.GREGARIOUS_WORM }, reward = { tpz.items.BLACK_RACING_SILKS } },
+}
+
+function chocoboDig.onTriggerNPC(player, npc)
+    local npcName = npc:getName()
+
+    for _, items in pairs(itemList) do
+        for v = tpz.inv.INVENTORY, tpz.inv.WARDROBE8  do -- inventory locations enums
+            if (player:hasItem(itemList.body[1], v)) then
+                player:PrintToPlayer("I will upgrade your " .. itemList.body[1]:getName() " to " .. itemList.reward[1]:getName() .. " if you provide me with " .. itemList.material[1]:getName() " x100",0, npcName)
+                break
+            end
+        end
+    end
+end
+
+function chocoboDig.onTradeNPC(player, npc, trade)
+    local npcName = npc:getName()
+
+    for _, items in pairs(itemList) do
+        if npcUtil.tradeHasExactly(trade, { itemList.body[1], { itemList.material[1], 100 } }) then
+            if npcUtil.giveItem(player, itemList.reward[1]) then
+                player:tradeComplete()
+                player:PrintToPlayer("Please enjoy your new " .. itemList.reward[1]:getName() .. "!",0, npcName)
+            end
+        end
     end
 end
