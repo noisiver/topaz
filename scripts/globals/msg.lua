@@ -55,14 +55,23 @@ tpz.msg.area =
     YELL        = 4  -- If yell is enabled in zone, will display.
 }
 
+tpz.msg.textColor =
+{
+    WHITE     =   0, -- Name shown
+    GOLD        =   0x1F,
+    GREEN       =   0x1C,
+    BLUE        =   0xF,
+    HIDDEN      =   0xD -- No sender name shown, text is white(Most useful)
+}
+
 ------------------------------------
 -- Basic Messages
 ------------------------------------
 
 tpz.msg.basic =
 {
-    NONE    = 0, -- Display nothing
-    HIT_DMG = 1, -- <actor> hits <target> for <amount> points of damage.
+    NONE                    = 0, -- Display nothing
+    HIT_DMG                 = 1, -- <actor> hits <target> for <amount> points of damage.
 
     -- Magic
     MAGIC_DMG              = 2,   -- <caster> casts <spell>. <target> takes <amount> damage.
