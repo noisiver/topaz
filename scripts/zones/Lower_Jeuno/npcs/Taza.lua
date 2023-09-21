@@ -279,7 +279,7 @@ function onTrade(player, npc, trade)
         DistributeAugment(player, augment);
         return
     end
-        player:PrintToPlayer("I can't do anything with those items.",0,"Taza");
+    player:PrintToPlayer("I can't do anything with those items.",0,"Taza");
 end
 
 function onTrigger(player, npc)

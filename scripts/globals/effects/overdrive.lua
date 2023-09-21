@@ -8,6 +8,8 @@ require("scripts/globals/status")
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.OVERLOAD_THRESH, 5000)
     local pet = target:getPet()
+    local jpBonus = target:getJobPointLevel(tpz.jp.OVERDRIVE_EFFECT) * 5
+
     if pet then
         pet:setLocalVar("overdrive", 1)
         pet:addMod(tpz.mod.HASTE_MAGIC, 2500)
@@ -21,6 +23,15 @@ function onEffectGain(target, effect)
         pet:addMod(tpz.mod.MEVA, 50)
         pet:addMod(tpz.mod.REVA, 50)
         pet:addMod(tpz.mod.DMG, -50)
+        if jpBonus > 0 then
+            pet:addMod(tpz.mod.STR, jpBonus)
+            pet:addMod(tpz.mod.DEX, jpBonus)
+            pet:addMod(tpz.mod.VIT, jpBonus)
+            pet:addMod(tpz.mod.AGI, jpBonus)
+            pet:addMod(tpz.mod.INT, jpBonus)
+            pet:addMod(tpz.mod.MND, jpBonus)
+            pet:addMod(tpz.mod.CHR, jpBonus)
+        end
     end
 end
 
@@ -30,6 +41,8 @@ end
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.OVERLOAD_THRESH, 5000)
     local pet = target:getPet()
+    local jpBonus = target:getJobPointLevel(tpz.jp.OVERDRIVE_EFFECT) * 5
+
     if pet and pet:getLocalVar("overdrive") ~= 0 then
         pet:setLocalVar("overdrive", 0)
         pet:delMod(tpz.mod.HASTE_MAGIC, 2500)
@@ -43,5 +56,14 @@ function onEffectLose(target, effect)
         pet:delMod(tpz.mod.MEVA, 50)
         pet:delMod(tpz.mod.REVA, 50)
         pet:delMod(tpz.mod.DMG, -50)
+        if jpBonus > 0 then
+            pet:delMod(tpz.mod.STR, jpBonus)
+            pet:delMod(tpz.mod.DEX, jpBonus)
+            pet:delMod(tpz.mod.VIT, jpBonus)
+            pet:delMod(tpz.mod.AGI, jpBonus)
+            pet:delMod(tpz.mod.INT, jpBonus)
+            pet:delMod(tpz.mod.MND, jpBonus)
+            pet:delMod(tpz.mod.CHR, jpBonus)
+        end
     end
 end

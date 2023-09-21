@@ -1832,10 +1832,15 @@ tpz.mod =
     EFFLUX_BONUS            = 1324, -- Bonus to Efflux, flat amount
     EFFLUX_MULTIPLIER       = 1325, -- Bonus to Efflux, in percents
     UNBRIDLED_DAMAGE        = 1326, -- Bonus damage to Unbridled Learning spells, in percents
-    UNBRIDLED_DURATION      = 1327,-- Bonus duration to Unbridled Learning spells, in percents
+    UNBRIDLED_DURATION      = 1327, -- Bonus duration to Unbridled Learning spells, in percents
+    DREAD_SPIKES_EFFECT     = 1328,  -- Percent increase to total HP drain for Dread Spikes
+    ENHANCES_BLOOD_WEAPON   = 1329,  -- Enhances "Blood Weapon" effect (increases Blood Weapon's duration in seconds)
+    DARK_MAGIC_CAST         = 1330,  -- Reduces Dark Magic Casting Time by percentage (e.g. mod value -10 = -10% cast time)
+    DARK_MAGIC_DURATION     = 1331,  -- Increases Dark Magic spell durations by percentage (e.g. mod value 10 = +10% duration)
+    ENHANCES_DARK_SEAL      = 1332  -- Enhances "Dark Seal" effect (Increases Dark Magic spell durations by 10% per Dark Seal merit while Dark Seal active)
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1328 NEXT
+    -- 1333 NEXT
 }
 
 tpz.latent =
@@ -2784,7 +2789,35 @@ tpz.auraTarget =
 {
     ALLIES  = 0,
     ENEMIES = 1,
-};
+}
+
+----------------------------------
+-- Proc type(!)
+----------------------------------
+
+tpz.procType =
+{
+    AMNESIA         = 0,
+    SILENCE         = 1,
+    TERROR          = 2,
+    TERROR_WHITE    = 3,
+}
+
+----------------------------------
+-- Proc effect
+----------------------------------
+
+tpz.procEffect =
+{
+    ALL_NORMAL      = 1, -- All normal damage(not sc/mb/spirits)
+    PHYSICAL        = 2,
+    BREATH          = 3,
+    MAGIC           = 4,
+    RANGED          = 5,
+    SKILLCHAIN      = 6,
+    MAGIC_BURST     = 7,
+    SPIRITS_DAMAGE  = 8  -- Spirits Within / Formless Strikes
+}
 
 ------------------------------------
 -- MOBMODs

@@ -27,9 +27,10 @@ function onUseAbility(player, target, ability)
     end
 
     local shieldSize = player:getShieldSize()
+    local jpValue    = player:getJobPointLevel(tpz.jp.SHIELD_BASH_EFFECT)
     local damage = 0
     local chance = 99
-    damage = player:getMod(tpz.mod.SHIELD_BASH)
+    damage = player:getMod(tpz.mod.SHIELD_BASH) + (jpValue * 10)
 
     if shieldSize == 1 or shieldSize == 5 then
         damage = 25 + damage

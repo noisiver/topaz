@@ -1369,7 +1369,7 @@ function MobDeathMove(mob, target, skill)
 		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 	
-	if resist >= 0.5 then
+	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
@@ -1402,7 +1402,7 @@ function MobFullDispelMove(mob, target, skill, param1, param2)
 
     target:addEnmity(mob, 1, 320)
 
-	if resist >= 0.5 then
+	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return 0
 		else
@@ -1411,6 +1411,27 @@ function MobFullDispelMove(mob, target, skill, param1, param2)
             else
                 return target:dispelAllStatusEffect(bit.bor(param1))
             end
+        end
+	else
+	    return 0
+	end
+end
+
+function MobCorruptMove(mob, target, skill, amount)
+    local statmod = tpz.mod.INT
+    local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local element = tpz.magic.ele.DARK
+    local bonus = 50
+
+    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
+
+    target:addEnmity(mob, 1, 320)
+
+	if (resist >= 0.5) then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		    return 0
+		else
+            CorruptBuffs(mob, target, amount)
         end
 	else
 	    return 0
@@ -1483,6 +1504,19 @@ function MobTransferEnfeeblesMove(mob, target, skill, range, isAOE)
     end
 
     return false, 0
+end
+
+function MobAllStatDownMove(mob, target, power, duration)
+    local msg = tpz.msg.basic.SKILL_MISS
+    local effectsLanded = 0
+
+    for v = tpz.effect.STR_DOWN, tpz.effect.CHR_DOWN do
+        MobStatusEffectMove(mob, target, v, power, 3, 120)
+    end
+end
+
+function MobAllStatDownMovePhysical(mob, target, power, tick, count, duration)
+    -- TODO
 end
 
 function MobTakeAoEShadow(mob, target, max)

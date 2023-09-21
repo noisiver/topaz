@@ -270,6 +270,17 @@ bool CBattleEntity::Rest(float rate)
 
 int16 CBattleEntity::GetWeaponDelay(bool tp)
 {
+    if (StatusEffectContainer->HasStatusEffect(EFFECT_HUNDRED_FISTS) && !tp)
+    {
+        if (this->objtype == TYPE_MOB)
+        {
+            // Captures show mobs swing around 700 delay under hundered fists
+            return 700;
+        }
+
+        return 1700;
+    }
+
     uint16 WeaponDelay = 9999;
     if (auto weapon = dynamic_cast<CItemWeapon*>(m_Weapons[SLOT_MAIN]))
     {
@@ -310,14 +321,6 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
             int16 hasteMagic = std::clamp<int16>(getMod(Mod::HASTE_MAGIC), -10000, 4375); // 43.75% cap -- handle 100% slow for weakness
             int16 hasteAbility = std::clamp<int16>(getMod(Mod::HASTE_ABILITY), -2500, 2500); // 25% cap
             int16 hasteGear = std::clamp<int16>(getMod(Mod::HASTE_GEAR), -2500, 2500); // 25%
-
-            if (StatusEffectContainer->HasStatusEffect(EFFECT_HUNDRED_FISTS))
-            {
-                hasteMagic = 7400;  // https://www.bluegartr.com/threads/53772-What-exactly-does-Hundred-Fists-do?p=1874077&viewfull=1#post1874077
-                hasteAbility = 0;
-                hasteGear = 0;
-            }
-
 
             // Divide by float to get a more accurate reduction, then use int16 cast to truncate
             WeaponDelay -= (int16)(WeaponDelay * (hasteMagic + hasteAbility + hasteGear) / 10000.f);

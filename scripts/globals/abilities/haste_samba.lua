@@ -20,7 +20,7 @@ function onUseAbility(player, target, ability)
         player:delTP(170)
     end
 
-    local duration = 90 + player:getMod(tpz.mod.SAMBA_DURATION)
+    local duration = 90 + player:getMod(tpz.mod.SAMBA_DURATION) + (player:getJobPointLevel(tpz.jp.SAMBA_DURATION) * 2)
     duration = duration * (100 + player:getMod(tpz.mod.SAMBA_PDURATION)) / 100
     player:delStatusEffect(tpz.effect.DRAIN_SAMBA)
     player:delStatusEffect(tpz.effect.ASPIR_SAMBA)

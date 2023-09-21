@@ -818,15 +818,15 @@ function BreakMob(mob, target, power, duration, proc)
 end
 
 function MessageGroup(mob, target, msg, textcolor, sender)
-    if target == nil then
+    if (target == nil) then
         return
     end
 
     local party = target:getParty()
 
     --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
-    for _, players in pairs(party) do
-        players:PrintToPlayer(msg, textcolor, sender)
+    for _, partyMember in pairs(party) do
+        partyMember:PrintToPlayer(msg, textcolor, sender)
     end
 end
 
@@ -853,6 +853,42 @@ function MobName(mob)
     local mobName = mob:getName()
     mobName = string.gsub(mobName, '_', ' ');
     return mobName
+end
+
+function GetAvailableMob(mob, table)
+    local ID = zones[mob:getZoneID()]
+    local selectedMob = nil
+    local possibleBosses = {}
+
+    possibleBosses = table
+
+    for _,v in pairs(possibleBosses) do
+        local mob = possibleBosses[math.random(#possibleBosses)]
+        if (GetMobByID(mob) ~= nil and not GetMobByID(mob):isSpawned()) then
+            
+            selectedMob = mob
+            break
+        end
+    end
+    return selectedMob
+end
+
+function SpawnMob(mob, player, mobId, aggro)
+    local spawns = GetMobByID(mobId)
+
+    if not spawns:isSpawned() then
+        spawns:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
+        spawns:spawn()
+        if aggro then
+            local NearbyPlayers = mob:getPlayersInRange(50)
+            if NearbyPlayers == nil then return end
+            if NearbyPlayers then
+                for _,v in ipairs(NearbyPlayers) do
+                    spawns:updateClaim(v)
+                end
+            end
+        end
+    end
 end
 
 function SpawnInstancedMob(mob, player, mobId, aggro)
@@ -957,6 +993,54 @@ function AllowSelfNuking(mob, bool)
     else
         for v = 144, 173 do
             getSpell(v):setValidTarget(tpz.magic.targetType.ENEMY)
+        end
+    end
+end
+
+function CorruptBuffs(mob, target, amount)
+    local buffsList =
+    {
+        { tpz.effect.HASTE, tpz.effect.SLOW },
+        { tpz.effect.REGEN, tpz.effect.POISON },
+        { tpz.effect.REFRESH, tpz.effect.PLAGUE },
+        { tpz.effect.REGAIN, tpz.effect.PLAGUE },
+        { tpz.effect.BERSERK, tpz.effect.ATTACK_DOWN },
+        { tpz.effect.DEFENDER, tpz.effect.DEFENSE_DOWN },
+        { tpz.effect.AGGRESSOR, tpz.effect.ACCURACY_DOWN },
+        { tpz.effect.FOCUS, tpz.effect.ACCURACY_DOWN },
+        { tpz.effect.DODGE, tpz.effect.EVASION_DOWN },
+        { tpz.effect.STR_BOOST, tpz.effect.STR_DOWN },
+        { tpz.effect.DEX_BOOST, tpz.effect.DEX_DOWN },
+        { tpz.effect.VIT_BOOST, tpz.effect.VIT_DOWN },
+        { tpz.effect.AGI_BOOST, tpz.effect.AGI_DOWN },
+        { tpz.effect.INT_BOOST, tpz.effect.INT_DOWN },
+        { tpz.effect.MND_BOOST, tpz.effect.MND_DOWN },
+        { tpz.effect.CHR_BOOST, tpz.effect.CHR_DOWN },
+        { tpz.effect.MAX_HP_BOOST, tpz.effect.MAX_HP_DOWN },
+        { tpz.effect.MAX_MP_BOOST, tpz.effect.MAX_MP_DOWN },
+        { tpz.effect.ACCURACY_BOOST, tpz.effect.ACCURACY_DOWN },
+        { tpz.effect.ATTACK_BOOST, tpz.effect.ATTACK_DOWN },
+        { tpz.effect.EVASION_BOOST, tpz.effect.EVASION_DOWN },
+        { tpz.effect.DEFENSE_BOOST, tpz.effect.DEFENSE_DOWN },
+        { tpz.effect.MAGIC_ATK_BOOST, tpz.effect.MAGIC_ATK_DOWN },
+        { tpz.effect.INTENSION, tpz.effect.MAGIC_ACC_DOWN },
+        { tpz.effect.MAGIC_DEF_BOOST, tpz.effect.MAGIC_DEF_DOWN },
+        { tpz.effect.MAGIC_EVASION_BOOST_II, tpz.effect.MAGIC_EVASION_DOWN },
+    }
+
+    -- Corrupt as many buffs as specified in the amount arg
+    for _, buff in pairs(buffsList) do
+        while (amount < corruptCount) do
+            if target:hasStatusEffect(buff[1]) then
+                local currentBuff = buff[1]
+                local power = currentBuff:getPower()
+                local tick = currentBuff:getTick()
+                local duration = math.ceil((currentBuff:getTimeRemaining())/1000)
+
+                target:delStatusEffectSilent(buff[1])
+                target:addStatusEffect(buff[2], currentBuff, power, tick, duration)
+                corruptCount = corruptCount + 1
+            end
         end
     end
 end

@@ -20,5 +20,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    target:addStatusEffect(tpz.effect.ARCANE_CREST, 8, 1, 180)
+    local jpValue  = player:getJobPointLevel(tpz.jp.ARCANE_CREST_DURATION)
+    local duration = 180 + jpValue
+    target:addStatusEffect(tpz.effect.ARCANE_CREST, 8, 1, duration)
 end

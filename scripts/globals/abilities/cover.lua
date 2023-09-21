@@ -21,7 +21,8 @@ end
 function onUseAbility(player, target, ability)
     local baseDuration = 15
     local bonusTime    = utils.clamp(math.floor((player:getStat(tpz.mod.VIT) + player:getStat(tpz.mod.MND) - target:getStat(tpz.mod.VIT) * 2) / 4), 0, 15)
-    local duration     = baseDuration + bonusTime + player:getMerit(tpz.merit.COVER_EFFECT_LENGTH) + player:getMod(tpz.mod.COVER_DURATION)
+    local jpValue      = player:getJobPointLevel(tpz.jp.COVER_DURATION)
+    local duration     = baseDuration + bonusTime + player:getMerit(tpz.merit.COVER_EFFECT_LENGTH) + player:getMod(tpz.mod.COVER_DURATION) + jpValue
 
     player:addStatusEffect(tpz.effect.COVER, player:getMod(tpz.mod.COVER_TO_MP), 0, duration)
     player:setLocalVar("COVER_ABILITY_TARGET", target:getID())

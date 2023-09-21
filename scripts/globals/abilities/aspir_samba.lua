@@ -4,7 +4,7 @@
 -- Obtained: Dancer Level 25
 -- TP Required: 10%
 -- Recast Time: 1:00
--- Duration: 2:00
+-- Duration: 1:30
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -22,7 +22,7 @@ function onUseAbility(player, target, ability)
         player:delTP(50)
     end
 
-    local duration = 120 + player:getMod(tpz.mod.SAMBA_DURATION)
+    local duration = 90 + player:getMod(tpz.mod.SAMBA_DURATION) + (player:getJobPointLevel(tpz.jp.SAMBA_DURATION) * 2)
     duration = duration * (100 + player:getMod(tpz.mod.SAMBA_PDURATION))/100
     player:delStatusEffect(tpz.effect.HASTE_SAMBA)
     player:delStatusEffect(tpz.effect.DRAIN_SAMBA)

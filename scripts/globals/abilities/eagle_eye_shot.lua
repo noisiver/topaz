@@ -43,8 +43,11 @@ function onUseAbility(player, target, ability, action)
     params.enmityMult = 0.5
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, 0, params, 0, action, true)
-	
-		damage = damage
+
+    -- Job Point Bonus Damage
+    local jpValue = (1 + (player:getJobPointLevel(tpz.jp.EAGLE_EYE_SHOT_EFFECT) * 3) / 100)
+
+	damage = damage * jpValue
 	
     -- Set the message id ourselves
     if (tpHits + extraHits > 0) then

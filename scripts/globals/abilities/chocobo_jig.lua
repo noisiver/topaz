@@ -16,7 +16,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local duration = 120
+    local duration = 120 + player:getJobPointLevel(tpz.jp.JIG_DURATION)
 	local gear = player:getMod(tpz.mod.JIG_DURATION)
 	local gearbonus =  duration * (gear / 100)
 	local finalduration = duration + gearbonus

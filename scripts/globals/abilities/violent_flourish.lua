@@ -67,7 +67,8 @@ function onUseAbility(player, target, ability, action)
         isSneakValid = false
     end
     local pdif = generatePdif (cratio[1], cratio[2], true)
-    local hitrate = getHitRate(player, target, true, true, 0)
+    local accBonus = 100 -- https://www.bg-wiki.com/ffxi/Violent_Flourish
+    local hitrate = getHitRate(player, target, true, true, accBonus)
 
     if (math.random() <= hitrate or isSneakValid) then
         hit = 3
@@ -77,11 +78,11 @@ function onUseAbility(player, target, ability, action)
         local params = {}
         params.diff = 0
         params.skillType = player:getWeaponSkillType(tpz.slot.MAIN)
-        params.bonus = 0 - target:getMod(tpz.mod.STUNRES) + player:getMod(tpz.mod.VFLOURISH_MACC)
+        params.bonus = 50 - target:getMod(tpz.mod.STUNRES) + player:getMod(tpz.mod.VFLOURISH_MACC) + player:getJobPointLevel(tpz.jp.FLOURISH_I_EFFECT) 
         local resist = applyResistanceEffect(player, target, spell, params)
 
         if resist >= 0.25 then
-            target:addStatusEffect(tpz.effect.STUN, 1, 0, 5 * resist)
+            target:addStatusEffect(tpz.effect.STUN, 1, 0, 8 * resist)
         else
             ability:setMsg(tpz.msg.basic.JA_DAMAGE)
         end

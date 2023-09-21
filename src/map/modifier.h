@@ -358,6 +358,7 @@ enum class Mod
     CHAKRA_MULT               = 123, // Chakra multiplier increase (from gear)
     CHAKRA_REMOVAL            = 124, // Extra statuses removed by Chakra
     SUBTLE_BLOW               = 289, // How much TP to reduce.
+    SUBTLE_BLOW_II            = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
     COUNTER                   = 291, // Percent chance to counter
     KICK_ATTACK_RATE          = 292, // Percent chance to kick
     PERFECT_COUNTER_ATT       = 428, // TODO: Raises weapon damage by 20 when countering while under the Perfect Counter effect. This also affects Weapon Rank (though not if fighting barehanded).
@@ -421,6 +422,11 @@ enum class Mod
     SOULEATER_EFFECT          = 96,  // Souleater power in percents
     DESPERATE_BLOWS           = 906, // Adds ability haste to Last Resort
     STALWART_SOUL             = 907, // Reduces damage taken from Souleater
+    DREAD_SPIKES_EFFECT       = 1328,// Percent increase to total HP drain for Dread Spikes
+    ENHANCES_BLOOD_WEAPON     = 1329,// Enhances "Blood Weapon" effect (increases Blood Weapon's duration in seconds)
+    DARK_MAGIC_CAST           = 1330,// Reduces Dark Magic Casting Time by percentage (e.g. mod value -10 = -10% cast time)
+    DARK_MAGIC_DURATION       = 1331,// Increases Dark Magic spell durations by percentage (e.g. mod value 10 = +10% duration)
+    ENHANCES_DARK_SEAL        = 1332,// Enhances "Dark Seal" effect (Increases Dark Magic spell durations by 10% per Dark Seal merit while Dark Seal active)
 
     // Beastmaster
     TAME                      = 304, // Additional percent chance to charm
@@ -926,8 +932,6 @@ enum class Mod
 
     ONE_HOUR_RECAST         = 996, // Decreases the recast time of one-hour abilities by n minutes.
     SUPERIOR_LEVEL          = 997, // SU0..5
-
-    SUBTLE_BLOW_II          = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
     GARDENING_WILT_BONUS    = 1011, // Increases the number of Vanadays a plant can survive before it wilts
     TP_BOOST_WHEN_DMGD      = 1239, // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
@@ -1011,7 +1015,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1328 NEXT
+    // 1333 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

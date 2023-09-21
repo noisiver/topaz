@@ -4355,16 +4355,21 @@ INSERT INTO `item_mods` VALUES (11316,1,1);
 INSERT INTO `item_mods` VALUES (11317,1,1);
 INSERT INTO `item_mods` VALUES (11318,1,2);
 INSERT INTO `item_mods` VALUES (11319,1,2);
-INSERT INTO `item_mods` VALUES (11321,1,2);       -- Orange Race Silks: DEF 2
-INSERT INTO `item_mods` VALUES (11321,511,10);    -- Chocobo riding time +10
-INSERT INTO `item_mods` VALUES (11322,1,2);
-INSERT INTO `item_mods` VALUES (11323,1,2);       -- Purple Racing Silks
-INSERT INTO `item_mods` VALUES (11323,1017,100);   -- Mount movement speed +100%
+INSERT INTO `item_mods` VALUES (11321,1,2);         -- Orange Race Silks: DEF 2
+INSERT INTO `item_mods` VALUES (11321,511,10);      -- Chocobo riding time +10
+INSERT INTO `item_mods` VALUES (11322,1,2);         -- Black Racing Siks
+INSERT INTO `item_mods` VALUES (11322,1017,200);    -- Mount movement speed +200%
+INSERT INTO `item_mods` VALUES (11323,1,2);         -- Purple Racing Silks
+INSERT INTO `item_mods` VALUES (11323,1017,100);    -- Mount movement speed +100%
 INSERT INTO `item_mods` VALUES (11324,1,2);
-INSERT INTO `item_mods` VALUES (11325,1,2);
-INSERT INTO `item_mods` VALUES (11326,1,2);
-INSERT INTO `item_mods` VALUES (11327,1,2);
-INSERT INTO `item_mods` VALUES (11328,1,2);
+INSERT INTO `item_mods` VALUES (11325,1,2);         -- Blue Racing Silks
+INSERT INTO `item_mods` VALUES (11325,1017,140);    -- Mount movement speed +140%
+INSERT INTO `item_mods` VALUES (11326,1,2);         -- Red Racing Silks
+INSERT INTO `item_mods` VALUES (11326,1017,160);    -- Mount movement speed +160%
+INSERT INTO `item_mods` VALUES (11327,1,2);         -- White Racing Silks
+INSERT INTO `item_mods` VALUES (11327,1017,180);    -- Mount movement speed +180%
+INSERT INTO `item_mods` VALUES (11328,1,2);         -- Green Racing Silks
+INSERT INTO `item_mods` VALUES (11328,1017,120);    -- Mount movement speed +120%
 INSERT INTO `item_mods` VALUES (11329,1,3);
 INSERT INTO `item_mods` VALUES (11329,56,2);
 INSERT INTO `item_mods` VALUES (11329,57,2);
@@ -10660,24 +10665,30 @@ INSERT INTO `item_mods` VALUES (13405,5,5);
 INSERT INTO `item_mods` VALUES (13406,23,6);
 INSERT INTO `item_mods` VALUES (13406,68,-4);
 INSERT INTO `item_mods` VALUES (13406,163,-2);
-INSERT INTO `item_mods` VALUES (13407,11,2);
+INSERT INTO `item_mods` VALUES (13407,11,2);        -- Nimble Earring
 INSERT INTO `item_mods` VALUES (13407,56,11);
 INSERT INTO `item_mods` VALUES (13407,57,11);
-INSERT INTO `item_mods` VALUES (13408,8,2);
+INSERT INTO `item_mods` VALUES (13407,384,100);     -- Haste+1%
+INSERT INTO `item_mods` VALUES (13408,8,2);         -- Triumph Earring
 INSERT INTO `item_mods` VALUES (13408,54,11);
 INSERT INTO `item_mods` VALUES (13408,55,11);
-INSERT INTO `item_mods` VALUES (13409,12,2);
+INSERT INTO `item_mods` VALUES (13408,841,3);       -- Weapon Skill damage +3%
+INSERT INTO `item_mods` VALUES (13409,12,2);        -- Omniscient earring
 INSERT INTO `item_mods` VALUES (13409,55,11);
 INSERT INTO `item_mods` VALUES (13409,56,11);
-INSERT INTO `item_mods` VALUES (13410,9,2);
+INSERT INTO `item_mods` VALUES (13409,1272,6);      -- Elemental WSD +6% 
+INSERT INTO `item_mods` VALUES (13410,9,2);         -- Adroit Earring
 INSERT INTO `item_mods` VALUES (13410,58,11);
 INSERT INTO `item_mods` VALUES (13410,59,11);
-INSERT INTO `item_mods` VALUES (13411,13,2);
+INSERT INTO `item_mods` VALUES (13410,165,3);       -- Crit hit rate +3%
+INSERT INTO `item_mods` VALUES (13411,13,2);        -- Communion Earring
 INSERT INTO `item_mods` VALUES (13411,54,11);
 INSERT INTO `item_mods` VALUES (13411,59,11);
-INSERT INTO `item_mods` VALUES (13412,10,2);
+INSERT INTO `item_mods` VALUES (13411,890,5);       -- Enhancing magic duration +5%
+INSERT INTO `item_mods` VALUES (13412,10,2);        -- Robust Earring
 INSERT INTO `item_mods` VALUES (13412,57,11);
 INSERT INTO `item_mods` VALUES (13412,58,11);
+INSERT INTO `item_mods` VALUES (13412,161,-2);       -- Physical damage taken -2%
 INSERT INTO `item_mods` VALUES (13413,5,11);
 INSERT INTO `item_mods` VALUES (13413,27,1);
 INSERT INTO `item_mods` VALUES (13413,61,11);
@@ -10935,7 +10946,7 @@ INSERT INTO `item_mods` VALUES (13551,8,3);
 INSERT INTO `item_mods` VALUES (13551,23,3);
 INSERT INTO `item_mods` VALUES (13552,1,3);
 INSERT INTO `item_mods` VALUES (13552,7,50);
-INSERT INTO `item_mods` VALUES (13553,384,100);
+INSERT INTO `item_mods` VALUES (13553,384,100);     -- Blitz Ring
 INSERT INTO `item_mods` VALUES (13554,1,5);
 INSERT INTO `item_mods` VALUES (13555,7,10);
 INSERT INTO `item_mods` VALUES (13555,27,-1);
@@ -15102,30 +15113,36 @@ INSERT INTO `item_mods` VALUES (14710,61,10);
 INSERT INTO `item_mods` VALUES (14711,1,1);
 INSERT INTO `item_mods` VALUES (14711,2,10);
 INSERT INTO `item_mods` VALUES (14711,60,10);
-INSERT INTO `item_mods` VALUES (14712,1,1);
+INSERT INTO `item_mods` VALUES (14712,1,1);         -- Nimble Earring +1
 INSERT INTO `item_mods` VALUES (14712,11,2);
 INSERT INTO `item_mods` VALUES (14712,56,12);
 INSERT INTO `item_mods` VALUES (14712,57,12);
-INSERT INTO `item_mods` VALUES (14713,1,1);
+INSERT INTO `item_mods` VALUES (14712,384,100);     -- Haste+1%
+INSERT INTO `item_mods` VALUES (14713,1,1);         -- Triumph Earring +1
 INSERT INTO `item_mods` VALUES (14713,8,2);
 INSERT INTO `item_mods` VALUES (14713,54,12);
 INSERT INTO `item_mods` VALUES (14713,55,12);
-INSERT INTO `item_mods` VALUES (14714,1,1);
+INSERT INTO `item_mods` VALUES (14713,841,3);       -- Weapon Skill damage +3%
+INSERT INTO `item_mods` VALUES (14714,1,1);         -- Omniscient Earring +1
 INSERT INTO `item_mods` VALUES (14714,12,2);
 INSERT INTO `item_mods` VALUES (14714,55,12);
 INSERT INTO `item_mods` VALUES (14714,56,12);
-INSERT INTO `item_mods` VALUES (14715,1,1);
+INSERT INTO `item_mods` VALUES (14714,1272,6);      -- Elemental WSD +6% 
+INSERT INTO `item_mods` VALUES (14715,1,1);         -- Adroit Earring +1
 INSERT INTO `item_mods` VALUES (14715,9,2);
 INSERT INTO `item_mods` VALUES (14715,58,12);
 INSERT INTO `item_mods` VALUES (14715,59,12);
-INSERT INTO `item_mods` VALUES (14716,1,1);
+INSERT INTO `item_mods` VALUES (14715,165,3);       -- Crit hit rate +3%
+INSERT INTO `item_mods` VALUES (14716,1,1);         -- Communion Earring +1
 INSERT INTO `item_mods` VALUES (14716,13,2);
 INSERT INTO `item_mods` VALUES (14716,54,12);
 INSERT INTO `item_mods` VALUES (14716,59,12);
-INSERT INTO `item_mods` VALUES (14717,1,1);
+INSERT INTO `item_mods` VALUES (14716,890,5);       -- Enhancing magic duration +5%
+INSERT INTO `item_mods` VALUES (14717,1,1);         -- Robust Earring +1
 INSERT INTO `item_mods` VALUES (14717,10,2);
 INSERT INTO `item_mods` VALUES (14717,57,12);
 INSERT INTO `item_mods` VALUES (14717,58,12);
+INSERT INTO `item_mods` VALUES (14717,161,-2);       -- Physical damage taken -2%
 INSERT INTO `item_mods` VALUES (14718,1,1);
 INSERT INTO `item_mods` VALUES (14718,5,12);
 INSERT INTO `item_mods` VALUES (14718,27,2);
@@ -44810,6 +44827,10 @@ INSERT INTO `item_mods` VALUES (27735,60,40);
 INSERT INTO `item_mods` VALUES (27735,68,12);
 INSERT INTO `item_mods` VALUES (27735,243,2);
 INSERT INTO `item_mods` VALUES (27735,384,500);
+INSERT INTO `item_mods` VALUES (27736,1,31);     -- Quiahuiz Helm
+INSERT INTO `item_mods` VALUES (27736,2,32);
+INSERT INTO `item_mods` VALUES (27736,23,20);
+INSERT INTO `item_mods` VALUES (27736,288,31);
 INSERT INTO `item_mods` VALUES (27739,1,100);
 INSERT INTO `item_mods` VALUES (27739,2,32);
 INSERT INTO `item_mods` VALUES (27739,5,22);
@@ -45128,21 +45149,11 @@ INSERT INTO `item_mods` VALUES (27764,236,2); -- Enhances "Humanoid Killer" effe
 INSERT INTO `item_mods` VALUES (27764,237,2); -- Enhances "Lumorian Killer" effect
 INSERT INTO `item_mods` VALUES (27764,238,2); -- Enhances "Luminion Killer" effect
 INSERT INTO `item_mods` VALUES (27765,1,1);
-INSERT INTO `item_mods` VALUES (27766,1,95);
-INSERT INTO `item_mods` VALUES (27766,2,28);
-INSERT INTO `item_mods` VALUES (27766,5,22);
-INSERT INTO `item_mods` VALUES (27766,8,22);
-INSERT INTO `item_mods` VALUES (27766,9,25);
-INSERT INTO `item_mods` VALUES (27766,10,22);
-INSERT INTO `item_mods` VALUES (27766,11,25);
-INSERT INTO `item_mods` VALUES (27766,12,22);
-INSERT INTO `item_mods` VALUES (27766,13,22);
-INSERT INTO `item_mods` VALUES (27766,14,23);
-INSERT INTO `item_mods` VALUES (27766,29,2);
-INSERT INTO `item_mods` VALUES (27766,31,46);
-INSERT INTO `item_mods` VALUES (27766,68,34);
-INSERT INTO `item_mods` VALUES (27766,165,3);
-INSERT INTO `item_mods` VALUES (27766,384,700);
+INSERT INTO `item_mods` VALUES (27766,1,21);    -- Uk'uxkaj Cap
+INSERT INTO `item_mods` VALUES (27766,2,28);    -- HP+28
+INSERT INTO `item_mods` VALUES (27766,5,22);    -- MP+22
+INSERT INTO `item_mods` VALUES (27766,8,2);     -- STR+2
+INSERT INTO `item_mods` VALUES (27766,165,3);   -- Critical hit rate +3%
 INSERT INTO `item_mods` VALUES (27767,1,84);    -- Buremte Hat: DEF:84
 INSERT INTO `item_mods` VALUES (27767,2,28);    -- HP+28
 INSERT INTO `item_mods` VALUES (27767,5,30);    -- MP+30
@@ -49621,20 +49632,10 @@ INSERT INTO `item_mods` VALUES (28165,31,39);
 INSERT INTO `item_mods` VALUES (28165,68,11);
 INSERT INTO `item_mods` VALUES (28165,292,7);
 INSERT INTO `item_mods` VALUES (28165,384,600);
-INSERT INTO `item_mods` VALUES (28166,1,100);
+INSERT INTO `item_mods` VALUES (28166,1,47);       -- Quiahuiz Trousers
 INSERT INTO `item_mods` VALUES (28166,2,37);
-INSERT INTO `item_mods` VALUES (28166,8,25);
-INSERT INTO `item_mods` VALUES (28166,10,14);
-INSERT INTO `item_mods` VALUES (28166,11,17);
-INSERT INTO `item_mods` VALUES (28166,12,26);
-INSERT INTO `item_mods` VALUES (28166,13,21);
-INSERT INTO `item_mods` VALUES (28166,14,9);
-INSERT INTO `item_mods` VALUES (28166,23,25);
-INSERT INTO `item_mods` VALUES (28166,28,4);
-INSERT INTO `item_mods` VALUES (28166,31,60);
-INSERT INTO `item_mods` VALUES (28166,68,30);
-INSERT INTO `item_mods` VALUES (28166,384,600);
-INSERT INTO `item_mods` VALUES (28166,408,20);
+INSERT INTO `item_mods` VALUES (28166,8,12);
+INSERT INTO `item_mods` VALUES (28166,288,3);
 INSERT INTO `item_mods` VALUES (28168,1,116);      -- Outrider Hose: DEF 116
 INSERT INTO `item_mods` VALUES (28168,2,44);
 INSERT INTO `item_mods` VALUES (28168,8,31);
@@ -51661,21 +51662,13 @@ INSERT INTO `item_mods` VALUES (28330,236,2);     -- Humanoid Killer
 INSERT INTO `item_mods` VALUES (28330,237,2);     -- Lumorian Killer
 INSERT INTO `item_mods` VALUES (28330,238,2);     -- Luminion Killer
 INSERT INTO `item_mods` VALUES (28330,288,2);     -- Double Attack +2%
-INSERT INTO `item_mods` VALUES (28330,384,300);    -- Haste +3%
-INSERT INTO `item_mods` VALUES (28331,1,58);
-INSERT INTO `item_mods` VALUES (28331,2,10);
-INSERT INTO `item_mods` VALUES (28331,5,13);
-INSERT INTO `item_mods` VALUES (28331,8,8);
-INSERT INTO `item_mods` VALUES (28331,9,9);
-INSERT INTO `item_mods` VALUES (28331,10,8);
-INSERT INTO `item_mods` VALUES (28331,11,28);     -- AGI +28
-INSERT INTO `item_mods` VALUES (28331,12,15);
-INSERT INTO `item_mods` VALUES (28331,13,16);
-INSERT INTO `item_mods` VALUES (28331,14,29);
-INSERT INTO `item_mods` VALUES (28331,29,4);
-INSERT INTO `item_mods` VALUES (28331,31,93);
-INSERT INTO `item_mods` VALUES (28331,68,43);
-INSERT INTO `item_mods` VALUES (28331,290,6);
+INSERT INTO `item_mods` VALUES (28330,384,300);   -- Haste +3%
+INSERT INTO `item_mods` VALUES (28331,1,20);      -- Uk'uxkaj Boots 
+INSERT INTO `item_mods` VALUES (28331,2,10);      -- HP+10
+INSERT INTO `item_mods` VALUES (28331,5,13);      -- MP+13
+INSERT INTO `item_mods` VALUES (28331,8,8);       -- STR+8
+INSERT INTO `item_mods` VALUES (28331,9,9);       -- DEX+9
+INSERT INTO `item_mods` VALUES (28331,290,5);     -- Enhancing magic potency +5%
 INSERT INTO `item_mods` VALUES (28332,1,69);      -- Cizin Greaves: DEF 69
 INSERT INTO `item_mods` VALUES (28332,2,12);      -- HP +12
 INSERT INTO `item_mods` VALUES (28332,8,13);      -- STR +13
@@ -51980,8 +51973,8 @@ INSERT INTO `item_mods` VALUES (28386,8,3);
 INSERT INTO `item_mods` VALUES (28387,5,10);
 INSERT INTO `item_mods` VALUES (28387,28,7);
 INSERT INTO `item_mods` VALUES (28387,35,5);
-INSERT INTO `item_mods` VALUES (28388,23,20);
-INSERT INTO `item_mods` VALUES (28388,288,-1);
+INSERT INTO `item_mods` VALUES (28388,23,10);   -- Tlamiztli Collar
+INSERT INTO `item_mods` VALUES (28388,288,1);
 INSERT INTO `item_mods` VALUES (28389,23,5);
 INSERT INTO `item_mods` VALUES (28389,25,8);
 INSERT INTO `item_mods` VALUES (28389,161,-4);
@@ -52239,7 +52232,7 @@ INSERT INTO `item_mods` VALUES (28459,8,7);
 INSERT INTO `item_mods` VALUES (28459,10,5);
 INSERT INTO `item_mods` VALUES (28459,375,5);
 INSERT INTO `item_mods` VALUES (28459,384,500);
-INSERT INTO `item_mods` VALUES (28460,1,14);
+INSERT INTO `item_mods` VALUES (28460,1,14);    -- Celt Belt
 INSERT INTO `item_mods` VALUES (28460,288,4);
 INSERT INTO `item_mods` VALUES (28460,384,500);
 INSERT INTO `item_mods` VALUES (28461,1,10);      -- Sekhmet Corset: DEF 10
@@ -52354,14 +52347,33 @@ INSERT INTO `item_mods` VALUES (28507,296,1);
 INSERT INTO `item_mods` VALUES (28508,8,2);       -- Kuwunga Earring: STR +2
 INSERT INTO `item_mods` VALUES (28508,9,2);       -- DEX +2
 INSERT INTO `item_mods` VALUES (28509,2,2);       -- She-Slime Earring: HP +2
-INSERT INTO `item_mods` VALUES (28510,1,2);       -- Metal Slime Earring: DEF 2
+INSERT INTO `item_mods` VALUES (28510,1,10);      -- Metal Slime Earring: DEF 10
+INSERT INTO `item_mods` VALUES (28510,8,2);       -- STR+2
+INSERT INTO `item_mods` VALUES (28510,9,2);       -- DEX+2
+INSERT INTO `item_mods` VALUES (28510,10,2);      -- VIT+2
+INSERT INTO `item_mods` VALUES (28510,11,2);      -- AGI+2
+INSERT INTO `item_mods` VALUES (28510,12,2);      -- INT+2
+INSERT INTO `item_mods` VALUES (28510,13,2);      -- MND+2
+INSERT INTO `item_mods` VALUES (28510,14,2);      -- CHR+2
+INSERT INTO `item_mods` VALUES (28510,23,10);     -- Attack+10
+INSERT INTO `item_mods` VALUES (28510,25,5);      -- Accuracy+5
+INSERT INTO `item_mods` VALUES (28510,289,5);     -- Subtle Blow +5
+INSERT INTO `item_mods` VALUES (28510,165,3);     -- Critical hit rate +3%
+INSERT INTO `item_mods` VALUES (28510,54,10);
+INSERT INTO `item_mods` VALUES (28510,55,10);
+INSERT INTO `item_mods` VALUES (28510,56,10);
+INSERT INTO `item_mods` VALUES (28510,57,10);
+INSERT INTO `item_mods` VALUES (28510,58,10);
+INSERT INTO `item_mods` VALUES (28510,59,10);
+INSERT INTO `item_mods` VALUES (28510,60,10);
+INSERT INTO `item_mods` VALUES (28510,61,10);
 INSERT INTO `item_mods` VALUES (28511,2,1);
 INSERT INTO `item_mods` VALUES (28512,9,3);
 INSERT INTO `item_mods` VALUES (28512,11,3);
 INSERT INTO `item_mods` VALUES (28513,11,2);
 INSERT INTO `item_mods` VALUES (28513,68,7);
-INSERT INTO `item_mods` VALUES (28514,27,2);
-INSERT INTO `item_mods` VALUES (28514,28,10);
+INSERT INTO `item_mods` VALUES (28514,27,2);       -- 28514
+INSERT INTO `item_mods` VALUES (28514,28,7);
 INSERT INTO `item_mods` VALUES (28515,27,5);      -- Trux Earring: Enmity +5
 INSERT INTO `item_mods` VALUES (28515,88,5);      -- Katana skill +5
 INSERT INTO `item_mods` VALUES (28515,288,3);     -- Double Attack +3%

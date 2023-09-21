@@ -190,7 +190,7 @@ void CMobController::TryLink()
         {
             CMobEntity* PPartyMember = (CMobEntity*)PMob->PParty->members[i];
 
-            if (PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
+            if (PPartyMember->isAlive() && PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
             {
                 PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
 
@@ -826,7 +826,7 @@ void CMobController::DoCombatTick(time_point tick)
     {
         return;
     }
-    else if (m_Tick >= m_LastMobSkillTime && tpzrand::GetRandomNumber(1, 10000) <= PMob->TPUseChance() && MobSkill())
+    else if (PMob->PAI->CanChangeState() && tpzrand::GetRandomNumber(1, 10000) <= PMob->TPUseChance() && MobSkill())
     {
         return;
     }
@@ -851,6 +851,23 @@ void CMobController::FaceTarget(uint16 targid)
     {
         PMob->PAI->PathFind->LookAt(targ->loc.p);
     }
+}
+
+bool CMobController::IsStuck()
+{
+    return m_Stuck;
+}
+
+void CMobController::UpdateLastKnownPosition()
+{
+    // Mob is considered "Stuck" if:
+    // 1. Last Pos && Current Pos are <= 1.5
+    // 2. Distance to Target > Melee Range
+    // 3. Mob is not bound or asleep
+    m_Stuck = distanceSquared(m_LastPos, PMob->loc.p) <= 1.5f && distanceSquared(PMob->loc.p, PTarget->loc.p) > PMob->GetMeleeRange() &&
+              PMob->StatusEffectContainer->GetStatusEffect(EFFECT_BIND) == nullptr && PMob->StatusEffectContainer->GetStatusEffect(EFFECT_SLEEP) == nullptr &&
+              PMob->StatusEffectContainer->GetStatusEffect(EFFECT_SLEEP_II) == nullptr;
+    m_LastPos = PMob->loc.p;
 }
 
 void CMobController::Move()
@@ -941,6 +958,25 @@ void CMobController::Move()
                     PMob->PAI->PathFind->PathInRange(PTarget->loc.p, attack_range - 0.2f, PATHFLAG_WALLHACK | PATHFLAG_RUN);
                 }
                 PMob->PAI->PathFind->FollowPath();
+
+                // Only check if stuck every 2s, this prevents overlap or interference with
+                // PathFind following path if the mob's move speed is slow.
+                if (m_Tick - m_StuckTick >= 2s)
+                {
+                    m_StuckTick = m_Tick;
+
+                    // Keep a record of the last known position to check if we need
+                    // to manually intervene to move the mob.
+                    UpdateLastKnownPosition();
+
+                    // Check if the mob is stuck, if stuck, directly intervene
+                    // by stepping to the player. This fixes people being able to hold mobs
+                    // because they can't find a path around to the player's position.
+                    if (IsStuck() && PTarget != nullptr)
+                    {
+                        PMob->PAI->PathFind->StepTo(PTarget->loc.p, false);
+                    }
+                }
                 if (!PMob->PAI->PathFind->IsFollowingPath())
                 {
                     // arrived at target - move if there is another mob under me

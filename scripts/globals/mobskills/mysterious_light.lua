@@ -1,8 +1,8 @@
 ---------------------------------------------
 --  Mysterious Light
 --
---  Description: Deals physical damage to enemies within range. Additional effect: Weight.
---
+--  Description: Deals magical damage to enemies within range. Additional effect: Weight.
+-- Element: Wind
 --
 ---------------------------------------------
 require("scripts/globals/settings")

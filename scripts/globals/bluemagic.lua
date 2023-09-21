@@ -30,9 +30,13 @@ SC_GRAVITATION = 11
 SC_DARK = 12
 SC_LIGHT = 13
 
-INT_BASED = 1
-CHR_BASED = 2
-MND_BASED = 3
+STR_BASED = 1
+DEX_BASED = 2
+VIT_BASED = 3
+AGI_BASED = 4
+INT_BASED = 5
+MND_BASED = 6
+CHR_BASED = 7
 
 -- BLU ecosystem
 ECO_BEAST = 1
@@ -324,9 +328,11 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
             hitslanded = hitslanded + 1
             -- increment target's TP (100TP per hit landed)
-			local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
-			local TP =  (hitslanded  + 100) - hitslanded * (1 - subtleblow)
-            target:addTP(TP)
+            local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
+            local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
+            local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
+	        local TP =  100 * (1 - sBlowMult)
+	        target:addTP(TP)
         end
 
         hitsdone = hitsdone + 1
@@ -415,12 +421,20 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     local statBonus = 0
     local dStat = 0 -- Please make sure to add an additional stat check if there is to be a spell that uses neither INT, MND, or CHR. None currently exist.
-    if (statMod == INT_BASED) then -- Stat mod is INT
+    if (statMod == STR_BASED) then -- Stat mod is STR
+        dStat = caster:getStat(tpz.mod.STR) - target:getStat(tpz.mod.STR)
+    elseif (statMod == DEX_BASED) then -- Stat mod is DEX
+        dStat = caster:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.DEX)
+    elseif (statMod == VIT_BASED) then -- Stat mod is VIT
+        dStat = caster:getStat(tpz.mod.VIT) - target:getStat(tpz.mod.VIT)
+    elseif (statMod == AGI_BASED) then -- Stat mod is AGI
+        dStat = caster:getStat(tpz.mod.AGI) - target:getStat(tpz.mod.AGI)
+    elseif (statMod == INT_BASED) then -- Stat mod is INT
         dStat = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-    elseif (statMod == CHR_BASED) then -- Stat mod is CHR
-        dStat = caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
     elseif (statMod == MND_BASED) then -- Stat mod is MND
         dStat = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    elseif (statMod == CHR_BASED) then -- Stat mod is CHR
+        dStat = caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
     end
 
     -- Only multiply positive dStat bonuses by the tMultiplier
@@ -508,8 +522,10 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     --handling phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-	local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
-	local TP =  100 * (1 - subtleblow)
+    local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
+    local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
+    local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
+	local TP =  100 * (1 - sBlowMult)
 	target:addTP(TP)
 
     return dmg
@@ -669,8 +685,10 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     -- Handle Phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-	local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
-	local TP =  100 * (1 - subtleblow)
+    local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
+    local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
+    local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
+	local TP =  100 * (1 - sBlowMult)
 	target:addTP(TP)
     --printf("resist %i", resist*100)
     --printf("Correlation bonus: %i", correlation)
@@ -923,6 +941,9 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     }
 
     local effect = params.effect
+    local skill = spell:getSkillType()
+    local spellGroup = spell:getSpellGroup()
+
     -- Check for immunity
     for i,statusEffect in pairs(immunities) do
         local immunity = 0
@@ -934,6 +955,13 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
         end
     end
 
+    -- Add Enfeebling Potency gear mod
+    local enfeeblingPotency = 1 + (caster:getMod(tpz.mod.ENF_MAG_POTENCY) / 100)
+    power = math.floor(power * enfeeblingPotency)
+
+    -- Calculate duration bonuses
+    local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
+
     local resist = applyResistanceEffect(caster, target, spell, params)
     -- Check for resist trait proc
     if (resist == 0) then
@@ -941,9 +969,14 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     end
 
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        duration = duration * resist
-        target:addStatusEffect(params.effect, power, tick, duration)
-        return true
+        finalDuration = finalDuration * resist
+        if target:addStatusEffect(params.effect, power, tick, finalDuration) then
+            -- Check for magic burst
+            if GetEnfeebleMagicBurstMessage(caster, spell, target) and (damage < 2) then
+                spell:setMsg(spell:getMagicBurstMessage()) 
+            end
+            return true
+        end
     end
     return false
 end
@@ -951,6 +984,8 @@ end
 -- Function to stagger duration of effects by using the resistance to change the value
 function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
+    local skill = spell:getSkillType()
+    local spellGroup = spell:getSpellGroup()
 
     if (resist < 0.5) then
       resist = 0
@@ -981,7 +1016,10 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
         duration = duration * getTPModifier(caster:getTP())
     end
 
-    return duration
+    -- Calculate duration bonuses
+    local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
+
+    return finalDuration
 end
 
 function GetTargetEcosystem(target)
@@ -1060,7 +1098,7 @@ function BluGetBonusMacc(caster, target, element, params)
     local magicAccBonus = 0
     local skillchainTier, skillchainCount = FormMagicBurst(element, target)
 
-    --add macc for skillchains
+    -- Magic burst MACC bonus
     if (skillchainTier > 0) then
         magicAccBonus = magicAccBonus + 50 -- 30 in retail
     end
