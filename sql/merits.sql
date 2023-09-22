@@ -312,5 +312,9 @@ INSERT INTO `merits` VALUES (3392,'mending_halation',5,5,1048576,7,52);
 INSERT INTO `merits` VALUES (3394,'radial_arcana',5,3,1048576,7,52);
 INSERT INTO `merits` VALUES (3396,'curative_recantation',5,5,1048576,7,52);
 INSERT INTO `merits` VALUES (3398,'primeval_zeal',5,10,1048576,7,52);
+INSERT INTO `merits` VALUES (3456,'battuta',5,4,2097152,7,53);
+INSERT INTO `merits` VALUES (3458,'rayke',5,3,2097152,7,53);
+INSERT INTO `merits` VALUES (3460,'inspiration',5,10,2097152,7,53);
+INSERT INTO `merits` VALUES (3462,'sleight_of_sword',5,5,2097152,7,53);
 
 -- Dump completed on 2017-01-31 10:58:26

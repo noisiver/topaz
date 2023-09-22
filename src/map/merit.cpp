@@ -145,6 +145,11 @@ static const MeritCategoryInfo_t meritCatInfo[] =
     {4,100,7},  //MCATEGORY_PUP_2
     {4,100,7},  //MCATEGORY_DNC_2
     {6,100,7},  //MCATEGORY_SHC_2
+
+    { 0, 0, 7 }, // MCATEGORY_UNK_3       catNumber 51
+
+    { 4, 100, 7 }, // MCATEGORY_GEO_2       catNumber 52
+    { 4, 100, 7 }, // MCATEGORY_RUN_2       catNumber 53
 };
 
 #define GetMeritCategory(merit) ((merit >> 6) - 1)      // получаем категорию из merit
