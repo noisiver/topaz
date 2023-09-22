@@ -632,11 +632,11 @@ end
 -- Calculates breath damage
 -- mob is a mob reference to get hp and lvl
 -- percent is the percentage to take from HP
--- base is calculated from main level to create a minimum
+-- base is no longer used
 -- Equation: (HP * percent) + (LVL / base)
 -- cap is optional, defines a maximum damage
 function MobHPBasedMove(mob, target, percent, base, element, cap)
-    local damage = (mob:getHP() * percent) + (mob:getMainLvl() / base)
+    local damage = (mob:getHP() * percent)
     local resist = 1
     local bonus = 0
 
@@ -671,8 +671,8 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     --Handle pd
-    if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) )
-        and attackType==tpz.attackType.PHYSICAL) then
+    if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH))
+        and attackType == tpz.attackType.PHYSICAL) then
 
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
@@ -747,7 +747,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     -- Handle Boost status effect
-    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+    if (attackType == tpz.attackType.PHYSICAL) or (attackType == tpz.attackType.RANGED) then
         if mob:hasStatusEffect(tpz.effect.BOOST) then
             dmg = dmg * 2
         end
