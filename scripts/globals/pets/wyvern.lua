@@ -246,6 +246,11 @@ function onMobSpawn(mob)
         mob:addJobTraits(master:getSubJob(), master:getSubLvl())
     end
 
+    -- Add JP bonuses
+    local jpValue = player:getJobPointLevel(tpz.jp.WYVERN_ATTR_BONUS) * 2
+    master:addMod(tpz.mod.ATT, jpValue)
+    master:addMod(tpz.mod.DEF, jpValue)
+
     local wyvernType = wyvernTypes[master:getSubJob()]
     local healingbreath = tpz.jobAbility.HEALING_BREATH
     if mob:getMainLvl() >= 80 then healingbreath = tpz.jobAbility.HEALING_BREATH_IV
@@ -303,25 +308,27 @@ function onMobSpawn(mob)
     master:addListener("EXPERIENCE_POINTS", "PET_WYVERN_EXP", function(player, exp)
         local pet = player:getPet()
         local prev_exp = pet:getLocalVar("wyvern_exp")
+        local wyvernBonusDA = player:getMod(tpz.mod.WYVERN_ATTRIBUTE_DA)
         if prev_exp < 1000 then
             -- cap exp at 1000 to prevent wyvern leveling up many times from large exp awards
             local currentExp = exp
             if prev_exp + exp > 1000 then
                 currentExp = 1000 - prev_exp
             end
-            local diff = math.floor((prev_exp + currentExp) / 200) - math.floor(prev_exp / 200)
-            if diff ~= 0 then
-                -- wyvern levelled up (diff is the number of level ups)
-                pet:addMod(tpz.mod.ACC, 6 * diff)
-                pet:addMod(tpz.mod.HPP, 6 * diff)
-                pet:addMod(tpz.mod.ATTP, 5 * diff)
+            local numLevelUps  = math.floor((prev_exp + currentExp) / 200) - math.floor(prev_exp / 200)
+            if numLevelUps  ~= 0 then
+                -- wyvern levelled up
+                pet:addMod(tpz.mod.ACC, 6 * numLevelUps)
+                pet:addMod(tpz.mod.HPP, 6 * numLevelUps)
+                pet:addMod(tpz.mod.ATTP, 5 * numLevelUps)
                 pet:setHP(pet:getMaxHP())
                 player:messageBasic(tpz.msg.basic.STATUS_INCREASED, 0, 0, pet, false)
-                master:addMod(tpz.mod.ATTP, 2 * diff)
-                master:addMod(tpz.mod.DEFP, 4 * diff)
+                master:addMod(tpz.mod.ATTP, 2 * numLevelUps)
+                master:addMod(tpz.mod.DEFP, 4 * numLevelUps)
+                master:addMod(tpz.mod.DOUBLE_ATTACK, wyvernBonusDA * numLevelUps)
             end
             pet:setLocalVar("wyvern_exp", prev_exp + exp)
-            pet:setLocalVar("level_Ups", pet:getLocalVar("level_Ups") + diff)
+            pet:setLocalVar("level_Ups", pet:getLocalVar("level_Ups") + numLevelUps)
         end
     end)
 end
@@ -356,11 +363,16 @@ end
 
 function onMobDeath(mob, player)
     local master = mob:getMaster()
-    local numLvls = mob:getLocalVar("level_Ups")
-    if numLvls ~= 0 then
-        master:delMod(tpz.mod.ATTP, 4 * numLvls)
-        master:delMod(tpz.mod.DEFP, 4 * numLvls)
-        -- master:delMod(tpz.mod.HASTE_ABILITY, 200 * numLvls)
+    local numLevelUps = mob:getLocalVar("level_Ups")
+    local wyvernBonusDA = player:getMod(tpz.mod.WYVERN_ATTRIBUTE_DA)
+    if numLevelUps ~= 0 then
+        master:delMod(tpz.mod.ATTP, 4 * numLevelUps)
+        master:delMod(tpz.mod.DEFP, 4 * numLevelUps)
+        master:delMod(tpz.mod.DOUBLE_ATTACK, wyvernBonusDA * numLevelUps)
+        -- Delete JP bonuses
+        local jpValue = player:getJobPointLevel(tpz.jp.WYVERN_ATTR_BONUS) * 2
+        master:delMod(tpz.mod.ATT, jpValue)
+        master:delMod(tpz.mod.DEF, jpValue)
     end
     master:removeListener("PET_WYVERN_WS")
     master:removeListener("PET_WYVERN_MAGIC")

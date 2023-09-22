@@ -46,7 +46,9 @@ function onUseAbility(player, target, ability)
 
     -- Don't drain more HP than your pet has HP
     if ((player:getPet():getMaxHP() - player:getPet():getHP()) < drainamount) then
+        local jpValue = player:getJobPointLevel(tpz.jp.SPIRIT_LINK_EFFECT)
         drainamount = (player:getPet():getMaxHP() - player:getPet():getHP())
+        drainamount = drainamount * (1 - (0.01 * jpValue))
     end
 
     -- Add Unda runes on each use, up to 3 total.

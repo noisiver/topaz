@@ -1,6 +1,7 @@
 -----------------------------------
 -- Ability: Mana Cede
 -- Description: Transfers some of your HP to your currently summoned pet and cures all of it's status effects.
+-- If job points are invested, grants 50 TP per job point as well to the summoned pet.
 -- Obtained: SMN Level 50
 -- Recast Time: 00:03:00
 -----------------------------------
@@ -26,7 +27,7 @@ function onUseAbility(player, target, ability)
     local playerHPReduction = playerMaxHP * (basePower / 100)
     local playerHPFinal = playerHP - playerHPReduction
 
-    -- Set player to 1 HP instaed of killing them if their HP is less than te cost of Mana Cede(25% of their max HP)
+    -- Set player to 1 HP instead of killing them if their HP is less than te cost of Mana Cede(25% of their max HP)
     if playerHPFinal < 0 then
         playerHPFinal = 1
     end
@@ -34,9 +35,11 @@ function onUseAbility(player, target, ability)
     local power = basePower + (skill / 2)
     local finalPower = playerHP * (power / 100)
     local petHPFinal = petHP + finalPower
+    local jpTp = player:getJobPointLevel(tpz.jp.MANA_CEDE_EFFECT) * 50
 
     player:setHP(playerHPFinal)
     pet:setHP(petHPFinal)
+    pet:addTP(jpTp)
     player:updateEnmityFromCure(pet, petHPFinal)
     pet:removeAllNegativeEffects()
 end
