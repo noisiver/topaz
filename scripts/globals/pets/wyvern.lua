@@ -4,6 +4,7 @@
 require("scripts/globals/status")
 require("scripts/globals/ability")
 require("scripts/globals/msg")
+require("scripts/globals/monstertpmoves")
 
 local WYVERN_OFFENSIVE = 1
 local WYVERN_DEFENSIVE = 2
@@ -141,6 +142,42 @@ function doRestoringBreath(player, breath)
             break
         end
     end
+end
+
+function OffensiveBreath(pet, target, skill, action, element, damageType, shadowbehav)
+    local master = pet:getMaster()
+
+    -- Formula:
+    -- floor[floor([Wyvern Currrent HP / 6] + 15 + (Breath Job Points * 10)) * (1 + Enhances Breath Equipment/256)] * [1 + (Breath Augments/100) + Deep Breathing Modifier]
+
+    ---------- Deep Breathing ----------
+    -- 0 for none
+    -- 1 for first merit
+    -- 0.25 for each merit after the first
+    -- TODO: 0.1 per merit for augmented AF2 (10663 *w/ augment*)
+    local deep = 1
+    if pet:hasStatusEffect(tpz.effect.MAGIC_ATK_BOOST) then
+        deep = deep + 1 + (master:getMerit(tpz.merit.DEEP_BREATHING) - 1) * 0.10
+        pet:delStatusEffectSilent(tpz.effect.MAGIC_ATK_BOOST)
+    end
+
+    local dmg = MobHPBasedMove(pet, target, 0.185, 1, element) -- Works out to (hp/6) + 15, as desired
+
+    -- Add +15 flat damage
+    dmg = dmg + 15
+
+    -- Add JP mod
+    local jpValue = master:getJobPointLevel(tpz.jp.WYVERN_BREATH_EFFECT) * 10
+    dmg = dmg + jpValue
+
+    local gear = master:getMod(tpz.mod.WYVERN_BREATH) / 256 -- Master gear that enhances breath
+    dmg = (dmg * (1 + gear)) * deep
+
+    pet:setTP(0)
+
+    local dmg = MobFinalAdjustments(dmg, pet, skill, target, tpz.attackType.BREATH, damageType, shadowbehav)
+    target:takeDamage(dmg, pet, tpz.attackType.BREATH, damageType)
+    return dmg
 end
 
 function onMobSpawn(mob)
