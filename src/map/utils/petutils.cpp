@@ -1075,12 +1075,12 @@ namespace petutils
         PPet->SetMJob(JOB_DRG);
         // https://www.bg-wiki.com/ffxi/Wyvern_(Dragoon_Pet)#About_the_Wyvern
         uint8 mLvl = PMaster->GetMLevel();
-        // TODO: ILvl and +level gear scaling mod
+        // TODO: ILvl 
         //uint8 iLvl = std::clamp(charutils::getMainhandItemLevel(static_cast<CCharEntity*>(PMaster)) - 99, 0, 20);
-
         //PPet->SetMLevel(mLvl + iLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
-        PPet->SetMLevel(mLvl);
-        LoadAvatarStats(PPet);                                                                               // follows PC calcs (w/o SJ)
+
+        PPet->SetMLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+        LoadAvatarStats(PPet); // TODO: LoadWyvernStats                                                                           // follows PC calcs (w/o SJ)
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (320.0f / 60.0f)))); // 320 delay
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setBaseDelay((uint16)(floor(1000.0f * (320.0f / 60.0f))));
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDamage((uint16)(floor(mLvl / 2) + 3));
