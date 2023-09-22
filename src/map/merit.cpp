@@ -29,11 +29,11 @@
 
 /************************************************************************
 *                                                                       *
-*  Две версии значений - до abyssea и после                             *
+*  Two versions of meanings - before and after abyssea                  *
 *                                                                       *
 ************************************************************************/
 
-// массив больше на одно значение, заполняемое нулем
+// the array is one more value, filled with zero
 
 static uint8 upgrade[10][16] =
 {
@@ -46,15 +46,15 @@ static uint8 upgrade[10][16] =
     {1,2,3,4,5},                                 // Job Group 1
     {3,4,5,5,5},                                 // Job Group 2
     {20,22,24,27,30},                            // Weapon Skills
-    {}    // Max merits
+    {}                                           // Max merits
 };
-#define MAX_LIMIT_POINTS  10000         // количество опыта для получения одного merit
+#define MAX_LIMIT_POINTS  10000         // amount of experience to get one merit
 
-// TODO: скорее всего придется все это перенести в базу
+// TODO: Most likely you will have to transfer all this to the database
 
 /************************************************************************
 *                                                                       *
-*  Ограничение количества усилений metir                                *
+*  Limiting the number of merit boosts                                  *
 *                                                                       *
 ************************************************************************/
 
@@ -96,26 +96,26 @@ static const MeritCategoryInfo_t meritCatInfo[] =
     {14,112,4}, //MCATEGORY_MAGIC
     {5,10,5},  //MCATEGORY_OTHERS
 
-    {5,10,6},  //MCATEGORY_WAR_1
-    {5,10,6},  //MCATEGORY_MNK_1
-    {5,10,6},  //MCATEGORY_WHM_1
-    {7,10,6},  //MCATEGORY_BLM_1
-    {7,10,6},  //MCATEGORY_RDM_1
-    {5,10,6},  //MCATEGORY_THF_1
-    {5,10,6},  //MCATEGORY_PLD_1
-    {5,10,6},  //MCATEGORY_DRK_1
-    {5,10,6},  //MCATEGORY_BST_1
-    {5,10,6},  //MCATEGORY_BRD_1
-    {5,10,6},  //MCATEGORY_RNG_1
-    {5,10,6},  //MCATEGORY_SAM_1
-    {7,10,6},  //MCATEGORY_NIN_1
-    {5,10,6},  //MCATEGORY_DRG_1
-    {5,10,6},  //MCATEGORY_SMN_1
-    {5,10,6},  //MCATEGORY_BLU_1
-    {5,10,6},  //MCATEGORY_COR_1
-    {5,10,6},  //MCATEGORY_PUP_1
-    {4,10,6},  //MCATEGORY_DNC_1
-    {4,10,6},  //MCATEGORY_SCH_1
+    {5,100,6},  //MCATEGORY_WAR_1
+    {5,100,6},  //MCATEGORY_MNK_1
+    {5,100,6},  //MCATEGORY_WHM_1
+    {7,100,6},  //MCATEGORY_BLM_1
+    {7,100,6},  //MCATEGORY_RDM_1
+    {5,100,6},  //MCATEGORY_THF_1
+    {5,100,6},  //MCATEGORY_PLD_1
+    {5,100,6},  //MCATEGORY_DRK_1
+    {5,100,6},  //MCATEGORY_BST_1
+    {5,100,6},  //MCATEGORY_BRD_1
+    {5,100,6},  //MCATEGORY_RNG_1
+    {5,100,6},  //MCATEGORY_SAM_1
+    {7,100,6},  //MCATEGORY_NIN_1
+    {5,100,6},  //MCATEGORY_DRG_1
+    {5,100,6},  //MCATEGORY_SMN_1
+    {5,100,6},  //MCATEGORY_BLU_1
+    {5,100,6},  //MCATEGORY_COR_1
+    {5,100,6},  //MCATEGORY_PUP_1
+    {4,100,6},  //MCATEGORY_DNC_1
+    {4,100,6},  //MCATEGORY_SCH_1
 
     {14,15,8}, //MCATEGORY_WS
 
@@ -125,26 +125,26 @@ static const MeritCategoryInfo_t meritCatInfo[] =
     {0,0,8},   //MCATEGORY_UNK_3
     {0,0,8},   //MCATEGORY_UNK_4	30
 
-    {4,10,7},  //MCATEGORY_WAR_2
-    {4,10,7},  //MCATEGORY_MNK_2
-    {6,10,7},  //MCATEGORY_WHM_2
-    {12,10,7},  //MCATEGORY_BLM_2
-    {12,10,7},  //MCATEGORY_RDM_2
-    {4,10,7},  //MCATEGORY_THF_2
-    {4,10,7},  //MCATEGORY_PLD_2
-    {4,10,7},  //MCATEGORY_DRK_2
-    {4,10,7},  //MCATEGORY_BST_2
-    {6,10,7},  //MCATEGORY_BRD_2
-    {4,10,7},  //MCATEGORY_RNG_2
-    {4,10,7},  //MCATEGORY_SAM_2
-    {12,10,7},  //MCATEGORY_NIN_2
-    {4,10,7},  //MCATEGORY_DRG_2
-    {6,10,7},  //MCATEGORY_SMN_2
-    {4,10,7},  //MCATEGORY_BLU_2
-    {4,10,7},  //MCATEGORY_COR_2
-    {4,10,7},  //MCATEGORY_PUP_2
-    {4,10,7},  //MCATEGORY_DNC_2
-    {6,10,7},  //MCATEGORY_SHC_2
+    {4,100,7},  //MCATEGORY_WAR_2
+    {4,100,7},  //MCATEGORY_MNK_2
+    {6,100,7},  //MCATEGORY_WHM_2
+    {12,100,7},  //MCATEGORY_BLM_2
+    {12,100,7},  //MCATEGORY_RDM_2
+    {4,100,7},  //MCATEGORY_THF_2
+    {4,100,7},  //MCATEGORY_PLD_2
+    {4,100,7},  //MCATEGORY_DRK_2
+    {4,100,7},  //MCATEGORY_BST_2
+    {6,100,7},  //MCATEGORY_BRD_2
+    {4,100,7},  //MCATEGORY_RNG_2
+    {4,100,7},  //MCATEGORY_SAM_2
+    {12,100,7},  //MCATEGORY_NIN_2
+    {4,100,7},  //MCATEGORY_DRG_2
+    {6,100,7},  //MCATEGORY_SMN_2
+    {4,100,7},  //MCATEGORY_BLU_2
+    {4,100,7},  //MCATEGORY_COR_2
+    {4,100,7},  //MCATEGORY_PUP_2
+    {4,100,7},  //MCATEGORY_DNC_2
+    {6,100,7},  //MCATEGORY_SHC_2
 };
 
 #define GetMeritCategory(merit) ((merit >> 6) - 1)      // получаем категорию из merit
