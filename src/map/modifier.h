@@ -501,8 +501,10 @@ enum class Mod
     HIGH_JUMP_ENMITY_REDUCTION = 363, // for gear that reduces more enmity from high jump
     FORCE_JUMP_CRIT           = 828, // Critical hit rate bonus for jump and high jump
     WYVERN_EFFECTIVE_BREATH   = 829, // Increases the threshold for triggering healing breath/offensive breath more inclined to pick elemental weakness
-    WYVERN_SUBJOB_TRAITS      = 1010, // Adds subjob traits to wyvern on spawn
-
+    WYVERN_SUBJOB_TRAITS      = 1010,// Adds subjob traits to wyvern on spawn
+    WYVERN_ATTRIBUTE_DA       = 1333,// Adds an amount of Double Attack to Dragoon each time Wyverns Attributes Increase (percent)
+    WYVERN_LVL_BONUS          = 1334,// Wyvern: Lv.+ (Increases wyvern's base level above 99
+    DRAGOON_BREATH_RECAST     = 1335,// Restoring/Smithing Breath Recast Reduction (seconds)
     // Summoner
     AVATAR_PERPETUATION       = 371, // stores base cost of current avatar
     AVATAR_ATT                = 1258, // Avatar Attack and Ranged Attack.
@@ -1015,7 +1017,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1333 NEXT
+    // 1336 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
