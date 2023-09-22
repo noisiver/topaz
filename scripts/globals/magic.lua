@@ -4,7 +4,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
-require("scripts/globals/items") -- might error
+require("scripts/globals/items")
 ------------------------------------
 
 tpz = tpz or {}

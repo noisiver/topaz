@@ -14,6 +14,11 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
+    local power = 15
     local duration = 180 + player:getMod(tpz.mod.ANCIENT_CIRCLE_DURATION)
-    target:addStatusEffect(tpz.effect.ANCIENT_CIRCLE, 15, 0, duration)
+    local jpValue  = player:getJobPointLevel(tpz.jp.ANCIENT_CIRCLE_EFFECT)
+
+    power = power + jpvalue
+
+    target:addStatusEffect(tpz.effect.ANCIENT_CIRCLE, power, 0, duration)
 end
