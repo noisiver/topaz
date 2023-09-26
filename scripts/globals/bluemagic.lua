@@ -328,11 +328,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
             hitslanded = hitslanded + 1
             -- increment target's TP (100TP per hit landed)
-            local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
-            local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
-            local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
-	        local TP =  100 * (1 - sBlowMult)
-	        target:addTP(TP)
+            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+	        target:addTP(tpGiven)
         end
 
         hitsdone = hitsdone + 1
@@ -522,11 +519,8 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     --handling phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-    local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
-    local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
-    local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
-	local TP =  100 * (1 - sBlowMult)
-	target:addTP(TP)
+    local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+    target:addTP(tpGiven)
 
     return dmg
 end
@@ -685,11 +679,8 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     -- Handle Phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-    local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
-    local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
-    local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
-	local TP =  100 * (1 - sBlowMult)
-	target:addTP(TP)
+    local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+    target:addTP(tpGiven)
     --printf("resist %i", resist*100)
     --printf("Correlation bonus: %i", correlation)
     --printf("final dmg %i", dmg)

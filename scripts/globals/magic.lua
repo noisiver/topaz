@@ -1227,7 +1227,8 @@ end
         target:updateEnmityFromDamage(caster, dmg)
         -- Only add TP if the target is a mob
         if (target:getObjType() ~= tpz.objType.PC) then
-            target:addTP(100)
+            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+            target:addTP(tpGiven)
         end
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
