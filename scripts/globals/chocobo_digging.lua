@@ -1037,7 +1037,7 @@ tpz.chocoboDig.onTriggerNPC(player, npc)
     for _, items in pairs(itemList) do
         for v = tpz.inv.INVENTORY, tpz.inv.WARDROBE8  do -- inventory locations enums
             if (player:hasItem(itemList.body[1], v)) then
-                player:PrintToPlayer("I will upgrade your " .. itemList.body[1]:getName() " to " .. itemList.reward[1]:getName() .. " if you provide me with " .. itemList.material[1]:getName() " x100",0, npcName)
+                player:PrintToPlayer("I will upgrade your " .. itemList.body[1]:getName() .. " to " .. itemList.reward[1]:getName() .. " if you provide me with " .. itemList.material[1]:getName() .. " x100",0, npcName)
                 break
             end
         end
