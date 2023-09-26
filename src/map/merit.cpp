@@ -119,11 +119,12 @@ static const MeritCategoryInfo_t meritCatInfo[] =
 
     {14,15,8}, //MCATEGORY_WS
 
-	{0,0,8},   //MCATEGORY_UNK_0	26
-    {0,0,8},   //MCATEGORY_UNK_1
-    {0,0,8},   //MCATEGORY_UNK_2
-    {0,0,8},   //MCATEGORY_UNK_3
-    {0,0,8},   //MCATEGORY_UNK_4	30
+    { 5, 10, 6 }, // MCATEGORY_GEO_1       catNumber 26
+    { 5, 10, 6 }, // MCATEGORY_RUN_1       catNumber 27
+
+    { 0, 0, 8 }, // MCATEGORY_UNK_0       catNumber 28
+    { 0, 0, 8 }, // MCATEGORY_UNK_1       catNumber 29
+    { 0, 0, 8 }, // MCATEGORY_UNK_2       catNumber 30
 
     {4,10,7},  //MCATEGORY_WAR_2
     {4,10,7},  //MCATEGORY_MNK_2
