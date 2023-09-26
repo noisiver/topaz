@@ -1031,7 +1031,7 @@ local itemList =
     { body =  { tpz.items.WHITE_RACING_SILKS } , material = { tpz.items.GREGARIOUS_WORM }, reward = { tpz.items.BLACK_RACING_SILKS } },
 }
 
-function chocoboDig.onTriggerNPC(player, npc)
+tpz.chocoboDig.onTriggerNPC(player, npc)
     local npcName = npc:getName()
 
     for _, items in pairs(itemList) do
@@ -1044,7 +1044,7 @@ function chocoboDig.onTriggerNPC(player, npc)
     end
 end
 
-function chocoboDig.onTradeNPC(player, npc, trade)
+tpz.chocoboDig.onTradeNPC(player, npc, trade)
     local npcName = npc:getName()
 
     for _, items in pairs(itemList) do
