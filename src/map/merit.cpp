@@ -299,7 +299,7 @@ bool CMeritPoints::AddLimitPoints(uint16 points)
 			return false;
 		}
 
-        uint8 MeritPoints = std::min(m_MeritPoints + m_LimitPoints / MAX_LIMIT_POINTS, map_config.max_merit_points + GetMeritValue(MERIT_MAX_MERIT, m_PChar));
+        uint8 MeritPoints = std::min(m_MeritPoints + m_LimitPoints / MAX_LIMIT_POINTS, 999 + GetMeritValue(MERIT_MAX_MERIT, m_PChar));
 
         m_LimitPoints = m_LimitPoints % MAX_LIMIT_POINTS;
 
@@ -331,7 +331,7 @@ void CMeritPoints::SetLimitPoints(uint16 points)
 
 void CMeritPoints::SetMeritPoints(uint16 points)
 {
-    m_MeritPoints = std::min<uint8>((uint8)points, map_config.max_merit_points + GetMeritValue(MERIT_MAX_MERIT, m_PChar));
+    m_MeritPoints = std::min<uint8>((uint8)points, 999 + GetMeritValue(MERIT_MAX_MERIT, m_PChar));
 }
 
 /************************************************************************
