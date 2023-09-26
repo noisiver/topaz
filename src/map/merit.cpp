@@ -293,7 +293,7 @@ bool CMeritPoints::AddLimitPoints(uint16 points)
     if (m_LimitPoints >= MAX_LIMIT_POINTS)
     {
 		//check if player has reached cap
-		if (m_MeritPoints == map_config.max_merit_points + GetMeritValue(MERIT_MAX_MERIT, m_PChar))
+		if (m_MeritPoints == 999 + GetMeritValue(MERIT_MAX_MERIT, m_PChar))
 		{
 			m_LimitPoints = MAX_LIMIT_POINTS -1;
 			return false;
