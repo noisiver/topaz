@@ -31,7 +31,7 @@
 CMenuMeritPacket::CMenuMeritPacket(CCharEntity* PChar)
 {
     this->type = 0x63;
-    this->size = 0x10;
+    this->size = 0x08;
 
     ref<uint8>(0x04) = 0x02; // Update Type
     ref<uint8>(0x06) = 0x0C; // Variable Data Size
