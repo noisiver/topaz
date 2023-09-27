@@ -876,7 +876,7 @@ enum class Mod
     SYNTH_SUCCESS             = 851, // Rate of synthesis success
     SYNTH_SKILL_GAIN          = 852, // Synthesis skill gain rate
     SYNTH_FAIL_RATE           = 861, // Synthesis failure rate (percent)
-    SYNTH_HQ_RATE             = 862, // High-quality success rate (not a percent)
+    SYNTH_HQ_RATE             = 862, // High-quality success rate multiplicative. (i.e. +1 is * 10% HQ chance(NOT FLAT))
     DESYNTH_SUCCESS           = 916, // Rate of desynthesis success
     SYNTH_FAIL_RATE_FIRE      = 917, // Amount synthesis failure rate is reduced when using a fire crystal
     SYNTH_FAIL_RATE_ICE       = 918, // Amount synthesis failure rate is reduced when using a ice crystal
@@ -894,6 +894,19 @@ enum class Mod
     SYNTH_FAIL_RATE_BONE      = 930, // Amount synthesis failure rate is reduced when doing bonecraft
     SYNTH_FAIL_RATE_ALCHEMY   = 931, // Amount synthesis failure rate is reduced when doing alchemy
     SYNTH_FAIL_RATE_COOK      = 932, // Amount synthesis failure rate is reduced when doing cooking
+    SYNTH_ANIMATION_TIME      = 1336,// Synth duration reduction. In seconds by 60s(i.e 120 is 2 seconds).
+    SYNTH_MAT_LOSS_REDUCT     = 1337,// Material loss reduction, in percents. Escutcheons shield only atm.
+    SYNTH_CANNOT_NQ           = 1338,// Remove the ability to make an NQ item. Forces a break instead when a NQ is created. Escutcheons shield only.
+
+    // Synthesis (animation) speed. In seconds by 60s(i.e 120 is 2 seconds). Escutcheons shield only atm.
+    SYNTH_ANIMATION_WOOD    = 1339,// 
+    SYNTH_ANIMATION_SMITH   = 1340,//
+    SYNTH_ANIMATION_GSM     = 1341,//
+    SYNTH_ANIMATION_CLOTH   = 1342,//
+    SYNTH_ANIMATION_LEATHER = 1343,//
+    SYNTH_ANIMATION_BONE    = 1344,//
+    SYNTH_ANIMATION_ALCHEMY = 1345,//
+    SYNTH_ANIMATION_COOK    = 1346,//
 
     //Fishing
     PENGUIN_RING_EFFECT = 1190,   // +2 on fishing arrow delay / fish movement for mini - game
@@ -1017,7 +1030,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1336 NEXT
+    // 1347 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

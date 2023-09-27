@@ -1841,9 +1841,21 @@ tpz.mod =
     WYVERN_ATTRIBUTE_DA     = 1333, -- Adds an amount of Double Attack to Dragoon each time Wyverns Attributes Increase (percent)
     WYVERN_LVL_BONUS        = 1334, -- Wyvern: Lv.+ (Increases wyvern's base level above 99
     DRAGOON_BREATH_RECAST   = 1335, -- Restoring/Smithing Breath Recast Reduction (seconds)
+    SYNTH_ANIMATION_TIME    = 1336, -- Synth duration reduction. In seconds by 60s(i.e 120 is 2 seconds).
+    SYNTH_MAT_LOSS_REDUCT   = 1337, -- Mat loss reduction, in percents. Escutcheons shield only atm.
+    SYNTH_CANNOT_NQ         = 1338, -- Remove the ability to make an NQ item. Forces a break instead when a NQ is created. Escutcheons shield only.
+    -- Synthesis (animation) speed. In seconds by 60s(i.e 120 is 2 seconds). Escutcheons shield only atm.
+    SYNTH_ANIMATION_WOOD    = 1339, 
+    SYNTH_ANIMATION_SMITH   = 1340, 
+    SYNTH_ANIMATION_GSM     = 1341, 
+    SYNTH_ANIMATION_CLOTH   = 1342, 
+    SYNTH_ANIMATION_LEATHER = 1343, 
+    SYNTH_ANIMATION_BONE    = 1344, 
+    SYNTH_ANIMATION_ALCHEMY = 1345, 
+    SYNTH_ANIMATION_COOK    = 1346, 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1336 NEXT
+    -- 1339 NEXT
 }
 
 tpz.latent =
