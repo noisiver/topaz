@@ -35860,6 +35860,73 @@ INSERT INTO `item_mods` VALUES (26421,2,22);      -- HP+22
 INSERT INTO `item_mods` VALUES (26421,24,20);     -- Ranged Attack+20
 INSERT INTO `item_mods` VALUES (26421,26,20);     -- Ranged Accuracy+20
 INSERT INTO `item_mods` VALUES (26421,73,3);      -- Store TP+3
+-- Escutcheon Shields (Completed)
+INSERT INTO `item_mods` VALUES (26427,1,5);        -- (Jo. Escutcheon)
+INSERT INTO `item_mods` VALUES (26427,128,2);      -- Woodworking Skill +2
+INSERT INTO `item_mods` VALUES (26427,1339,240);   -- Woodworking Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26427,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26427,862,2);      -- Synthesis HQ Rate +2
+INSERT INTO `item_mods` VALUES (26432,1,5);        -- (Sm. Escutcheon)
+INSERT INTO `item_mods` VALUES (26432,129,2);      -- Smithing Skill +2
+INSERT INTO `item_mods` VALUES (26432,1340,240);   -- Smithing Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26432,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26432,862,2);      -- Synthesis HQ Rate +2
+INSERT INTO `item_mods` VALUES (26437,1,5);        -- (Tr. Escutcheon)
+INSERT INTO `item_mods` VALUES (26437,130,2);      -- Goldsmithing Skill +2
+INSERT INTO `item_mods` VALUES (26437,1341,240);   -- Goldsmithing Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26437,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26437,862,2);      -- Synthesis HQ Rate +2
+INSERT INTO `item_mods` VALUES (26442,1,5);        -- (Pl. Escutcheon)
+INSERT INTO `item_mods` VALUES (26442,131,2);      -- Clothcraft Skill +2
+INSERT INTO `item_mods` VALUES (26442,1342,240);   -- Clothcraft Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26442,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26442,862,2);      -- Synthesis HQ Rate +2
+INSERT INTO `item_mods` VALUES (26447,1,5);        -- (Bv. Escutcheon)
+INSERT INTO `item_mods` VALUES (26447,132,2);      -- Leathercraft Skill +2
+INSERT INTO `item_mods` VALUES (26447,1343,240);   -- Leathercraft Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26447,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26447,862,2);      -- Synthesis HQ Rate +2
+INSERT INTO `item_mods` VALUES (26452,1,5);        -- (Os. Escutcheon)
+INSERT INTO `item_mods` VALUES (26452,133,2);      -- Bonecraft Skill +2
+INSERT INTO `item_mods` VALUES (26452,1344,240);   -- Bonecraft Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26452,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26452,862,2);      -- Synthesis HQ Rate +2
+INSERT INTO `item_mods` VALUES (26457,1,5);        -- (Br. Escutcheon)
+INSERT INTO `item_mods` VALUES (26457,134,2);      -- Alchemy Skill +2
+INSERT INTO `item_mods` VALUES (26457,1345,240);   -- Alchemy Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26457,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26457,862,2);      -- Synthesis HQ Rate +2
+INSERT INTO `item_mods` VALUES (26462,1,5);        -- (Chef's Escutcheon)
+INSERT INTO `item_mods` VALUES (26462,135,2);      -- Cooking Skill +2
+INSERT INTO `item_mods` VALUES (26462,1346,240);   -- Cooking Synthesis Speed +4s
+INSERT INTO `item_mods` VALUES (26462,1337,5);     -- Synthesis Material Loss -5%
+INSERT INTO `item_mods` VALUES (26462,862,2);      -- Synthesis HQ Rate +2
+-- Escutcheon Shields (NQ)
+INSERT INTO `item_mods` VALUES (26426,1,2);       -- Joiner's Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26426,128,2);     -- Woodworking Skill+2
+INSERT INTO `item_mods` VALUES (26426,1339,60);   -- Woodworking Synthesis Speed +1s
+INSERT INTO `item_mods` VALUES (26431,1,2);       -- Smythe's Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26431,129,2);     -- Smithing Skill+2
+INSERT INTO `item_mods` VALUES (26431,1340,60);   -- Smithing Synthesis Speed +1s
+INSERT INTO `item_mods` VALUES (26436,1,2);       -- Toreutic Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26436,130,2);     -- Goldsmithing Skill+2
+INSERT INTO `item_mods` VALUES (26436,1341,60);   -- Goldsmithing Synthesis Speed +1s
+INSERT INTO `item_mods` VALUES (26441,1,2);       -- Plaiter's Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26441,131,2);     -- Clothcraft Skill+2
+INSERT INTO `item_mods` VALUES (26441,1342,60);   -- Clothcraft Synthesis Speed +1s
+INSERT INTO `item_mods` VALUES (26446,1,2);       -- Beveler's Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26446,132,2);     -- Leathercraft Skill+2
+INSERT INTO `item_mods` VALUES (26446,1343,60);   -- Leathercraft Synthesis Speed +1s
+INSERT INTO `item_mods` VALUES (26451,1,2);       -- Ossifier's Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26451,133,2);     -- Bonecraft Skill+2
+INSERT INTO `item_mods` VALUES (26451,1344,60);   -- Bonecraft Synthesis Speed +1s
+INSERT INTO `item_mods` VALUES (26456,1,2);       -- Brewer's Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26456,134,2);     -- Alchemy Skill+2
+INSERT INTO `item_mods` VALUES (26456,1345,60);   -- Alchemy Synthesis Speed +1s
+INSERT INTO `item_mods` VALUES (26461,1,2);       -- Chef's Shield DEF:+2
+INSERT INTO `item_mods` VALUES (26461,135,2);     -- Cooking Skill+2
+INSERT INTO `item_mods` VALUES (26461,1346,60);   -- Cooking Synthesis Speed +1s
+
 INSERT INTO `item_mods` VALUES (26423,1,1);       -- Joiner's Aspis DEF:+1
 INSERT INTO `item_mods` VALUES (26424,1,2);       -- Joiner's Ecu DEF:+2
 INSERT INTO `item_mods` VALUES (26424,128,1);     -- Woodworking Skill+1
