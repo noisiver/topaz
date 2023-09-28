@@ -19,7 +19,6 @@ function onTrigger(player, npc)
         if player:getSkillRank(v) >= 10 then -- Veteran or higher
         end
     end
-
 end
 
 function onEventUpdate(player, csid, option)

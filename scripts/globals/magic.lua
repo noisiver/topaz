@@ -598,8 +598,11 @@ function applyResistance(caster, target, spell, params)
         percentBonus = percentBonus - getEffectResistance(target, effect) -- this is a HITRATE penalty not a MEVA BOOST (but they are the same thing if macc > meva)
     end -- traits are handled later
     
-    if params.skillBonus ~= nil then -- bard only it seems like. takes into account signing+instrument skill. i'll need to verify those formulas later
+    if (params.skillBonus ~= nil) then -- bard only it seems like. takes into account signing+instrument skill. i'll need to verify those formulas later
         magicaccbonus = magicaccbonus + params.skillBonus
+
+        -- Add JP Song MACC Bonus
+        magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
     end
 
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
@@ -689,6 +692,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     
     if params.skillBonus ~= nil then -- bard only it seems like. takes into account signing+instrument skill. i'll need to verify those formulas later
         magicaccbonus = magicaccbonus + params.skillBonus
+
+        -- Add JP Song MACC Bonus
+        magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
     end
 
     -- Apply "Status EfFect" Magic Accuracy Mod
@@ -1125,7 +1131,7 @@ function handleAfflatusMisery(caster, spell, dmg)
     return dmg
 end
 
- function finalMagicAdjustments(caster, target, spell, dmg)
+function finalMagicAdjustments(caster, target, spell, dmg)
     --Handles target's HP adjustment and returns UNSIGNED dmg (absorb message is set in this function)
 
     local skill = spell:getSkillType()
@@ -1233,9 +1239,11 @@ end
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
     caster:delStatusEffectSilent(tpz.effect.CASCADE)
+
     return dmg
  end
 
+ -- Used only for weapon additional effects that haven't been converted to the new functions
 function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     --Handles target's HP adjustment and returns SIGNED dmg (negative values on absorb)
 
@@ -1245,6 +1253,9 @@ function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
         dmg = utils.clamp(dmg, 0, 99999)
     end
+
+    --handling rampart stoneskin
+    dmg = utils.rampartstoneskin(target, dmg)
 
     --handling stoneskin
     dmg = utils.stoneskin(target, dmg)
@@ -2305,12 +2316,18 @@ end
 function doElementalNuke(caster, spell, target, spellParams)
     local DMG = 0
     local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
+    local skillType = spellParams.skillType
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     local V = 0
     local M = 0
     local hasMultipleTargetReduction = spellParams.hasMultipleTargetReduction
     local resistBonus = spellParams.resistBonus
     -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
+
+    -- BLM Job Point: Magic Damage Bonus
+    if (caster:getMainJob() == tpz.job.BLM) then
+        DMGMod = DMGMod + caster:getJobPointLevel(tpz.jp.MAGIC_DMG_BONUS)
+    end
 
     if USE_OLD_MAGIC_DAMAGE and spellParams.V ~= nil and spellParams.M ~= nil then
         V = spellParams.V -- Base value
@@ -2460,6 +2477,13 @@ function doNuke(caster, target, spell, params)
     if (spell:getSkillType() == tpz.skill.NINJUTSU) then
         if (caster:getMainJob() == tpz.job.NIN) then -- NIN main gets a bonus to their ninjutsu nukes
             local ninSkillBonus = 100
+            local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
+
+            -- NIN Job Point: Elemental Ninjutsu Effect
+            DMGMod = DMGMod + caster:getJobPointLevel(tpz.jp.ELEM_NINJITSU_EFFECT) * 2
+            -- Add magic damage mod and NIN JP to based damage
+            dmg = dmg + DMGMod
+
             if (spell:getID() % 3 == 2) then -- ichi nuke spell ids are 320, 323, 326, 329, 332, and 335
                 ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 50) / 4) -- getSkillLevel includes bonuses from merits and modifiers (ie. gear)
             elseif (spell:getID() % 3 == 0) then -- ni nuke spell ids are 1 more than their corresponding ichi spell
@@ -2467,7 +2491,9 @@ function doNuke(caster, target, spell, params)
             else -- san nuke spell, also has ids 1 more than their corresponding ni spell
                 ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 276))
             end
+
             ninSkillBonus = utils.clamp(ninSkillBonus, 100, 1000) -- bonus caps at +1000%, and does not go negative
+
             dmg = dmg * ninSkillBonus/100
         end
         -- boost with Futae
@@ -2478,7 +2504,7 @@ function doNuke(caster, target, spell, params)
     end
 
     --get the resisted damage
-    dmg = dmg*resist
+    dmg = dmg * resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg, params)
     --add in target adjustment
@@ -2499,11 +2525,16 @@ function doDivineBanishNuke(caster, target, spell, params)
 
     --calculate raw damage
     local dmg = calculateMagicDamage(caster, target, spell, params)
+
+    -- Add magic damage mod 
+    local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
+    dmg = dmg + DMGMod
+
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	 
     --get the resisted damage
-    dmg = dmg*resist
+    dmg = dmg * resist
     
 
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
