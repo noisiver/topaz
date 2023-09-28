@@ -54,7 +54,7 @@ end
 
 
 function applyRoll(caster, target, ability, action, total)
-    local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
+    local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION) + (caster:getJobPointLevel(tpz.jp.PHANTOM_ROLL_DURATION) * 2)
     local effectpowers = {10, 11, 11, 12, 20, 13, 15, 16, 8, 17, 24, 6}
     local effectpower = effectpowers[total]
 -- Apply Additional Phantom Roll+ Buff
