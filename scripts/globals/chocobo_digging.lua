@@ -1022,7 +1022,16 @@ tpz.chocoboDig.start = function(player, precheck)
     end
 end
 
-tpz.chocoboDig.onTriggerNPC(player, npc)
+local itemList =
+{
+    { body =  { tpz.items.PURPLE_RACING_SILKS }, material = { tpz.items.VOMP_CARROT }, reward = { tpz.items.GREEN_RACING_SILKS } },
+    { body =  { tpz.items.GREEN_RACING_SILKS }, material = { tpz.items.BUNCH_OF_SHARUG_GREENS }, reward = { tpz.items.BLUE_RACING_SILKS } },
+    { body =  { tpz.items.BLUE_RACING_SILKS }, material = { tpz.items.BALL_OF_VEGETABLE_PASTE }, reward = { tpz.items.RED_RACING_SILKS } },
+    { body =  { tpz.items.RED_RACING_SILKS }, material = { tpz.items.CLUMP_OF_TOKOPEKKO_WILDGRASS }, reward = { tpz.items.WHITE_RACING_SILKS } },
+    { body =  { tpz.items.WHITE_RACING_SILKS }, material = { tpz.items.GREGARIOUS_WORM }, reward = { tpz.items.BLACK_RACING_SILKS } },
+}
+
+tpz.chocoboDig.onTriggerNPC = function(player, npc)
     local npcName = npc:getName()
 
     for _, items in pairs(itemList) do
@@ -1038,7 +1047,7 @@ tpz.chocoboDig.onTriggerNPC(player, npc)
     end
 end
 
-tpz.chocoboDig.onTradeNPC(player, npc, trade)
+tpz.chocoboDig.onTradeNPC = function(player, npc, trade)
     local npcName = npc:getName()
 
     for _, items in pairs(itemList) do
