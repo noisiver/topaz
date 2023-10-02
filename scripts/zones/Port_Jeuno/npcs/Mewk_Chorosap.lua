@@ -50,7 +50,7 @@ local questData =
                 { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
             },
         },
-    }
+    },
     [tpz.skill.SMITHING] =
     {
         Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
@@ -90,7 +90,7 @@ local questData =
                 { Id = tpz.items.KANESADA_HQ, Quantity = 50 },
             },
         },
-    }
+    },
     [tpz.skill.GOLDSMITHING] =
     {
         Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
@@ -130,7 +130,7 @@ local questData =
                 { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
             },
         },
-    }
+    },
     [tpz.skill.CLOTHCRAFT] =
     {
         Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
@@ -170,7 +170,7 @@ local questData =
                 { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
             },
         },
-    }
+    },
     [tpz.skill.LEATHERCRAFT] =
     {
         Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
@@ -210,7 +210,7 @@ local questData =
                 { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
             },
         },
-    }
+    },
     [tpz.skill.BONECRAFT] =
     {
         Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
@@ -250,7 +250,7 @@ local questData =
                 { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
             },
         },
-    }
+    },
     [tpz.skill.ALCHEMY] =
     {
         Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
@@ -290,7 +290,7 @@ local questData =
                 { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
             },
         },
-    }
+    },
     [tpz.skill.COOKING] =
     {
         Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
