@@ -1018,20 +1018,20 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2250, 1108}, -- Sulfur
-                    {2990,  643}, -- Iron Ore
-                    {1590, 1155}, -- Iron Sand
-                    {1540,  768}, -- Flint Stone
-                    {1340,  928}, -- Bomb Ash
-                    { 960, 1632}, -- Moblin Mail
-                    {1150, 1625}, -- Moblin Helm
-                    { 450, 1631}, -- Moblin Armor
-                    { 380, 2160}, -- Troll Pauldron
-                    { 450, 2161}, -- Troll Vambrace
-                    { 430, 1638}, -- Moblin Mask
-                    { 210,  902}, -- Demon Horn
-                    { 140,  646}, -- Adaman Ore
-                    {  30,  685}, -- Khroma Ore
+                    {2400, 1108}, -- Sulfur
+                    {2400,  643}, -- Iron Ore
+                    {1500, 1155}, -- Iron Sand
+                    {1500,  768}, -- Flint Stone
+                    {1500,  928}, -- Bomb Ash
+                    {1000, 1632}, -- Moblin Mail
+                    {1000, 1625}, -- Moblin Helm
+                    { 500, 1631}, -- Moblin Armor
+                    { 500, 2160}, -- Troll Pauldron
+                    { 500, 2161}, -- Troll Vambrace
+                    { 500, 1638}, -- Moblin Mask
+                    { 100,  902}, -- Demon Horn
+                    { 100,  646}, -- Adaman Ore
+                    { 100,  685}, -- Khroma Ore
                 },
                 points =
                 {
@@ -1113,6 +1113,7 @@ local helmInfo =
                     {1000,   736}, -- Silver Ore
                     {1000,   643}, -- Iron Ore
                     {1000,   644}, -- Mythril Ore
+                    {1000,   2763},-- Swamp Ore
                     { 100,  1638}, -- Moblin Mask
                     { 100,  1625}, -- Moblin Helm
                     { 100,  1632}, -- Moblin Mail
