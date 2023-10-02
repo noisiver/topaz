@@ -1036,13 +1036,7 @@ tpz.chocoboDig.onTriggerNPC(player, npc)
 
     for _, items in pairs(itemList) do
         for v = tpz.inv.INVENTORY, tpz.inv.WARDROBE8  do -- inventory locations enums
-            if (player:hasItem(itemList.body[1], v)) then
-                local currentBody = itemList.body[1]:getName()
-                local newBody = itemList.reward[1]:getName()
-                local requiredMat = itemList.material[1]:getName()
-                player:PrintToPlayer("I will upgrade your " .. currentBody .. " to " .. newBody .. " if you provide me with " .. requiredMat .. " x100",0, npcName)
-                break
-            end
+
         end
     end
 end
