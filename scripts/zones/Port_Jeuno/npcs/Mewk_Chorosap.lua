@@ -9,18 +9,325 @@ require("scripts/globals/items")
 require("scripts/globals/npc_util")
 local ID = require("scripts/zones/Port_Jeuno/IDs")
 -----------------------------------
---tpz.items.PIECE_OF_JACARANDA_LUMBER, tpz.items.PIECE_OF_KAPOR_LUMBER
 local questData =
 {
     [tpz.skill.WOODWORKING] =
     {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
         [1] = {
             RequestNumber = 4,
-            ShieldItem = 100,
             Items = {
-                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 3 },
-                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 4 },
-                -- etc..
+                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
+                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
+                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
+                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
+                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
+                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
+                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
+                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
+                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
+            },
+        },
+    }
+    [tpz.skill.SMITHING] =
+    {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        [1] = {
+            RequestNumber = 5,
+            Items = {
+                { Id = tpz.items.DWEOMER_STEEL_INGOT, Quantity = 100 },
+                { Id = tpz.items.INFERNO_CORE, Quantity = 25 },
+                { Id = tpz.items.LUMINOUS_CORE, Quantity = 25 },
+                { Id = tpz.items.SPIRIT_CORE, Quantity = 25 },
+                { Id = tpz.items.FRIGID_CORE, Quantity = 25 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.DARKSTEEL_KUKRI_HQ, Quantity = 10 },
+                { Id = tpz.items.HIEN_HQ, Quantity = 20 },
+                { Id = tpz.items.GUST_TONGUE_HQ, Quantity = 10 },
+                { Id = tpz.items.NODOWA_HQ, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COLOSSAL_AXE, Quantity = 20 },
+                { Id = tpz.items.SAI, Quantity = 20 },
+                { Id = tpz.items.TEWHATEWHA, Quantity = 50 },
+                { Id = tpz.items.SEVERUS_CLAWS, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 3,
+            Items = {
+                { Id = tpz.items.RISING_SUN, Quantity = 50 },
+                { Id = tpz.items.JADAGNA, Quantity = 50 },
+                { Id = tpz.items.KANESADA_HQ, Quantity = 50 },
+            },
+        },
+    }
+    [tpz.skill.GOLDSMITHING] =
+    {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        [1] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
+                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
+                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
+                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
+                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
+                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
+                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
+                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
+                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
+            },
+        },
+    }
+    [tpz.skill.CLOTHCRAFT] =
+    {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        [1] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
+                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
+                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
+                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
+                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
+                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
+                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
+                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
+                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
+            },
+        },
+    }
+    [tpz.skill.LEATHERCRAFT] =
+    {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        [1] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
+                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
+                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
+                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
+                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
+                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
+                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
+                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
+                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
+            },
+        },
+    }
+    [tpz.skill.BONECRAFT] =
+    {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        [1] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
+                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
+                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
+                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
+                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
+                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
+                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
+                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
+                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
+            },
+        },
+    }
+    [tpz.skill.ALCHEMY] =
+    {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        [1] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
+                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
+                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
+                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
+                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
+                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
+                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
+                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
+                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
+            },
+        },
+    }
+    [tpz.skill.COOKING] =
+    {
+        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        [1] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
+                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+            },
+        },
+        [2] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
+                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
+                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
+                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+            },
+        },
+        [3] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
+                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
+                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+            },
+        },
+        [4] = {
+            RequestNumber = 4,
+            Items = {
+                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
+                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
+                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
+                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
             },
         },
     }
@@ -44,11 +351,24 @@ local function AdvanceRequest(player)
             currentStage = currentStage + 1;
             if currentStage > #shieldData then
                 --All stages complete... do whatever.
-
-                return;
+                if npcUtil.giveItem(player, shieldData.Shields[4]) then
+                    player:tradeComplete()
+                    local itemName = shieldData.Shields[4]:getName()
+                    player:PrintToPlayer("Please enjoy your new " .. itemName .. "!",0, "Mewek")
+                    player:setCharVar("ShieldCurrentSkillType", 0)
+                end
+                return
             else
                 --Go to next stage..
                 currentStage = currentStage + 1;
+                if npcUtil.giveItem(player, shieldData.Shields[currentStage]) then
+                    player:tradeComplete()
+                    local itemName = shieldData.Shields[currentStage]:getName()
+                    player:PrintToPlayer("Please enjoy your new " .. itemName .. "!",0, "Mewek")
+                else
+                    -- Don't set variables if the players inventory is full
+                    return
+                end
                 player:setCharVar('ShieldCurrentStage', currentStage);
                 player:setCharVar('ShieldRequestsCompleted', 0);
             end
@@ -75,9 +395,7 @@ local function AdvanceRequest(player)
         end
     end
 
-    --If you want to print message.. how do you get item name from Id..?
-        
-    local itemName = getname(selectedItem.Id);
+    local itemName = selectedItem.Id:getName()
     player:PrintToPlayer('My next request.. I will need you to bring me ' .. tostring(selectedItem.Quantity) .. ' ' .. itemName .. '.', 0, "Mewk");
 end
 
@@ -138,18 +456,4 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-end
-
-
-
-function checkTrade(player, npc, trade, requestedItem, quantity, stage, nextItem, nextQuantity, var)
-    if npcUtil.tradeHasExactly(trade, {requestedItem, quantity } ) then
-        player:setCharVar("escutcheonsStage", stage + 1)
-        player:tradeComplete()
-        player:PrintToPlayer("Great job! Now I require " .. nextItem .. " x " .. nextQuantity ,0, "Mewk")
-    end
-end
-
-function waitingMessage(player, npc, requestedItem, quantity)
-    player:PrintToPlayer("I am still waiting for " .. requestedItem:getName() .. " " .. quantity ,0, "Mewk")
 end
