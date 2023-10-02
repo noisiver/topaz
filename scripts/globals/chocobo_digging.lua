@@ -1032,13 +1032,6 @@ local itemList =
 }
 
 tpz.chocoboDig.onTriggerNPC(player, npc)
-    local npcName = npc:getName()
-
-    for _, items in pairs(itemList) do
-        for v = tpz.inv.INVENTORY, tpz.inv.WARDROBE8  do -- inventory locations enums
-
-        end
-    end
 end
 
 tpz.chocoboDig.onTradeNPC(player, npc, trade)
