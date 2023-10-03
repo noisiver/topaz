@@ -985,7 +985,7 @@ function ResetEnmityList(mob)
     end
 end
 
-function AllowSelfNuking(mob, bool)
+function AllowSelfNuking(mob, bool) -- TODO: Breaks nukes for everything
     if bool then
         for v = 144, 173 do
             getSpell(v):setValidTarget(9)
