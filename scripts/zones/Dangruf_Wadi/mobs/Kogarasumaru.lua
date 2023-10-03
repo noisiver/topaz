@@ -2,7 +2,7 @@
 -- Area: The Eldieme Necropolis
 --   Kogarasumaru
 --   !additem 18431
--- DRG Mythic weapon fight
+-- SAM Mythic weapon fight
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")

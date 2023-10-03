@@ -56,6 +56,8 @@ zones[tpz.zone.DANGRUF_WADI] =
         CHOCOBOLEECH        = 17559869,
         APPARATUS_ELEMENTAL = 17559870,
         KOGARASUMARU        = 17560575,
+        ULBRECHT            = 17560577, -- TODO: ID
+        CHERUKIKI           = 17560578, -- TODO: ID
     },
     npc =
     {
