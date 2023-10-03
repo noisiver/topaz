@@ -120,11 +120,14 @@ bool CMobSkillState::Update(time_point tick)
         m_PEntity->OnMobSkillFinished(*this, action);
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
         auto PTarget{ GetTarget() };
-        m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", m_PEntity, PTarget, m_PSkill->getID(), m_spentTP, &action);
-        PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spentTP, &action);
-        auto delay = std::chrono::milliseconds(m_PSkill->getAnimationTime());
-        m_finishTime = tick + delay;
-        Complete();
+        if (PTarget != nullptr)
+        {
+            m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", m_PEntity, PTarget, m_PSkill->getID(), m_spentTP, &action);
+            PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spentTP, &action);
+            auto delay = std::chrono::milliseconds(m_PSkill->getAnimationTime());
+            m_finishTime = tick + delay;
+            Complete();
+        }
     }
     if (IsCompleted() && tick > m_finishTime)
     {
