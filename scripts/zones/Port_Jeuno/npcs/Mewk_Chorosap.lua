@@ -35,7 +35,7 @@ local questData =
         [3] = {
             RequestNumber = 4,
             Items = {
-                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
+                { Id = tpz.items.BATTLE_FORK, Quantity = 20 },
                 { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
                 { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
                 { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
@@ -53,7 +53,7 @@ local questData =
     },
     [tpz.skill.SMITHING] =
     {
-        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        Shields = { tpz.items.SMYTHES_ECU, tpz.items.SMYTHES_SCUTUM, tpz.items.SMYTHES_SHIELD, tpz.items.SMYTHES_ESCUTCHEON },
         [1] = {
             RequestNumber = 5,
             Items = {
@@ -93,47 +93,47 @@ local questData =
     },
     [tpz.skill.GOLDSMITHING] =
     {
-        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        Shields = { tpz.items.TOREUTIC_ECU, tpz.items.TOREUTIC_SCUTUM, tpz.items.TOREUTIC_SHIELD, tpz.items.TOREUTIC_ESCUTCHEON },
         [1] = {
             RequestNumber = 4,
             Items = {
-                { Id = tpz.items.PIECE_OF_JACARANDA_LUMBER, Quantity = 100 },
-                { Id = tpz.items.PIECE_OF_KAPOR_LUMBER, Quantity = 100 },
-                { Id = tpz.items.PIECE_OF_TEAK_LUMBER, Quantity = 100 },
-                { Id = tpz.items.PIECE_OF_LACQUER_TREE_LUMBER, Quantity = 100 },
+                { Id = tpz.items.ROGUES_SILVER_INGOT, Quantity = 100 },
+                { Id = tpz.items.NEUTRALIZING_SILVER_INGOT, Quantity = 100 },
+                { Id = tpz.items.BEWITCHED_GOLD_INGOT, Quantity = 100 },
+                { Id = tpz.items.INDURATED_GOLD_INGOT, Quantity = 100 },
             },
         },
         [2] = {
             RequestNumber = 4,
             Items = {
-                { Id = tpz.items.COUSE_HQ, Quantity = 10 },
-                { Id = tpz.items.ROUND_SHIELD_HQ, Quantity = 10 },
-                { Id = tpz.items.EBONY_HARP_HQ2, Quantity = 10 },
-                { Id = tpz.items.VELOCITY_BOW, Quantity = 20 },
+                { Id = tpz.items.GOLD_SWORD_HQ, Quantity = 10 },
+                { Id = tpz.items.MOONRING_BLADE_HQ, Quantity = 10 },
+                { Id = tpz.items.MYTHRIL_GAUNTLETS_HQ, Quantity = 10 },
+                { Id = tpz.items.PLATINUM_GRIP_HQ, Quantity = 10 },
             },
         },
         [3] = {
             RequestNumber = 4,
             Items = {
-                { Id = tpz.items.BATTLE_FORK_HQ, Quantity = 20 },
-                { Id = tpz.items.NYMPH_SHIELD, Quantity = 20 },
-                { Id = tpz.items.OBELISK_LANCE, Quantity = 50 },
-                { Id = tpz.items.EREMITES_WAND, Quantity = 20 },
+                { Id = tpz.items.KROUSIS_RING, Quantity = 20 },
+                { Id = tpz.items.VELDT_AXE, Quantity = 20 },
+                { Id = tpz.items.REAVER_GRIP, Quantity = 20 },
+                { Id = tpz.items.PIGEON_EARRING, Quantity = 20 },
             },
         },
         [4] = {
             RequestNumber = 4,
             Items = {
-                { Id = tpz.items.MYTHIC_POLE, Quantity = 50 },
-                { Id = tpz.items.ROSENBOGEN, Quantity = 20 },
-                { Id = tpz.items.WHALE_STAFF, Quantity = 20 },
-                { Id = tpz.items.LEO_CROSSBOW, Quantity = 20 },
+                { Id = tpz.items.TOJAKU, Quantity = 20 },
+                { Id = tpz.items.BLIZZARD_SCYTHE, Quantity = 20 },
+                { Id = tpz.items.JEWELED_COLLAR, Quantity = 20 },
+                { Id = tpz.items.DIAMOND_SHIELD, Quantity = 20 },
             },
         },
     },
     [tpz.skill.CLOTHCRAFT] =
     {
-        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        Shields = { tpz.items.PLAITERS_ECU, tpz.items.PLAITERS_SCUTUM, tpz.items.PLAITERS_SHIELD, tpz.items.PLAITERS_ESCUTCHEON },
         [1] = {
             RequestNumber = 4,
             Items = {
@@ -173,7 +173,7 @@ local questData =
     },
     [tpz.skill.LEATHERCRAFT] =
     {
-        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        Shields = { tpz.items.BEVELERS_ECU, tpz.items.BEVELERS_SCUTUM, tpz.items.BEVELERS_SHIELD, tpz.items.BEVELERS_ESCUTCHEON },
         [1] = {
             RequestNumber = 4,
             Items = {
@@ -213,7 +213,7 @@ local questData =
     },
     [tpz.skill.BONECRAFT] =
     {
-        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        Shields = { tpz.items.OSSIFIERS_ECU, tpz.items.OSSIFIERS_SCUTUM, tpz.items.OSSIFIERS_SHIELD, tpz.items.OSSIFIERS_ESCUTCHEON },
         [1] = {
             RequestNumber = 4,
             Items = {
@@ -253,7 +253,7 @@ local questData =
     },
     [tpz.skill.ALCHEMY] =
     {
-        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        Shields = { tpz.items.BREWERS_ECU, tpz.items.BREWERS_SCUTUM, tpz.items.BREWERS_SHIELD, tpz.items.BREWERS_ESCUTCHEON },
         [1] = {
             RequestNumber = 4,
             Items = {
@@ -293,7 +293,7 @@ local questData =
     },
     [tpz.skill.COOKING] =
     {
-        Shields = { tpz.items.JOINERS_ECU, tpz.items.JOINERS_SCUTUM, tpz.items.JOINERS_SHIELD, tpz.items.JOINERS_ESCUTCHEON },
+        Shields = { tpz.items.CHEFS_ECU, tpz.items.CHEFS_SCUTUM, tpz.items.CHEFS_SHIELD, tpz.items.CHEFS_ESCUTCHEON },
         [1] = {
             RequestNumber = 4,
             Items = {
