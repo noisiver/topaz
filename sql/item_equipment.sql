@@ -7630,7 +7630,7 @@ INSERT INTO `item_equipment` VALUES (17898,'c._grass._broth',83,0,256,0,0,0,8,0,
 INSERT INTO `item_equipment` VALUES (17899,'svg._mole_broth',90,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (17900,'cl._wheat_broth',95,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (17901,'b._carrion_broth',93,0,256,0,0,0,8,0,0);
-INSERT INTO `item_equipment` VALUES (17902,'lucky_broth',86,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (17902,'lucky_broth',75,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (17903,'shadowy_broth',96,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (17904,'briny_broth',76,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (17905,'wormy_broth',23,0,256,0,0,0,8,0,0);
