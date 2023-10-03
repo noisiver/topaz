@@ -1097,7 +1097,7 @@ function getSpellBonusAcc(caster, target, spell, params)
     end
 
     -- Add Job points magic accuracy Bonus
-    magicAccBonus = magicAccBonus + JobPointsMacc(caster, spellGroup, skill)
+    magicAccBonus = magicAccBonus + JobPointsMacc(caster, spellGroup, skill, element)
 
     -- Add weather bonus
     magicAccBonus = magicAccBonus + addWeatherMaccBonus(caster, spell, target, params)
@@ -2148,7 +2148,7 @@ function getDstatBonus(softcap, diff)
 end
 
 -- Magic Accuracy from Job Points.
-function JobPointsMacc(caster, spellGroup, skillType)
+function JobPointsMacc(caster, spellGroup, skillType, element)
     local jpMaccBonus = 0
     local casterJob = caster:getMainJob()
 
