@@ -2148,69 +2148,67 @@ function getDstatBonus(softcap, diff)
 end
 
 -- Magic Accuracy from Job Points.
-function JobPointsMacc(caster, target, spell, skill)
+function JobPointsMacc(caster, target, spell)
     local skill = spell:getSkillType()
     local spellGroup = spell:getSpellGroup()
     local element = spell:getElement()
     local jpMaccBonus = 0
     local casterJob = caster:getMainJob()
 
-    switch(casterJob): caseof
-    {
-        [tpz.job.WHM] = function()
-            jpMaccBonus = caster:getJobPointLevel(tpz.jp.WHM_MAGIC_ACC_BONUS)
-        end,
 
-        [tpz.job.BLM] = function()
-            -- BLM Job Point: MACC Bonus +1
-            jpMaccBonus = caster:getJobPointLevel(tpz.jp.BLM_MAGIC_ACC_BONUS)
-        end,
+    if (casterJob == tpz.job.WHM) then
+        jpMaccBonus = caster:getJobPointLevel(tpz.jp.WHM_MAGIC_ACC_BONUS)
+    end
 
-        [tpz.job.RDM] = function()
-            -- Add MACC for RDM group 1 merits
-            if element >= tpz.element.FIRE and element <= tpz.element.WATER then
-                jpMaccBonus = caster:getMerit(rdmMerit[element])
-            end
+    if (casterJob == tpz.job.BLM) then
+        -- BLM Job Point: MACC Bonus +1
+        jpMaccBonus = caster:getJobPointLevel(tpz.jp.BLM_MAGIC_ACC_BONUS)
+    end
 
-            -- RDM Job Point: During saboteur, Enfeebling MACC +2
-            if
-                skill == tpz.skill.ENFEEBLING_MAGIC and
-                caster:hasStatusEffect(tpz.effect.SABOTEUR)
-            then
-                local jpValue = caster:getJobPointLevel(tpz.jp.SABOTEUR_EFFECT)
+    if (casterJob == tpz.job.RDM) then
+        -- Add MACC for RDM group 1 merits
+        if element >= tpz.element.FIRE and element <= tpz.element.WATER then
+            jpMaccBonus = caster:getMerit(rdmMerit[element])
+        end
 
-                jpMaccBonus = jpValue * 2
-            end
+        -- RDM Job Point: During saboteur, Enfeebling MACC +2
+        if
+            skill == tpz.skill.ENFEEBLING_MAGIC and
+            caster:hasStatusEffect(tpz.effect.SABOTEUR)
+        then
+            local jpValue = caster:getJobPointLevel(tpz.jp.SABOTEUR_EFFECT)
 
-            -- RDM Job Point: Magic Accuracy Bonus, All MACC + 1
-            jpMaccBonus = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
-        end,
+            jpMaccBonus = jpValue * 2
+        end
 
-        [tpz.job.NIN] = function()
-            -- NIN Job Point: Ninjitsu Accuracy Bonus
-            if skill == tpz.skill.NINJUTSU then
-                jpMaccBonus = caster:getJobPointLevel(tpz.jp.NINJITSU_ACC_BONUS)
-            end
-        end,
+        -- RDM Job Point: Magic Accuracy Bonus, All MACC + 1
+        jpMaccBonus = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
+    end
 
-        [tpz.job.BLU] = function()
-            -- BLU MACC merits - nuke acc is handled in bluemagic.lua
-            if skill == tpz.skill.BLUE_MAGIC then
-                jpMaccBonus = caster:getMerit(tpz.merit.MAGICAL_ACCURACY)
-            end
-        end,
+    if (casterJob == tpz.job.NIN) then
+        -- NIN Job Point: Ninjitsu Accuracy Bonus
+        if skill == tpz.skill.NINJUTSU then
+            jpMaccBonus = caster:getJobPointLevel(tpz.jp.NINJITSU_ACC_BONUS)
+        end
+    end
 
-        [tpz.job.SCH] = function()
-            if
-                (spellGroup == tpz.magic.spellGroup.WHITE and caster:hasStatusEffect(tpz.effect.PARSIMONY)) or
-                (spellGroup == tpz.magic.spellGroup.BLACK and caster:hasStatusEffect(tpz.effect.PENURY))
-            then
-                local jpValue = caster:getJobPointLevel(tpz.jp.STRATEGEM_EFFECT_I)
+    if (casterJob == tpz.job.BLU) then
+        -- BLU MACC merits - nuke acc is handled in bluemagic.lua
+        if skill == tpz.skill.BLUE_MAGIC then
+            jpMaccBonus = caster:getMerit(tpz.merit.MAGICAL_ACCURACY)
+        end
+    end
 
-                jpMaccBonus = jpValue
-            end
-        end,
-    }
+    if (casterJob == tpz.job.SCH) then
+        if
+            (spellGroup == tpz.magic.spellGroup.WHITE and caster:hasStatusEffect(tpz.effect.PARSIMONY)) or
+            (spellGroup == tpz.magic.spellGroup.BLACK and caster:hasStatusEffect(tpz.effect.PENURY))
+        then
+            local jpValue = caster:getJobPointLevel(tpz.jp.STRATEGEM_EFFECT_I)
+
+            jpMaccBonus = jpValue
+        end
+    end
 
     return jpMaccBonus
 end
