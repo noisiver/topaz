@@ -405,6 +405,7 @@ tpz.shop =
                 17892,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fragrant Antica Broth
                 17889,    2000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Blood Broth
                 17890,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Clear Blood Broth
+                17902,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lucky Broth
                 21446,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Airy Broth
                 17016,      11,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Alpha Biscuit
                 17017,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Beta Biscuit
