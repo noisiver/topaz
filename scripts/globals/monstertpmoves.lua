@@ -1392,11 +1392,35 @@ function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shad
     return dmg
 end
 
+function MobDispelMove(mob, target, skill, element, param1, param2)
+    local statmod = tpz.mod.INT
+    local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local bonus = 175
+
+    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
+
+    target:addEnmity(mob, 1, 320)
+
+	if (resist >= 0.5) then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		    return 0
+		else
+            if (param2 ~= nil) then
+                return target:dispelStatusEffect(bit.bor(param1, param2))
+            else
+                return target:dispelStatusEffect(bit.bor(param1))
+            end
+        end
+	else
+	    return 0
+	end
+end
+
 function MobFullDispelMove(mob, target, skill, param1, param2)
     local statmod = tpz.mod.INT
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
     local element = tpz.magic.ele.DARK
-    local bonus = 50
+    local bonus = 175
 
     local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
 
