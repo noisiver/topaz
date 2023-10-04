@@ -1095,10 +1095,10 @@ function getSpellBonusAcc(caster, target, spell, params)
     if (skill == tpz.skill.BLUE_MAGIC) then
         magicAccBonus = magicAccBonus + caster:getMerit(tpz.merit.MAGICAL_ACCURACY)
     end
-
+    printf("MACC before JP bonus %d", magicAccBonus)
     -- Add Job points magic accuracy Bonus
     magicAccBonus = magicAccBonus + JobPointsMacc(caster, target, spell)
-
+    printf("MACC after JP bonus %d", magicAccBonus)
     -- Add weather bonus
     magicAccBonus = magicAccBonus + addWeatherMaccBonus(caster, spell, target, params)
 
@@ -1234,7 +1234,6 @@ function finalMagicAdjustments(caster, target, spell, dmg)
         -- Only add TP if the target is a mob
         if (target:getObjType() ~= tpz.objType.PC) then
             local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-            printf("TP given: %d", tpGiven)
             target:addTP(tpGiven)
         end
     end
@@ -1440,7 +1439,7 @@ function addBonuses(caster, spell, target, dmg, params)
                 mdefBarBonus = target:getStatusEffect(tpz.magic.barSpell[ele]):getSubPower()
             end
         end
-
+        printf("Dmg before JP bonus %d", dmg)
         if (casterJob == tpz.job.RDM) then
             mab = mab + caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ATK_BONUS)
         elseif (casterJob == tpz.job.GEO) then
@@ -1449,7 +1448,7 @@ function addBonuses(caster, spell, target, dmg, params)
 
         mabbonus = (100 + mab) / (100 + target:getMod(tpz.mod.MDEF) + mdefBarBonus)
     end
-
+    printf("Dmg after JP bonus %d", dmg)
     if (mabbonus < 0) then
         mabbonus = 0
     end
