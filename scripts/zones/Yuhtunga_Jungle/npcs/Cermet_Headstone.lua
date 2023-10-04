@@ -68,10 +68,10 @@ end
 function onEventFinish(player, csid, option)
     -- HEADSTONE PILGRIMAGE
     if csid == 200 and option == 1 then
-    ID.mob.TIPHA:spawn()
-    ID.mob.CARTHI:spawn()
-    ID.mob.TIPHA:updateClaim(player)
-    ID.mob.CARTHI:updateClaim(player)
+    GetMobByID(ID.mob.TIPHA):spawn()
+    GetMobByID(ID.mob.CARTHI):spawn()
+    GetMobByID(ID.mob.TIPHA):updateClaim(player)
+    GetMobByID(ID.mob.CARTHI):updateClaim(player)
 
     -- WRATH OF THE OPO-OPOS
     elseif csid == 202 and npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.WRATH_OF_THE_OPO_OPOS, {item=13143, title=tpz.title.FRIEND_OF_THE_OPOOPOS}) then
