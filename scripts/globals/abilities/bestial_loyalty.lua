@@ -28,7 +28,7 @@ function onUseAbility(player, target, ability)
         if (bit.band(effectFlags, tpz.effectFlag.DISPELABLE) == tpz.effectFlag.DISPELABLE) or (bit.band(effectFlags, tpz.effectFlag.ERASABLE) == tpz.effectFlag.ERASABLE) or
         (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) == tpz.effectFlag.WALTZABLE) then
             numberOfEffects = numberOfEffects + 1
-            pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.ceil((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
+            pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.floor((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
         end
     end
     -- TODO: Msg
