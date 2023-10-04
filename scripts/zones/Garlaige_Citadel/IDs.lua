@@ -64,7 +64,7 @@ zones[tpz.zone.GARLAIGE_CITADEL] =
         SERKET               = 17596720,
         MIMIC                = 17596728,
         APPARATUS_ELEMENTAL  = 17596729,
-        CYRANUCE_M_CUTAULEON = 17596729,
+        CYRANUCE_M_CUTAULEON = 17596678,
     },
     npc =
     {
