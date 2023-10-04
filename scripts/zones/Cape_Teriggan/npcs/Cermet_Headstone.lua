@@ -69,7 +69,8 @@ function onEventFinish(player, csid, option)
 
     -- HEADSTONE PILGRIMAGE
     if (csid == 200 and option == 1) then
-        SpawnMob(ID.mob.AXESARION_THE_WANDERER):updateClaim(player)
+        GetMobByID(ID.mob.AXESARION_THE_WANDERER):spawn()
+        GetMobByID(ID.mob.AXESARION_THE_WANDERER):updateClaim(player)
 
     -- WANDERING SOULS
     elseif (csid == 202) then
