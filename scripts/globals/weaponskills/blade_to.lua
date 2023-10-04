@@ -27,6 +27,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.hybridWS = true
     params.ele = tpz.magic.ele.ICE
     params.skill = tpz.skill.KATANA
+    params.includemab = true
 	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
