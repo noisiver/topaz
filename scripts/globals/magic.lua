@@ -602,7 +602,9 @@ function applyResistance(caster, target, spell, params)
         magicaccbonus = magicaccbonus + params.skillBonus
 
         -- Add JP Song MACC Bonus
-        magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
+        if caster:isPC() then
+            magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
+        end
     end
 
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
@@ -694,7 +696,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         magicaccbonus = magicaccbonus + params.skillBonus
 
         -- Add JP Song MACC Bonus
-        magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
+        if caster:isPC() then
+            magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
+        end
     end
 
     -- Apply "Status EfFect" Magic Accuracy Mod
@@ -1441,10 +1445,12 @@ function addBonuses(caster, spell, target, dmg, params)
             end
         end
 
-        if (casterJob == tpz.job.RDM) then
-            mab = mab + caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ATK_BONUS)
-        elseif (casterJob == tpz.job.GEO) then
-            mab = mab + caster:getJobPointLevel(tpz.jp.GEO_MAGIC_ATK_BONUS)
+        if caster:isPC() then
+            if (casterJob == tpz.job.RDM) then
+                mab = mab + caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ATK_BONUS)
+            elseif (casterJob == tpz.job.GEO) then
+                mab = mab + caster:getJobPointLevel(tpz.jp.GEO_MAGIC_ATK_BONUS)
+            end
         end
 
         mabbonus = (100 + mab) / (100 + target:getMod(tpz.mod.MDEF) + mdefBarBonus)
@@ -2333,7 +2339,7 @@ function doElementalNuke(caster, spell, target, spellParams)
     -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
 
     -- BLM Job Point: Magic Damage Bonus
-    if (caster:getMainJob() == tpz.job.BLM) then
+    if (caster:getMainJob() == tpz.job.BLM) and caster:isPC() then
         DMGMod = DMGMod + caster:getJobPointLevel(tpz.jp.MAGIC_DMG_BONUS)
     end
 
@@ -2488,7 +2494,9 @@ function doNuke(caster, target, spell, params)
             local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
 
             -- NIN Job Point: Elemental Ninjutsu Effect
-            DMGMod = DMGMod + caster:getJobPointLevel(tpz.jp.ELEM_NINJITSU_EFFECT) * 2
+            if caster:isPC() then
+                DMGMod = DMGMod + caster:getJobPointLevel(tpz.jp.ELEM_NINJITSU_EFFECT) * 2
+            end
             -- Add magic damage mod and NIN JP to based damage
             dmg = dmg + DMGMod
 
