@@ -2171,6 +2171,7 @@ function JobPointsMacc(caster, target, spell)
             -- Add MACC for RDM group 1 merits
             if element >= tpz.magic.element.FIRE and element <= tpz.magic.element.WATER then
                 jpMaccBonus = caster:getMerit(rdmMerit[element])
+                printf("Merits MACC %d", jpMaccBonus)
             end
 
             -- RDM Job Point: During saboteur, Enfeebling MACC +2
@@ -2184,6 +2185,8 @@ function JobPointsMacc(caster, target, spell)
             end
 
             -- RDM Job Point: Magic Accuracy Bonus, All MACC + 1
+            local jobPoints = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
+            printf("Job Points MACC %d", jobPoints)
             jpMaccBonus = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
         end,
 
