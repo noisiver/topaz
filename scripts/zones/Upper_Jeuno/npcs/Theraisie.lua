@@ -12,27 +12,27 @@ end
 function onTrigger(player, npc)
     local stock =
     {
-        21444,  200,    -- Livid Broth
-        21445,  344,    -- Lyrical Broth
-        21446,  519,    -- Airy Broth
-        21447, 1016,    -- Crumbly Soil
-        17922, 1484,    -- Blackwater Broth
-        21448, 1747,    -- Pale Sap
-        21498, 1747,    -- Crackling Broth
-        17920, 2195,    -- Meaty Broth
-        21497, 2371,    -- Rapid Broth
-        21499, 2425,    -- Creepy Broth
-        17921, 2853,    -- Muddy Broth
-        21449, 3004,    -- Dire Broth
-        17016,  100,    -- Pet Food Alpha
-        17017,  200,    -- Pet Food Beta
-        17018,  350,    -- Pet Food Gamma
-        17019,  500,    -- Pet Food Delta
-        17020,  750,    -- Pet Food Epsilon
-        17021, 1000,    -- Pet Food Zeta
-        17022, 1500,    -- Pet Food Eta
-        17023, 2000,    -- Pet Food Theta
-        19251,  300,    -- Pet Roborant
+        21444, 4000,    -- Livid Broth
+        21445, 4000,    -- Lyrical Broth
+        21446, 4000,    -- Airy Broth
+        21447, 4000,    -- Crumbly Soil
+        17922, 4000,    -- Blackwater Broth
+        21448, 4000,    -- Pale Sap
+        21498, 4000,    -- Crackling Broth
+        17920, 4000,    -- Meaty Broth
+        21497, 4000,    -- Rapid Broth
+        21499, 4000,    -- Creepy Broth
+        17921, 4000,    -- Muddy Broth
+        21449, 4000,    -- Dire Broth
+        17016,  11,    -- Pet Food Alpha
+        17017,  82,    -- Pet Food Beta
+       -- 17018,  350,    -- Pet Food Gamma
+       -- 17019,  500,    -- Pet Food Delta
+       -- 17020,  750,    -- Pet Food Epsilon
+       -- 17021, 1000,    -- Pet Food Zeta
+       -- 17022, 1500,    -- Pet Food Eta
+       -- 17023, 2000,    -- Pet Food Theta
+        9251,  300,    -- Pet Roborant
         19252,  250,    -- Pet Poultice
     }
 
