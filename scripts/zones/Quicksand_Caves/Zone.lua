@@ -114,12 +114,6 @@ function onRegionEnter(player, region)
             -- allow door to retrigger 17 seconds from now
             plate:timer(17000, function(plateArg)
                 plateArg:setLocalVar("opening", 0)
-
-                -- retrigger if weight is still enough to do so
-                if plateArg:getLocalVar("weight") >= 3 then
-                    -- retrigger, with nil as player arg, player is not necessary to re-open the door if weight is >= 3.
-                    zoneObject.onTriggerAreaEnter(nil, triggerArea)
-                end
             end)
         end
     end

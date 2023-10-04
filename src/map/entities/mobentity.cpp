@@ -125,9 +125,10 @@ CMobEntity::CMobEntity()
     PEnmityContainer = new CEnmityContainer(this);
     SpellContainer = new CMobSpellContainer(this);
 
+    m_IsClaimable = true;
+
     // For Dyna Stats
     m_StatPoppedMobs = false;
-    m_IsClaimable = true;
 
     PAI = std::make_unique<CAIContainer>(this, std::make_unique<CPathFind>(this), std::make_unique<CMobController>(this),
         std::make_unique<CTargetFind>(this));
