@@ -1064,7 +1064,7 @@ function utils.CalculateSpellTPGiven(caster, target)
     -- Add casters Subtle Blow
     TP = math.floor(100 * (1 - sBlowMult))
     -- Add targets Store TP
-    TP = math.floor(TP * (100 + target:getMod(tpz.mod.STORETP)))
+    TP = math.floor(TP * (100 + target:getMod(tpz.mod.STORETP)) / 10)
 
     return TP
 end
