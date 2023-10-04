@@ -18136,6 +18136,14 @@ INSERT INTO `item_basic` VALUES (21460,0,'matre_bell','matre_bell',1,63568,0,1,0
 INSERT INTO `item_basic` VALUES (21461,0,'filiae_bell','filiae_bell',1,63552,0,1,0);
 INSERT INTO `item_basic` VALUES (21462,0,'eminent_bell','eminent_bell',1,63572,0,0,0);
 INSERT INTO `item_basic` VALUES (21463,0,'nepote_bell','nepote_bell',1,38916,13,0,0);
+INSERT INTO `item_basic` VALUES (21464,0,'jug_of_rancid_broth','jug_of_rancid_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21465,0,'jug_of_pungent_broth','jug_of_pungent_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21466,0,'jug_of_frizzante_broth','jug_of_frizzante_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21467,0,'jug_of_spumante_broth','jug_of_spumante_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21468,0,'jug_of_zestful_broth','jug_of_zestful_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21469,0,'jug_of_gassy_broth','jug_of_gassy_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21470,0,'jug_of_decaying_broth','jug_of_decaying_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21471,0,'jug_of_putrescent_broth','jug_of_putrescent_broth',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21476,0,'doomsday','doomsday',1,30804,0,0,0);
 INSERT INTO `item_basic` VALUES (21477,0,'atalanta','atalanta',1,63572,0,0,0);
 INSERT INTO `item_basic` VALUES (21478,0,'moros_crossbow_+1','moros_cross._+1',1,34820,13,0,0);
@@ -18146,6 +18154,9 @@ INSERT INTO `item_basic` VALUES (21482,0,'compensator','compensator',1,30805,0,0
 INSERT INTO `item_basic` VALUES (21483,0,'malison','malison',1,63568,0,0,0);
 INSERT INTO `item_basic` VALUES (21484,0,'malison_+1','malison_+1',1,63569,0,0,0);
 INSERT INTO `item_basic` VALUES (21485,0,'fomalhaut','fomalhaut',1,64584,0,0,0);
+INSERT INTO `item_basic` VALUES (21488,0,'jug_of_pristine_sap','jug_of_pristine_sap',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21489,0,'jug_of_t._pristine_sap','jug_of_t._pristine_sap',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21490,0,'jug_of_aged_humus','jug_of_aged_humus',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21492,0,'jug_of_insipid_broth','insipid_broth',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21493,0,'jug_of_deepwater_broth','deepwater_broth',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21494,0,'jug_of_wetlands_broth','wetlands_broth',99,2052,48,0,0);

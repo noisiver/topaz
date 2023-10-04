@@ -320,6 +320,7 @@ INSERT INTO `mob_family_mods` VALUES (252,389,-25,0); 	-- Vampyr(NM) -25%
 INSERT INTO `mob_family_mods` VALUES (284,389,-38,0); 	-- Vampyr(NM) -38%
 INSERT INTO `mob_family_mods` VALUES (460,389,35,0);	-- Hurkan +35%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (457,389,20,0);	-- Kumhau +20%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (464,389,-25,0);	-- Snapweed -25%
 
 
 
@@ -495,8 +496,8 @@ INSERT INTO `mob_family_mods` VALUES (564,63,-20,0);    -- Lizard Familiar -20% 
 INSERT INTO `mob_family_mods` VALUES (562,63,30,0);     -- Antlion Familiar +30% Def
 INSERT INTO `mob_family_mods` VALUES (558,62,20,0);     -- Beetle Familiar +20% Attack
 INSERT INTO `mob_family_mods` VALUES (565,62,30,0);     -- Diremite Familiar +30% Attack
-INSERT INTO `mob_family_mods` VALUES (561,162,-35,0);   -- Funguar Familiar -35% BDT
-INSERT INTO `mob_family_mods` VALUES (561,163,-35,0);   -- Funguar Familiar -35% MDT
+INSERT INTO `mob_family_mods` VALUES (561,388,-35,0);   -- Funguar Familiar -35% BDT
+INSERT INTO `mob_family_mods` VALUES (561,389,-35,0);   -- Funguar Familiar -35% MDT
 INSERT INTO `mob_family_mods` VALUES (568,28,30,0);     -- Fly Familiar +30 MAB
 INSERT INTO `mob_family_mods` VALUES (574,28,30,0);     -- Coeurl Familiar +30 MAB
 INSERT INTO `mob_family_mods` VALUES (559,30,50,0);     -- Flytrap Familiar +50 MACC
@@ -512,6 +513,7 @@ INSERT INTO `mob_family_mods` VALUES (579,51,500,0);    -- Slug Familiar -50% Im
 INSERT INTO `mob_family_mods` VALUES (579,52,500,0);    -- Slug Familiar -50% H2H
 INSERT INTO `mob_family_mods` VALUES (579,49,700,0);    -- Slime Familiar -30% Slashing
 INSERT INTO `mob_family_mods` VALUES (582,63,30,0);     -- Snapweed Familiar +30% Def
+INSERT INTO `mob_family_mods` VALUES (582,389,-25,0);   -- Snapweed Familiar -25% MDT
 INSERT INTO `mob_family_mods` VALUES (569,62,10,0);     -- Raaz Familiar +10% Attack
 INSERT INTO `mob_family_mods` VALUES (569,63,-10,0);    -- Raaz Familiar -10% Def
 INSERT INTO `mob_family_mods` VALUES (575,63,-10,0);    -- Ladybug Familiar -10% Def

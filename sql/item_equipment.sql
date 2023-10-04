@@ -10563,6 +10563,14 @@ INSERT INTO `item_equipment` VALUES (21460,'matre_bell',1,0,1048576,113,0,0,4,0,
 INSERT INTO `item_equipment` VALUES (21461,'filiae_bell',99,0,1048576,113,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (21462,'eminent_bell',99,0,1048576,113,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (21463,'nepote_bell',99,0,1048576,113,0,0,4,0,0);
+INSERT INTO `item_equipment` VALUES (21464,'rancid_broth',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21465,'pungent_broth',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21466,'frizzante_broth',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21467,'spumante_broth',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21468,'zestful_sap',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21469,'gassy_sap',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21470,'decaying_broth',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21471,'putrescent_broth',75,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (21476,'doomsday',99,119,66560,123,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (21477,'atalanta',99,119,1024,61,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (21478,'moros_cross._+1',99,118,1024,62,0,0,4,0,0);
@@ -10573,6 +10581,9 @@ INSERT INTO `item_equipment` VALUES (21482,'compensator',99,119,65536,0,0,0,4,0,
 INSERT INTO `item_equipment` VALUES (21483,'malison',99,119,65536,0,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (21484,'malison_+1',99,119,65536,0,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (21485,'fomalhaut',99,119,66560,0,0,0,4,0,0);
+INSERT INTO `item_equipment` VALUES (21488,'pristine_sap',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21489,'t._pristine_sap',75,0,256,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (21490,'aged_humus',75,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (21492,'insipid_broth',75,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (21493,'deepwater_broth',75,0,256,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (21494,'wetlands_broth',75,0,256,0,0,0,8,0,0);
