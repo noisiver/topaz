@@ -9,9 +9,9 @@ require("scripts/globals/status")
 -----------------------------------
 local buffs =
 {
-    [45] = 'Protect III'
-    [50] = 'Shell III'
-    [110] = 'Regen II'
+    [45] = 'Protect III',
+    [50] = 'Shell III',
+    [110] = 'Regen II',
 }
 local storms = { 99, 113, 114, 115, 116, 117, 118, 119 }
 
