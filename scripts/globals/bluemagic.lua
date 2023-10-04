@@ -329,6 +329,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             hitslanded = hitslanded + 1
             -- increment target's TP (100TP per hit landed)
             local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+            printf("TP given: %d", tpGiven)
 	        target:addTP(tpGiven)
         end
 
@@ -520,6 +521,7 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+    printf("TP given: %d", tpGiven)
     target:addTP(tpGiven)
 
     return dmg
@@ -680,6 +682,7 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+    printf("TP given: %d", tpGiven)
     target:addTP(tpGiven)
     --printf("resist %i", resist*100)
     --printf("Correlation bonus: %i", correlation)
