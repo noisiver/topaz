@@ -1071,5 +1071,6 @@ function utils.CalculateSpellTPGiven(caster, target)
         TP = math.floor(TP * (100 + target:getMod(tpz.mod.STORETP)) / 10)
     end
     print(TP)
+    TP = 100 -- TODO: Fix formula
     return TP
 end
