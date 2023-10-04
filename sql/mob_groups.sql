@@ -11271,8 +11271,8 @@ INSERT INTO `mob_groups` VALUES (8575,3992,162,'Treasure_Chest',0,0,0,0,0,0,0,0)
 INSERT INTO `mob_groups` VALUES (1,1798,163,'Grav_iton',0,128,0,5000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (2,2729,163,'Molyb_iton',0,128,0,4700,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (3,4052,163,'Tungs_iton',0,128,0,4200,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (4,4674,163,'Tungs_itons_Elemental',0,128,0,5000,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (5,3970,163,'Tonberrys_Avatar',0,128,0,2400,0,57,58,0);
+INSERT INTO `mob_groups` VALUES (4,4674,163,'Tungs_itons_Elemental',0,128,0,5000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (5,3970,163,'Tonberrys_Avatar',0,128,0,2400,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (6,3425,163,'Sable-tongued_Gonberry',0,128,0,4000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (7,4235,163,'Virid-faced_Shanberry',0,128,0,4000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (8,877,163,'Cyaneous-toed_Yallberry',0,128,0,4000,0,65,65,0);
