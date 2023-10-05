@@ -905,6 +905,7 @@ namespace luautils
     int32 SpawnMob(lua_State* L)
     {
         TracyZoneScoped;
+        printf("line 908\n");
         if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
         {
             uint32 mobid = (uint32)lua_tointeger(L, 1);
@@ -915,12 +916,12 @@ namespace luautils
             {
                 CLuaInstance* PLuaInstance = Lunar<CLuaInstance>::check(L, 2);
                 PMob = (CMobEntity*)PLuaInstance->GetInstance()->GetEntity(mobid & 0xFFF, TYPE_MOB);
-                printf("line 918\n");
+                printf("line 919\n");
             }
             else if (((mobid >> 12) & 0x0FFF) < MAX_ZONEID)
             {
                 PMob = (CMobEntity*)zoneutils::GetEntity(mobid, TYPE_MOB);
-                printf("line 923\n");
+                printf("line 924\n");
             }
             if (PMob != nullptr)
             {
@@ -928,14 +929,14 @@ namespace luautils
                 if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
                 {
                     PMob->SetDespawnTime(std::chrono::seconds(lua_tointeger(L, 2)));
-                printf("line 931\n");
+                printf("line 932\n");
                 }
 
                 if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
                 {
                     PMob->m_RespawnTime = (uint32)lua_tointeger(L, 3) * 1000;
                     PMob->m_AllowRespawn = true;
-                    printf("line 938\n");
+                    printf("line 939\n");
                 }
                 else
                 {
@@ -963,6 +964,7 @@ namespace luautils
             }
             return 0;
         }
+        printf("line 967\n");
         lua_pushnil(L);
         return 1;
     }
@@ -980,29 +982,34 @@ namespace luautils
         {
             uint32 mobid = (uint32)lua_tointeger(L, 1);
             CMobEntity* PMob = nullptr;
-
+            printf("line 985\n");
             if (!lua_isnil(L, 2) && lua_isuserdata(L, 2))
             {
                 CLuaInstance* PLuaInstance = Lunar<CLuaInstance>::check(L, 2);
                 PMob = (CMobEntity*)PLuaInstance->GetInstance()->GetEntity(mobid & 0xFFF, TYPE_MOB);
+                printf("line 990\n");
             }
             else
             {
                 PMob = (CMobEntity*)zoneutils::GetEntity(mobid, TYPE_MOB);
+                printf("line 995\n");
             }
             if (PMob != nullptr)
             {
                 if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
                 {
                     PMob->SetDespawnTime(std::chrono::seconds(lua_tointeger(L, 2)));
+                    printf("line 1002\n");
                 }
                 else
                 {
                     PMob->PAI->Despawn();
+                    printf("line 1006\n");
                 }
             }
             return 0;
         }
+        printf("line 1012\n");
         lua_pushnil(L);
         return 1;
     }
