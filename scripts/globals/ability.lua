@@ -656,8 +656,17 @@ tpz.jobAbility =
     -- NONE            = 785,
     DISEMBOWEL         = 786,
     EXTIRPATING_SALVO  = 787,
+    FRENZIED_RAGE      = 790,
+    RHINOWRECKER       = 791,
+    FLUID_TOSS         = 792,
+    FLUID_SPREAD       = 793,
+    DIGEST             = 794,
+    CROSSTHREASH       = 795,
+    PREDATORY_GLARE    = 796,
+    HOOF_VOLLEY        = 797,
+    NIHILITY_SONG      = 798,
 
-    -- NONE      = 788 - 959,
+    -- NONE      = 799 - 959,
 
     CLARSACH_CALL      = 960,
     WELT               = 961,
