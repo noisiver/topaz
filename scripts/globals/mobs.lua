@@ -873,7 +873,7 @@ function GetAvailableMob(mob, table)
     return selectedMob
 end
 
-function SpawnMob(mob, player, mobId, aggro)
+function SpawnMobByID(mob, player, mobId, aggro)
     local spawns = GetMobByID(mobId)
 
     if (spawns ~= nil) and not spawns:isSpawned() then

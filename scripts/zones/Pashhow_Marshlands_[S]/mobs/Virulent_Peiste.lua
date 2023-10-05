@@ -20,7 +20,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or nokiller then
         if math.random(100) <= 5 then
             local selectedPixie = GetAvailableMob(mob, pixies)
-            SpawnMob(mob, player, selectedPixie, true)
+            SpawnMobByID(mob, player, selectedPixie, true)
             MessageGroup(mob, player, "A Pixie has appeared!", 0xD, none)
         end
     end
