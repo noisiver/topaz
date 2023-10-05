@@ -7770,7 +7770,7 @@ inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
     }
     else
     {
-        return 0;
+        lua_pushinteger(L, 0);
     }
 
     return 1;
