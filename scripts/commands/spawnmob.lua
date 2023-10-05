@@ -41,8 +41,9 @@ function onTrigger(player, mobId, despawntime, respawntime)
         error(player, "Invalid respawn time.")
         return
     end
-
-    SpawnMob(mobId, instance)
+    local mob = GetMobByID(mobId)
+    SpawnMob(mob, instance)
+    --GetMobByID(mobId):spawn()
     player:PrintToPlayer( string.format("Spawned %s %s.", targ:getName(), targ:getID()) )
     else
         -- validate mobId
@@ -68,7 +69,7 @@ function onTrigger(player, mobId, despawntime, respawntime)
             return
         end
 
-        SpawnMob( targ:getID(), despawntime, respawntime )
+        SpawnMob(GetMobByID(targ:getID()), despawntime, respawntime )
         player:PrintToPlayer( string.format("Spawned %s %s.", targ:getName(), targ:getID()) )
     end
 end
