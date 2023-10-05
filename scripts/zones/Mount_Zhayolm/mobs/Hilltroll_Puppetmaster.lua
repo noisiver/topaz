@@ -8,7 +8,9 @@ require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 function onMobEngaged(mob, target)
-    mob:useMobAbility(1901) -- Activate
+    if (not mob:hasPet() or mob:getPet() != nil) then
+        mob:useMobAbility(1901) -- Activate
+    end
 end
 
 function onMobDeath(mob)
