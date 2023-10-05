@@ -383,7 +383,7 @@ INSERT INTO `item_latents` VALUES(13245, 9, 3, 35, 0);      -- +3 DEX on Lightni
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(13246, 13, 3, 30, 0);     -- +3 MND on Watersday
 
-INSERT INTO `item_latents` VALUES(13248, 384, 800, 13, 4);
+INSERT INTO `item_latents` VALUES(13248, 160, -15, 13, 4); -- Flagellant's Rope While paralyzed: Damage taken -15%
 
 -- -------------------------------------------------------
 -- Royal Knight's Belt +1/+2
