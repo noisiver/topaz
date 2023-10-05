@@ -182,10 +182,14 @@ function onUseAbility(player, target, ability, action)
     pet:addHP(totalHealing)
     pet:wakeUp()
 
-    -- Apply regen tpz.effect.
-
-    pet:delStatusEffectSilent(tpz.effect.REGEN)
-    pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, regenTime) -- 3 = tick, each 3 seconds.
+    -- Add Beast Healer merits
+    regenAmount = regenAmount + player:getMerit(tpz.merit.BEAST_HEALER)
+    
+    -- Only apply regen if applying a stronger or equal effect
+    if (regenAmount => pet:getMod(tpz.mod.REGEN))
+        pet:delStatusEffectSilent(tpz.effect.REGEN)
+        pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, regenTime) -- 3 = tick, each 3 seconds.
+    end
     player:removeAmmo()
 
     pet:updateEnmityFromCure(pet, totalHealing)

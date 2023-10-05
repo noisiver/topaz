@@ -289,7 +289,7 @@ enum class Mod
     AMORPH_AFFINITY         = 2226,// Makes the entity a amorph
     LIZARD_AFFINITY         = 2227,// Makes the entity a lizard
     AQUAN_AFFINITY          = 2228,// Makes the entity a aquan
-    PLANTOID_AFFINITY       = 2229, // Makes the entity a plantoid
+    PLANTOID_AFFINITY       = 2229,// Makes the entity a plantoid
     BEAST_AFFINITY          = 2230,// Makes the entity a beast
     UNDEAD_AFFINITY         = 2231,// Makes the entity a undead
     ARCANA_AFFINITY         = 2232,// Makes the entity a arcana

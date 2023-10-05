@@ -4131,6 +4131,13 @@ int getSDTTier(int SDT)
             KillerEffect += PDoubtEffect->GetPower();
         }
 
+        // Add Killer effects merits
+        if (PDefender->objtype == TYPE_PC)
+        {
+            auto PChar = dynamic_cast<CCharEntity*>(PDefender);
+            KillerEffect += PChar->PMeritPoints->GetMeritValue(MERIT_KILLER_EFFECTS, PChar);
+        }
+
         return (tpzrand::GetRandomNumber(100) < KillerEffect);
     }
 

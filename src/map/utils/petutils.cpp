@@ -1148,7 +1148,6 @@ namespace petutils
 
         // Increase the pet's level calc by the bonus given by BEAST AFFINITY merits.
         CCharEntity* PChar = (CCharEntity*)PMaster;
-        highestLvl += PChar->PMeritPoints->GetMeritValue(MERIT_BEAST_AFFINITY, PChar);
         // TODO: Does not work properly
         // And cap it to the master's level or weapon ilvl, whichever is greater
         auto capLevel = PMaster->GetMLevel();
@@ -1159,6 +1158,9 @@ namespace petutils
 
         // Randomize: 0-2 lvls lower, less Monster Gloves(+1/+2) bonus
         highestLvl -= tpzrand::GetRandomNumber(3 - std::clamp<int16>(PChar->getMod(Mod::JUG_LEVEL_RANGE), 0, 2));
+
+        // Increase the pets level from merits
+        highestLvl += PChar->PMeritPoints->GetMeritValue(MERIT_BEAST_AFFINITY, PChar);
 
         PPet->SetMLevel(highestLvl);
         PPet->SetSLevel(highestLvl);

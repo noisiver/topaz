@@ -248,7 +248,7 @@ INSERT INTO `merits` VALUES (2500,'muted_soul',5,10,128,7,38);
 INSERT INTO `merits` VALUES (2502,'desperate_blows_effect',5,200,128,7,38);
 INSERT INTO `merits` VALUES (2560,'feral_howl',5,5,256,7,39);
 INSERT INTO `merits` VALUES (2562,'killer_instinct',5,10,256,7,39);
-INSERT INTO `merits` VALUES (2564,'beast_affinity',5,2,256,7,39);
+INSERT INTO `merits` VALUES (2564,'beast_affinity',5,1,256,7,39);
 INSERT INTO `merits` VALUES (2566,'beast_healer',5,1,256,7,39);
 INSERT INTO `merits` VALUES (2624,'nightingale',5,25,512,7,40);
 INSERT INTO `merits` VALUES (2626,'troubadour',5,25,512,7,40);
