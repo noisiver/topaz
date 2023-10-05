@@ -380,6 +380,8 @@ tpz.shop =
                 4466,       12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spicy Cracker
                 17016,      11,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Alpha Biscuit
                 17017,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Beta Biscuit
+                9251,      300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Roborant
+                19252,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Poultice
                 17860,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Carrot Broth
                 17861,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Famous Carrot Broth
                 17862,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bug Broth
