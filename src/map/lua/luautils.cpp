@@ -910,17 +910,15 @@ namespace luautils
             uint32 mobid = (uint32)lua_tointeger(L, 1);
 
             CMobEntity* PMob = nullptr;
-            printf("PMob %u\n", mobid);
+
             if (!lua_isnil(L, 2) && lua_isuserdata(L, 2))
             {
                 CLuaInstance* PLuaInstance = Lunar<CLuaInstance>::check(L, 2);
                 PMob = (CMobEntity*)PLuaInstance->GetInstance()->GetEntity(mobid & 0xFFF, TYPE_MOB);
-                printf("line 918\n");
             }
             else if (((mobid >> 12) & 0x0FFF) < MAX_ZONEID)
             {
                 PMob = (CMobEntity*)zoneutils::GetEntity(mobid, TYPE_MOB);
-                printf("line 923\n");
             }
             if (PMob != nullptr)
             {
@@ -928,21 +926,18 @@ namespace luautils
                 if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
                 {
                     PMob->SetDespawnTime(std::chrono::seconds(lua_tointeger(L, 2)));
-                printf("line 931\n");
                 }
 
                 if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
                 {
                     PMob->m_RespawnTime = (uint32)lua_tointeger(L, 3) * 1000;
                     PMob->m_AllowRespawn = true;
-                    printf("line 938\n");
                 }
                 else
                 {
                     if (!PMob->PAI->IsSpawned())
                     {
                         PMob->Spawn();
-                        printf("Spawn mob\n");
                     }
                     else
                     {
