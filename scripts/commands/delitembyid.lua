@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- func: delitem
+-- func: delitembyid
 -- desc: Deletes a single item held by a player, if they have it.
 ---------------------------------------------------------------------------------------------------
 
@@ -13,18 +13,10 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!delitem <itemID> {player}")
+    player:PrintToPlayer("!delitembyid <itemID> {player}")
 end
 
-function onTrigger(player, name, target)
-
-    -- validate itemId
-    if (name == nil or tostring(name) == nil) then
-        error(player, "Invalid name.")
-        return
-    end
-    
-    local itemId = GetItemIDByName(name)
+function onTrigger(player, itemId, target)
 
     -- validate itemId
     if (itemId == nil or itemId < 1) then
