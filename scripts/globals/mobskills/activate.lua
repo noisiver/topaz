@@ -16,9 +16,12 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    mob:spawnPet()
-
+    local pet = GetMobByID(mob:getID() +1)
+    local mobX = mob:getXPos()
+    local mobY = mob:getYPos()
+    local mobZ = mob:getZPos()
+    pet:spawn()
+    pet:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
     skill:setMsg(tpz.msg.basic.NONE)
 
     return 0
