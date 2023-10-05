@@ -7761,12 +7761,16 @@ inline int32 CLuaBaseEntity::setMerits(lua_State *L)
 inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype = TYPE_NPC);
 
     if (m_PBaseEntity->objtype == TYPE_PC)
     {
         CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
         lua_pushinteger(L, PChar->PJobPoints->GetJobPointValue((JOBPOINT_TYPE)lua_tointeger(L, 1)));
+    }
+    else
+    {
+        return 0;
     }
 
     return 1;
