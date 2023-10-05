@@ -120,16 +120,19 @@ bool CMagicState::Update(time_point tick)
             m_interrupted = true;
         }
 
-        if (PTarget->objtype == TYPE_PC)
+        if (PTarget != nullptr)
         {
-            CCharEntity* PChar = static_cast<CCharEntity*>(m_PEntity);
-            if (PChar->status == STATUS_CUTSCENE_ONLY || PChar->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+            if (PTarget->objtype == TYPE_PC)
             {
-                m_interrupted = true;
-            }
-            if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
-            {
-                m_interrupted = true;
+                CCharEntity* PChar = static_cast<CCharEntity*>(m_PEntity);
+                if (PChar->status == STATUS_CUTSCENE_ONLY || PChar->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+                {
+                    m_interrupted = true;
+                }
+                if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
+                {
+                    m_interrupted = true;
+                }
             }
         }
 
