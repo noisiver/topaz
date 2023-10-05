@@ -1238,7 +1238,7 @@ function finalMagicAdjustments(caster, target, spell, dmg)
         -- Only add TP if the target is a mob
         if (target:getObjType() ~= tpz.objType.PC) then
             local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-            printf("TP given: %d", tpGiven)
+            -- printf("TP given: %d", tpGiven)
             target:addTP(tpGiven)
         end
     end
@@ -2192,7 +2192,7 @@ function JobPointsMacc(caster, target, spell)
 
                 -- RDM Job Point: Magic Accuracy Bonus, All MACC + 1
                 local jobPoints = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
-                printf("Job Points MACC %d", jobPoints)
+                -- printf("Job Points MACC %d", jobPoints)
                 jpMaccBonus = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
             end,
 
@@ -2792,7 +2792,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Calculate duration bonuses
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
-    printf("Final Duration %d", finalDuration)
+    -- printf("Final Duration %d", finalDuration)
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
