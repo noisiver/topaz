@@ -633,7 +633,7 @@ bool CMobController::TryCastSpell()
         // skip logic and follow script
         auto chosenSpellId = luautils::OnMonsterMagicPrepare(PMob, PTarget);
         CSpell* PSpell = spell::GetSpell(chosenSpellId.value());
-        if (chosenSpellId && currentDistance <= PSpell->getRange())
+        if (chosenSpellId)
         {
             CastSpell(chosenSpellId.value());
             return true;
