@@ -6843,7 +6843,7 @@ INSERT INTO `mob_droplist` VALUES (1310,0,0,1000,2711,50);
 INSERT INTO `mob_droplist` VALUES (1310,0,0,1000,16166,90);
 INSERT INTO `mob_droplist` VALUES (1310,0,0,1000,18409,130);
 INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2160,50);      -- Hilltroll Puppetmaster (Troll Pauldron)
-INSERT INTO `mob_droplist` VALUES (1311,1,1,1000,2238,125);     -- Strobe
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2238,125);      -- Strobe
 INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2244,125);      -- Scanner
 INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2248,125);      -- Pattern Reader
 INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2252,125);      -- Analyzer
