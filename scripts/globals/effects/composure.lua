@@ -10,7 +10,7 @@ function onEffectGain(target, effect)
      local jpValue = target:getJobPointLevel(tpz.jp.COMPOSURE_EFFECT)
 
     target:addMod(tpz.mod.ACC, 15 + jpValue)
-    target:addMod(tpz.mod.ENSPELL_MACC, 30)
+    target:addMod(tpz.mod.ENSPELL_MACC, 15 + jpValue)
 end
 
 function onEffectTick(target, effect)
@@ -20,5 +20,5 @@ function onEffectLose(target, effect)
     local jpValue = target:getJobPointLevel(tpz.jp.COMPOSURE_EFFECT)
 
     target:delMod(tpz.mod.ACC, 15 + jpValue)
-    target:delMod(tpz.mod.ENSPELL_MACC, 30)
+    target:delMod(tpz.mod.ENSPELL_MACC, 15 + jpValue)
 end
