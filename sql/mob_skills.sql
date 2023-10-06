@@ -959,12 +959,12 @@ INSERT INTO `mob_skills` VALUES (1013,714,'perfect_dodge',0,7.0,2000,0,1,2,0,0,0
 INSERT INTO `mob_skills` VALUES (1014,715,'invincible',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1015,716,'blood_weapon',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1016,717,'familiar',0,7.0,2000,0,1,2,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1017,718,'call_beast',0,7.0,2000,0,1,4,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1017,718,'call_beast',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1018,719,'soul_voice',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1019,720,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1020,721,'meikyo_shisui',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1021,722,'mijin_gakure',1,20.0,2000,0,4,2,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1022,723,'call_wyvern',0,7.0,2000,0,1,4,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1022,723,'call_wyvern',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1023,724,'astral_flow_pet',0,7.0,2000,0,1,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1024,725,'warp_out',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1025,726,'warp_in',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1848,7 +1848,7 @@ INSERT INTO `mob_skills` VALUES (1897,1244,'diamondhide',1,15.0,2000,1500,1,0,0,
 INSERT INTO `mob_skills` VALUES (1898,1245,'enervation',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1899,1246,'quake_stomp',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1900,1247,'healing_stomp',1,15.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1901,505,'activate',0,7.0,2000,0,1,4,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1901,505,'activate',0,7.0,2000,0,1,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1902,1646,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1903,915,'camisado',0,10.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1904,1126,'somnolence',4,15.0,2000,3000,4,0,0,0,0,0,0);
