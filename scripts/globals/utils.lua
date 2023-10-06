@@ -1063,10 +1063,11 @@ function utils.CalculateSpellTPGiven(caster, target)
     local TP = 100
     -- Add casters Subtle Blow
     local sBlowReduction = math.floor(100 * sBlowMult / 100)
+    -- Remove TP given from subtle blow
     TP = TP - sBlowReduction
-    print(TP)
+
     -- Add targets Store TP
     TP = math.floor(TP * (100 + target:getMod(tpz.mod.STORETP)) / 100)
-    print(TP)
+
     return TP
 end
