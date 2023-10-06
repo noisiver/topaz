@@ -8,7 +8,7 @@ require("scripts/globals/status")
 cmdprops =
 {
     permission = 1,
-    parameters = "is"
+    parameters = "ss"
 }
 
 function error(player, msg)
