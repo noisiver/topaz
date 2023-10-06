@@ -36,7 +36,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
     if damage > 0 and resist >= 0.5 then
         local duration = (tp/1000 * 30) + 60
-        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 50, tpz.effect.CHOKE)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, params.bonusmacc, tpz.effect.CHOKE)
         if not target:hasStatusEffect(tpz.effect.CHOKE) and not target:hasStatusEffect(tpz.effect.FROST) then
             target:addStatusEffect(tpz.effect.CHOKE, 10, 3, duration * resist)
         end
