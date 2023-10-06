@@ -114,7 +114,7 @@ INSERT INTO `mob_skills` VALUES (101,66,'vorpal_scythe',0,5.0,2000,0,4,0,0,0,1,4
 INSERT INTO `mob_skills` VALUES (102,67,'guillotine',0,5.0,2000,0,4,0,0,0,7,0,0);
 INSERT INTO `mob_skills` VALUES (103,68,'cross_reaper',0,5.0,2000,0,4,0,0,0,10,0,0);
 INSERT INTO `mob_skills` VALUES (104,69,'spiral_hell',0,5.0,2000,1,4,0,0,0,10,4,0);
-INSERT INTO `mob_skills` VALUES (114,114,'phantom_roll',0,10.0,2000,0,1,68,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (114,114,'phantom_roll',0,10.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (112,121,'double_thrust',0,5.0,2000,0,4,0,0,0,1,0,0);
 INSERT INTO `mob_skills` VALUES (113,122,'thunder_thrust',0,5.0,2000,0,4,0,0,0,1,8,0);
 -- INSERT INTO `mob_skills` VALUES (114,123,'raiden_thrust',0,5.0,2000,0,4,0,0,0,1,8,0);
