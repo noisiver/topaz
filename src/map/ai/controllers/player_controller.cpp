@@ -159,7 +159,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
                 return false;
             }
             // Make sure pet is engaged when trying to use ready moves
-            if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_EXTIRPATING_SALVO)
+            if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_NIHILITY_SONG)
             {
                 CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
                 if (!PPet->PAI->IsEngaged())

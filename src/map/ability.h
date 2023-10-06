@@ -687,7 +687,7 @@ enum ABILITY
 
 };
 
-#define MAX_ABILITY_ID  970
+#define MAX_ABILITY_ID  2000
 
 struct Charge_t
 {

@@ -641,9 +641,9 @@ INSERT INTO `abilities` VALUES (748,'corrosive_ooze',9,25,257,3,102,0,0,0,2000,0
 INSERT INTO `abilities` VALUES (749,'back_heel',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (750,'jettatura',9,25,257,3,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (751,'choke_breath',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
-INSERT INTO `abilities` VALUES (752,'fantod',9,25,257,2,103,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (752,'fantod',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (753,'tortoise_stomp',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
-INSERT INTO `abilities` VALUES (754,'harden_shell',9,25,257,1,103,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (754,'harden_shell',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (755,'aqua_breath',9,25,257,3,102,1,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (756,'wing_slap',9,25,257,2,102,0,1,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (757,'beak_lunge',9,25,257,1,102,0,1,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
@@ -673,7 +673,7 @@ INSERT INTO `abilities` VALUES (779,'spider_web',9,25,257,2,102,0,0,0,2000,0,6,1
 -- INSERT INTO `abilities` VALUES (781,'infected_leech',9,25,257,1,102,0,0,0,2000,0,6,18.0,1,1,60,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (782,'gloom_spray',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (786,'disembowel',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (787,'extirpating_salvo',22,1,1,2,300,0,002000,0,6,20.0,0,1,60,0,0,NULL,0);
+-- INSERT INTO `abilities` VALUES (787,'extirpating_salvo',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (790,'frenzied_rage',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (791,'rhinowrecker',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (792,'fluid_toss',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
