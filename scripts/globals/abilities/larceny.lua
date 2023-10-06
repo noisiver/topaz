@@ -58,7 +58,7 @@ function onUseAbility(player, target, ability, action)
     end
 
     if effectID == 0 then
-        action:setAnimation(target:getID(), 182)
+        action:animation(target:getID(), 182)
         ability:setMsg(tpz.msg.basic.STEAL_FAIL)
     end
 
