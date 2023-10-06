@@ -20,7 +20,7 @@ g_mixins.weapon_break = function(mob)
 
         -- Change troll MNK and PUPs to animation sub 1 for TP moves to work correctly
         local isMNK = mob:getMainJob() == tpz.job.MNK
-        local isPUP mob:getMainJob() == tpz.job.PUP
+        local isPUP = mob:getMainJob() == tpz.job.PUP
         local isTroll = false
         if (mob:getFamily() == 246) or (mob:getFamily() == 308) or (mob:getFamily() == 923) then
             isTroll = true
