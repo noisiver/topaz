@@ -16,7 +16,7 @@ CREATE TABLE `abilities` (
   `level` tinyint(2) unsigned NOT NULL DEFAULT '0',
   `validTarget` smallint(3) unsigned NOT NULL DEFAULT '0',
   `recastTime` smallint(5) unsigned NOT NULL DEFAULT '0', -- Charge count used for ready TP moves
-  `recastId` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `recastId` smallint(5) unsigned NOT NULL DEFAULT '0', -- Needs to be changed for charge moves(i.e. ready moves / stratagems)
   `message1` smallint(5) unsigned NOT NULL DEFAULT '0',
   `message2` smallint(5) unsigned NOT NULL DEFAULT '0',
   `animation` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -44,7 +44,7 @@ INSERT INTO `abilities` VALUES (17,'hundred_fists',2,0,1,7200,0,0,0,34,2000,0,6,
 INSERT INTO `abilities` VALUES (18,'benediction',3,0,1,7200,0,102,0,35,2000,0,6,20.0,1,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (19,'manafont',4,0,1,7200,0,0,0,36,2000,0,6,20.0,0,1,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (20,'chainspell',5,0,1,7200,0,0,0,37,2000,0,6,20.0,0,1,0,0,0,NULL,0);
-INSERT INTO `abilities` VALUES (21,'perfect_dodge',6,0,1,7200,0,0,0,38,2000,0,6,20.0,0,1,0,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (21,'perfect_dodge',6,0,1,60,0,0,0,38,2000,0,6,20.0,0,1,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (22,'invincible',7,0,1,7200,0,0,0,18,2000,0,6,20.0,0,1,7200,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (23,'blood_weapon',8,0,1,7200,0,0,0,19,2000,0,6,20.0,0,1,300,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (24,'familiar',9,0,1,7200,0,0,0,39,2000,0,6,20.0,0,0,0,0,0,NULL,0);
@@ -371,7 +371,7 @@ INSERT INTO `abilities` VALUES (324,'inner_strength',2,96,1,7200,254,100,0,272,2
 INSERT INTO `abilities` VALUES (325,'asylum',3,96,1,7200,254,100,0,273,2000,0,6,0.0,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (326,'subtle_sorcery',4,60,1,300,254,0,0,274,2000,0,6,0.0,0,0,0,0,4,NULL,0);
 INSERT INTO `abilities` VALUES (327,'stymie',5,75,1,600,254,100,0,275,2000,0,6,20.0,0,1,80,0,0,'SOA',0);
-INSERT INTO `abilities` VALUES (328,'larceny',6,96,4,7200,254,100,0,276,2000,0,6,4.0,0,0,0,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (328,'larceny',6,1,4,7200,254,100,0,276,2000,0,6,4.0,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (329,'intervene',7,96,4,7200,254,100,0,277,2000,0,6,4.0,1,0,340,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (330,'soul_enslavement',8,96,1,7200,254,100,0,278,2000,0,6,0.0,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (331,'unleash',9,96,1,7200,254,100,0,279,2000,0,6,0.0,0,0,0,0,0,NULL,0); -- check animation
