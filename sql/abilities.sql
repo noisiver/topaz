@@ -670,19 +670,23 @@ INSERT INTO `abilities` VALUES (777,'sickle_slash',9,25,257,1,102,0,0,0,2000,0,6
 INSERT INTO `abilities` VALUES (778,'acid_spray',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (779,'spider_web',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (780,'regal_gash',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (781,'infected_leech',9,25,257,1,102,0,0,0,2000,0,6,18.0,1,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (782,'gloom_spray',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (786,'disembowel',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (787,'extirpating_salvo',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (790,'frenzied_rage',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (791,'rhinowrecker',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (792,'fluid_toss',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (793,'fluid_spread',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (794,'digest',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (795,'crossthrash',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (796,'predatory_glare',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (797,'hoof_volley',9,25,257,3,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
--- INSERT INTO `abilities` VALUES (798,'nihility_song',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (781,'infected_leech',9,25,257,1,102,0,0,0,2000,0,6,18.0,1,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (782,'gloom_spray',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (786,'disembowel',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (787,'extirpating_salvo',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+
+INSERT INTO `abilities` VALUES (788,'venom_shower',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (789,'mega_scissors',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+
+INSERT INTO `abilities` VALUES (790,'frenzied_rage',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (791,'rhinowrecker',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (792,'fluid_toss',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (793,'fluid_spread',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (794,'digest',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (795,'crossthrash',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (796,'predatory_glare',9,25,257,2,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (797,'hoof_volley',9,25,257,3,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (798,'nihility_song',9,25,257,1,102,0,0,0,2000,0,6,18.0,0,1,60,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (960,'clarsach_call',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (961,'welt',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL,0);
 -- INSERT INTO `abilities` VALUES (962,'katabatic_blades',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL,0);

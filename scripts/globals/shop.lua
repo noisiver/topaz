@@ -429,6 +429,7 @@ tpz.shop =
                 17911,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Salubrious Broth
                 21438,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Poisonous Broth
                 21450,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Electrified Broth
+                21464,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Rancid Broth
                 17912,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Fizzy Broth
                 21468,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Broth
         },
