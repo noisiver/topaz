@@ -71,7 +71,7 @@ end
 
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REFRESH, 300)
+    SetGenericNMStats(mob)
 	mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
     local now = os.time()
     mob:addStatusEffectEx(tpz.effect.SHOCK_SPIKES, 0, 60, 0, 0) -- ~60 damage
