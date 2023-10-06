@@ -6,6 +6,7 @@ local ID = require("scripts/zones/Bearclaw_Pinnacle/IDs")
 require("scripts/globals/titles");
 require("scripts/globals/status");
 require("scripts/globals/player")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(150)
@@ -14,6 +15,9 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:AnimationSub(4) -- starting animationSub
     mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobEngaged(mob, target)   

@@ -14,7 +14,10 @@ end
 function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
     mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.DEFP, 20)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobFight(mob, target)

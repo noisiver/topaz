@@ -4,6 +4,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Sealions_Den/IDs")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function defeated(mob)
@@ -18,16 +19,14 @@ function defeated(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setDamage(150)
-	mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 50) 
-    mob:addMod(tpz.mod.EVA, 20)
-    mob:setMod(tpz.mod.REFRESH, 40)
+    SetGenericNMStats(mob)
     mob:setLocalVar("progress", 100)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.UDMGBREATH, -100)
     mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 10)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobEngaged(mob,target)

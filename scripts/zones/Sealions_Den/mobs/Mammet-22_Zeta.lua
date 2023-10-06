@@ -8,8 +8,10 @@ require("scripts/globals/titles");
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
-    mob:setMod(tpz.mod.REFRESH, 40)
-	mob:addMod(tpz.mod.MDEF, 12) 
+	mob:addMod(tpz.mod.MDEF, 12)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobSpawn(mob)
