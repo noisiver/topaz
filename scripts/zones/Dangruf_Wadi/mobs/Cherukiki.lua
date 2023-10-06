@@ -7,17 +7,8 @@ local ID = require("scripts/zones/Dangruf_Wadi/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/magic")
 -----------------------------------
-local spells =
-{
-    CURE_V      = 5,
-    PROTECT_V   = 47,
-    SHELL_V     = 52,
-    HASTE       = 57,
-    REGEN_III   = 111,
-    PROTECTRA_V = 129,
-    SHELLRA_V   = 134,
-}
 function onMobInitialize(mob)
 end
 
@@ -48,8 +39,8 @@ function onMobFight(mob, target)
             MessageGroup(mob, target, "Chebukki Sumo Siblings!", 0, "Kukki-Chebukki")
             MessageGroup(mob, target, "Samurai Sky Pirate Power!", 0, "Makki-Chebukki")
             mob:useMobAbility(tpz.jsa.BENEDICTION)
-            mob:castSpell(spells.PROTECTRA_V, mob)
-            mob:castSpell(spells.SHELLRA_V, mob)
+            mob:castSpell(tpz.magic.spell.PROTECTRA_V, mob)
+            mob:castSpell(tpz.magic.spell.SHELLRA_V, mob)
             mob:setLocalVar("phase", 2)
         end
     end
@@ -104,10 +95,10 @@ end
 function GetBestSpell(mob)
     local buffs =
     {
-        tpz.effect.SHELL    = spells.SHELL_V,
-        tpz.effect.PROTECT  = spells.PROTECT_V,
-        tpz.effect.HASTE    = spells.HASTE,
-        tpz.effect.REGEN    = spells.REGEN_III
+        tpz.effect.SHELL    = tpz.magic.spell.SHELL_V,
+        tpz.effect.PROTECT  = tpz.magic.spell.PROTECT_V,
+        tpz.effect.HASTE    = tpz.magic.spell.HASTE,
+        tpz.effect.REGEN    = tpz.magic.spell.REGEN_III
     }
 
     local makki = mob:getID() +1
@@ -115,7 +106,7 @@ function GetBestSpell(mob)
     for v = makki, kukki do
         -- Try to Cure if their HP is below 75%
         if (v:getHPP() <= 75) then
-            return spells.CURE_V
+            return tpz.magic.spell.CURE_V
         end
         -- Check for buffs if their HP is ok
         for _, buffs in pairs(buffIds) do
