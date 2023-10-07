@@ -34,5 +34,5 @@ function onUseAbility(player, target, ability)
     end
 
     -- Display amount of effects copied
-    MessageGroup(player, player, numberOfEffects .. " effects copied to " .. player:getName() .. "'s pet.", tpz.msg.textColor.GREEN, 0)
+    MessageGroup(player, player, numberOfEffects .. " effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
 end
