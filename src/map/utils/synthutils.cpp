@@ -35,6 +35,7 @@
 #include "../packets/synth_animation.h"
 #include "../packets/synth_message.h"
 #include "../packets/synth_result.h"
+#include "../status_effect_container.h"
 
 #include "../item_container.h"
 #include "../map.h"
@@ -788,6 +789,7 @@ int32 startSynth(CCharEntity* PChar)
 
     if(PChar->loc.zone->GetID() != 255 && PChar->loc.zone->GetID() != 0)
     {
+        PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
         PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CSynthAnimationPacket(PChar,effect,result));
     }
     else
