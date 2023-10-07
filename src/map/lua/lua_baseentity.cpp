@@ -13658,7 +13658,7 @@ inline int32 CLuaBaseEntity::hasValidJugPetItem(lua_State* L)
 
     CItemWeapon* PItem = static_cast<CItemWeapon *>(static_cast<CCharEntity *>(m_PBaseEntity)->getEquip(SLOT_AMMO));
 
-    if (PItem != nullptr && PItem->getSubSkillType() >= SUBSKILL_SHEEP && PItem->getSubSkillType() <= SUBSKILL_TOLOI)
+    if (PItem != nullptr && PItem->getSubSkillType() >= SUBSKILL_SHEEP && PItem->getSubSkillType() <= SUBSKILL_SEFINA)
     {
         lua_pushboolean(L, true);
         return 1;
