@@ -8,6 +8,7 @@
 require("scripts/globals/common")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -31,7 +32,7 @@ function onUseAbility(player, target, ability)
             pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.ceil((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
         end
     end
-    -- TODO: Msg
-    -- skill:setMsg(tpz.msg.COPIED)
-    -- return numberOfEffects
+
+    -- Display amount of effects copied
+    MessageGroup(player, player, numberOfEffects .. " effects copied to " .. player:getName() .. "'s pet.", tpz.msg.textColor.GREEN, 0)
 end
