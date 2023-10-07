@@ -93,12 +93,12 @@ function TryCastSpell(mob)
 end
 
 function GetBestSpell(mob)
-    local buffs =
+    local buffIds =
     {
-        tpz.effect.SHELL    = tpz.magic.spell.SHELL_V,
-        tpz.effect.PROTECT  = tpz.magic.spell.PROTECT_V,
-        tpz.effect.HASTE    = tpz.magic.spell.HASTE,
-        tpz.effect.REGEN    = tpz.magic.spell.REGEN_III
+        { tpz.effect.SHELL, tpz.magic.spell.SHELL_V },
+        { tpz.effect.PROTECT, tpz.magic.spell.PROTECT_V },
+        { tpz.effect.HASTE, tpz.magic.spell.HASTE },
+        { tpz.effect.REGEN, tpz.magic.spell.REGEN_III }
     }
 
     local makki = mob:getID() +1
