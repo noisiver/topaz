@@ -303,7 +303,7 @@ INSERT INTO `abilities` VALUES (246,'afflatus_misery',3,40,1,60,30,0,0,217,2000,
 INSERT INTO `abilities` VALUES (247,'composure',5,15,1,300,50,0,0,215,2000,0,6,20.0,0,1,80,0,4,'WOTG',0);		-- changed from lvl 40
 INSERT INTO `abilities` VALUES (248,'yonin',13,40,1,60,146,0,0,218,2000,0,6,20.0,0,1,600,0,4,'WOTG',0);
 INSERT INTO `abilities` VALUES (249,'innin',13,15,1,60,147,0,0,219,2000,0,6,20.0,0,1,60,0,4,'WOTG',0);
-INSERT INTO `abilities` VALUES (250,'avatars_favor',15,60,1,300,176,0,0,94,2000,0,6,10.0,1,1,80,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (250,'avatars_favor',15,60,257,300,176,0,0,94,2000,0,6,20.5,1,1,80,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (251,'ready',9,10,1,0,102,0,0,83,2000,0,6,18.0,0,0,0,902,64,NULL,0);
 INSERT INTO `abilities` VALUES (252,'restraint',1,40,1,600,9,100,0,220,2000,0,6,20.0,0,450,900,0,4,NULL,0);
 INSERT INTO `abilities` VALUES (253,'perfect_counter',2,30,1,30,22,100,0,221,2000,0,6,20.0,0,1,80,0,0,NULL,0);
@@ -345,7 +345,7 @@ INSERT INTO `abilities` VALUES (291,'issekigan',13,65,1,300,57,0,0,246,2000,0,6,
 INSERT INTO `abilities` VALUES (292,'dragon_breaker',14,65,4,60,58,320,0,236,2000,0,6,8.0,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (293,'soul_jump',14,85,4,120,167,100,0,209,2000,0,6,7.0,0,1,0,1220,0,NULL,0); -- check animation
 -- INSERT INTO `abilities` VALUES (295,'steady_wing',14,95,1,300,70,100,0,262,2000,0,6,0.0,0,0,0,0,0,NULL,0);
-INSERT INTO `abilities` VALUES (296,'mana_cede',15,50,1,60,71,100,0,241,2000,0,6,8.0,0,0,0,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (296,'mana_cede',15,50,257,60,71,100,0,241,2000,0,6,20.5,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (297,'efflux',16,60,1,180,185,100,0,256,2000,0,6,0.0,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (298,'unbridled_learning',16,75,1,300,81,100,0,263,2000,0,6,0.0,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (301,'triple_shot',17,30,1,300,467,100,0,242,2000,0,6,0.0,0,0,0,0,4,NULL,0);
@@ -430,7 +430,7 @@ INSERT INTO `abilities` VALUES (383,'vivacious_pulse',22,65,1,60,242,102,0,327,2
 INSERT INTO `abilities` VALUES (384,'contradance',19,50,1,300,229,0,0,81,2000,0,6,0.0,0,0,0,0,0,NULL,0); -- check animation
 INSERT INTO `abilities` VALUES (385,'apogee',15,70,1,90,108,100,0,94,2000,0,6,0.0,0,1,80,0,0,'SOA',0);
 INSERT INTO `abilities` VALUES (386,'entrust',21,75,1,600,93,100,0,332,2000,0,6,0.0,0,1,300,0,0,'SOA',0);
-INSERT INTO `abilities` VALUES (387,'bestial_loyalty',9,23,1,60,94,100,0,83,2000,0,6,18.0,0,1,0,900,4,'SOA',0);
+INSERT INTO `abilities` VALUES (387,'bestial_loyalty',9,23,257,60,94,100,0,83,2000,0,6,11.5,0,1,0,900,4,'SOA',0);
 INSERT INTO `abilities` VALUES (388,'cascade',4,5,1,60,12,100,0,336,2000,0,6,0.0,0,0,0,0,4,NULL,0); -- check animation
 INSERT INTO `abilities` VALUES (389,'consume_mana',8,55,1,60,95,0,0,337,2000,0,6,0.0,0,1,1300,0,0,'SOA',0);
 INSERT INTO `abilities` VALUES (390,'naturalists_roll',17,67,1,60,193,420,0,328,2000,0,6,8.0,1,1,80,0,8,'SOA',0); -- No Enhancing Magic Duration MOD, Empty PH effect exists
