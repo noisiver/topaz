@@ -33,4 +33,14 @@ function onUseAbility(player, target, ability)
     else
         ability:setMsg(tpz.msg.basic.CANNOT_CHARM)          -- The <player> cannot charm <target>!
     end
+
+    -- Display targets stats
+    local att   = target:getStat(tpz.mod.ATT)
+    local acc   = target:getACC()
+    local def   = target:getStat(tpz.mod.DEF)
+    local eva   = target:getEVA()
+    local chr   = target:getStat(tpz.mod.CHR)
+    local mobName = target:getName()
+    mobName = string.gsub(mobName, '_', ' ');
+    MessageGroup(player, player, mobName .. "'s" .. " Attack: " .. att ..  " Accuracy: " .. acc ..  " Defense: " .. def ..  " Evasion: " .. eva ..  " CHR: " .. chr .. ".", tpz.msg.textColor.GREEN, 0)
 end
