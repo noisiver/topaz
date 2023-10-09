@@ -37,7 +37,7 @@ function onTrigger(player, allegiance, target)
     end
 
     local jobNameByNum = {}
-    for k, v in pairs(xi.job) do
+    for k, v in pairs(tpz.job) do
         jobNameByNum[v] = k
     end
 
