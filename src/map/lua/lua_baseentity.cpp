@@ -7659,6 +7659,27 @@ inline int32 CLuaBaseEntity::addExp(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: addCapacityPoints()
+ *  Purpose : Sets the merit points for a player to a specified amount
+ *  Example : player:setMerits(30)
+ *  Notes   : Used in GM command and Nomad Moogle for Genkai quest
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::addCapacityPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+    auto capacity = (uint32)lua_tointeger(L, 1);
+
+    charutils::AddCapacityPoints(PChar, m_PBaseEntity,  capacity, 0, false);
+    return 0;
+}
+
+/************************************************************************
 *  Function: delExp()
 *  Purpose : Takes XP from a player
 *  Example : player:delExp(amount)
@@ -7752,6 +7773,59 @@ inline int32 CLuaBaseEntity::setMerits(lua_State *L)
     return 0;
 }
 
+
+/************************************************************************
+ *  Function: getSpentJobPoints()
+ *  Purpose : Returns the current value a specific job point
+ *  Example : player:getJobPointLevel(JP_MIGHTY_STRIKES_EFFECT)
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getSpentJobPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype = TYPE_NPC);
+
+    if (m_PBaseEntity->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+        if (PChar->GetMLevel() < 99) // account for Level Sync
+        {
+            lua_pushinteger(L, 0);
+        }
+        lua_pushinteger(L, PChar->PJobPoints->GetJobPointsSpent());
+    }
+    else
+    {
+        lua_pushinteger(L, 0);
+    }
+
+    return 1;
+}
+
+/************************************************************************
+ *  Function: setCapacityPoints()
+ *  Purpose : Sets the merit points for a player to a specified amount
+ *  Example : player:setMerits(30)
+ *  Notes   : Used in GM command and Nomad Moogle for Genkai quest
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setCapacityPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+
+    PChar->PMeritPoints->SetMeritPoints((uint8)lua_tointeger(L, 1));
+
+    PChar->pushPacket(new CMenuMeritPacket(PChar));
+
+    charutils::SaveCharExp(PChar, PChar->GetMJob());
+    return 0;
+}
+
 /************************************************************************
  *  Function: getJobPointLevel()
  *  Purpose : Returns the current value a specific job point
@@ -7784,6 +7858,26 @@ inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
  ************************************************************************/
 
 inline int32 CLuaBaseEntity::setJobPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+
+    PChar->PJobPoints->SetJobPoints(lua_tointeger(L, 1));
+    PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: masterJob()
+ *  Purpose : Sets the job points for a player to a specified amount
+ *  Example : player:setJobPoints(30)
+ *  Notes   : Used in GM command
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::masterJob(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
@@ -16625,8 +16719,13 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMerit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMeritCount),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMerits),
+
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getSpentJobPoints),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,addCapacityPoints),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setCapacityPoints),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getJobPointLevel),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setJobPoints),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,masterJob),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getGil),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addGil),
