@@ -32,6 +32,10 @@ function onUseAbility(player, target, ability)
             for _, petEffect in ipairs(petEffects) do
                 local currentPower = petEffect:getPower()
                 local newPower = playerEffect:getPower()
+
+                -- Convert nils to 0 power
+                if (currentPower == nil) then (currentPower = 0) end
+
                 if (newPower > currentPower) then
                     numberOfEffects = numberOfEffects + 1
                     pet:addStatusEffect(playerEffect:getType(), playerEffect:getPower(), playerEffect:getTick(), math.ceil((playerEffect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
