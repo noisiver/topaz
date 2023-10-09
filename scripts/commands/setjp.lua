@@ -13,7 +13,7 @@ function error(player, msg)
     player:PrintToPlayer("!setcp <setjobpoints> <player>")
 end
 
-function onTrigger(player, allegiance, target)
+function onTrigger(player, amount, target)
     -- validate amount
     if amount == nil or amount < 0 then
         error(player, 'Invalid amount.')

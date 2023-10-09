@@ -7842,7 +7842,7 @@ inline int32 CLuaBaseEntity::setCapacityPoints(lua_State* L)
 
     CCharEntity* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
 
-    PChar->PJobPoints->SetCapacityPoints((uint8)lua_tointeger(L, 1));
+    PChar->PJobPoints->SetCapacityPoints((uint16)lua_tointeger(L, 1));
     PChar->pushPacket(new CMenuJobPointsPacket(PChar));
     return 0;
 }
@@ -7861,7 +7861,7 @@ inline int32 CLuaBaseEntity::setJobPoints(lua_State* L)
 
     CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
 
-    PChar->PJobPoints->SetJobPoints((uint8)lua_tointeger(L, 1));
+    PChar->PJobPoints->SetJobPoints((int16)lua_tointeger(L, 1));
     PChar->pushPacket(new CMenuJobPointsPacket(PChar));
 
     return 0;
