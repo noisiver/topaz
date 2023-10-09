@@ -23,8 +23,8 @@ end
 function onUseAbility(player, target, ability)
     local pet = player:getPet()
     local numberOfEffects = 0
-    local playereEffects = player:getStatusEffects()
-    for _, playerEffect in ipairs(playereEffects) do
+    local playerEffect = player:getStatusEffects()
+    for _, playerEffect in ipairs(playerEffect) do
         local effectFlags = playerEffect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.DISPELABLE) == tpz.effectFlag.DISPELABLE) or (bit.band(effectFlags, tpz.effectFlag.ERASABLE) == tpz.effectFlag.ERASABLE) or
         (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) == tpz.effectFlag.WALTZABLE) then
@@ -34,12 +34,16 @@ function onUseAbility(player, target, ability)
                 local newPower = playerEffect:getPower()
                 if (newPower > currentPower) then
                     numberOfEffects = numberOfEffects + 1
-                    pet:addStatusEffect(newPower:getType(), newPower:getPower(), newPower:getTick(), math.ceil((newPower:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
+                    pet:addStatusEffect(playerEffect:getType(), playerEffect:getPower(), playerEffect:getTick(), math.ceil((playerEffect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
                 end
             end
         end
     end
 
     -- Display amount of effects copied
-    MessageGroup(player, player, numberOfEffects .. " effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
+    if (numberOfEffects > 0) then
+        MessageGroup(player, player, numberOfEffects .. " effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
+    else
+        MessageGroup(player, player, "No effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
+    end
 end

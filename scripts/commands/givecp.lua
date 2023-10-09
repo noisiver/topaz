@@ -18,7 +18,7 @@ function onTrigger(player, amount, target)
 
     -- validate amount
     if (amount == nil or amount < 1) then
-        error(player, "Invalid amount of gil.")
+        error(player, "Invalid amount.")
         return
     end
 
