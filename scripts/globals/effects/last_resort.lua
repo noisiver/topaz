@@ -7,6 +7,9 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
+    local jpValue = target:getJobPointLevel(tpz.jp.LAST_RESORT_EFFECT) * 2
+
+    target:addMod(tpz.mod.ATT, jpValue)
     target:addMod(tpz.mod.ATTP, 25 + target:getMerit(tpz.merit.LAST_RESORT_EFFECT))
     target:addMod(tpz.mod.HASTE_ABILITY, target:getMod(tpz.mod.DESPERATE_BLOWS) + target:getMerit(tpz.merit.DESPERATE_BLOWS))
 
@@ -18,6 +21,9 @@ function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
+    local jpValue = target:getJobPointLevel(tpz.jp.LAST_RESORT_EFFECT) * 2
+
+    target:delMod(tpz.mod.ATT, jpValue)
     target:delMod(tpz.mod.ATTP, 25 + target:getMerit(tpz.merit.LAST_RESORT_EFFECT))
     target:delMod(tpz.mod.HASTE_ABILITY, target:getMod(tpz.mod.DESPERATE_BLOWS) + target:getMerit(tpz.merit.DESPERATE_BLOWS))
      -- Gear that affects this mod is handled by a Latent Effect because the gear must remain equipped
