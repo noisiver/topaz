@@ -14991,7 +14991,7 @@ INSERT INTO `item_mods` VALUES (14640,11,2);
 INSERT INTO `item_mods` VALUES (14640,12,5);
 INSERT INTO `item_mods` VALUES (14641,12,6);
 INSERT INTO `item_mods` VALUES (14641,54,-30);
-INSERT INTO `item_mods` VALUES (14642,1,3);
+INSERT INTO `item_mods` VALUES (14642,1,3);         -- Light Ring
 INSERT INTO `item_mods` VALUES (14642,2,20);
 INSERT INTO `item_mods` VALUES (14642,5,-20);
 INSERT INTO `item_mods` VALUES (14642,8,-1);
@@ -15000,10 +15000,11 @@ INSERT INTO `item_mods` VALUES (14642,10,-1);
 INSERT INTO `item_mods` VALUES (14642,11,-1);
 INSERT INTO `item_mods` VALUES (14642,12,-1);
 INSERT INTO `item_mods` VALUES (14642,13,-1);
-INSERT INTO `item_mods` VALUES (14642,14,5);
+INSERT INTO `item_mods` VALUES (14642,14,-1);
+INSERT INTO `item_mods` VALUES (14642,890,5);       -- Enhancing Magic Dration +5%
 INSERT INTO `item_mods` VALUES (14643,14,6);
 INSERT INTO `item_mods` VALUES (14643,61,-30);
-INSERT INTO `item_mods` VALUES (14644,1,3);
+INSERT INTO `item_mods` VALUES (14644,1,3);         -- Dark Ring
 INSERT INTO `item_mods` VALUES (14644,2,-20);
 INSERT INTO `item_mods` VALUES (14644,5,20);
 INSERT INTO `item_mods` VALUES (14644,8,1);
@@ -15013,6 +15014,7 @@ INSERT INTO `item_mods` VALUES (14644,11,1);
 INSERT INTO `item_mods` VALUES (14644,12,1);
 INSERT INTO `item_mods` VALUES (14644,13,1);
 INSERT INTO `item_mods` VALUES (14644,14,1);
+INSERT INTO `item_mods` VALUES (14644,1347,5);       -- Enfeebling Magic Dration +5%
 INSERT INTO `item_mods` VALUES (14645,5,30);
 INSERT INTO `item_mods` VALUES (14645,60,-30);
 INSERT INTO `item_mods` VALUES (14646,255,5);     -- Shadow Ring: Enhances resistance against Death +5 ?
