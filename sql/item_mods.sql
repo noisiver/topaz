@@ -5434,8 +5434,9 @@ INSERT INTO `item_mods` VALUES (11628,8,6);
 INSERT INTO `item_mods` VALUES (11628,23,3);
 INSERT INTO `item_mods` VALUES (11629,9,6);
 INSERT INTO `item_mods` VALUES (11629,25,3);
-INSERT INTO `item_mods` VALUES (11630,10,6);
+INSERT INTO `item_mods` VALUES (11630,10,6);        -- Corneus Ring
 INSERT INTO `item_mods` VALUES (11630,27,2);
+INSERT INTO `item_mods` VALUES (11630,301,6);       -- Damage Taken -6
 INSERT INTO `item_mods` VALUES (11631,11,6);
 INSERT INTO `item_mods` VALUES (11631,26,3);
 INSERT INTO `item_mods` VALUES (11632,13,6);
@@ -5475,10 +5476,11 @@ INSERT INTO `item_mods` VALUES (11646,112,10);
 INSERT INTO `item_mods` VALUES (11647,1,4);
 INSERT INTO `item_mods` VALUES (11647,9,5);
 INSERT INTO `item_mods` VALUES (11647,14,5);
-INSERT INTO `item_mods` VALUES (11648,1,4);
+INSERT INTO `item_mods` VALUES (11648,1,4);         -- Spiral Ring
 INSERT INTO `item_mods` VALUES (11648,8,5);
 INSERT INTO `item_mods` VALUES (11648,10,5);
 INSERT INTO `item_mods` VALUES (11648,12,5);
+INSERT INTO `item_mods` VALUES (11648,301,5);       -- Damage Taken -5
 INSERT INTO `item_mods` VALUES (11649,1,4);
 INSERT INTO `item_mods` VALUES (11649,11,5);
 INSERT INTO `item_mods` VALUES (11649,13,5);
@@ -5499,8 +5501,9 @@ INSERT INTO `item_mods` VALUES (11658,11,7);
 INSERT INTO `item_mods` VALUES (11658,12,-3);
 INSERT INTO `item_mods` VALUES (11658,246,2);
 INSERT INTO `item_mods` VALUES (11659,10,7);
-INSERT INTO `item_mods` VALUES (11659,11,-3);
+INSERT INTO `item_mods` VALUES (11659,11,-3);       -- Terrasoul Ring
 INSERT INTO `item_mods` VALUES (11659,251,2);
+INSERT INTO `item_mods` VALUES (11659,301,7);       -- Damage Taken -7
 INSERT INTO `item_mods` VALUES (11660,9,7);
 INSERT INTO `item_mods` VALUES (11660,10,-3);
 INSERT INTO `item_mods` VALUES (11660,241,2);
@@ -10466,8 +10469,9 @@ INSERT INTO `item_mods` VALUES (13307,9,5);
 INSERT INTO `item_mods` VALUES (13307,58,10);
 INSERT INTO `item_mods` VALUES (13308,13,5);
 INSERT INTO `item_mods` VALUES (13308,59,10);
-INSERT INTO `item_mods` VALUES (13309,10,5);
+INSERT INTO `item_mods` VALUES (13309,10,5);        -- Robust Ring
 INSERT INTO `item_mods` VALUES (13309,57,10);
+INSERT INTO `item_mods` VALUES (13309,301,5);       -- Damage Taken -5
 INSERT INTO `item_mods` VALUES (13310,5,9);
 INSERT INTO `item_mods` VALUES (13310,61,10);
 INSERT INTO `item_mods` VALUES (13311,14,5);
@@ -10727,8 +10731,9 @@ INSERT INTO `item_mods` VALUES (13451,9,4);
 INSERT INTO `item_mods` VALUES (13451,58,9);
 INSERT INTO `item_mods` VALUES (13452,13,4);
 INSERT INTO `item_mods` VALUES (13452,59,9);
-INSERT INTO `item_mods` VALUES (13453,10,4);
+INSERT INTO `item_mods` VALUES (13453,10,4);        -- Topaz Ring
 INSERT INTO `item_mods` VALUES (13453,57,9);
+INSERT INTO `item_mods` VALUES (13453,301,4);       -- Damage Taken -4
 INSERT INTO `item_mods` VALUES (13454,2,1);
 INSERT INTO `item_mods` VALUES (13454,5,-1);
 INSERT INTO `item_mods` VALUES (13455,25,-9);
@@ -10774,8 +10779,9 @@ INSERT INTO `item_mods` VALUES (13471,9,1);
 INSERT INTO `item_mods` VALUES (13471,58,3);
 INSERT INTO `item_mods` VALUES (13472,13,1);
 INSERT INTO `item_mods` VALUES (13472,59,3);
-INSERT INTO `item_mods` VALUES (13473,10,1);
+INSERT INTO `item_mods` VALUES (13473,10,1);        -- Amber Ring
 INSERT INTO `item_mods` VALUES (13473,57,3);
+INSERT INTO `item_mods` VALUES (13473,301,1);       -- Damage Taken -1
 INSERT INTO `item_mods` VALUES (13474,5,2);
 INSERT INTO `item_mods` VALUES (13474,61,3);
 INSERT INTO `item_mods` VALUES (13475,12,1);
@@ -10789,8 +10795,9 @@ INSERT INTO `item_mods` VALUES (13479,9,2);
 INSERT INTO `item_mods` VALUES (13479,58,5);
 INSERT INTO `item_mods` VALUES (13480,13,2);
 INSERT INTO `item_mods` VALUES (13480,59,5);
-INSERT INTO `item_mods` VALUES (13481,10,2);
+INSERT INTO `item_mods` VALUES (13481,10,2);        -- Sphene Ring
 INSERT INTO `item_mods` VALUES (13481,57,5);
+INSERT INTO `item_mods` VALUES (13481,301,2);       -- Damage Taken -2
 INSERT INTO `item_mods` VALUES (13482,5,4);
 INSERT INTO `item_mods` VALUES (13482,61,5);
 INSERT INTO `item_mods` VALUES (13483,14,2);
@@ -10805,8 +10812,9 @@ INSERT INTO `item_mods` VALUES (13487,9,3);
 INSERT INTO `item_mods` VALUES (13487,58,7);
 INSERT INTO `item_mods` VALUES (13488,13,3);
 INSERT INTO `item_mods` VALUES (13488,59,7);
-INSERT INTO `item_mods` VALUES (13489,10,3);
+INSERT INTO `item_mods` VALUES (13489,10,3);        -- Chrysoberyl Ring
 INSERT INTO `item_mods` VALUES (13489,57,7);
+INSERT INTO `item_mods` VALUES (13489,301,3);       -- Damage Taken -3
 INSERT INTO `item_mods` VALUES (13490,5,6);
 INSERT INTO `item_mods` VALUES (13490,61,7);
 INSERT INTO `item_mods` VALUES (13491,14,3);
@@ -10824,9 +10832,10 @@ INSERT INTO `item_mods` VALUES (13495,13,1);
 INSERT INTO `item_mods` VALUES (13496,5,3);
 INSERT INTO `item_mods` VALUES (13496,11,1);
 INSERT INTO `item_mods` VALUES (13496,12,1);
-INSERT INTO `item_mods` VALUES (13497,2,3);
+INSERT INTO `item_mods` VALUES (13497,2,3);         -- Bastokan Ring
 INSERT INTO `item_mods` VALUES (13497,9,1);
 INSERT INTO `item_mods` VALUES (13497,10,1);
+INSERT INTO `item_mods` VALUES (13497,301,1);       -- Damage Taken -1
 INSERT INTO `item_mods` VALUES (13498,2,9);
 INSERT INTO `item_mods` VALUES (13498,5,-7);
 INSERT INTO `item_mods` VALUES (13499,1,2);
@@ -10852,9 +10861,10 @@ INSERT INTO `item_mods` VALUES (13506,54,-5);
 INSERT INTO `item_mods` VALUES (13507,13,3);
 INSERT INTO `item_mods` VALUES (13507,14,3);
 INSERT INTO `item_mods` VALUES (13507,59,10);
-INSERT INTO `item_mods` VALUES (13508,10,3);
+INSERT INTO `item_mods` VALUES (13508,10,3);        -- Maldust Ring
 INSERT INTO `item_mods` VALUES (13508,14,3);
 INSERT INTO `item_mods` VALUES (13508,57,10);
+INSERT INTO `item_mods` VALUES (13508,301,3);       -- Damage Taken -3
 INSERT INTO `item_mods` VALUES (13509,12,3);
 INSERT INTO `item_mods` VALUES (13509,14,3);
 INSERT INTO `item_mods` VALUES (13509,55,10);
@@ -10890,8 +10900,9 @@ INSERT INTO `item_mods` VALUES (13524,9,2);
 INSERT INTO `item_mods` VALUES (13524,58,4);
 INSERT INTO `item_mods` VALUES (13525,13,2);
 INSERT INTO `item_mods` VALUES (13525,59,4);
-INSERT INTO `item_mods` VALUES (13526,10,2);
+INSERT INTO `item_mods` VALUES (13526,10,2);        -- Stamina Ring
 INSERT INTO `item_mods` VALUES (13526,57,4);
+INSERT INTO `item_mods` VALUES (13526,301,2);       -- Damage Taken -2
 INSERT INTO `item_mods` VALUES (13527,5,3);
 INSERT INTO `item_mods` VALUES (13527,61,4);
 INSERT INTO `item_mods` VALUES (13528,14,2);
@@ -10906,8 +10917,9 @@ INSERT INTO `item_mods` VALUES (13532,9,3);
 INSERT INTO `item_mods` VALUES (13532,58,6);
 INSERT INTO `item_mods` VALUES (13533,13,3);
 INSERT INTO `item_mods` VALUES (13533,59,6);
-INSERT INTO `item_mods` VALUES (13534,10,3);
+INSERT INTO `item_mods` VALUES (13534,10,3);        -- Verve Ring
 INSERT INTO `item_mods` VALUES (13534,57,6);
+INSERT INTO `item_mods` VALUES (13534,301,3);       -- Damage Taken -3
 INSERT INTO `item_mods` VALUES (13535,5,5);
 INSERT INTO `item_mods` VALUES (13535,61,6);
 INSERT INTO `item_mods` VALUES (13536,14,3);
@@ -10922,8 +10934,9 @@ INSERT INTO `item_mods` VALUES (13540,9,4);
 INSERT INTO `item_mods` VALUES (13540,58,8);
 INSERT INTO `item_mods` VALUES (13541,13,4);
 INSERT INTO `item_mods` VALUES (13541,59,8);
-INSERT INTO `item_mods` VALUES (13542,10,4);
+INSERT INTO `item_mods` VALUES (13542,10,4);        -- Vigor Ring
 INSERT INTO `item_mods` VALUES (13542,57,8);
+INSERT INTO `item_mods` VALUES (13542,301,4);       -- Damage Taken -4
 INSERT INTO `item_mods` VALUES (13543,5,7);
 INSERT INTO `item_mods` VALUES (13543,61,8);
 INSERT INTO `item_mods` VALUES (13544,14,4);
@@ -14843,9 +14856,10 @@ INSERT INTO `item_mods` VALUES (14595,58,5);
 INSERT INTO `item_mods` VALUES (14596,1,1);
 INSERT INTO `item_mods` VALUES (14596,13,2);
 INSERT INTO `item_mods` VALUES (14596,59,5);
-INSERT INTO `item_mods` VALUES (14597,1,1);
+INSERT INTO `item_mods` VALUES (14597,1,1);         -- Stamina Ring +1
 INSERT INTO `item_mods` VALUES (14597,10,2);
 INSERT INTO `item_mods` VALUES (14597,57,5);
+INSERT INTO `item_mods` VALUES (14597,301,2);       -- Damage Taken -2
 INSERT INTO `item_mods` VALUES (14598,1,1);
 INSERT INTO `item_mods` VALUES (14598,5,5);
 INSERT INTO `item_mods` VALUES (14598,61,5);
@@ -14867,9 +14881,10 @@ INSERT INTO `item_mods` VALUES (14603,58,7);
 INSERT INTO `item_mods` VALUES (14604,1,2);
 INSERT INTO `item_mods` VALUES (14604,13,3);
 INSERT INTO `item_mods` VALUES (14604,59,7);
-INSERT INTO `item_mods` VALUES (14605,1,2);
+INSERT INTO `item_mods` VALUES (14605,1,2);         -- Verve Ring +1
 INSERT INTO `item_mods` VALUES (14605,10,3);
 INSERT INTO `item_mods` VALUES (14605,57,7);
+INSERT INTO `item_mods` VALUES (14605,301,3);       -- Damage Taken -3
 INSERT INTO `item_mods` VALUES (14606,1,2);
 INSERT INTO `item_mods` VALUES (14606,5,7);
 INSERT INTO `item_mods` VALUES (14606,61,7);
@@ -14891,9 +14906,10 @@ INSERT INTO `item_mods` VALUES (14611,58,9);
 INSERT INTO `item_mods` VALUES (14612,1,3);
 INSERT INTO `item_mods` VALUES (14612,13,4);
 INSERT INTO `item_mods` VALUES (14612,59,9);
-INSERT INTO `item_mods` VALUES (14613,1,3);
+INSERT INTO `item_mods` VALUES (14613,1,3);         -- Vigor Ring +1
 INSERT INTO `item_mods` VALUES (14613,10,4);
 INSERT INTO `item_mods` VALUES (14613,57,9);
+INSERT INTO `item_mods` VALUES (14613,301,4);       -- Damage Taken -4
 INSERT INTO `item_mods` VALUES (14614,1,3);
 INSERT INTO `item_mods` VALUES (14614,5,9);
 INSERT INTO `item_mods` VALUES (14614,61,9);
@@ -14917,9 +14933,10 @@ INSERT INTO `item_mods` VALUES (14620,58,11);
 INSERT INTO `item_mods` VALUES (14621,1,4);
 INSERT INTO `item_mods` VALUES (14621,13,5);
 INSERT INTO `item_mods` VALUES (14621,59,11);
-INSERT INTO `item_mods` VALUES (14622,1,4);
+INSERT INTO `item_mods` VALUES (14622,1,4);         -- Robust Ring +1
 INSERT INTO `item_mods` VALUES (14622,10,5);
 INSERT INTO `item_mods` VALUES (14622,57,11);
+INSERT INTO `item_mods` VALUES (14622,301,5);       -- Damage Taken -5
 INSERT INTO `item_mods` VALUES (14623,1,4);
 INSERT INTO `item_mods` VALUES (14623,5,11);
 INSERT INTO `item_mods` VALUES (14623,61,11);
@@ -14947,16 +14964,19 @@ INSERT INTO `item_mods` VALUES (14632,9,-2);
 INSERT INTO `item_mods` VALUES (14632,13,5);
 INSERT INTO `item_mods` VALUES (14633,13,6);
 INSERT INTO `item_mods` VALUES (14633,58,-30);
-INSERT INTO `item_mods` VALUES (14634,1,3);
+INSERT INTO `item_mods` VALUES (14634,1,3);         -- Soil Ring
 INSERT INTO `item_mods` VALUES (14634,9,2);
 INSERT INTO `item_mods` VALUES (14634,10,5);
 INSERT INTO `item_mods` VALUES (14634,11,-2);
-INSERT INTO `item_mods` VALUES (14635,10,6);
+INSERT INTO `item_mods` VALUES (14634,301,5);       -- Damage Taken -5
+INSERT INTO `item_mods` VALUES (14635,10,6);        -- Terra's Ring
 INSERT INTO `item_mods` VALUES (14635,56,-30);
-INSERT INTO `item_mods` VALUES (14636,1,3);
+INSERT INTO `item_mods` VALUES (14635,301,6);       -- Damage Taken -6
+INSERT INTO `item_mods` VALUES (14636,1,3);         -- Breeze Ring
 INSERT INTO `item_mods` VALUES (14636,10,2);
 INSERT INTO `item_mods` VALUES (14636,11,5);
 INSERT INTO `item_mods` VALUES (14636,12,-2);
+INSERT INTO `item_mods` VALUES (14636,301,2);       -- Damage Taken -2
 INSERT INTO `item_mods` VALUES (14637,11,6);
 INSERT INTO `item_mods` VALUES (14637,55,-30);
 INSERT INTO `item_mods` VALUES (14638,1,3);
@@ -15031,8 +15051,9 @@ INSERT INTO `item_mods` VALUES (14675,68,-5);
 INSERT INTO `item_mods` VALUES (14676,23,5);
 INSERT INTO `item_mods` VALUES (14682,9,3);
 INSERT INTO `item_mods` VALUES (14682,25,2);
-INSERT INTO `item_mods` VALUES (14683,1,3);
+INSERT INTO `item_mods` VALUES (14683,1,3);         -- Kshama Ring No.4
 INSERT INTO `item_mods` VALUES (14683,10,3);
+INSERT INTO `item_mods` VALUES (14683,301,3);       -- Damage Taken -3
 INSERT INTO `item_mods` VALUES (14684,11,3);
 INSERT INTO `item_mods` VALUES (14684,68,1);
 INSERT INTO `item_mods` VALUES (14685,5,5);
@@ -18873,10 +18894,11 @@ INSERT INTO `item_mods` VALUES (15776,1242,10); -- PARALYZERESTRAIT
 INSERT INTO `item_mods` VALUES (15777,12,3); -- (Hale Ring)
 INSERT INTO `item_mods` VALUES (15777,13,3);
 INSERT INTO `item_mods` VALUES (15777,1245,10); -- VIRUSRESTRAIT
-INSERT INTO `item_mods` VALUES (15778,1,7); -- (Unyielding  Ring)
+INSERT INTO `item_mods` VALUES (15778,1,7);         -- (Unyielding  Ring)
 INSERT INTO `item_mods` VALUES (15778,9,3);
 INSERT INTO `item_mods` VALUES (15778,10,3);
-INSERT INTO `item_mods` VALUES (15778,1252,10); -- CHARMRESTRAIT
+INSERT INTO `item_mods` VALUES (15778,301,3);       -- Damage Taken -3
+INSERT INTO `item_mods` VALUES (15778,1252,10);     -- CHARMRESTRAIT
 INSERT INTO `item_mods` VALUES (15779,8,3); -- (Garrulous Ring)
 INSERT INTO `item_mods` VALUES (15779,11,3);
 INSERT INTO `item_mods` VALUES (15779,1244,10); -- SILENCERESTRAIT
@@ -18915,10 +18937,11 @@ INSERT INTO `item_mods` VALUES (15795,9,5);
 INSERT INTO `item_mods` VALUES (15796,73,5);      -- Psi Ring: StoreTP+5
 INSERT INTO `item_mods` VALUES (15797,13,5);
 INSERT INTO `item_mods` VALUES (15798,12,5);
-INSERT INTO `item_mods` VALUES (15799,9,3);
+INSERT INTO `item_mods` VALUES (15799,9,3);         -- Iota Ring
 INSERT INTO `item_mods` VALUES (15799,10,3);
 INSERT INTO `item_mods` VALUES (15799,11,3);
 INSERT INTO `item_mods` VALUES (15799,25,3);
+INSERT INTO `item_mods` VALUES (15799,301,3);       -- Damage Taken -3
 INSERT INTO `item_mods` VALUES (15800,12,3);
 INSERT INTO `item_mods` VALUES (15800,13,3);
 INSERT INTO `item_mods` VALUES (15800,14,3);
