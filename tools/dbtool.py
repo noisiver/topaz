@@ -53,6 +53,7 @@ player_data = [
     'char_blacklist.sql',
     'char_effects.sql',
     'char_equip.sql',
+    'char_equip_saved.sql',
     'char_exp.sql',
     'char_inventory.sql',
     'char_jobs.sql',
