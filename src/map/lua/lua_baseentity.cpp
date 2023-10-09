@@ -7660,9 +7660,9 @@ inline int32 CLuaBaseEntity::addExp(lua_State *L)
 
 /************************************************************************
  *  Function: addCapacityPoints()
- *  Purpose : Sets the merit points for a player to a specified amount
- *  Example : player:setMerits(30)
- *  Notes   : Used in GM command and Nomad Moogle for Genkai quest
+ *  Purpose : Adds a set amount of Capacity Points to the player
+ *  Example : player:addCapacity(1000)
+ *  Notes   : Used for RoE rewards
  ************************************************************************/
 
 inline int32 CLuaBaseEntity::addCapacityPoints(lua_State* L)
@@ -7776,8 +7776,8 @@ inline int32 CLuaBaseEntity::setMerits(lua_State *L)
 
 /************************************************************************
  *  Function: getSpentJobPoints()
- *  Purpose : Returns the current value a specific job point
- *  Example : player:getJobPointLevel(JP_MIGHTY_STRIKES_EFFECT)
+ *  Purpose : Returns the total value of all job points spent
+ *  Example : player:getSpentJobPoints()
  *  Notes   :
  ************************************************************************/
 inline int32 CLuaBaseEntity::getSpentJobPoints(lua_State* L)
@@ -7803,34 +7803,10 @@ inline int32 CLuaBaseEntity::getSpentJobPoints(lua_State* L)
 }
 
 /************************************************************************
- *  Function: setCapacityPoints()
- *  Purpose : Sets the merit points for a player to a specified amount
- *  Example : player:setMerits(30)
- *  Notes   : Used in GM command and Nomad Moogle for Genkai quest
- ************************************************************************/
-
-inline int32 CLuaBaseEntity::setCapacityPoints(lua_State* L)
-{
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
-
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
-
-    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
-
-    PChar->PMeritPoints->SetMeritPoints((uint8)lua_tointeger(L, 1));
-
-    PChar->pushPacket(new CMenuMeritPacket(PChar));
-
-    charutils::SaveCharExp(PChar, PChar->GetMJob());
-    return 0;
-}
-
-/************************************************************************
  *  Function: getJobPointLevel()
  *  Purpose : Returns the current value a specific job point
  *  Example : player:getJobPointLevel(JP_MIGHTY_STRIKES_EFFECT)
- *  Notes   :
+ *  Notes   ::
  ************************************************************************/
 inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
 {
@@ -7851,6 +7827,27 @@ inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: setCapacityPoints()
+ *  Purpose : Sets the capacity points for a player to a specified amount
+ *  Example : player:setCapacityPoints(5000)
+ *  Notes   : Used in GM command
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setCapacityPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    CCharEntity* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+    PChar->PJobPoints->SetCapacityPoints((uint8)lua_tointeger(L, 1));
+    PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+    return 0;
+}
+
+/************************************************************************
  *  Function: setJobPoints()
  *  Purpose : Sets the job points for a player to a specified amount
  *  Example : player:setJobPoints(30)
@@ -7864,7 +7861,7 @@ inline int32 CLuaBaseEntity::setJobPoints(lua_State* L)
 
     CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
 
-    PChar->PJobPoints->SetJobPoints(lua_tointeger(L, 1));
+    PChar->PJobPoints->SetJobPoints((uint8)lua_tointeger(L, 1));
     PChar->pushPacket(new CMenuJobPointsPacket(PChar));
 
     return 0;
@@ -7872,8 +7869,8 @@ inline int32 CLuaBaseEntity::setJobPoints(lua_State* L)
 
 /************************************************************************
  *  Function: masterJob()
- *  Purpose : Sets the job points for a player to a specified amount
- *  Example : player:setJobPoints(30)
+ *  Purpose : Fully masters / unlocks player's current job
+ *  Example : player:masterJob()
  *  Notes   : Used in GM command
  ************************************************************************/
 
@@ -7882,9 +7879,23 @@ inline int32 CLuaBaseEntity::masterJob(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
 
-    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+    CCharEntity* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
 
-    PChar->PJobPoints->SetJobPoints(lua_tointeger(L, 1));
+    auto jpCategory = 0x020 * PChar->GetMJob();
+    for (auto i = jpCategory; i < jpCategory + 0xA; i++)
+    {
+        auto points = PChar->PJobPoints->GetJobPointType((JOBPOINT_TYPE)i);
+        auto pointsNeeded = 20 - points->value;
+        auto currentJP = PChar->PJobPoints->GetJobPoints();
+
+        for (auto x = 0; x < pointsNeeded; x++)
+        {
+            auto cost = JobPointCost(points->value);
+            PChar->PJobPoints->SetJobPoints(currentJP + cost);
+            PChar->PJobPoints->RaiseJobPoint((JOBPOINT_TYPE)i);
+        }
+    }
+
     PChar->pushPacket(new CMenuJobPointsPacket(PChar));
 
     return 0;
