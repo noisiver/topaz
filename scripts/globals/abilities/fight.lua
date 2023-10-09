@@ -25,11 +25,6 @@ end
 function onUseAbility(player, target, ability)
     local pet = player:getPet()
 
-    if (player:checkDistance(pet) <= 25) then
-        if (pet:hasStatusEffect(tpz.effect.HEALING)) then
-            pet:delStatusEffect(tpz.effect.HEALING)
-        end
-
-        player:petAttack(target)
-    end
+    pet:delStatusEffectSilent(tpz.effect.HEALING)
+    player:petAttack(target)
 end
