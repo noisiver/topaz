@@ -1852,10 +1852,11 @@ tpz.mod =
     SYNTH_ANIMATION_LEATHER = 1343, 
     SYNTH_ANIMATION_BONE    = 1344, 
     SYNTH_ANIMATION_ALCHEMY = 1345, 
-    SYNTH_ANIMATION_COOK    = 1346, 
+    SYNTH_ANIMATION_COOK    = 1346,
+    ENFEEB_MAGIC_DURATION   = 1347, -- Enfeebling Magic Duration increase % 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1339 NEXT
+    -- 1348 NEXT
 }
 
 tpz.latent =

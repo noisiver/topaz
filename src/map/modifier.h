@@ -387,6 +387,8 @@ enum class Mod
     PHALANX_POTENCY           = 1273,// Increases power of phalanx(Gear mod)
     PHALANX_RECIEVED          = 1320,// Phalanx effect received.
     ENF_MAG_POTENCY           = 290, // Increases Enfeebling magic potency %
+    ENFEEB_MAGIC_DURATION     = 1347,// Enfeebling Magic Duration increase % 
+    ENH_MAGIC_DURATION        = 890, // Enhancing Magic Duration increase %
     ENHANCES_SABOTEUR         = 297, // Increases Saboteur Potency %
 
     // Thief
@@ -862,7 +864,6 @@ enum class Mod
     RAPTURE_AMOUNT            = 568, // Bonus amount added to Rapture effect
     EBULLIENCE_AMOUNT         = 569, // Bonus amount added to Ebullience effect
     AQUAVEIL_COUNT            = 832, // Modifies the amount of hits that Aquaveil absorbs before being removed
-    ENH_MAGIC_DURATION        = 890, // Enhancing Magic Duration increase %
     ENHANCES_COURSERS_ROLL    = 891, // Courser's Roll Bonus % chance
     ENHANCES_CASTERS_ROLL     = 892, // Caster's Roll Bonus % chance
     ENHANCES_BLITZERS_ROLL    = 893, // Blitzer's Roll Bonus % chance
@@ -1030,7 +1031,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1347 NEXT
+    // 1348 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

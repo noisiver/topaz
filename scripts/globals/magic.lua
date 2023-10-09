@@ -2977,6 +2977,9 @@ function calculateDuration(duration, magicSkill, spellGroup, caster, target, use
                 duration  = duration * 2
             end
         elseif magicSkill == tpz.skill.ENFEEBLING_MAGIC then -- Enfeebling Magic
+            -- Gear mods
+            duration = duration + duration * caster:getMod(tpz.mod.ENFEEB_MAGIC_DURATION) / 100
+
             if caster:hasStatusEffect(tpz.effect.SABOTEUR) then
                 if target:isNM() then
                     duration = duration * 1.25
