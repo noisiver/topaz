@@ -30,11 +30,13 @@ function onUseAbility(player, target, ability)
         (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) == tpz.effectFlag.WALTZABLE) then
             local petEffects = pet:getStatusEffects()
             for _, petEffect in ipairs(petEffects) do
-                local currentPower = petEffect:getPower()
+                local currentPower = 0
                 local newPower = playerEffect:getPower()
 
-                -- Convert nils to 0 power
-                if (currentPower == nil) then (currentPower = 0) end
+                -- Make sure the effect isn't nil
+                if (petEffect ~= nil ) then
+                    currentPower = petEffect:getPower()
+                end
 
                 if (newPower > currentPower) then
                     numberOfEffects = numberOfEffects + 1
