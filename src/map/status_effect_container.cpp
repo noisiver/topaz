@@ -298,6 +298,8 @@ bool CStatusEffectContainer::CanGainStatusEffect(CStatusEffect* PStatusEffect)
         case EFFECT_PETRIFICATION:
             if (m_POwner->hasImmunity(IMMUNITY_PETRIFY))
                 return false;
+            if (m_POwner->hasImmunity(IMMUNITY_SLEEP))
+                return false;
             break;
         default:
             break;
