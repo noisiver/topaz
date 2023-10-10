@@ -247,7 +247,7 @@ function onMobSpawn(mob)
     end
 
     -- Add JP bonuses
-    local jpValue = player:getJobPointLevel(tpz.jp.WYVERN_ATTR_BONUS) * 2
+    local jpValue = master:getJobPointLevel(tpz.jp.WYVERN_ATTR_BONUS) * 2
     master:addMod(tpz.mod.ATT, jpValue)
     master:addMod(tpz.mod.DEF, jpValue)
 
