@@ -70,14 +70,14 @@ function onEventFinish(player, csid, option)
         player:addMission(ASA, tpz.mission.id.asa.BURGEONING_DREAD)
         player:setCharVar("ASA_Status", 0)
     elseif csid == 443 then
-        player:completeMission(WINDURST, tpz.mission.id.windurst.MOON_READING)
-        player:setCharVar("MissionStatus", 0)
-        player:setRank(10)
-        player:addGil(GIL_RATE*100000)
-        player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*100000)
-        player:addItem(183)
-        player:messageSpecial(ID.text.ITEM_OBTAINED, 183)
-        player:addTitle(tpz.title.VESTAL_CHAMBERLAIN)
+        if npcUtil.giveItem(player, {tpz.items.WINDURSTIAN_FLAG, tpz.items.WINDURSTIAN_HEROES_RING}) then
+            player:completeMission(WINDURST, tpz.mission.id.windurst.MOON_READING)
+            player:setCharVar("MissionStatus", 0)
+            player:setRank(10)
+            player:addGil(GIL_RATE*100000)
+            player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*100000)
+            player:addTitle(tpz.title.VESTAL_CHAMBERLAIN)
+        end
     elseif csid == 30035 then
         player:completeMission(ROV, tpz.mission.id.rov.RHAPSODIES_OF_VANADIEL)
         player:addMission(ROV, tpz.mission.id.rov.RESONACE)

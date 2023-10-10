@@ -986,6 +986,41 @@ INSERT INTO `item_latents` VALUES(14015, 10, 2, 53, 0);     -- VIT +2 in areas o
 INSERT INTO `item_latents` VALUES(14015, 68, 5, 53, 0);     -- EVA +5 in areas outside own nation's control
 INSERT INTO `item_latents` VALUES(14015, 110, 5, 53, 0);    -- Parrying skill +5 in areas outside own nation's control
 
+
+-- -------------------------------------------------------
+-- San d'Orian Heroes Ring
+-- -------------------------------------------------------
+
+INSERT INTO `item_latents` VALUES(26423, 1, 50, 61, 0);   -- San d'Orian Citizens: DEF+50
+INSERT INTO `item_latents` VALUES(26423, 2, 50, 61, 0);   -- San d'Orian Citizens: HP+50
+INSERT INTO `item_latents` VALUES(26423, 8, 5, 61, 0);    -- San d'Orian Citizens: STR+5
+INSERT INTO `item_latents` VALUES(26423, 10, 5, 61, 0);   -- San d'Orian Citizens: VIT+5
+INSERT INTO `item_latents` VALUES(26423, 13, 5, 61, 0);   -- San d'Orian Citizens: MND+5
+INSERT INTO `item_latents` VALUES(26423, 161, -6, 61, 0); -- San d'Orian Citizens: Physical damage taken -6%
+INSERT INTO `item_latents` VALUES(26423, 27, 3, 61, 0);   -- San d'Orian Citizens: Enmity+3
+
+-- -------------------------------------------------------
+-- Bastok Heroes Ring
+-- -------------------------------------------------------
+
+INSERT INTO `item_latents` VALUES(26429, 25, 8, 61, 1);    -- Bastok Citizens: Accuracy+8
+INSERT INTO `item_latents` VALUES(26429, 23, 8, 61, 1);    -- Bastok Citizens: Attack+8
+INSERT INTO `item_latents` VALUES(26429, 26, 15, 61, 1);   -- Bastok Citizens: Ranged Accuracy+15
+INSERT INTO `item_latents` VALUES(26429, 24, 15, 61, 1);    -- Bastok Citizens: Ranged Attack+15
+INSERT INTO `item_latents` VALUES(26429, 305, 15, 61, 1);  -- Bastok Citizens: Recycle +15
+INSERT INTO `item_latents` VALUES(26429, 29, 5, 61, 1);    -- Bastok Citizens: MDB+5
+
+-- -------------------------------------------------------
+-- Windurst Heroes Ring
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(26433, 112, 5, 61, 2);    -- Windurst Citizens: Healing magic +5
+INSERT INTO `item_latents` VALUES(26433, 113, 5, 61, 2);    -- Windurst Citizens: Enhancing Magic +5
+INSERT INTO `item_latents` VALUES(26433, 114, 5, 61, 2);    -- Windurst Citizens: Enfeebling Magic +5
+INSERT INTO `item_latents` VALUES(26433, 116, 5, 61, 2);    -- Windurst Citizens: Dark Magic +5
+INSERT INTO `item_latents` VALUES(26433, 374, 3, 61, 2);    -- Windurst Citizens: Cure Potency +3%
+INSERT INTO `item_latents` VALUES(26433, 296, 5, 61, 2);    -- Windurst Citizens: Conserve MP+5
+INSERT INTO `item_latents` VALUES(26433, 27, -3, 61, 2);    -- Windurst Citizens: Enmity-3
+
 -- -------------------------------------------------------
 -- Master Caster's Mitts
 -- -------------------------------------------------------

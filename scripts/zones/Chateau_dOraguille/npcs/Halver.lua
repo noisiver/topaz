@@ -12,6 +12,7 @@ require("scripts/globals/missions")
 require("scripts/globals/quests")
 require("scripts/globals/titles")
 require("scripts/globals/utils")
+require("scripts/globals/items")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -34,12 +35,15 @@ function onTrigger(player, npc)
         player:delKeyItem(tpz.ki.SUSPICIOUS_ENVELOPE)
     -- San D'Oria Flag check
     elseif (player:getCharVar("Flagsando") == 1) then
-        if (player:getFreeSlotsCount() == 0) then
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 181)
+        if (player:getFreeSlotsCount() < 2) then
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.SAN_DORIAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.SAN_DORIAN_HEROES_RING)
         else
             player:setCharVar("Flagsando", 0)
-            player:addItem(181)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 181)
+            player:addItem(tpz.items.SAN_DORIAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.SAN_DORIAN_FLAG)
+            player:addItem(tpz.items.SAN_DORIAN_HEROES_RING)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.SAN_DORIAN_HEROES_RING)
         end
     elseif (player:getCurrentMission(TOAU) == tpz.mission.id.toau.CONFESSIONS_OF_ROYALTY and player:hasKeyItem(tpz.ki.RAILLEFALS_LETTER)) then
         player:startEvent(564)
@@ -181,12 +185,15 @@ function onEventFinish(player, csid, option)
     elseif (csid == 22) then
         player:setCharVar("MissionStatus", 4)
     elseif (csid == 9) then
-        if (player:getFreeSlotsCount() == 0) then
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 181)
+        if (player:getFreeSlotsCount() < 2) then
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.SAN_DORIAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.SAN_DORIAN_HEROES_RING)
             player:setCharVar("Flagsando", 1)
         else
-            player:addItem(181)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 181)
+            player:addItem(tpz.items.SAN_DORIAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.SAN_DORIAN_FLAG)
+            player:addItem(tpz.items.SAN_DORIAN_HEROES_RING)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.SAN_DORIAN_HEROES_RING)
         end
         player:setCharVar("MissionStatus", 0)
         player:completeMission(SANDORIA, tpz.mission.id.sandoria.THE_HEIR_TO_THE_LIGHT)
