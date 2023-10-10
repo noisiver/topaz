@@ -862,15 +862,21 @@ namespace petutils
 
         PPet->SetMJob(JOB_DRK);
         PPet->SetSJob(JOB_BLM);
-        PPet->SetMLevel(PMaster->GetMLevel());
-        PPet->SetSLevel(PMaster->GetMLevel());
+        uint8 mLvl = PMaster->GetMLevel();
+        // TODO: ILvl
+        // uint8 iLvl = std::clamp(charutils::getMainhandItemLevel(static_cast<CCharEntity*>(PMaster)) - 99, 0, 20);
+        // PPet->SetMLevel(mLvl + iLvl + PMaster->getMod(Mod::AVATAR_LVL_BONUS));
+
         if (PMaster->GetMJob() == JOB_SMN)
         {
-            PPet->SetMLevel(PMaster->GetMLevel());
+            PPet->SetMLevel(mLvl + PMaster->getMod(Mod::AVATAR_LVL_BONUS));
+            PPet->SetSLevel(mLvl + PMaster->getMod(Mod::AVATAR_LVL_BONUS));
         }
         else if (PMaster->GetSJob() == JOB_SMN)
         {
-            PPet->SetMLevel(PMaster->GetSLevel());
+            mLvl = PMaster->GetSLevel();
+            PPet->SetMLevel(mLvl + PMaster->getMod(Mod::AVATAR_LVL_BONUS));
+            PPet->SetSLevel(mLvl + PMaster->getMod(Mod::AVATAR_LVL_BONUS));
         }
         else
         { // should never happen
@@ -1076,10 +1082,21 @@ namespace petutils
         // https://www.bg-wiki.com/ffxi/Wyvern_(Dragoon_Pet)#About_the_Wyvern
         uint8 mLvl = PMaster->GetMLevel();
         // TODO: ILvl 
-        //uint8 iLvl = std::clamp(charutils::getMainhandItemLevel(static_cast<CCharEntity*>(PMaster)) - 99, 0, 20);
-        //PPet->SetMLevel(mLvl + iLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+        // uint8 iLvl = std::clamp(charutils::getMainhandItemLevel(static_cast<CCharEntity*>(PMaster)) - 99, 0, 20);
+        // PPet->SetMLevel(mLvl + iLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+        // PPet->SetSLevel(mLvl + iLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
 
-        PPet->SetMLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+        if (PMaster->GetMJob() == JOB_DRG)
+        {
+            PPet->SetMLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+            PPet->SetSLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+        }
+        else
+        {
+            mLvl = PMaster->GetSLevel();
+            PPet->SetMLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+            PPet->SetSLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
+        }
         LoadAvatarStats(PPet); // TODO: LoadWyvernStats                                                                           // follows PC calcs (w/o SJ)
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (320.0f / 60.0f)))); // 320 delay
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setBaseDelay((uint16)(floor(1000.0f * (320.0f / 60.0f))));
@@ -1158,6 +1175,9 @@ namespace petutils
 
         // Randomize: 0-2 lvls lower, less Monster Gloves(+1/+2) bonus
         highestLvl -= tpzrand::GetRandomNumber(3 - std::clamp<int16>(PChar->getMod(Mod::JUG_LEVEL_RANGE), 0, 2));
+
+        // Increase the pets level from gear mod
+        highestLvl += PChar->getMod(Mod::JUG_LVL_BONUS);
 
         // Increase the pets level from merits
         highestLvl += PChar->PMeritPoints->GetMeritValue(MERIT_BEAST_AFFINITY, PChar);
@@ -1240,15 +1260,21 @@ namespace petutils
                 break;
         }
         // TEMP: should be MLevel when unsummoned, and PUP level when summoned
+        uint8 mLvl = PMaster->GetMLevel();
+        // TODO: ILvl
+        // uint8 iLvl = std::clamp(charutils::getMainhandItemLevel(static_cast<CCharEntity*>(PMaster)) - 99, 0, 20);
+        // PPet->SetMLevel(mLvl + iLvl + PMaster->getMod(Mod::AUTO_LVL_BONUS));
+
         if (PMaster->GetMJob() == JOB_PUP)
         {
-            PPet->SetMLevel(PMaster->GetMLevel());
-            PPet->SetSLevel(PMaster->GetMLevel() / 2); // Todo: SetSLevel() already reduces the level?
+            PPet->SetMLevel(mLvl + PMaster->getMod(Mod::AUTO_LVL_BONUS));
+            PPet->SetSLevel(mLvl + PMaster->getMod(Mod::AUTO_LVL_BONUS));
         }
         else
         {
-            PPet->SetMLevel(PMaster->GetSLevel());
-            PPet->SetSLevel(PMaster->GetSLevel() / 2); // Todo: SetSLevel() already reduces the level?
+            mLvl = PMaster->GetSLevel();
+            PPet->SetMLevel(mLvl + PMaster->getMod(Mod::AUTO_LVL_BONUS));
+            PPet->SetSLevel(mLvl + PMaster->getMod(Mod::AUTO_LVL_BONUS));
         }
         LoadAutomatonStats((CCharEntity*)PMaster, PPet, g_PPetList.at(petID)); // temp
         if (PMaster->objtype == TYPE_PC)

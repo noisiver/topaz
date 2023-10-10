@@ -438,7 +438,7 @@ enum class Mod
     CHARM_CHANCE              = 391, // extra chance to charm, in percents(1%, 2%, 3%, etc)
     FERAL_HOWL_DURATION       = 503, // +20% duration per merit when wearing augmented Monster Jackcoat +2
     JUG_LEVEL_RANGE           = 564, // Decreases the level range of spawned jug pets. Maxes out at 2.
-
+    JUG_LVL_BONUS             = 1350,// Jug: Lv.+ (Increases Jugs's base level above 99
     // Bard
     MINNE_EFFECT              = 433, //
     MINUET_EFFECT             = 434, //
@@ -522,6 +522,7 @@ enum class Mod
     SHIVA_MACC                = 1268, // Shiva Magical Accuracy
     GARUDA_ATT                = 1269, // Garuda Attack
     GARUDA_DEF                = 1270, // Garuda Defense
+    AVATAR_LVL_BONUS          = 1348,// Avatar/Elemental: Lv.+ (Increases Avatar/Elementals's base level above 99
     WEATHER_REDUCTION         = 372, // stores perpetuation reduction depending on weather
     DAY_REDUCTION             = 373, // stores perpetuation reduction depending on day
     PERPETUATION_REDUCTION    = 346, // stores the MP/tick reduction from gear
@@ -613,6 +614,7 @@ enum class Mod
     AUTO_EQUALIZER            = 941, // Reduces damage received according to damage taken
     AUTO_PERFORMANCE_BOOST    = 942, // Increases the performance of other attachments by a percentage
     AUTO_ANALYZER             = 943, // Causes the Automaton to mitigate damage from a special attack a number of times
+    AUTO_LVL_BONUS            = 1349,// Automaton: Lv.+ (Increases Automatons's base level above 99
 
     // Dancer
     FINISHING_MOVES           = 333, // Tracks # of finishing moves
@@ -1031,7 +1033,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1348 NEXT
+    // 1351 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
