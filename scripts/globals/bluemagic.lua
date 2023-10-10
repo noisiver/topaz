@@ -135,7 +135,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
     local efflux = caster:getStatusEffect(tpz.effect.EFFLUX)
     local affluxBonus = caster:getStatusEffect(tpz.effect.EFFLUX_BONUS)
-    local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
     local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 
     if (chainAffinity ~= nil) or (azureLore ~= nil) or (efflux ~= nil) then
@@ -145,6 +144,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
         -- Efflux treats all spells like they're 1k TP
         if (efflux ~= nil) then
+            local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
             tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
         end
         -- Azure Lore treats all spells like they're 3k TP
@@ -951,6 +951,11 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
         end
     end
 
+    -- Convert nils to 1
+    if (power == nil) then
+        power = 1
+    end
+
     -- Add Enfeebling Potency gear mod
     local enfeeblingPotency = 1 + (caster:getMod(tpz.mod.ENF_MAG_POTENCY) / 100)
     power = math.floor(power * enfeeblingPotency)
@@ -980,8 +985,8 @@ end
 -- Function to stagger duration of effects by using the resistance to change the value
 function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
-    local skill = spell:getSkillType()
-    local spellGroup = spell:getSpellGroup()
+    local skill = tpz.skill.BLUE_MAGIC
+    local spellGroup = tpz.magic.spellGroup.BLUE
 
     if (resist < 0.5) then
       resist = 0
