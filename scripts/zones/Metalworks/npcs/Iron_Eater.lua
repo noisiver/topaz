@@ -9,6 +9,7 @@ require("scripts/globals/missions")
 require("scripts/globals/settings")
 require("scripts/globals/titles")
 require("scripts/globals/wsquest")
+require("scripts/globals/items")
 local ID = require("scripts/zones/Metalworks/IDs")
 -----------------------------------
 
@@ -80,12 +81,15 @@ function onTrigger(player, npc)
     elseif (currentMission == tpz.mission.id.bastok.WHERE_TWO_PATHS_CONVERGE and player:getCharVar("MissionStatus") == 2) then
         player:startEvent(782)
     elseif (player:getCharVar("Flagbastok") == 1) then
-        if (player:getFreeSlotsCount() == 0) then
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 182)
+        if (player:getFreeSlotsCount() < 2) then
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.BASTOKAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.BASTOKAN_HEROES_RING)
         else
             player:setCharVar("Flagbastok", 0)
-            player:addItem(182)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 182)
+            player:addItem(tpz.items.BASTOKAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.BASTOKAN_FLAG)
+            player:addItem(tpz.items.BASTOKAN_HEROES_RING)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.BASTOKAN_HEROES_RING)
         end
     elseif (currentMission == tpz.mission.id.bastok.THE_FOUR_MUSKETEERS and missionStatus == 1) then
         player:startEvent(716)
@@ -116,12 +120,15 @@ function onEventFinish(player, csid, option)
     elseif (csid == 768) then
         finishMissionTimeline(player, 1, csid, option)
     elseif (csid == 782) then
-        if (player:getFreeSlotsCount() == 0) then
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 182)
+        if (player:getFreeSlotsCount() < 2) then
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.BASTOKAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.BASTOKAN_HEROES_RING)
             player:setCharVar("Flagbastok", 1)
         else
-            player:addItem(182)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 182)
+            player:addItem(tpz.items.BASTOKAN_FLAG)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.BASTOKAN_FLAG)
+            player:addItem(tpz.items.BASTOKAN_HEROES_RING)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.BASTOKAN_HEROES_RING)
         end
         player:setCharVar("MissionStatus", 0)
         player:completeMission(BASTOK, tpz.mission.id.bastok.WHERE_TWO_PATHS_CONVERGE)
