@@ -96,7 +96,7 @@ local sets =
             tpz.items.SHADE_LEGGINGS,
             tpz.items.SHADE_LEGGINGS_HQ,
         },
-        augmentMat  =  tpz.items.FORGOTTEN_JOURNEY,
+        augmentMat  =  tpz.items.FORGOTTEN_STEP,
         augmentMultiplier  = 1.0 
     },
 };
@@ -213,7 +213,7 @@ local function CalculateAugments(multiplier)
         { Stat = tpz.augments.FASTCAST, Power = 1, Used = false },
         { Stat = tpz.augments.CRITHITRATE, Power = 1, Used = false },
         { Stat = tpz.augments.CRITHITDAMAGE, Power = 1, Used = false },
-        { Stat = tpz.augments.CONSERVE_MP, Power = 1, Used = false },
+        { Stat = tpz.augments.CONSERVE_MP, Power = 3, Used = false },
         { Stat = tpz.augments.ALL_WSDMG_FIRST_HIT, Power = 1, Used = false },
         { Stat = tpz.augments.SONG_SPELLCASTING_TIME_MINUS, Power = 1, Used = false },
         { Stat = tpz.augments.CURE_SPELLCASTING_TIME_MINUS, Power = 1, Used = false },
