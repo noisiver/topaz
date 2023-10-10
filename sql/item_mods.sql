@@ -33358,6 +33358,7 @@ INSERT INTO `item_mods` VALUES (25461,30,15);     -- Abyssal Beads +2: Magic Acc
 INSERT INTO `item_mods` VALUES (25461,165,4);     -- Abyssal Beads +2: Critical hit rate +4%
 INSERT INTO `item_mods` VALUES (25465,25,10);     -- Beastmaster Collar: Accuracy+10
 INSERT INTO `item_mods` VALUES (25465,30,10);     -- Beastmaster Collar: Magic Accuracy+10
+INSERT INTO `item_mods` VALUES (25465,1350,1);    -- Beastmaster Collar: Jug Lvl +1
 INSERT INTO `item_mods` VALUES (25466,25,20);     -- Bst. Collar +1: Accuracy+20
 INSERT INTO `item_mods` VALUES (25466,30,20);     -- Bst. Collar +1: Magic Accuracy+20
 INSERT INTO `item_mods` VALUES (25467,25,25);     -- Bst. Collar +2: Accuracy+25
@@ -33402,7 +33403,8 @@ INSERT INTO `item_mods` VALUES (25491,73,7);      -- Ninja Nodowa +2: "Store TP"
 INSERT INTO `item_mods` VALUES (25495,2,100);     -- Dragoon's Collar: HP+100
 INSERT INTO `item_mods` VALUES (25495,5,50);      -- Dragoon's Collar: MP+50
 INSERT INTO `item_mods` VALUES (25495,25,20);     -- Dragoon's Collar: Accuracy+10
-INSERT INTO `item_mods` VALUES (25496,23,20);     -- Dgn. Collar +1: Attack+20s
+INSERT INTO `item_mods` VALUES (25495,1334,1);    -- Dragoon's Collar: Wyvern Lvl +1
+INSERT INTO `item_mods` VALUES (25496,23,20);     -- Dgn. Collar +1: Attack+20
 INSERT INTO `item_mods` VALUES (25496,25,20);     -- Dgn. Collar +1: Accuracy+20
 INSERT INTO `item_mods` VALUES (25496,165,3);     -- Dgn. Collar +1: Critical hit rate +3%
 INSERT INTO `item_mods` VALUES (25497,23,25);     -- Dgn. Collar +2: Attack+25
@@ -33410,6 +33412,7 @@ INSERT INTO `item_mods` VALUES (25497,25,25);     -- Dgn. Collar +2: Accuracy+25
 INSERT INTO `item_mods` VALUES (25497,165,4);     -- Dgn. Collar +2: Critical hit rate +4%
 INSERT INTO `item_mods` VALUES (25501,2,30);      -- Summoner's Collar: HP+30
 INSERT INTO `item_mods` VALUES (25501,160,-3);    -- Summoner's Collar: Damage taken -3%
+INSERT INTO `item_mods` VALUES (25501,1348,1);    -- Summoner's Collar: Avatar Lvl +1
 INSERT INTO `item_mods` VALUES (25502,2,40);      -- Smn. Collar +1: HP+40
 INSERT INTO `item_mods` VALUES (25502,160,-4);    -- Smn. Collar +1: Damage taken -4%
 INSERT INTO `item_mods` VALUES (25503,2,50);      -- Smn. Collar +2: HP+50
@@ -33435,6 +33438,7 @@ INSERT INTO `item_mods` VALUES (25515,26,25);     -- Comm. Charm +2: Ranged Accu
 INSERT INTO `item_mods` VALUES (25515,30,25);     -- Comm. Charm +2: Magic Accuracy+25
 INSERT INTO `item_mods` VALUES (25515,365,4);     -- Comm. Charm +2: "Snapshot"+4
 INSERT INTO `item_mods` VALUES (25519,25,10);     -- Pup. Collar: Accuracy+10
+INSERT INTO `item_mods` VALUES (25519,1349,1);    -- Pup. Collar: Automaton Lvl +1
 INSERT INTO `item_mods` VALUES (25520,25,25);     -- Pup. Collar +1: Accuracy+25
 INSERT INTO `item_mods` VALUES (25521,25,30);     -- Pup. Collar +2: Accuracy+30
 INSERT INTO `item_mods` VALUES (25525,25,15);     -- Etoile Gorget: Accuracy+15
