@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
     -- Duration, including resistance.  May need more research.
-    local duration = calculateDuration(60, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 60
 
     -- Resist
     local params = {}
@@ -53,8 +53,6 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.BIND
     local resist = applyResistanceEffect(caster, target, spell, params)
-    duration = duration * resist
-    duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BIND, target))
 
     TryApplyEffect(caster, target, spell, params.effect, target:speed(), 0, duration, resist, 0.5)
 

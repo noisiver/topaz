@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
     local power = calculatePotency(basePotency, spell:getSkillType(), caster, target)
 
     -- Duration, including resistance.  Unconfirmed.
-    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 120
     local params = {}
     params.diff = dMND
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
@@ -34,15 +34,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.EVASION_DOWN
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then -- Do it!
-        if target:addStatusEffect(params.effect, power, 0, duration * resist) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
 
     return params.effect
 end

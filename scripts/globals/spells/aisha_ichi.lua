@@ -20,7 +20,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.MAGIC_EVASION_DOWN
     local resist = applyResistanceEffect(caster, target, spell, params)
     local power = 20
-    local duration =  math.ceil(180 * resist)
+    local duration =  180
 
     TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 

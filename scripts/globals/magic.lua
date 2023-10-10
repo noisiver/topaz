@@ -2798,6 +2798,10 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
     -- printf("Final Duration %d", finalDuration)
 
+    -- Reduce duration by resist state
+    finalDuration = finalDuration * resist
+    -- printf("Final Duration %d", finalDuration)
+
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
         if target:getStatusEffect(effect) then
