@@ -20,10 +20,11 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
+    local jpValue = target:getJobPointLevel(tpz.jp.HAMANOHA_DURATION)
     if jobUtil.ConsumeIgnisRune(player, tpz.effect.GEO_MAGIC_DEF_BOOST, 3) then
         local demon = target:getSystem() == 9
 	    if demon then
-            target:addStatusEffect(tpz.effect.HAMANOHA, 12, 0, 180)
+            target:addStatusEffect(tpz.effect.HAMANOHA, 12, 0, 180 + jpValue)
         end
     end
 end
