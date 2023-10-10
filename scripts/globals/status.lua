@@ -1853,10 +1853,13 @@ tpz.mod =
     SYNTH_ANIMATION_BONE    = 1344, 
     SYNTH_ANIMATION_ALCHEMY = 1345, 
     SYNTH_ANIMATION_COOK    = 1346,
-    ENFEEB_MAGIC_DURATION   = 1347, -- Enfeebling Magic Duration increase % 
+    ENFEEB_MAGIC_DURATION   = 1347, -- Enfeebling Magic Duration increase %
+    AUTO_LVL_BONUS          = 1349, -- Automaton: Lv.+ (Increases Automatons's base level above 99
+    AVATAR_LVL_BONUS        = 1348, -- Avatar/Elemental: Lv.+ (Increases Avatar/Elementals's base level above 99
+    JUG_LVL_BONUS           = 1350, -- Jug: Lv.+ (Increases Jugs's base level above 99
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1348 NEXT
+    -- 1351 NEXT
 }
 
 tpz.latent =
