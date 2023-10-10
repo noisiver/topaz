@@ -16,7 +16,7 @@ function onSpellCast(caster, target, spell)
     local power = math.min(caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC) / 15 + 1, 25)
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 180
 
     local params = {}
     params.diff = dINT

@@ -24,7 +24,7 @@ function onSpellCast(caster, target, spell)
     local potency = calculatePotency(basePotency, spell:getSkillType(), caster, target)
 
     -- Duration, including resistance.  Unconfirmed.
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 180
     local tier = 2
     local params = {}
     params.diff = dINT
@@ -32,8 +32,6 @@ function onSpellCast(caster, target, spell)
     params.bonus = meritBonus * 2
     params.effect = tpz.effect.BLINDNESS
     local resist = applyResistanceEffect(caster, target, spell, params)
-    duration = duration * resist
-    duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BLIND, target))
 
     TryApplyEffect(caster, target, spell, params.effect, potency, 0, duration, resist, 0.5, tier)
 

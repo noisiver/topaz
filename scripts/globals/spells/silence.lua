@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local dMND = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
 
-    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 120
 
     --Resist
     local params = {}
@@ -22,8 +22,6 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.SILENCE
     local resist = applyResistanceEffect(caster, target, spell, params)
-    duration = duration * resist
-    duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.SILENCE, target))
 
     local isMaaIllmutheBestower = target:getPool() == 2465
 
