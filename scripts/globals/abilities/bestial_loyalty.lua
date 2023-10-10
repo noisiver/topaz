@@ -23,33 +23,16 @@ end
 function onUseAbility(player, target, ability)
     local pet = player:getPet()
     local numberOfEffects = 0
-    local playerEffect = player:getStatusEffects()
-    for _, playerEffect in ipairs(playerEffect) do
-        local effectFlags = playerEffect:getFlag()
+    local effects = player:getStatusEffects()
+    for _, effect in ipairs(effects) do
+        local effectFlags = effect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.DISPELABLE) == tpz.effectFlag.DISPELABLE) or (bit.band(effectFlags, tpz.effectFlag.ERASABLE) == tpz.effectFlag.ERASABLE) or
         (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) == tpz.effectFlag.WALTZABLE) then
-            local petEffects = pet:getStatusEffects()
-            for _, petEffect in ipairs(petEffects) do
-                local currentPower = 0
-                local newPower = playerEffect:getPower()
-
-                -- Make sure the effect isn't nil
-                if (petEffect ~= nil ) then
-                    currentPower = petEffect:getPower()
-                end
-
-                if (newPower > currentPower) then
-                    numberOfEffects = numberOfEffects + 1
-                    pet:addStatusEffect(playerEffect:getType(), playerEffect:getPower(), playerEffect:getTick(), math.ceil((playerEffect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
-                end
-            end
+            numberOfEffects = numberOfEffects + 1
+            pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.ceil((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
         end
     end
 
     -- Display amount of effects copied
-    if (numberOfEffects > 0) then
-        MessageGroup(player, player, numberOfEffects .. " effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
-    else
-        MessageGroup(player, player, "No effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
-    end
+    MessageGroup(player, player, numberOfEffects .. " effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
 end
