@@ -3,10 +3,7 @@
 --   NM: Steam Cleaner
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 15) 
-    mob:addMod(tpz.mod.ATTP, 15)
-    mob:addMod(tpz.mod.ACC, 5) 
-    mob:addMod(tpz.mod.EVA, 5)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.REFRESH, 300)
 end
 

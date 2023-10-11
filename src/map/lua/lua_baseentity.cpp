@@ -7659,6 +7659,27 @@ inline int32 CLuaBaseEntity::addExp(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: addCapacityPoints()
+ *  Purpose : Adds a set amount of Capacity Points to the player
+ *  Example : player:addCapacity(1000)
+ *  Notes   : Used for RoE rewards
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::addCapacityPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+    auto capacity = (uint32)lua_tointeger(L, 1);
+
+    charutils::AddCapacityPoints(PChar, m_PBaseEntity,  capacity, 0, false);
+    return 0;
+}
+
+/************************************************************************
 *  Function: delExp()
 *  Purpose : Takes XP from a player
 *  Example : player:delExp(amount)
@@ -7752,24 +7773,78 @@ inline int32 CLuaBaseEntity::setMerits(lua_State *L)
     return 0;
 }
 
+
+/************************************************************************
+ *  Function: getSpentJobPoints()
+ *  Purpose : Returns the total value of all job points spent
+ *  Example : player:getSpentJobPoints()
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getSpentJobPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype = TYPE_NPC);
+
+    if (m_PBaseEntity->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+        if (PChar->GetMLevel() < 99) // account for Level Sync
+        {
+            lua_pushinteger(L, 0);
+        }
+        lua_pushinteger(L, PChar->PJobPoints->GetJobPointsSpent());
+    }
+    else
+    {
+        lua_pushinteger(L, 0);
+    }
+
+    return 1;
+}
+
 /************************************************************************
  *  Function: getJobPointLevel()
  *  Purpose : Returns the current value a specific job point
  *  Example : player:getJobPointLevel(JP_MIGHTY_STRIKES_EFFECT)
- *  Notes   :
+ *  Notes   ::
  ************************************************************************/
 inline int32 CLuaBaseEntity::getJobPointLevel(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype = TYPE_NPC);
 
     if (m_PBaseEntity->objtype == TYPE_PC)
     {
         CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
         lua_pushinteger(L, PChar->PJobPoints->GetJobPointValue((JOBPOINT_TYPE)lua_tointeger(L, 1)));
     }
+    else
+    {
+        lua_pushinteger(L, 0);
+    }
 
     return 1;
+}
+
+/************************************************************************
+ *  Function: setCapacityPoints()
+ *  Purpose : Sets the capacity points for a player to a specified amount
+ *  Example : player:setCapacityPoints(5000)
+ *  Notes   : Used in GM command
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::setCapacityPoints(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    CCharEntity* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+    PChar->PJobPoints->SetCapacityPoints((uint16)lua_tointeger(L, 1));
+    PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+    return 0;
 }
 
 /************************************************************************
@@ -7786,7 +7861,41 @@ inline int32 CLuaBaseEntity::setJobPoints(lua_State* L)
 
     CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
 
-    PChar->PJobPoints->SetJobPoints(lua_tointeger(L, 1));
+    PChar->PJobPoints->SetJobPoints((int16)lua_tointeger(L, 1));
+    PChar->pushPacket(new CMenuJobPointsPacket(PChar));
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: masterJob()
+ *  Purpose : Fully masters / unlocks player's current job
+ *  Example : player:masterJob()
+ *  Notes   : Used in GM command
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::masterJob(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    CCharEntity* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+    auto jpCategory = 0x020 * PChar->GetMJob();
+    for (auto i = jpCategory; i < jpCategory + 0xA; i++)
+    {
+        auto points = PChar->PJobPoints->GetJobPointType((JOBPOINT_TYPE)i);
+        auto pointsNeeded = 20 - points->value;
+        auto currentJP = PChar->PJobPoints->GetJobPoints();
+
+        for (auto x = 0; x < pointsNeeded; x++)
+        {
+            auto cost = JobPointCost(points->value);
+            PChar->PJobPoints->SetJobPoints(currentJP + cost);
+            PChar->PJobPoints->RaiseJobPoint((JOBPOINT_TYPE)i);
+        }
+    }
+
     PChar->pushPacket(new CMenuJobPointsPacket(PChar));
 
     return 0;
@@ -13654,7 +13763,7 @@ inline int32 CLuaBaseEntity::hasValidJugPetItem(lua_State* L)
 
     CItemWeapon* PItem = static_cast<CItemWeapon *>(static_cast<CCharEntity *>(m_PBaseEntity)->getEquip(SLOT_AMMO));
 
-    if (PItem != nullptr && PItem->getSubSkillType() >= SUBSKILL_SHEEP && PItem->getSubSkillType() <= SUBSKILL_TOLOI)
+    if (PItem != nullptr && PItem->getSubSkillType() >= SUBSKILL_SHEEP && PItem->getSubSkillType() <= SUBSKILL_SEFINA)
     {
         lua_pushboolean(L, true);
         return 1;
@@ -16621,8 +16730,13 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMerit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMeritCount),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMerits),
+
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getSpentJobPoints),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,addCapacityPoints),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setCapacityPoints),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getJobPointLevel),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setJobPoints),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,masterJob),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getGil),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addGil),

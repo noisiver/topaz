@@ -15,7 +15,7 @@ function onSpellCast(caster, target, spell)
     -- Pull base stats.
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
-    local duration = calculateDuration(30, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 30
 
     local params = {}
     params.diff = dINT

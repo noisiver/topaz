@@ -2613,6 +2613,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Proto-Ultima',729,1540);
 INSERT INTO `mob_skill_lists` VALUES ('Tiamat-Flying-Attack',730,1278);
 INSERT INTO `mob_skill_lists` VALUES ('Ouryu-Flying-Attack',731,1298);
 INSERT INTO `mob_skill_lists` VALUES ('Jormungand-Flying-Attack',732,1288);
+
+-- Jug Pets
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Hare', 733, 672);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Hare', 733, 673);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Hare', 733, 674);
@@ -2648,7 +2650,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Jug_Funguar', 740, 703);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Funguar', 740, 704);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Funguar', 740, 705);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Funguar', 740, 706);
-INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle', 741, 707); -- check id
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle', 741, 707);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle', 741, 708);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle', 741, 709);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle', 741, 710);
@@ -2688,10 +2690,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Jug_Ladybug', 750, 738);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Raptor', 751, 743);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Raptor', 751, 744);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Raptor', 751, 745);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Slug', 752, 747);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Slug', 752, 748);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph', 753, 749);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph', 753, 750);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph', 753, 751);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph', 753, 752);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Slime', 754, 792);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Slime', 754, 793);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Slime', 754, 794);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Apkallu', 755, 756);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Apkallu', 755, 757);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Pugil', 756, 758);
@@ -2710,18 +2717,48 @@ INSERT INTO `mob_skill_lists` VALUES ('Jug_Snapweed', 760, 770);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Snapweed', 760, 771);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_FlyHi', 761, 713);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_FlyHi', 761, 772);
-INSERT INTO `mob_skill_lists` VALUES ('Jug_Acuex', 762, 773);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Acuex', 762, 774);
-INSERT INTO `mob_skill_lists` VALUES ('Jug_Colibri', 763, 775);
-INSERT INTO `mob_skill_lists` VALUES ('Jug_Spider', 764, 776);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Acuex', 762, 775);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Colibri', 763, 776);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Spider', 764, 777);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Spider', 764, 778);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Spider', 764, 779);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Lynx', 765, 730);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Lynx', 765, 731);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Lynx', 765, 746);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Lynx', 765, 790);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Lycopodium', 766, 675);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Lycopodium', 766, 677);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Lycopodium', 766, 678);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Lycopodium', 766, 679);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Smilodon', 1189, 680);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Smilodon', 1189, 681);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Smilodon', 1189, 682);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Smilodon', 1189, 795);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Smilodon', 1189, 796);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph_2', 1190, 749);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph_2', 1190, 750);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph_2', 1190, 751);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph_2', 1190, 752);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph_2', 1190, 797);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Hippogryph_2', 1190, 798);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Crab_Porter', 1191, 693);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Crab_Porter', 1191, 694);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Crab_Porter', 1191, 695);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Crab_Porter', 1191, 696);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Crab_Porter', 1191, 697);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Crab_Porter', 1191, 788);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Crab_Porter', 1191, 789);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle_Yellow', 1192, 707);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle_Yellow', 1192, 708);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle_Yellow', 1192, 709);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle_Yellow', 1192, 710);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle_Yellow', 1192, 711);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Beetle_Yellow', 1192, 791);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Mosquito', 1193, 781);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Mosquito', 1193, 782);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Weevil', 1194, 786);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Weevil', 1194, 787);
 
 INSERT INTO `mob_skill_lists` VALUES ('Lamina-Hyakinthos', 767, 2210);
 INSERT INTO `mob_skill_lists` VALUES ('Corse_NM_staff',768,530);
@@ -4689,6 +4726,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3139); -- biting_abrogation
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3140); -- permafrost_requiem
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3141); -- glacial_tomb
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3142); -- glassy_nova
--- Next available ID: 1189
+-- Next available ID: 1195
 -- Next custom ID: 6142
 

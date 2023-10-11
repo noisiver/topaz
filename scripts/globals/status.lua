@@ -690,7 +690,7 @@ tpz.effect =
     ENDRAIN                  = 487, -- FENRIR 96
     ENASPIR                  = 488, -- FENRIR 96
     AFTERGLOW                = 489, -- WS AFTEREFFECT
-    BRAZEN_STRENGTH          = 490, --
+    BRAZEN_RUSH              = 490, --
     INNER_STRENGTH           = 491,
     ASYLUM                   = 492,
     SUBTLE_SORCERY           = 493,
@@ -1833,14 +1833,33 @@ tpz.mod =
     EFFLUX_MULTIPLIER       = 1325, -- Bonus to Efflux, in percents
     UNBRIDLED_DAMAGE        = 1326, -- Bonus damage to Unbridled Learning spells, in percents
     UNBRIDLED_DURATION      = 1327, -- Bonus duration to Unbridled Learning spells, in percents
-    DREAD_SPIKES_EFFECT     = 1328,  -- Percent increase to total HP drain for Dread Spikes
-    ENHANCES_BLOOD_WEAPON   = 1329,  -- Enhances "Blood Weapon" effect (increases Blood Weapon's duration in seconds)
-    DARK_MAGIC_CAST         = 1330,  -- Reduces Dark Magic Casting Time by percentage (e.g. mod value -10 = -10% cast time)
-    DARK_MAGIC_DURATION     = 1331,  -- Increases Dark Magic spell durations by percentage (e.g. mod value 10 = +10% duration)
-    ENHANCES_DARK_SEAL      = 1332  -- Enhances "Dark Seal" effect (Increases Dark Magic spell durations by 10% per Dark Seal merit while Dark Seal active)
+    DREAD_SPIKES_EFFECT     = 1328, -- Percent increase to total HP drain for Dread Spikes
+    ENHANCES_BLOOD_WEAPON   = 1329, -- Enhances "Blood Weapon" effect (increases Blood Weapon's duration in seconds)
+    DARK_MAGIC_CAST         = 1330, -- Reduces Dark Magic Casting Time by percentage (e.g. mod value -10 = -10% cast time)
+    DARK_MAGIC_DURATION     = 1331, -- Increases Dark Magic spell durations by percentage (e.g. mod value 10 = +10% duration)
+    ENHANCES_DARK_SEAL      = 1332, -- Enhances "Dark Seal" effect (Increases Dark Magic spell durations by 10% per Dark Seal merit while Dark Seal active)
+    WYVERN_ATTRIBUTE_DA     = 1333, -- Adds an amount of Double Attack to Dragoon each time Wyverns Attributes Increase (percent)
+    WYVERN_LVL_BONUS        = 1334, -- Wyvern: Lv.+ (Increases wyvern's base level above 99
+    DRAGOON_BREATH_RECAST   = 1335, -- Restoring/Smithing Breath Recast Reduction (seconds)
+    SYNTH_ANIMATION_TIME    = 1336, -- Synth duration reduction. In seconds by 60s(i.e 120 is 2 seconds).
+    SYNTH_MAT_LOSS_REDUCT   = 1337, -- Mat loss reduction, in percents. Escutcheons shield only atm.
+    SYNTH_CANNOT_NQ         = 1338, -- Remove the ability to make an NQ item. Forces a break instead when a NQ is created. Escutcheons shield only.
+    -- Synthesis (animation) speed. In seconds by 60s(i.e 120 is 2 seconds). Escutcheons shield only atm.
+    SYNTH_ANIMATION_WOOD    = 1339, 
+    SYNTH_ANIMATION_SMITH   = 1340, 
+    SYNTH_ANIMATION_GSM     = 1341, 
+    SYNTH_ANIMATION_CLOTH   = 1342, 
+    SYNTH_ANIMATION_LEATHER = 1343, 
+    SYNTH_ANIMATION_BONE    = 1344, 
+    SYNTH_ANIMATION_ALCHEMY = 1345, 
+    SYNTH_ANIMATION_COOK    = 1346,
+    ENFEEB_MAGIC_DURATION   = 1347, -- Enfeebling Magic Duration increase %
+    AUTO_LVL_BONUS          = 1349, -- Automaton: Lv.+ (Increases Automatons's base level above 99
+    AVATAR_LVL_BONUS        = 1348, -- Avatar/Elemental: Lv.+ (Increases Avatar/Elementals's base level above 99
+    JUG_LVL_BONUS           = 1350, -- Jug: Lv.+ (Increases Jugs's base level above 99
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1333 NEXT
+    -- 1351 NEXT
 }
 
 tpz.latent =
@@ -2182,6 +2201,13 @@ tpz.merit =
     BLAZE_OF_GLORY_RECAST       = MCATEGORY_GEO_1 + 0x06,
     DEMATERIALIZE_RECAST        = MCATEGORY_GEO_1 + 0x08,
 
+    -- RUN 1
+    MERIT_RUNE_ENHANCE          = MCATEGORY_RUN_1 + 0x00,
+    MERIT_VALLATION_EFFECT      = MCATEGORY_RUN_1 + 0x02,
+    MERIT_LUNGE_EFFECT          = MCATEGORY_RUN_1 + 0x04,
+    MERIT_PFLUG_EFFECT          = MCATEGORY_RUN_1 + 0x06,
+    MERIT_GAMBIT_EFFECT         = MCATEGORY_RUN_1 + 0x08,
+
     -- WEAPON SKILLS
     SHIJIN_SPIRAL               = MCATEGORY_WS + 0x00,
     EXENTERATOR                 = MCATEGORY_WS + 0x02,
@@ -2350,11 +2376,17 @@ tpz.merit =
     ENLIGHTENMENT               = MCATEGORY_SCH_2 + 0x08,
     STORMSURGE                  = MCATEGORY_SCH_2 + 0x0A,
 
-        -- GEO 2
+    -- GEO 2
     MENDING_HALATION            = MCATEGORY_GEO_2 + 0x00,
     RADIAL_ARCANA               = MCATEGORY_GEO_2 + 0x02,
     CURATIVE_RECANTATION        = MCATEGORY_GEO_2 + 0x04,
     PRIMEVAL_ZEAL               = MCATEGORY_GEO_2 + 0x06,
+
+    -- RUN 2
+    MERIT_BATTUTA               = MCATEGORY_RUN_2 + 0x00,
+    MERIT_RAYKE                 = MCATEGORY_RUN_2 + 0x02,
+    MERIT_INSPIRATION           = MCATEGORY_RUN_2 + 0x04,
+    MERIT_SLEIGHT_OF_SWORD      = MCATEGORY_RUN_2 + 0x06,
 }
 
 ------------------------------------
@@ -2753,6 +2785,7 @@ tpz.damageType =
     WIND      = 8,
     EARTH     = 9,
     LIGHTNING = 10,
+    THUNDER   = 10,
     WATER     = 11,
     LIGHT     = 12,
     DARK      = 13,

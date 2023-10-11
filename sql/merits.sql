@@ -248,7 +248,7 @@ INSERT INTO `merits` VALUES (2500,'muted_soul',5,10,128,7,38);
 INSERT INTO `merits` VALUES (2502,'desperate_blows_effect',5,200,128,7,38);
 INSERT INTO `merits` VALUES (2560,'feral_howl',5,5,256,7,39);
 INSERT INTO `merits` VALUES (2562,'killer_instinct',5,10,256,7,39);
-INSERT INTO `merits` VALUES (2564,'beast_affinity',5,2,256,7,39);
+INSERT INTO `merits` VALUES (2564,'beast_affinity',5,1,256,7,39);
 INSERT INTO `merits` VALUES (2566,'beast_healer',5,1,256,7,39);
 INSERT INTO `merits` VALUES (2624,'nightingale',5,25,512,7,40);
 INSERT INTO `merits` VALUES (2626,'troubadour',5,25,512,7,40);
@@ -312,5 +312,9 @@ INSERT INTO `merits` VALUES (3392,'mending_halation',5,5,1048576,7,52);
 INSERT INTO `merits` VALUES (3394,'radial_arcana',5,3,1048576,7,52);
 INSERT INTO `merits` VALUES (3396,'curative_recantation',5,5,1048576,7,52);
 INSERT INTO `merits` VALUES (3398,'primeval_zeal',5,10,1048576,7,52);
+INSERT INTO `merits` VALUES (3456,'battuta',5,4,2097152,7,53);
+INSERT INTO `merits` VALUES (3458,'rayke',5,3,2097152,7,53);
+INSERT INTO `merits` VALUES (3460,'inspiration',5,10,2097152,7,53);
+INSERT INTO `merits` VALUES (3462,'sleight_of_sword',5,5,2097152,7,53);
 
 -- Dump completed on 2017-01-31 10:58:26

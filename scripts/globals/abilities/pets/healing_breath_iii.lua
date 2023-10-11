@@ -33,7 +33,7 @@ function onUseAbility(pet, target, skill, action)
         pet:delStatusEffectSilent(tpz.effect.MAGIC_ATK_BOOST)
     end
     local breathMultiplier = 55 + gear + deepBreathing
-    local breathJP = 0 -- NYI
+    local breathJP = master:getJobPointLevel(tpz.jp.WYVERN_BREATH_EFFECT) * 10
     local breathAug = (0 / 100) -- NYI
 
     local hpRecovered = math.floor((hp * (breathMultiplier/256)) + breathBase + (breathJP) * (1 + (breathAug)))

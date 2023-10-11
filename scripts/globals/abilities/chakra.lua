@@ -43,6 +43,11 @@ function onUseAbility(player, target, ability)
 	else
 		recover = recover * 0.5 -- Nerf Chakra by half if subbed
 	end
+
+    -- Add JP bonus
+    local jpValue = target:getJobPointLevel(tpz.jp.CHAKRA_EFFECT) * 10 -- +10 flat HP recovered per level
+    recover = recover + jpValue
+
     -- Apply cure potency received stat mod
     local healingReceivedMultiplier = 1 + (player:getMod(tpz.mod.CURE_POTENCY_RCVD) / 100)
     recover = recover * healingReceivedMultiplier

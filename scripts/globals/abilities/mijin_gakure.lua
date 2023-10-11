@@ -5,7 +5,7 @@
 -- Recast Time: 1:00:00
 -- Duration: Instant
 -----------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/magic")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 -----------------------------------
@@ -21,12 +21,33 @@ function onUseAbility(player, target, ability)
 
     dmg = dmg * resist
 
+    dmg = target:magicDmgTaken(dmg, tpz.magic.ele.NONE)
+
+    if (dmg > 0) then
+        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        dmg = utils.clamp(dmg, 0, 99999)
+    end
+
+    --handling rampart stoneskin
+    dmg = utils.rampartstoneskin(target, dmg)
+
     dmg = utils.stoneskin(target, dmg)
-    target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
-    
+
+    if (dmg < 0) then
+        dmg = target:addHP(-dmg)
+        ability:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+    else
+        target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
+        if (target:getObjType() ~= tpz.objType.PC) then
+            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+            target:addTP(tpGiven)
+        end
+    end
+
     player:addStatusEffect(tpz.effect.RERAISE, 3, 0, 3600) 
 	player:delStatusEffectSilent(tpz.effect.WEAKNESS)
     player:setLocalVar("MijinGakure", 1)
     player:setHP(0)
-  return dmg
+
+    return dmg
 end

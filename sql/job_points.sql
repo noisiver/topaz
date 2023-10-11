@@ -52,7 +52,7 @@ INSERT INTO `job_points` VALUES (128,'hundred_fists_effect',2,2);
 INSERT INTO `job_points` VALUES (130,'dodge_effect',2,2);
 INSERT INTO `job_points` VALUES (132,'inner_strength_effect',2,2);
 INSERT INTO `job_points` VALUES (134,'focus_effect',2,1);
-INSERT INTO `job_points` VALUES (136,'chakra_effect',1,2);
+INSERT INTO `job_points` VALUES (136,'chakra_effect',10,2);
 INSERT INTO `job_points` VALUES (138,'counterstance_effect',2,2);
 INSERT INTO `job_points` VALUES (140,'footwork_effect',1,2);
 INSERT INTO `job_points` VALUES (142,'perfect_counter_effect',1,2);

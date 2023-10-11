@@ -1,6 +1,6 @@
 -----------------------------------
 --
--- xi.effect.TENUTO
+-- tpz.effect.TENUTO
 --
 -----------------------------------
 require("scripts/globals/status")

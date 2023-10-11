@@ -922,7 +922,7 @@ void SetupJob(CMobEntity* PMob)
             break;
         case JOB_PUP:
             PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1901);
-            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 720);
+            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 180);
             break;
         case JOB_BLM:
             // We don't want to do the mages stand-back part from subjob, so we have it here

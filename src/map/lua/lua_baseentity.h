@@ -347,8 +347,13 @@ public:
     int32 getMerit(lua_State*);
     int32 getMeritCount(lua_State*);        // Gets a players current merit count.
     int32 setMerits(lua_State*);            // set merits (testing only!)
+
+    int32 getSpentJobPoints(lua_State* L);  // Returns the total value of all job points spent
+    int32 addCapacityPoints(lua_State* L);  // Adds CP
+    int32 setCapacityPoints(lua_State* L);  // Sets CP
     int32 getJobPointLevel(lua_State* L);   // Returns the current value a specific job point
     int32 setJobPoints(lua_State* L);       // Sets the job points for a player to a specified amount
+    int32 masterJob(lua_State* L);          // Master job(2100 JP)
 
     int32 getGil(lua_State*);               // Gets character's gil amount
     int32 addGil(lua_State*);               // adds gil to character

@@ -29,11 +29,11 @@
 
 /************************************************************************
 *                                                                       *
-*  Две версии значений - до abyssea и после                             *
+*  Two versions of meanings - before and after abyssea                  *
 *                                                                       *
 ************************************************************************/
 
-// массив больше на одно значение, заполняемое нулем
+// the array is one more value, filled with zero
 
 static uint8 upgrade[10][16] =
 {
@@ -46,15 +46,15 @@ static uint8 upgrade[10][16] =
     {1,2,3,4,5},                                 // Job Group 1
     {3,4,5,5,5},                                 // Job Group 2
     {20,22,24,27,30},                            // Weapon Skills
-    {}    // Max merits
+    {}                                           // Max merits
 };
-#define MAX_LIMIT_POINTS  10000         // количество опыта для получения одного merit
+#define MAX_LIMIT_POINTS  10000         // amount of experience to get one merit
 
-// TODO: скорее всего придется все это перенести в базу
+// TODO: Most likely you will have to transfer all this to the database
 
 /************************************************************************
 *                                                                       *
-*  Ограничение количества усилений metir                                *
+*  Limiting the number of merit boosts                                  *
 *                                                                       *
 ************************************************************************/
 
@@ -119,11 +119,12 @@ static const MeritCategoryInfo_t meritCatInfo[] =
 
     {14,15,8}, //MCATEGORY_WS
 
-	{0,0,8},   //MCATEGORY_UNK_0	26
-    {0,0,8},   //MCATEGORY_UNK_1
-    {0,0,8},   //MCATEGORY_UNK_2
-    {0,0,8},   //MCATEGORY_UNK_3
-    {0,0,8},   //MCATEGORY_UNK_4	30
+    { 5, 10, 6 }, // MCATEGORY_GEO_1       catNumber 26
+    { 5, 10, 6 }, // MCATEGORY_RUN_1       catNumber 27
+
+    { 0, 0, 8 }, // MCATEGORY_UNK_0       catNumber 28
+    { 0, 0, 8 }, // MCATEGORY_UNK_1       catNumber 29
+    { 0, 0, 8 }, // MCATEGORY_UNK_2       catNumber 30
 
     {4,10,7},  //MCATEGORY_WAR_2
     {4,10,7},  //MCATEGORY_MNK_2
@@ -145,6 +146,11 @@ static const MeritCategoryInfo_t meritCatInfo[] =
     {4,10,7},  //MCATEGORY_PUP_2
     {4,10,7},  //MCATEGORY_DNC_2
     {6,10,7},  //MCATEGORY_SHC_2
+
+    { 0, 0, 7 }, // MCATEGORY_UNK_3       catNumber 51
+
+    { 4, 10, 7 }, // MCATEGORY_GEO_2       catNumber 52
+    { 4, 10, 7 }, // MCATEGORY_RUN_2       catNumber 53
 };
 
 #define GetMeritCategory(merit) ((merit >> 6) - 1)      // получаем категорию из merit

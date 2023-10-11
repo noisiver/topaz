@@ -23,9 +23,9 @@ function onInitialize(zone)
     zone:registerRegion(13, -820, 5, -380, 0, 0, 0)
     zone:registerRegion(15, -260, 5, 740, 0, 0, 0)
     zone:registerRegion(17, -340, 5, 660, 0, 0, 0)
-    zone:registerRegion(19, -340, 5, 820, 0, 0, 0)
-    zone:registerRegion(21, -409, 5, 800, 0, 0, 0)
-    zone:registerRegion(23, -420, 5, 740, 0, 0, 0)
+    zone:registerRegion(19, -420, 5, 740, 0, 0, 0)
+    zone:registerRegion(21, -340, 5, 820, 0, 0, 0)
+    zone:registerRegion(23, -409, 5, 800, 0, 0, 0)
     zone:registerRegion(25, -400, 5, 670, 0, 0, 0)
 
     -- Hole in the Sand
@@ -54,7 +54,7 @@ end
 
 function getWeight(player)
     local race = player:getRace()
-    if race == tpz.race.GALKA or player:hasKeyItem(tpz.ki.LOADSTONE) then
+    if race == tpz.race.GALKA then
         return 3
     elseif race == tpz.race.TARU_M or race == tpz.race.TARU_F then
         return 1
@@ -67,7 +67,7 @@ function onRegionEnter(player, region)
     local RegionID = region:GetRegionID()
 
     -- holes in the sand
-    if player and (RegionID >= 30) then
+    if (RegionID >= 30) then
         switch (RegionID): caseof
         {
             [30] = function (x)
@@ -93,34 +93,12 @@ function onRegionEnter(player, region)
         local plate = GetNPCByID(ID.npc.ORNATE_DOOR_OFFSET + RegionID)
 
         local totalWeight = plate:getLocalVar("weight")
-        if player then
-            totalWeight = totalWeight + getWeight(player)
-            plate:setLocalVar("weight", totalWeight)
-        end
+        totalWeight = totalWeight + getWeight(player)
+        plate:setLocalVar("weight", totalWeight)
 
-        if
-            totalWeight >= 3 and
-            plate:getLocalVar("opening") == 0 and
-            door:getAnimation() == tpz.animation.CLOSE_DOOR
-        then
-            SendEntityVisualPacket(plate:getID(), "unlc") -- Play the light animation
-            plate:setLocalVar("opening", 1)
-
-            -- wait 5 seconds to open the door
-            door:timer(5000, function(doorArg)
-                doorArg:openDoor(10) -- open door with a 10 second time delay.
-            end)
-
-            -- allow door to retrigger 17 seconds from now
-            plate:timer(17000, function(plateArg)
-                plateArg:setLocalVar("opening", 0)
-
-                -- retrigger if weight is still enough to do so
-                if plateArg:getLocalVar("weight") >= 3 then
-                    -- retrigger, with nil as player arg, player is not necessary to re-open the door if weight is >= 3.
-                    zoneObject.onTriggerAreaEnter(nil, triggerArea)
-                end
-            end)
+        if (player:hasKeyItem(tpz.ki.LOADSTONE) or totalWeight >= 3) then
+            door:openDoor(15) -- open door with a 15 second time delay.
+            plate:setAnimation(tpz.anim.OPEN_DOOR) -- this is supposed to light up the platform but it's not working. Tried other values too.
         end
     end
 end
@@ -129,11 +107,16 @@ function onRegionLeave(player, region)
     local RegionID = region:GetRegionID()
 
     if (RegionID < 30) then
-        local plate = GetNPCByID(ID.npc.ORNATE_DOOR_OFFSET + triggerAreaID)
+        local door = GetNPCByID(ID.npc.ORNATE_DOOR_OFFSET + RegionID - 1)
+        local plate = GetNPCByID(ID.npc.ORNATE_DOOR_OFFSET + RegionID)
 
         local totalWeight = plate:getLocalVar("weight")
         totalWeight = totalWeight - getWeight(player)
         plate:setLocalVar("weight", totalWeight)
+
+        if (plate:getAnimation() == tpz.anim.OPEN_DOOR and totalWeight < 3) then
+            plate:setAnimation(tpz.anim.CLOSE_DOOR)
+        end
     end
 end
 

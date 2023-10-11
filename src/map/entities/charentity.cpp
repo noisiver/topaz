@@ -1901,8 +1901,10 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
     }
     battleutils::ClaimMob(PTarget, this);
     battleutils::RemoveAmmo(this, ammoConsumed);
-    // only remove detectables
-    StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
+    // only remove detectables and NOT camouflage
+    if (!StatusEffectContainer->HasStatusEffect(EFFECT_CAMOUFLAGE))
+        StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
+
 
     // Safety check to not get locked in cutscene status
     if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)

@@ -9,9 +9,11 @@ require("scripts/globals/mobs")
 
 function onMobInitialize(mob)
     SetGenericNMStats(mob)
-    mob:addMod(tpz.mod.DEFP, 50)
     mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
     mob:setMobMod(tpz.mobMod.DUAL_WIELD, 1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobSpawn(mob)

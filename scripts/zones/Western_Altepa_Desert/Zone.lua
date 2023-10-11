@@ -61,6 +61,8 @@ function onZoneWeatherChange(weather)
     local KV = GetMobByID(ID.mob.KING_VINEGARROON)
 
     if (weather == tpz.weather.DUST_STORM or weather == tpz.weather.SAND_STORM) then
-        KV:spawn()
+        if not KV:isSpawned() then
+            KV:spawn()
+        end
     end
 end

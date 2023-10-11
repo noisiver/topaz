@@ -4,7 +4,8 @@
 -----------------------------------
 local ID = require("scripts/zones/The_Shrouded_Maw/IDs")
 require("scripts/globals/status")
-
+require("scripts/globals/mobs")
+-----------------------------------
 -- TODO: CoP Diabolos
 -- 1) Make the diremites in the pit all aggro said player that falls into region. Should have a respawn time of 10 seconds.
 -- 2) Diremites also shouldnt follow you back to the fight area if you make it there. Should despawn and respawn instantly if all players
@@ -16,9 +17,10 @@ require("scripts/globals/status")
 -- Note: Diabolos Prime fight drops all tiles at once.
 
 function onMobSpawn(mob)
-    mob:setDamage(60)
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.DEFP, 15) 
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 

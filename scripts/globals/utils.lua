@@ -1055,3 +1055,19 @@ function utils.CalculateBaseTP(delay)
     end
     return tp
 end
+
+function utils.CalculateSpellTPGiven(caster, target)
+    local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
+    local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
+    local sBlowMult = (utils.clamp((sBlow1 + sBlow2), -75, 75))
+    local TP = 100
+    -- Add casters Subtle Blow
+    local sBlowReduction = math.floor(100 * sBlowMult / 100)
+    -- Remove TP given from subtle blow
+    TP = TP - sBlowReduction
+
+    -- Add targets Store TP
+    TP = math.floor(TP * (100 + target:getMod(tpz.mod.STORETP)) / 100)
+
+    return TP
+end

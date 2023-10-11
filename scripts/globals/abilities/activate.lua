@@ -23,4 +23,11 @@ end
 
 function onUseAbility(player, target, ability)
     tpz.pet.spawnPet(player, tpz.pet.id.AUTOMATON)
+    local pet = player:getPet()
+
+    if pet then
+        local jpValue = player:getJobPointLevel(tpz.jp.AUTOMATON_HP_MP_BONUS)
+        pet:addMod(tpz.mod.HP, jpValue * 10)
+        pet:addMod(tpz.mod.MP, jpValue * 5)
+    end
 end

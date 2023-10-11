@@ -63,7 +63,8 @@ end
 function onEventFinish(player, csid, option)
     -- HEADSTONE PILGRIMAGE
     if csid == 200 and option == 1 then
-        SpawnMob(ID.mob.DOOMED_PILGRIMS):updateClaim(player)
+        GetMobByID(ID.mob.DOOMED_PILGRIMS):spawn()
+        GetMobByID(ID.mob.DOOMED_PILGRIMS):updateClaim(player)
 
     -- SOUL SEARCHING
     elseif csid == 202 then

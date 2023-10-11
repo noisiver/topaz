@@ -1,6 +1,6 @@
 -----------------------------------
 --
--- xi.effect.MARCATO
+-- tpz.effect.MARCATO
 --
 -----------------------------------
 require("scripts/globals/status")

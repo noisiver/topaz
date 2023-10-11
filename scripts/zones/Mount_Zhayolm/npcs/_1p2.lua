@@ -16,7 +16,8 @@ function onTrigger(player, npc)
     if player:hasKeyItem(tpz.ki.CAST_METAL_PLATE) then
 		GetNPCByID(17027541):openDoor(11)
     else
-        player:messageSpecial(ID.text.NOTHING_HAPPENS, 119)
+        player:messageSpecial(ID.text.HALVUNG_GATE_NO_KI)
+        player:setLocalVar("CastMetalPlate", 1)
     end
 end
 

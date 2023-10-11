@@ -65,7 +65,7 @@ struct
 CMeritPointsCategoriesPacket::CMeritPointsCategoriesPacket(CCharEntity* PChar)
 {
     this->type = 0x8C;
-	this->size = 0x80;
+    this->size = 0x80;
 
     ref<uint8>(0x04) = MAX_MERITS_IN_PACKET;
 
@@ -87,7 +87,7 @@ CMeritPointsCategoriesPacket::CMeritPointsCategoriesPacket(CCharEntity* PChar)
 CMeritPointsCategoriesPacket::CMeritPointsCategoriesPacket(CCharEntity* PChar, MERIT_TYPE merit)
 {
     this->type = 0x8C;
-	this->size = 0x08;
+    this->size = 0x10;
 
     ref<uint8>(0x04) = 1;
     ref<uint32>(0x08) = PChar->PMeritPoints->GetMerit(merit)->data;

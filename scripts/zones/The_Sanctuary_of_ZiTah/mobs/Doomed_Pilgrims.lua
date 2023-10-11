@@ -18,6 +18,7 @@ function onMobFight(mob, target)
     local twohourTime = mob:getLocalVar("twohourTime")
     local wingsTime = mob:getLocalVar("wingsTime")
     local wingsDown = mob:getLocalVar("wingsDown")
+    local auraTimer = mob:getLocalVar("auraTimer")
 
     if twohourTime == 0 then
         printf("Setting forced Stinking Gas time");
@@ -35,11 +36,16 @@ function onMobFight(mob, target)
         mob:setLocalVar("wingsTime", 0)
         mob:setLocalVar("wingsDown", 0)
     end
+
+    -- Tick aura
+    if (battletime >= mob:getLocalVar("auraTimer")) then
+        AddMobAura(mob, target, 10, tpz.effect.POISON, 20, 3)
+    end
 end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 489 then -- stinking gas
-        AddMobAura(mob, target, 10, tpz.effect.POISON, 20, 3)
+        mob:setLocalVar("auraTimer", 30)
     end
 end
 

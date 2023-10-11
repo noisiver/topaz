@@ -11,17 +11,17 @@ require("scripts/globals/pathfind")
 -----------------------------------
 
 function onMobSpawn(mob)
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setLocalVar("maxBabies", 2)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-    mob:setMod(tpz.mod.REFRESH, 40)
     tpz.promyvion.setEmptyModel(mob)
 end
 
 function onMobFight(mob, target)
     if mob:getHPP() <= 25  then
-        mob:setMod(tpz.mod.REGAIN, 250)
+        mob:setMod(tpz.mod.REGAIN, 100)
     end
 end
 

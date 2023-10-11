@@ -390,7 +390,7 @@ local modByMobName =
 
     ['Erebus'] = function(mob)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-        AllowSelfNuking(mob, true)
+        --AllowSelfNuking(mob, true) -- TODO: Breaks nukes for everything
         mob:setLocalVar("element", math.random(1,6))
     end,
 

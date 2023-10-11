@@ -28,6 +28,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.hybridWS = true
     params.ele = tpz.magic.ele.WIND
     params.skill = tpz.skill.GREAT_KATANA
+    params.includemab = true
 	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
@@ -40,5 +41,4 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     jobUtil.AddIgnisRune(player, damage)
     return tpHits, extraHits, criticalHit, damage
-
 end

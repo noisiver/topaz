@@ -47,9 +47,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.20
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-
-    target:delStatusEffectSilent(tpz.effect.COPY_IMAGE)
-    target:delStatusEffectSilent(tpz.effect.BLINK)
+    params.shadowbehav = BLUPARAM_WIPE_SHADOWS
 
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)

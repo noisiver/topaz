@@ -289,7 +289,7 @@ enum class Mod
     AMORPH_AFFINITY         = 2226,// Makes the entity a amorph
     LIZARD_AFFINITY         = 2227,// Makes the entity a lizard
     AQUAN_AFFINITY          = 2228,// Makes the entity a aquan
-    PLANTOID_AFFINITY       = 2229, // Makes the entity a plantoid
+    PLANTOID_AFFINITY       = 2229,// Makes the entity a plantoid
     BEAST_AFFINITY          = 2230,// Makes the entity a beast
     UNDEAD_AFFINITY         = 2231,// Makes the entity a undead
     ARCANA_AFFINITY         = 2232,// Makes the entity a arcana
@@ -387,6 +387,8 @@ enum class Mod
     PHALANX_POTENCY           = 1273,// Increases power of phalanx(Gear mod)
     PHALANX_RECIEVED          = 1320,// Phalanx effect received.
     ENF_MAG_POTENCY           = 290, // Increases Enfeebling magic potency %
+    ENFEEB_MAGIC_DURATION     = 1347,// Enfeebling Magic Duration increase % 
+    ENH_MAGIC_DURATION        = 890, // Enhancing Magic Duration increase %
     ENHANCES_SABOTEUR         = 297, // Increases Saboteur Potency %
 
     // Thief
@@ -436,7 +438,7 @@ enum class Mod
     CHARM_CHANCE              = 391, // extra chance to charm, in percents(1%, 2%, 3%, etc)
     FERAL_HOWL_DURATION       = 503, // +20% duration per merit when wearing augmented Monster Jackcoat +2
     JUG_LEVEL_RANGE           = 564, // Decreases the level range of spawned jug pets. Maxes out at 2.
-
+    JUG_LVL_BONUS             = 1350,// Jug: Lv.+ (Increases Jugs's base level above 99
     // Bard
     MINNE_EFFECT              = 433, //
     MINUET_EFFECT             = 434, //
@@ -501,8 +503,10 @@ enum class Mod
     HIGH_JUMP_ENMITY_REDUCTION = 363, // for gear that reduces more enmity from high jump
     FORCE_JUMP_CRIT           = 828, // Critical hit rate bonus for jump and high jump
     WYVERN_EFFECTIVE_BREATH   = 829, // Increases the threshold for triggering healing breath/offensive breath more inclined to pick elemental weakness
-    WYVERN_SUBJOB_TRAITS      = 1010, // Adds subjob traits to wyvern on spawn
-
+    WYVERN_SUBJOB_TRAITS      = 1010,// Adds subjob traits to wyvern on spawn
+    WYVERN_ATTRIBUTE_DA       = 1333,// Adds an amount of Double Attack to Dragoon each time Wyverns Attributes Increase (percent)
+    WYVERN_LVL_BONUS          = 1334,// Wyvern: Lv.+ (Increases wyvern's base level above 99
+    DRAGOON_BREATH_RECAST     = 1335,// Restoring/Smithing Breath Recast Reduction (seconds)
     // Summoner
     AVATAR_PERPETUATION       = 371, // stores base cost of current avatar
     AVATAR_ATT                = 1258, // Avatar Attack and Ranged Attack.
@@ -518,6 +522,7 @@ enum class Mod
     SHIVA_MACC                = 1268, // Shiva Magical Accuracy
     GARUDA_ATT                = 1269, // Garuda Attack
     GARUDA_DEF                = 1270, // Garuda Defense
+    AVATAR_LVL_BONUS          = 1348,// Avatar/Elemental: Lv.+ (Increases Avatar/Elementals's base level above 99
     WEATHER_REDUCTION         = 372, // stores perpetuation reduction depending on weather
     DAY_REDUCTION             = 373, // stores perpetuation reduction depending on day
     PERPETUATION_REDUCTION    = 346, // stores the MP/tick reduction from gear
@@ -609,6 +614,7 @@ enum class Mod
     AUTO_EQUALIZER            = 941, // Reduces damage received according to damage taken
     AUTO_PERFORMANCE_BOOST    = 942, // Increases the performance of other attachments by a percentage
     AUTO_ANALYZER             = 943, // Causes the Automaton to mitigate damage from a special attack a number of times
+    AUTO_LVL_BONUS            = 1349,// Automaton: Lv.+ (Increases Automatons's base level above 99
 
     // Dancer
     FINISHING_MOVES           = 333, // Tracks # of finishing moves
@@ -860,7 +866,6 @@ enum class Mod
     RAPTURE_AMOUNT            = 568, // Bonus amount added to Rapture effect
     EBULLIENCE_AMOUNT         = 569, // Bonus amount added to Ebullience effect
     AQUAVEIL_COUNT            = 832, // Modifies the amount of hits that Aquaveil absorbs before being removed
-    ENH_MAGIC_DURATION        = 890, // Enhancing Magic Duration increase %
     ENHANCES_COURSERS_ROLL    = 891, // Courser's Roll Bonus % chance
     ENHANCES_CASTERS_ROLL     = 892, // Caster's Roll Bonus % chance
     ENHANCES_BLITZERS_ROLL    = 893, // Blitzer's Roll Bonus % chance
@@ -874,7 +879,7 @@ enum class Mod
     SYNTH_SUCCESS             = 851, // Rate of synthesis success
     SYNTH_SKILL_GAIN          = 852, // Synthesis skill gain rate
     SYNTH_FAIL_RATE           = 861, // Synthesis failure rate (percent)
-    SYNTH_HQ_RATE             = 862, // High-quality success rate (not a percent)
+    SYNTH_HQ_RATE             = 862, // High-quality success rate multiplicative. (i.e. +1 is * 10% HQ chance(NOT FLAT))
     DESYNTH_SUCCESS           = 916, // Rate of desynthesis success
     SYNTH_FAIL_RATE_FIRE      = 917, // Amount synthesis failure rate is reduced when using a fire crystal
     SYNTH_FAIL_RATE_ICE       = 918, // Amount synthesis failure rate is reduced when using a ice crystal
@@ -892,6 +897,19 @@ enum class Mod
     SYNTH_FAIL_RATE_BONE      = 930, // Amount synthesis failure rate is reduced when doing bonecraft
     SYNTH_FAIL_RATE_ALCHEMY   = 931, // Amount synthesis failure rate is reduced when doing alchemy
     SYNTH_FAIL_RATE_COOK      = 932, // Amount synthesis failure rate is reduced when doing cooking
+    SYNTH_ANIMATION_TIME      = 1336,// Synth duration reduction. In seconds by 60s(i.e 120 is 2 seconds).
+    SYNTH_MAT_LOSS_REDUCT     = 1337,// Material loss reduction, in percents. Escutcheons shield only atm.
+    SYNTH_CANNOT_NQ           = 1338,// Remove the ability to make an NQ item. Forces a break instead when a NQ is created. Escutcheons shield only.
+
+    // Synthesis (animation) speed. In seconds by 60s(i.e 120 is 2 seconds). Escutcheons shield only atm.
+    SYNTH_ANIMATION_WOOD    = 1339,// 
+    SYNTH_ANIMATION_SMITH   = 1340,//
+    SYNTH_ANIMATION_GSM     = 1341,//
+    SYNTH_ANIMATION_CLOTH   = 1342,//
+    SYNTH_ANIMATION_LEATHER = 1343,//
+    SYNTH_ANIMATION_BONE    = 1344,//
+    SYNTH_ANIMATION_ALCHEMY = 1345,//
+    SYNTH_ANIMATION_COOK    = 1346,//
 
     //Fishing
     PENGUIN_RING_EFFECT = 1190,   // +2 on fishing arrow delay / fish movement for mini - game
@@ -1015,7 +1033,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1333 NEXT
+    // 1351 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

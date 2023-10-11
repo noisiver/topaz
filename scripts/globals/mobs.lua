@@ -873,10 +873,10 @@ function GetAvailableMob(mob, table)
     return selectedMob
 end
 
-function SpawnMob(mob, player, mobId, aggro)
+function SpawnMobByID(mob, player, mobId, aggro)
     local spawns = GetMobByID(mobId)
 
-    if not spawns:isSpawned() then
+    if (spawns ~= nil) and not spawns:isSpawned() then
         spawns:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
         spawns:spawn()
         if aggro then
@@ -985,7 +985,7 @@ function ResetEnmityList(mob)
     end
 end
 
-function AllowSelfNuking(mob, bool)
+function AllowSelfNuking(mob, bool) -- TODO: Breaks nukes for everything
     if bool then
         for v = 144, 173 do
             getSpell(v):setValidTarget(9)

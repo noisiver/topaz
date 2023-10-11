@@ -35,6 +35,7 @@
 #include "../packets/synth_animation.h"
 #include "../packets/synth_message.h"
 #include "../packets/synth_result.h"
+#include "../status_effect_container.h"
 
 #include "../item_container.h"
 #include "../map.h"
@@ -234,10 +235,16 @@ uint8 calcSynthResult(CCharEntity* PChar)
     uint8 hqtier = 0;
     uint8 finalhqtier = 4;
     bool canHQ = true;
+    bool canNormalQuality = true;
 
     double success = 0;
     double chance  = 0;
     double random = tpzrand::GetRandomNumber(1.);
+
+    if (PChar->getMod(Mod::SYNTH_CANNOT_NQ) > 0)
+    {
+        canNormalQuality = false;
+    }
 
     for (uint8 skillID = SKILL_WOODWORKING; skillID <= SKILL_COOKING; ++skillID)
     {
@@ -339,9 +346,9 @@ uint8 calcSynthResult(CCharEntity* PChar)
         int16 modSynthHqRate = PChar->getMod(Mod::SYNTH_HQ_RATE);
         //printf("Synthesis HQ chance %f \n", chance);
         //printf("Can HQ? %s \n", canHQ ? "True" : "False");
-        // Using x/512 calculation for HQ success rate modifier
+        // Each +1 mod is * 10% HQ chance(NOT FLAT)
         // see: https://www.bluegartr.com/threads/130586-CraftyMath-v2-Post-September-2017-Update
-        chance += (double)modSynthHqRate / 512.;
+        chance *= (double)(100 + (modSynthHqRate * 10)) / 100.;
 
         if(chance > 0 && canHQ) // if there is a chance already and it can HQ, we add myth mods
         {
@@ -369,7 +376,12 @@ uint8 calcSynthResult(CCharEntity* PChar)
 
         }
         else
-            result = SYNTHESIS_SUCCESS;
+        {
+            if (!canNormalQuality)
+                result = SYNTHESIS_FAIL;
+            else
+                result = SYNTHESIS_SUCCESS;
+        }
     }
 
     // the result of the synthesis is written in the quantity field of the crystal cell.
@@ -589,6 +601,9 @@ int32 doSynthFail(CCharEntity* PChar)
 
     // Similarly we get the correct craft mod here by adding the current craft to it since they are in the same order
     reduction += PChar->getMod((Mod)((int32)Mod::SYNTH_FAIL_RATE_WOOD + (currentCraft - SKILL_WOODWORKING)));
+
+    // Add Escutcheons shield material loss reduction
+    reduction += PChar->getMod(Mod::SYNTH_MAT_LOSS_REDUCT);
     reduction /= 100.0;
 
     uint8 invSlotID  = 0;
@@ -774,6 +789,7 @@ int32 startSynth(CCharEntity* PChar)
 
     if(PChar->loc.zone->GetID() != 255 && PChar->loc.zone->GetID() != 0)
     {
+        PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
         PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CSynthAnimationPacket(PChar,effect,result));
     }
     else
@@ -793,38 +809,6 @@ int32 startSynth(CCharEntity* PChar)
 int32 doSynthResult(CCharEntity* PChar)
 {
     uint8 m_synthResult = PChar->CraftContainer->getQuantity(0);
-    if (map_config.anticheat_enabled)
-    {
-        std::chrono::duration animationDuration = server_clock::now() - PChar->m_LastSynthTime;
-        if (animationDuration < 5s)
-        {
-            // Attempted cheating - Did not spend enough time doing the synth animation.
-            #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
-            ShowExploit(CL_CYAN"Caught player cheating by injecting synth done packet.\n");
-            #endif
-            // Check whether the cheat type action requires us to actively block the cheating attempt
-            // Note: Due to technical reasons jail action also forces us to break the synth
-            // (player cannot be zoned while synth in progress).
-            bool shouldblock = anticheat::GetCheatPunitiveAction(anticheat::CheatID::CHEAT_ID_FASTSYNTH, nullptr, 0) & (anticheat::CHEAT_ACTION_BLOCK | anticheat::CHEAT_ACTION_JAIL);
-            if (shouldblock)
-            {
-                // Block the cheat by forcing the synth to fail
-                PChar->CraftContainer->setQuantity(0, synthutils::SYNTHESIS_FAIL);
-                m_synthResult = SYNTHESIS_FAIL;
-                doSynthFail(PChar);
-            }
-            // And report the incident (will possibly jail the player)
-            anticheat::ReportCheatIncident(PChar,
-                anticheat::CheatID::CHEAT_ID_FASTSYNTH,
-                (uint32)std::chrono::duration_cast<std::chrono::milliseconds>(animationDuration).count(),
-                "Player attempted to bypass synth animation by injecting synth done packet.");
-            if (shouldblock)
-            {
-                // Blocking the cheat also means that the offender should not get any skillups
-                return 0;
-            }
-        }
-    }
 
     if (m_synthResult == SYNTHESIS_FAIL)
     {

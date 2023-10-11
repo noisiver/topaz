@@ -4,7 +4,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
-require("scripts/globals/items") -- might error
+require("scripts/globals/items")
 ------------------------------------
 
 tpz = tpz or {}
@@ -598,8 +598,13 @@ function applyResistance(caster, target, spell, params)
         percentBonus = percentBonus - getEffectResistance(target, effect) -- this is a HITRATE penalty not a MEVA BOOST (but they are the same thing if macc > meva)
     end -- traits are handled later
     
-    if params.skillBonus ~= nil then -- bard only it seems like. takes into account signing+instrument skill. i'll need to verify those formulas later
+    if (params.skillBonus ~= nil) then -- bard only it seems like. takes into account signing+instrument skill. i'll need to verify those formulas later
         magicaccbonus = magicaccbonus + params.skillBonus
+
+        -- Add JP Song MACC Bonus
+        if caster:isPC() then
+            magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
+        end
     end
 
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
@@ -689,6 +694,11 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     
     if params.skillBonus ~= nil then -- bard only it seems like. takes into account signing+instrument skill. i'll need to verify those formulas later
         magicaccbonus = magicaccbonus + params.skillBonus
+
+        -- Add JP Song MACC Bonus
+        if caster:isPC() then
+            magicaccbonus = magicaccbonus + caster:getJobPointLevel(tpz.jp.SONG_ACC_BONUS)
+        end
     end
 
     -- Apply "Status EfFect" Magic Accuracy Mod
@@ -1091,7 +1101,7 @@ function getSpellBonusAcc(caster, target, spell, params)
     end
 
     -- Add Job points magic accuracy Bonus
-    magicAccBonus = magicAccBonus + JobPointsMacc(caster, spellGroup, skill)
+    magicAccBonus = magicAccBonus + JobPointsMacc(caster, target, spell)
 
     -- Add weather bonus
     magicAccBonus = magicAccBonus + addWeatherMaccBonus(caster, spell, target, params)
@@ -1125,7 +1135,7 @@ function handleAfflatusMisery(caster, spell, dmg)
     return dmg
 end
 
- function finalMagicAdjustments(caster, target, spell, dmg)
+function finalMagicAdjustments(caster, target, spell, dmg)
     --Handles target's HP adjustment and returns UNSIGNED dmg (absorb message is set in this function)
 
     local skill = spell:getSkillType()
@@ -1227,14 +1237,18 @@ end
         target:updateEnmityFromDamage(caster, dmg)
         -- Only add TP if the target is a mob
         if (target:getObjType() ~= tpz.objType.PC) then
-            target:addTP(100)
+            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+            -- printf("TP given: %d", tpGiven)
+            target:addTP(tpGiven)
         end
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
     caster:delStatusEffectSilent(tpz.effect.CASCADE)
+
     return dmg
  end
 
+ -- Used only for weapon additional effects that haven't been converted to the new functions
 function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     --Handles target's HP adjustment and returns SIGNED dmg (negative values on absorb)
 
@@ -1244,6 +1258,9 @@ function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
         dmg = utils.clamp(dmg, 0, 99999)
     end
+
+    --handling rampart stoneskin
+    dmg = utils.rampartstoneskin(target, dmg)
 
     --handling stoneskin
     dmg = utils.stoneskin(target, dmg)
@@ -1428,10 +1445,12 @@ function addBonuses(caster, spell, target, dmg, params)
             end
         end
 
-        if (casterJob == tpz.job.RDM) then
-            mab = mab + caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ATK_BONUS)
-        elseif (casterJob == tpz.job.GEO) then
-            mab = mab + caster:getJobPointLevel(tpz.jp.GEO_MAGIC_ATK_BONUS)
+        if caster:isPC() then
+            if (casterJob == tpz.job.RDM) then
+                mab = mab + caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ATK_BONUS)
+            elseif (casterJob == tpz.job.GEO) then
+                mab = mab + caster:getJobPointLevel(tpz.jp.GEO_MAGIC_ATK_BONUS)
+            end
         end
 
         mabbonus = (100 + mab) / (100 + target:getMod(tpz.mod.MDEF) + mdefBarBonus)
@@ -2136,66 +2155,73 @@ function getDstatBonus(softcap, diff)
 end
 
 -- Magic Accuracy from Job Points.
-function JobPointsMacc(caster, spellGroup, skillType)
+function JobPointsMacc(caster, target, spell)
+    local skill = spell:getSkillType()
+    local spellGroup = spell:getSpellGroup()
+    local element = spell:getElement()
     local jpMaccBonus = 0
     local casterJob = caster:getMainJob()
+    if caster:isPC() then
+        switch(casterJob): caseof
+        {
+            [tpz.job.WHM] = function()
+                jpMaccBonus = caster:getJobPointLevel(tpz.jp.WHM_MAGIC_ACC_BONUS)
+            end,
 
-    switch(casterJob): caseof
-    {
-        [tpz.job.WHM] = function()
-            jpMaccBonus = caster:getJobPointLevel(tpz.jp.WHM_MAGIC_ACC_BONUS)
-        end,
+            [tpz.job.BLM] = function()
+                -- BLM Job Point: MACC Bonus +1
+                jpMaccBonus = caster:getJobPointLevel(tpz.jp.BLM_MAGIC_ACC_BONUS)
+            end,
 
-        [tpz.job.BLM] = function()
-            -- BLM Job Point: MACC Bonus +1
-            jpMaccBonus = caster:getJobPointLevel(tpz.jp.BLM_MAGIC_ACC_BONUS)
-        end,
+            [tpz.job.RDM] = function()
+                -- Add MACC for RDM group 1 merits
+                if element >= tpz.magic.element.FIRE and element <= tpz.magic.element.WATER then
+                    jpMaccBonus = caster:getMerit(rdmMerit[element])
+                    -- printf("Merits MACC %d", jpMaccBonus)
+                end
 
-        [tpz.job.RDM] = function()
-            -- Add MACC for RDM group 1 merits
-            if element >= tpz.element.FIRE and element <= tpz.element.WATER then
-                jpMaccBonus = caster:getMerit(rdmMerit[element])
-            end
+                -- RDM Job Point: During saboteur, Enfeebling MACC +2
+                if
+                    skill == tpz.skill.ENFEEBLING_MAGIC and
+                    caster:hasStatusEffect(tpz.effect.SABOTEUR)
+                then
+                    local jpValue = caster:getJobPointLevel(tpz.jp.SABOTEUR_EFFECT)
 
-            -- RDM Job Point: During saboteur, Enfeebling MACC +2
-            if
-                skill == tpz.skill.ENFEEBLING_MAGIC and
-                caster:hasStatusEffect(tpz.effect.SABOTEUR)
-            then
-                local jpValue = caster:getJobPointLevel(tpz.jp.SABOTEUR_EFFECT)
+                    jpMaccBonus = jpValue * 2
+                end
 
-                jpMaccBonus = jpValue * 2
-            end
+                -- RDM Job Point: Magic Accuracy Bonus, All MACC + 1
+                local jobPoints = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
+                -- printf("Job Points MACC %d", jobPoints)
+                jpMaccBonus = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
+            end,
 
-            -- RDM Job Point: Magic Accuracy Bonus, All MACC + 1
-            jpMaccBonus = caster:getJobPointLevel(tpz.jp.RDM_MAGIC_ACC_BONUS)
-        end,
+            [tpz.job.NIN] = function()
+                -- NIN Job Point: Ninjitsu Accuracy Bonus
+                if skill == tpz.skill.NINJUTSU then
+                    jpMaccBonus = caster:getJobPointLevel(tpz.jp.NINJITSU_ACC_BONUS)
+                end
+            end,
 
-        [tpz.job.NIN] = function()
-            -- NIN Job Point: Ninjitsu Accuracy Bonus
-            if skill == tpz.skill.NINJUTSU then
-                jpMaccBonus = caster:getJobPointLevel(tpz.jp.NINJITSU_ACC_BONUS)
-            end
-        end,
+            [tpz.job.BLU] = function()
+                -- BLU MACC merits - nuke acc is handled in bluemagic.lua
+                if skill == tpz.skill.BLUE_MAGIC then
+                    jpMaccBonus = caster:getMerit(tpz.merit.MAGICAL_ACCURACY)
+                end
+            end,
 
-        [tpz.job.BLU] = function()
-            -- BLU MACC merits - nuke acc is handled in bluemagic.lua
-            if skill == tpz.skill.BLUE_MAGIC then
-                jpMaccBonus = caster:getMerit(tpz.merit.MAGICAL_ACCURACY)
-            end
-        end,
+            [tpz.job.SCH] = function()
+                if
+                    (spellGroup == tpz.magic.spellGroup.WHITE and caster:hasStatusEffect(tpz.effect.PARSIMONY)) or
+                    (spellGroup == tpz.magic.spellGroup.BLACK and caster:hasStatusEffect(tpz.effect.PENURY))
+                then
+                    local jpValue = caster:getJobPointLevel(tpz.jp.STRATEGEM_EFFECT_I)
 
-        [tpz.job.SCH] = function()
-            if
-                (spellGroup == tpz.magic.spellGroup.WHITE and caster:hasStatusEffect(tpz.effect.PARSIMONY)) or
-                (spellGroup == tpz.magic.spellGroup.BLACK and caster:hasStatusEffect(tpz.effect.PENURY))
-            then
-                local jpValue = caster:getJobPointLevel(tpz.jp.STRATEGEM_EFFECT_I)
-
-                jpMaccBonus = jpValue
-            end
-        end,
-    }
+                    jpMaccBonus = jpValue
+                end
+            end,
+        }
+    end
 
     return jpMaccBonus
 end
@@ -2304,12 +2330,18 @@ end
 function doElementalNuke(caster, spell, target, spellParams)
     local DMG = 0
     local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
+    local skillType = spellParams.skillType
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     local V = 0
     local M = 0
     local hasMultipleTargetReduction = spellParams.hasMultipleTargetReduction
     local resistBonus = spellParams.resistBonus
     -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
+
+    -- BLM Job Point: Magic Damage Bonus
+    if (caster:getMainJob() == tpz.job.BLM) and caster:isPC() then
+        DMGMod = DMGMod + caster:getJobPointLevel(tpz.jp.MAGIC_DMG_BONUS)
+    end
 
     if USE_OLD_MAGIC_DAMAGE and spellParams.V ~= nil and spellParams.M ~= nil then
         V = spellParams.V -- Base value
@@ -2459,6 +2491,15 @@ function doNuke(caster, target, spell, params)
     if (spell:getSkillType() == tpz.skill.NINJUTSU) then
         if (caster:getMainJob() == tpz.job.NIN) then -- NIN main gets a bonus to their ninjutsu nukes
             local ninSkillBonus = 100
+            local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
+
+            -- NIN Job Point: Elemental Ninjutsu Effect
+            if caster:isPC() then
+                DMGMod = DMGMod + caster:getJobPointLevel(tpz.jp.ELEM_NINJITSU_EFFECT) * 2
+            end
+            -- Add magic damage mod and NIN JP to based damage
+            dmg = dmg + DMGMod
+
             if (spell:getID() % 3 == 2) then -- ichi nuke spell ids are 320, 323, 326, 329, 332, and 335
                 ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 50) / 4) -- getSkillLevel includes bonuses from merits and modifiers (ie. gear)
             elseif (spell:getID() % 3 == 0) then -- ni nuke spell ids are 1 more than their corresponding ichi spell
@@ -2466,7 +2507,9 @@ function doNuke(caster, target, spell, params)
             else -- san nuke spell, also has ids 1 more than their corresponding ni spell
                 ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 276))
             end
+
             ninSkillBonus = utils.clamp(ninSkillBonus, 100, 1000) -- bonus caps at +1000%, and does not go negative
+
             dmg = dmg * ninSkillBonus/100
         end
         -- boost with Futae
@@ -2477,7 +2520,7 @@ function doNuke(caster, target, spell, params)
     end
 
     --get the resisted damage
-    dmg = dmg*resist
+    dmg = dmg * resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg, params)
     --add in target adjustment
@@ -2498,11 +2541,16 @@ function doDivineBanishNuke(caster, target, spell, params)
 
     --calculate raw damage
     local dmg = calculateMagicDamage(caster, target, spell, params)
+
+    -- Add magic damage mod 
+    local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
+    dmg = dmg + DMGMod
+
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	 
     --get the resisted damage
-    dmg = dmg*resist
+    dmg = dmg * resist
     
 
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
@@ -2558,24 +2606,26 @@ function DeleteAmmoAdditionalEffect(player, dmg, ammo)
 end
 
 function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
-    local immunities = {
-        { tpz.effect.SLEEP_I, 1},
-        { tpz.effect.SLEEP_II, 1},
-        { tpz.effect.SLEEP_I, 4096},
-        { tpz.effect.SLEEP_II, 4096},
-        { tpz.effect.POISON, 256},
-        { tpz.effect.PARALYSIS, 32},
-        { tpz.effect.BLINDNESS, 64},
-        { tpz.effect.SILENCE, 16},
-        { tpz.effect.STUN, 8},
-        { tpz.effect.BIND, 4},
-        { tpz.effect.WEIGHT, 2},
-        { tpz.effect.SLOW, 128},
-        { tpz.effect.ELEGY, 512},
-        { tpz.effect.REQUIEM, 1024},
-        { tpz.effect.LULLABY, 2048},
-        { tpz.effect.LULLABY, 1},
-        { tpz.effect.PETRIFICATION, 8192},
+    local immunities =
+    {
+        { tpz.effect.SLEEP_I, 1 },
+        { tpz.effect.SLEEP_II, 1 },
+        { tpz.effect.SLEEP_I, 4096 },
+        { tpz.effect.SLEEP_II, 4096 },
+        { tpz.effect.POISON, 256 },
+        { tpz.effect.PARALYSIS, 32 },
+        { tpz.effect.BLINDNESS, 64 },
+        { tpz.effect.SILENCE, 16 },
+        { tpz.effect.STUN, 8 },
+        { tpz.effect.BIND, 4 },
+        { tpz.effect.WEIGHT, 2 },
+        { tpz.effect.SLOW, 128 },
+        { tpz.effect.ELEGY, 512 },
+        { tpz.effect.REQUIEM, 1024 },
+        { tpz.effect.LULLABY, 2048 },
+        { tpz.effect.LULLABY, 1 },
+        { tpz.effect.PETRIFICATION, 8192 },
+        { tpz.effect.PETRIFICATION, 1 },
     }
 
     local resist = applyResistanceAddEffect(player, target, element, bonus, effect)
@@ -2685,24 +2735,26 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
 end
 
 function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold, subpower, tier)
-    local immunities = {
-        { tpz.effect.SLEEP_I, 1},
-        { tpz.effect.SLEEP_II, 1},
-        { tpz.effect.SLEEP_I, 4096},
-        { tpz.effect.SLEEP_II, 4096},
-        { tpz.effect.POISON, 256},
-        { tpz.effect.PARALYSIS, 32},
-        { tpz.effect.BLINDNESS, 64},
-        { tpz.effect.SILENCE, 16},
-        { tpz.effect.STUN, 8},
-        { tpz.effect.BIND, 4},
-        { tpz.effect.WEIGHT, 2},
-        { tpz.effect.SLOW, 128},
-        { tpz.effect.ELEGY, 512},
-        { tpz.effect.REQUIEM, 1024},
-        { tpz.effect.LULLABY, 2048},
-        { tpz.effect.LULLABY, 1},
-        { tpz.effect.PETRIFICATION, 8192},
+    local immunities =
+    {
+        { tpz.effect.SLEEP_I, 1 },
+        { tpz.effect.SLEEP_II, 1 },
+        { tpz.effect.SLEEP_I, 4096 },
+        { tpz.effect.SLEEP_II, 4096 },
+        { tpz.effect.POISON, 256 },
+        { tpz.effect.PARALYSIS, 32 },
+        { tpz.effect.BLINDNESS, 64 },
+        { tpz.effect.SILENCE, 16 },
+        { tpz.effect.STUN, 8 },
+        { tpz.effect.BIND, 4 },
+        { tpz.effect.WEIGHT, 2 },
+        { tpz.effect.SLOW, 128 },
+        { tpz.effect.ELEGY, 512 },
+        { tpz.effect.REQUIEM, 1024 },
+        { tpz.effect.LULLABY, 2048 },
+        { tpz.effect.LULLABY, 1 },
+        { tpz.effect.PETRIFICATION, 8192 },
+        { tpz.effect.PETRIFICATION, 1 },
     }
 
     local skill = spell:getSkillType()
@@ -2744,6 +2796,11 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Calculate duration bonuses
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
+    -- printf("Final Duration %d", finalDuration)
+
+    -- Reduce duration by resist state
+    finalDuration = finalDuration * resist
+    -- printf("Final Duration %d", finalDuration)
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
@@ -2901,52 +2958,57 @@ end
 function calculateDuration(duration, magicSkill, spellGroup, caster, target, useComposure)
     local casterJob = caster:getMainJob()
 
-    if magicSkill == tpz.skill.ENHANCING_MAGIC then -- Enhancing Magic
-        -- Gear mods
-        duration = duration + duration * caster:getMod(tpz.mod.ENH_MAGIC_DURATION) / 100
+    if caster:isPC() then
+        if magicSkill == tpz.skill.ENHANCING_MAGIC then -- Enhancing Magic
+            -- Gear mods
+            duration = duration + duration * caster:getMod(tpz.mod.ENH_MAGIC_DURATION) / 100
 
-        -- prior according to bg-wiki
-        if casterJob == tpz.job.RDM then
-            duration = duration + caster:getMerit(tpz.merit.ENHANCING_MAGIC_DURATION) + caster:getJobPointLevel(tpz.jp.ENHANCING_DURATION)
-        end
-
-        -- Default is true
-        useComposure = useComposure or (useComposure == nil and true)
-
-        -- Composure
-        if useComposure and caster:hasStatusEffect(tpz.effect.COMPOSURE) and caster:getID() == target:getID() then
-            duration = duration * 3
-        end
-
-        -- Perpetuance
-        if caster:hasStatusEffect(tpz.effect.PERPETUANCE) and spellGroup == tpz.magic.spellGroup.WHITE then
-            duration  = duration * 2
-        end
-    elseif magicSkill == tpz.skill.ENFEEBLING_MAGIC then -- Enfeebling Magic
-        if caster:hasStatusEffect(tpz.effect.SABOTEUR) then
-            if target:isNM() then
-                duration = duration * 1.25
-            else
-                duration = duration * 2
+            -- prior according to bg-wiki
+            if casterJob == tpz.job.RDM then
+                duration = duration + caster:getMerit(tpz.merit.ENHANCING_MAGIC_DURATION) + caster:getJobPointLevel(tpz.jp.ENHANCING_DURATION)
             end
-        end
-        -- After Saboteur according to bg-wiki
-        if casterJob == tpz.job.RDM then
-            -- RDM Merit: Enfeebling Magic Duration
-            duration = duration + caster:getMerit(tpz.merit.ENFEEBLING_MAGIC_DURATION)
 
-            -- RDM Job Point: Enfeebling Magic Duration
-            duration = duration + caster:getJobPointLevel(tpz.jp.ENFEEBLE_DURATION)
+            -- Default is true
+            useComposure = useComposure or (useComposure == nil and true)
 
-            -- RDM Job Point: Stymie effect
-            if caster:hasStatusEffect(tpz.effect.STYMIE) then
-                local stymieJpBonus = (1 + caster:getJobPointLevel(tpz.jp.STYMIE_EFFECT) / 100)
+            -- Composure
+            if useComposure and caster:hasStatusEffect(tpz.effect.COMPOSURE) and caster:getID() == target:getID() then
                 duration = duration * 3
-                duration = duration * stymieJpBonus
             end
+
+            -- Perpetuance
+            if caster:hasStatusEffect(tpz.effect.PERPETUANCE) and spellGroup == tpz.magic.spellGroup.WHITE then
+                duration  = duration * 2
+            end
+        elseif magicSkill == tpz.skill.ENFEEBLING_MAGIC then -- Enfeebling Magic
+            -- Gear mods
+            duration = duration + duration * caster:getMod(tpz.mod.ENFEEB_MAGIC_DURATION) / 100
+
+            if caster:hasStatusEffect(tpz.effect.SABOTEUR) then
+                if target:isNM() then
+                    duration = duration * 1.25
+                else
+                    duration = duration * 2
+                end
+            end
+            -- After Saboteur according to bg-wiki
+            if casterJob == tpz.job.RDM then
+                -- RDM Merit: Enfeebling Magic Duration
+                duration = duration + caster:getMerit(tpz.merit.ENFEEBLING_MAGIC_DURATION)
+
+                -- RDM Job Point: Enfeebling Magic Duration
+                duration = duration + caster:getJobPointLevel(tpz.jp.ENFEEBLE_DURATION)
+
+                -- RDM Job Point: Stymie effect
+                if caster:hasStatusEffect(tpz.effect.STYMIE) then
+                    local stymieJpBonus = (1 + caster:getJobPointLevel(tpz.jp.STYMIE_EFFECT) / 100)
+                    duration = duration * 3
+                    duration = duration * stymieJpBonus
+                end
+            end
+        elseif magicSkill == tpz.skill.DARK_MAGIC then
+            duration = duration * (1 + (caster:getMod(tpz.mod.DARK_MAGIC_DURATION) / 100))
         end
-    elseif magicSkill == tpz.skill.DARK_MAGIC then
-        duration = duration * (1 + (caster:getMod(tpz.mod.DARK_MAGIC_DURATION) / 100))
     end
 
     return math.floor(duration)

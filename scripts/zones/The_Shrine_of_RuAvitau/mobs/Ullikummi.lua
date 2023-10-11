@@ -10,8 +10,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ACC, 25) 
-    mob:setMod(tpz.mod.REFRESH, 300)
+    SetGenericNMStats(mob)
 end
 
 function onMobFight(mob, target)

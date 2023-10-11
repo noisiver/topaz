@@ -8,6 +8,7 @@
 require("scripts/globals/common")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -22,16 +23,30 @@ end
 function onUseAbility(player, target, ability)
     local pet = player:getPet()
     local numberOfEffects = 0
-    local effects = player:getStatusEffects()
-    for _, effect in ipairs(effects) do
-        local effectFlags = effect:getFlag()
+    local playereEffects = player:getStatusEffects()
+    for _, playerEffect in ipairs(playereEffects) do
+        local effectFlags = playerEffect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.DISPELABLE) == tpz.effectFlag.DISPELABLE) or (bit.band(effectFlags, tpz.effectFlag.ERASABLE) == tpz.effectFlag.ERASABLE) or
         (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) == tpz.effectFlag.WALTZABLE) then
-            numberOfEffects = numberOfEffects + 1
-            pet:addStatusEffect(effect:getType(), effect:getPower(), effect:getTick(), math.ceil((effect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
+            local petEffects = pet:getStatusEffects()
+            local newPower = playerEffect:getPower()
+            local currentPower = 0
+            for _, petEffect in ipairs(petEffects) do
+                if (petEffect:getType() == playerEffect:getType()) then
+                    currentPower = petEffect:getPower()
+                end
+            end
+            if (newPower > currentPower) then
+                numberOfEffects = numberOfEffects + 1
+                pet:addStatusEffect(playerEffect:getType(), playerEffect:getPower(), playerEffect:getTick(), math.ceil((playerEffect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)
+            end
         end
     end
-    -- TODO: Msg
-    -- skill:setMsg(tpz.msg.COPIED)
-    -- return numberOfEffects
+
+    -- Display amount of effects copied
+    if (numberOfEffects > 0) then
+        MessageGroup(player, player, numberOfEffects .. " effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
+    else
+        MessageGroup(player, player, "No effects copied to " .. pet:getName() .. ".", tpz.msg.textColor.GREEN, 0)
+    end
 end

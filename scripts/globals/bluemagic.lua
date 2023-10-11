@@ -12,6 +12,14 @@ TPMOD_ACC = 3
 TPMOD_ATTACK = 4
 TPMOD_DURATION = 5
 
+--shadowbehav (number of shadows to take off)
+BLUPARAM_IGNORE_SHADOWS = 0
+BLUPARAM_1_SHADOW = 1
+BLUPARAM_2_SHADOW = 2
+BLUPARAM_3_SHADOW = 3
+BLUPARAM_4_SHADOW = 4
+BLUPARAM_WIPE_SHADOWS = 999
+
 -- The SC the spell makes
 SC_IMPACTION = 0
 SC_TRANSFIXION = 1
@@ -135,7 +143,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
     local efflux = caster:getStatusEffect(tpz.effect.EFFLUX)
     local affluxBonus = caster:getStatusEffect(tpz.effect.EFFLUX_BONUS)
-    local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
     local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 
     if (chainAffinity ~= nil) or (azureLore ~= nil) or (efflux ~= nil) then
@@ -145,6 +152,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
         -- Efflux treats all spells like they're 1k TP
         if (efflux ~= nil) then
+            local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
             tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
         end
         -- Azure Lore treats all spells like they're 3k TP
@@ -290,19 +298,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
         local chance = math.random()
         if (chance <= hitrate) then -- it hit
-            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
-
-            -- dealt zero damage, so shadows took hit
-            if (finaldmg == 0) then
-                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-                return shadowbehav
-            end
-
-            --handle Third Eye using shadowbehav as a guide
-            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-                return 0
-            end
 
             -- Generate a random pDIF between min and max
             local pdif = 1
@@ -323,16 +318,42 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 finaldmg = finaldmg + ((math.floor(D + fStr + WSC)) * pdif) -- same as finalD but without multiplier (it should be 1.0)
             end
 
+            -- Check for shadows
+
+            -- If spell is AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow
+            -- Use params.shadowbehav for exceptions
+            local shadowbehav = 1
+
+            if spell:isAoE() then
+                shadowbehav = 999
+            end
+
+            if (params.shadowbehav ~= nil) then
+                shadowbehav = params.shadowbehav
+            end
+
+            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+
+            -- dealt zero damage, so shadows took hit
+            if (finaldmg == 0) then
+                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+                return shadowbehav
+            end
+
+            --handle Third Eye using shadowbehav as a guide
+            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
+                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+                return 0
+            end
+
             --handling phalanx
             finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
             hitslanded = hitslanded + 1
             -- increment target's TP (100TP per hit landed)
-            local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
-            local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
-            local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
-	        local TP =  100 * (1 - sBlowMult)
-	        target:addTP(TP)
+            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+            -- printf("TP given: %d", tpGiven)
+	        target:addTP(tpGiven)
         end
 
         hitsdone = hitsdone + 1
@@ -522,11 +543,9 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     --handling phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-    local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
-    local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
-    local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
-	local TP =  100 * (1 - sBlowMult)
-	target:addTP(TP)
+    local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+    -- printf("TP given: %d", tpGiven)
+    target:addTP(tpGiven)
 
     return dmg
 end
@@ -685,11 +704,9 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     -- Handle Phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-    local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
-    local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
-    local sBlowMult = ((100 - utils.clamp((sBlow1 + sBlow2), -75, 75)) / 100)
-	local TP =  100 * (1 - sBlowMult)
-	target:addTP(TP)
+    local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+    -- printf("TP given: %d", tpGiven)
+    target:addTP(tpGiven)
     --printf("resist %i", resist*100)
     --printf("Correlation bonus: %i", correlation)
     --printf("final dmg %i", dmg)
@@ -920,24 +937,26 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
 end
 
 function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, params)
-    local immunities = {
-        { tpz.effect.SLEEP_I, 1},
-        { tpz.effect.SLEEP_II, 1},
-        { tpz.effect.SLEEP_I, 4096},
-        { tpz.effect.SLEEP_II, 4096},
-        { tpz.effect.POISON, 256},
-        { tpz.effect.PARALYSIS, 32},
-        { tpz.effect.BLINDNESS, 64},
-        { tpz.effect.SILENCE, 16},
-        { tpz.effect.STUN, 8},
-        { tpz.effect.BIND, 4},
-        { tpz.effect.WEIGHT, 2},
-        { tpz.effect.SLOW, 128},
-        { tpz.effect.ELEGY, 512},
-        { tpz.effect.REQUIEM, 1024},
-        { tpz.effect.LULLABY, 2048},
-        { tpz.effect.LULLABY, 1},
-        { tpz.effect.PETRIFICATION, 8192},
+    local immunities =
+    {
+        { tpz.effect.SLEEP_I, 1 },
+        { tpz.effect.SLEEP_II, 1 },
+        { tpz.effect.SLEEP_I, 4096 },
+        { tpz.effect.SLEEP_II, 4096 },
+        { tpz.effect.POISON, 256 },
+        { tpz.effect.PARALYSIS, 32 },
+        { tpz.effect.BLINDNESS, 64 },
+        { tpz.effect.SILENCE, 16 },
+        { tpz.effect.STUN, 8 },
+        { tpz.effect.BIND, 4 },
+        { tpz.effect.WEIGHT, 2 },
+        { tpz.effect.SLOW, 128 },
+        { tpz.effect.ELEGY, 512 },
+        { tpz.effect.REQUIEM, 1024 },
+        { tpz.effect.LULLABY, 2048 },
+        { tpz.effect.LULLABY, 1 },
+        { tpz.effect.PETRIFICATION, 8192 },
+        { tpz.effect.PETRIFICATION, 1 },
     }
 
     local effect = params.effect
@@ -953,6 +972,11 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
         if target:hasImmunity(immunity) then
             return false
         end
+    end
+
+    -- Convert nils to 1
+    if (power == nil) then
+        power = 1
     end
 
     -- Add Enfeebling Potency gear mod
@@ -984,8 +1008,8 @@ end
 -- Function to stagger duration of effects by using the resistance to change the value
 function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
-    local skill = spell:getSkillType()
-    local spellGroup = spell:getSpellGroup()
+    local skill = tpz.skill.BLUE_MAGIC
+    local spellGroup = tpz.magic.spellGroup.BLUE
 
     if (resist < 0.5) then
       resist = 0

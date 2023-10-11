@@ -13,7 +13,10 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.ATT, effect:getPower())
+    local jpLevel = target:getJobPointLevel(tpz.jp.WARCRY_EFFECT) * 3
+
+    target:addMod(tpz.mod.ATT, effect:getPower() + jpLevel)
+    target:addMod(tpz.mod.RATT, effect:getPower() + jpLevel)
     target:addMod(tpz.mod.TP_BONUS, effect:getSubPower())
 end
 
@@ -21,6 +24,9 @@ function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.ATT, effect:getPower())
+    local jpLevel = target:getJobPointLevel(tpz.jp.WARCRY_EFFECT) * 3
+
+    target:delMod(tpz.mod.ATT, effect:getPower() + jpLevel)
+    target:delMod(tpz.mod.RATT, effect:getPower() + jpLevel)
     target:delMod(tpz.mod.TP_BONUS, effect:getSubPower())
 end

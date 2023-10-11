@@ -12,12 +12,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    SetGenericNMStats(mob)
     tpz.promyvion.setEmptyModel(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobEngaged(mob, target)
@@ -35,7 +34,7 @@ function onMobFight(mob, target)
     end
 
     if mob:getHPP() <= 25  then
-        mob:setMod(tpz.mod.REGAIN, 500)
+        mob:setMod(tpz.mod.REGAIN, 100)
     end
 	
 	local terrorEndTime = mob:getLocalVar("EmptyTerror")

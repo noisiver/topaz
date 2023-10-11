@@ -8,7 +8,7 @@ require("scripts/globals/status")
 cmdprops =
 {
     permission = 1,
-    parameters = "is"
+    parameters = "ss"
 }
 
 function error(player, msg)
@@ -16,7 +16,15 @@ function error(player, msg)
     player:PrintToPlayer("!delitem <itemID> {player}")
 end
 
-function onTrigger(player, itemId, target)
+function onTrigger(player, name, target)
+
+    -- validate itemId
+    if (name == nil or tostring(name) == nil) then
+        error(player, "Invalid name.")
+        return
+    end
+    
+    local itemId = GetItemIDByName(name)
 
     -- validate itemId
     if (itemId == nil or itemId < 1) then

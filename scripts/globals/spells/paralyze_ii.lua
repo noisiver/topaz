@@ -22,7 +22,7 @@ function onSpellCast(caster, target, spell)
 
     potency = calculatePotency(potency, spell:getSkillType(), caster, target)
 
-    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 120
     local tier = 2
     local params = {}
     params.diff = dMND
@@ -30,8 +30,6 @@ function onSpellCast(caster, target, spell)
     params.bonus = meritBonus * 2
     params.effect = tpz.effect.PARALYSIS
     local resist = applyResistanceEffect(caster, target, spell, params)
-    duration = duration * resist
-    duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.PARALYZE, target))
 
     TryApplyEffect(caster, target, spell, params.effect, potency, 0, duration, resist, 0.5, tier)
 

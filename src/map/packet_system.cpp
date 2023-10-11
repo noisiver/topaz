@@ -4302,6 +4302,32 @@ void SmallPacket0x085(map_session_data_t* const PSession, CCharEntity* const PCh
 }
 
 
+/*************************************************************
+*                                                            *
+* Checking the (animation) speed of synthesis                *
+* Escutcheons shield only atm.                               *
+*                                                            *
+*************************************************************/
+
+uint8 getAnimationReduction(CCharEntity* PChar, uint8 skillID)
+{
+    Mod ModID = Mod::NONE;
+
+    switch (skillID)
+    {
+        case SKILL_WOODWORKING:  ModID = Mod::SYNTH_ANIMATION_WOOD;      break;
+        case SKILL_SMITHING:     ModID = Mod::SYNTH_ANIMATION_SMITH;     break;
+        case SKILL_GOLDSMITHING: ModID = Mod::SYNTH_ANIMATION_GSM;       break;
+        case SKILL_CLOTHCRAFT:   ModID = Mod::SYNTH_ANIMATION_CLOTH;     break;
+        case SKILL_LEATHERCRAFT: ModID = Mod::SYNTH_ANIMATION_LEATHER;   break;
+        case SKILL_BONECRAFT:    ModID = Mod::SYNTH_ANIMATION_BONE;      break;
+        case SKILL_ALCHEMY:      ModID = Mod::SYNTH_ANIMATION_ALCHEMY;   break;
+        case SKILL_COOKING:      ModID = Mod::SYNTH_ANIMATION_COOK;      break;
+    }
+
+    return (PChar->getMod(ModID));
+}
+
 /************************************************************************
 *                                                                       *
 *  Begin Synthesis                                                      *
@@ -4318,10 +4344,24 @@ void SmallPacket0x096(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         return;
     }
 
-    if (PChar->m_LastSynthTime + 10s > server_clock::now())
+    for (uint8 skillID = SKILL_WOODWORKING; skillID <= SKILL_COOKING; ++skillID) // Check for all skills involved in a recipe, to check for skill up
     {
-        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 94));
-        return;
+        uint8 currentSkill = PChar->CraftContainer->getQuantity(skillID - 40);
+        // Reduce animation time by specific craft skill (Escutcheons only atm)
+        uint8 animationReduction = (getAnimationReduction(PChar, currentSkill) / 60);
+        // Add global animation reduction time
+        animationReduction += (PChar->getMod(Mod::SYNTH_ANIMATION_TIME) / 60);
+        // Never reduce animation time below 1s
+        if (animationReduction > 9)
+        {
+            animationReduction = 9;
+        }
+
+        if (PChar->m_LastSynthTime + 10s - std::chrono::seconds(animationReduction) > server_clock::now())
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 94));
+            return;
+        }
     }
 
     PChar->CraftContainer->Clean();
@@ -6217,6 +6257,7 @@ void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             JOBTYPE prevjob = PChar->GetMJob();
             PChar->resetPetZoningInfo();
 
+            charutils::SaveJobChangeGear(PChar);
             charutils::RemoveAllEquipment(PChar);
             PChar->SetMJob(mjob);
             PChar->SetMLevel(PChar->jobs.job[PChar->GetMJob()]);
@@ -6286,6 +6327,7 @@ void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         PChar->PRecastContainer->ChangeJob();
         charutils::BuildingCharAbilityTable(PChar);
         charutils::BuildingCharWeaponSkills(PChar);
+        charutils::LoadJobChangeGear(PChar);
 
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE | EFFECTFLAG_ON_JOBCHANGE);
 

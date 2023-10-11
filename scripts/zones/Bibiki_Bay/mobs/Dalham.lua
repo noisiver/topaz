@@ -3,16 +3,16 @@
 --   NM: Dalham
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
-    mob:setMod(tpz.mod.REFRESH, 40)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
     mob:setMod(tpz.mod.QUAD_ATTACK, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobInitialize(mob)

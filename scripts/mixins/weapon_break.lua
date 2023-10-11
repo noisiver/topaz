@@ -17,6 +17,19 @@ g_mixins.weapon_break = function(mob)
 		if mob:isNM() then
 			mob:setLocalVar("BreakChance", 1)
 		end
+
+        -- Change troll MNK and PUPs to animation sub 1 for TP moves to work correctly
+        local isMNK = mob:getMainJob() == tpz.job.MNK
+        local isPUP = mob:getMainJob() == tpz.job.PUP
+        local isTroll = false
+        if (mob:getFamily() == 246) or (mob:getFamily() == 308) or (mob:getFamily() == 923) then
+            isTroll = true
+        end
+        if isTroll then
+            if isMNK or isPUP then
+                mob:AnimationSub(1)
+            end
+        end
     end)
 
     -- chance to break weapon when taking a critical hit

@@ -139,7 +139,7 @@ bool CMobController::CheckDetection(CBattleEntity* PTarget)
 {
     TracyZoneScoped;
     if (CanDetectTarget(PTarget) || CanPursueTarget(PTarget) ||
-        PMob->StatusEffectContainer->HasStatusEffect({EFFECT_BIND, EFFECT_SLEEP, EFFECT_SLEEP_II, EFFECT_LULLABY}))
+        PMob->StatusEffectContainer->HasPreventActionEffect(false))
     {
         TapDeaggroTime();
     }
@@ -632,8 +632,7 @@ bool CMobController::TryCastSpell()
     {
         // skip logic and follow script
         auto chosenSpellId = luautils::OnMonsterMagicPrepare(PMob, PTarget);
-        CSpell* PSpell = spell::GetSpell(chosenSpellId.value());
-        if (chosenSpellId && currentDistance <= PSpell->getRange())
+        if (chosenSpellId && currentDistance <= 20.4)
         {
             CastSpell(chosenSpellId.value());
             return true;
@@ -654,8 +653,7 @@ bool CMobController::TryCastSpell()
             chosenSpellId = PMob->SpellContainer->GetSpell();
         }
 
-        CSpell* PSpell = spell::GetSpell(chosenSpellId.value());
-        if (chosenSpellId && currentDistance <= PSpell->getRange())
+        if (chosenSpellId && currentDistance <= 20.4)
         {
             CastSpell(chosenSpellId.value());
             return true;
@@ -1081,8 +1079,8 @@ void CMobController::DoRoamTick(time_point tick)
         PMob->m_OwnerID.clean();
     }
 
-    //skip roaming if waiting or bound
-    if (m_Tick >= m_WaitTime && !PMob->StatusEffectContainer->HasStatusEffect(EFFECT_BIND))
+    //skip roaming if waiting or bound / cced
+    if (m_Tick >= m_WaitTime && !PMob->StatusEffectContainer->HasPreventActionEffect(false) && !PMob->StatusEffectContainer->HasStatusEffect(EFFECT_BIND))
     {
         // don't aggro a little bit after I just disengaged
         PMob->m_neutral = PMob->CanBeNeutral() && m_Tick <= m_NeutralTime + 10s;

@@ -632,11 +632,11 @@ end
 -- Calculates breath damage
 -- mob is a mob reference to get hp and lvl
 -- percent is the percentage to take from HP
--- base is calculated from main level to create a minimum
+-- base is no longer used
 -- Equation: (HP * percent) + (LVL / base)
 -- cap is optional, defines a maximum damage
 function MobHPBasedMove(mob, target, percent, base, element, cap)
-    local damage = (mob:getHP() * percent) + (mob:getMainLvl() / base)
+    local damage = (mob:getHP() * percent)
     local resist = 1
     local bonus = 0
 
@@ -671,8 +671,8 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     --Handle pd
-    if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) )
-        and attackType==tpz.attackType.PHYSICAL) then
+    if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH))
+        and attackType == tpz.attackType.PHYSICAL) then
 
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
@@ -747,7 +747,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     -- Handle Boost status effect
-    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+    if (attackType == tpz.attackType.PHYSICAL) or (attackType == tpz.attackType.RANGED) then
         if mob:hasStatusEffect(tpz.effect.BOOST) then
             dmg = dmg * 2
         end
@@ -1392,11 +1392,35 @@ function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shad
     return dmg
 end
 
+function MobDispelMove(mob, target, skill, element, param1, param2)
+    local statmod = tpz.mod.INT
+    local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local bonus = 175
+
+    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
+
+    target:addEnmity(mob, 1, 320)
+
+	if (resist >= 0.5) then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		    return 0
+		else
+            if (param2 ~= nil) then
+                return target:dispelStatusEffect(bit.bor(param1, param2))
+            else
+                return target:dispelStatusEffect(bit.bor(param1))
+            end
+        end
+	else
+	    return 0
+	end
+end
+
 function MobFullDispelMove(mob, target, skill, param1, param2)
     local statmod = tpz.mod.INT
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
     local element = tpz.magic.ele.DARK
-    local bonus = 50
+    local bonus = 175
 
     local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
 
