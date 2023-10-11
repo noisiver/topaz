@@ -5588,7 +5588,7 @@ INSERT INTO `item_equipment` VALUES (15831,'fenian_ring',71,0,4194303,0,0,0,2457
 INSERT INTO `item_equipment` VALUES (15832,'headsmans_ring',65,0,4194303,0,0,0,24576,0,0);
 INSERT INTO `item_equipment` VALUES (15833,'diverters_ring',71,0,4194303,0,0,0,24576,0,0);
 INSERT INTO `item_equipment` VALUES (15834,'unnamed_ring',5,0,4194303,0,0,0,24576,0,0);
-INSERT INTO `item_equipment` VALUES (15835,'desperado_ring',9,0,3719388,0,0,0,24576,0,0);
+INSERT INTO `item_equipment` VALUES (15835,'desperado_ring',74,0,4194303,0,0,0,24576,0,0);
 INSERT INTO `item_equipment` VALUES (15836,'smilodon_ring',32,0,4194303,0,0,0,24576,0,0);
 INSERT INTO `item_equipment` VALUES (15837,'smilodon_ring_+1',32,0,4194303,0,0,0,24576,0,0);
 INSERT INTO `item_equipment` VALUES (15838,'protect_ring',32,0,4194303,0,0,0,24576,0,0);
