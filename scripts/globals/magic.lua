@@ -2253,6 +2253,7 @@ function GetCharmHitRate(player, target)
     local charmMod = (1 + player:getMod(tpz.mod.CHARM_CHANCE) / 100) -- Correct mod?
     local affinityBonus = AffinityBonusAcc(player, element)
     local tameBonus = 0
+    local jpValue = player:getJobPointLevel(tpz.jp.CHARM_SUCCESS_RATE)
 
     if player:getLocalVar("Tamed_Mob") == target:getID() then
         tameBonus = 10
@@ -2278,6 +2279,8 @@ function GetCharmHitRate(player, target)
     --print(string.format("chance + dCHR: %i", chance))
     chance = chance + affinityBonus
     --print(string.format("chance + affinity bonus: %i", chance))
+    chance = chance + jpValue
+    --print(string.format("chance + jpValue: %i", chance))
     chance = chance + tameBonus
     --print(string.format("chance + tame bonus: %i", chance))
 
