@@ -942,11 +942,14 @@ enum class Mod
 
     // Pet Modifiers (Job Point Gifts)
     PET_ATK_DEF             = 990, // Increases pet physical attack, ranged attack, and physical defense
+    PET_ACC                 = 1351,// Increases pets accuracy
     PET_ACC_EVA             = 991, // Increases pet physical accuracy, ranged accuracy, and evasion
     PET_MAB_MDB             = 992, // Increases pet magic attack and magic defense
+    PET_MACC                = 1353,// Increases pets magic accuracy
     PET_MACC_MEVA           = 993, // Increases pet magic accuracy and evasion
     PET_ATTR_BONUS          = 994, // Increases pet attributes
     PET_TP_BONUS            = 995, // Increases pet TP bonus
+    PET_DELAY               = 1352,// Reduces pets delay(in percents)
 
     ONE_HOUR_RECAST         = 996, // Decreases the recast time of one-hour abilities by n minutes.
     SUPERIOR_LEVEL          = 997, // SU0..5
@@ -1033,7 +1036,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1351 NEXT
+    // 1354 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

@@ -1857,9 +1857,11 @@ tpz.mod =
     AUTO_LVL_BONUS          = 1349, -- Automaton: Lv.+ (Increases Automatons's base level above 99
     AVATAR_LVL_BONUS        = 1348, -- Avatar/Elemental: Lv.+ (Increases Avatar/Elementals's base level above 99
     JUG_LVL_BONUS           = 1350, -- Jug: Lv.+ (Increases Jugs's base level above 99
-    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
+    PET_ACC                 = 1351, -- Increases pets accuracy
+    PET_DELAY               = 1352, -- Reduces pets delay(in percents)    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
+    PET_MACC                = 1353, -- Increases pets magic accuracy
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1351 NEXT
+    -- 1354 NEXT
 }
 
 tpz.latent =
