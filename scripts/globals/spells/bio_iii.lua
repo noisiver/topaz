@@ -49,7 +49,7 @@ function onSpellCast(caster, target, spell)
     local tier = 3
 	
 	if caster:isMob() then
-		duration = 180
+		local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
 	end
 
     -- Calculate DoT effect
