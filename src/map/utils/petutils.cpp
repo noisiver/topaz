@@ -500,16 +500,20 @@ namespace petutils
         uint16 mMND = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 7), PMob->GetMLevel());
         uint16 mCHR = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 8), PMob->GetMLevel());
 
+        // Add JP gift bonuses
+        uint16 jpBonus = 0;
         if (PMob->PMaster != nullptr)
         {
-            PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            jpBonus = PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
         }
+
+        PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f) + jpBonus;
+        PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f) + jpBonus;
+        PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f) + jpBonus;
+        PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f) + jpBonus;
+        PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f) + jpBonus;
+        PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f) + jpBonus;
+        PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f) + jpBonus;
 
     }
 
@@ -1930,13 +1934,16 @@ namespace petutils
                 CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
                 uint16 jpValue = PChar->PJobPoints->GetJobPointValue(JP_FAMILIAR_EFFECT) * 3;
 
-                PPet->addModifier(Mod::STR, jpValue);
-                PPet->addModifier(Mod::DEX, jpValue);
-                PPet->addModifier(Mod::VIT, jpValue);
-                PPet->addModifier(Mod::AGI, jpValue);
-                PPet->addModifier(Mod::INT, jpValue);
-                PPet->addModifier(Mod::MND, jpValue);
-                PPet->addModifier(Mod::CHR, jpValue);
+                if (jpValue > 0)
+                {
+                    PPet->addModifier(Mod::STR, jpValue);
+                    PPet->addModifier(Mod::DEX, jpValue);
+                    PPet->addModifier(Mod::VIT, jpValue);
+                    PPet->addModifier(Mod::AGI, jpValue);
+                    PPet->addModifier(Mod::INT, jpValue);
+                    PPet->addModifier(Mod::MND, jpValue);
+                    PPet->addModifier(Mod::CHR, jpValue);
+                }
             }
         }
 
