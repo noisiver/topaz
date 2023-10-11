@@ -12,6 +12,14 @@ TPMOD_ACC = 3
 TPMOD_ATTACK = 4
 TPMOD_DURATION = 5
 
+--shadowbehav (number of shadows to take off)
+BLUPARAM_IGNORE_SHADOWS = 0
+BLUPARAM_1_SHADOW = 1
+BLUPARAM_2_SHADOW = 2
+BLUPARAM_3_SHADOW = 3
+BLUPARAM_4_SHADOW = 4
+BLUPARAM_WIPE_SHADOWS = 999
+
 -- The SC the spell makes
 SC_IMPACTION = 0
 SC_TRANSFIXION = 1
@@ -290,19 +298,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
         local chance = math.random()
         if (chance <= hitrate) then -- it hit
-            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
-
-            -- dealt zero damage, so shadows took hit
-            if (finaldmg == 0) then
-                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-                return shadowbehav
-            end
-
-            --handle Third Eye using shadowbehav as a guide
-            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-                return 0
-            end
 
             -- Generate a random pDIF between min and max
             local pdif = 1
@@ -321,6 +316,34 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 finaldmg = finaldmg + (finalD * pdif)
             else
                 finaldmg = finaldmg + ((math.floor(D + fStr + WSC)) * pdif) -- same as finalD but without multiplier (it should be 1.0)
+            end
+
+            -- Check for shadows
+
+            -- If spell is AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow
+            -- Use params.shadowbehav for exceptions
+            local shadowbehav = 1
+
+            if spell:isAoE() then
+                shadowbehav = 999
+            end
+
+            if (params.shadowbehav ~= nil) then
+                shadowbehav = params.shadowbehav
+            end
+
+            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+
+            -- dealt zero damage, so shadows took hit
+            if (finaldmg == 0) then
+                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+                return shadowbehav
+            end
+
+            --handle Third Eye using shadowbehav as a guide
+            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
+                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+                return 0
             end
 
             --handling phalanx

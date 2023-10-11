@@ -46,6 +46,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
 	params.attkbonus = 1.25
     params.AttkTPModifier = true
+    params.shadowbehav = BLUPARAM_IGNORE_SHADOWS
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local arcana = (target:getSystem() == 3)
 	
