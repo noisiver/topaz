@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
-    local duration = calculateDuration(60, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 60
 
     local params = {}
     params.diff = dINT
