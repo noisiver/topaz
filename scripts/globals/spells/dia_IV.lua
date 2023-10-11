@@ -50,7 +50,7 @@ function onSpellCast(caster, target, spell)
 	
 
     if ShouldOverwriteDiaBio(caster, target, tpz.effect.DIA, tier) then
-        target:addStatusEffect(tpz.effect.DIA, 3 + dotBonus, 3, duration, 0, 20, 3)
+        target:addStatusEffect(tpz.effect.DIA, 3 + dotBonus, 3, duration, 0, 20, 4)
     end
 
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
