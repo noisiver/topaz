@@ -2529,7 +2529,7 @@ tpz.jp =
     READY_EFFECT             = jpCategory.BST + 0x06, --X pet sp.ability dmg +1%
     SPUR_EFFECT              = jpCategory.BST + 0x07, --X pet p.atk +3
     RUN_WILD_DURATION        = jpCategory.BST + 0x08, --X dur. +2s
-    PET_MACC_BONUS           = jpCategory.BST + 0x09, --X magic accuracy +1
+    PET_EMNITY_BONUS         = jpCategory.BST + 0x09, --X emnity +1
 
     --BRD
     SOUL_VOICE_EFFECT        = jpCategory.BRD + 0x00, --+ casting time -2%

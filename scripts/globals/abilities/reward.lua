@@ -44,7 +44,6 @@ function onUseAbility(player, target, ability, action)
     local pet = player:getPet()
     local petCurrentHP = pet:getHP()
     local petMaxHP = pet:getMaxHP()
-    local jpValue = 1 + (player:getJobPointLevel(tpz.jp.REWARD_EFFECT) / 100)
 
 
     -- Need to start to calculate the HP to restore to the pet.
@@ -173,9 +172,6 @@ function onUseAbility(player, target, ability, action)
     if (rewardHealingMod ~= nil and rewardHealingMod > 0) then
         totalHealing = totalHealing + math.floor(totalHealing * rewardHealingMod / 100)
     end
-
-    -- Add Job point bonus
-    totalHealing = totalHealing * jpValue
 
     local diff = petMaxHP - petCurrentHP
 
