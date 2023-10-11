@@ -169,7 +169,7 @@ enum JOBPOINT_TYPE : uint16
     JP_READY_EFFECT = JPCATEGORY_BST + 0x06,       // pet sp.ability dmg +1%
     JP_SPUR_EFFECT = JPCATEGORY_BST + 0x07,        // pet p.atk +3
     JP_RUN_WILD_DURATION = JPCATEGORY_BST + 0x08,  // dur. +2s
-    JP_PET_MAGIC_ACC = JPCATEGORY_BST + 0x09,     // magic accuracy +1
+    JP_PET_EMNITY_BONUS = JPCATEGORY_BST + 0x09,   // emnity +1
 
     // BRD
     JP_SOUL_VOICE_EFFECT = JPCATEGORY_BRD + 0x00,   // casting time -2%
