@@ -36,6 +36,7 @@ function onUseAbility(player, target, ability)
     else
         if target:isEngaged() then
             ability:setMsg(tpz.msg.basic.SEEMS_FRIENDLIER) -- The x seems friendlier
+            player:setLocalVar("Tamed_Mob", target:getID())
             target:disengage()
             target:deaggroAll()
         else

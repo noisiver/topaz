@@ -406,7 +406,7 @@ namespace petutils
         return 0;
     }
 
-    void LoadJugStats(CPetEntity* PMob, Pet_t* petStats)
+    void LoadJugStats(CBattleEntity* PMaster, CPetEntity* PMob, Pet_t* petStats)
     {
         //follows monster formulas but jugs have no subjob
 
@@ -475,6 +475,22 @@ namespace petutils
         PMob->setModifier(Mod::EVA, GetJugBase(PMob, petStats->evaRank));
         PMob->setModifier(Mod::ATT, GetJugBase(PMob, petStats->attRank));
         PMob->setModifier(Mod::ACC, GetJugBase(PMob, petStats->accRank));
+
+        // Job Point bonuses
+        if (PMaster != nullptr)
+        {
+            if (PMaster->objtype == TYPE_PC)
+            {
+                if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
+                {
+
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    uint16 jpValue = PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS);
+                    PMob->addModifier(Mod::ACC, PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS));
+                    PMob->addModifier(Mod::MACC, PChar->PJobPoints->GetJobPointValue(JP_PET_MAGIC_ACC));
+                }
+            }
+        }
 
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetJugWeaponDamage(PMob));
 
@@ -667,7 +683,6 @@ namespace petutils
         PPet->stats.CHR = fCHR + mCHR + sCHR;
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setSkillType(SKILL_AUTOMATON_MELEE);
-        ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (petStats->cmbDelay / 60.0f)))); //every pet should use this eventually
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDamage((PPet->GetSkill(SKILL_AUTOMATON_MELEE) / 9) * 2 + 3);
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setSkillType(SKILL_AUTOMATON_RANGED);
@@ -1192,17 +1207,6 @@ namespace petutils
         // innate + 40 subtle blow
         PPet->setModifier(Mod::SUBTLE_BLOW, 40);
 
-        // Job Point bonuses
-        if (PMaster->objtype == TYPE_PC)
-        {
-            if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
-            {
-                CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
-                PPet->addModifier(Mod::ACC, PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS));
-                PPet->addModifier(Mod::MACC, PChar->PJobPoints->GetJobPointValue(JP_PET_MAGIC_ACC));
-            }
-        }
-
         // Get the Jug pet cap level
         uint8 highestLvl = PPetData->maxLevel;
 
@@ -1227,7 +1231,7 @@ namespace petutils
 
         PPet->SetMLevel(highestLvl);
         PPet->SetSLevel(highestLvl);
-        LoadJugStats(PPet, PPetData); // follow monster calcs (w/o SJ)
+        LoadJugStats(PMaster, PPet, PPetData); // follow monster calcs (w/o SJ)
     }
     void CalculateAutomatonStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
