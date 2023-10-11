@@ -107,7 +107,7 @@ INSERT INTO `status_effects` VALUES (62,'sentinel',33,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (63,'souleater',552,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (64,'last_resort',553,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (65,'sneak_attack',548,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (66,'copy_image',33,0,0,0,0,36,3,0,50);
+INSERT INTO `status_effects` VALUES (66,'copy_image',41,0,0,0,0,36,3,0,50);
 --INSERT INTO `status_effects` VALUES (66,'copy_image',33,66,0,67,67,36,3,0,50);
 INSERT INTO `status_effects` VALUES (67,'third_eye',553,66,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (68,'warcry',553,0,0,0,0,0,0,0,400);
