@@ -12,7 +12,7 @@ function onEffectGain(target, effect)
 
     if pet then
         pet:setLocalVar("overdrive", 1)
-        pet:addMod(tpz.mod.HASTE_MAGIC, 2500)
+        pet:addMod(tpz.mod.HASTE_ABILITY, 2500)
         pet:addMod(tpz.mod.MAIN_DMG_RATING, 30)
         pet:addMod(tpz.mod.RANGED_DMG_RATING, 30)
         pet:addMod(tpz.mod.ATTP, 50)
@@ -45,7 +45,7 @@ function onEffectLose(target, effect)
 
     if pet and pet:getLocalVar("overdrive") ~= 0 then
         pet:setLocalVar("overdrive", 0)
-        pet:delMod(tpz.mod.HASTE_MAGIC, 2500)
+        pet:delMod(tpz.mod.HASTE_ABILITY, 2500)
         pet:delMod(tpz.mod.MAIN_DMG_RATING, 30)
         pet:delMod(tpz.mod.RANGED_DMG_RATING, 30)
         pet:delMod(tpz.mod.ATTP, 50)

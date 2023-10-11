@@ -14089,7 +14089,7 @@ inline int32 CLuaBaseEntity::familiar(lua_State* L)
 
         CBattleEntity* PPet = ((CBattleEntity*)m_PBaseEntity)->PPet;
 
-        petutils::Familiar(PPet);
+        petutils::Familiar(PPet, PPet->PMaster);
     }
 
     return 0;

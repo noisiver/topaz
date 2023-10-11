@@ -1188,6 +1188,17 @@ namespace petutils
         // innate + 40 subtle blow
         PPet->setModifier(Mod::SUBTLE_BLOW, 40);
 
+        // Job Point bonuses
+        if (PMaster->objtype == TYPE_PC)
+        {
+            if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
+            {
+                CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                PPet->addModifier(Mod::ACC, PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS));
+                PPet->addModifier(Mod::MACC, PChar->PJobPoints->GetJobPointValue(JP_PET_MAGIC_ACC));
+            }
+        }
+
         // Get the Jug pet cap level
         uint8 highestLvl = PPetData->maxLevel;
 
@@ -1874,7 +1885,7 @@ namespace petutils
     /*
     Familiars a pet.
     */
-    void Familiar(CBattleEntity* PPet)
+    void Familiar(CBattleEntity* PPet, CBattleEntity* PMaster)
     {
 
         /*
@@ -1900,11 +1911,34 @@ namespace petutils
         PPet->health.hp += boost;
         PPet->UpdateHealth();
 
-        // boost stats by 10%
-        PPet->addModifier(Mod::ATTP, (int16)(rate * 100.0f));
-        PPet->addModifier(Mod::ACC, (int16)(rate * 100.0f));
-        PPet->addModifier(Mod::EVA, (int16)(rate * 100.0f));
-        PPet->addModifier(Mod::DEFP, (int16)(rate * 100.0f));
+        // boost stats
+        PPet->addModifier(Mod::MAIN_DMG_RATING, 30);
+        PPet->addModifier(Mod::HASTE_ABILITY, 2500);
+        PPet->addModifier(Mod::ATTP, 50);
+        PPet->addModifier(Mod::ACC, 100);
+        PPet->addModifier(Mod::RACC, 100);
+        PPet->addModifier(Mod::MACC, 100);
+        PPet->addModifier(Mod::EVA, 50);
+        PPet->addModifier(Mod::DEFP, 50);
+        PPet->addModifier(Mod::DMG, -50);
+
+        // Familiar attriute bonus from JP
+        if (PMaster->objtype == TYPE_PC)
+        {
+            if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
+            {
+                CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                uint16 jpValue = PChar->PJobPoints->GetJobPointValue(JP_FAMILIAR_EFFECT) * 3;
+
+                PPet->addModifier(Mod::STR, jpValue);
+                PPet->addModifier(Mod::DEX, jpValue);
+                PPet->addModifier(Mod::VIT, jpValue);
+                PPet->addModifier(Mod::AGI, jpValue);
+                PPet->addModifier(Mod::INT, jpValue);
+                PPet->addModifier(Mod::MND, jpValue);
+                PPet->addModifier(Mod::CHR, jpValue);
+            }
+        }
 
     }
 
