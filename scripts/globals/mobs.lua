@@ -910,10 +910,20 @@ function SpawnInstancedMob(mob, player, mobId, aggro)
     end
 end
 
-function ForceDrawIn(mob, playerId)
-    local player = GetPlayerByID(playerId)
-    player:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
-    mob:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, player)
+function ForceDrawIn(mob, entity)
+    entity:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+    entity:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, entity)
+end
+
+function ForceDrawInByID(mob, entityId)
+    local player = 0
+    if (entityId > 10000) then -- ID is a mob(pet) then
+        entity = GetMobByID(entityId)
+    else
+        entity = GetPlayerByID(entityId)
+    end
+    entity:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+    entity:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, entity)
 end
 
 --Uneeded?

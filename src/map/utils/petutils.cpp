@@ -406,7 +406,7 @@ namespace petutils
         return 0;
     }
 
-    void LoadJugStats(CPetEntity* PMob, Pet_t* petStats)
+    void LoadJugStats(CBattleEntity* PMaster, CPetEntity* PMob, Pet_t* petStats)
     {
         //follows monster formulas but jugs have no subjob
 
@@ -476,6 +476,22 @@ namespace petutils
         PMob->setModifier(Mod::ATT, GetJugBase(PMob, petStats->attRank));
         PMob->setModifier(Mod::ACC, GetJugBase(PMob, petStats->accRank));
 
+        // Job Point bonuses
+        if (PMaster != nullptr)
+        {
+            if (PMaster->objtype == TYPE_PC)
+            {
+                if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
+                {
+
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    uint16 jpValue = PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS);
+                    PMob->addModifier(Mod::ACC, PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS));
+                    PMob->addModifier(Mod::MACC, PChar->PJobPoints->GetJobPointValue(JP_PET_MAGIC_ACC));
+                }
+            }
+        }
+
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetJugWeaponDamage(PMob));
 
         //reduce weapon delay of MNK
@@ -500,16 +516,20 @@ namespace petutils
         uint16 mMND = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 7), PMob->GetMLevel());
         uint16 mCHR = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 8), PMob->GetMLevel());
 
+        // Add JP gift bonuses
+        uint16 jpBonus = 0;
         if (PMob->PMaster != nullptr)
         {
-            PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            jpBonus = PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
         }
+
+        PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f) + jpBonus;
+        PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f) + jpBonus;
+        PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f) + jpBonus;
+        PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f) + jpBonus;
+        PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f) + jpBonus;
+        PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f) + jpBonus;
+        PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f) + jpBonus;
 
     }
 
@@ -663,7 +683,6 @@ namespace petutils
         PPet->stats.CHR = fCHR + mCHR + sCHR;
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setSkillType(SKILL_AUTOMATON_MELEE);
-        ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (petStats->cmbDelay / 60.0f)))); //every pet should use this eventually
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDamage((PPet->GetSkill(SKILL_AUTOMATON_MELEE) / 9) * 2 + 3);
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setSkillType(SKILL_AUTOMATON_RANGED);
@@ -1188,17 +1207,6 @@ namespace petutils
         // innate + 40 subtle blow
         PPet->setModifier(Mod::SUBTLE_BLOW, 40);
 
-        // Job Point bonuses
-        if (PMaster->objtype == TYPE_PC)
-        {
-            if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
-            {
-                CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
-                PPet->addModifier(Mod::ACC, PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS));
-                PPet->addModifier(Mod::MACC, PChar->PJobPoints->GetJobPointValue(JP_PET_MAGIC_ACC));
-            }
-        }
-
         // Get the Jug pet cap level
         uint8 highestLvl = PPetData->maxLevel;
 
@@ -1223,7 +1231,7 @@ namespace petutils
 
         PPet->SetMLevel(highestLvl);
         PPet->SetSLevel(highestLvl);
-        LoadJugStats(PPet, PPetData); // follow monster calcs (w/o SJ)
+        LoadJugStats(PMaster, PPet, PPetData); // follow monster calcs (w/o SJ)
     }
     void CalculateAutomatonStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
@@ -1930,13 +1938,16 @@ namespace petutils
                 CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
                 uint16 jpValue = PChar->PJobPoints->GetJobPointValue(JP_FAMILIAR_EFFECT) * 3;
 
-                PPet->addModifier(Mod::STR, jpValue);
-                PPet->addModifier(Mod::DEX, jpValue);
-                PPet->addModifier(Mod::VIT, jpValue);
-                PPet->addModifier(Mod::AGI, jpValue);
-                PPet->addModifier(Mod::INT, jpValue);
-                PPet->addModifier(Mod::MND, jpValue);
-                PPet->addModifier(Mod::CHR, jpValue);
+                if (jpValue > 0)
+                {
+                    PPet->addModifier(Mod::STR, jpValue);
+                    PPet->addModifier(Mod::DEX, jpValue);
+                    PPet->addModifier(Mod::VIT, jpValue);
+                    PPet->addModifier(Mod::AGI, jpValue);
+                    PPet->addModifier(Mod::INT, jpValue);
+                    PPet->addModifier(Mod::MND, jpValue);
+                    PPet->addModifier(Mod::CHR, jpValue);
+                }
             }
         }
 

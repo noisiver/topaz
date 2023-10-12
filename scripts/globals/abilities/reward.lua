@@ -175,7 +175,7 @@ function onUseAbility(player, target, ability, action)
     end
 
     -- Add Job point bonus
-    totalHealing = totalHealing * jpValue
+    totalHealing = math.floor(totalHealing * jpValue)
 
     local diff = petMaxHP - petCurrentHP
 
