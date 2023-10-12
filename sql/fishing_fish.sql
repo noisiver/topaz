@@ -119,7 +119,7 @@ INSERT INTO `fishing_fish` VALUES (5453,'Istakoz',0,46,35,4,3,1,1,0,0,255,255,0,
 INSERT INTO `fishing_fish` VALUES (5136,'Istavrit',0,37,19,11,5,1,1,1,0,255,255,0,0,0,0,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5456,'Istiridye',0,53,27,13,2,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4307,'Jungle Catfish',0,80,29,9,11,45,111,1,0,255,255,0,0,0,0,1,200,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5448,'Kalamar',0,48,40,10,5,1,1,0,0,255,255,1,0,0,0,3,400,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5448,'Kalamar',0,48,40,10,5,1,1,0,0,255,255,1,0,0,1,3,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5140,'Kalkanbaligi',90,105,19,6,12,85,116,1,1,255,255,16,1,0,0,1,300,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5464,'Kaplumbaga',0,53,28,8,5,1,1,0,0,255,255,0,0,0,0,1,300,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5460,'Kayabaligi',0,75,30,7,8,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
