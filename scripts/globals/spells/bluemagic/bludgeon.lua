@@ -43,6 +43,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.3
     params.AccTPModifier = true
 	params.attkbonus = 1.25
+    params.shadowbehav = BLUPARAM_3_SHADOW
     damage = BluePhysicalSpell(caster, target, spell, params)
 	if (target:isUndead()) then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)

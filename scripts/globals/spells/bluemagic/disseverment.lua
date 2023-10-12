@@ -49,6 +49,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     params.AccTPModifier = true
 	params.attkbonus = 0.9
+    params.shadowbehav = BLUPARAM_5_SHADOW
     damage = BluePhysicalSpell(caster, target, spell, params)
     local luminions = (target:getSystem() == 16)
 	
