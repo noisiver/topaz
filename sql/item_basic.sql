@@ -829,7 +829,7 @@ INSERT INTO `item_basic` VALUES (916,0,'cactuar_needle','cactuar_needle',99,4,44
 INSERT INTO `item_basic` VALUES (917,0,'sheet_of_parchment','parchment',99,4,41,0,105);
 INSERT INTO `item_basic` VALUES (918,0,'sprig_of_mistletoe','mistletoe',99,4,44,0,471);
 INSERT INTO `item_basic` VALUES (919,0,'clump_of_boyahda_moss','boyahda_moss',99,4,44,0,307);
-INSERT INTO `item_basic` VALUES (920,0,'malboro_vine','malboro_vine',1,4,44,0,241);
+INSERT INTO `item_basic` VALUES (920,0,'malboro_vine','malboro_vine',99,4,44,0,241);
 INSERT INTO `item_basic` VALUES (921,0,'bottle_of_ahriman_tears','ahriman_tears',99,4,44,0,15);
 INSERT INTO `item_basic` VALUES (922,0,'bat_wing','bat_wing',99,4,44,0,15);
 INSERT INTO `item_basic` VALUES (923,0,'dryad_root','dryad_root',99,4,44,0,241);
