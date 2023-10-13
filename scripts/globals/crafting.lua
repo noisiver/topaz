@@ -3,7 +3,7 @@
 --  Info from:
 --      http://wiki.ffxiclopedia.org/wiki/Crafts_%26_Hobbies
 -------------------------------------------------
-require("scripts/globals/items")
+
 -----------------------------------
 -- IDs for signupGuild bitmask
 -----------------------------------
@@ -38,10 +38,6 @@ local TI_Woodworking =  {   22,    23, 17354, 17348, 17053, 17156, 17054,    56,
 local TI_Synergy =      {}
 
 local HQCrystals = {
-    [0] = {
-        id = tpz.items.ROBBER_RIG,
-        cost = 1500
-    },
     [1] = {
         id = 4238,
         cost = 200
@@ -177,7 +173,7 @@ function tradeTestItem(player, npc, trade, craftID)
         trade:getItemCount() == 1) then
         newRank = player:getSkillRank(craftID) + 1
         if player:getCharVar('[GUILD]currentGuild') == guildID + 1 then
-            player:setCharVar('[GUILD]daily_points', 1)
+            player:setCharVar('[GUILD]daily_points', -1)
         end
     end
 
@@ -241,7 +237,7 @@ function unionRepresentativeTriggerFinish(player, option, target, guildID, curre
             player:messageSpecial(text.GUILD_NEW_CONTRACT, guildID)
         else
             player:messageSpecial(text.GUILD_TERMINATE_CONTRACT, guildID, oldGuild)
-            player:setCharVar('[GUILD]daily_points', 1)
+            player:setCharVar('[GUILD]daily_points', -1)
         end
     elseif (category == 3) then -- keyitem
         local ki = keyitems[bit.band(bit.rshift(option, 5), 15) - 1]
@@ -276,7 +272,7 @@ function unionRepresentativeTriggerFinish(player, option, target, guildID, curre
                player:messageText(target, text.NOT_HAVE_ENOUGH_GP, false, 6)
             end
         end
-    elseif (category == 0 and option ~= 1073741824) then -- HQ crystal or robber rig
+    elseif (category == 0 and option ~= 1073741824) then -- HQ crystal
         local i = HQCrystals[bit.band(bit.rshift(option, 5), 15)]
         local quantity = bit.rshift(option, 9)
         local cost = quantity * i.cost
@@ -309,8 +305,6 @@ function unionRepresentativeTrade(player, npc, trade, csid, guildID)
                 if items ~= 0 and points ~= 0 then
                     totalPoints = totalPoints + points
                     trade:confirmSlot(i, items)
-                else
-                    return player:PrintToArea("Invalid items or points for GP." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "GM");
                 end
             end
             if (totalPoints > 0) then
