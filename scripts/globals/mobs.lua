@@ -793,7 +793,6 @@ function BreakMob(mob, target, power, duration, proc)
     -- 6 = Skillchain
     -- 7 = Magic Burst
     -- 8 = Spirits
-    local party = target:getParty()
     local BreakDuration = mob:getLocalVar("BreakDuration")
     local mobName = mob:getName()
     mobName = string.gsub(mobName, '_', ' ');
@@ -810,8 +809,13 @@ function BreakMob(mob, target, power, duration, proc)
         elseif (proc == 2) or (proc == 3)  then -- Red and White !!
             mob:addStatusEffect(tpz.effect.TERROR, 0, 0, duration)
         end
-        for _, players in pairs(party) do
-            players:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
+        if (target:getParty() ~= nil) then
+            local party = target:getParty()
+            for _, players in pairs(party) do
+                players:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
+            end
+        else
+            target:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
         end
         mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, power, 0, duration)
     end

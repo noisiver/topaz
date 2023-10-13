@@ -35,14 +35,15 @@ function onMobFight(mob, target)
     mob:addListener("SKILLCHAIN_TAKE", "KUMHAU_SC_TAKE", function(mob, target, skillchain, dmg)
         if skillchain == tpz.skillchainEle.LIQUEFACTION or skillchain == tpz.skillchainEle.FUSION or skillchain == tpz.skillchainEle.LIGHT
         or skillchain == tpz.skillchainEle.LIGHT_II then
+            local duration = 60
             if (dmg > 500) then
-                BreakMob(mob, caster, tpz.procEffect.ALL_NORMAL, duration, tpz.procType.TERROR)
+                BreakMob(mob, target, tpz.procEffect.ALL_NORMAL, duration, tpz.procType.TERROR)
             end
         end
     end)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
-        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to earth magic...", 0xD, none, 30)
+        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to fire damage...", 0xD, none, 30)
     end
 end
 

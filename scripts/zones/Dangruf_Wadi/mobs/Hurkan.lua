@@ -35,14 +35,15 @@ function onMobFight(mob, target)
     mob:addListener("SKILLCHAIN_TAKE", "HURKAN_SC_TAKE", function(mob, target, skillchain, dmg)
         if skillchain == tpz.skillchainEle.SCISSION or skillchain == tpz.skillchainEle.GRAVITATION or skillchain == tpz.skillchainEle.DARKNESS
         or skillchain == tpz.skillchainEle.DARKNESS_II then
+            local duration = 60
             if (dmg > 500) then
-                BreakMob(mob, caster, tpz.procEffect.ALL_NORMAL, duration, tpz.procType.TERROR)
+                BreakMob(mob, target, tpz.procEffect.ALL_NORMAL, duration, tpz.procType.TERROR)
             end
         end
     end)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
-        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to earth magic...", 0xD, none, 30)
+        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to earth damage...", 0xD, none, 30)
     end
 end
 
