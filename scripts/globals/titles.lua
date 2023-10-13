@@ -1093,6 +1093,7 @@ tpz.title =
     SEARCHER_OF_THE_VORACIOUS                 = 1145,
     ANOTHER_PSYCHE                            = 1146,
     SENDER_OF_SHADOW                          = 1147,
+    ASTRAL_ALIGNER                            = 1148,
 }
 
 -----------------------------------

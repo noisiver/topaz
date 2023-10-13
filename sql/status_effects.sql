@@ -644,6 +644,17 @@ INSERT INTO `status_effects` VALUES (610,'negate_charm',289,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (611,'magic_evasion_boost_ii',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (612,'colure_active',114295584,0,0,3,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (623,'rampart',5243168,0,0,0,0,0,0,0,0);
+
+INSERT INTO `status_effects` VALUES (624,'winds_blessing',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (625,'sirens_favor',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (626,'negate_sleep',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (627,'mobilization',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (628,'hover_Shot',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (629,'moogle_amplifier',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (630,'taint',5243168,0,0,0,0,0,0,0,0);  -- Poison_II ?
+INSERT INTO `status_effects` VALUES (631,'haunt',5243168,0,0,0,0,0,0,0,0);  -- Curse_III ?
+INSERT INTO `status_effects` VALUES (632,'expiration',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (633,'black_sanctus',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (768,'abyssea_str',4194560,0,0,0,0,0,1,0,0);
 INSERT INTO `status_effects` VALUES (769,'abyssea_dex',4194560,0,0,0,0,0,5,0,0);
 INSERT INTO `status_effects` VALUES (770,'abyssea_vit',4194560,0,0,0,0,0,4,0,0);
