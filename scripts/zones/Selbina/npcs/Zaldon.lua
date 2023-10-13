@@ -347,7 +347,7 @@ local fishRewards =
         gil = 12592,
         items =
         {
-            {chance = 1, itemId = 11009}, -- Shaper's Shawl
+            {chance = 5, itemId = 11009}, -- Shaper's Shawl
         }
     },
     [5470] = -- Pirarucu
