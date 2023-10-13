@@ -835,7 +835,7 @@ function utils.MessageParty(player, msg, textcolor, sender)
 end
 
 function utils.ShowTextParty(player, textId)
-    if player == nil then
+    if (player == nil) then
         return
     end
 

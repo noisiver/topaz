@@ -2760,6 +2760,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Jug_Mosquito', 1193, 782);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Weevil', 1194, 786);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Weevil', 1194, 787);
 
+-- Qultada (Breaking the Bonds of Fate)
+INSERT INTO `mob_skill_lists` VALUES ('QultadaSword',1195,39); -- Spirits Within
+INSERT INTO `mob_skill_lists` VALUES ('QultadaSword',1195,42); -- Savage Blade
+
+-- Qultada (Mythic Weapon)
+INSERT INTO `mob_skill_lists` VALUES ('Qultada-Mythic',1196,39); -- Spirits Within
+INSERT INTO `mob_skill_lists` VALUES ('Qultada-Mythic',1196,42); -- Savage Blade
+
 INSERT INTO `mob_skill_lists` VALUES ('Lamina-Hyakinthos', 767, 2210);
 INSERT INTO `mob_skill_lists` VALUES ('Corse_NM_staff',768,530);
 INSERT INTO `mob_skill_lists` VALUES ('Corse_NM_staff',768,531);
@@ -4726,6 +4734,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3139); -- biting_abrogation
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3140); -- permafrost_requiem
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3141); -- glacial_tomb
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3142); -- glassy_nova
--- Next available ID: 1195
+-- Next available ID: 1197
 -- Next custom ID: 6142
 

@@ -2,7 +2,7 @@
 -- Slug Shot
 -- Marksmanship weapon skill
 -- Skill Level: 175
--- Delivers an inparams.accurate attack that deals quintuple damage. params.accuracy varies with TP.
+-- Delivers an inaccurate attack that deals quintuple damage. params.accuracy varies with TP.
 -- Despite the lack of a STR weaponskill mod, STR is still the most potent stat for increasing this weaponskill's damage to the point at which fSTR2 is capped.
 -- Aligned with the Aqua Gorget, Light Gorget & Breeze Gorget.
 -- Aligned with the Aqua Belt, Light Belt & Breeze Belt.
