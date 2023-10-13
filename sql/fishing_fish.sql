@@ -106,7 +106,7 @@ INSERT INTO `fishing_fish` VALUES (4306,'Giant Donko',0,50,17,14,8,44,148,1,0,25
 INSERT INTO `fishing_fish` VALUES (5475,'Gigant Octopus',0,80,2,4,9,88,167,1,0,255,255,0,0,0,0,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4474,'Gigant Squid',0,91,34,2,4,79,172,1,0,255,255,0,0,0,0,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4427,'Gold Carp',0,56,18,10,14,1,1,0,0,255,255,0,0,0,0,1,200,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4383,'Gold Lobster',0,46,35,4,3,1,1,0,0,255,255,1,0,0,0,1,200,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4383,'Gold Lobster',0,46,35,10,2,1,1,0,0,255,255,1,0,0,0,1,200,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4500,'Greedie',0,14,10,7,14,1,1,0,1,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4304,'Grimmonite',0,90,31,4,4,57,144,1,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4480,'Gugru Tuna',0,41,16,2,2,39,121,1,1,255,255,16,0,0,0,1,450,0,'',0);
@@ -145,7 +145,7 @@ INSERT INTO `fishing_fish` VALUES (4361,'Nebimonite',0,27,23,9,5,1,1,0,1,255,255
 INSERT INTO `fishing_fish` VALUES (4485,'Noble Lady',0,66,30,7,10,1,1,0,1,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1135,'Norg Shell',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4482,'Nosteau Herring',0,39,21,7,8,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4481,'Ogre Eel',0,35,29,13,11,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4481,'Ogre Eel',0,35,29,6,9,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (624,'Pamtam Kelp',0,5,24,13,2,1,1,0,0,255,255,0,0,0,1,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5125,'Phanauet Newt',0,4,13,10,11,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4464,'Pipira',0,29,11,6,14,1,1,0,0,255,255,0,0,0,0,1,400,0,'',0);
@@ -187,7 +187,7 @@ INSERT INTO `fishing_fish` VALUES (5131,'Vongola Clam',0,53,20,8,4,1,1,0,1,255,2
 INSERT INTO `fishing_fish` VALUES (5463,'Yayinbaligi',0,31,13,6,12,41,126,1,0,255,255,0,0,0,0,1,250,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4403,'Yellow Globe',0,17,17,8,8,1,1,0,0,255,255,0,0,0,0,3,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5458,'Yilanbaligi',0,47,24,5,8,1,1,0,0,255,255,0,0,0,0,1,350,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4385,'Zafmlug Bass',0,48,27,6,7,1,1,0,0,255,255,0,0,0,0,1,350,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4385,'Zafmlug Bass',0,48,27,5,1,1,1,0,0,255,255,0,0,0,0,1,350,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4288,'Zebra Eel',0,71,24,10,10,1,1,0,0,255,255,0,0,0,0,1,250,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1624,'Bugbear Mask',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,50,0,'',0);
 INSERT INTO `fishing_fish` VALUES (3965,'Adoulinian Kelp',0,5,24,13,2,1,1,0,0,255,255,0,0,0,1,1,250,0,'',0);
