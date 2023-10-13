@@ -261,9 +261,24 @@ local function CheckAugment(trade)
     end
 end
 
+local function addAugmentedItem(player, item, quantity, augments)
+    local argCount = #augments;
+    if (argCount < 3) then
+        return player:addItem(item, quantity, augments[1], augments[2]);
+    elseif (argCount < 5) then
+        return player:addItem(item, quantity, augments[1], augments[2], augments[3], augments[4]);
+    elseif (argCount < 7) then
+        return player:addItem(item, quantity, augments[1], augments[2], augments[3], augments[4], augments[5], augments[6]);
+    elseif (argCount < 9) then
+        return player:addItem(item, quantity, augments[1], augments[2], augments[3], augments[4], augments[5], augments[6], augments[7], augments[8]);
+    else
+        return player:addItem(item, quantity, augments[1], augments[2], augments[3], augments[4], augments[5], augments[6], augments[7], augments[8], augments[9], augments[10]);
+    end
+end
+
 local function DistributeAugment(player, augment)
     player:tradeComplete();
-    player:addItem(augment.Item, 1, table.unpack(augment.Augments));
+    addAugmentedItem(player, augment.Item, 1, augment.Augments);
     local ID = zones[player:getZoneID()]
     player:PrintToPlayer("I will start the imbuing process on this item right away. Do not go anywhere!" ,0,"Taza")
     player:timer(3000, function(player)
