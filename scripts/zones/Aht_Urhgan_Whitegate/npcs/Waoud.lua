@@ -30,7 +30,7 @@ end
 function onTrigger(player, npc)
     local anEmptyVessel = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.AN_EMPTY_VESSEL)
     local anEmptyVesselProgress = player:getCharVar("AnEmptyVesselProgress")
-    local divinationReady = vanaDay() > player:getCharVar("LastDivinationDay")
+    local divinationReady = true
     local beginnings = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.BEGINNINGS)
     local omens = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.OMENS)
     local transformations = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.TRANSFORMATIONS)
