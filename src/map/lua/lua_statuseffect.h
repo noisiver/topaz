@@ -54,6 +54,7 @@ public:
     int32 getTimeRemaining(lua_State*);
     int32 getTickCount(lua_State*);
     int32 getTick(lua_State*);
+    int32 getIcon(lua_State*);
 
     int32 setIcon(lua_State*);
     int32 setPower(lua_State*);
