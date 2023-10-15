@@ -6257,7 +6257,7 @@ void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             JOBTYPE prevjob = PChar->GetMJob();
             PChar->resetPetZoningInfo();
 
-            charutils::SaveJobChangeGear(PChar);
+            // charutils::SaveJobChangeGear(PChar); TODO: Breaks equipment when zoning....
             charutils::RemoveAllEquipment(PChar);
             PChar->SetMJob(mjob);
             PChar->SetMLevel(PChar->jobs.job[PChar->GetMJob()]);
