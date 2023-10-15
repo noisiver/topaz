@@ -6327,7 +6327,7 @@ void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         PChar->PRecastContainer->ChangeJob();
         charutils::BuildingCharAbilityTable(PChar);
         charutils::BuildingCharWeaponSkills(PChar);
-        charutils::LoadJobChangeGear(PChar);
+        // charutils::LoadJobChangeGear(PChar); TODO: Breaks equipment when zoning....
 
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE | EFFECTFLAG_ON_JOBCHANGE);
 
