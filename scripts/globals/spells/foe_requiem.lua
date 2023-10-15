@@ -38,8 +38,8 @@ function onSpellCast(caster, target, spell)
     end
 
 
-    resm = applyResistanceEffect(caster, target, spell, params)
-    if (resm < 0.5) then
+    resist = applyResistanceEffect(caster, target, spell, params)
+    if (resist < 0.5) then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
         return 1
     end
