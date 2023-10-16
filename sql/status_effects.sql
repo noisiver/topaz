@@ -651,8 +651,8 @@ INSERT INTO `status_effects` VALUES (626,'negate_sleep',5243168,0,0,0,0,0,0,0,0)
 INSERT INTO `status_effects` VALUES (627,'mobilization',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (628,'hover_Shot',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (629,'moogle_amplifier',5243168,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (630,'taint',5243168,0,0,0,0,0,0,0,0);  -- Poison_II ?
-INSERT INTO `status_effects` VALUES (631,'haunt',5243168,0,0,0,0,0,0,0,0);  -- Curse_III ?
+INSERT INTO `status_effects` VALUES (630,'taint',8405024,0,0,0,0,0,6,1,1);  -- Undispellable Poison
+INSERT INTO `status_effects` VALUES (631,'haunt',8405024,0,0,0,0,0,8,1,1);  -- Undispellable Curse
 INSERT INTO `status_effects` VALUES (632,'expiration',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (633,'black_sanctus',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (768,'abyssea_str',4194560,0,0,0,0,0,1,0,0);
