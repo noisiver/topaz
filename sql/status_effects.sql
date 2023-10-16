@@ -644,7 +644,6 @@ INSERT INTO `status_effects` VALUES (610,'negate_charm',289,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (611,'magic_evasion_boost_ii',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (612,'colure_active',114295584,0,0,3,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (623,'rampart',5243168,0,0,0,0,0,0,0,0);
-
 INSERT INTO `status_effects` VALUES (624,'winds_blessing',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (625,'sirens_favor',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (626,'negate_sleep',5243168,0,0,0,0,0,0,0,0);
