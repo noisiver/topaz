@@ -1209,6 +1209,10 @@ tpz.regime.bookOnEventFinish = function(player, option, regimeType)
                 power = 120
             end
 
+            -- Apply "Enhances effect of Protect / Shell" gear mod
+            local protShellMod = player:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
+            power = power * (1 + (protShellMod / 10)) -- Percent
+
             player:delStatusEffectSilent(tpz.effect.PROTECT)
             player:addStatusEffect(tpz.effect.PROTECT, power, 0, 1800)
 
@@ -1225,6 +1229,11 @@ tpz.regime.bookOnEventFinish = function(player, option, regimeType)
             else
                 power = 22
             end
+
+            -- Apply "Enhances effect of Protect / Shell" gear mod
+            local protShellMod = player:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
+            power = power + protShellMod -- Flat
+
             player:delStatusEffectSilent(tpz.effect.SHELL)
             player:addStatusEffect(tpz.effect.SHELL, power, 0, 1800)
 
