@@ -407,6 +407,10 @@ INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda - Wind
 INSERT INTO `mob_family_mods` VALUES (198,461,100,0);	-- Puk - Wind
 INSERT INTO `mob_family_mods` VALUES (34,465,100,0);	-- Carbuncle - Light
 
+-- Parrying
+INSERT INTO `mob_family_mods` VALUES (339,106,3,1);	-- Chapuli 
+INSERT INTO `mob_family_mods` VALUES (585,106,3,1);	-- Chapuli-Jug
+
 -- Magic Aggro range
 INSERT INTO `mob_family_mods` VALUES (34,86,40,1);	-- Carbuncle 
 INSERT INTO `mob_family_mods` VALUES (35,86,40,1);	-- Diabolos 
