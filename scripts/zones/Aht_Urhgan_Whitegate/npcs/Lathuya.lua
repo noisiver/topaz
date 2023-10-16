@@ -30,7 +30,7 @@ local craftingItems = {
         currency = 2186,
         currencyAmt = 4,
         result = 14521
-    }  
+    }
 }
 
 function onTrade(player, npc, trade)
@@ -75,7 +75,7 @@ function onTrigger(player, npc)
         local AFoffset = 8 * totalCraftedPieces
 
         if currentTask == 0 and totalCraftedPieces ~= 3 then
-            if vanaDay() > player:getCharVar("[BLUAF]RestingDay") then
+            if vanaDay() > player:getCharVar("[BLUAF]RestingDay") and not player:needToZone() then
                 if totalCraftedPieces == 2 then
                     currentTask = math.floor(remainingBLUAF / 2) + 1
                     player:startEvent(746, 0, 0, 0, 0, 0, 0, 0, currentTask)
@@ -91,12 +91,14 @@ function onTrigger(player, npc)
             local item = craftingItems[currentTask]
             if craftingStage == 0 then
                 player:startEvent(731 + AFoffset, 0, item.currency, item.currencyAmt)
-            elseif craftingStage == 1 then
+            elseif craftingStage == 1 and not player:needToZone() then
                 player:startEvent(733 + AFoffset, item.result, item.currency, item.currencyAmt)
             elseif craftingStage == 2 and not pickupReady then
                 player:startEvent(735 + AFoffset)
-            elseif craftingStage == 2 and pickupReady then
+            elseif craftingStage == 2 and pickupReady and not player:needToZone() then
                 player:startEvent(736 + AFoffset, item.result)
+            else
+                player:startEvent(737 + (AFoffset - 8)) -- Asleep message, wait until 1 day passes
             end
         elseif totalCraftedPieces == 3 then
             player:startEvent(753) -- Dialogue after crafting all BLU AF
@@ -141,7 +143,7 @@ function onEventFinish(player, csid, option)
     local omensProgress = player:getCharVar("OmensProgress")
 
     local remainingBLUAF = player:getCharVar("[BLUAF]Remaining") -- Bitmask of AF the player has NOT crafted
-    local totalCraftedPieces = 3 - utils.mask.countBits(remainingBLUAF, 3)
+    local totalCraftedPieces = 3 - player:countMaskBits(remainingBLUAF)
     local currentTask = player:getCharVar("[BLUAF]Current")
     local AFoffset = 8 * totalCraftedPieces
 
@@ -155,7 +157,7 @@ function onEventFinish(player, csid, option)
             var = { omensProgress }
         })
         player:delKeyItem(tpz.ki.SEALED_IMMORTAL_ENVELOPE)
-
+        player:setCharVar("LastDivinationDay", vanaDay())
     -- BLU AF CRAFTING
     elseif csid == 732 + AFoffset then
         player:setCharVar("[BLUAF]CraftingStage", 1)
@@ -164,6 +166,7 @@ function onEventFinish(player, csid, option)
         player:confirmTrade()
         player:setCharVar("[BLUAF]CraftingStage", 2)
         player:setCharVar("[BLUAF]PaymentDay", vanaDay())
+        player:needToZone(true)
         npcUtil.giveKeyItem(player, tpz.ki.MAGUS_ORDER_SLIP)
     elseif csid == 736 + AFoffset then
         if npcUtil.giveItem(player, craftingItems[currentTask].result) then
@@ -177,7 +180,8 @@ function onEventFinish(player, csid, option)
                 -- Player is finished with Lathuya
                 player:setCharVar("[BLUAF]RestingDay", 0)
             else
-                player:setCharVar("[BLUAF]RestingDay", vanaDay())  
+                player:setCharVar("[BLUAF]RestingDay", vanaDay())
+                player:needToZone(true)
             end
 
             player:delKeyItem(tpz.ki.MAGUS_ORDER_SLIP)
