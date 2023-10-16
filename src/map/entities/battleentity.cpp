@@ -1557,12 +1557,6 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         }
         actionTarget.messageID = msg;
 
-        // Mobs shouldn't display spell messages when out of combat
-        if (PTarget->objtype == TYPE_MOB && PTarget->PAI->IsRoaming())
-        {
-            actionTarget.messageID = 0;
-        }
-
         // Check for "Zombie" on cures
         if (PSpell->getSkillType() == SKILLTYPE::SKILL_HEALING_MAGIC)
         {
