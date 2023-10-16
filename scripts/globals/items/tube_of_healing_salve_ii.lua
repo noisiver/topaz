@@ -8,7 +8,7 @@ require("scripts/globals/msg")
 
 function onItemCheck(target)
     if not target:hasPet() then
-        return tpz.msg.basic.REQUIRES_A_PET
+        return tpz.msg.basic.NO_TARGET_AVAILABLE
     end
     return 0
 end

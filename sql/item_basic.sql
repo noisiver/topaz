@@ -18140,8 +18140,8 @@ INSERT INTO `item_basic` VALUES (21464,0,'jug_of_rancid_broth','jug_of_rancid_br
 INSERT INTO `item_basic` VALUES (21465,0,'jug_of_pungent_broth','jug_of_pungent_broth',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21466,0,'jug_of_frizzante_broth','jug_of_frizzante_broth',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21467,0,'jug_of_spumante_broth','jug_of_spumante_broth',99,2052,48,0,0);
-INSERT INTO `item_basic` VALUES (21468,0,'jug_of_zestful_broth','jug_of_zestful_broth',99,2052,48,0,0);
-INSERT INTO `item_basic` VALUES (21469,0,'jug_of_gassy_broth','jug_of_gassy_broth',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21468,0,'jug_of_zestful_sap','jug_of_zestful_sap',99,2052,48,0,0);
+INSERT INTO `item_basic` VALUES (21469,0,'jug_of_gassy_sap','jug_of_gassy_sap',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21470,0,'jug_of_decaying_broth','jug_of_decaying_broth',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21471,0,'jug_of_putrescent_broth','jug_of_putrescent_broth',99,2052,48,0,0);
 INSERT INTO `item_basic` VALUES (21476,0,'doomsday','doomsday',1,30804,0,0,0);

@@ -23,7 +23,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.HASTE
-    local power = 1500 -- 15%
+    local power = 2500 -- 256/1024 25%
     local duration = 300
 
     if caster:hasStatusEffect(tpz.effect.DIFFUSION) then

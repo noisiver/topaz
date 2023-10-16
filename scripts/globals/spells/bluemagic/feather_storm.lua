@@ -50,7 +50,7 @@ function onSpellCast(caster, target, spell)
 
     params.effect = tpz.effect.POISON
     local lvl = caster:getMainLvl() 
-	local power = math.floor((lvl  / 3)) +5 
+	local power = math.floor((lvl  / 10))
     BlueTryEnfeeble(caster, target, spell, damage, power, 3, 180, params)
     
     return damage

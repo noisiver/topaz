@@ -180,6 +180,14 @@ inline int32 CLuaStatusEffect::getTick(lua_State* L)
 
 //======================================================//
 
+inline int32 CLuaStatusEffect::getIcon(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaStatusEffect == nullptr);
+
+    lua_pushinteger(L, m_PLuaStatusEffect->GetIcon());
+    return 1;
+}
+
 inline int32 CLuaStatusEffect::setIcon(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaStatusEffect == nullptr);
@@ -320,6 +328,7 @@ Lunar<CLuaStatusEffect>::Register_t CLuaStatusEffect::methods[] =
 {
     LUNAR_DECLARE_METHOD(CLuaStatusEffect,getType),
     LUNAR_DECLARE_METHOD(CLuaStatusEffect,getSubType),
+    LUNAR_DECLARE_METHOD(CLuaStatusEffect,getIcon),
     LUNAR_DECLARE_METHOD(CLuaStatusEffect,setIcon),
     LUNAR_DECLARE_METHOD(CLuaStatusEffect,getPower),
     LUNAR_DECLARE_METHOD(CLuaStatusEffect,setPower),

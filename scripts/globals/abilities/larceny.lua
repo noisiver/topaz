@@ -45,7 +45,7 @@ function onUseAbility(player, target, ability, action)
         end
     -- Copy an SP Ability if found
     else
-        local newID       = effectStolen:getEffectType()
+        local newID       = effectStolen:getType()
         local newIcon     = effectStolen:getIcon()
         local newPower    = effectStolen:getPower()
         local newTick     = effectStolen:getTick()
@@ -56,6 +56,9 @@ function onUseAbility(player, target, ability, action)
 
         effectID = newID
     end
+
+    action:animation(target:getID(), 181)
+    ability:setMsg(tpz.msg.basic.STEAL_EFFECT)
 
     if effectID == 0 then
         action:animation(target:getID(), 182)

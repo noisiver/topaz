@@ -3088,7 +3088,7 @@ namespace charutils
             // Check if the player has dual wield set trait or not, and if they don't then unequip their weapons
             if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
             {
-                CheckValidEquipment(PChar);
+                UnequipItem(PChar, SLOT_SUB);
             }
         }
 
