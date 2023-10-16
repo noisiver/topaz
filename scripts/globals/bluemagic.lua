@@ -359,6 +359,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
 
         hitsdone = hitsdone + 1
+        -- TODO: Test if this is required on reail
+        -- target:tryInterruptSpell(caster, 1)
     end
 
     -- Weapon resist
