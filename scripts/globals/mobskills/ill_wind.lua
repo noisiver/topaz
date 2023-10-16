@@ -21,9 +21,8 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_WIPE_SHADOWS)
 
-    target:dispelStatusEffect()
-    if mob:getPool() == 5140 then -- Nis Puk
-        target:dispelStatusEffect()
+    if mob:isNM() then
+        MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
     end
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
 

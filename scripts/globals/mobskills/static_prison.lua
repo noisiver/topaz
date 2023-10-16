@@ -28,8 +28,8 @@ function onMobWeaponSkill(target, mob, skill)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
     MobStatusEffectMove(mob, target, typeEffectOne, 50, 0, 60)
     MobStatusEffectMove(mob, target, typeEffectTwo, 20, 3, 60)
-    target:dispelStatusEffect()
-    target:dispelStatusEffect()
-    target:dispelStatusEffect()
+    MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
+    MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
+    MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
     return dmg
 end

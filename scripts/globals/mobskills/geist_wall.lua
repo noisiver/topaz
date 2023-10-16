@@ -18,7 +18,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dispel = target:dispelStatusEffect()
+    local dispel = MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
 
     if (dispel == tpz.effect.NONE) then
         -- no effect
