@@ -63,6 +63,9 @@ public:
     int32 getLocalVar(lua_State*);
     int32 setLocalVar(lua_State*);
     int32 resetLocalVars(lua_State*);
+    int32 getMaskBit(lua_State*); // Retrieves a single bit in a character variable
+    int32 setMaskBit(lua_State*); // Sets a single bit in a character variable
+    int32 countMaskBits(lua_State*);
     int32 getLastOnline(lua_State*);        // Returns the unix timestamp of last time the player logged out or zoned
 
     // Packets, Events, and Flags
