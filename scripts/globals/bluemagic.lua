@@ -202,20 +202,23 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.crit300 == nil) then
 		params.crit300 = 0
 	end
-		
+
+    local DmgTPBonus = 1
 	local AttkTPBonus =  1
 	local AttkTPModifier = 0
 	local CritTPBonus =  0
 	local SpellCritPdifModifier = 0
 
 
-    if chainAffinity ~= nil then
-		if params.AttkTPModifier == true then --Check if "Attack varies with TP"
-			AttkTPModifier =  getAttkTPModifier(caster:getTP()) 
+    if (chainAffinity ~= nil) then
+
+		if params.AttkTPModifier then --Check if "Attack varies with TP"
+			AttkTPModifier =  BLUGetAttkTPModifier(caster:getTP()) 
 		end
-		if params.CritTPModifier == true then --Check if "Chance of critical strike varies with TP"
+
+        if params.CritTPModifier then --Check if "Chance of critical strike varies with TP"
             CritTPBonus = 0.05
-			CritTPBonus = CritTPBonus + getCritTPModifier(caster:getTP())
+			CritTPBonus = CritTPBonus + BLUGetCritTPModifier(caster:getTP())
             CritTPBonus = CritTPBonus + target:getMod(tpz.mod.ENEMYCRITRATE)/100
             --caster:PrintToPlayer(string.format("native physical spell crit rate was %d", CritTPBonus*100))
 		end
@@ -228,7 +231,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         SpellCritPdifModifier = 1
         if dAGI > 0 then
             nativecrit = nativecrit + math.floor(dAGI/10)/100 -- no known cap
-        nativecrit = nativecrit + caster:getMod(tpz.mod.CRITHITRATE)/100 + caster:getMerit(tpz.merit.CRIT_HIT_RATE)/100
+            nativecrit = nativecrit + caster:getMod(tpz.mod.CRITHITRATE)/100 + caster:getMerit(tpz.merit.CRIT_HIT_RATE)/100
                                 + target:getMod(tpz.mod.ENEMYCRITRATE)/100  - target:getMerit(tpz.merit.ENEMY_CRIT_RATE)/100
             --caster:PrintToPlayer(string.format("native ranged spell crit rate was %d", nativecrit*100))
         end
@@ -285,6 +288,20 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
+
+    -- Get ecosystem
+    local correlation = 0
+    if (params.eco ~= nil) and target:isMob() then
+        correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
+    end
+
+    -- Add correlation ACC bonus
+    if (correlation > 0 and params.bonus ~= nil) then
+        params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    elseif correlation < 0 then
+        params.bonus = params.bonus - 25 
+    end
+
     local hitrate = BlueGetHitRate(caster, target, true, params)
     -- print("Hit rate "..hitrate)
     -- print("pdifmin "..cratio[1].." pdifmax "..cratio[2])
@@ -394,6 +411,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         finaldmg = math.floor(finaldmg * circlemult / 100)
     end
 
+    -- Handle correlation bonus
+    dmg = BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
+
     -- Handle Positional PDT
     if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
         if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3 then
@@ -429,6 +449,9 @@ end
 -- Blue Magical type spells
 
 function BlueMagicalSpell(caster, target, spell, params, statMod)
+    -- Get element
+    local element = spell:getElement()
+
     local D = caster:getMainLvl() + 2
 
     if params.D ~= nil then D = params.D end -- breath attacks calculate their own D.
@@ -477,17 +500,28 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     local multTargetReduction = 1.0 -- Always 1.0
     magicAttack = math.floor(D * multTargetReduction)
 
-    local rparams = {}
-    rparams.diff = dStat
-    rparams.skillType = tpz.skill.BLUE_MAGIC
-    magicAttack = math.floor(magicAttack * applyResistance(caster, target, spell, rparams))
+    -- Get ecosystem
+    local correlation = 0
+    if (params.eco ~= nil) and target:isMob() then
+        correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
+    end
+
+    -- Add bonus MACC(Mainly magic burst MACC)
+    params.bonus = params.bonus + BluGetBonusMacc(caster, target, element, params)
+
+    -- Add correlation MACC bonus
+    if correlation > 0 then
+        params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    elseif correlation < 0 then
+        params.bonus = params.bonus - 25 
+    end
 
     local dmg = 0
 
     -- Use params.IGNORE_WSC and params.damage to set specific damage
     -- Only used for Self-Destruct ATM
     if (params.IGNORE_WSC ~= nil) then
-        magicAttack = params.damage * applyResistance(caster, target, spell, rparams)
+        magicAttack = math.floor(magicAttack * applyResistance(caster, target, spell, params))
     end
 
     dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
@@ -497,6 +531,9 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     end
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
+
+    -- Handle correlation bonus
+    dmg = BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
 
     -- Handle Convergence damage bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
@@ -612,7 +649,7 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
 
     -- Get ecosystem
     local correlation = 0
-    if (params.eco) ~= nil and target:isMob() then
+    if (params.eco ~= nil) and target:isMob() then
         correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
     end
 
@@ -650,12 +687,8 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
 		dmg = math.floor(dmg *1.1) 
 	end
 
-    -- Add correlation bonus
-    if correlation > 0 then
-        dmg = math.floor(dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100))
-    elseif correlation < 0 then
-        dmg = math.floor(dmg * 0.75)
-    end
+    -- Handle correlation bonus
+    dmg = BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
 
     -- Add magic burst bonus
     params.AMIIburstBonus = 0
@@ -835,19 +868,19 @@ function BluefTP(tp, ftp1, ftp2, ftp3)
     return 1 -- no ftp mod
 end
 
-function getTPModifier(tp)
+function BLUGetTPModifier(tp)
   return 1.0 + (tp / 3000);
 end
 
-function getAttkTPModifier(tp)
+function BLUGetAttkTPModifier(tp)
   return 1.5 + (tp / 2000);
 end
 
-function getCritTPModifier(tp)
+function BLUGetCritTPModifier(tp)
   return ((tp / 3000) * 100) / 100
 end
 
-function getAccTPModifier(tp)
+function BLUGetAccTPModifier(tp)
   return (20+ ((tp - 1000) * 0.010))
 end
 
@@ -903,10 +936,16 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
 	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
 		if params.AccTPModifier == true then --Check if "Accuracy varies with TP"
-			AccTPBonus = getAccTPModifier(caster:getTP()) 
+			AccTPBonus = BLUGetAccTPModifier(caster:getTP()) 
 		end
 	end
-    local acc = attacker:getACC() + 30 + AccTPBonus + attacker:getMerit(tpz.merit.PHYSICAL_POTENCY) -- https://www.bluegartr.com/threads/37619-Blue-Mage-Best-thread-ever?p=2097460&viewfull=1#post2097460 
+
+    local bonusAcc = 30 -- BLU phys spells get a flat 30 ACC bonus
+    if (params.bonus ~= nil) then
+        bonusAcc = bonusAcc + params.bonus
+    end
+
+    local acc = attacker:getACC() + bonusAcc + AccTPBonus + attacker:getMerit(tpz.merit.PHYSICAL_POTENCY) -- https://www.bluegartr.com/threads/37619-Blue-Mage-Best-thread-ever?p=2097460&viewfull=1#post2097460 
     local eva = target:getEVA()
 
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
@@ -1041,7 +1080,7 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     end
 
     if (varieswithtp and caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY)) then
-        duration = duration * getTPModifier(caster:getTP())
+        duration = duration * BLUGetTPModifier(caster:getTP())
     end
 
     -- Calculate duration bonuses
@@ -1170,6 +1209,16 @@ function BlueGetWeatherDayBonus(caster, element)
     end
 
     return dayWeatherBonus
+end
+
+function BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
+    if correlation > 0 then
+        dmg = math.floor(dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100))
+    elseif correlation < 0 then
+        dmg = math.floor(dmg * 0.75)
+    end
+
+    return dmg
 end
 
 

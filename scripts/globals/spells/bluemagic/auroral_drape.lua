@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Actinic Burst
+-- Spell: Auroral Drape
 -- Greatly lowers the accuracy of enemies within range for a brief period of time
 -- Spell cost: 24 MP
 -- Monster Type: Luminions
@@ -24,31 +24,19 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.FLASH
-    local dMND = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
+    local typeEffect = tpz.effect.BLINDNESS
+    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     local params = {}
-    params.diff = dMND
+    params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus =  256
-    params.effect = tpz.effect.FLASH
+    params.bonus =  0
+    params.effect = typeEffect
     local resist = applyResistanceEffect(caster, target, spell, params)
-    local duration = 12 * resist
-    local power = 300
+    local duration = 60 * resist
+    local potency = 60
 
-    -- Flash can't be applied if target is already flashed
-    if target:hasStatusEffect(tpz.effect.FLASH) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return typeEffect
-    end
-
-    if (resist > 0.0625) then -- Do it!
-        if (target:addStatusEffect(typeEffect, power, 0, duration)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, potency, 0, duration, resist, 0.5)
 
     return typeEffect
 end

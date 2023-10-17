@@ -29,7 +29,6 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.PARALYSIS
     local resist = applyResistanceEffect(caster, target, spell, params)
-	local cap = target:getTP() * 0.4
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)
     local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
