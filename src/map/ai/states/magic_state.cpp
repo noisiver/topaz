@@ -153,9 +153,9 @@ bool CMagicState::Update(time_point tick)
     }
     else if (IsCompleted())
     {
-        // Blue Magic still has a ~3s aftercast for balancing reasons
+        // No aftercast on spells. Blue Magic and Ninjutsu still have a ~3s aftercast for balancing reasons
         auto castTime = m_castTime;
-        if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_BLUE_MAGIC)
+        if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_BLUE_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_NINJUTSU)
             castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
         if (tick > GetEntryTime() + castTime)
         {
