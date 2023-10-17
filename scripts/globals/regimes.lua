@@ -1200,18 +1200,18 @@ tpz.regime.bookOnEventFinish = function(player, option, regimeType)
             local power = 0
 
             if mLvl < 27 then
-                power = 15
+                power = 10
             elseif mLvl < 47 then
-                power = 40
+                power = 25
             elseif mLvl < 63 then
-                power = 75
+                power = 40
             else
-                power = 120
+                power = 55
             end
 
             -- Apply "Enhances effect of Protect / Shell" gear mod
             local protShellMod = player:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
-            power = power * (1 + (protShellMod / 10)) -- Percent
+            power = math.floor(power * (1 + (protShellMod / 10))) -- Percent
 
             player:delStatusEffectSilent(tpz.effect.PROTECT)
             player:addStatusEffect(tpz.effect.PROTECT, power, 0, 1800)

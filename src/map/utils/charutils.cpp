@@ -3091,9 +3091,12 @@ namespace charutils
                 CItem* PItem = PChar->getEquip((SLOTTYPE)SLOT_SUB);
                 // Don't unequip shields or Grips
                 CItemWeapon* PWeapon = (CItemWeapon*)PItem;
-                if (!((CItemWeapon*)PItem)->IsShield() || !PWeapon->getSkillType() == SKILL_NONE)
+                if (PItem)
                 {
-                    UnequipItem(PChar, SLOT_SUB);
+                    if (!((CItemWeapon*)PItem)->IsShield() || !PWeapon->getSkillType() == SKILL_NONE)
+                    {
+                        UnequipItem(PChar, SLOT_SUB);
+                    }
                 }
             }
         }
