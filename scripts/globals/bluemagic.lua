@@ -507,7 +507,9 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     end
 
     -- Add bonus MACC(Mainly magic burst MACC)
-    params.bonus = params.bonus + BluGetBonusMacc(caster, target, element, params)
+    if (params.bonus ~= nil) then
+        params.bonus = params.bonus + BluGetBonusMacc(caster, target, element, params)
+    end
 
     -- Add correlation MACC bonus
     if correlation > 0 then
@@ -654,7 +656,9 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     end
 
     -- Add bonus MACC(Mainly magic burst MACC)
-    params.bonus = params.bonus + BluGetBonusMacc(caster, target, element, params)
+    if (params.bonus ~= nil) then
+        params.bonus = params.bonus + BluGetBonusMacc(caster, target, element, params)
+    end
 
     -- Add correlation MACC bonus
     if correlation > 0 then
