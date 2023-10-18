@@ -828,7 +828,11 @@ local overseerInvNation =
 local function getStock(player, guardNation, option)
     local r = overseerInvCommon[option]
     if r == nil then
-        
+        if guardNation == tpz.nation.OTHER then
+            r = overseerInvNation[player:getNation()][option]
+        else
+            r = overseerInvNation[guardNation][option]
+        end
     end
     return r
 end
@@ -1065,7 +1069,7 @@ tpz.conquest.overseerOnEventUpdate = function(player, csid, option, guardNation)
         end
 
         local rankCheck = true
-        if guardNation ~= tpz.nation.OTHER and stock.place ~= nil and pRank > stock.place then -- buy from other nation
+        if guardNation ~= tpz.nation.OTHER and guardNation ~= pNation and stock.place ~= nil and pRank > stock.place then -- buy from other nation TODO: Test
             rankCheck = false
         elseif stock.place ~= nil and pRank > stock.place then -- buy from own nation, check nation rank
             rankCheck = false
