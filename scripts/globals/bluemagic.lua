@@ -92,6 +92,7 @@ ECO_NONE = 0 -- beastmen or other ecosystems that have no strength/weaknesses
 --      .mnd_wsc - Same as above.
 --      .chr_wsc - Same as above.
 --      .agi_wsc - Same as above.
+--      .guaranteedCrit - 100% crit rate
 function BluePhysicalSpell(caster, target, spell, params, tp)
     -- store related values
     local magicskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -- skill + merits + equip bonuses
@@ -256,6 +257,10 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	if caster:hasStatusEffect(tpz.effect.SNEAK_ATTACK) and spell:isAoE() == 0 and params.attackType ~= tpz.attackType.RANGED and caster:isBehind(target) then -- Has sneak attack
 		SpellCritPdifModifier = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
 	end
+
+    if (params.guaranteedCrit ~= nil) then -- 100% crit crit,only used for Heavy Strike ATM
+        SpellCritPdifModifier = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
+    end
 	
 	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluphysattk
 	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluphysattk forrmula
@@ -939,7 +944,7 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
     local AccTPBonus = 0
 	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
-		if params.AccTPModifier == true then --Check if "Accuracy varies with TP"
+		if params.AccTPModifier then --Check if "Accuracy varies with TP"
 			AccTPBonus = BLUGetAccTPModifier(caster:getTP()) 
 		end
 	end

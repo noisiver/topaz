@@ -28,7 +28,6 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 30
     params.effect = tpz.effect.SLOW
     params.tpmod = TPMOD_DURATION
     params.attackType = tpz.attackType.PHYSICAL
@@ -48,20 +47,12 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_PLANTOID
     damage = BluePhysicalSpell(caster, target, spell, params)
-	local beast = (target:getSystem() == 6)
-	local vermin = (target:getSystem() == 20)
-	
-	if beast then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 55 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif vermin then
-		damage = damage * 0.75
-		params.bonus = 5
-	end
-	
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-    
+
+	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+
+    params.bonus = 30
     params.effect = tpz.effect.SLOW
     BlueTryEnfeeble(caster, target, spell, damage, 1500, 0, 180, params)
 

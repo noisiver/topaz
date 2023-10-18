@@ -28,7 +28,6 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 30
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_CRITICAL
     params.attackType = tpz.attackType.RANGED
@@ -47,19 +46,13 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.20
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_PLANTOID
     params.shadowbehav = BLUPARAM_WIPE_SHADOWS
 
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-	local beast = (target:getSystem() == 6)
-	local vermin = (target:getSystem() == 20)
-	
-	if beast then
-		params.bonus = 55 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif vermin then
-		params.bonus = 5
-	end
 
+    params.bonus = 30
     params.effect = tpz.effect.POISON
     BlueTryEnfeeble(caster, target, spell, damage, 5, 3, 180, params)
     params.effect = tpz.effect.PLAGUE

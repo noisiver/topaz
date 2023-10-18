@@ -27,9 +27,7 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 25
     params.effect = tpz.effect.STUN
-    local resist = applyResistanceEffect(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DAMAGE
     params.attackType = tpz.attackType.PHYSICAL
@@ -49,15 +47,15 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.3
     params.chr_wsc = 0.0
+    params.eco = ECO_ARCANA
     damage = BluePhysicalSpell(caster, target, spell, params)
-	if (target:isUndead()) then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
+    params.bonus = 25
+    local resist = applyResistanceEffect(caster, target, spell, params)
+
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.25) and not target:hasStatusEffect(tpz.effect.STUN) then
-        local typeEffect = tpz.effect.STUN
-        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
+        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, params.effect, false))
     end
 
     return damage

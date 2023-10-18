@@ -28,7 +28,6 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 25
     params.effect = tpz.effect.STUN
     local resist = applyResistanceEffect(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
@@ -54,6 +53,7 @@ function onSpellCast(caster, target, spell)
 
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.25) and not target:hasStatusEffect(tpz.effect.STUN) then
         local typeEffect = tpz.effect.STUN
+        params.bonus = 25
         target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
