@@ -131,13 +131,6 @@ bool CAttackState::CanAttack(CBattleEntity* PTarget)
     {
         m_attackTime += std::chrono::milliseconds(m_PEntity->GetWeaponDelay(false));
     }
-
-    if (m_PEntity->loc.zone->CanUseMisc(MISC_LOS_BLOCK) && !m_PEntity->CanSeeTarget(PTarget, false))
-    {
-        m_PEntity->HandleErrorMessage(m_errorMsg);
-        return false;
-    }
-
     return ret;
 }
 
