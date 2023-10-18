@@ -1236,10 +1236,12 @@ function finalMagicAdjustments(caster, target, spell, dmg)
         target:handleAfflatusMiseryDamage(dmg)
         target:updateEnmityFromDamage(caster, dmg)
         -- Only add TP if the target is a mob
-        if (target:getObjType() ~= tpz.objType.PC) then
-            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-            -- printf("TP given: %d", tpGiven)
-            target:addTP(tpGiven)
+        if (dmg > 0) then
+            if (target:getObjType() ~= tpz.objType.PC) then
+                local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+                -- printf("TP given: %d", tpGiven)
+                target:addTP(tpGiven)
+            end
         end
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
