@@ -54,12 +54,6 @@ bool CAttackState::Update(time_point tick)
     }
     if (AttackReady())
     {
-        // Can't see target due to LOS, don't attack
-        if (!m_PEntity->CanSeeTarget(PTarget))
-        {
-            return true;
-        }
-
         if (CanAttack(PTarget))
         {
             //CanAttack may have set target id to 0 (disengage from out of range)
