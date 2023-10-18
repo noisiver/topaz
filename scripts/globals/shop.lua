@@ -395,7 +395,7 @@ tpz.shop =
                 17870,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Broth
                 17871,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Warm Meat Broth
                 17876,     165,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Broth
-                17877,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fish Oil Broth
+                17877,     833,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fish Oil Broth
                 17885,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grasshopper Broth
                 17886,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Noisy Grasshopper Broth
                 17872,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Tree Sap
