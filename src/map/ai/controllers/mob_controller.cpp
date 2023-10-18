@@ -171,58 +171,47 @@ void CMobController::TryLink()
         ((CMobEntity*)PMob->PPet)->PEnmityContainer->AddBaseEnmity(PTarget);
     }
 
+    // Mobs shouldn't link to pets without master being engaged
+    if (PTarget->objtype == TYPE_PET && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
+    {
+        return;
+    }
+
     // Mobs shouldn't link to charmed pets
     if (PTarget->objtype == TYPE_MOB && PTarget->isCharmed && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
     {
         return;
     }
 
-    // Don't link if no player is on mobs entity table
-    auto enmityList = PMob->PEnmityContainer->GetEnmityList();
-    for (auto iter = enmityList->begin(); iter != enmityList->end(); iter++)
+    // Handle monster linking if they are close enough
+    if (PMob->PParty != nullptr)
     {
-        auto entity = iter->second.PEnmityOwner;
-        if (entity)
+        for (uint16 i = 0; i < PMob->PParty->members.size(); ++i)
         {
-            if (entity->objtype != TYPE_PC)
+            CMobEntity* PPartyMember = (CMobEntity*)PMob->PParty->members[i];
+
+            if (PPartyMember->isAlive() && PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
             {
-                return;
+                PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
+
+                if (PPartyMember->m_roamFlags & ROAMFLAG_IGNORE)
+                {
+                    // force into attack action
+                    //#TODO
+                    PPartyMember->PAI->Engage(PTarget->targid);
+                }
             }
         }
-        // Link if there is a player on my enmity list and the below requirements are met
-        else
+    }
+
+    // ask my master for help
+    if (PMob->PMaster != nullptr && PMob->PMaster->PAI->IsRoaming())
+    {
+        CMobEntity* PMaster = (CMobEntity*)PMob->PMaster;
+
+        if (PMaster->PAI->IsRoaming() && PMaster->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
         {
-            // Handle monster linking if they are close enough
-            if (PMob->PParty != nullptr)
-            {
-                for (uint16 i = 0; i < PMob->PParty->members.size(); ++i)
-                {
-                    CMobEntity* PPartyMember = (CMobEntity*)PMob->PParty->members[i];
-
-                    if (PPartyMember->isAlive() && PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
-                    {
-                        PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
-
-                        if (PPartyMember->m_roamFlags & ROAMFLAG_IGNORE)
-                        {
-                            // force into attack action
-                            // #TODO
-                            PPartyMember->PAI->Engage(PTarget->targid);
-                        }
-                    }
-                }
-            }
-
-            // ask my master for help
-            if (PMob->PMaster != nullptr && PMob->PMaster->PAI->IsRoaming())
-            {
-                CMobEntity* PMaster = (CMobEntity*)PMob->PMaster;
-
-                if (PMaster->PAI->IsRoaming() && PMaster->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
-                {
-                    PMaster->PEnmityContainer->AddBaseEnmity(PTarget);
-                }
-            }
+            PMaster->PEnmityContainer->AddBaseEnmity(PTarget);
         }
     }
 }
