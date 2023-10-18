@@ -3054,10 +3054,10 @@ INSERT INTO `mob_skills` VALUES (3078,2222,'crashing_thunder',2,18.0,2000,3000,4
 -- INSERT INTO `mob_skills` VALUES (3094,2838,'infected_illusion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3095,2839,'depraved_dandia',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3096,2840,'matriarchal_fiat',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3097,124,'tickling_tendrils',0,7.0,2000,1000,4,0,0,0,8,0,0);
-INSERT INTO `mob_skills` VALUES (3098,125,'stink_bomb',2,15.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3099,126,'nectarous_deluge',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3100,127,'nepenthic_plunge',4,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3097,2172,'tickling_tendrils',0,7.0,2000,1000,4,0,0,0,8,0,0);
+INSERT INTO `mob_skills` VALUES (3098,2173,'stink_bomb',2,15.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3099,2174,'nectarous_deluge',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3100,2175,'nepenthic_plunge',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3101,128,'infaunal_flop',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3102,189,'',1,18.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3103,2847,'ignis',0,7.0,2000,1500,4,0,0,0,0,0,0);
