@@ -1693,6 +1693,15 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_IS_INTIMIDATED));
         return false;
     }
+    // Check to make sure the target is in LOS of the attacker
+    if (loc.zone->CanUseMisc(MISC_LOS_BLOCK) && !CanSeeTarget(PTarget, false))
+    {
+        if (this->objtype == TYPE_PC)
+        {
+            std::make_unique<CMessageBasicPacket>(this, this, 0, 0, MSGBASIC_CANNOT_SEE);
+        }
+        return false;
+    }
 
     // Create a new attack round.
     CAttackRound attackRound(this, PTarget);

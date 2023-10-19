@@ -25,7 +25,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.REFRESH
-    local power = 2 + caster:getMod(tpz.mod.ENHANCES_REFRESH)
+    local power = 3 + caster:getMod(tpz.mod.ENHANCES_REFRESH)
     local duration = 300 + target:getMod(tpz.mod.REFRESH_DURATION)
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then

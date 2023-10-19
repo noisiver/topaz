@@ -11572,7 +11572,7 @@ INSERT INTO `mob_groups` VALUES (27,6534,169,'Drowned_Bones',330,0,0,0,0,75,77,0
 INSERT INTO `mob_groups` VALUES (28,6073,169,'Starborer',330,0,3108,0,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (29,6335,169,'Rapier_Scorpion',330,0,549,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (30,2070,169,'Impish_Bats',330,0,1361,0,0,58,60,0);
-INSERT INTO `mob_groups` VALUES (31,1958,169,'Hinge_Oil',330,0,0,5500,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (31,1958,169,'Hinge_Oil',960,0,0,5500,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (32,6377,169,'Poroggo_Excavator',330,0,0,0,0,97,99,0);
 INSERT INTO `mob_groups` VALUES (33,6378,169,'Flume_Toad',330,0,0,0,0,94,96,0);
 INSERT INTO `mob_groups` VALUES (34,6456,169,'Dire_Bat',330,0,663,0,0,62,64,0);

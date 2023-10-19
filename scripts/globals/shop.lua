@@ -389,13 +389,13 @@ tpz.shop =
                 17864,     126,      tpz.ki.RHAPSODY_IN_WHITE,   -- Herbal Broth
                 17865,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Singing Herbal Broth
                 17866,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Carrion Broth
-                17867,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cold Carrion Broth
+                17867,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cold Carrion Broth
                 17868,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Humus Broth
                 17869,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Rich Humus Broth
                 17870,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Broth
                 17871,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Warm Meat Broth
                 17876,     165,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Broth
-                17877,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fish Oil Broth
+                17877,     833,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fish Oil Broth
                 17885,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grasshopper Broth
                 17886,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Noisy Grasshopper Broth
                 17872,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Tree Sap
