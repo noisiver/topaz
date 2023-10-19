@@ -49,6 +49,7 @@ public:
     int32 getDistance(lua_State*);
     int32 isAoE(lua_State*);
     int32 isConal(lua_State*);
+    int32 isBack(lua_State*);
     int32 isSingle(lua_State*);
     int32 hasMissMsg(lua_State*);
     int32 setMsg(lua_State*);

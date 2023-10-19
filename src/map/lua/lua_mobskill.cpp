@@ -92,7 +92,7 @@ inline int32 CLuaMobSkill::isAoE(lua_State *L)
 
     // 1 = AOE around monster
     // 2 = AOE centered around target (8.0 radius)
-    // 3 UNUSED
+    // 3 Back conal
     // 4 = conal (45.0 degree cone)
     lua_pushboolean(L, m_PLuaMobSkill->isAoE());
     return 1;
@@ -103,6 +103,14 @@ inline int32 CLuaMobSkill::isConal(lua_State *L)
     TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
 
     lua_pushboolean(L, m_PLuaMobSkill->isConal());
+    return 1;
+}
+
+inline int32 CLuaMobSkill::isBack(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+
+    lua_pushboolean(L, m_PLuaMobSkill->isBack());
     return 1;
 }
 
@@ -269,6 +277,7 @@ Lunar<CLuaMobSkill>::Register_t CLuaMobSkill::methods[] =
     LUNAR_DECLARE_METHOD(CLuaMobSkill,hasMissMsg),
     LUNAR_DECLARE_METHOD(CLuaMobSkill,isAoE),
     LUNAR_DECLARE_METHOD(CLuaMobSkill,isConal),
+    LUNAR_DECLARE_METHOD(CLuaMobSkill,isBack),
     LUNAR_DECLARE_METHOD(CLuaMobSkill,isSingle),
     LUNAR_DECLARE_METHOD(CLuaMobSkill,getParam),
     LUNAR_DECLARE_METHOD(CLuaMobSkill,getDistance),
