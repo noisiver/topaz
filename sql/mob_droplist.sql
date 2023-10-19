@@ -16986,7 +16986,7 @@ INSERT INTO `mob_droplist` VALUES (3190,0,0,1000,17093,240); -- Rune Staff 24%
 INSERT INTO `mob_droplist` VALUES (3191,0,0,1000,18851,1000); -- Werebuster 100%
 INSERT INTO `mob_droplist` VALUES (3191,0,0,1000,17461,240); -- Rune Rod 24% 
 
-INSERT INTO `mob_droplist` VALUES (3192,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3192,0,0,1000,18720,1000); -- Quicksilver 100%
 INSERT INTO `mob_droplist` VALUES (3192,0,0,1000,16563,240); -- Rune Blade 24% 
 
 INSERT INTO `mob_droplist` VALUES (3193,0,0,1000,17742,1000); -- Vorpal Sword 100%
