@@ -1699,7 +1699,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         if (this->objtype == TYPE_PC)
         {
             CCharEntity* PChar = (CCharEntity*)this;
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_CANNOT_SEE));
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PTarget, 0, 0, MSGBASIC_CANNOT_SEE));
         }
         return false;
     }
