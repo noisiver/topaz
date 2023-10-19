@@ -200,10 +200,12 @@ INSERT INTO `status_effects` VALUES (154,'shining_ruby',553,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (155,'medicine',0,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (156,'flash',8405026,0,0,1,0,0,7,0,0);
 INSERT INTO `status_effects` VALUES (157,'sj_restriction',8388864,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (158,'provoke',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (159,'penalty',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (160,'preparations',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (161,'sprint',32,0,0,0,0,0,0,0,0);
+-- Ballista
+INSERT INTO `status_effects` VALUES (158,'provoke',32,0,0,0,0,0,0,0,0); -- force target
+INSERT INTO `status_effects` VALUES (159,'penalty',32,0,0,0,0,0,0,0,0); -- terror on gear swap
+INSERT INTO `status_effects` VALUES (160,'preparations',32,0,0,0,0,0,0,0,0); -- invisible + can't attack anyone
+INSERT INTO `status_effects` VALUES (161,'sprint',32,0,0,0,0,0,0,0,0); -- Flee
+
 INSERT INTO `status_effects` VALUES (162,'enchantment',544,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (163,'azure_lore',544,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (164,'chain_affinity',544,0,0,0,0,0,0,0,0);
