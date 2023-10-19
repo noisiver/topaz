@@ -77,7 +77,7 @@ INSERT INTO `pet_list` VALUES (31, 'MayflyFamiliar', 4596, 33, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 65, 1800, 0);
 INSERT INTO `pet_list` VALUES (33, 'BeetleFamiliar', 4606, 38, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (34, 'AntlionFamiliar', 4625, 38, 50, 1800, 0);
-INSERT INTO `pet_list` VALUES (35, 'MiteFamiliar', 4623, 43, 55, 1800, 0);
+INSERT INTO `pet_list` VALUES (35, 'DiremiteFamiliar', 4623, 43, 55, 1800, 0);
 -- HQ Jugs
 INSERT INTO `pet_list` VALUES (36, 'LullabyMelodia', 4599, 43, 75, 1800, 0);
 INSERT INTO `pet_list` VALUES (37, 'KeenearedSteffi', 4595, 43, 75, 1800, 0);

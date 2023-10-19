@@ -380,35 +380,35 @@ tpz.shop =
                 4466,       12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spicy Cracker
                 17016,      11,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Alpha Biscuit
                 17017,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Beta Biscuit
-                19251,      300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Roborant
+                19251,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Roborant
                 19252,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Poultice
                 17860,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Carrot Broth
-                17861,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Famous Carrot Broth
+                17861,     250,      tpz.ki.RHAPSODY_IN_UMBER,   -- Famous Carrot Broth
                 17862,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bug Broth
-                17863,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Quadav Bug Broth
+                17863,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Quadav Bug Broth
                 17864,     126,      tpz.ki.RHAPSODY_IN_WHITE,   -- Herbal Broth
-                17865,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Singing Herbal Broth
+                17865,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Singing Herbal Broth
                 17866,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Carrion Broth
                 17867,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cold Carrion Broth
                 17868,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Humus Broth
-                17869,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Rich Humus Broth
+                17869,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Rich Humus Broth
                 17870,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Broth
-                17871,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Warm Meat Broth
+                17871,    1250,      tpz.ki.RHAPSODY_IN_UMBER,   -- Warm Meat Broth
                 17876,     165,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Broth
                 17877,     833,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fish Oil Broth
                 17885,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grasshopper Broth
-                17886,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Noisy Grasshopper Broth
+                17886,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Noisy Grasshopper Broth
                 17872,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Tree Sap
-                17873,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Scarlet Sap
+                17873,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Scarlet Sap
                 17880,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Seedbed Soil
-                17882,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Alchemist Water
-                17884,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Sun Water
+                17882,    1500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Alchemist Water
+                17884,    1500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Sun Water
                 17887,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Mole Broth
-                17888,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lively Mole Broth
+                17888,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lively Mole Broth
                 17891,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antica Broth
-                17892,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fragrant Antica Broth
-                17889,    2000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Blood Broth
-                17890,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Clear Blood Broth
+                17892,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fragrant Antica Broth
+                17889,    500,      tpz.ki.RHAPSODY_IN_UMBER,    -- Blood Broth
+                17890,    1500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Clear Blood Broth
                 17902,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lucky Broth
                 17904,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Briny Broth
                 17874,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cunning Brain Broth
