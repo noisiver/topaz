@@ -389,7 +389,7 @@ tpz.shop =
                 17864,     126,      tpz.ki.RHAPSODY_IN_WHITE,   -- Herbal Broth
                 17865,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Singing Herbal Broth
                 17866,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Carrion Broth
-                17867,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cold Carrion Broth
+                17867,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cold Carrion Broth
                 17868,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Humus Broth
                 17869,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Rich Humus Broth
                 17870,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Broth
