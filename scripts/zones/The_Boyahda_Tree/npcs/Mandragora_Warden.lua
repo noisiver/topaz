@@ -14,6 +14,7 @@ function onTrade(player, npc, trade)
     local missionStatus = player:getCharVar("MissionStatus")
 
     if player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.DOLL_OF_THE_DEAD and (missionStatus == 4 or missionStatus == 5) and npcUtil.tradeHas(trade, 1181) then
+        player:tradeComplete()
         player:startEvent(13)
     end
 end

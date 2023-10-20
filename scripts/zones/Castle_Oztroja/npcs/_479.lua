@@ -19,7 +19,7 @@ function onTrade(player, npc, trade)
         player:hasKeyItem(tpz.ki.BALGA_CHAMPION_CERTIFICATE) and
         Z >= 80 and Z < 86
     then
-        npc:openDoor(2.5)
+        npc:openDoor(6.5)
         player:confirmTrade()
     else
         player:messageSpecial(ID.text.ITS_LOCKED)
