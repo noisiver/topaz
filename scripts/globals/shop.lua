@@ -86,7 +86,7 @@ tpz.shop =
         local ID = zones[player:getZoneID()]
 
         for _, rank in pairs(unlocks) do
-            if (rank[1] == playerRank) then
+            if (rank[1] <= playerRank) then
                 if not player:hasKeyItem(rank[2]) then
                     player:addKeyItem(rank[2])
                     player:messageSpecial(ID.text.KEYITEM_OBTAINED, rank[2])
