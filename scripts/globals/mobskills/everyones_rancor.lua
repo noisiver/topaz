@@ -22,12 +22,16 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local realDmg = 0
+    local grudgeVar = target:getCharVar("EVERYONES_GRUDGE_KILLS")
 
-    if target:getID() > 100000 then
-        realDmg = 50 * math.random(50, 100)
-    else
-        realDmg = 50 * target:getCharVar("EVERYONES_GRUDGE_KILLS")
+    if target:isPet() then
+        local master = target:getMaster()
+        if master:isPC() then
+            grudgeVar = master:getCharVar("EVERYONES_GRUDGE_KILLS")
+        end
     end
+
+    realDmg = 50 * grudgeVar
 
     local dmg = MobFinalAdjustments(realDmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
