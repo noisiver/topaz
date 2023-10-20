@@ -34,6 +34,7 @@ function onPetAbility(target, automaton, skill, master, action)
     end
 
     target:addEnmity(automaton, 180, 1280)
+    target:updateClaim(automaton)
     -- master:PrintToPlayer(string.format("Enmity increased to... CE: %i, VE: %i", target:getCE(automaton), target:getVE(automaton)))
 
     return tpz.effect.FLASH
