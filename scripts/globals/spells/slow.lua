@@ -25,7 +25,7 @@ function onSpellCast(caster, target, spell)
     --printf("Duration : %u", duration)
     --printf("Potency : %u", potency)
     --Duration
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 180
 
     local params = {}
     params.diff = dMND

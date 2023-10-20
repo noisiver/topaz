@@ -1236,10 +1236,12 @@ function finalMagicAdjustments(caster, target, spell, dmg)
         target:handleAfflatusMiseryDamage(dmg)
         target:updateEnmityFromDamage(caster, dmg)
         -- Only add TP if the target is a mob
-        if (target:getObjType() ~= tpz.objType.PC) then
-            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-            -- printf("TP given: %d", tpGiven)
-            target:addTP(tpGiven)
+        if (dmg > 0) then
+            if (target:getObjType() ~= tpz.objType.PC) then
+                local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+                -- printf("TP given: %d", tpGiven)
+                target:addTP(tpGiven)
+            end
         end
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
@@ -2253,6 +2255,7 @@ function GetCharmHitRate(player, target)
     local charmMod = (1 + player:getMod(tpz.mod.CHARM_CHANCE) / 100) -- Correct mod?
     local affinityBonus = AffinityBonusAcc(player, element)
     local tameBonus = 0
+    local jpValue = player:getJobPointLevel(tpz.jp.CHARM_SUCCESS_RATE)
 
     if player:getLocalVar("Tamed_Mob") == target:getID() then
         tameBonus = 10
@@ -2278,6 +2281,8 @@ function GetCharmHitRate(player, target)
     --print(string.format("chance + dCHR: %i", chance))
     chance = chance + affinityBonus
     --print(string.format("chance + affinity bonus: %i", chance))
+    chance = chance + jpValue
+    --print(string.format("chance + jpValue: %i", chance))
     chance = chance + tameBonus
     --print(string.format("chance + tame bonus: %i", chance))
 
@@ -2869,7 +2874,7 @@ function ApplyProtectShell(caster, target, effect, power, duration)
     local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
 
     if (effect == tpz.effect.PROTECT) then
-        power = power * (1 + (protShellMod / 10)) -- Percent
+        power = math.floor(power * (1 + (protShellMod / 10))) -- Percent
     elseif (effect == tpz.effect.SHELL) then
         power = power + protShellMod -- Flat
     end

@@ -1557,12 +1557,6 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         }
         actionTarget.messageID = msg;
 
-        // Mobs shouldn't display spell messages when out of combat
-        if (PTarget->objtype == TYPE_MOB && PTarget->PAI->IsRoaming())
-        {
-            actionTarget.messageID = 0;
-        }
-
         // Check for "Zombie" on cures
         if (PSpell->getSkillType() == SKILLTYPE::SKILL_HEALING_MAGIC)
         {
@@ -1697,6 +1691,16 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
     if (battleutils::IsIntimidated(this, PTarget))
     {
         loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_IS_INTIMIDATED));
+        return false;
+    }
+    // Check to make sure the target is in LOS of the attacker
+    if (loc.zone->CanUseMisc(MISC_LOS_BLOCK) && !CanSeeTarget(PTarget, false))
+    {
+        if (this->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = (CCharEntity*)this;
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PTarget, 0, 0, MSGBASIC_CANNOT_SEE));
+        }
         return false;
     }
 

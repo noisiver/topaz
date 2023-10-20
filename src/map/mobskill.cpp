@@ -55,7 +55,7 @@ bool CMobSkill::hasMissMsg() const
 
 bool CMobSkill::isAoE() const
 {
-    return m_Aoe > 0 && m_Aoe < 4;
+    return m_Aoe == 1 || m_Aoe == 2;
 }
 
 bool CMobSkill::isConal() const

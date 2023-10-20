@@ -746,10 +746,24 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         target:setLocalVar("analyzer_hits", analyzerHits)
     end
 
+    -- Handle BST Job point ability damage bonus
+    if mob:isPet() then
+        local master = mob:getMaster()
+        if master:isPC() then
+            local jpValue = 1 + (master:getJobPointLevel(tpz.jp.READY_EFFECT) / 100)
+            -- Add Unleash damage bonuns to jpValue if Unleash is active
+            if mob:hasStatusEffect(tpz.effect.UNLEASH) then
+                jpValue = jpValue + ((master:getJobPointLevel(tpz.jp.UNLEASH_EFFECT) * 2) / 100)  
+            end
+            dmg = math.floor(dmg * jpValue)
+        end
+    end
+
     -- Handle Boost status effect
     if (attackType == tpz.attackType.PHYSICAL) or (attackType == tpz.attackType.RANGED) then
         if mob:hasStatusEffect(tpz.effect.BOOST) then
             dmg = dmg * 2
+            mob:delStatusEffectSilent(tpz.effect.BOOST)
         end
     end
 
@@ -758,7 +772,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     dmg = dmg + (dmg * (systemBonus * 0.25))
 
     -- Handle weapon resist on pets(like blunt damage)
-    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+    if (attackType == tpz.attackType.PHYSICAL) or (attackType == tpz.attackType.RANGED) then
         dmg = dmg * utils.HandleWeaponResist(target, damageType)
     end
 
@@ -830,7 +844,6 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         target:handleAfflatusMiseryDamage(dmg)
     end
 
-    mob:delStatusEffectSilent(tpz.effect.BOOST)
     return dmg
 end
 

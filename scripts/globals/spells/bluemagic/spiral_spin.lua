@@ -50,6 +50,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
 	params.attkbonus = 1.5
     params.CritTPModifier = true
+    params.shadowbehav = BLUPARAM_IGNORE_SHADOWS
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local plantoid = (target:getSystem() == 17)
 	local lizard = (target:getSystem() == 14)

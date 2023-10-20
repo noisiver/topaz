@@ -28,7 +28,6 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 125
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DAMAGE
     params.attackType = tpz.attackType.PHYSICAL
@@ -47,16 +46,11 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.3
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_DEMON
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    -- Check for correlation bonus
-	local dragon = (target:getSystem() == 10)
-    if dragon then
-		params.bonus = params.bonus + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-        damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-	end
-
+    params.bonus = 125
     -- Spell physically hit, check for additional effect proccing
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL) then
         params.effect = tpz.effect.ATTACK_DOWN

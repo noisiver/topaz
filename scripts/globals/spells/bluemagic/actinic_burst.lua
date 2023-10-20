@@ -12,7 +12,6 @@
 -- Effect Time: About 15 seconds
 -- Magic Bursts on: Transfixion, Fusion, and Light
 -- Combos: Auto Refresh
--- TODO: applyResistanceEffect
 -----------------------------------------
 require("scripts/globals/bluemagic")
 require("scripts/globals/status")

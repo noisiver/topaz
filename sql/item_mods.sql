@@ -11815,12 +11815,18 @@ INSERT INTO `item_mods` VALUES (13797,1,23);
 INSERT INTO `item_mods` VALUES (13797,5,4);
 INSERT INTO `item_mods` VALUES (13797,13,3);
 INSERT INTO `item_mods` VALUES (13797,61,4);
-INSERT INTO `item_mods` VALUES (13798,1,35);
+INSERT INTO `item_mods` VALUES (13798,1,35);          -- Gaia Doublet
 INSERT INTO `item_mods` VALUES (13798,10,4);
 INSERT INTO `item_mods` VALUES (13798,57,10);
-INSERT INTO `item_mods` VALUES (13799,1,36);
+INSERT INTO `item_mods` VALUES (13798,301,10);        -- Damage Taken -10
+INSERT INTO `item_mods` VALUES (13798,1250,10);       -- Resist Slow +10%
+INSERT INTO `item_mods` VALUES (13798,1246,10);       -- Resist Petrify +10%
+INSERT INTO `item_mods` VALUES (13799,1,36);          -- Gaia Doublet +1
 INSERT INTO `item_mods` VALUES (13799,10,5);
 INSERT INTO `item_mods` VALUES (13799,57,12);
+INSERT INTO `item_mods` VALUES (13799,301,12);        -- Damage Taken -12
+INSERT INTO `item_mods` VALUES (13799,1250,12);       -- Resist Slow +12%
+INSERT INTO `item_mods` VALUES (13799,1246,12);       -- Resist Petrify +12%
 INSERT INTO `item_mods` VALUES (13800,1,36);
 INSERT INTO `item_mods` VALUES (13800,11,1);
 INSERT INTO `item_mods` VALUES (13800,25,4);

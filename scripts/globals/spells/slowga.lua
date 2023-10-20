@@ -21,7 +21,7 @@ function onSpellCast(caster, target, spell)
     power = calculatePotency(power, dMND, spell:getSkillType(), caster, target)
 
     --Duration, including resistance
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 180
     local params = {}
     params.diff = dMND
     params.skillType = tpz.skill.ENFEEBLING_MAGIC

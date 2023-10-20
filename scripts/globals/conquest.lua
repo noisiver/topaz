@@ -727,7 +727,7 @@ local overseerInvNation =
         [32804] = {rank =  3, cp =  4000, lvl = 30, item = 12694},                -- centurions_finger_gauntlets
         [32805] = {rank =  3, cp =  4000, lvl = 30, item = 12822},                -- centurions_cuisses
         [32806] = {rank =  3, cp =  4000, lvl = 30, item = 12950},                -- centurions_greaves
-        [32807] = {rank =  3, cp =  4000, lvl = 30, item = 16806, place = 2},     -- centurions_sword
+        [32807] = {rank =  3, cp =  4000, lvl = 30, item = 16806},                -- centurions_sword
         [32808] = {rank =  3, cp =  4000, lvl = 30, item = 13830, place = 1},     -- legionnaires_circlet
         [32809] = {rank =  3, cp =  4000, lvl =  1, item = 13497, place = 1},     -- bastokan_ring
         [32816] = {rank =  4, cp =  8000, lvl = 40, item = 16516},                -- junior_musketeers_tuck

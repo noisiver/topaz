@@ -813,8 +813,17 @@ tpz.effect =
     NEGATE_CHARM             = 610,
     MAGIC_EVASION_BOOST_II   = 611,
     COLURE_ACTIVE            = 612,
-
     RAMPART                  = 623,
+    WINDS_BLESSING           = 624,
+    SIRENS_FAVOR             = 625,
+    NEGATE_SLEEP             = 626,
+    MOBILIZATION             = 627,
+    HOVER_SHOT               = 628,
+    MOOGLE_AMPLIFIER         = 629,
+    TAINT                    = 630, -- Poison_II ?
+    HAUNT                    = 631, -- Curse_III ?
+    EXPIRATION               = 632,
+    BLACK_SANCTUS            = 633,
     -- Effect icons in packet can go from 0-767, so no custom effects should go in that range.
 
     -- Purchased from Cruor Prospector
@@ -1857,9 +1866,11 @@ tpz.mod =
     AUTO_LVL_BONUS          = 1349, -- Automaton: Lv.+ (Increases Automatons's base level above 99
     AVATAR_LVL_BONUS        = 1348, -- Avatar/Elemental: Lv.+ (Increases Avatar/Elementals's base level above 99
     JUG_LVL_BONUS           = 1350, -- Jug: Lv.+ (Increases Jugs's base level above 99
-    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
+    PET_ACC                 = 1351, -- Increases pets accuracy
+    PET_DELAY               = 1352, -- Reduces pets delay(in percents)    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
+    PET_MACC                = 1353, -- Increases pets magic accuracy
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1351 NEXT
+    -- 1354 NEXT
 }
 
 tpz.latent =
@@ -2527,7 +2538,7 @@ tpz.jp =
     READY_EFFECT             = jpCategory.BST + 0x06, --X pet sp.ability dmg +1%
     SPUR_EFFECT              = jpCategory.BST + 0x07, --X pet p.atk +3
     RUN_WILD_DURATION        = jpCategory.BST + 0x08, --X dur. +2s
-    PET_EMNITY_BONUS         = jpCategory.BST + 0x09, --X emnity +1
+    PET_MACC_BONUS           = jpCategory.BST + 0x09, --X magic accuracy +1
 
     --BRD
     SOUL_VOICE_EFFECT        = jpCategory.BRD + 0x00, --+ casting time -2%

@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
     local final = finalMagicAdjustments(caster, target, spell, dmg)
 
     -- Calculate duration
-    local duration = 120
+    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     local tier = 2
 
     -- Calculate DoT effect

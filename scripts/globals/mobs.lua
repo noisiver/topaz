@@ -793,7 +793,6 @@ function BreakMob(mob, target, power, duration, proc)
     -- 6 = Skillchain
     -- 7 = Magic Burst
     -- 8 = Spirits
-    local party = target:getParty()
     local BreakDuration = mob:getLocalVar("BreakDuration")
     local mobName = mob:getName()
     mobName = string.gsub(mobName, '_', ' ');
@@ -810,8 +809,13 @@ function BreakMob(mob, target, power, duration, proc)
         elseif (proc == 2) or (proc == 3)  then -- Red and White !!
             mob:addStatusEffect(tpz.effect.TERROR, 0, 0, duration)
         end
-        for _, players in pairs(party) do
-            players:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
+        if (target:getParty() ~= nil) then
+            local party = target:getParty()
+            for _, players in pairs(party) do
+                players:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
+            end
+        else
+            target:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
         end
         mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, power, 0, duration)
     end
@@ -910,10 +914,20 @@ function SpawnInstancedMob(mob, player, mobId, aggro)
     end
 end
 
-function ForceDrawIn(mob, playerId)
-    local player = GetPlayerByID(playerId)
-    player:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
-    mob:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, player)
+function ForceDrawIn(mob, entity)
+    entity:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+    entity:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, entity)
+end
+
+function ForceDrawInByID(mob, entityId)
+    local player = 0
+    if (entityId > 10000) then -- ID is a mob(pet) then
+        entity = GetMobByID(entityId)
+    else
+        entity = GetPlayerByID(entityId)
+    end
+    entity:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+    entity:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, entity)
 end
 
 --Uneeded?

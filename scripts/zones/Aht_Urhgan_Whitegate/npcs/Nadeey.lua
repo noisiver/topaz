@@ -78,7 +78,7 @@ local accessories  =
 local baseItem =
 {
     tpz.items.JARIDAH_KHUD, tpz.items.SIPAHI_JAWSHAN, tpz.items.SIPAHI_TURBAN, tpz.items.TABIN_BERET, tpz.items.SILKEN_HAT,
-    tpz.items.JARIDAH_PETI, tpz.items.SIPAHI_JAWSHAN, tpz.items.TABIN_JUPON, tpz.items.SILKEN_COAT, tpz.items.JARIDAH_SALVARS,
+    tpz.items.JARIDAH_PETI, tpz.items.TABIN_JUPON, tpz.items.SILKEN_COAT, tpz.items.JARIDAH_SALVARS,
     tpz.items.SIPAHI_ZEREHS, tpz.items.TABIN_HOSE, tpz.items.SILKEN_SLOPS, tpz.items.JARIDAH_BAZUBANDS, tpz.items.JARIDAH_NAILS,
     tpz.items.SIPAHI_DASTANA, tpz.items.SIPAHI_BOOTS, tpz.items.TABIN_BRACERS, tpz.items.TABIN_BOOTS, tpz.items.SILKEN_CUFFS,
     tpz.items.SILKEN_PIGACHES, tpz.items.MARID_MITTENS, tpz.items.MARID_LEGGINGS, tpz.items.MARID_BELT

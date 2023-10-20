@@ -18,6 +18,11 @@ function onTrade(player, npc, trade)
             utils.MessageParty(player, "You have angered the beasts.", 0, "Balpah")
             player:confirmTrade()
         end
+    elseif npcUtil.tradeHasExactly(trade, tpz.items.GREEN_CHIP) then
+        if npcUtil.popFromQM(player, npc, ID.mob.QULTADA) then 
+            utils.ShowTextParty(player, ID.text.SYS_OVERLOAD)
+            player:confirmTrade()
+        end
     end
 end
 

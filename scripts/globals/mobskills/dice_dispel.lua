@@ -17,9 +17,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local effect = target:dispelStatusEffect()
-    local effect2 = target:dispelStatusEffect()
-    local effect3 = target:dispelStatusEffect()
+    local effect    = MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
+    local effect2   = MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
+    local effect3   = MobDispelMove(mob, target, skill, tpz.magic.ele.DARK, tpz.effectFlag.DISPELABLE)
     local num = 0
 
     if (effect ~= tpz.effect.NONE) then

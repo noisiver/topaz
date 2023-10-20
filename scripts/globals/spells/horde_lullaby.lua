@@ -21,9 +21,9 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.SINGING
     params.bonus = 0
     params.effect = tpz.effect.LULLABY
-    resm = applyResistanceEffect(caster, target, spell, params)
+    resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resm < 0.5 then
+    if resist < 0.5 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
     else
         local iBoost = caster:getMod(tpz.mod.LULLABY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)

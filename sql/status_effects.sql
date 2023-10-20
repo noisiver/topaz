@@ -200,10 +200,12 @@ INSERT INTO `status_effects` VALUES (154,'shining_ruby',553,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (155,'medicine',0,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (156,'flash',8405026,0,0,1,0,0,7,0,0);
 INSERT INTO `status_effects` VALUES (157,'sj_restriction',8388864,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (158,'provoke',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (159,'penalty',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (160,'preparations',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (161,'sprint',32,0,0,0,0,0,0,0,0);
+-- Ballista
+INSERT INTO `status_effects` VALUES (158,'provoke',32,0,0,0,0,0,0,0,0); -- force target
+INSERT INTO `status_effects` VALUES (159,'penalty',32,0,0,0,0,0,0,0,0); -- terror on gear swap
+INSERT INTO `status_effects` VALUES (160,'preparations',32,0,0,0,0,0,0,0,0); -- invisible + can't attack anyone
+INSERT INTO `status_effects` VALUES (161,'sprint',32,0,0,0,0,0,0,0,0); -- Flee
+
 INSERT INTO `status_effects` VALUES (162,'enchantment',544,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (163,'azure_lore',544,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (164,'chain_affinity',544,0,0,0,0,0,0,0,0);
@@ -644,6 +646,16 @@ INSERT INTO `status_effects` VALUES (610,'negate_charm',289,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (611,'magic_evasion_boost_ii',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (612,'colure_active',114295584,0,0,3,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (623,'rampart',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (624,'winds_blessing',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (625,'sirens_favor',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (626,'negate_sleep',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (627,'mobilization',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (628,'hover_Shot',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (629,'moogle_amplifier',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (630,'taint',8405024,0,0,0,0,0,6,1,1);  -- Undispellable Poison
+INSERT INTO `status_effects` VALUES (631,'haunt',8405024,0,0,0,0,0,8,1,1);  -- Undispellable Curse
+INSERT INTO `status_effects` VALUES (632,'expiration',5243168,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (633,'black_sanctus',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (768,'abyssea_str',4194560,0,0,0,0,0,1,0,0);
 INSERT INTO `status_effects` VALUES (769,'abyssea_dex',4194560,0,0,0,0,0,5,0,0);
 INSERT INTO `status_effects` VALUES (770,'abyssea_vit',4194560,0,0,0,0,0,4,0,0);

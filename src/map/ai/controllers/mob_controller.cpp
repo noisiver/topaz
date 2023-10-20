@@ -760,7 +760,12 @@ void CMobController::CastSpell(SpellID spellid)
 
         if (PCastTarget)
         {
-            Cast(PCastTarget->targid, spellid);
+            float currentDistance = distance(PMob->loc.p, PCastTarget->loc.p);
+            // Make sure target is in spell range
+            if (currentDistance <= PSpell->getRange())
+            {
+                Cast(PCastTarget->targid, spellid);
+            }
         }
     }
 }

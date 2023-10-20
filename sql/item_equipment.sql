@@ -11572,6 +11572,8 @@ INSERT INTO `item_equipment` VALUES (23793,'ziamet_peti',1,0,4194303,172,0,0,32,
 INSERT INTO `item_equipment` VALUES (23794,'ziamet_bazubands',1,0,4194303,172,0,0,64,0,0);
 INSERT INTO `item_equipment` VALUES (23795,'ziamet_salvars',1,0,4194303,172,0,0,128,0,0);
 INSERT INTO `item_equipment` VALUES (23796,'ziamet_nails',1,0,4194303,172,0,0,256,0,0);
+INSERT INTO `item_equipment` VALUES (23800,'cancrine_apron',1,0,4194303,475,0,0,32,0,0);
+INSERT INTO `item_equipment` VALUES (23805,'morbol_apron',1,0,4194303,478,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (25417,'warriors_beads',75,0,1,0,0,0,512,0,0);
 INSERT INTO `item_equipment` VALUES (25418,'war._beads_+1',99,0,1,0,0,0,512,0,0);
 INSERT INTO `item_equipment` VALUES (25419,'war._beads_+2',99,0,1,0,0,0,512,0,0);
@@ -11843,6 +11845,7 @@ INSERT INTO `item_equipment` VALUES (25767,'sacro_breastplate',99,119,10689,457,
 INSERT INTO `item_equipment` VALUES (25774,'fancy_gilet',1,0,4194303,447,0,0,32,64,0);
 INSERT INTO `item_equipment` VALUES (25775,'fancy_top',1,0,4194303,448,0,0,32,64,0);
 INSERT INTO `item_equipment` VALUES (25776,'bl._chocobo_suit',1,0,4194303,449,0,0,32,448,0);
+INSERT INTO `item_equipment` VALUES (25777,'iratsugo_happi',1,0,4194303,452,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (25779,'flamma_korazin',99,119,10433,195,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (25780,'flamma_korazin_+1',99,119,10433,195,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (25781,'mummu_jacket',99,119,332834,196,0,0,32,0,0);

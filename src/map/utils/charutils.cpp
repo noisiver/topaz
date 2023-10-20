@@ -3088,7 +3088,16 @@ namespace charutils
             // Check if the player has dual wield set trait or not, and if they don't then unequip their weapons
             if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
             {
-                CheckValidEquipment(PChar);
+                CItem* PItem = PChar->getEquip((SLOTTYPE)SLOT_SUB);
+                // Don't unequip shields or Grips
+                CItemWeapon* PWeapon = (CItemWeapon*)PItem;
+                if (PItem)
+                {
+                    if (!((CItemWeapon*)PItem)->IsShield() || !PWeapon->getSkillType() == SKILL_NONE)
+                    {
+                        UnequipItem(PChar, SLOT_SUB);
+                    }
+                }
             }
         }
 

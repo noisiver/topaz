@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
     -- Apply unbridled duration mod
     duration = math.floor(duration * (1 + caster:getMod(tpz.mod.UNBRIDLED_DURATION) / 100))
 
-    player:addStatusEffect(tpz.effect.MIGHTY_GUARD, 25, 0, duration, 0, 15, 0)
+    caster:addStatusEffect(tpz.effect.MIGHTY_GUARD, 25, 0, duration, 0, 15, 0)
     spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
 
     return tpz.effect.MIGHTY_GUARD

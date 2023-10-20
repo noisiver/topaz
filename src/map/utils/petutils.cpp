@@ -406,7 +406,7 @@ namespace petutils
         return 0;
     }
 
-    void LoadJugStats(CPetEntity* PMob, Pet_t* petStats)
+    void LoadJugStats(CBattleEntity* PMaster, CPetEntity* PMob, Pet_t* petStats)
     {
         //follows monster formulas but jugs have no subjob
 
@@ -476,6 +476,22 @@ namespace petutils
         PMob->setModifier(Mod::ATT, GetJugBase(PMob, petStats->attRank));
         PMob->setModifier(Mod::ACC, GetJugBase(PMob, petStats->accRank));
 
+        // Job Point bonuses
+        if (PMaster != nullptr)
+        {
+            if (PMaster->objtype == TYPE_PC)
+            {
+                if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
+                {
+
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    uint16 jpValue = PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS);
+                    PMob->addModifier(Mod::ACC, PChar->PJobPoints->GetJobPointValue(JP_PET_ACC_BONUS));
+                    PMob->addModifier(Mod::MACC, PChar->PJobPoints->GetJobPointValue(JP_PET_MAGIC_ACC));
+                }
+            }
+        }
+
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetJugWeaponDamage(PMob));
 
         //reduce weapon delay of MNK
@@ -500,16 +516,20 @@ namespace petutils
         uint16 mMND = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 7), PMob->GetMLevel());
         uint16 mCHR = GetBaseToRank(grade::GetJobGrade(PMob->GetMJob(), 8), PMob->GetMLevel());
 
+        // Add JP gift bonuses
+        uint16 jpBonus = 0;
         if (PMob->PMaster != nullptr)
         {
-            PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
-            PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f) + PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
+            jpBonus = PMob->PMaster->getMod(Mod::PET_ATTR_BONUS);
         }
+
+        PMob->stats.STR = (uint16)((fSTR + mSTR) * 0.9f) + jpBonus;
+        PMob->stats.DEX = (uint16)((fDEX + mDEX) * 0.9f) + jpBonus;
+        PMob->stats.VIT = (uint16)((fVIT + mVIT) * 0.9f) + jpBonus;
+        PMob->stats.AGI = (uint16)((fAGI + mAGI) * 0.9f) + jpBonus;
+        PMob->stats.INT = (uint16)((fINT + mINT) * 0.9f) + jpBonus;
+        PMob->stats.MND = (uint16)((fMND + mMND) * 0.9f) + jpBonus;
+        PMob->stats.CHR = (uint16)((fCHR + mCHR) * 0.9f) + jpBonus;
 
     }
 
@@ -663,7 +683,6 @@ namespace petutils
         PPet->stats.CHR = fCHR + mCHR + sCHR;
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setSkillType(SKILL_AUTOMATON_MELEE);
-        ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (petStats->cmbDelay / 60.0f)))); //every pet should use this eventually
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDamage((PPet->GetSkill(SKILL_AUTOMATON_MELEE) / 9) * 2 + 3);
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setSkillType(SKILL_AUTOMATON_RANGED);
@@ -897,12 +916,18 @@ namespace petutils
         // High refresh so Elementals don't oom
         PPet->setModifier(Mod::REFRESH, 500);
 
-        ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (320.0f / 60.0f))));
+        // Base delay
+        uint16 WeaponDelay = PPetData->cmbDelay;
 
-        if (petID == PETID_FENRIR || petID == PETID_DIABOLOS)
+        // Apply pet delay mod / job point reduction bonus
+        if (PMaster->objtype == TYPE_PC)
         {
-            ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (280.0f / 60.0f))));
+            CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+            WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+            WeaponDelay /= 100;
         }
+
+        ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (WeaponDelay / 60.0f))));
 
         // In a 2014 update SE updated Avatar base damage
         // Based on testing this value appears to be Level now instead of Level * 0.74f
@@ -1097,9 +1122,20 @@ namespace petutils
             PPet->SetMLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
             PPet->SetSLevel(mLvl + PMaster->getMod(Mod::WYVERN_LVL_BONUS));
         }
-        LoadAvatarStats(PPet); // TODO: LoadWyvernStats                                                                           // follows PC calcs (w/o SJ)
-        static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (320.0f / 60.0f)))); // 320 delay
-        static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setBaseDelay((uint16)(floor(1000.0f * (320.0f / 60.0f))));
+        LoadAvatarStats(PPet); // TODO: LoadWyvernStats
+        // follows PC calcs (w/o SJ)
+
+        // Base delay
+        uint16 WeaponDelay = PPetData->cmbDelay;  // 320 delay
+
+        // Apply pet delay mod / job point reduction bonus
+        if (PMaster->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+            WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+            WeaponDelay /= 100;
+        }
+        static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (WeaponDelay / 60.0f))));
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDamage((uint16)(floor(mLvl / 2) + 3));
         // Set A+ weapon skill
         PPet->setModifier(Mod::ATT, battleutils::GetMaxSkill(SKILL_GREAT_AXE, JOB_WAR, mLvl > 99 ? 99 : mLvl));
@@ -1149,7 +1185,18 @@ namespace petutils
         });
         // clang-format on
 
-        ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (240.0f / 60.0f))));
+        // Base delay
+        uint16 WeaponDelay = PPetData->cmbDelay;
+
+        // Apply pet delay mod / job point reduction bonus
+        if (PMaster->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+            WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+            WeaponDelay /= 100;
+        }
+
+        ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (WeaponDelay / 60.0f))));
 
         // innate -25 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
         PPet->setModifier(Mod::UDMGPHYS, -25);
@@ -1184,7 +1231,7 @@ namespace petutils
 
         PPet->SetMLevel(highestLvl);
         PPet->SetSLevel(highestLvl);
-        LoadJugStats(PPet, PPetData); // follow monster calcs (w/o SJ)
+        LoadJugStats(PMaster, PPet, PPetData); // follow monster calcs (w/o SJ)
     }
     void CalculateAutomatonStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
@@ -1201,13 +1248,27 @@ namespace petutils
         auto meleeSkill = PPet->GetSkill(SKILL_AUTOMATON_MELEE);
         auto rangedSkill = PPet->GetSkill(SKILL_AUTOMATON_RANGED);
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDamage((uint16)(floor(meleeSkill * 0.11) * 3));
+
+        // Base delay
+        uint16 WeaponDelay = PPetData->cmbDelay;
+
         CAutomatonEntity* PAutomaton = (CAutomatonEntity*)PPet;
         switch (PAutomaton->getFrame())
         {
             default: // case FRAME_HARLEQUIN:
                 PPet->SetMJob(JOB_WAR);
                 PPet->SetSJob(JOB_RDM);
-                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (320.0f / 60.0f))));
+
+                // Apply pet delay mod / job point reduction bonus
+                if (PMaster->objtype == TYPE_PC)
+                {
+                    WeaponDelay = 320;
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+                    WeaponDelay /= 100;
+                }
+
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (WeaponDelay / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
                 PPet->addModifier(Mod::ATTP, 10);
                 PPet->addModifier(Mod::ACC, 10);
@@ -1218,7 +1279,17 @@ namespace petutils
             case FRAME_VALOREDGE:
                 PPet->SetMJob(JOB_WAR);
                 PPet->SetSJob(JOB_WAR);
-                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (360.0f / 60.0f))));
+
+                // Apply pet delay mod / job point reduction bonus
+                if (PMaster->objtype == TYPE_PC)
+                {
+                    WeaponDelay = 360;
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+                    WeaponDelay /= 100;
+                }
+
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (WeaponDelay / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_SLASHING);
                 PPet->addModifier(Mod::HPP, 20);
                 PPet->addModifier(Mod::ATTP, 10);
@@ -1230,10 +1301,29 @@ namespace petutils
             case FRAME_SHARPSHOT:
                 PPet->SetMJob(JOB_RNG);
                 PPet->SetSJob(JOB_RNG);
-                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
+
+                // Apply pet delay mod / job point reduction bonus
+                if (PMaster->objtype == TYPE_PC)
+                {
+                    WeaponDelay = 400;
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+                    WeaponDelay /= 100;
+                }
+
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (WeaponDelay / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
+
+                // Apply pet delay mod / job point reduction bonus for ranged weapon
+                if (PMaster->objtype == TYPE_PC)
+                {
+                    WeaponDelay = 360;
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+                    WeaponDelay /= 100;
+                }
                 static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_RANGED])->setDamage((uint16)(floor(rangedSkill * 0.11) * 3));
-                ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDelay((uint16)(floor(1000.0 * (360.0f / 60.0f))));
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDelay((uint16)(floor(1000.0 * (WeaponDelay / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDmgType(DAMAGE_RANGED);
                 PPet->addModifier(Mod::HPP, -10);
                 PPet->addModifier(Mod::ATTP, 10);
@@ -1247,7 +1337,17 @@ namespace petutils
             case FRAME_STORMWAKER:
                 PPet->SetMJob(JOB_RDM);
                 PPet->SetSJob(JOB_RDM);
-                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
+
+                // Apply pet delay mod / job point reduction bonus
+                if (PMaster->objtype == TYPE_PC)
+                {
+                    WeaponDelay = 400;
+                    CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                    WeaponDelay *= (100 - (PMaster->getMod(Mod::PET_DELAY) + PChar->PJobPoints->GetJobPointValue(JP_PET_ATK_SPD_BONUS)));
+                    WeaponDelay /= 100;
+                }
+
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (WeaponDelay / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
                 PPet->addModifier(Mod::HPP, -20);
                 PPet->addModifier(Mod::MPP, 20);
@@ -1793,7 +1893,7 @@ namespace petutils
     /*
     Familiars a pet.
     */
-    void Familiar(CBattleEntity* PPet)
+    void Familiar(CBattleEntity* PPet, CBattleEntity* PMaster)
     {
 
         /*
@@ -1819,11 +1919,37 @@ namespace petutils
         PPet->health.hp += boost;
         PPet->UpdateHealth();
 
-        // boost stats by 10%
-        PPet->addModifier(Mod::ATTP, (int16)(rate * 100.0f));
-        PPet->addModifier(Mod::ACC, (int16)(rate * 100.0f));
-        PPet->addModifier(Mod::EVA, (int16)(rate * 100.0f));
-        PPet->addModifier(Mod::DEFP, (int16)(rate * 100.0f));
+        // boost stats
+        PPet->addModifier(Mod::MAIN_DMG_RATING, 30);
+        PPet->addModifier(Mod::HASTE_ABILITY, 2500);
+        PPet->addModifier(Mod::ATTP, 50);
+        PPet->addModifier(Mod::ACC, 100);
+        PPet->addModifier(Mod::RACC, 100);
+        PPet->addModifier(Mod::MACC, 100);
+        PPet->addModifier(Mod::EVA, 50);
+        PPet->addModifier(Mod::DEFP, 50);
+        PPet->addModifier(Mod::DMG, -50);
+
+        // Familiar attriute bonus from JP
+        if (PMaster->objtype == TYPE_PC)
+        {
+            if (PMaster->GetMJob() == JOBTYPE::JOB_BST)
+            {
+                CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
+                uint16 jpValue = PChar->PJobPoints->GetJobPointValue(JP_FAMILIAR_EFFECT) * 3;
+
+                if (jpValue > 0)
+                {
+                    PPet->addModifier(Mod::STR, jpValue);
+                    PPet->addModifier(Mod::DEX, jpValue);
+                    PPet->addModifier(Mod::VIT, jpValue);
+                    PPet->addModifier(Mod::AGI, jpValue);
+                    PPet->addModifier(Mod::INT, jpValue);
+                    PPet->addModifier(Mod::MND, jpValue);
+                    PPet->addModifier(Mod::CHR, jpValue);
+                }
+            }
+        }
 
     }
 

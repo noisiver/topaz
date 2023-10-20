@@ -124,12 +124,11 @@ bool CMagicState::Update(time_point tick)
         {
             if (PTarget->objtype == TYPE_PC)
             {
-                CCharEntity* PChar = static_cast<CCharEntity*>(m_PEntity);
-                if (PChar->status == STATUS_CUTSCENE_ONLY || PChar->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+                if (PTarget->status == STATUS_CUTSCENE_ONLY)
                 {
                     m_interrupted = true;
                 }
-                if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
+                if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
                 {
                     m_interrupted = true;
                 }
@@ -152,26 +151,33 @@ bool CMagicState::Update(time_point tick)
             
         Complete();
     }
-    else if (IsCompleted() && tick > GetEntryTime() + m_castTime)
+    else if (IsCompleted())
     {
-        // Add TP from Occult Acumen to non-damaging spells
-        if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENFEEBLING_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENHANCING_MAGIC ||
-            m_PSpell->getSkillType() == SKILLTYPE::SKILL_HEALING_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_DIVINE_MAGIC)
+        // No aftercast on spells. Blue Magic and Ninjutsu still have a ~3s aftercast for balancing reasons
+        auto castTime = m_castTime;
+        if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_BLUE_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_NINJUTSU)
+            castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
+        if (tick > GetEntryTime() + castTime)
         {
-            int16 tp = static_cast<int16>(m_PSpell->getMPCost() * m_PEntity->getMod(Mod::OCCULT_ACUMEN) / 100.f * (1 + (m_PEntity->getMod(Mod::STORETP) / 100.f)));
-            m_PEntity->addTP(tp);
-        }
-
-        if (m_PSpell->getRequirements() & SPELLREQ_UNBRIDLED_LEARNING)
-        {
-            if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_UNBRIDLED_LEARNING, EFFECT_UNBRIDLED_WISDOM }))
+            // Add TP from Occult Acumen to non-damaging spells
+            if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENFEEBLING_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENHANCING_MAGIC ||
+                m_PSpell->getSkillType() == SKILLTYPE::SKILL_HEALING_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_DIVINE_MAGIC)
             {
-                m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_UNBRIDLED_LEARNING);
+                int16 tp = static_cast<int16>(m_PSpell->getMPCost() * m_PEntity->getMod(Mod::OCCULT_ACUMEN) / 100.f * (1 + (m_PEntity->getMod(Mod::STORETP) / 100.f)));
+                m_PEntity->addTP(tp);
             }
-        }
 
-        m_PEntity->PAI->EventHandler.triggerListener("MAGIC_STATE_EXIT", m_PEntity, m_PSpell.get());
-        return true;
+            if (m_PSpell->getRequirements() & SPELLREQ_UNBRIDLED_LEARNING)
+            {
+                if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_UNBRIDLED_LEARNING, EFFECT_UNBRIDLED_WISDOM }))
+                {
+                    m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_UNBRIDLED_LEARNING);
+                }
+            }
+
+            m_PEntity->PAI->EventHandler.triggerListener("MAGIC_STATE_EXIT", m_PEntity, m_PSpell.get());
+            return true;
+        }
     }
     return false;
 }
