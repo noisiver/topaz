@@ -412,7 +412,7 @@ tpz.shop =
                 17902,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lucky Broth
                 17904,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Briny Broth
                 17874,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cunning Brain Broth
-                17893,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
+                17893,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
                 17879,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Curdled Plasma Broth
                 17883,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Mellow Bird Broth
                 17900,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cloudy Wheat Broth
