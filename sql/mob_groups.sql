@@ -4484,7 +4484,7 @@ INSERT INTO `mob_groups` VALUES (20,6289,82,'Orcish_Champion',330,0,1871,0,0,76,
 INSERT INTO `mob_groups` VALUES (21,3005,82,'Orcish_Dragonbrander',330,0,1871,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (22,5154,82,'Orcish_Veteran',330,0,1922,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (23,6291,82,'Orcish_Protector',330,0,1871,0,0,76,79,0);
-INSERT INTO `mob_groups` VALUES (24,5846,82,'Boll_Weevil',5400,0,3023,0,0,56,57,0);
+INSERT INTO `mob_groups` VALUES (24,5846,82,'Boll_Weevil',5400,0,3023,9400,0,56,57,0);
 INSERT INTO `mob_groups` VALUES (25,5155,82,'Gnoletrap',300,0,2913,0,0,78,81,0);
 INSERT INTO `mob_groups` VALUES (26,5847,82,'Drumskull_Zogdregg',3600,0,3029,15000,9999,83,85,0);
 INSERT INTO `mob_groups` VALUES (27,1639,82,'Goblin_Bombardier',330,0,1025,0,0,71,74,0);
