@@ -28,6 +28,10 @@ function onMobFight(mob, target)
         -- May be able to change forms more often.  Witnessed one at ~50 seconds, most were 60-80.
         -- Believe it or not, these changes may be too slow @ 50% chance.  Probability is a pain.
     -- L40 means their "weapons" are 40 DMG by default.
+    -- Force link at the start so pet jobs cannot ignore this
+    for v = 16904193, 16904201 do
+        GetMobByID(v):updateEnmity(mob:getTarget())
+    end
     if ((mob:getBattleTime() > mob:getLocalVar('changeTime') + 60 or mob:getLocalVar('changeTime') == 0) and math.random(0, 1) == 1
         and not mob:hasStatusEffect(tpz.effect.FOOD)) then
         changeForm(mob)
