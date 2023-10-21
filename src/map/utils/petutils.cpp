@@ -1920,13 +1920,12 @@ namespace petutils
         PPet->UpdateHealth();
 
         // boost stats
-        PPet->addModifier(Mod::MAIN_DMG_RATING, 30);
-        PPet->addModifier(Mod::HASTE_ABILITY, 2500);
-        PPet->addModifier(Mod::ATTP, 50);
-        PPet->addModifier(Mod::ACC, 100);
-        PPet->addModifier(Mod::RACC, 100);
-        PPet->addModifier(Mod::MACC, 100);
-        PPet->addModifier(Mod::EVA, 50);
+        PPet->addModifier(Mod::HASTE_ABILITY, 1000);
+        PPet->addModifier(Mod::ATTP, 15);
+        PPet->addModifier(Mod::ACC, 50);
+        PPet->addModifier(Mod::RACC, 50);
+        PPet->addModifier(Mod::MACC, 25);
+        PPet->addModifier(Mod::EVA, 25);
         PPet->addModifier(Mod::DEFP, 50);
         PPet->addModifier(Mod::DMG, -50);
 
