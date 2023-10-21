@@ -39,7 +39,12 @@ tpz.jsequest.onTrigger = function(player, npc, job)
     -- If var is 1, then player has seen the intro quest text already, don't show again
     if (player:getCharVar("[JSEQUEST " .. job .. "]") == 0) then
         player:setCharVar("[JSEQUEST " .. job .. "]", 1)
-        player:PrintToPlayer("To show your mastery in your job, please bring me " .. questItems[job].items[1]:getName() .. questItems[job].items[2]:getName(), 0, npcName)
+        local itemOne = GetItem(questItems[job].items[1])
+        local itemTwo = GetItem(questItems[job].items[2])
+        itemOneName = string.gsub(itemOne:getName(), '_', ' ');
+        itemTwoName = string.gsub(itemTwo:getName(), '_', ' ');
+
+        player:PrintToPlayer("To show your mastery in your job, please bring me a " .. itemOneName .. " and a ".. itemTwoName .. ".", 0, npcName)
         
         return
     end
