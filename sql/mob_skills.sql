@@ -3026,16 +3026,16 @@ INSERT INTO `mob_skills` VALUES (3065,2235,'swooping_frenzy',4,10.0,2000,1000,4,
 INSERT INTO `mob_skills` VALUES (3066,2236,'from_the_skies',1,18.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3067,2811,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3068,2812,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3069,166,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3070,2215,'waktza_auto_one',0,7.0,0,0,4,16,0,0,0,0,0); -- Waktza auto-attack 1
-INSERT INTO `mob_skills` VALUES (3071,2216,'waktza_auto_two',4,10.0,0,0,4,16,0,1,0,0,0); -- Waktza auto-attack 2
-INSERT INTO `mob_skills` VALUES (3072,2217,'waktza_auto_three',1,10.0,0,0,4,16,0,0,0,0,0); -- Waktza auto-attack 3
+INSERT INTO `mob_skills` VALUES (3069,2214,'waktza_auto_one',0,7.0,0,0,4,16,0,0,0,0,0); -- Waktza auto-attack 1
+INSERT INTO `mob_skills` VALUES (3070,2215,'waktza_auto_two',4,10.0,0,0,4,16,0,1,0,0,0); -- Waktza auto-attack 2
+INSERT INTO `mob_skills` VALUES (3071,2216,'waktza_auto_three',1,10.0,0,0,4,16,0,0,0,0,0); -- Waktza auto-attack 3
+INSERT INTO `mob_skills` VALUES (3072,2217,'crashing_thunder',2,18.0,2000,3000,4,0,0,0,0,0,0); 
 INSERT INTO `mob_skills` VALUES (3073,2218,'reverberating_cry',1,18.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3074,2219,'brownout',4,10.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3075,2220,'reverse_current',2,18.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3076,2221,'sparkstorm',4,10.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3077,2222,'static_prison',1,18.0,2000,3000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3078,2222,'crashing_thunder',2,18.0,2000,3000,4,0,0,0,0,0,0); -- Crashing thunder? Needs knockback if so
+-- INSERT INTO `mob_skills` VALUES (3078,2222,'.',2,18.0,2000,3000,4,0,0,0,0,0,0); -- Not sure what this is
 -- INSERT INTO `mob_skills` VALUES (3079,2823,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3080,2824,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3081,2825,'velkkan_ambush',0,7.0,2000,1500,4,0,0,0,0,0,0);

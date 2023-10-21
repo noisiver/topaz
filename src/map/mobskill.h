@@ -33,7 +33,7 @@ enum SKILLFLAG
     // Special skill (ranged attack / call beast)
     SKILLFLAG_SPECIAL        = 0x004, // 4
     SKILLFLAG_HIT_ALL        = 0x008, // 8
-    SKILLFLAG_REPLACE_ATTACK = 0x010, // 16
+    SKILLFLAG_REPLACE_ATTACK = 0x010, // 16 To turn off "Readies .." or "Readies skill#650360 message" Use skill:setMsg(tpz.msg.basic.HIT_DMG) in the skills lua file
     SKILLFLAG_DRAW_IN        = 0x020 // 32
 };
 
