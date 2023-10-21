@@ -31,18 +31,9 @@ end
 function onMobEngaged(mob, target)
     local pet = GetMobByID(mob:getID() +1)
     pet:updateEnmity(mob:getTarget())
-    mob:setLocalVar("rewardCD", 0)
 end
 
 function onMobFight(mob, target)
-    local rewardCD = mob:getLocalVar("rewardCD")
-    local pet = GetMobByID(mob:getID() + 1)
-	if (pet ~= nil) then
-        if pet:getHPP() <= 50 and (os.time() >= rewardCD) then
-            mob:useMobAbility(2005) -- Reward
-            mob:setLocalVar("rewardCD", os.time() + 30)
-        end
-	end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
