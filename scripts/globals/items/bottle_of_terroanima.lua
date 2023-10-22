@@ -35,7 +35,7 @@ function onItemUse(target)
     if target:hasStatusEffect(tpz.effect.TERROR) then
         target:messageBasic(tpz.msg.basic.NO_EFFECT)
     else
-	    target:setLocalVar("EmptyTerror",os.time()+180)
+	    target:setLocalVar("EmptyTerror",os.time() +30)
 	    target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.TERROR)
     end
 end

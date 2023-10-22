@@ -19,7 +19,7 @@ function onItemUse(target)
     if target:hasStatusEffect(tpz.effect.INTIMIDATE) then
         target:messageBasic(tpz.msg.basic.NO_EFFECT)
     else
-        target:addStatusEffectEx(tpz.effect.DOUBT, tpz.effect.INTIMIDATE, 100, 0, 180)
+        target:addStatusEffectEx(tpz.effect.DOUBT, tpz.effect.INTIMIDATE, 100, 0, 30)
 	    target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.INTIMIDATE)
     end
 end
