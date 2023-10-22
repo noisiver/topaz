@@ -59,7 +59,17 @@ function onMobFight(mob, target)
 end
 
 function onMobDisengage(mob)
-    mob:setLocalVar("wait", 0)
+    -- Engage the last living enemy
+    local inst = mob:getBattlefield():getArea()
+    local instOffset = ID.mob.MOON_READING_OFFSET + (6 * (inst - 1))
+    local targetOne = GetMobByID(instOffset + 4)
+    local targetTwo = GetMobByID(instOffset + 5)
+    if not targetOne:isDead() then
+        mob:addEnmity(target, 0, 1)
+    end
+    if not targetTwo:isDead() then
+        mob:addEnmity(target, 0, 1)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

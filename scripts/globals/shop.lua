@@ -86,7 +86,7 @@ tpz.shop =
         local ID = zones[player:getZoneID()]
 
         for _, rank in pairs(unlocks) do
-            if (rank[1] == playerRank) then
+            if (rank[1] <= playerRank) then
                 if not player:hasKeyItem(rank[2]) then
                     player:addKeyItem(rank[2])
                     player:messageSpecial(ID.text.KEYITEM_OBTAINED, rank[2])
@@ -412,7 +412,7 @@ tpz.shop =
                 17902,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lucky Broth
                 17904,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Briny Broth
                 17874,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cunning Brain Broth
-                17893,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
+                17893,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
                 17879,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Curdled Plasma Broth
                 17883,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Mellow Bird Broth
                 17900,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cloudy Wheat Broth

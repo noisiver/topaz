@@ -2105,7 +2105,7 @@ INSERT INTO `item_equipment` VALUES (12340,'marine_shield',1,0,2385,31,1,0,2,0,0
 INSERT INTO `item_equipment` VALUES (12341,'tropical_shield',17,0,2421,37,2,0,2,0,0);
 INSERT INTO `item_equipment` VALUES (12342,'lantern_shield',19,0,2385,44,1,0,2,0,0);
 INSERT INTO `item_equipment` VALUES (12343,'faerie_shield',29,0,3719388,35,2,0,2,0,0);
-INSERT INTO `item_equipment` VALUES (12344,'master_shield',52,0,2421,38,2,0,2,0,0);
+INSERT INTO `item_equipment` VALUES (12344,'master_shield',52,0,35124,38,2,0,2,0,0);
 INSERT INTO `item_equipment` VALUES (12345,'bloodbead_ecu',87,0,2421,46,2,0,2,0,0);
 INSERT INTO `item_equipment` VALUES (12346,'dst._shield_+1',60,0,193,30,3,0,2,0,0);
 INSERT INTO `item_equipment` VALUES (12347,'spiked_buckler',59,0,2385,45,1,0,2,0,0);

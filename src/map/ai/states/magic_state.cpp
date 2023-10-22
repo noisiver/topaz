@@ -157,6 +157,9 @@ bool CMagicState::Update(time_point tick)
         auto castTime = m_castTime;
         if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_BLUE_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_NINJUTSU)
             castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
+        // Spells still have aftercast during Manafont and Chainspell for balance reasons
+        if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_MANAFONT, EFFECT_CHAINSPELL }))
+            castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
         if (tick > GetEntryTime() + castTime)
         {
             // Add TP from Occult Acumen to non-damaging spells

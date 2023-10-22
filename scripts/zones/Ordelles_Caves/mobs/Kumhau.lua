@@ -7,7 +7,7 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 function onMobInitialize(mob)
-   end
+end
 
 function onMobSpawn(mob)
     mob:setDamage(90)

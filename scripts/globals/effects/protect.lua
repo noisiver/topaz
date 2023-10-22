@@ -16,8 +16,11 @@ require("scripts/globals/status")
 local protect =
 {
     {10, -5},
+    {11, -5}, -- Protect with +protect/shell mod
     {25, -10},
+    {27, -10}, -- Protect II with +protect/shell mod
     {40, -15},
+    {44, -15}, -- Protect III with +protect/shell mod
     {55, -20},
     {60, -24},
     {62, -25},

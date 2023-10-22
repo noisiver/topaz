@@ -19,15 +19,17 @@ end
 
 function onMobFight(mob, target)
  local Pos = mob:getPos()
-	if Pos.x == 479 and Pos.y == 20 and Pos.z == 41 then
+	if Pos.x == 480 and Pos.y == 20 and Pos.z == 41 then
         mob:SetAutoAttackEnabled(true)
         mob:setHP(mob:getMaxHP())
     end
 end
 
 function onMobWeaponSkill(target, mob, skill)
-	mob:pathTo(479, 20, 41)
-	mob:SetAutoAttackEnabled(false)
+    if skill:getID() ~= 278 then -- Pit Ambush
+	    mob:pathTo(479, 20, 41)
+	    mob:SetAutoAttackEnabled(false)
+    end
 end
 
 function onMobSpawn(mob)

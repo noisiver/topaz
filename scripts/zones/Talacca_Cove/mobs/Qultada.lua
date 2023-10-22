@@ -13,11 +13,12 @@ function onMobInitialize(mob)
     end)
 
     mob:addListener("WEAPONSKILL_USE", "SHAMARHAAN_WEAPONSKILL_USE", function(mob, target, wsid, tp, action)
-        if wsid == 39 or wsid == 42 then -- Sword WS
-            mob:messageText(mob, ID.text.QULTADA_ANTE_UP)
-        end
-        if wsid == 212 or wsid == 3253 then -- Marksmanship WS
-            mob:messageText(mob, ID.text.QULTADA_LETS_TRY_YOUR_LUCK)
+        if wsid == 39 or wsid == 42 then
+            if math.random(1, 2) == 1 then
+                mob:messageText(mob, ID.text.QULTADA_ANTE_UP)
+            else
+                mob:messageText(mob, ID.text.QULTADA_LETS_TRY_YOUR_LUCK)
+            end
         end
     end)
 end
@@ -27,13 +28,25 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
+    if mob:getLocalVar("dialog") == 0 then
+        for _, player in pairs(mob:getBattlefield():getPlayers()) do
+            if player:checkDistance(mob) < 15 then
+                mob:messageText(mob, ID.text.QULTADA_LADY_DESTINY)
+                mob:setLocalVar("dialog", 1)
+                mob:useMobAbility(114) -- Phantom Roll
+                mob:timer(7000, function(mob)
+                    mob:useMobAbility(114) -- Phantom Roll
+                    mob:messageText(mob, ID.text.QULTADA_LUCK_OF_CORSAIR + math.random(0, 5))
+                end)
+            end
+        end
+    end
 end
 
 function onMobEngaged(mob, target)
     mob:messageText(mob, ID.text.QULTADA_CARDS_BEEN_DEALT + math.random(0, 2))
     mob:setLocalVar("engaged", target:getID())
     mob:setLocalVar("quick_draw", os.time() + math.random(5, 10))
-    mob:setLocalVar("wild_card", os.time() + math.random(45, 60))
 end
 
 function onMobDisengaged(mob)
@@ -48,19 +61,21 @@ end
 
 function onMobFight(mob,target)
     if mob:getLocalVar("quick_draw") <= os.time() then
-        -- Randomly use one of the Quick Draw shots
+         -- Randomly use one of the Quick Draw shots
         mob:useMobAbility(2009 + math.random(0, 7), target)
         mob:messageText(mob, ID.text.QULTADA_THINK_YOU_CAN)
         mob:setLocalVar("quick_draw", os.time() + math.random(30, 40))
     end
 
-    if (mob:getHPP() < 95) then
-        -- Uses Wild Card every 45-60s
-        if mob:getLocalVar("wild_card") <= os.time() then
-            mob:messageText(mob, ID.text.QULTADA_BEHOLD_MY_TRUMP_CARD)
-            mob:useMobAbility(tpz.jsa.WILD_CARD_QULTADA)
-            mob:setLocalVar("wild_card", os.time() + math.random(45, 60))
-        end
+    if mob:getHPP() < mob:getLocalVar("special_threshold") then
+        mob:messageText(mob, ID.text.QULTADA_BEHOLD_MY_TRUMP_CARD)
+        mob:useMobAbility(tpz.jsa.WILD_CARD_QULTADA)
+        mob:setLocalVar("special_threshold", 0)
+    end
+
+    if mob:getHPP() < 20 then
+        mob:showText(mob, ID.text.QULTADA_NOT_BAD)
+        mob:getBattlefield():win()
     end
 
     if mob:getLocalVar("dialog") == 1 and mob:getBattleTime() >= 120 then
@@ -85,7 +100,7 @@ function onMobWeaponSkill(target, mob, skill, action)
         return roll
     elseif skill:getID() == tpz.jsa.WILD_CARD_QULTADA then
         -- It appears that Qultada always rolls a 4 which grants 3000TP and resets Job Abilities
-        mob:setLocalVar("quick_draw", os.time() + 3)
+        mob:setLocalVar("quick_draw", os.time() + math.random(5, 10))
         return 0
     end
 end

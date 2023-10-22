@@ -17,7 +17,6 @@ require("scripts/globals/mobs")
 -- Note: Diabolos Prime fight drops all tiles at once.
 
 function onMobSpawn(mob)
-    SetGenericNMStats(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)

@@ -1013,6 +1013,7 @@ INSERT INTO `item_latents` VALUES(26429, 29, 5, 61, 1);    -- Bastok Citizens: M
 -- -------------------------------------------------------
 -- Windurst Heroes Ring
 -- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(26433, 5, 100, 61, 2);    -- Windurst Citizens: MP +100
 INSERT INTO `item_latents` VALUES(26433, 112, 5, 61, 2);    -- Windurst Citizens: Healing magic +5
 INSERT INTO `item_latents` VALUES(26433, 113, 5, 61, 2);    -- Windurst Citizens: Enhancing Magic +5
 INSERT INTO `item_latents` VALUES(26433, 114, 5, 61, 2);    -- Windurst Citizens: Enfeebling Magic +5

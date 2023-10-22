@@ -1415,7 +1415,6 @@ function addBonuses(caster, spell, target, dmg, params)
 
     if (burst > 1.0) then
         spell:setMsg(spell:getMagicBurstMessage()) -- "Magic Burst!"
-        spell:setMPCost(0) -- Remove the MP cost on bursted spells
     end
 
     dmg = math.floor(dmg * burst)
