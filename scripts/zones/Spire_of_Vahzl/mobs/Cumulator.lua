@@ -8,7 +8,6 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.LINK_RADIUS, 50)
 end
 
 function onMobSpawn(mob)
