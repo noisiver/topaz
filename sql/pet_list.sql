@@ -150,7 +150,7 @@ INSERT INTO `pet_list` VALUES (101, 'WeevilFamiliar', 6800, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (102, 'Angelina', 6801, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (103, 'Reinhard', 6802, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (104, 'Hermes', 6803, 73, 90, 1800, 0);
-INSERT INTO `pet_list` VALUES (105, 'Porte CrabFamiliar', 6804, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (105, 'PorterCrabFamiliar', 6804, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (106, 'Edwin', 6805, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (107, 'Ibuki', 6806, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (108, 'Zhivago', 6807, 73, 90, 1800, 0);
