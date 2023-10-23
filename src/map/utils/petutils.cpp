@@ -1146,13 +1146,13 @@ namespace petutils
 
         // https://www.bg-wiki.com/ffxi/Wyvern_(Dragoon_Pet)#Combat_Stats
         // innate -40 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
-        PPet->setModifier(Mod::UDMGPHYS, -40);
-        PPet->setModifier(Mod::UDMGBREATH, -40);
-        PPet->setModifier(Mod::UDMGMAGIC, -40);
-        PPet->setModifier(Mod::UDMGRANGE, -40);
+        PPet->addModifier(Mod::UDMGPHYS, -40);
+        PPet->addModifier(Mod::UDMGBREATH, -40);
+        PPet->addModifier(Mod::UDMGMAGIC, -40);
+        PPet->addModifier(Mod::UDMGRANGE, -40);
 
         // innate + 40 subtle blow
-        PPet->setModifier(Mod::SUBTLE_BLOW, 40);
+        PPet->addModifier(Mod::SUBTLE_BLOW, 40);
 
         //Job Point: Wyvern Max HP
         if (PMaster->objtype == TYPE_PC)
@@ -1199,13 +1199,13 @@ namespace petutils
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (WeaponDelay / 60.0f))));
 
         // innate -25 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
-        PPet->setModifier(Mod::UDMGPHYS, -25);
-        PPet->setModifier(Mod::UDMGBREATH, -25);
-        PPet->setModifier(Mod::UDMGMAGIC, -25);
-        PPet->setModifier(Mod::UDMGRANGE, -25);
+        PPet->addModifier(Mod::UDMGPHYS, -25);
+        PPet->addModifier(Mod::UDMGBREATH, -25);
+        PPet->addModifier(Mod::UDMGMAGIC, -25);
+        PPet->addModifier(Mod::UDMGRANGE, -25);
 
         // innate + 40 subtle blow
-        PPet->setModifier(Mod::SUBTLE_BLOW, 40);
+        PPet->addModifier(Mod::SUBTLE_BLOW, 40);
 
         // Get the Jug pet cap level
         uint8 highestLvl = PPetData->maxLevel;
@@ -1296,7 +1296,11 @@ namespace petutils
                 PPet->addModifier(Mod::ACC, 10);
                 PPet->addModifier(Mod::EVA, 10);
                 PPet->addModifier(Mod::DEFP, 60);
-                PPet->addModifier(Mod::DMG, -13);
+                // innate -15 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
+                PPet->addModifier(Mod::UDMGPHYS, -25);
+                PPet->addModifier(Mod::UDMGBREATH, -25);
+                PPet->addModifier(Mod::UDMGMAGIC, -25);
+                PPet->addModifier(Mod::UDMGRANGE, -25);
                 break;
             case FRAME_SHARPSHOT:
                 PPet->SetMJob(JOB_RNG);
