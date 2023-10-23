@@ -3183,11 +3183,11 @@ INSERT INTO `mob_skills` VALUES (3221,254,'atramentous_libations',1,18.0,2000,10
 -- INSERT INTO `mob_skills` VALUES (3222,2966,'noahionto',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3223,2967,'shockiavona',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3224,2968,'hemorrhaze',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3225,2969,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3226,2970,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3227,2971,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3228,2972,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3229,2973,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3225,2294,'suspended_sculpture_one',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Suspended Sculptures in Outer Raz
+INSERT INTO `mob_skills` VALUES (3226,2295,'suspended_sculpture_two',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Suspended Sculptures in Outer Raz
+INSERT INTO `mob_skills` VALUES (3227,2296,'suspended_sculpture_three',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Suspended Sculptures in Outer Raz
+INSERT INTO `mob_skills` VALUES (3228,2297,'suspended_sculpture_four',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Suspended Sculptures in Outer Raz
+INSERT INTO `mob_skills` VALUES (3229,2298,'suspended_sculpture_five',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Suspended Sculptures in Outer Raz
 INSERT INTO `mob_skills` VALUES (3230,1782,'inspirit',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3231,1783,'debonair_rush',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3232,1784,'iridal_pierce',0,7.0,2000,1500,4,0,0,0,0,0,0);
