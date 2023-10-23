@@ -95,10 +95,10 @@ uint8 GetMogHouseFlag(CCharEntity* PChar)
 CZoneInPacket::CZoneInPacket(CCharEntity * PChar, int16 csid)
 {
     this->type = 0x0A;
-    this->size = 0x104;
+    this->size = 0x82;
 
-    // It is necessary to work Manaclipper
-    // The last 8 bytes are similar for a while
+    // необходимо для работы manaklipper
+    // последние 8 байт похожи на время
     //unsigned char packet [] = {
     //0x0D, 0x3A, 0x0C, 0x00, 0x11, 0x00, 0x19, 0x00, 0x02, 0xE4, 0x93, 0x10, 0x91, 0xE5, 0x93, 0x10}; // 0x2a = 0x10
     //0x89, 0x39, 0x0C, 0x00, 0x19, 0x00, 0x07, 0x00, 0x5C, 0xE1, 0x93, 0x10, 0x81, 0xE3, 0x93, 0x10}; // 0x2a = 0x08
@@ -207,5 +207,5 @@ CZoneInPacket::CZoneInPacket(CCharEntity * PChar, int16 csid)
     ref<uint64>(0xF8) = PChar->chatFilterFlags;
 
 
-    ref<uint8>(0x100) = 0x01; // observed: RoZ = 3, CoP = 5, ToAU = 9, WoTG = 11, SoA/original areas = 1
+    ref<uint8>(0x100) = 0x01;
 }
