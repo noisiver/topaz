@@ -8,7 +8,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:AnimationSub() == 0 then
+	if mob:AnimationSub() == 0 or mob:AnimationSub() == 4 then
 		return 0
 	end
 	
