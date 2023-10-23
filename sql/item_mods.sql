@@ -12495,8 +12495,10 @@ INSERT INTO `item_mods` VALUES (13979,1,9); -- Silver Bangles
 INSERT INTO `item_mods` VALUES (13979,1272,15); -- Elemental WSD +15%
 INSERT INTO `item_mods` VALUES (13980,1,10); -- Silver Bangles +1
 INSERT INTO `item_mods` VALUES (13980,1272,17); -- Elemental WSD +15%
-INSERT INTO `item_mods` VALUES (13981,1,10);
-INSERT INTO `item_mods` VALUES (13982,1,11);
+INSERT INTO `item_mods` VALUES (13981,1,10);    -- Turtle Bangles
+INSERT INTO `item_mods` VALUES (13981,301,5);    -- Damage Taken -5
+INSERT INTO `item_mods` VALUES (13982,1,11);    -- Turtle Bangles +1
+INSERT INTO `item_mods` VALUES (13982,301,6);    -- Damage Taken -6
 INSERT INTO `item_mods` VALUES (13983,1,11); -- Gold Bangles
 INSERT INTO `item_mods` VALUES (13983,1272,20); -- Elemental WSD +20%
 INSERT INTO `item_mods` VALUES (13984,1,12); -- Gold Bangles +1
