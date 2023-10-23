@@ -84,6 +84,7 @@
 #include "../daily_system.h"
 #include "../packets/char_emotion.h"
 #include "../utils/guildutils.h"
+#include "../utils/petutils.h"
 
 namespace luautils
 {
@@ -1857,13 +1858,13 @@ namespace luautils
         if (PChar->objtype == TYPE_PC)
         {
             CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
-            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR && !PPet->StatusEffectContainer->HasPreventActionEffect(false) &&
-                !PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
+            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
             {
                 PPet->loc.p.x = PChar->loc.p.x;
                 PPet->loc.p.y = PChar->loc.p.y;
                 PPet->loc.p.z = PChar->loc.p.z;
                 PPet->loc.p.rotation = PChar->loc.p.rotation;
+                petutils::RetreatToMaster(PChar);
             }
         }
         return 0;
