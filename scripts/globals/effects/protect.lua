@@ -16,11 +16,8 @@ require("scripts/globals/status")
 local protect =
 {
     {10, -5},
-    {11, -5}, -- Protect with +protect/shell mod
     {25, -10},
-    {27, -10}, -- Protect II with +protect/shell mod
     {40, -15},
-    {44, -15}, -- Protect III with +protect/shell mod
     {55, -20},
     {60, -24},
     {62, -25},
@@ -30,18 +27,24 @@ local protect =
 }
 
 function onEffectGain(target, effect)
+    -- Apply PDT effect
     local power = effect:getPower()
     for _, protectMods in pairs(protect) do
         if (power == protectMods[1]) then
             target:addMod(tpz.mod.UDMGPHYS, protectMods[2])
         end
     end
+
+    -- Apply protect mod
+    local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
+    power = math.floor(power * (1 + (protShellMod / 10))) -- Percent
+
     if (power == 9653) then
         target:setMod(tpz.mod.UDMGPHYS, 0)
     elseif (power == 9654) then
         target:setMod(tpz.mod.UDMGPHYS, -90)
     else
-        target:addMod(tpz.mod.DEF, effect:getPower())
+        target:addMod(tpz.mod.DEF, power)
     end
 end
 
@@ -49,17 +52,23 @@ function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
+    -- Apply PDT effect
     local power = effect:getPower()
     for _, protectMods in pairs(protect) do
         if (power == protectMods[1]) then
             target:delMod(tpz.mod.UDMGPHYS, protectMods[2])
         end
     end
+
+    -- Apply protect mod
+    local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
+    power = math.floor(power * (1 + (protShellMod / 10))) -- Percent
+
     if (power == 9653) then
         target:setMod(tpz.mod.UDMGPHYS, 200)
     elseif (power == 9654) then
         target:setMod(tpz.mod.UDMGPHYS, 0)
     else
-        target:delMod(tpz.mod.DEF, effect:getPower())
+        target:delMod(tpz.mod.DEF, power)
     end
 end

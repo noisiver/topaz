@@ -2869,14 +2869,7 @@ end
 
 
 function ApplyProtectShell(caster, target, effect, power, duration)
-    local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
-
-    if (effect == tpz.effect.PROTECT) then
-        power = math.floor(power * (1 + (protShellMod / 10))) -- Percent
-    elseif (effect == tpz.effect.SHELL) then
-        power = power + protShellMod -- Flat
-    end
-
+    -- Now handled in Protect and Shell effects files
     return target:addStatusEffect(effect, power, 0, duration) 
 end
 
