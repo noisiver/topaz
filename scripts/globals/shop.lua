@@ -407,41 +407,41 @@ tpz.shop =
                 17888,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lively Mole Broth
                 17891,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antica Broth
                 17892,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fragrant Antica Broth
-                17889,    500,      tpz.ki.RHAPSODY_IN_UMBER,    -- Blood Broth
+                17889,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Blood Broth
                 17890,    1500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Clear Blood Broth
                 17902,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lucky Broth
                 17904,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Briny Broth
-                17874,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cunning Brain Broth
-                17893,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
-                17879,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Curdled Plasma Broth
-                17883,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Mellow Bird Broth
-                17900,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cloudy Wheat Broth
-                17903,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Shadowy Broth
-                21470,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Decaying Broth
-                21466,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Frizzante Broth
-                21442,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sticky Webbing
-                21440,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sugary Broth
-                21494,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wetlands Broth
-                17914,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wispy Broth
-                21446,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Airy Broth
-                17909,    6000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Spicy Broth
-                21488,    6000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Pristine Sap
-                17911,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Salubrious Broth
-                21438,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Poisonous Broth
-                21450,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Electrified Broth
-                21464,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Rancid Broth
-                17912,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Fizzy Broth
-                21468,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Broth
+                17874,     417,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cunning Brain Broth
+                17893,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
+                17879,     708,      tpz.ki.RHAPSODY_IN_UMBER,   -- Curdled Plasma Broth
+                17883,     583,      tpz.ki.RHAPSODY_IN_UMBER,   -- Mellow Bird Broth
+                17900,     417,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cloudy Wheat Broth
+                17903,    2084,      tpz.ki.RHAPSODY_IN_UMBER,   -- Shadowy Broth
+                21470,     354,      tpz.ki.RHAPSODY_IN_UMBER,   -- Decaying Broth
+                21466,     583,      tpz.ki.RHAPSODY_IN_UMBER,   -- Frizzante Broth
+                21442,     708,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sticky Webbing TODO: Recipe and cost
+                21440,     354,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sugary Broth TODO: Recipe and cost
+                21494,    1042,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wetlands Broth TODO: Recipe and cost
+                17914,     250,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wispy Broth
+                21446,     519,      tpz.ki.RHAPSODY_IN_AZURE,   -- Airy Broth
+                17909,     708,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Spicy Broth TODO: Recipe and cost
+                21488,    1146,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Pristine Sap
+                17911,    2084,      tpz.ki.RHAPSODY_IN_EMERALD, -- Salubrious Broth
+                21438,    2084,      tpz.ki.RHAPSODY_IN_EMERALD, -- Poisonous Broth
+                21450,    2084,      tpz.ki.RHAPSODY_IN_EMERALD, -- Electrified Broth
+                21464,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Rancid Broth
+                17912,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Fizzy Broth
+                21468,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Sap
         },
         [curio.scrolls] =
         {
-                4181,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Instant Warp
-                4182,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Instant Reraise
-                5428,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Instant Retrace
+                4181,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Warp
+                4182,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Reraise
+                5428,     500,      tpz.ki.RHAPSODY_IN_AZURE,     -- Instant Retrace
                 5988,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Protect
                 5989,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Shell
                 5990,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Stoneskin
-               15533,    5000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Chocobo Whistle
+               15533,    5000,      tpz.ki.RHAPSODY_IN_UMBER,     -- Chocobo Whistle
         },
         [curio.keys] =
         {

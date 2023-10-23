@@ -495,6 +495,8 @@ INSERT INTO `mob_family_mods` VALUES (560,62,-10,0);    -- Crab Familiar -10% At
 INSERT INTO `mob_family_mods` VALUES (560,63,10,0);     -- Crab Familiar +10% Def
 INSERT INTO `mob_family_mods` VALUES (588,62,-10,0);    -- Courier Carrie -10% Attack
 INSERT INTO `mob_family_mods` VALUES (588,63,20,0);     -- Courier Carrie +20% Def
+INSERT INTO `mob_family_mods` VALUES (623,62,-10,0);    -- Porter Crab -10% Attack
+INSERT INTO `mob_family_mods` VALUES (623,63,60,0);     -- Porter Crab +60% Def
 INSERT INTO `mob_family_mods` VALUES (564,62,30,0);     -- Lizard Familiar +30% Attack
 INSERT INTO `mob_family_mods` VALUES (564,63,-20,0);    -- Lizard Familiar -20% Def
 INSERT INTO `mob_family_mods` VALUES (562,63,30,0);     -- Antlion Familiar +30% Def
@@ -503,7 +505,8 @@ INSERT INTO `mob_family_mods` VALUES (565,62,30,0);     -- Diremite Familiar +30
 INSERT INTO `mob_family_mods` VALUES (561,388,-35,0);   -- Funguar Familiar -35% BDT
 INSERT INTO `mob_family_mods` VALUES (561,389,-35,0);   -- Funguar Familiar -35% MDT
 INSERT INTO `mob_family_mods` VALUES (568,28,30,0);     -- Fly Familiar +30 MAB
-INSERT INTO `mob_family_mods` VALUES (574,28,30,0);     -- Coeurl Familiar +30 MAB
+INSERT INTO `mob_family_mods` VALUES (574,30,50,0);     -- Coeurl Familiar +50 MACC
+INSERT INTO `mob_family_mods` VALUES (621,28,30,0);     -- Lynx Familiar +30 MAB
 INSERT INTO `mob_family_mods` VALUES (559,30,50,0);     -- Flytrap Familiar +50 MACC
 INSERT INTO `mob_family_mods` VALUES (559,29,50,0);     -- Flytrap Familiar +50 MDB
 INSERT INTO `mob_family_mods` VALUES (559,63,25,0);     -- Flytrap Familiar +25% Def
@@ -532,11 +535,13 @@ INSERT INTO `mob_family_mods` VALUES (583,389,50,0);    -- Acuex Familiar +50% M
 INSERT INTO `mob_family_mods` VALUES (578,62,30,0);		-- Raptor Familiar +30% Attack
 INSERT INTO `mob_family_mods` VALUES (578,63,-10,0);	-- Raptor Familiar -10% Defense
 INSERT INTO `mob_family_mods` VALUES (584,62,-10,0);    -- Tulfaire Familiar -10% Attack
+INSERT INTO `mob_family_mods` VALUES (584,30,50,0);     -- Tulfaire Familiar +50 MACC
 INSERT INTO `mob_family_mods` VALUES (585,62,10,0);		-- Chapuli Familiar +10% Attack
 INSERT INTO `mob_family_mods` VALUES (586,62,30,0);		-- Spider Familiar +30% Attack
 INSERT INTO `mob_family_mods` VALUES (586,63,-10,0);	-- Spider Familiar -10% Defense
--- INSERT INTO `mob_family_mods` VALUES (586,62,-30,0);		-- Mosquito Familiar -30% Attack TODO: Missing Family
-
+INSERT INTO `mob_family_mods` VALUES (619,62,-30,0);	-- Mosquito Familiar -30% Attack
+INSERT INTO `mob_family_mods` VALUES (624,62,60,0);		-- Yellow Beetle +60% Attack
+INSERT INTO `mob_family_mods` VALUES (624,63,-20,0);	-- Yellow Beetle -20% Defense
 
 -- Dynamis Mobs
 INSERT INTO `mob_family_mods` VALUES (337,62,25,0);	-- Quadav +25% Attk

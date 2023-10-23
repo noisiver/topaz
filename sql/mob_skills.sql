@@ -3090,7 +3090,7 @@ INSERT INTO `mob_skills` VALUES (3116,206,'bellatrix_of_shadows',0,7.0,2000,1500
 -- INSERT INTO `mob_skills` VALUES (3129,2269,'astoltian_slime_run',0,7.0,2000,0,4,0,0,0,0,0,0); -- depops mob
 -- INSERT INTO `mob_skills` VALUES (3130,2874,'barreling_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3131,2275,'sweeping_gouge',4,10.0,2000,1500,4,0,0,0,7,0,0); -- TODO: Animation / cast time
-INSERT INTO `mob_skills` VALUES (3132,2276,'zealous_snort',1,7.0,2000,1500,1,0,0,0,0,0,0); -- TODO: Animation / cast time
+INSERT INTO `mob_skills` VALUES (3132,2276,'zealous_snort',1,10.0,2000,1500,1,0,0,0,0,0,0); -- TODO: Animation / cast time
 -- INSERT INTO `mob_skills` VALUES (3133,2877,'terrifying_snap',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3134,2258,'cehuetzi_auto_one',0,7.0,0,0,4,16,0,0,0,0,0);  -- kumhau and utkux melee specials
 INSERT INTO `mob_skills` VALUES (3135,2259,'cehuetzi_auto_two',0,7.0,0,0,4,16,0,0,0,0,0); -- kumhau and utkux melee specials

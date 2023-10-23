@@ -23,14 +23,10 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 60
 
 
-    MobBuffMoveSub(mob, tpz.effect.MAGIC_DEF_BOOST, power, tick, duration)
-    MobBuffMoveSub(mob, tpz.effect.COUNTERSTANCE, power, tick, duration)
-    MobBuffMoveSub(mob, tpz.effect.DODGE, power, tick, duration)
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, tick, duration))
-    tpz.pet.handleJugBuffs(target, mob, skill, typeEffect, power, tick, duration)
-    tpz.pet.handleJugBuffs(target, mob, skill, tpz.effect.MAGIC_DEF_BOOST, power, tick, duration)
-    tpz.pet.handleJugBuffs(target, mob, skill, tpz.effect.COUNTERSTANCE, power, tick, duration)
-    tpz.pet.handleJugBuffs(target, mob, skill, tpz.effect.DODGE, power, tick, duration)
+    MobBuffMoveSub(target, tpz.effect.MAGIC_DEF_BOOST, power, tick, duration)
+    MobBuffMoveSub(target, tpz.effect.COUNTERSTANCE, power, tick, duration)
+    MobBuffMoveSub(target, tpz.effect.DODGE, power, tick, duration)
+    skill:setMsg(MobBuffMove(target, typeEffect, power, tick, duration))
 
     return typeEffect
 end
