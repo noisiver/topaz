@@ -32,13 +32,13 @@ function onMobFight(mob, player, target)
 
     -- handle salt usage
     if melting == 1 then
-        player:messageText(player, ID.text.BEGINS_TO_MELT)
+        mob:showText(mob, ID.text.BEGINS_TO_MELT)
         mob:setLocalVar("melt", 0)
     end   
     
     -- handle salt cooldown 
     if (cd < os.time() and salty == 1) then
-        player:messageText(player, ID.text.SHOOK_SALT)
+        mob:showText(mob, ID.text.SHOOK_SALT)
         mob:setLocalVar("salty", 0)
     end
 
@@ -50,7 +50,7 @@ function onMobFight(mob, player, target)
         mob:setDamage(200)
     -- bigger  
     elseif (delay < os.time() and mob:AnimationSub() == 5 and mob:getBattleTime() - changeTime > 11) then
-        player:messageText(player, ID.text.LARGE_STEAM) -- approx. midway point - give warning
+        mob:showText(mob, ID.text.LARGE_STEAM) -- approx. midway point - give warning
         mob:setLocalVar("delayed", 0)
         mob:AnimationSub(6)
         mob:setLocalVar("changeTime", mob:getBattleTime())
@@ -71,16 +71,7 @@ function onMobFight(mob, player, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    local bf = mob:getBattlefield() 
-    local changeTime = mob:getLocalVar("changeTime")
-    local gameOver = mob:getLocalVar("gameover")
 
-    -- end BCNM  
-    if (gameOver == 1 and mob:getBattleTime() - changeTime > 3) then 
-        mob:AnimationSub(4)   
-        bf:lose()
-        return
-    end
 end
 
 
