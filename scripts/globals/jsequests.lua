@@ -41,8 +41,8 @@ tpz.jsequest.onTrigger = function(player, npc, job)
         player:setCharVar("[JSEQUEST " .. job .. "]", 1)
         local itemOne = GetItem(questItems[job].items[1])
         local itemTwo = GetItem(questItems[job].items[2])
-        itemOneName = string.gsub(itemOne:getName(), '_', ' ');
-        itemTwoName = string.gsub(itemTwo:getName(), '_', ' ');
+        local itemOneName = string.gsub(itemOne:getName(), '_', ' ');
+        local itemTwoName = string.gsub(itemTwo:getName(), '_', ' ');
 
         player:PrintToPlayer("To show your mastery in your job, please bring me a " .. itemOneName .. " and a ".. itemTwoName .. ".", 0, npcName)
         
