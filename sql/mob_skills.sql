@@ -2885,12 +2885,12 @@ INSERT INTO `mob_skills` VALUES (2923,47,'calcifying_claw',0,18.0,2000,1000,4,0,
 INSERT INTO `mob_skills` VALUES (2924,48,'divesting_stampede',1,18.0,2000,1000,4,0,0,1,0,0,0);
 INSERT INTO `mob_skills` VALUES (2925,49,'bonebreaking_barrage',0,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2926,2098,'beastruction',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2927,38,'metamorphic_blast',4,12.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2928,39,'enervating_grasp',1,15.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2929,40,'orogenic_storm',1,14.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2930,41,'subduction',1,15.0,2000,1000,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2931,2675,'tectonic_shift',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2932,2676,'unrelenting_brand',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2927,2086,'metamorphic_blast',4,12.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2928,2087,'enervating_grasp',1,15.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2929,2088,'orogenic_storm',1,14.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2930,2089,'subduction',1,15.0,2000,1000,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (2931,2090,'tectonic_shift',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Check animation ID
+-- INSERT INTO `mob_skills` VALUES (2932,2091,'unrelenting_brand',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Check animation ID
 INSERT INTO `mob_skills` VALUES (2933,1578,'searing_effulgence',1,15.0,2000,1500,4,0,0,3,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2934,2045,'blazing_shriek',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2935,31,'volcanic_wrath',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2920,17 +2920,17 @@ INSERT INTO `mob_skills` VALUES (2958,2181,'rending_deluge',1,18.0,2000,1000,4,0
 INSERT INTO `mob_skills` VALUES (2959,2182,'sundering_snip',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2960,2183,'viscid_spindrift',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2961,2184,'riptide_eupnea',1,18.0,2000,1000,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2962,73,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2963,74,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2964,75,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2965,76,'cranial_thrust',4,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2962,2121,'matamata_auto_one',0,7.0,0,0,4,16,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (2963,2122,'matamata_auto_two',0,7.0,0,0,4,16,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (2964,2123,'matamata_auto_three',1,10.0,0,0,4,16,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (2965,2124,'cranial_thrust',4,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2966,2125,'tail_thwack',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2967,2126,'embalming_earth',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2968,2127,'scalding_breath',4,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2969,403,'debilitating_spout',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2970,137,'paralyzing_triad',0,7.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2971,138,'crepuscular_grasp',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2972,139,'necrotic_brume',4,10.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2969,2128,'debilitating_spout',1,18.0,2000,1000,4,0,0,0,0,0,0); -- Check animation 
+INSERT INTO `mob_skills` VALUES (2970,2185,'paralyzing_triad',0,7.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2971,2186,'crepuscular_grasp',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2972,2187,'necrotic_brume',1,10.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2973,2717,'terminal_bloom',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2974,2189,'foul_waters',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2975,2190,'pestilent_plume',4,10.0,2000,1000,4,0,0,0,0,0,0);
