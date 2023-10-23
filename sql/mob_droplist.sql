@@ -6397,7 +6397,6 @@ INSERT INTO `mob_droplist` VALUES (1217,0,0,1000,4374,240);
 INSERT INTO `mob_droplist` VALUES (1218,0,0,1000,12360,1000); -- Tatami Shield
 INSERT INTO `mob_droplist` VALUES (1219,4,0,1000,1619,0); -- Hippogryph Feather(Despoil)
 INSERT INTO `mob_droplist` VALUES (1219,0,0,1000,1619,50); -- Hippogryph Feather
-INSERT INTO `mob_droplist` VALUES (1219,0,0,1000,1690,240);
 INSERT INTO `mob_droplist` VALUES (1220,0,0,1000,725,10);
 INSERT INTO `mob_droplist` VALUES (1221,0,0,1000,891,170);
 INSERT INTO `mob_droplist` VALUES (1221,0,0,1000,922,220);
