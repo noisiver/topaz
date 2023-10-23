@@ -635,10 +635,16 @@ end
 -- base is no longer used
 -- Equation: (HP * percent) + (LVL / base)
 -- cap is optional, defines a maximum damage
-function MobHPBasedMove(mob, target, percent, base, element, cap)
+function MobHPBasedMove(mob, target, percent, base, element, cap, isSuicide)
     local damage = (mob:getHP() * percent)
     local resist = 1
     local bonus = 0
+
+    -- Used for mob suicide moves
+    -- Needed or else additional targets beyond first will take 0 damage
+    if (isSuicide ~= nil) then
+        damage = mob:getLocalVar("self-destruct_hp")
+    end
 
     if not mob:isPet() then
         bonus = bonus + 50 -- Mob TP moves have issues landing with new MACC formula, probably have a bonus in retail

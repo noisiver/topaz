@@ -17,12 +17,13 @@ function onMobSkillCheck(target, mob, skill)
     elseif (mob:getHPP() > 33) then
         return 1
 	else
+        mob:setLocalVar("self-destruct_hp", mob:getHP())
 		return 0
 	end
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local damage = MobHPBasedMove(mob, target, 0.50, 1, tpz.magic.ele.LIGHT, 9999)
+    local damage = MobHPBasedMove(mob, target, 0.50, 1, tpz.magic.ele.LIGHT, 9999, true)
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
     mob:setHP(0)
