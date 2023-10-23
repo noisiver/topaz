@@ -9,6 +9,7 @@ function onMobInitialize(mob)
     SetGenericNMStats(mob)
     mob:setMod(tpz.mod.REGAIN, 50)
     mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobFight( mob, target )

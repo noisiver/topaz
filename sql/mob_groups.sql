@@ -115,8 +115,8 @@ INSERT INTO `mob_groups` VALUES (42,851,2,'Cryptonberry_Executor',0,128,0,5000,0
 INSERT INTO `mob_groups` VALUES (43,847,2,'Cryptonberry_Assassin',0,128,0,4500,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (44,4833,2,'Cryptonberry_Assassin',0,128,0,4500,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (45,4834,2,'Cryptonberry_Assassin',0,128,0,4500,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (46,3971,2,'Tonberrys_Elemental',0,128,0,0,0,60,64,0);
-INSERT INTO `mob_groups` VALUES (47,3970,2,'Tonberrys_Avatar',0,128,0,0,0,60,64,0);
+INSERT INTO `mob_groups` VALUES (46,3971,2,'Tonberrys_Elemental',0,128,0,0,0,64,64,0);
+INSERT INTO `mob_groups` VALUES (47,3970,2,'Tonberrys_Avatar',0,128,0,0,0,64,64,0);
 INSERT INTO `mob_groups` VALUES (48,3097,2,'Para',0,128,0,0,0,35,40,0);
 INSERT INTO `mob_groups` VALUES (49,576,2,'Bullheaded_Grosvez',0,128,0,0,0,40,40,0);
 INSERT INTO `mob_groups` VALUES (50,2784,2,'Mycophile',0,128,1761,3500,0,33,35,0);
@@ -385,7 +385,7 @@ INSERT INTO `mob_groups` VALUES (22,614,9,'Camazotz',960,0,400,0,0,52,57,0);
 INSERT INTO `mob_groups` VALUES (23,2479,9,'Magic_Millstone',960,0,1567,0,0,54,58,0);
 INSERT INTO `mob_groups` VALUES (24,3683,9,'Snoll',960,0,2285,0,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (25,852,9,'Cryptonberry_Harrier',960,0,540,0,0,53,60,0);
-INSERT INTO `mob_groups` VALUES (26,3971,9,'Tonberrys_Elemental',0,128,0,0,0,49,53,0);
+INSERT INTO `mob_groups` VALUES (26,3971,9,'Tonberrys_Elemental',0,128,0,0,0,53,53,0);
 INSERT INTO `mob_groups` VALUES (27,856,9,'Cryptonberry_Stalker',960,0,543,0,0,53,60,0);
 INSERT INTO `mob_groups` VALUES (28,1043,9,'Diremite_Stalker',300,0,661,0,0,57,59,0);
 INSERT INTO `mob_groups` VALUES (29,2043,9,'Ice_Elemental',300,4,1347,0,0,63,65,0);
@@ -708,7 +708,7 @@ INSERT INTO `mob_groups` VALUES (23,4527,18,'Livid_Seether',960,0,0,0,0,36,38,0)
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,3204,19,'Progenerator',0,128,0,3700,0,37,38,0);
-INSERT INTO `mob_groups` VALUES (2,2947,19,'Offspring',0,128,0,0,0,31,32,0);
+INSERT INTO `mob_groups` VALUES (2,2947,19,'Offspring',0,128,0,300,0,31,32,0);
 INSERT INTO `mob_groups` VALUES (3,2080,19,'Ingester',0,128,0,4000,0,37,39,0);
 INSERT INTO `mob_groups` VALUES (4,2825,19,'Neoingester',0,128,0,0,0,31,32,0);
 INSERT INTO `mob_groups` VALUES (5,2824,19,'Neogorger',0,128,0,0,0,31,32,0);
@@ -757,7 +757,7 @@ INSERT INTO `mob_groups` VALUES (3,3539,21,'Seether',0,128,0,0,0,34,36,0);
 
 INSERT INTO `mob_groups` VALUES (1,3172,22,'Ponderer',0,128,0,3900,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (2,3206,22,'Propagator',0,128,0,3900,0,56,58,0);
-INSERT INTO `mob_groups` VALUES (3,2947,22,'Offspring',0,128,0,0,0,51,52,0);
+INSERT INTO `mob_groups` VALUES (3,2947,22,'Offspring',0,128,0,500,0,51,52,0);
 INSERT INTO `mob_groups` VALUES (4,3699,22,'Solicitor',0,128,0,3900,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (5,6651,22,'Wanderer',960,0,0,0,0,49,51,0);
 INSERT INTO `mob_groups` VALUES (6,6652,22,'Weeper',960,0,0,0,0,50,52,0);
@@ -800,7 +800,7 @@ INSERT INTO `mob_groups` VALUES (38,298,22,'Woeful_Weeper',960,0,0,0,0,56,57,0);
 
 INSERT INTO `mob_groups` VALUES (1,63,23,'Agonizer',0,128,0,5000,0,53,54,0);
 INSERT INTO `mob_groups` VALUES (2,3202,23,'Procreator',0,128,0,5000,0,53,54,0);
-INSERT INTO `mob_groups` VALUES (3,2947,23,'Offspring',0,128,0,0,0,51,52,0);
+INSERT INTO `mob_groups` VALUES (3,2947,23,'Offspring',0,128,0,500,0,51,52,0);
 INSERT INTO `mob_groups` VALUES (4,861,23,'Cumulator',0,128,0,5000,0,53,54,0);
 INSERT INTO `mob_groups` VALUES (5,782,23,'Contemplator',0,128,0,0,0,51,52,0);
 INSERT INTO `mob_groups` VALUES (6,2081,23,'Ingurgitator',0,128,0,0,0,51,52,0);
