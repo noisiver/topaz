@@ -28,7 +28,7 @@ function onAbilityCheck(player, target, ability)
         if idStrengths[id] then
             return 0, 0
         else
-            return tpz.msg.basic.UNABLE_TO_USE_JA, 0
+            return tpz.msg.basic.CANNOT_PERFORM, 0
         end
     end
 end
@@ -75,6 +75,11 @@ function onUseAbility(player, target, ability)
 
     player:removeAmmo()
 
-    player:messagePublic(tpz.msg.basic.EFFECTS_DISAPPEAR, player:getPet(), removed, removed)
+    if removed > 0 then
+        player:messagePublic(tpz.msg.basic.EFFECTS_DISAPPEAR, pet, removed, removed)
+    else
+        target:messagePublic(tpz.msg.basic.NO_EFFECT, pet)
+    end
+
     return effectID
 end
