@@ -583,6 +583,10 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         ((CCharEntity*)PMembermember)->m_autoTargetOverride = (CBattleEntity*)PWinner;
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    {
+                                        petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
+                                    }
                                 });
                         }
                     }
@@ -653,6 +657,10 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         PMembermember->m_autoTargetOverride = (CBattleEntity*)PWinner;
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    {
+                                        petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
+                                    }
                                 });
                         }
                     }
