@@ -1057,7 +1057,14 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     }
     StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
     charutils::RemoveStratagems(this, PSpell);
-    // Delete Elemental Seal if the spell is black magic, blue magic, ninjitsu, a song, or a divine spell
+
+    // Remove Divine seal if the spell is a healing spell or Stoneskin
+    if (PSpell->isHeal() || PSpell->getID() == SpellID::Stoneskin)
+    {
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_DIVINE_SEAL);
+    }
+
+    // Remove Elemental Seal if the spell is black magic, blue magic, ninjitsu, a song, or a divine spell
     if (PSpell->getSpellGroup() >= SPELLGROUP_SONG && PSpell->getSpellGroup() <= SPELLGROUP_NINJUTSU ||
         PSpell->getSkillType()  == SKILL_DIVINE_MAGIC)
     {

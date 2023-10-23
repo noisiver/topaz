@@ -1005,9 +1005,6 @@ function utils.ApplyStoneskinBonuses(caster, power)
         power = math.floor(power * (1.5 + caster:getMod(tpz.mod.RAPTURE_AMOUNT)/100))
     end
 
-    caster:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
-    caster:delStatusEffectSilent(tpz.effect.RAPTURE)
-
     return power
 end
 
