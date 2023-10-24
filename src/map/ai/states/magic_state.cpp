@@ -130,7 +130,10 @@ bool CMagicState::Update(time_point tick)
                 }
                 if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
                 {
-                    m_interrupted = true;
+                    if (m_PEntity->objtype == TYPE_MOB)
+                    {
+                        m_interrupted = true;
+                    }
                 }
             }
         }
