@@ -552,11 +552,11 @@ INSERT INTO `mob_groups` VALUES (38,2692,12,'Moblin_Engineman_Guard',0,128,1708,
 -- Mine_Shaft_2716 (Zone 13)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,2766,13,'Movamuq',0,128,0,2300,0,62,63,0);
-INSERT INTO `mob_groups` VALUES (2,707,13,'Chekochuk',0,128,0,2200,0,62,63,0);
-INSERT INTO `mob_groups` VALUES (3,4005,13,'Trikotrak',0,128,0,2300,0,62,63,0);
-INSERT INTO `mob_groups` VALUES (4,3828,13,'Swipostik',0,128,0,2400,0,62,63,0);
-INSERT INTO `mob_groups` VALUES (5,559,13,'Bugbby',0,128,0,9000,0,63,64,0);
+INSERT INTO `mob_groups` VALUES (1,2766,13,'Movamuq',0,128,0,1250,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (2,707,13,'Chekochuk',0,128,0,1100,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (3,4005,13,'Trikotrak',0,128,0,1250,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (4,3828,13,'Swipostik',0,128,0,1200,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (5,559,13,'Bugbby',0,128,0,4500,0,63,63,0);
 INSERT INTO `mob_groups` VALUES (6,4057,13,'Twilotak',0,128,0,0,0,40,40,0);
 INSERT INTO `mob_groups` VALUES (7,2707,13,'Moblin_Wisewoman',0,128,0,0,0,40,40,0);
 INSERT INTO `mob_groups` VALUES (8,2688,13,'Moblin_Clergyman',0,128,0,0,0,40,40,0);
