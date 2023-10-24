@@ -74,7 +74,7 @@ INSERT INTO `pet_list` VALUES (28, 'FlowerpotBill', 4602, 28, 40, 1800, 0);
 INSERT INTO `pet_list` VALUES (29, 'EftFamiliar', 4621, 33, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (30, 'LizardFamiliar', 4600, 33, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (31, 'MayflyFamiliar', 4596, 33, 45, 1800, 0);
-INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 65, 1800, 0);
+INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 75, 1800, 0);
 INSERT INTO `pet_list` VALUES (33, 'BeetleFamiliar', 4606, 38, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (34, 'AntlionFamiliar', 4625, 38, 50, 1800, 0);
 INSERT INTO `pet_list` VALUES (35, 'DiremiteFamiliar', 4623, 43, 55, 1800, 0);
