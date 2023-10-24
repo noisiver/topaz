@@ -16455,7 +16455,7 @@ INSERT INTO `item_basic` VALUES (19181,0,'moogles_largesse','moogles_largesse',1
 INSERT INTO `item_basic` VALUES (19182,0,'ruszor_arrow','ruszor_arrow',99,2052,15,0,34);
 INSERT INTO `item_basic` VALUES (19183,0,'dark_adaman_bolt','drk._adm._bolt',99,2052,15,0,30);
 INSERT INTO `item_basic` VALUES (19184,0,'dark_adaman_bullet','drk._adm._bullet',99,2052,15,0,50);
-INSERT INTO `item_basic` VALUES (19185,0,'can_of_automaton_oil_+3','automat._oil_+3',12,2052,61,0,0);
+INSERT INTO `item_basic` VALUES (19185,0,'can_of_automaton_oil_+3','automat._oil_+3',12,2052,61,0,200);
 INSERT INTO `item_basic` VALUES (19186,0,'tiny_tathlum','tiny_tathlum',1,34820,15,0,389);
 INSERT INTO `item_basic` VALUES (19187,0,'murti_bow','murti_bow',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (19188,0,'killer_shortbow','killer_shortbow',1,34820,13,0,7625);

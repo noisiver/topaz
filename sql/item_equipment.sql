@@ -8882,7 +8882,7 @@ INSERT INTO `item_equipment` VALUES (19181,'moogles_largesse',1,0,4194303,0,0,0,
 INSERT INTO `item_equipment` VALUES (19182,'ruszor_arrow',89,0,1024,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19183,'drk._adm._bolt',89,0,1024,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19184,'drk._adm._bullet',90,0,1024,0,0,0,8,0,0);
-INSERT INTO `item_equipment` VALUES (19185,'automat._oil_+3',80,0,131072,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (19185,'automat._oil_+3',75,0,131072,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19186,'tiny_tathlum',15,0,4194303,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19187,'murti_bow',85,0,3072,86,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (19188,'killer_shortbow',83,0,7665,41,0,0,4,0,0);
