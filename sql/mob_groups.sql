@@ -260,7 +260,7 @@ INSERT INTO `mob_groups` VALUES (54,875,5,'Cwn_Annwn',330,1,553,0,0,62,64,0); --
 -- Bearclaw_Pinnacle (Zone 6)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,3684,6,'Snoll_Tzar',0,128,0,7500,0,65,66,0);
+INSERT INTO `mob_groups` VALUES (1,3684,6,'Snoll_Tzar',0,128,0,5500,0,65,66,0);
 INSERT INTO `mob_groups` VALUES (2,384,6,'Bearclaw_Rabbit',0,128,0,0,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (3,383,6,'Bearclaw_Leveret',0,128,0,0,0,79,79,0);
 INSERT INTO `mob_groups` VALUES (4,3687,6,'Snow_Devil_BLM',0,128,0,1700,0,77,78,0);
