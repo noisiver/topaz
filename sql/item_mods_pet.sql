@@ -596,6 +596,8 @@ INSERT INTO `item_mods_pet` VALUES (27589,24,20,0);     -- Thurandaut Ring: Rang
 INSERT INTO `item_mods_pet` VALUES (27589,384,300,0);   -- Thurandaut Ring: Haste+3%
 INSERT INTO `item_mods_pet` VALUES (27589,160,-3,0);    -- Thurandaut Ring: Damage taken -3%
 INSERT INTO `item_mods_pet` VALUES (25495,160,-15,2);   -- Dragoon's Collar: Wyvern damage taken -15%
+INSERT INTO `item_mods_pet` VALUES (13467,160,-5,0);    -- Dragon Ring: Damage taken -5%
+INSERT INTO `item_mods_pet` VALUES (14627,160,-6,0);    -- Dragon Ring +1: Damage taken -6%
 
 
 
