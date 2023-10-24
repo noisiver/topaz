@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Cacophony
--- The enemy gains Counterstance + Haste
+-- The enemy gains Counter Rate + Haste
 -- Notes: Removes slow
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -10,7 +10,7 @@ require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.HASTE) and mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
+	if mob:hasStatusEffect(tpz.effect.HASTE) and mob:hasStatusEffect(tpz.effect.COUNTER_BOOST) then
 		return 1
 	end
     -- animsub 1= standing, animsub 0 = all fours
@@ -21,7 +21,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect1 = tpz.effect.COUNTERSTANCE
+    local typeEffect1 = tpz.effect.COUNTER_BOOST
     local typeEffect2 = tpz.effect.HASTE
     local moon = utils.getMoonPhase()
     local moonpower = 5
