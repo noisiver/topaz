@@ -37,8 +37,8 @@ tpz.jsequest.onTrigger = function(player, npc, job)
     local npcName = npc:getName()
 
     -- If var is 1, then player has seen the intro quest text already, don't show again
-    if (player:getCharVar("[JSEQUEST " .. job .. "]") == 0) then
-        player:setCharVar("[JSEQUEST " .. job .. "]", 1)
+    if (player:getCharVar("[JSEQUEST" .. job .. "]") == 0) then
+        player:setCharVar("[JSEQUEST" .. job .. "]", 1)
         local itemOne = GetItem(questItems[job].items[1])
         local itemTwo = GetItem(questItems[job].items[2])
         local itemOneName = string.gsub(itemOne:getName(), '_', ' ');
@@ -55,10 +55,10 @@ tpz.jsequest.onTrade = function(player, npc, trade, job)
 
     if npcUtil.tradeHasExactly(trade, { questItems[job].items[1], questItems[job].items[2] }) then
         -- Check if player has seen the intro text. Set var to only allow the player to obtain the item once.
-        if (player:getCharVar("[JSEQUEST " .. job .. "]") == 1) then
+        if (player:getCharVar("[JSEQUEST" .. job .. "]") == 1) then
             player:PrintToPlayer("You have done well, here is your reward", 0, npcName)
             npcUtil.giveItem(player, questItems[job].reward[1])
-            player:setCharVar("[JSEQUEST " .. job .. "]", 2)
+            player:setCharVar("[JSEQUEST" .. job .. "]", 2)
         end
     end
 end
