@@ -145,7 +145,7 @@ tpz.shop =
             4112,  910, -- Potion
             4153, 1000, -- Antacid
         }
-        tpz.shop.general(player, stock)
+        tpz.shop.general(player, stock, JEUNO)
     end,
 
     --[[ *******************************************************************************
@@ -169,7 +169,7 @@ tpz.shop =
             4240, 3000, -- Cyclone Crystal
             4241, 3000, -- Terra Crystal
         }
-        tpz.shop.general(player, stock)
+        tpz.shop.general(player, stock, JEUNO)
     end,
 
     --[[ *******************************************************************************

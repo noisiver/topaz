@@ -10,6 +10,8 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
+    --[[
+    OOE
     local stock =
     {
         21504, 100100,    -- Arasy Sainti
@@ -31,7 +33,8 @@ function onTrigger(player, npc)
     }
 
     player:showText(npc, ID.text.ANTONIA_SHOP_DIALOG)
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, SANDORIA)
+    ]]
 end
 
 function onEventUpdate(player, csid, option)

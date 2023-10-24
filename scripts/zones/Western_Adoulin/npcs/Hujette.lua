@@ -33,7 +33,7 @@ function onTrigger(player, npc)
         5775, 544,    -- Chocolate Crepe
         5147, 3000,   -- Snoll Gelato
     }
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, ADOULIN)
 end
 
 function onEventUpdate(player, csid, option)

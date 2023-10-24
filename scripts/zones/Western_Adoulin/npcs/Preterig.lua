@@ -21,7 +21,7 @@ function onTrigger(player, npc)
         4421, 1560,   -- Melon Pie
         4422, 200,    -- Orange Juice
     }
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, ADOULIN)
 end
 
 function onEventUpdate(player, csid, option)

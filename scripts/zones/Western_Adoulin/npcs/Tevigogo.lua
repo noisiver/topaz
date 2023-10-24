@@ -16,14 +16,14 @@ function onTrigger(player, npc)
     player:showText(npc, ID.text.TEVIGOGO_SHOP_TEXT)
     local stock =
     {
-        605, 200,    -- Pickaxe
+        605, 200,     -- Pickaxe
         1021, 500,    -- Hatchet
         1020, 300,    -- Sickle
-        17307, 10,     -- Dart
-        17308, 60,     -- Hawkeye
-        17320, 8,      -- Iron Arrow
+        17307, 10,    -- Dart
+        17308, 60,    -- Hawkeye
+        17320, 8,     -- Iron Arrow
     }
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, ADOULIN)
 end
 
 function onEventUpdate(player, csid, option)

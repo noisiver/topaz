@@ -32,7 +32,7 @@ function onTrigger(player, npc)
         4692, 396825, -- Scroll of Haste II
         5105, 396825, -- Scroll of Flurry II
     }
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, ADOULIN)
 end
 
 function onEventUpdate(player, csid, option)

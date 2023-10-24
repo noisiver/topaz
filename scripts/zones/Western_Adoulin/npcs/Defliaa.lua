@@ -34,7 +34,7 @@ function onTrigger(player, npc)
         4356, 200,    -- White Bread
         5686, 800,    -- Cheese Sandwich
     }
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, ADOULIN)
 end
 
 function onEventUpdate(player, csid, option)

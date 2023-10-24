@@ -25,7 +25,7 @@ function onTrigger(player, npc)
         4155, 3360,   -- Remedy
         4153,  1000,  -- Antacid
     }
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, ADOULIN)
 end
 
 function onEventUpdate(player, csid, option)
