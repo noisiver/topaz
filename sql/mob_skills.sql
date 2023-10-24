@@ -3088,9 +3088,9 @@ INSERT INTO `mob_skills` VALUES (3116,206,'bellatrix_of_shadows',0,7.0,2000,1500
 -- INSERT INTO `mob_skills` VALUES (3127,2267,'frizz',0,10.0,2000,1500,4,0,0,0,0,0,0); -- basically a spell
 -- INSERT INTO `mob_skills` VALUES (3128,2268,'astoltian_slime_hit',0,5.0,2000,0,4,0,0,0,0,0,0); -- not a melee sub exactly, rather a mobskill with no message
 -- INSERT INTO `mob_skills` VALUES (3129,2269,'astoltian_slime_run',0,7.0,2000,0,4,0,0,0,0,0,0); -- depops mob
--- INSERT INTO `mob_skills` VALUES (3130,2874,'barreling_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3131,2275,'sweeping_gouge',4,10.0,2000,1500,4,0,0,0,7,0,0); -- TODO: Animation / cast time
-INSERT INTO `mob_skills` VALUES (3132,2276,'zealous_snort',1,10.0,2000,1500,1,0,0,0,0,0,0); -- TODO: Animation / cast time
+INSERT INTO `mob_skills` VALUES (3130,2274,'barreling_smash',0,7.0,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3131,2275,'sweeping_gouge',4,10.0,2000,2000,4,0,0,0,7,0,0); -- TODO: Animation / cast time
+INSERT INTO `mob_skills` VALUES (3132,2276,'zealous_snort',1,10.0,2000,2000,1,0,0,0,0,0,0); -- TODO: Animation / cast time
 -- INSERT INTO `mob_skills` VALUES (3133,2877,'terrifying_snap',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3134,2258,'cehuetzi_auto_one',0,7.0,0,0,4,16,0,0,0,0,0);  -- kumhau and utkux melee specials
 INSERT INTO `mob_skills` VALUES (3135,2259,'cehuetzi_auto_two',0,7.0,0,0,4,16,0,0,0,0,0); -- kumhau and utkux melee specials
@@ -3107,9 +3107,9 @@ INSERT INTO `mob_skills` VALUES (3142,2266,'glassy_nova',2,18.0,2000,3000,4,0,0,
 -- INSERT INTO `mob_skills` VALUES (3146,2890,'frenetic_flurry',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3147,2891,'#1355',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3148,2274,'noname',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3149,2275,'dazing_discord',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3150,2276,'steaming_rage',1,18.0,2000,1000,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3151,2277,'noname',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3149,2279,'dazing_discord',1,18.0,2000,1000,4,0,0,0,0,0,0); -- Sheep (Lucrewe) AOE dmg
+INSERT INTO `mob_skills` VALUES (3150,2280,'steaming_rage',1,18.0,2000,1000,1,0,0,0,0,0,0); -- Ram (Ovim) AOE dmg
+INSERT INTO `mob_skills` VALUES (3151,2278,'graupel_formation',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3152,2289,'shining_salvo',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3153,2290,'palling_salvo',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3154,2291,'cathartic_caper',1,18.0,2000,1000,4,0,0,0,0,0,0);
@@ -3697,7 +3697,7 @@ INSERT INTO `mob_skills` VALUES (3735,490,'amatsu_choun',0,7.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (3736,491,'amatsu_gachirin',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3737,493,'amatsu_suien',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3738,516,'rise_from_ashes',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3739,498,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3739,2546,'shantotto_ii_auto',0,7.0,0,0,4,16,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3740,499,'final_exam',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3741,500,'doctors_orders',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3742,501,'empirical_research',0,7.0,2000,1500,4,0,0,0,0,0,0);
