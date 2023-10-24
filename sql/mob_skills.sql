@@ -2877,17 +2877,17 @@ INSERT INTO `mob_skills` VALUES (2894,2032,'walk_the_plank',0,7.0,2000,0,4,0,0,0
 -- INSERT INTO `mob_skills` VALUES (2916,2660,'thrashing_assault',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2917,2661,'drill_claw',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2918,2662,'puncturing_frenzy',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2919,43,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2920,44,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2921,45,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2922,46,'soulshattering_roar',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2923,2095,'calcifying_claw',0,18.0,2000,2000,4,0,0,1,0,0,0);
-INSERT INTO `mob_skills` VALUES (2924,48,'divesting_stampede',1,18.0,2000,1000,4,0,0,1,0,0,0);
-INSERT INTO `mob_skills` VALUES (2925,2097,'bonebreaking_barrage',0,18.0,2000,3000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2926,2098,'beastruction',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2927,2086,'metamorphic_blast',4,12.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2919,2091,'yztarg_auto_one',0,7.0,0,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2920,2092,'yztarg_auto_two',4,10.0,0,0,4,16,0,4,0,0,0);
+INSERT INTO `mob_skills` VALUES (2921,2093,'yztarg_auto_three',4,10.0,0,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2922,2094,'soulshattering_roar',1,18.0,2000,1000,4,0,0,0,0,0,0); -- Floating rocks animation sub
+INSERT INTO `mob_skills` VALUES (2923,2095,'calcifying_claw',4,10.0,2000,2000,4,0,0,1,0,0,0);
+INSERT INTO `mob_skills` VALUES (2924,48,'divesting_stampede',2,18.0,2000,1000,4,0,0,1,0,0,0);
+INSERT INTO `mob_skills` VALUES (2925,2097,'bonebreaking_barrage',4,10.0,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2926,2098,'beastruction',1,18.0,2000,6000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2927,2086,'metamorphic_blast',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2928,2087,'enervating_grasp',1,15.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2929,2088,'orogenic_storm',1,14.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2929,2088,'orogenic_storm',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2930,2089,'subduction',1,15.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2931,2090,'tectonic_shift',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Check animation ID
 -- INSERT INTO `mob_skills` VALUES (2932,2091,'unrelenting_brand',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Check animation ID
