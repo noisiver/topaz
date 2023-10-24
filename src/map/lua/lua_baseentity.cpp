@@ -16144,14 +16144,11 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
             {
                 if (luautils::OnMobSkillCheck(PTarget, PEntity, PMobSkill) == 0) // A script says that the move in question is valid
                 {
-                    float currentDistance = distance(PEntity->loc.p, PTarget->loc.p);
-                    if (currentDistance <= PMobSkill->getDistance())
-                    {
-                        if (PMobSkill->getValidTargets() & TARGET_ENEMY)
-                            PEntity->PAI->MobSkill(static_cast<CMobEntity*>(PEntity)->GetBattleTargetID(), skillid);
-                        else if (PMobSkill->getValidTargets() & TARGET_SELF)
-                            PEntity->PAI->MobSkill(PEntity->targid, skillid);
-                    }
+                    if (PMobSkill->getValidTargets() & TARGET_ENEMY)
+                        PEntity->PAI->MobSkill(static_cast<CMobEntity*>(PEntity)->GetBattleTargetID(), skillid);
+                    else if (PMobSkill->getValidTargets() & TARGET_SELF)
+                        PEntity->PAI->MobSkill(PEntity->targid, skillid);
+
                 }
             }
         }));

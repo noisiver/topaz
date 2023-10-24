@@ -57,20 +57,22 @@ function onUseAbility(player, target, ability, action)
 
     -- Deal damage based on DEX + AGI
     local dmg = dex + agi
-    target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.NONE)
+    
 
-    -- Recover for amount dealt
+    -- Heal for amount dealt
+    local healing = dmg
     if ((player:getMaxHP() - player:getHP()) < dmg) then
-        dmg = (player:getMaxHP() - player:getHP())
+        healing = (player:getMaxHP() - player:getHP())
     end
 
     -- No healing vs undead
     if target:isUndead() then
-        dmg = 0
+        healing = 0
     end
 
-    player:addHP(dmg)
-    player:updateEnmityFromCure(player, dmg)
+    target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.NONE)
+    player:addHP(healing)
+    player:updateEnmityFromCure(player, healing)
 
     if fail then
         return dmg
