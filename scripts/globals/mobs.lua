@@ -947,7 +947,7 @@ end
 
 function SetGenericNMStats(mob)
     local level = mob:getMainLvl()
-    local isH2H = mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND
+    local isH2H = mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND -- Does not work for mobs
     local wepDMG
 
     -- Weapon damage is mob level +20
@@ -955,11 +955,15 @@ function SetGenericNMStats(mob)
     wepDMG = level + 20
 
     if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP then
+        -- isH2H Does not work
         if isH2H then
             local h2hskill = math.floor(utils.getSkillLvl(1, mob:getMainLvl()))
-            wepDMG = 0.11 * h2hskill + 3 + 18 * math.floor((mob:getMainLvl() + 3) / 75)
+            wepDMG = 0.11 * h2hskill + 3 + 18 * math.floor((mob:getMainLvl() + 20) / 75)
+            wepDMG = wepDMG * 0.4
         end
+        wepDMG = wepDMG * 0.4
     end
+    wepDMG = wepDMG * 0.4
 
 	mob:setDamage(wepDMG)
     mob:addMod(tpz.mod.ATTP, 25)
