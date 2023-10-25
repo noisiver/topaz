@@ -14,6 +14,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobEngaged(mob, target)
