@@ -78,7 +78,8 @@ end
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 20) 
 	mob:setMod(tpz.mod.ATTP, 10)
-    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
     changeToForm(mob, 0)
     mob:setLocalVar("[jobSpecial]hpp", math.random(40, 60))
 end

@@ -5,19 +5,18 @@
 local ID = require("scripts/zones/Empyreal_Paradox/IDs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 25) 
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.MDEF, 30)
     mob:setMod(tpz.mod.UDMGMAGIC, -20)
-    mob:setMod(tpz.mod.REFRESH, 40)
-end
-
-function onMobInitialize(mob)
     mob:setMod(tpz.mod.REGAIN, 50)
     mob:setMod(tpz.mod.UFASTCAST,50)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 18)
+end
+
+function onMobInitialize(mob)
 end
 
 function onMobEngaged(mob,target)
