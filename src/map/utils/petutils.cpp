@@ -917,7 +917,12 @@ namespace petutils
         PPet->setModifier(Mod::REFRESH, 500);
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;
+        uint16 WeaponDelay = 240;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
+
 
         // Apply pet delay mod / job point reduction bonus
         if (PMaster->objtype == TYPE_PC)
@@ -1126,7 +1131,11 @@ namespace petutils
         // follows PC calcs (w/o SJ)
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;  // 320 delay
+        uint16 WeaponDelay = 320;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
 
         // Apply pet delay mod / job point reduction bonus
         if (PMaster->objtype == TYPE_PC)
@@ -1186,7 +1195,11 @@ namespace petutils
         // clang-format on
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;
+        uint16 WeaponDelay = 240;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
 
         // Apply pet delay mod / job point reduction bonus
         if (PMaster->objtype == TYPE_PC)
@@ -1250,7 +1263,11 @@ namespace petutils
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDamage((uint16)(floor(meleeSkill * 0.11) * 3));
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;
+        uint16 WeaponDelay = 240;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
 
         CAutomatonEntity* PAutomaton = (CAutomatonEntity*)PPet;
         switch (PAutomaton->getFrame())
