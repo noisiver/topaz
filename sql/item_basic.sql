@@ -7480,7 +7480,7 @@ INSERT INTO `item_basic` VALUES (9901,0,'eerie_cloth','eerie_cloth',1,57428,0,1,
 INSERT INTO `item_basic` VALUES (9902,0,'wyvern_tail','wyvern_tail',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9903,0,'spartoi_skull','spartoi_skull',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9904,0,'skeleton_limb','skeleton_limb',1,57428,0,1,0);
-INSERT INTO `item_basic` VALUES (9905,0,'sappling_bud','sappling_bud',1,57428,0,1,0);
+INSERT INTO `item_basic` VALUES (9905,0,'sapling_bud','sapling_bud',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9906,0,'tarantula_fang','tarantula_fang',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9907,0,'demonic_shard','demonic_shard',1,57428,0,1,0);
 INSERT INTO `item_basic` VALUES (9908,0,'eft_claw','eft_claw',1,57428,0,1,0);

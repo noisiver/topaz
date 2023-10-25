@@ -44,7 +44,7 @@ INSERT INTO `mob_droplist` VALUES (2,4,0,1000,842,0);  -- (Abaraxas) Giant Bird 
 INSERT INTO `mob_droplist` VALUES (2,0,0,1000,842,240);
 INSERT INTO `mob_droplist` VALUES (2,0,0,1000,843,100);
 INSERT INTO `mob_droplist` VALUES (2,0,0,1000,9915,50); -- Abraxas Feather
-INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1913,1000); -- (Absolute VIrtue)
+INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1913,1000); -- (Absolute Virtue)
 INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1914,1000);
 INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1915,1000);
 INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1916,1000);
@@ -2077,7 +2077,7 @@ INSERT INTO `mob_droplist` VALUES (344,0,0,1000,1057,50);
 INSERT INTO `mob_droplist` VALUES (344,0,0,1000,1125,10);
 INSERT INTO `mob_droplist` VALUES (345,0,0,1000,953,240);      -- Boyahda Sapling
 INSERT INTO `mob_droplist` VALUES (345,0,0,1000,574,50);
-INSERT INTO `mob_droplist` VALUES (345,0,0,1000,9905,50);       -- Sappling bud
+INSERT INTO `mob_droplist` VALUES (345,0,0,1000,9905,50);       -- Sapling Bud
 INSERT INTO `mob_droplist` VALUES (346,2,0,1000,4373,0);
 INSERT INTO `mob_droplist` VALUES (346,0,0,1000,5680,10); -- Agaricus Mushroom
 INSERT INTO `mob_droplist` VALUES (347,0,0,1000,2626,1000); -- (Brass Borer) Brass Borer's cocoon
@@ -2557,6 +2557,7 @@ INSERT INTO `mob_droplist` VALUES (431,4,0,1000,4357,0);
 INSERT INTO `mob_droplist` VALUES (432,0,0,1000,893,100);
 INSERT INTO `mob_droplist` VALUES (432,0,0,1000,2123,100);
 INSERT INTO `mob_droplist` VALUES (432,0,0,1000,4359,240);
+INSERT INTO `mob_droplist` VALUES (432,0,0,1000,9910,50);   -- Catoblepas Hooves
 INSERT INTO `mob_droplist` VALUES (433,2,0,1000,574,0);
 INSERT INTO `mob_droplist` VALUES (433,0,0,1000,574,10);
 INSERT INTO `mob_droplist` VALUES (433,0,0,1000,953,90);
@@ -12971,6 +12972,7 @@ INSERT INTO `mob_droplist` VALUES (2457,2,0,1000,846,0);
 INSERT INTO `mob_droplist` VALUES (2457,0,0,1000,846,50);
 INSERT INTO `mob_droplist` VALUES (2457,0,0,1000,1616,100);
 INSERT INTO `mob_droplist` VALUES (2458,2,0,1000,852,0); -- Tracker Antlion
+INSERT INTO `mob_droplist` VALUES (2458,0,0,1000,9912,50); -- Antlion Claw  
 INSERT INTO `mob_droplist` VALUES (2458,0,0,1000,1616,50); -- Antlion jaw
 INSERT INTO `mob_droplist` VALUES (2458,4,0,1000,1616,0);
 INSERT INTO `mob_droplist` VALUES (2458,0,0,1000,1649,10); -- Scarlet stone
@@ -17678,7 +17680,7 @@ INSERT INTO `mob_droplist` VALUES (6112,4,0,1000,896,0); -- Scorpion Shell(Despo
 INSERT INTO `mob_droplist` VALUES (6112,4,0,1000,897,0); -- Scorpion Claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (6113,0,0,1000,1122,150); -- (Typhoon Wyvern) Wyvern skin
 INSERT INTO `mob_droplist` VALUES (6113,0,0,1000,1124,100); -- Wyvern wing
-INSERT INTO `mob_droplist` VALUES (6113,0,0,1000,9916,50); -- Typhoon wing
+INSERT INTO `mob_droplist` VALUES (6113,0,0,1000,9916,50); -- Typhoon Wing
 INSERT INTO `mob_droplist` VALUES (6113,4,0,1000,1124,0); -- Wyvern wing(Despoil)
 INSERT INTO `mob_droplist` VALUES (6114,2,0,1000,880,0); -- (Spartoi Sorcerer)
 INSERT INTO `mob_droplist` VALUES (6114,0,0,1000,880,240); -- Bone chip
@@ -17694,7 +17696,7 @@ INSERT INTO `mob_droplist` VALUES (6115,0,0,1000,914,100);   -- (Sentient Carafe
 INSERT INTO `mob_droplist` VALUES (6115,0,0,1000,954,240);   -- Magic pot shard
 INSERT INTO `mob_droplist` VALUES (6115,2,0,1000,9924,0);    -- (Steal) Carafe Core
 INSERT INTO `mob_droplist` VALUES (6116,0,0,1000,846,240);  -- (Darter - Boyahda Tree)
-INSERT INTO `mob_droplist` VALUES (6116,2,0,1000,9926,0);   -- (Steal) Darter Wing
+INSERT INTO `mob_droplist` VALUES (6116,0,0,1000,9926,50);  -- Darter Wing
 INSERT INTO `mob_droplist` VALUES (6117,0,0,1000,2163,240); -- (Heraldic Imp - Caedara Mire)
 INSERT INTO `mob_droplist` VALUES (6117,0,0,1000,9927,50);  -- Imp Eye
 INSERT INTO `mob_droplist` VALUES (6118,0,0,1000,2175,240); -- (Ebony Pudding - Mount Z) Flan Meat

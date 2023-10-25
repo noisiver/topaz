@@ -33301,8 +33301,9 @@ INSERT INTO `item_mods` VALUES (25419,23,25);     -- War. Beads +2: Attack+25
 INSERT INTO `item_mods` VALUES (25419,25,25);     -- War. Beads +2: Accuracy+25
 INSERT INTO `item_mods` VALUES (25419,903,50);  -- War. Beads +2: "Fencer"+1
 INSERT INTO `item_mods` VALUES (25419,904,1);   -- War. Beads +2: "Fencer"+1
-INSERT INTO `item_mods` VALUES (25423,25,20);     -- Monk's Nodowa: Accuracy+20
-INSERT INTO `item_mods` VALUES (25423,292,10);    -- Monk's Nodowa: "Kick Attacks" attack +10
+INSERT INTO `item_mods` VALUES (25423,25,10);     -- Monk's Nodowa: Accuracy+10
+INSERT INTO `item_mods` VALUES (25423,107,10);    -- Monk's Nodowa: Guarding Skill +10
+INSERT INTO `item_mods` VALUES (25423,291,5);     -- Monk's Nodowa: Counter +5
 INSERT INTO `item_mods` VALUES (25424,25,25);     -- Mnk. Nodowa +1: Accuracy+25
 INSERT INTO `item_mods` VALUES (25424,292,15);    -- Mnk. Nodowa +1: "Kick Attacks" attack +15
 INSERT INTO `item_mods` VALUES (25425,25,30);     -- Mnk. Nodowa +2: Accuracy+30

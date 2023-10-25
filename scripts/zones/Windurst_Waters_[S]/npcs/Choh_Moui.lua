@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Windurst Waters [S]
---  NPC: Maat
+--  NPC: Choh Moui
 -- !pos
 -- BST job quest NPC
 -----------------------------------

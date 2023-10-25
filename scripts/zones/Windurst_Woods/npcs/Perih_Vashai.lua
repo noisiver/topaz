@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Windurst Woods
---  NPC: Parih Vashai
+--  NPC: Perih Vashai
 -- Starts and Finishes Quest: The Fanged One, From Saplings Grow
 -- !pos 117 -3 92 241
 -- RNG job quest NPC
