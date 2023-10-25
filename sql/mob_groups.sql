@@ -1136,9 +1136,9 @@ INSERT INTO `mob_groups` VALUES (9,2501,31,'Mammet-800',0,128,1585,3500,0,80,80,
 -- Sealions_Den (Zone 32)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,2500,32,'Mammet-22_Zeta',0,128,1585,4000,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (2,2973,32,'Omega',0,128,0,14000,0,63,64,0); -- 14k Retail post-nerf
-INSERT INTO `mob_groups` VALUES (3,4083,32,'Ultima',0,128,0,15000,0,63,64,0); -- 15k Retail post-nerf
+INSERT INTO `mob_groups` VALUES (1,2500,32,'Mammet-22_Zeta',0,128,1585,2000,0,58,58,0);
+INSERT INTO `mob_groups` VALUES (2,2973,32,'Omega',0,128,0,14000,0,64,64,0); -- 14k Retail post-nerf
+INSERT INTO `mob_groups` VALUES (3,4083,32,'Ultima',0,128,0,15000,0,64,64,0); -- 15k Retail post-nerf
 INSERT INTO `mob_groups` VALUES (4,3875,32,'Tenzen',0,128,0,18000,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (5,2492,32,'Makki-Chebukki',0,128,0,50000,0,67,68,0);
 INSERT INTO `mob_groups` VALUES (6,2293,32,'Kukki-Chebukki',0,128,0,50000,0,67,68,0);
