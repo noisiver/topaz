@@ -813,6 +813,7 @@ tpz.effect =
     NEGATE_CHARM             = 610,
     MAGIC_EVASION_BOOST_II   = 611,
     COLURE_ACTIVE            = 612,
+    GUARD_BOOST              = 622,
     RAMPART                  = 623,
     WINDS_BLESSING           = 624,
     SIRENS_FAVOR             = 625,
