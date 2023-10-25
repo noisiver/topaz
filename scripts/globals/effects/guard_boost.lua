@@ -6,7 +6,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.GUARD_PERCENT, effect:getPower()
+    target:addMod(tpz.mod.GUARD_PERCENT, effect:getPower())
 end
 
 function onEffectTick(target, effect)
