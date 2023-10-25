@@ -57,7 +57,8 @@ function onUseAbility(player, target, ability, action)
         effectID = newID
     end
 
-    action:animation(target:getID(), 181)
+    action:animation(target:getID(), 183)
+    action:speceffect(target:getID(), 2)
     ability:setMsg(tpz.msg.basic.STEAL_EFFECT)
 
     if effectID == 0 then
