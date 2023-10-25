@@ -63,14 +63,14 @@ g_mixins.families.ghrah = function(mob)
             SetJob(mob)
             SetSDT(mob)
             SetCasting(mob)
-            mob:setLocalVar("roamTime", os.time())
+            mob:setLocalVar("roamTime", os.time() + 60)
         elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 60) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
             SetJob(mob)
             SetSDT(mob)
             SetCasting(mob)
-            mob:setLocalVar("roamTime", os.time())
+            mob:setLocalVar("roamTime", os.time() + 60)
         end
     end)
 
@@ -115,31 +115,26 @@ end
 function SetJob(mob)
     if mob:AnimationSub() == 0 then -- Ball form
         mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addJobTraits(tpz.job.BLM, mob:getMainLvl())
-        mob:delJobTraits(tpz.job.WAR, mob:getMainLvl())
-        mob:delJobTraits(tpz.job.PLD, mob:getMainLvl())
         mob:delJobTraits(tpz.job.THF, mob:getMainLvl())
         DelDefenseBonus(mob)
     elseif mob:AnimationSub() == 1 then  -- human form gives defense bonus equal to paladin of that level AND 100% defense modifier
         mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
-        mob:addJobTraits(tpz.job.PLD, mob:getMainLvl())
-        mob:delJobTraits(tpz.job.WAR, mob:getMainLvl())
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:delJobTraits(tpz.job.THF, mob:getMainLvl())
         mob:delJobTraits(tpz.job.BLM, mob:getMainLvl())
         AddDefenseBonus(mob, 100)
     elseif mob:AnimationSub() == 2 then  -- spider form gives defense bonus equal to warrior of that level
         mob:setDamage(math.floor(mob:getWeaponDmg() * 2)) -- Weapon damage * 2
-        mob:addJobTraits(tpz.job.WAR, mob:getMainLvl())
-        mob:delJobTraits(tpz.job.PLD, mob:getMainLvl())
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
         mob:delJobTraits(tpz.job.THF, mob:getMainLvl())
         mob:delJobTraits(tpz.job.BLM, mob:getMainLvl())
-        DelDefenseBonus(mob)
         AddDefenseBonus(mob, 10)
     elseif mob:AnimationSub() == 3 then  -- Bird form grants evasion and triple attack equal to appropriate level thief
         mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addJobTraits(tpz.job.THF, mob:getMainLvl())
-        mob:delJobTraits(tpz.job.WAR, mob:getMainLvl())
-        mob:delJobTraits(tpz.job.PLD, mob:getMainLvl())
         mob:delJobTraits(tpz.job.BLM, mob:getMainLvl())
         DelDefenseBonus(mob)
     end
