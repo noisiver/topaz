@@ -55,6 +55,14 @@ function onUseAbility(player, target, ability, action)
 	
 	stealChance = utils.clamp(stealChance, 5, 75) -- Cap at 75% chance
 
+    -- THF JSE quest
+    -- Sentient Carafe and Greater Cockatrice
+    if target:isMob() then
+        if target:getPool() == 6598 or target:getPool() == 1801 then
+            stealChance = 5
+        end
+    end
+    -- printf("Steal Chance: %d", stealChance)
     stolen = target:getStealItem()
     if (target:isMob() and math.random(100) < stealChance and stolen ~= 0) then
         if (checkThfAfQuest(player, target) == true) then
