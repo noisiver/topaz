@@ -1948,7 +1948,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
             if (PTarget->objtype == TYPE_PC)
             {
-                if (attack.IsGuarded() || ((map_config.newstyle_skillups & NEWSTYLE_GUARD) > 0))
+                if (actionTarget.reaction == REACTION_GUARD || ((map_config.newstyle_skillups & NEWSTYLE_GUARD) > 0))
                 {
                     if (battleutils::GetGuardRate(this, PTarget) > 0)
                     {
@@ -1956,7 +1956,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                     }
                 }
 
-                if (attack.IsBlocked() || ((map_config.newstyle_skillups & NEWSTYLE_BLOCK) > 0))
+                if (actionTarget.reaction == REACTION_BLOCK || ((map_config.newstyle_skillups & NEWSTYLE_BLOCK) > 0))
                 {
                     if (battleutils::GetBlockRate(this, PTarget) > 0)
                     {
@@ -1964,7 +1964,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                     }
                 }
 
-                if (attack.IsParried() || ((map_config.newstyle_skillups & NEWSTYLE_PARRY) > 0))
+                if (actionTarget.reaction == REACTION_PARRY || ((map_config.newstyle_skillups & NEWSTYLE_PARRY) > 0))
                 {
                     if (battleutils::GetParryRate(this, PTarget) > 0)
                     {
