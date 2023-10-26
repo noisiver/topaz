@@ -2759,9 +2759,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Jug_Mosquito', 1193, 781);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Mosquito', 1193, 782);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Weevil', 1194, 786);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Weevil', 1194, 787);
-INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 3919);
-INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 3920);
-INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 3921);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 753);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 754);
+INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 755);
 
 -- Qultada (Breaking the Bonds of Fate)
 INSERT INTO `mob_skill_lists` VALUES ('QultadaSword',1195,39); -- Spirits Within
