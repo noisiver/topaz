@@ -146,18 +146,28 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
     local efflux = caster:getStatusEffect(tpz.effect.EFFLUX)
     local affluxBonus = caster:getMod(tpz.effect.EFFLUX_BONUS)
-    local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
+    local tp = 0
+    local effluxTP = 0
 
-    if (chainAffinity ~= nil) or (azureLore ~= nil) or (efflux ~= nil) then
+    -- Efflux treats all spells like they're 1k TP
+    if (efflux ~= nil) then
+        local effluxMultiplier = 1 + caster:getMod(tpz.effect.EFFLUX_BONUS) / 100
+        tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
+        -- Efflux also increases the base damage of the spell it is used with by 50% (x 1.5)
+        -- https://www.bg-wiki.com/ffxi/Efflux
+        bonusWSC = bonusWSC + 0.5
+    end
+
+    if (chainAffinity ~= nil) or (azureLore ~= nil) then
         -- Calculate the total TP available for the fTP multiplier.
+
+        -- Add caster's current TP
+        tp = tp + caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
+
         if (tp > 3000) then
             tp = 3000
         end
-        -- Efflux treats all spells like they're 1k TP
-        if (efflux ~= nil) then
-            local effluxMultiplier = 1 + caster:getMod(tpz.effect.EFFLUX_BONUS) / 100
-            tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
-        end
+
         -- Azure Lore treats all spells like they're 3k TP
         if (azureLore ~= nil) then
             tp = 3000
@@ -168,8 +178,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
 
     -- Calculate final WSC bonuses
-
-    WSC = WSC + (WSC * bonusWSC)
+    WSC = WSC + math.floor((WSC * bonusWSC))
 
     -- See BG Wiki for reference. Chain Affinity is Double WSC. BLU Empyrean is Triple WSC
     -- when the set procs, and stacks with Chain Affinity for a maximum 4x WSC total.
