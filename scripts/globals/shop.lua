@@ -265,6 +265,7 @@ tpz.shop =
                 18731,    50,       tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil
                 18732,    250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +1
                 18733,    500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +2
+                19185,   1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +3
         },
         [curio.ammunition] =
         {
