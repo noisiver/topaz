@@ -57,14 +57,14 @@ g_mixins.families.ghrah = function(mob)
 
     mob:addListener("ROAM_TICK", "GHRAH_RTICK", function(mob)
         local roamTime = mob:getLocalVar("roamTime")
-        if (mob:AnimationSub() == 0 and os.time() - roamTime > 60) then
+        if (mob:AnimationSub() == 0 and os.time() - roamTime > math.random(45, 60)) then
             mob:AnimationSub(mob:getLocalVar("form2"))
             mob:setAggressive(1)
             SetJob(mob)
             SetSDT(mob)
             SetCasting(mob)
             mob:setLocalVar("roamTime", os.time() + 60)
-        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 60) then
+        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > math.random(45, 60)) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
             SetJob(mob)
