@@ -48,7 +48,7 @@ end
 
 function onMonsterMagicPrepare(mob, target)
     if mob:AnimationSub() == 0 then
-        local element = VanadielDayElement()
+        local element = VanadielDayElement() -1
         if element == tpz.day.FIRESDAY then
             return 176 -- Firaga III
         elseif element == tpz.day.EARTHSDAY then
