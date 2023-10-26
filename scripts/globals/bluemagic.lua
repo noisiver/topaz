@@ -145,7 +145,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
     local efflux = caster:getStatusEffect(tpz.effect.EFFLUX)
-    local affluxBonus = caster:getStatusEffect(tpz.effect.EFFLUX_BONUS)
+    local affluxBonus = caster:getMod(tpz.effect.EFFLUX_BONUS)
     local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 
     if (chainAffinity ~= nil) or (azureLore ~= nil) or (efflux ~= nil) then
@@ -155,7 +155,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
         -- Efflux treats all spells like they're 1k TP
         if (efflux ~= nil) then
-            local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
+            local effluxMultiplier = 1 caster:getMod(tpz.effect.EFFLUX_BONUS) / 100
             tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
         end
         -- Azure Lore treats all spells like they're 3k TP
