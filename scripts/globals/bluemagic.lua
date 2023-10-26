@@ -155,7 +155,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
         -- Efflux treats all spells like they're 1k TP
         if (efflux ~= nil) then
-            local effluxMultiplier = 1 caster:getMod(tpz.effect.EFFLUX_BONUS) / 100
+            local effluxMultiplier = 1 + caster:getMod(tpz.effect.EFFLUX_BONUS) / 100
             tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
         end
         -- Azure Lore treats all spells like they're 3k TP
