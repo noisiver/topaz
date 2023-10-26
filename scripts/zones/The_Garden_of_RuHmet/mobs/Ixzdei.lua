@@ -11,12 +11,11 @@ require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/zdei")}
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 12)
-    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 12)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 50)
 	mob:setAggressive(true)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:SetMagicCastingEnabled(false)
     mob:setLocalVar("healed", 0)
 end
