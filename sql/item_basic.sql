@@ -4122,7 +4122,7 @@ INSERT INTO `item_basic` VALUES (4366,0,'la_theine_cabbage','la_theine_cbg.',99,
 INSERT INTO `item_basic` VALUES (4367,0,'clump_of_batagreens','batagreens',99,1548,59,1,0);
 INSERT INTO `item_basic` VALUES (4368,0,'two-leaf_mandragora_bud','2leaf_mandra_bud',12,26204,0,0,11);
 INSERT INTO `item_basic` VALUES (4369,0,'four-leaf_mandragora_bud','4leaf_mandra_bud',1,58972,0,0,25);
-INSERT INTO `item_basic` VALUES (4370,0,'pot_of_honey','honey',99,1548,59,0,30);
+INSERT INTO `item_basic` VALUES (4370,0,'pot_of_honey','honey',12,1548,59,0,30);
 INSERT INTO `item_basic` VALUES (4371,0,'slice_of_grilled_hare','grilled_hare',1,1580,52,0,46);
 INSERT INTO `item_basic` VALUES (4372,0,'slice_of_giant_sheep_meat','g._sheep_meat',99,1548,59,0,11);
 INSERT INTO `item_basic` VALUES (4373,0,'woozyshroom','woozyshroom',99,1548,59,0,215);
