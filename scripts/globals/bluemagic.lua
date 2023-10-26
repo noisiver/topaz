@@ -640,6 +640,7 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
         target:updateEnmityFromDamage(caster, dmg)
     end
+    caster:delStatusEffectSilent(tpz.effect.EFFLUX)
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
