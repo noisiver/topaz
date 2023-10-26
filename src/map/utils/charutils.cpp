@@ -5250,8 +5250,8 @@ namespace charutils
         }
 
         int32 rovBonus = 0;
-        // Only apply RoV bonuses for players below 75, to not effect merits
-        if (PChar->GetMLevel() < 75)
+        // Only apply RoV bonuses for players below 75 and not in a level capped zone, to not effect merits
+        if (PChar->GetMLevel() < 75 && !PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_RESTRICTION))
         {
             for (auto i = 2884; i <= 2892; ++i) // RHAPSODY KI are sequential, so start at WHITE and end at OCHRE
             {
