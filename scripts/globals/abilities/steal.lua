@@ -49,22 +49,22 @@ function onUseAbility(player, target, ability, action)
         thfLevel = player:getSubLvl()
     end
 
-    local stealMod = player:getMod(tpz.mod.STEAL)
+    local stealMod = player:getMod(tpz.mod.STEAL) * 10
 
-    local stealChance = 50 + stealMod * 2 + thfLevel - target:getMainLvl()
+    local stealChance = 500 + stealMod * 2 + thfLevel - target:getMainLvl()
 	
-	stealChance = utils.clamp(stealChance, 5, 75) -- Cap at 75% chance
+	stealChance = utils.clamp(stealChance, 50, 750) -- Cap at 75% chance
 
     -- THF JSE quest
     -- Sentient Carafe and Greater Cockatrice
     if target:isMob() then
         if target:getPool() == 6598 or target:getPool() == 1801 then
-            stealChance = 5
+            stealChance = 50 + stealMod
         end
     end
-    -- printf("Steal Chance: %d", stealChance)
+
     stolen = target:getStealItem()
-    if (target:isMob() and math.random(100) < stealChance and stolen ~= 0) then
+    if (target:isMob() and math.random(1000) < stealChance and stolen ~= 0) then
         if (checkThfAfQuest(player, target) == true) then
             stolen = 4569
         end
