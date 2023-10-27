@@ -546,7 +546,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         dmg = 0
     end
 
-    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
     -- Handle correlation bonus
     dmg = BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
@@ -563,7 +562,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         end
 
         dmg = dmg * ConvergenceBonus
-		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
     -- Handle Unbridle gear mod
@@ -649,7 +647,6 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
         target:updateEnmityFromDamage(caster, dmg)
     end
-    caster:delStatusEffectSilent(tpz.effect.EFFLUX)
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
@@ -697,7 +694,6 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
         end
 
 		dmg = math.floor(dmg * ConvergenceBonus)
-		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
 	-- Add breath damage gear
@@ -723,8 +719,6 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     dmg = math.floor(dmg * resist)
     -- Add weather
     dmg = math.floor(dmg * BlueGetWeatherDayBonus(caster, element))
-
-    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
     -- Cap damage for BLU mobs
     if caster:isMob() then

@@ -1058,6 +1058,13 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
     charutils::RemoveStratagems(this, PSpell);
 
+    // Remove Burst Affinity, Convergence and Efflux if a BLU offensive spell was used
+    if (PSpell->dealsDamage() && PSpell->getSpellGroup() == SPELLGROUP_BLUE)
+    {
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_BURST_AFFINITY);
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_EFFLUX);
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_CONVERGENCE);
+    }
     // Remove Divine seal if the spell is a healing spell or Stoneskin
     if (PSpell->isHeal() || PSpell->getID() == SpellID::Stoneskin)
     {
