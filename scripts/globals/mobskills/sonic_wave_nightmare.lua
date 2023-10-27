@@ -14,7 +14,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DEFENSE_DOWN
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 80, 0, 300))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 100, 0, 300))
+    local effect1 = target:getStatusEffect(typeEffect)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE) -- TODO: Test if this works
 
     return typeEffect
 end
