@@ -169,7 +169,7 @@ INSERT INTO `pet_list` VALUES (120, 'HippogryphFamiliar', 6819, 73, 90, 1800, 0)
 INSERT INTO `pet_list` VALUES (121, 'Roland', 6820, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (122, 'MosquitoFamiliar', 6821, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (123, 'Yoko', 6822, 73, 90, 1800, 0);
--- INSERT INTO `pet_list` VALUES (124, 'Glenn', 6823, 73, 90, 1800, 0);
-INSERT INTO `pet_list` VALUES (124, 'YellowBeetleFamiliar', 6824, 73, 90, 1800, 0);
--- INSERT INTO `pet_list` VALUES (126, 'Sefina', 6825, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (124, 'Glenn', 6823, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (125, 'YellowBeetleFamiliar', 6824, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (126, 'Sefina', 6825, 73, 90, 1800, 0);
 
