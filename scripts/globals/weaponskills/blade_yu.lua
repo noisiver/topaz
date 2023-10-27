@@ -2,7 +2,7 @@
 -- Blade Yu
 -- Katana weapon skill
 -- Skill Level: 280
--- Delivers a water elemental attack. Additional effect Poison. Durration varies with TP.
+-- Delivers a water elemental attack. Additional effect Magic Attack Down. Durration varies with TP.
 -- Aligned with the Aqua Gorget & Soil Gorget.
 -- Aligned with the Aqua Belt & Soil Belt.
 -- Element: Water
@@ -33,11 +33,12 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 100, tpz.effect.POISON)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 100, tpz.effect.MAGIC_ATK_DOWN)
     local duration = (75 + (tp/1000 * 15))
+    duration = duration * resist
 
-    if (damage > 0 and not target:hasStatusEffect(tpz.effect.POISON) and resist >= 0.5) then
-       target:addStatusEffect(tpz.effect.POISON, 10, 3, duration)
+    if (damage > 0 and not target:hasStatusEffect(tpz.effect.MAGIC_ATK_DOWN) and resist >= 0.5) then
+       target:addStatusEffect(tpz.effect.MAGIC_ATK_DOWN, 25, 0, duration)
     end
 
 	if damage > 0 then player:trySkillUp(target, tpz.skill.KATANA, tpHits+extraHits) end
