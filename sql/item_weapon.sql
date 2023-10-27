@@ -4380,8 +4380,8 @@ INSERT INTO `item_weapon` VALUES (21464,'rancid_broth',0,105,0,0,0,1,1,2295,257,
 INSERT INTO `item_weapon` VALUES (21465,'pungent_broth',0,106,0,0,0,1,1,2295,257,0);
 INSERT INTO `item_weapon` VALUES (21466,'frizzante_broth',0,87,0,0,0,0,1,0,5698,0);
 INSERT INTO `item_weapon` VALUES (21467,'spumante_broth',0,88,0,0,0,0,1,0,5698,0);
-INSERT INTO `item_weapon` VALUES (21468,'zestful_sap',0,125,0,0,0,18,1,2278,2066,0);
-INSERT INTO `item_weapon` VALUES (21469,'gassy_sap',0,126,0,0,0,18,1,2278,2066,0);
+INSERT INTO `item_weapon` VALUES (21468,'zestful_sap',0,125,0,0,0,1,1,2295,257,0);
+INSERT INTO `item_weapon` VALUES (21469,'gassy_sap',0,126,0,0,0,1,1,2295,257,0);
 INSERT INTO `item_weapon` VALUES (21470,'decaying_broth',0,82,0,0,0,0,1,0,8263,0); -- TODO: What is damage and delay for?
 INSERT INTO `item_weapon` VALUES (21471,'putrescent_broth',0,83,0,0,0,0,1,0,8263,0); -- TODO: What is damage and delay for?
 INSERT INTO `item_weapon` VALUES (21472,'turpid_broth',0,120,0,0,0,1,1,2295,257,0);
