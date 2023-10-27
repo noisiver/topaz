@@ -1040,8 +1040,20 @@ function CorruptBuffs(mob, target, amount)
         { tpz.effect.MAGIC_EVASION_BOOST_II, tpz.effect.MAGIC_EVASION_DOWN },
     }
 
+    local randomList = {};
+    local count = #buffsList;
+    while (#randomList < count) do
+        local index = math.random(count)
+        local buff = buffsList[index];
+        if buff then
+            randomList[#randomList + 1] = buff;
+            buffsList[index] = nil;
+        end
+    end
+
+    local corruptCount = 0
     -- Corrupt as many buffs as specified in the amount arg
-    for _, buff in pairs(buffsList) do
+    for _, buff in ipairs(randomList) do
         if target:hasStatusEffect(buff[1]) then
             local currentBuff = target:getStatusEffect(buff[1])
             local power = currentBuff:getPower()
@@ -1050,6 +1062,10 @@ function CorruptBuffs(mob, target, amount)
 
             target:delStatusEffectSilent(buff[1])
             target:addStatusEffect(buff[2], power, tick, duration)
+            corruptCount = corruptCount + 1
+            if (corruptCount == amount) then
+                break;
+            end
         end
     end
 end
