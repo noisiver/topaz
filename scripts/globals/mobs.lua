@@ -1042,17 +1042,14 @@ function CorruptBuffs(mob, target, amount)
 
     -- Corrupt as many buffs as specified in the amount arg
     for _, buff in pairs(buffsList) do
-        while (amount < corruptCount) do
-            if target:hasStatusEffect(buff[1]) then
-                local currentBuff = buff[1]
-                local power = currentBuff:getPower()
-                local tick = currentBuff:getTick()
-                local duration = math.ceil((currentBuff:getTimeRemaining())/1000)
+        if target:hasStatusEffect(buff[1]) then
+            local currentBuff = target:getStatusEffect(buff[1])
+            local power = currentBuff:getPower()
+            local tick = currentBuff:getTick()
+            local duration = math.ceil((currentBuff:getTimeRemaining())/1000)
 
-                target:delStatusEffectSilent(buff[1])
-                target:addStatusEffect(buff[2], currentBuff, power, tick, duration)
-                corruptCount = corruptCount + 1
-            end
+            target:delStatusEffectSilent(buff[1])
+            target:addStatusEffect(buff[2], power, tick, duration)
         end
     end
 end
