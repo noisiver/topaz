@@ -2823,10 +2823,15 @@ namespace charutils
                             addPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY);
                         }
                     }
+                    else if (PetID == PETID_KIYOMARO)
+                    {
+                        addPetAbility(PChar, ABILITY_SWEEPING_GOUGE);
+                        addPetAbility(PChar, ABILITY_ZEALOUS_SNORT);
+                    }
                 }
             }
         }
-        if (PPet->getPetType() == PETTYPE_JUG_PET)
+        if (PPet->getPetType() == PETTYPE_JUG_PET && PetID != PETID_KIYOMARO)
         {
             auto skillList {battleutils::GetMobSkillList(PPet->m_MobSkillList)};
             for (auto&& abilityid : skillList)
