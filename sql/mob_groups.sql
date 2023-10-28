@@ -7599,7 +7599,7 @@ INSERT INTO `mob_groups` VALUES (66,3002,104,'Orcish_Colonel',0,128,0,0,0,35,35,
 INSERT INTO `mob_groups` VALUES (67,682,104,'Cernunnos',0,128,0,0,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (68,3745,104,'Sprite',0,128,0,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (69,2297,104,'Kumbaba',1,0,0,0,0,1,1,0);
-INSERT INTO `mob_groups` VALUES (70,5152,104,'Belphoebe',0,128,0,0,9999,88,90,0);
+INSERT INTO `mob_groups` VALUES (70,5152,104,'Belphoebe',0,128,0,0,9999,100,100,0);
 INSERT INTO `mob_groups` VALUES (71,3497,104,'Scavenging_Hound',330,1,226,0,0,23,25,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (72,2166,104,'Jugner_Funguar',330,0,1419,0,0,24,25,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (73,3017,104,'Orcish_Grunt',330,0,1917,0,0,19,20,0); -- added higher lvl group
