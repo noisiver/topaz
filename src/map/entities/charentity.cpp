@@ -1059,11 +1059,23 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     charutils::RemoveStratagems(this, PSpell);
 
     // Remove Burst Affinity, Convergence and Efflux if a BLU offensive spell was used
-    if (PSpell->dealsDamage() && PSpell->getSpellGroup() == SPELLGROUP_BLUE)
+    if (PSpell->getSpellGroup() == SPELLGROUP_BLUE)
     {
-        StatusEffectContainer->DelStatusEffectSilent(EFFECT_BURST_AFFINITY);
-        StatusEffectContainer->DelStatusEffectSilent(EFFECT_EFFLUX);
-        StatusEffectContainer->DelStatusEffectSilent(EFFECT_CONVERGENCE);
+        if (PSpell->dealsDamage() || PSpell->getID() == SpellID::MP_Drainkiss || PSpell->getID() == SpellID::Magic_Hammer)
+        {
+            // Magical damage spells only
+            if (static_cast<CBlueSpell*>(PSpell)->getPrimarySkillchain() == 0)
+            {
+                StatusEffectContainer->DelStatusEffectSilent(EFFECT_BURST_AFFINITY);
+                StatusEffectContainer->DelStatusEffectSilent(EFFECT_CONVERGENCE);
+
+            }
+            // Physical spells only
+            else
+            {
+                StatusEffectContainer->DelStatusEffectSilent(EFFECT_EFFLUX);
+            }
+        }
     }
     // Remove Divine seal if the spell is a healing spell or Stoneskin
     if (PSpell->isHeal() || PSpell->getID() == SpellID::Stoneskin)
