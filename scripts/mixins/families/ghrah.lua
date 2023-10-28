@@ -17,6 +17,7 @@ g_mixins.families.ghrah = function(mob)
         mob:AnimationSub(0)
         mob:setAggressive(0)
         mob:setLocalVar("changeTime", os.time())
+        mob:setLocalVar("roamTime", os.time() + math.random(45, 60))
 
         -- Kfghrahs cannot traensform into humanoid form
         if kfghrahWHM or kfghrahBLM then
@@ -57,20 +58,20 @@ g_mixins.families.ghrah = function(mob)
 
     mob:addListener("ROAM_TICK", "GHRAH_RTICK", function(mob)
         local roamTime = mob:getLocalVar("roamTime")
-        if (mob:AnimationSub() == 0 and os.time() - roamTime > math.random(45, 60)) then
+        if (mob:AnimationSub() == 0 and os.time() >= roamTime) then
             mob:AnimationSub(mob:getLocalVar("form2"))
             mob:setAggressive(1)
             SetJob(mob)
             SetSDT(mob)
             SetCasting(mob)
-            mob:setLocalVar("roamTime", os.time() + 60)
-        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > math.random(45, 60)) then
+            mob:setLocalVar("roamTime", os.time() + math.random(45, 60))
+        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() >= roamTime) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
             SetJob(mob)
             SetSDT(mob)
             SetCasting(mob)
-            mob:setLocalVar("roamTime", os.time() + 60)
+            mob:setLocalVar("roamTime", os.time() + math.random(45, 60))
         end
     end)
 

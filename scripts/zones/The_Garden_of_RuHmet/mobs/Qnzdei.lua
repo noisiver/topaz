@@ -58,8 +58,7 @@ function onPath(mob)
     mob:pathThrough({spawnPos.x, spawnPos.y, spawnPos.z})
     local pos = mob:getPos()
     if spawnPos.x == pos.x and spawnPos.z == pos.z then
-        changeState(mob, 1)
-        mob:setPos(spawnPos.x, spawnPos.y, spawnPos.z, mob:getRotPos() + 16)
+        mob:setPos(spawnPos.x, spawnPos.y, spawnPos.z, mob:getRotPos() + 32)
     end
 end
 
