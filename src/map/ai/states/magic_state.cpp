@@ -156,9 +156,10 @@ bool CMagicState::Update(time_point tick)
     }
     else if (IsCompleted())
     {
-        // No aftercast on spells. Blue Magic and Ninjutsu still have a ~3s aftercast for balancing reasons
+        // No aftercast on Enhancing, Enfeebling or Elemental magic
         auto castTime = m_castTime;
-        if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_BLUE_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_NINJUTSU)
+        if (m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENHANCING_MAGIC && m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENFEEBLING_MAGIC  &&
+            m_PSpell->getSkillType() != SKILLTYPE::SKILL_ELEMENTAL_MAGIC)
             castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
         // Spells still have aftercast during Manafont and Chainspell for balance reasons
         if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_MANAFONT, EFFECT_CHAINSPELL }))
