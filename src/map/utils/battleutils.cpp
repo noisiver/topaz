@@ -2341,6 +2341,19 @@ int getSDTTier(int SDT)
             return false;
         }
 
+        // cannot interrupt when chainspell is active
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_CHAINSPELL))
+        {
+            return false;
+        }
+
+        // Don't try to interrupt if not in casting state
+        if (!PDefender->PAI->IsCurrentState<CMagicState>())
+        {
+            return false;
+        }
+
+
         // Songs cannot be interrupted by physical attacks.
         if ((SKILLTYPE)PSpell->getSkillType() == SKILL_SINGING)
         {
