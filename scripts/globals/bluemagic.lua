@@ -312,7 +312,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- Add correlation ACC bonus
     if (correlation > 0 and params.bonus ~= nil) then
         params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif correlation < 0 then
+    elseif (correlation < 0 and params.bonus ~= nil) then
         params.bonus = params.bonus - 25 
     end
 
@@ -528,7 +528,7 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     -- Add correlation MACC bonus
     if correlation > 0 then
         params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif correlation < 0 then
+    elseif (correlation < 0 and params.bonus ~= nil) then
         params.bonus = params.bonus - 25 
     end
 
@@ -675,7 +675,7 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     -- Add correlation MACC bonus
     if correlation > 0 then
         params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif correlation < 0 then
+    elseif (correlation < 0 and params.bonus ~= nil) then
         params.bonus = params.bonus - 25 
     end
 
