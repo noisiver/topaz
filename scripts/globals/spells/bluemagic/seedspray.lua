@@ -28,15 +28,15 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.tpmod = TPMOD_DAMAGE
+    params.tpmod = TPMOD_ACC
     params.attackType = tpz.attackType.RANGED
     params.damageType = tpz.damageType.RANGED
     params.scattr = SC_GRAVITATION
     params.numhits = 3
     params.multiplier = 1.36
-    params.tp150 = 2.08
-    params.tp300 = 2.36
-    params.azuretp = 2.61
+    params.tp150 = 1.36
+    params.tp300 = 1.36
+    params.azuretp = 1.36
     params.duppercap = 80 -- D upper >=69
     params.str_wsc = 0.2
     params.dex_wsc = 0.2
