@@ -12,6 +12,7 @@
 -- Magic Bursts on: Transfixion, Fusion, Light
 -- Combos: None
 -----------------------------------------
+require("scripts/globals/bluemagic")
 require("scripts/globals/magic")
 require("scripts/globals/status")
 require("scripts/globals/msg")
