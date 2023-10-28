@@ -13,7 +13,7 @@ require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:getPool() ~= 9076) then -- Coccinellidae
+    if (mob:getPool() == 9076) then -- Coccinellidae
         return 0
     end
     if VanadielHour() >= 6 and VanadielHour() <= 18 then
