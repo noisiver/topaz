@@ -1047,7 +1047,11 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
                     }
                     else
                     {
-                        health.tp = 0;
+                        // Don't consume TP from spells casted during Azure Lore
+                        if (!StatusEffectContainer->HasStatusEffect(EFFECT_AZURE_LORE))
+                        {
+                            health.tp = 0;
+                        }
                     }
 
                     StatusEffectContainer->DelStatusEffectSilent(EFFECT_CHAIN_AFFINITY);
