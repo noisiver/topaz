@@ -17,7 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 3000
     local duration = 300
     local params = {}
-    params.overwriteHaste = true
+    target:delStatusEffectSilent(tpz.effect.HASTE)
 
     if not mob:hasStatusEffect(tpz.effect.HASTE) then
         mob:addStatusEffect(tpz.effect.HASTE, 6000, 0, 120)

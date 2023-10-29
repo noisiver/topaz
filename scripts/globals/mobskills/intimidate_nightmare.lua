@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 10000
     local duration = 10
     local params = {}
-    params.overwriteHaste = true
+    target:delStatusEffectSilent(tpz.effect.HASTE)
 
     skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, power, 0, duration, 0, 0, 0, params))
     mob:resetEnmity(target)

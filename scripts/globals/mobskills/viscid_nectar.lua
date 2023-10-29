@@ -14,16 +14,13 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if mob:AnimationSub() == 4 then
-        return 0
-    end
-    return 1
+return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
     local params = {}
-    params.overwriteHaste = true
+    target:delStatusEffectSilent(tpz.effect.HASTE)
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10000, 0, 300, params))
 
