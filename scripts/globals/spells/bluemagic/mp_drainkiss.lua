@@ -65,6 +65,11 @@ function onSpellCast(caster, target, spell)
         return 0
     end
 
+    if (target:isUndead()) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return dmg
+    end
+
 	-- add correlation bonus
 	if bird then
 	 	dmg = dmg * 1.25
