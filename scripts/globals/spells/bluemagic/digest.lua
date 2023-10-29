@@ -61,7 +61,7 @@ function onSpellCast(caster, target, spell)
 
     if (target:isUndead()) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return dmg
+        return 0
     end
 
     if (target:getHP() < dmg) then
