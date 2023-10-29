@@ -37,7 +37,6 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_DEFEATS_TARG			= 6, /* The <player> defeats <target>. */
 	MSGBASIC_ALREADY_CLAIMED		= 12, /* Cannot attack. Your target is already claimed. */
 	MSGBASIC_IS_INTERRUPTED			= 16, /* The <player>'s casting is interrupted. */
-    MSGBASIC_MAGIC_UNABLE_TO_CAST   = 17,  /* Unable to cast spells at this time. */
 	MSGBASIC_UNABLE_TO_CAST			= 18, /* Unable to cast spells at this time. */
     MSGBASIC_FALLS_TO_GROUND        = 20, /* The <target> falls to the ground. */
 	MSGBASIC_UNABLE_TO_USE_JA		= 87, /* Unable to use job ability. */

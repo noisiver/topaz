@@ -185,10 +185,6 @@ bool CMagicState::Update(time_point tick)
             m_PEntity->PAI->EventHandler.triggerListener("MAGIC_STATE_EXIT", m_PEntity, m_PSpell.get());
             return true;
         }
-        else
-        {
-            m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, static_cast<uint16>(m_PSpell->getID()), 0, MSGBASIC_MAGIC_UNABLE_TO_CAST);
-        }
     }
     return false;
 }
