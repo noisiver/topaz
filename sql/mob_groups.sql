@@ -7748,7 +7748,7 @@ INSERT INTO `mob_groups` VALUES (38,3464,106,'Sapphirine_Quadav',0,128,0,0,0,20,
 INSERT INTO `mob_groups` VALUES (39,2383,106,'Lead_Quadav',0,128,0,0,0,25,25,0);
 INSERT INTO `mob_groups` VALUES (40,3148,106,'Pixie',0,128,2001,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (41,936,106,'Deathly_Stinger',1,0,0,0,0,1,1,0);
-INSERT INTO `mob_groups` VALUES (42,4687,106,'Sallow_Seymour',0,128,0,0,9999,100,101,0);
+INSERT INTO `mob_groups` VALUES (42,4687,106,'Sallow_Seymour',0,128,0,0,9999,95,95,0);
 INSERT INTO `mob_groups` VALUES (43,579,106,'Bull_[Herd1]',1,0,0,0,0,12,12,0);
 INSERT INTO `mob_groups` VALUES (44,821,106,'Cow_[Herd1]',1,0,0,0,0,11,11,0);
 INSERT INTO `mob_groups` VALUES (45,611,106,'Calf_[Herd1]',1,0,0,0,0,10,10,0);
@@ -12641,7 +12641,7 @@ INSERT INTO `mob_groups` VALUES (40,70,190,'Airi',0,128,0,0,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (41,799,190,'Corrupted_Yorgos',0,128,0,7250,0,64,64,0);
 INSERT INTO `mob_groups` VALUES (42,797,190,'Corrupted_Soffeil',0,128,0,0,0,63,63,0);
 INSERT INTO `mob_groups` VALUES (43,798,190,'Corrupted_Ulbrig',0,128,0,0,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (44,5164,190,'Hahava',0,128,0,0,9999,94,95,0);
+INSERT INTO `mob_groups` VALUES (44,5164,190,'Hahava',0,128,0,0,9999,100,100,0);
 INSERT INTO `mob_groups` VALUES (45,6543,190,'Enchanted_Bones',330,1,769,0,0,4,8,0);
 INSERT INTO `mob_groups` VALUES (46,6563,190,'Nachzehrer',330,0,1771,0,0,15,18,0);
 
