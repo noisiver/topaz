@@ -426,7 +426,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
 
     -- Handle correlation bonus
-    dmg = BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
+    finaldmg = BlueHandleCorrelationDamage(caster, target, spell, finaldmg, correlation)
 
     -- Handle Positional PDT
     if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
