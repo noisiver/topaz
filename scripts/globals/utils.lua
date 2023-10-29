@@ -886,8 +886,8 @@ function utils.getDropRate(mob, base)
     end
 
     local dropChance = dropRateBase[baseRate][th]
-    --printf("Base drop rate %s", baseRate)
-    --printf("Drop chance: %s", dropChance)
+    -- printf("Base drop rate %s", baseRate)
+    -- printf("Drop chance: %s", dropChance)
     return dropChance
 end
 
