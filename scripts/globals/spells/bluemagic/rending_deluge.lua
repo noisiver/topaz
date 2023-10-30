@@ -46,7 +46,7 @@ function onSpellCast(caster, target, spell)
     local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 175)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 175)
     local resist = applyResistanceEffect(caster, target, spell, params)
     if (resist >= 0.5) then
         target:dispelStatusEffect()

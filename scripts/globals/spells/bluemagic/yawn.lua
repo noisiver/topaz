@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.LULLABY
     params.eco = ECO_BIRD
-    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 25)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 25)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 90
 

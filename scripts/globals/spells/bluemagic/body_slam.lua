@@ -53,7 +53,7 @@ function onSpellCast(caster, target, spell)
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 0)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 0)
     params.effect = tpz.effect.ATTACK_DOWN
     BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 

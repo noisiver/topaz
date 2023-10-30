@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.SLEEP_I
     params.eco = ECO_PLANTOID
-    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 0)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 0)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 90
 

@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.eco = ECO_LUMINION
-    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 256)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 256)
     params.effect = tpz.effect.FLASH
     
     local resist = applyResistanceEffect(caster, target, spell, params)
