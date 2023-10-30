@@ -815,12 +815,8 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     if (dmg > 0) then
         --handling phalanx
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        dmg = utils.clamp(dmg, 0, 99999)
     end
-
-    if (dmg < 0) then
-        return 0
-    end
-
 
     --printf("dmg before %u",dmg)
     --handling absorb
@@ -830,7 +826,14 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
             dmg = adjustForTarget(target, dmg, element)
         end
     end
+
+    --handling magic stoneskin / stoneskin
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
+        dmg = utils.rampartstoneskin(target, dmg)
+    end
+    dmg = utils.stoneskin(target, dmg)
     dmg = utils.clamp(dmg, -99999, 99999)
+
     -- Add HP if absorbed
     if (dmg < 0) then
         -- Multiply damage so it outheals the damage it does in the skills lua file
@@ -843,11 +846,6 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return dmg
     end
 
-    --handling magic stoneskin / stoneskin
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
-        dmg = utils.rampartstoneskin(target, dmg)
-    end
-    dmg = utils.stoneskin(target, dmg)
     --printf("dmg after %u",dmg)
     if (dmg > 0) then
         local tpAdded = math.floor((25 * (100 + target:getMod(tpz.mod.STORETP))) / 100)
