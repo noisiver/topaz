@@ -10,17 +10,17 @@ g_mixins.families = g_mixins.families or {}
 -- and will unclose after 80 seconds.					
 
 function CheckForm(mob)
-    if mob:AnimationSub() == 4 then
+    if mob:AnimationSub() == 4 then -- Petal
         PetalMods(mob)
-    elseif mob:AnimationSub() == 6 then
+    elseif mob:AnimationSub() == 6 then -- Bloomed
         BloomedMods(mob)
     end
 end
 
 function CheckFormRoaming(mob)
-    if mob:AnimationSub() == 4 then
+    if mob:AnimationSub() == 4 then -- Petal
         PetalRoamMods(mob)
-    elseif mob:AnimationSub() == 6 then
+    elseif mob:AnimationSub() == 6 then -- Bloomed
         BloomedRoamMods(mob)
     end
 end
@@ -83,7 +83,9 @@ g_mixins.families.euvhi = function(mob)
     end)
 
     mob:addListener("ENGAGE", "EUVHI_ENGAGE", function(mob, target)
-        CheckForm(mob)
+        if mob:AnimationSub() == 4 then -- Petal
+            PetalMods(mob)
+        end
         mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     end)
 
@@ -97,7 +99,7 @@ g_mixins.families.euvhi = function(mob)
         -- Only track damage taken while open(bloomed)
         if (animationSub ~= 4) then
             mob:setLocalVar("damageTaken", mob:getLocalVar("damageTaken") + damage)
-            if(damageTaken >= 350) then  -- Goes into petal form after taking 350 damage
+            if (damageTaken >= 350) then  -- Goes into petal form after taking 350 damage
                 petal_form(mob)
             end
         end
