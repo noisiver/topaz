@@ -197,8 +197,8 @@ INSERT INTO `status_effects` VALUES (151,'arrow_shield',545,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (152,'magic_shield',553,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (153,'damage_spikes',41,34,0,0,0,0,0,0,800);
 INSERT INTO `status_effects` VALUES (154,'shining_ruby',553,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (155,'medicine',0,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (156,'flash',8405026,0,0,1,0,0,7,0,0);
+INSERT INTO `status_effects` VALUES (155,'medicine',0,0,0,0,0,0,0,0,1);
+INSERT INTO `status_effects` VALUES (156,'flash',8405026,0,0,1,0,0,7,0,1);
 INSERT INTO `status_effects` VALUES (157,'sj_restriction',8388864,0,0,0,0,0,0,0,0);
 -- Ballista
 INSERT INTO `status_effects` VALUES (158,'provoke',32,0,0,0,0,0,0,0,0); -- force target
