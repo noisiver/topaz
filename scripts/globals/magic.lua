@@ -1782,6 +1782,9 @@ function canOverwrite(target, effect, power, mod)
     return true
 end
 
+-- Immunobreak
+-- 20->30, 30->40, 40->50 (no more immunobreaks from there)
+
 function getElementalSDT(element, target) -- takes into account if magic burst window is open -> increase tier by 1
     if target:isPC() then
         return 100
