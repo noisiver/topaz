@@ -902,6 +902,10 @@ function BLUGetMaccTPModifier(tp)
     return (10+ ((tp - 1000) * 0.010)) -- 10, 20, 30
 end
 
+function BLUGetEnfeebleDurationTPModifier(tp)
+    return 15 + (math.max(tp - 1000, 0) * 0.015) -- 15, 30, 45
+end
+
 
 function BluefSTR(dSTR)
     local fSTR = 0
@@ -1023,6 +1027,7 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     local effect = params.effect
     local skill = spell:getSkillType()
     local spellGroup = spell:getSpellGroup()
+    local tp = caster:getTP()
 
     -- Check for immunity
     for i,statusEffect in pairs(immunities) do
@@ -1047,6 +1052,11 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     -- Calculate duration bonuses
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
 
+    -- Apply TP duration mod
+    if (params.tpmod = TPMOD_DURATION) then
+        finalDuration = math.floor(finalDuration * BLUGetEnfeebleDurationTPModifier(tp))
+    end
+
     local maccBonus = 0
     -- Add Correlation Bonus
     if (params.bonus ~= nil) then
@@ -1054,7 +1064,6 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     end
 
     -- Add "Chance of effect varies with TP" mod
-    local tp = caster:getTP()
     if (params.tpmod == TPMOD_MACC) then
         if (maccBonus ~= nil) then 
             maccBonus = maccBonus + math.floor(BLUGetMaccTPModifier(tp))
