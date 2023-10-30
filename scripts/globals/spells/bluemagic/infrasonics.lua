@@ -28,26 +28,15 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.EVASION_DOWN
-    local resist = applyResistanceEffect(caster, target, spell, params)
+    params.eco = ECO_LIZARD
     local power = 20
-	local vermin = (target:getSystem() == 20)
-	local beast = (target:getSystem() == 6)
-
-	if vermin then
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif beast then
-		params.bonus = -25
-	end
 
 
-    typeEffect = tpz.effect.EVASION_DOWN
-
-    if target:hasStatusEffect(typeEffect) then
+    if target:hasStatusEffect(perams.effect) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return typeEffect
+        return perams.effect
     end
 
-    params.effect = typeEffect
     if BlueTryEnfeeble(caster, target, spell, 1, power, 0, 180, params) then
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else

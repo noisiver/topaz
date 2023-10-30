@@ -25,11 +25,12 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
+    params.eco = ECO_BEAST
+    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 0)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local stolen = 0
 
-    if resist >= 0.5 then
+    if (resist >= 0.5) then
         stolen = caster:stealStatusEffect(target)
         if stolen ~= 0 then
             spell:setMsg(tpz.msg.basic.MAGIC_STEAL)

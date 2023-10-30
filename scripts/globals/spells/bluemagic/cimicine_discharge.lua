@@ -31,8 +31,9 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
-    params.effect = nil
+    params.effect = tpz.effect.SLOW
+    params.eco = ECO_VERMIN
+    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 10)
     local resist = applyResistanceEffect(caster, target, spell, params)
 
     if resist < 0.5 then

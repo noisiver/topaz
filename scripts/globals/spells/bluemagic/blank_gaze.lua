@@ -27,19 +27,12 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 50
+    params.effect = tpz.effect.NONE
+    params.eco = ECO_BEAST
+    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 175)
 
     local effect = tpz.effect.NONE
     local resist = applyResistanceEffect(caster, target, spell, params)
-	local lizard = (target:getSystem() == 14)
-	local plantoid = (target:getSystem() == 17)
-	-- add correlation bonus
-	if lizard then
-		params.bonus = 75
-	elseif plantoid then
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	end
-
     if (resist >= 0.50) then
         spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
         effect = target:dispelStatusEffect()

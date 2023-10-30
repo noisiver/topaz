@@ -23,39 +23,25 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.INT_DOWN
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.INT_DOWN
-    local resist = applyResistanceEffect(caster, target, spell, params)
-    local duration = 90 * resist
-	local level = (caster:getMainLvl()  / 5)
-	local power = level 
-	local aquan = (target:getSystem() == 2)
-	local amorph = (target:getSystem() == 1)
-	
-	if aquan then
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif amorph then
-		params.bonus = -25
-	end
+    params.eco = ECO_BIRD
+	local power = (caster:getMainLvl()  / 5)
 
-    typeEffect = tpz.effect.INT_DOWN
-
-    if target:hasStatusEffect(typeEffect) then
+    if target:hasStatusEffect(params.effect) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return typeEffect
+        return params.effect
     end
 
-    params.effect = typeEffect
     if BlueTryEnfeeble(caster, target, spell, 1, power, 3, 180, params) then
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
-    return typeEffect
+    return params.effect
 end
 

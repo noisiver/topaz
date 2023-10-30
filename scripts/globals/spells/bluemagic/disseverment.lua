@@ -28,7 +28,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local resist = applyResistanceEffect(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_ACC
     params.attackType = tpz.attackType.PHYSICAL
@@ -47,21 +46,15 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_LUMINIAN
     params.AccTPModifier = true
 	params.attkbonus = 0.9
     params.shadowbehav = BLUPARAM_5_SHADOW
     damage = BluePhysicalSpell(caster, target, spell, params)
-    local luminions = (target:getSystem() == 16)
-	
-	if luminions then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     
     params.effect = tpz.effect.POISON
-    local lvl = caster:getMainLvl() 
-	local power = (lvl / 3) + 5 
+	local power = (caster:getMainLvl() / 5) + 3 
     BlueTryEnfeeble(caster, target, spell, damage, power, 3, 180, params)
 
     return damage

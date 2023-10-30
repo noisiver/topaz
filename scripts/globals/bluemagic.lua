@@ -65,7 +65,7 @@ ECO_ARCANA = 9
 ECO_DRAGON = 10
 ECO_DEMON = 11
 
-ECO_LUMORIAN = 12
+ECO_LUMINIAN = 12
 ECO_LUMINION = 13
 
 ECO_NONE = 0 -- beastmen or other ecosystems that have no strength/weaknesses
@@ -1047,10 +1047,17 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     -- Calculate duration bonuses
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
 
+    local maccBonus = 0
+    -- Add Correlation Bonus
+    if (params.bonus ~= nil) then
+        maccBonus = BlueHandleCorrelationMACC(caster, target, spell, params.bonus)
+    end
+
+    -- Add "Chance of effect varies with TP" mod
     local tp = caster:getTP()
     if (params.tpmod == TPMOD_MACC) then
-        if (params.bonus ~= nil) then 
-            params.bonus = params.bonus + math.floor(BLUGetMaccTPModifier(tp))
+        if (maccBonus ~= nil) then 
+            maccBonus = maccBonus + math.floor(BLUGetMaccTPModifier(tp))
         end
     end
 
@@ -1237,13 +1244,31 @@ function BlueGetWeatherDayBonus(caster, element)
 end
 
 function BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
-    if correlation > 0 then
+    if (correlation > 0) then
         dmg = math.floor(dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100))
-    elseif correlation < 0 then
+    elseif (correlation < 0) then
         dmg = math.floor(dmg * 0.75)
     end
 
     return dmg
+end
+
+function BlueHandleCorrelationMACC(caster, target, spell, bonus, correlation)
+    local bonusMACC = bonus
+
+    -- Figure out correlation if not provided as an arg
+    if (correlation == nil) and target:isMob() then
+        correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
+    end
+
+    local gearMeritBonus = caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    if (correlation > 0) then
+        bonusMACC = bonusMACC + 25 + gearMeritBonus
+    elseif (correlation < 0) then
+        bonusMACC = bonusMACC - 25
+    end
+
+    return bonusMACC
 end
 
 

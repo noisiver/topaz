@@ -28,18 +28,11 @@ function onSpellCast(caster, target, spell)
     params.diff = dMND
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
     params.effect = tpz.effect.LULLABY
+    params.eco = ECO_BEAST
+    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 0)
     local resist = applyResistanceEffect(caster, target, spell, params)
-	local lizard = (target:getSystem() == 14)
-	local plantoid = (target:getSystem() == 17)
-	-- add correlation bonus
-	if lizard then
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif plantoid then
-		params.bonus = -25
-	end
-    local duration = 60 * resist
+    local duration = 60
 
     -- Can't overwrite any sleep
     if hasSleepT1Effect(target) then

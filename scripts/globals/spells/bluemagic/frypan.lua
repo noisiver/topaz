@@ -49,6 +49,8 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.2
     params.chr_wsc = 0.0
     params.AccTPModifier = true
+    params.shadowbehav = BLUPARAM_WIPE_SHADOWS
+
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

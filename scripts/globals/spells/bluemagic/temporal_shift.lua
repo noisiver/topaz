@@ -29,8 +29,9 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 200
     params.effect = tpz.effect.STUN
+    params.eco = ECO_LUMINIAN
+    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 200)
     local resist = applyResistanceEffect(caster, target, spell, params)
 
     -- Stun can't be applied if target is already stunned

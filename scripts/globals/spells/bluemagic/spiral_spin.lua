@@ -29,7 +29,6 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.ACCURACY_DOWN
-    local resist = applyResistanceEffect(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_CRITICAL
     params.attackType = tpz.attackType.RANGED
@@ -48,23 +47,13 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_VERMIN
 	params.attkbonus = 1.5
     params.CritTPModifier = true
     params.shadowbehav = BLUPARAM_IGNORE_SHADOWS
     damage = BluePhysicalSpell(caster, target, spell, params)
-	local plantoid = (target:getSystem() == 17)
-	local lizard = (target:getSystem() == 14)
-	
-	if plantoid then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif lizard then
-		damage = damage * 0.75
-		params.bonus = -25
-	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.effect = tpz.effect.ACCURACY_DOWN
     BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 
     return damage

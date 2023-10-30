@@ -29,13 +29,9 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 30
     params.effect = tpz.effect.FROST
-
-    if (target:isUndead()) then
-        params.bonus = 55
-    end
-
+    params.eco = ECO_ARCANA
+    params.bonus =  BlueHandleCorrelationMACC(caster, target, spell, 0)
     local resist = applyResistanceEffect(caster, target, spell, params)
 
     if (target:getStatusEffect(tpz.effect.BURN) ~= nil) then

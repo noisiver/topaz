@@ -45,6 +45,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.shadowbehav = BLUPARAM_WIPE_SHADOWS
 
     target:delStatusEffectSilent(tpz.effect.COPY_IMAGE)
     target:delStatusEffectSilent(tpz.effect.BLINK)
