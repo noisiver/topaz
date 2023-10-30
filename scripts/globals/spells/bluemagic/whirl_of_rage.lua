@@ -48,6 +48,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.3
     params.chr_wsc = 0.0
     params.eco = ECO_ARCANA
+    params.shadowbehav = BLUPARAM_WIPE_SHADOWS
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
