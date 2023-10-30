@@ -9,27 +9,19 @@ PathThrough no longer works? The lua binding, check LSB's or Wings since we chan
 More mobs by Judicator Demon in Ule range
 Lvl 72-75 and lvl 81-83 bugards
 Mob Berserk should stack like Amplification / Memento Mori
-AOE enfeebles are 15 yalms
 
-Final Sting healed the mob with phalanx on me need to fix the <0 dmg and 2x dmg and absorb functions..look at how magic.lua does it or something idk its a disaster
-maybe check if target has an absorb mod or something for healing but I think absorb is now handled in  C++ so dont need it anymore?
+Curaga action packet msgs:
+https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
 
 
-Vampyr 20% EEM blind
-!setdelay and !setdmg gm command
-Taking "distortions" in Garden of Ru'Hmet should deaggro mobs
-More content that forces bad jobs(like not allowing RMD somehow)
-Ghrah constantly change form on pull?
+More content that forces bad jobs(like not allowing RDM somehow)
 Add more Mamools to Mamook
-mamool ja's have high def? shouldn't it be EVA?
-
 
 BLU:
 Give BLU Fencer I - IV
 Audit BLU traits like Max HP / Def Boost / EVA bonus amount of "points" they give, maybe make 8-12 for most
 Jettuara longer duration(full on NMs) but make it apply a var that's os.time() + var and always resist if os.time() < var
 Restoral..and prob all spoells after triumphant_roar cast time(get from DAT)
-BLU TPMOD_MACC_VARIES for stuff like Seedspray(Does one exist?)
 SC properties to new BLU spells(goblin rush first)
 Prot V and Shell V move (Unbridled Learning)
 Harden Shell Guard, Shield Block rate, Parry Rate boost effect
@@ -40,12 +32,7 @@ can learn Firespit from wrong mamool type, maybe wrong spelLID or something? sho
 
 
 
-
 DATS
-Azure Lore dmsg 
-Light of Penance dmsg
-Seedspray cast time, should be same as frenetic rip etc
-Awful Eye dmsg, also attack down
 Bretzel stack to 99
 
 
