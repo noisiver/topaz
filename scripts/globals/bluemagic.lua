@@ -11,6 +11,7 @@ TPMOD_DAMAGE = 2
 TPMOD_ACC = 3
 TPMOD_ATTACK = 4
 TPMOD_DURATION = 5
+TPMOD_MACC = 6
 
 --shadowbehav (number of shadows to take off)
 BLUPARAM_IGNORE_SHADOWS = 0
@@ -897,6 +898,10 @@ function BLUGetAccTPModifier(tp)
   return (20+ ((tp - 1000) * 0.010))
 end
 
+function BLUGetMaccTPModifier(tp)
+    return (10+ ((tp - 1000) * 0.010)) -- 10, 20, 30
+end
+
 
 function BluefSTR(dSTR)
     local fSTR = 0
@@ -946,7 +951,7 @@ end
 
 function BlueGetHitRate(attacker, target, capHitRate, params)
     local AccTPBonus = 0
-	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
+	local tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
 		if params.AccTPModifier then --Check if "Accuracy varies with TP"
 			AccTPBonus = BLUGetAccTPModifier(caster:getTP()) 
@@ -1041,6 +1046,13 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
 
     -- Calculate duration bonuses
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
+
+    local tp = caster:getTP()
+    if (params.tpmod == TPMOD_MACC) then
+        if (params.bonus ~= nil) then 
+            params.bonus = params.bonus + math.floor(BLUGetMaccTPModifier(tp))
+        end
+    end
 
     local resist = applyResistanceEffect(caster, target, spell, params)
     -- Check for resist trait proc

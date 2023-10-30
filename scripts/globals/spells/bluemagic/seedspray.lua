@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Seedspray
--- Delivers a threefold attack. Additional effect: Weakens defense. Daamge varies with TP.
+-- Delivers a threefold attack. Additional effect: Weakens defense. Chance of effect varies with TP.
 -- Spell cost: 61 MP
 -- Monster Type: Plantoids
 -- Spell Type: Physical (Ranged)
@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.tpmod = TPMOD_ACC
+    params.tpmod = TPMOD_MACC
     params.attackType = tpz.attackType.RANGED
     params.damageType = tpz.damageType.RANGED
     params.scattr = SC_GRAVITATION
