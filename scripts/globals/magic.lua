@@ -1291,8 +1291,11 @@ function calculateMagicBurst(caster, spell, target, params)
     local skillchainburst = 1.0
     local modburst = 1.0
 
-    if (spell:getSpellGroup() == 3 and not caster:hasStatusEffect(tpz.effect.BURST_AFFINITY)) then
-        return burst
+    -- Magic Burst BLU spells if Azure Lore or Burst AFfinity is active
+    if (spell:getSpellGroup() == 3) then
+        if not caster:hasStatusEffect(tpz.effect.BURST_AFFINITY) or not caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+            return burst
+        end
     end
 
     -- Obtain first multiplier from gear, atma and job traits
