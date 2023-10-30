@@ -306,6 +306,12 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
             {
                 mobHP = (baseMobHP + sjHP) * .95;
             }
+            // Trolls, Mamools and Lamia / Merrow get 10% more HP
+            else if (PMob->m_Family == 171 || PMob->m_Family == 176 || PMob->m_Family == 177 || PMob->m_Family == 182 || PMob->m_Family == 246 ||
+                     PMob->m_Family == 591)
+            {
+                mobHP = (baseMobHP + sjHP) * 1.10;
+            }
             // Manticore family has 50% more HP
             else if (PMob->m_Family == 179)
             {
