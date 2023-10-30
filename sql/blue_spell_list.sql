@@ -113,11 +113,11 @@ INSERT INTO `blue_spell_list` VALUES ('626','591','3','0','1','0','0'); -- Bomb 
 INSERT INTO `blue_spell_list` VALUES ('628','1081','3','15','3','8','0'); -- Frypan
 INSERT INTO `blue_spell_list` VALUES ('629','360','3','15','3','0','0'); -- Flying Hip Press
 INSERT INTO `blue_spell_list` VALUES ('631','777','3','25','1','5','0'); -- Hydro Shot DW +4
-INSERT INTO `blue_spell_list` VALUES ('632','1744','3','31','1','0','0'); -- Diamondhide
+INSERT INTO `blue_spell_list` VALUES ('632','1897','3','31','1','0','0'); -- Diamondhide
 INSERT INTO `blue_spell_list` VALUES ('633','1745','5','21','1','0','0'); -- Enervation
 INSERT INTO `blue_spell_list` VALUES ('634','785','5','14','2','0','0'); -- Light of Penance
 INSERT INTO `blue_spell_list` VALUES ('636','1734','4','4','1','0','0'); -- Warm-Up
-INSERT INTO `blue_spell_list` VALUES ('637','1733','5','17','1','0','0'); -- Firespit
+INSERT INTO `blue_spell_list` VALUES ('637','1923','5','17','1','0','0'); -- Firespit
 INSERT INTO `blue_spell_list` VALUES ('638','617','3','25','1','1','0'); -- Feather Storm DW +4
 INSERT INTO `blue_spell_list` VALUES ('640','1771','4','20','1','5','0'); -- Tail Slap
 INSERT INTO `blue_spell_list` VALUES ('641','1753','5','18','1','6','0'); -- Hysteric Barrage
