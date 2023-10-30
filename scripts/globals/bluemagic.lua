@@ -648,6 +648,9 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
         target:updateEnmityFromDamage(caster, dmg)
     end
+    if (params.bonus ~= nil) then
+        params.bonus = 0
+    end
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
@@ -882,8 +885,8 @@ function BluefTP(tp, ftp1, ftp2, ftp3)
     return 1 -- no ftp mod
 end
 
-function BLUGetTPModifier(tp)
-  return 1.0 + (tp / 3000);
+function BLUGetEnfeebDurationModifier(tp)
+  return 1.0 + (tp / 3000); -- 33% / 66% / 99%
 end
 
 function BLUGetAttkTPModifier(tp)
@@ -901,11 +904,6 @@ end
 function BLUGetMaccTPModifier(tp)
     return (10+ ((tp - 1000) * 0.010)) -- 10, 20, 30
 end
-
-function BLUGetEnfeebleDurationTPModifier(tp)
-    return 15 + (math.max(tp - 1000, 0) * 0.015) -- 15, 30, 45
-end
-
 
 function BluefSTR(dSTR)
     local fSTR = 0
@@ -1027,7 +1025,6 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     local effect = params.effect
     local skill = spell:getSkillType()
     local spellGroup = spell:getSpellGroup()
-    local tp = caster:getTP()
 
     -- Check for immunity
     for i,statusEffect in pairs(immunities) do
@@ -1049,28 +1046,42 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     local enfeeblingPotency = 1 + (caster:getMod(tpz.mod.ENF_MAG_POTENCY) / 100)
     power = math.floor(power * enfeeblingPotency)
 
+    local tp = caster:getTP()
+    if caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+        tp = 3000
+    end
+
     -- Calculate duration bonuses
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
 
     -- Apply TP duration mod
-    if (params.tpmod = TPMOD_DURATION) then
-        finalDuration = math.floor(finalDuration * BLUGetEnfeebleDurationTPModifier(tp))
+    if (params.tpmod == TPMOD_DURATION) then
+        if caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY) or caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+            finalDuration = math.floor(finalDuration * BLUGetEnfeebDurationModifier(tp))
+        end
     end
 
     local maccBonus = 0
     -- Add Correlation Bonus
     if (params.bonus ~= nil) then
-        maccBonus = BlueHandleCorrelationMACC(caster, target, spell, params.bonus)
+        maccBonus = BlueHandleCorrelationMACC(caster, target, spell, params, params.bonus)
     end
 
     -- Add "Chance of effect varies with TP" mod
     if (params.tpmod == TPMOD_MACC) then
-        if (maccBonus ~= nil) then 
-            maccBonus = maccBonus + math.floor(BLUGetMaccTPModifier(tp))
+        if (caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY) or caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+            if (maccBonus ~= nil) then 
+                maccBonus = maccBonus + math.floor(BLUGetMaccTPModifier(tp))
+            end
         end
     end
-
     local resist = applyResistanceEffect(caster, target, spell, params)
+
+    -- Reset param as a safety check after doing resist check
+    if (params.bonus ~= nil) then
+        params.bonus = 0
+    end
+
     -- Check for resist trait proc
     if (resist == 0) then
         return false
@@ -1099,6 +1110,11 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
       resist = 0
     end
 
+    local tp = caster:getTP()
+    if caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+        tp = 3000
+    end
+
     if (effect == tpz.effect.BIND) then
         duration = 30 * resist
     elseif (effect == tpz.effect.STUN) then
@@ -1121,7 +1137,7 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     end
 
     if (varieswithtp and caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY)) then
-        duration = duration * BLUGetTPModifier(caster:getTP())
+        duration = duration * BLUGetEnfeebDurationModifier(tp)
     end
 
     -- Calculate duration bonuses
@@ -1262,7 +1278,7 @@ function BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
     return dmg
 end
 
-function BlueHandleCorrelationMACC(caster, target, spell, bonus, correlation)
+function BlueHandleCorrelationMACC(caster, target, spell, params, bonus, correlation)
     local bonusMACC = bonus
 
     -- Figure out correlation if not provided as an arg

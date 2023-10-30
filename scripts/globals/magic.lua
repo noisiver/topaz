@@ -1293,7 +1293,7 @@ function calculateMagicBurst(caster, spell, target, params)
 
     -- Magic Burst BLU spells if Azure Lore or Burst AFfinity is active
     if (spell:getSpellGroup() == 3) then
-        if not caster:hasStatusEffect(tpz.effect.BURST_AFFINITY) or not caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+        if not caster:hasStatusEffect(tpz.effect.BURST_AFFINITY) and not caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
             return burst
         end
     end

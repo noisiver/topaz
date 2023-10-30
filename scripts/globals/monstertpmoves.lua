@@ -1172,7 +1172,7 @@ function MobHasteOverwriteSlowMove(mob, target, power, tick, duration, subid, su
 
     local typeEffect = tpz.effect.SLOW
 
-    if target:canGainStatusEffect(typeEffect, power) then
+    if not target:hasImmunity(tpz.immunity.SLOW) then
         local statmod = tpz.mod.INT
         local dStat = mob:getStat(statmod)-target:getStat(statmod)
         local element = mob:getStatusEffectElement(typeEffect)

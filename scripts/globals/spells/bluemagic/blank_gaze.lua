@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.NONE
     params.eco = ECO_BEAST
-    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 175)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 175)
 
     local effect = tpz.effect.NONE
     local resist = applyResistanceEffect(caster, target, spell, params)

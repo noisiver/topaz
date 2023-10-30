@@ -52,7 +52,7 @@ function onSpellCast(caster, target, spell)
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 25)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 25)
     local resist = applyResistanceEffect(caster, target, spell, params)
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.25) and not target:hasStatusEffect(tpz.effect.STUN) then
         target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, params.effect, false))

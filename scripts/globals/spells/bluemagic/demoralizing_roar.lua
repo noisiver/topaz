@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.ATTACK_DOWN
     params.eco = ECO_LIZARD
-    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 25)
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 25)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local power = 20
 
