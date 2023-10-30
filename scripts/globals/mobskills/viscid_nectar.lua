@@ -18,11 +18,7 @@ return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.SLOW
-    local params = {}
-    target:delStatusEffectSilent(tpz.effect.HASTE)
-
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10000, 0, 300, params))
+    skill:setMsg(MobHasteOverwriteSlowMove(mob, target, 10000, 0, 90, 0, 0, 2))
 
     return typeEffect
 end

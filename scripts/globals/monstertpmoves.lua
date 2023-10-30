@@ -1049,9 +1049,7 @@ function MobDrainStatusEffectMove(mob, target)
 end
 
 -- Adds a status effect to a target
-function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, params)
-
-    local params = {}
+function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    return tpz.msg.basic.SKILL_NO_EFFECT
@@ -1097,7 +1095,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, par
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteHaste == nil) then
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE)) then
                 return tpz.msg.basic.SKILL_NO_EFFECT
             end
 
@@ -1112,7 +1110,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, par
 end
 
 -- Adds a status effect to a target with customizable duration and subpower
-function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier, params)
+function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    return tpz.msg.basic.SKILL_NO_EFFECT
@@ -1151,10 +1149,48 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteHaste == nil) then
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE)) then
                 return tpz.msg.basic.SKILL_NO_EFFECT
             end
 
+            target:addStatusEffect(typeEffect, power, tick, totalDuration, subid, subpower, tier)
+
+            return tpz.msg.basic.SKILL_ENFEEB_IS
+        end
+
+        return tpz.msg.basic.SKILL_NO_EFFECT
+    end
+    return tpz.msg.basic.SKILL_NO_EFFECT 
+end
+
+-- Used for Slows that overwrite Haste
+function MobHasteOverwriteSlowMove(mob, target, power, tick, duration, subid, subpower, tier)
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+	    return tpz.msg.basic.SKILL_NO_EFFECT
+    end
+
+    local typeEffect = tpz.effect.SLOW
+
+    if target:canGainStatusEffect(typeEffect, power) then
+        local statmod = tpz.mod.INT
+        local dStat = mob:getStat(statmod)-target:getStat(statmod)
+        local element = mob:getStatusEffectElement(typeEffect)
+        local bonus = math.floor(mob:getMainLvl() / 2)
+
+        local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
+
+        target:addEnmity(mob, 1, 320)
+
+        if (resist >= 0.50) then
+
+            -- Reduce duration by resist percentage
+            local totalDuration = duration * resist
+
+            -- add TP scaling
+            local tp = mob:getLocalVar("tp")
+
+            target:delStatusEffectSilent(tpz.effect.HASTE)
             target:addStatusEffect(typeEffect, power, tick, totalDuration, subid, subpower, tier)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
