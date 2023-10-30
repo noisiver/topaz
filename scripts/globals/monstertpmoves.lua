@@ -1095,7 +1095,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE)) then
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) then
                 return tpz.msg.basic.SKILL_NO_EFFECT
             end
 
@@ -1149,7 +1149,7 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE)) then
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) then
                 return tpz.msg.basic.SKILL_NO_EFFECT
             end
 
