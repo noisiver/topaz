@@ -18,6 +18,7 @@ More content that forces bad jobs(like not allowing RDM somehow)
 Add more Mamools to Mamook
 
 BLU:
+Dark Orb has no file
 Give BLU Fencer I - IV
 Audit BLU traits like Max HP / Def Boost / EVA bonus amount of "points" they give, maybe make 8-12 for most
 Jettuara longer duration(full on NMs) but make it apply a var that's os.time() + var and always resist if os.time() < var
@@ -33,7 +34,7 @@ can learn Firespit from wrong mamool type, maybe wrong spelLID or something? sho
 
 
 DATS
-Bretzel stack to 99
+
 
 
 
