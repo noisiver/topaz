@@ -809,9 +809,16 @@ void CMobController::DoCombatTick(time_point tick)
     }
 
     // Deaggro players in cutscenes
-    if (PTarget->status == STATUS_CUTSCENE_ONLY)
+    if (PTarget != nullptr && PTarget->status == STATUS_CUTSCENE_ONLY)
     {
-        DeaggroAll();
+        DeaggroEntity(PTarget);
+        return;
+    }
+
+    // Deaggro players zoning
+    if (PTarget != nullptr && PTarget->status == STATUS_DISAPPEAR)
+    {
+        DeaggroEntity(PTarget);
         return;
     }
 
