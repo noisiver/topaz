@@ -811,12 +811,16 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return 0
     end
 
+    -- Not being absorbed
+    if (dmg > 0) then
+        --handling phalanx
+        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+    end
+
     if (dmg < 0) then
         return 0
     end
 
-    --handling phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     --printf("dmg before %u",dmg)
     --handling absorb
