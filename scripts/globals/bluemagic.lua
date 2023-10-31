@@ -1154,24 +1154,26 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
 end
 
 function GetTargetEcosystem(target)
-	local sys = target:getSystem()
+    if target:isMob() then
+	    local sys = target:getSystem()
 
-    -- honestly just taking the topaz enum standard and converting it an easier enum standard
-    -- this makes it very easy to explain the strengths/weaknesses (in the next function)
+        -- honestly just taking the topaz enum standard and converting it an easier enum standard
+        -- this makes it very easy to explain the strengths/weaknesses (in the next function)
 
-	if sys == 6 then return 1
-	elseif sys == 14 then return 2
-	elseif sys == 20 then return 3
-	elseif sys == 17 then return 4
-	elseif sys == 2 then return 5
-	elseif sys == 1 then return 6
-	elseif sys == 8 then return 7
-	elseif sys == 19 then return 8
-	elseif sys == 3 then return 9
-	elseif sys == 10 then return 10
-	elseif sys == 9 then return 11
-	elseif sys == 15 then return 12
-	elseif sys == 16 then return 13 end
+	    if sys == 6 then return 1
+	    elseif sys == 14 then return 2
+	    elseif sys == 20 then return 3
+	    elseif sys == 17 then return 4
+	    elseif sys == 2 then return 5
+	    elseif sys == 1 then return 6
+	    elseif sys == 8 then return 7
+	    elseif sys == 19 then return 8
+	    elseif sys == 3 then return 9
+	    elseif sys == 10 then return 10
+	    elseif sys == 9 then return 11
+	    elseif sys == 15 then return 12
+	    elseif sys == 16 then return 13 end
+    end
 
 	return 0
 end
