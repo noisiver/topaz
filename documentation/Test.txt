@@ -1,0 +1,17 @@
+Euvhi shouldn't instantly close / open on pull
+Euvhi should only close after taking x dmg
+Euvhi should open after ~80s in combat
+
+Mobs deaggroing on zone (Ghrahs floor 2 Ruhmet)
+Mobs deaggroing ONLY player on CS
+
+Are BLU spells AoE around BLU or mob?
+
+
+
+
+Retail:
+Parrying packet
+Mob move missing packet
+X's knife BCNM
+WoE emp trading
