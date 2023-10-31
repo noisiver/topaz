@@ -10,9 +10,13 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    -- can only used if not blinded
+    -- Can only used if not Blinded
     if (mob:hasStatusEffect(tpz.effect.BLINDNESS) == false) then
         return 0
+    end
+    -- Don't reuse when eyes are already glowing
+    if os.time() < mob:getLocalVar("swapTimeGlower") then
+        return 1
     end
     return 1
 end
