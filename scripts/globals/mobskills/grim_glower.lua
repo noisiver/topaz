@@ -20,6 +20,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
 	mob:AnimationSub(1)
 	mob:setLocalVar("swapTimeGlower", os.time() + 30)
-
-    return 1
+    skill:setMsg(tpz.msg.basic.NONE)
+    return 0
 end

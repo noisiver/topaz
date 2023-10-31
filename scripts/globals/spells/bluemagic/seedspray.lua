@@ -45,23 +45,15 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_VERMIN
 	params.attkbonus = 0.9
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-	local beast = (target:getSystem() == 6)
-	local vermin = (target:getSystem() == 20)
-	
-	if beast then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif vermin then
-		damage = damage * 0.75
-		params.bonus = -25
-	end
-
 
     params.effect = tpz.effect.DEFENSE_DOWN
     BlueTryEnfeeble(caster, target, spell, damage, 8, 0, 180, params)
 
     return damage
+
+
 end

@@ -24,15 +24,15 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.BLINDNESS
     local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
+    local dMND = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
     local params = {}
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.eco = ECO_NONE
-    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, 0)
-    params.effect = typeEffect
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 0)
+    params.effect = tpz.effect.BLINDNESS
     
     local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 180
@@ -40,5 +40,12 @@ function onSpellCast(caster, target, spell)
 
     TryApplyEffect(caster, target, spell, params.effect, potency, 0, duration, resist, 0.5)
 
-    return typeEffect
+    params.diff = dMND
+    params.effect = tpz.effect.SILENCE
+    local resist = applyResistanceEffect(caster, target, spell, params)
+    local duration = 180
+    local potency = 1
+    TryApplyEffect(caster, target, spell, params.effect, potency, 0, duration, resist, 0.5)
+
+    return tpz.effect.BLINDNESS
 end

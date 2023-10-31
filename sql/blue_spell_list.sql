@@ -136,8 +136,8 @@ INSERT INTO `blue_spell_list` VALUES ('654','2436','4','22','1','12','0'); -- Su
 INSERT INTO `blue_spell_list` VALUES ('655','2423','3','31','1','0','0'); -- Triumphant Roar
 INSERT INTO `blue_spell_list` VALUES ('656','2562','3','24','1','0','0'); -- Acrid Stream
 INSERT INTO `blue_spell_list` VALUES ('657','2564','3','25','1','0','0'); -- Blazing Bound
-INSERT INTO `blue_spell_list` VALUES ('658','2173','4','0','1','0','0'); -- Plenilune Embrace
-INSERT INTO `blue_spell_list` VALUES ('658','2174','4','0','1','0','0'); -- Plenilune Embrace
+INSERT INTO `blue_spell_list` VALUES ('658','2173','4','0','1','0','0'); -- Plenilune Embrace (Standing)
+INSERT INTO `blue_spell_list` VALUES ('658','2174','4','0','1','0','0'); -- Plenilune Embrace (4 Legs)
 INSERT INTO `blue_spell_list` VALUES ('659','2101','4','24','1','0','0'); -- Demoralizing Roar
 INSERT INTO `blue_spell_list` VALUES ('660','2161','3','27','1','0','0'); -- Cimicine Discharge
 INSERT INTO `blue_spell_list` VALUES ('661','1782','5','25','1','0','0'); -- Animating Wail
