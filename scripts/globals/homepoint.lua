@@ -98,7 +98,7 @@ local HPs =
     [ 87] = {group = 0, fee = 2, dest = {      569,       0,     410, 192,  33}}, -- Al'Taieu #3
     [ 88] = {group = 0, fee = 2, dest = {      -12,       0,    -288, 192,  34}}, -- Grand Palace of Hu'Xzoi #1
     [ 89] = {group = 0, fee = 2, dest = {     -426,       0,     368, 224,  35}}, -- The Garden of Ru'Hmet #1
-    [ 90] = {group = 0, fee = 2, dest = { -540.844,  -4.000,  70.809,  74,  61}}, -- Mount Zhayolm #1
+    [ 90] = {group = 0, fee = 2, dest = { -533.000,  -4.099,  56.500,  74,  61}}, -- Mount Zhayolm #1
     [ 91] = {group = 0, fee = 2, dest = {     -303,      -8,     526,   0, 113}}, -- Cape Teriggan #1
     [ 92] = {group = 0, fee = 2, dest = {       88,     -15,    -217,   0, 153}}, -- The Boyahda Tree #1
     [ 93] = {group = 0, fee = 2, dest = {      182,      34,     -62, 223, 160}}, -- Den of Rancor #2
