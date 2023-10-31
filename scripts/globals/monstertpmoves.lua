@@ -218,9 +218,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local hitchance = math.random()
     local finaldmg = 0
     local hitsdone = 1
-    local bonusHits = 0
-    local quadRate = 0
-    local tripleRate = 0
     local hitslanded = 0
 
     local chance = math.random()
@@ -279,24 +276,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         finaldmg = finaldmg + hitdamage * pdif
         hitslanded = hitslanded + 1
     end
-    -- Check multihit(qa/ta/da)
-    local quadRate = mob:getMod(tpz.mod.QUAD_ATTACK) / 100
-    local tripleRate = mob:getMod(tpz.mod.TRIPLE_ATTACK) / 100
-    local doubleRate = mob:getMod(tpz.mod.DOUBLE_ATTACK) / 100
 
-    if math.random() < quadRate then
-        bonusHits = bonusHits + 3
-    elseif math.random() < tripleRate then
-        bonusHits = bonusHits + 2
-    elseif math.random() < doubleRate then
-        bonusHits = bonusHits + 1
-    end
-
-    -- Ranged attacks can't multihit
-    if (tpeffect==TP_RANGED) then bonusHits = 0 end
-
-    -- Add multi-hit procs
-    numberofhits = numberofhits + bonusHits
     -- Cap at 8 hits
     if numberofhits > 8 then numberofhits = 8 end
 
