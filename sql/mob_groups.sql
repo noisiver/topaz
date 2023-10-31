@@ -2624,7 +2624,7 @@ INSERT INTO `mob_groups` VALUES (15,2328,54,'Lamia_Dancer',300,0,1487,0,0,73,75,
 INSERT INTO `mob_groups` VALUES (16,2359,54,'Lamias_Elemental',0,128,0,0,0,71,71,0);
 INSERT INTO `mob_groups` VALUES (17,5194,54,'Reserve_Draugar',300,0,9056,0,5000,73,75,0);
 INSERT INTO `mob_groups` VALUES (18,1112,54,'Draugars_Wyvern',0,128,0,0,0,71,71,0);
-INSERT INTO `mob_groups` VALUES (19,2154,54,'Jnun',300,0,1408,0,0,77,80,0);
+INSERT INTO `mob_groups` VALUES (19,2154,54,'Jnun',300,0,1408,0,0,72,77,0); -- Needs a 2nd group
 INSERT INTO `mob_groups` VALUES (20,2890,54,'Nipper',300,0,93,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (21,2332,54,'Lamia_Fatedealer',300,0,1490,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (22,3294,54,'Qutrub',300,0,2885,0,0,73,75,0); -- BLM
