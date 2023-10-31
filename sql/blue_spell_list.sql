@@ -30,14 +30,14 @@ CREATE TABLE `blue_spell_list` (
 INSERT INTO `blue_spell_list` VALUES ('513','1572','3','4','1','0','0'); -- Venom Shell
 INSERT INTO `blue_spell_list` VALUES ('515','462','5','4','1','0','0'); -- Maelstrom
 INSERT INTO `blue_spell_list` VALUES ('517','448','1','30','1','0','0'); -- Metallic Body
-INSERT INTO `blue_spell_list` VALUES ('519','452','3','18','1','1','4'); -- Screwdriver
+INSERT INTO `blue_spell_list` VALUES ('519','452','3','18','2','1','4'); -- Screwdriver
 INSERT INTO `blue_spell_list` VALUES ('521','421','4','0','1','0','0'); -- MP Drainkiss
 INSERT INTO `blue_spell_list` VALUES ('522','437','2','27','1','0','0'); -- Death Ray
 INSERT INTO `blue_spell_list` VALUES ('524','426','2','0','1','0','0'); -- Sandspin
 INSERT INTO `blue_spell_list` VALUES ('527','513','3','7','1','6','0'); -- Smite of Rage
 INSERT INTO `blue_spell_list` VALUES ('529','683','2','7','1','3','0'); -- Bludgeon
 INSERT INTO `blue_spell_list` VALUES ('530','569','4','0','1','0','0'); -- Refueling
-INSERT INTO `blue_spell_list` VALUES ('531','676','3','13','1','0','0'); -- Ice Break
+INSERT INTO `blue_spell_list` VALUES ('531','676','3','13','2','0','0'); -- Ice Break
 INSERT INTO `blue_spell_list` VALUES ('532','535','4','0','1','0','0'); -- Blitzstrahl
 INSERT INTO `blue_spell_list` VALUES ('533','511','3','14','2','0','0'); -- Self-Destruct
 INSERT INTO `blue_spell_list` VALUES ('534','523','4','10','3','0','0'); -- Mysterious Light
@@ -57,12 +57,12 @@ INSERT INTO `blue_spell_list` VALUES ('548','364','3','4','1','0','0'); -- Filam
 INSERT INTO `blue_spell_list` VALUES ('549','335','1','5','1','0','0'); -- Pollen
 INSERT INTO `blue_spell_list` VALUES ('551','338','1','12','1','5','0'); -- Power Attack
 INSERT INTO `blue_spell_list` VALUES ('554','353','5','8','1','2','5'); -- Death Scissors
-INSERT INTO `blue_spell_list` VALUES ('555','791','3','13','1','0','0'); -- Magnetite Cloud
+INSERT INTO `blue_spell_list` VALUES ('555','791','3','13','2','0','0'); -- Magnetite Cloud
 INSERT INTO `blue_spell_list` VALUES ('557','549','4','6','1','0','0'); -- Eyes On Me
 INSERT INTO `blue_spell_list` VALUES ('560','1711','3','16','1','7','0'); -- Frenetic Rip
 INSERT INTO `blue_spell_list` VALUES ('561','501','3','14','2','0','0'); -- Frightful Roar
 INSERT INTO `blue_spell_list` VALUES ('563','560','3','10','3','0','0'); -- Hecatomb Wave
-INSERT INTO `blue_spell_list` VALUES ('564','645','4','15','1','8','0'); -- Body Slam
+INSERT INTO `blue_spell_list` VALUES ('564','645','4','15','3','8','0'); -- Body Slam
 INSERT INTO `blue_spell_list` VALUES ('565','821','4','0','1','0','0'); -- Radiant Breath
 INSERT INTO `blue_spell_list` VALUES ('567','622','2','25','1','1','0'); -- Helldive DW +4
 INSERT INTO `blue_spell_list` VALUES ('569','395','4','25','1','8','0'); -- Jet Stream DW +4
@@ -70,7 +70,7 @@ INSERT INTO `blue_spell_list` VALUES ('570','394','2','0','1','0','0'); -- Blood
 INSERT INTO `blue_spell_list` VALUES ('572','410','1','6','1','0','0'); -- Sound Blast
 INSERT INTO `blue_spell_list` VALUES ('573','1701','3','4','1','0','0'); -- Feather Tickle
 INSERT INTO `blue_spell_list` VALUES ('574','402','2','25','1','0','0'); -- Feather Barrier DW +4
-INSERT INTO `blue_spell_list` VALUES ('575','2828','4','0','1','0','0'); -- Jettatura
+INSERT INTO `blue_spell_list` VALUES ('575','2828','4','34','2','0','0'); -- Jettatura
 INSERT INTO `blue_spell_list` VALUES ('576','1713','3','5','1','0','0'); -- Yawn
 INSERT INTO `blue_spell_list` VALUES ('577','257','2','3','1','6','0'); -- Foot Kick
 INSERT INTO `blue_spell_list` VALUES ('578','323','3','5','1','0','0'); -- Wild Carrot
@@ -114,24 +114,24 @@ INSERT INTO `blue_spell_list` VALUES ('628','1081','3','15','3','8','0'); -- Fry
 INSERT INTO `blue_spell_list` VALUES ('629','360','3','15','3','0','0'); -- Flying Hip Press
 INSERT INTO `blue_spell_list` VALUES ('631','777','3','25','1','5','0'); -- Hydro Shot DW +4
 INSERT INTO `blue_spell_list` VALUES ('632','1897','3','31','1','0','0'); -- Diamondhide
-INSERT INTO `blue_spell_list` VALUES ('633','1745','5','21','1','0','0'); -- Enervation
+INSERT INTO `blue_spell_list` VALUES ('633','1745','5','21','2','0','0'); -- Enervation
 INSERT INTO `blue_spell_list` VALUES ('634','785','5','14','2','0','0'); -- Light of Penance
 INSERT INTO `blue_spell_list` VALUES ('636','1734','4','4','1','0','0'); -- Warm-Up
 INSERT INTO `blue_spell_list` VALUES ('637','1923','5','17','1','0','0'); -- Firespit
 INSERT INTO `blue_spell_list` VALUES ('638','617','3','25','1','1','0'); -- Feather Storm DW +4
 INSERT INTO `blue_spell_list` VALUES ('640','1771','4','20','1','5','0'); -- Tail Slap
-INSERT INTO `blue_spell_list` VALUES ('641','1753','5','18','1','6','0'); -- Hysteric Barrage
-INSERT INTO `blue_spell_list` VALUES ('642','1821','3','0','1','0','0'); -- Amplification
-INSERT INTO `blue_spell_list` VALUES ('643','1818','3','0','1','11','0'); -- Cannonball
+INSERT INTO `blue_spell_list` VALUES ('641','1753','5','18','2','6','0'); -- Hysteric Barrage
+INSERT INTO `blue_spell_list` VALUES ('642','1821','3','34','2','0','0'); -- Amplification
+INSERT INTO `blue_spell_list` VALUES ('643','1818','3','30','1','11','0'); -- Cannonball
 INSERT INTO `blue_spell_list` VALUES ('644','1963','4','4','1','0','0'); -- Mind Blast
-INSERT INTO `blue_spell_list` VALUES ('645','1955','4','5','1','0','0'); -- Exuviation
+INSERT INTO `blue_spell_list` VALUES ('645','1955','4','32','2','0','0'); -- Exuviation
 INSERT INTO `blue_spell_list` VALUES ('646','1958','4','6','1','0','0'); -- Magic Hammer
 INSERT INTO `blue_spell_list` VALUES ('647','1722','2','17','1','0','0'); -- Zephyr Mantle
 INSERT INTO `blue_spell_list` VALUES ('648','2153','1','19','1','0','0'); -- Regurgitation
 INSERT INTO `blue_spell_list` VALUES ('650','2163','2','1','1','7','6'); -- Seedspray
 INSERT INTO `blue_spell_list` VALUES ('651','2185','4','30','1','0','0'); -- Corrosive Ooze
 INSERT INTO `blue_spell_list` VALUES ('652','2181','3','12','1','1','0'); -- Spiral Spin
-INSERT INTO `blue_spell_list` VALUES ('653','2176','2','21','1','3','8'); -- Asuran Claws
+INSERT INTO `blue_spell_list` VALUES ('653','2176','2','21','2','3','8'); -- Asuran Claws
 INSERT INTO `blue_spell_list` VALUES ('654','2436','4','22','1','12','0'); -- Sub-Zero Smash
 INSERT INTO `blue_spell_list` VALUES ('655','2423','3','31','1','0','0'); -- Triumphant Roar
 -- INSERT INTO `blue_spell_list` VALUES ('656','2562','3','24','1','0','0'); -- Acrid Stream
@@ -144,12 +144,12 @@ INSERT INTO `blue_spell_list` VALUES ('661','1782','5','25','1','0','0'); -- Ani
 INSERT INTO `blue_spell_list` VALUES ('662','525','3','0','1','0','0'); -- Battery Charge
 -- INSERT INTO `blue_spell_list` VALUES ('663','331','4','27','1','0','0'); -- Leafstorm
 -- INSERT INTO `blue_spell_list` VALUES ('929','331','4','27','1','0','0'); -- Leafstorm
-INSERT INTO `blue_spell_list` VALUES ('664','461','2','0','1','0','0'); -- Regeneration
-INSERT INTO `blue_spell_list` VALUES ('665','336','1','26','1','11','0'); -- Final Sting
-INSERT INTO `blue_spell_list` VALUES ('666','590','3','23','1','11','8'); -- Goblin Rush
+INSERT INTO `blue_spell_list` VALUES ('664','461','2','34','2','0','0'); -- Regeneration
+INSERT INTO `blue_spell_list` VALUES ('665','336','1','26','2','11','0'); -- Final Sting
+INSERT INTO `blue_spell_list` VALUES ('666','590','3','23','2','11','8'); -- Goblin Rush
 INSERT INTO `blue_spell_list` VALUES ('667','388','2','16','1','4','0'); -- Vanity Dive
 -- INSERT INTO `blue_spell_list` VALUES ('668','555','3','10','1','0','0'); -- Magic Barrier
-INSERT INTO `blue_spell_list` VALUES ('669','514','2','26','1','4','6'); -- Whirl of Rage
+INSERT INTO `blue_spell_list` VALUES ('669','514','2','26','2','4','6'); -- Whirl of Rage
 -- INSERT INTO `blue_spell_list` VALUES ('670','2629','4','23','1','9','1'); -- Benthic Typhoon
 INSERT INTO `blue_spell_list` VALUES ('671','1220','4','22','1','0','0'); -- Auroral Drape
 -- INSERT INTO `blue_spell_list` VALUES ('672','2631','5','13','1','0','0'); -- Osmosis
@@ -161,7 +161,7 @@ INSERT INTO `blue_spell_list` VALUES ('675','1817','3','8','1','0','0'); -- Ther
 INSERT INTO `blue_spell_list` VALUES ('677','1230','3','24','1','2','4'); -- Empty Thrash
 INSERT INTO `blue_spell_list` VALUES ('677','1275','3','24','1','2','4'); -- Empty Thrash
 -- INSERT INTO `blue_spell_list` VALUES ('678','301','3','6','1','0','0'); -- Dream Flower
-INSERT INTO `blue_spell_list` VALUES ('679','1255','3','18','1','0','0'); -- Occultation
+INSERT INTO `blue_spell_list` VALUES ('679','1255','3','18','2','0','0'); -- Occultation
 INSERT INTO `blue_spell_list` VALUES ('680','483','4','28','1','0','0'); -- Charged Whisker
 -- INSERT INTO `blue_spell_list` VALUES ('681','1245','5','14','4','0','0'); -- Winds of Promyvion
 INSERT INTO `blue_spell_list` VALUES ('682','2154','2','25','1','3','6'); -- Delta Thrust
@@ -194,10 +194,10 @@ INSERT INTO `blue_spell_list` VALUES ('707','3030','5','17','2','0','0'); -- Ret
 -- INSERT INTO `blue_spell_list` VALUES ('708','2930','6','24','8','0','0'); -- Subduction
 -- INSERT INTO `blue_spell_list` VALUES ('709','256','7','24','3','11','8'); -- Thrashing Assault
 -- INSERT INTO `blue_spell_list` VALUES ('710','1952','4','17','2','0','0'); -- Erratic Flutter
-INSERT INTO `blue_spell_list` VALUES ('711','2041','7','15','2','0','0'); -- Restoral
-INSERT INTO `blue_spell_list` VALUES ('711','2052','7','15','2','0','0'); -- Restoral
-INSERT INTO `blue_spell_list` VALUES ('711','2061','7','15','2','0','0'); -- Restoral
-INSERT INTO `blue_spell_list` VALUES ('711','2062','7','15','2','0','0'); -- Restoral
+INSERT INTO `blue_spell_list` VALUES ('711','2041','7','15','3','0','0'); -- Restoral
+INSERT INTO `blue_spell_list` VALUES ('711','2052','7','15','3','0','0'); -- Restoral
+INSERT INTO `blue_spell_list` VALUES ('711','2061','7','15','3','0','0'); -- Restoral
+INSERT INTO `blue_spell_list` VALUES ('711','2062','7','15','3','0','0'); -- Restoral
 INSERT INTO `blue_spell_list` VALUES ('712','2040','6','27','2','0','0'); -- Rail Cannon
 INSERT INTO `blue_spell_list` VALUES ('712','2045','6','27','2','0','0'); -- Rail Cannon
 INSERT INTO `blue_spell_list` VALUES ('712','2048','6','27','2','0','0'); -- Rail Cannon

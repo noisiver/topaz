@@ -132,3 +132,15 @@ INSERT INTO `blue_traits` VALUES (33, 2, 117, 2000, 5); -- Tenacity
 INSERT INTO `blue_traits` VALUES (33, 4, 117, 2000, 7); -- Tenacity II
 INSERT INTO `blue_traits` VALUES (33, 6, 117, 2000, 9); -- Tenacity III
 INSERT INTO `blue_traits` VALUES (33, 8, 117, 2000, 11); -- Tenacity IV
+INSERT INTO `blue_traits` VALUES (34, 2, 107, 903, 500); -- Fencer
+INSERT INTO `blue_traits` VALUES (34, 2, 107, 904, 5); -- Fencer
+INSERT INTO `blue_traits` VALUES (34, 2, 107, 986, 10); -- Fencer
+INSERT INTO `blue_traits` VALUES (34, 4, 107, 903, 550); -- Fencer II
+INSERT INTO `blue_traits` VALUES (34, 4, 107, 904, 7); -- Fencer  II
+INSERT INTO `blue_traits` VALUES (34, 4, 107, 986, 12); -- Fencer II
+INSERT INTO `blue_traits` VALUES (34, 6, 107, 903, 600); -- Fencer III
+INSERT INTO `blue_traits` VALUES (34, 6, 107, 904, 10); -- Fencer III
+INSERT INTO `blue_traits` VALUES (34, 6, 107, 986, 14); -- Fencer III
+INSERT INTO `blue_traits` VALUES (34, 8, 107, 903, 650); -- Fencer IV
+INSERT INTO `blue_traits` VALUES (34, 8, 107, 904, 12); -- Fencer IV
+INSERT INTO `blue_traits` VALUES (34, 8, 107, 986, 15); -- Fencer IV
