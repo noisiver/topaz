@@ -345,7 +345,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
                 pdif = pdif/1000 + SpellCritPdifModifier
                 -- 2.0 pDIF cap
-                if pdif > 2 then pdif =  end
+                if pdif > 2.0 then pdif = 2.0 end
                 --printf("Melee pdif: %s", pdif)
             end
 
@@ -538,12 +538,14 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     end
 
     local dmg = 0
-
+    local resist = applyResistance(caster, target, spell, params)
     -- Use params.IGNORE_WSC and params.damage to set specific damage
     -- Only used for Self-Destruct ATM
+    -- TODO: Doesn't work
     if (params.IGNORE_WSC ~= nil) then
-        magicAttack = math.floor(magicAttack * applyResistance(caster, target, spell, params))
     end
+
+    magicAttack = math.floor(magicAttack * resist)
 
     dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
 
