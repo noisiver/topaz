@@ -338,10 +338,14 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             if isRanged then
                 pdif = math.random((rangedcratio[1]*1000), (rangedcratio[2]*1000))
                 pdif = pdif/1000 * SpellCritPdifModifier
+                -- 2.5 pDIF cap for ranged
+                if pdif > 2.5 then pdif = 2.5 end
                 --printf("Ranged pdif: %s", pdif)
             else
                 pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
                 pdif = pdif/1000 + SpellCritPdifModifier
+                -- 2.0 pDIF cap
+                if pdif > 2 then pdif =  end
                 --printf("Melee pdif: %s", pdif)
             end
 
@@ -788,7 +792,7 @@ function BluecRatio(ratio, atk_lvl, def_lvl)
     end
     ratio = ratio - levelcor
 
-    -- apply caps
+    -- 2.0 pDIF cap
     if (ratio<0) then
         ratio = 0
     elseif (ratio>2) then
@@ -831,8 +835,9 @@ function BluecRangedRatio(ratio, atk_lvl, def_lvl)
     end
     ratio = ratio - levelcor
 
-    if (ratio > 3 - levelcor) then
-        ratio = 3 - levelcor
+    -- 2.5 pDIF cap
+    if (ratio > 2.5 - levelcor) then
+        ratio = 2.5 - levelcor
     end
 
     if (ratio < 0) then

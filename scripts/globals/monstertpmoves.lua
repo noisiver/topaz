@@ -4,6 +4,7 @@ require("scripts/globals/magic")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
 require("scripts/globals/mobs")
+require("scripts/globals/weaponskills")
 
 -- Foreword: A lot of this is good estimating since the FFXI playerbase has not found all of info for individual moves.
 --            What is known is that they roughly follow player Weaponskill calculations (pDIF, dMOD, ratio, etc) so this is what
@@ -241,6 +242,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
         if isCrit(mob, critRate) then
+            TryBreakMob(target)
             -- Ranged crits are pdif * 1.25
             if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
@@ -287,6 +289,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
             if isCrit(mob, critRate) then
+                TryBreakMob(target)
                 -- Ranged crits are pdif * 1.25
                 if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
