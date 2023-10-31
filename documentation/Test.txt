@@ -6,6 +6,7 @@ Mobs deaggroing on zone (Ghrahs floor 2 Ruhmet)
 Mobs deaggroing ONLY player on CS
 
 Are BLU spells AoE around BLU or mob?
+Kerwan Aura's work and can have all 3 up at once
 
 
 
