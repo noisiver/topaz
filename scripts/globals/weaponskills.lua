@@ -1681,6 +1681,8 @@ function TryBreakMob(target)
             target:AnimationSub(1)
         end
     elseif (GetMobFamily(target) == 'Hydra') then
+    elseif (GetMobFamily(target) == 'Chigoe') then
+        target:setHP(0)
     end
 end
 
@@ -1707,8 +1709,10 @@ function GetMobFamily(target)
         return 'Gears'
     elseif (target:getFamily() == 168) or (target:getFamily() == 315) then 
         return 'Khimaira'
-    elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313)  then 
+    elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313) then 
         return 'Hydra'
+    elseif (target:getFamily() == 64) then 
+        return 'Chigoe'
     end
 end
 
