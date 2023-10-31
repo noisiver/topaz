@@ -24,7 +24,7 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.BLINK
     local blueskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    local power = math.floor(blueskill / 50)
+    local numShadows = math.floor(blueskill / 50)
     local duration = 300
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
@@ -37,7 +37,7 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
-    if (target:addStatusEffect(typeEffect, power, 0, duration) == false) then
+    if (target:addStatusEffect(typeEffect, numShadows, 0, duration) == false) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
 
