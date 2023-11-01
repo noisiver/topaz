@@ -24,7 +24,6 @@ function onMobFight(mob, target)
     local Phase = mob:getLocalVar("Phase")
 	local HP = mob:getHPP()
     if HP < 25 and Phase == 0 then
-		printf("Phase 1");
 		mob:setHP(35000)
 		mob:setLocalVar("Phase", 1)
 		mob:addMod(tpz.mod.ATTP, 20)
@@ -34,7 +33,6 @@ function onMobFight(mob, target)
         MessageGroup(mob, target, "This power...I cannot contain it much longer...",0,"Raubahn")
 	end
     if HP < 25 and Phase == 1 then
-		printf("Phase 2");
 		mob:setHP(35000)
 		mob:setLocalVar("Phase", 2)
 		mob:addMod(tpz.mod.ATTP, 20)
@@ -44,7 +42,7 @@ function onMobFight(mob, target)
         MessageGroup(mob, target, "It's...too....powerful.....",0,"Raubahn")
 	end
     if HP < 25 and Phase == 2 then
-		printf("Phase 3");
+        mob:useMobAbility(tpz.jsa.AZURE_LORE)
 		mob:setHP(35000)
 		mob:setLocalVar("Phase", 3)
 		mob:addMod(tpz.mod.ATTP, 20)
