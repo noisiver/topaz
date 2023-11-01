@@ -74,8 +74,10 @@ function utils.stoneskin(target, dmg, attackType)
             if (physSkin > 0) then
                 if (physSkin > dmg) then --absorb all damage
                     target:delMod(tpz.mod.PHYSICAL_SS, dmg)
+                    return 0
                 else --absorbs some damage then wear
                     target:setMod(tpz.mod.PHYSICAL_SS, 0)
+                    dmg = dmg - physSkin
                 end
             end
         end

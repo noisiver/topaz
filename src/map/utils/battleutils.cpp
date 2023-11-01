@@ -6141,11 +6141,11 @@ int getSDTTier(int SDT)
                 if (physSkin > damage)
                 {
                     PDefender->delModifier(Mod::PHYSICAL_SS, damage);
+                    return 0;
                 }
-                else
-                {
-                    PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_STONESKIN);
-                }
+
+                PDefender->setModifier(Mod::PHYSICAL_SS, 0);
+                damage -= physSkin;
             }
         }
 

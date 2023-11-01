@@ -401,7 +401,6 @@ INSERT INTO `mob_family_mods` VALUES (320,463,100,0);	-- Ramuh - Thunder
 INSERT INTO `mob_family_mods` VALUES (321,462,100,0);	-- Titan - Earth
 INSERT INTO `mob_family_mods` VALUES (322,459,100,0);	-- Ifrit - Fire
 INSERT INTO `mob_family_mods` VALUES (323,464,100,0);	-- Leviathan - Water	
-INSERT INTO `mob_family_mods` VALUES (211,464,100,0);	-- Ruszor - Water	
 INSERT INTO `mob_family_mods` VALUES (231,464,100,0);	-- Slug - Water	
 INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda - Wind
 INSERT INTO `mob_family_mods` VALUES (198,461,100,0);	-- Puk - Wind
