@@ -9644,7 +9644,7 @@ INSERT INTO `mob_groups` VALUES (108,2244,135,'Kindreds_Avatar',0,128,0,0,0,72,7
 INSERT INTO `mob_groups` VALUES (1,138,136,'Angler_Crab',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (2,3886,136,'Thawed_Bones',300,0,2125,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (3,1189,136,'Ekimmu',300,0,751,0,0,79,80,0);
-INSERT INTO `mob_groups` VALUES (4,3418,136,'Ruszor',300,0,2135,0,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (4,3418,136,'Ruszor',300,0,2168,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (5,2043,136,'Ice_Elemental',0,4,1347,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (6,112,136,'Amphiptere',3600,0,73,0,0,82,84,0);
 INSERT INTO `mob_groups` VALUES (7,1561,136,'Gigas_Flesher',300,0,987,0,0,80,82,0);
@@ -9670,7 +9670,7 @@ INSERT INTO `mob_groups` VALUES (26,275,136,'Astika',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (27,6567,136,'Thawed_Bones',300,0,2125,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (28,6737,136,'Scylla',43200,0,6038,50000,0,90,90,0);
 INSERT INTO `mob_groups` VALUES (29,763,136,'Came-cruse',14400,0,0,12000,0,82,82,0);
-INSERT INTO `mob_groups` VALUES (30,6738,136,'RuszorBig',300,0,2135,0,0,81,82,0);
+INSERT INTO `mob_groups` VALUES (30,6738,136,'RuszorBig',300,0,2168,0,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (31,6757,136,'Becut',3600,0,987,15000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (32,9081,136,'Seua_Peek',3600,0,6067,12500,0,81,81,0);
 -- Voidwalker
@@ -14305,7 +14305,7 @@ INSERT INTO `mob_groups` VALUES (7,4805,267,'Graupel_Formation',960,0,0,0,0,1,1,
 INSERT INTO `mob_groups` VALUES (8,4806,267,'Hailstone',960,0,0,0,0,111,113,0);
 INSERT INTO `mob_groups` VALUES (9,4808,267,'Gnarring_Yztarg',960,0,0,0,0,111,113,0);
 INSERT INTO `mob_groups` VALUES (10,4809,267,'Ashen_Tiger',960,0,0,0,0,111,113,0);
-INSERT INTO `mob_groups` VALUES (11,4812,267,'Slobbering_Ruszor',960,0,0,0,5000,111,113,0);
+INSERT INTO `mob_groups` VALUES (11,4812,267,'Slobbering_Ruszor',960,0,2168,0,5000,111,113,0);
 INSERT INTO `mob_groups` VALUES (12,6699,267,'Shivering_Heartwing',960,0,0,0,5000,111,113,0);
 INSERT INTO `mob_groups` VALUES (13,4810,267,'Sprightly_Leafkin',960,0,0,0,0,111,113,0);
 INSERT INTO `mob_groups` VALUES (14,4786,267,'Wintry_Cave',960,0,0,20000,0,111,113,0);

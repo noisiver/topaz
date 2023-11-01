@@ -22,19 +22,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.TERROR
     local dmgmod = 1.5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.ICE, dmgmod, TP_MAB_BONUS)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ICE, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ICE)
+
+    -- Terror cannot be resisted
+    target:addStatusEffect(tpz.effect.TERROR, 1, 0, math.random(10,20))
     -- Apply stoneskin to self
-    local buffTypeEffect = tpz.effect.STONESKIN
-    mob:addStatusEffect(buffTypeEffect, 1000, 0, 300)
-    local buffEffect = mob:getStatusEffect(buffTypeEffect)
-    buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 10)
-    -- Ice absorb
-	mob:AnimationSub(1)
-	mob:setLocalVar("icyMist", os.time() + 180)
+    mob:setMod(tpz.mod.PHYSICAL_SS, 1000)
     return dmg
 end
