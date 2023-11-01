@@ -29,6 +29,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.TERROR
     params.bonus = 0
+    local duration = 30
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)
 	
@@ -38,21 +39,13 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 
-    local duration = 15
-
-	if target:isNM() then
-		duration = duration / 2
-	end
-
-    typeEffect = tpz.effect.TERROR
-
-    if target:hasStatusEffect(typeEffect) then
+    if target:hasStatusEffect(params.effect) or os.time() < target:getLocalVar("bluJettatura") then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return typeEffect
+        return params.effect
     end
 
-    params.effect = typeEffect
     if BlueTryEnfeeble(caster, target, spell, 1, power, 0, duration, params) then
+        target:setLocalVar("bluJettatura", os.time() + 90)
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
