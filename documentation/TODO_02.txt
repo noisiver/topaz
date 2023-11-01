@@ -17,6 +17,7 @@ Curaga action packet msgs:
 https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
 
 
+
 Make all "is behind" skills just return 1 if target is NOT behind target:isBehind(mob, 128) and target:isInfront(mob, 128)
 Soulflayers stand back even at 66% HP and are easy to silence
 HP stand back for mages and prob rangers/ninjas is 65%
@@ -35,6 +36,13 @@ Raubahm mythic fight give Azure Lore immediately in final form
 No longer attack people after a poroggo charmed? or were they too far when I was charmed so I didn't aggro them? 
 444 -7 -284 too close to water and procs the swamp stuff in Caedarva
 Gnoles instantly change form on engage
+
+Ruszor:
+They turn.
+Do they drop meat properly? Are their drop pools correct?
+Frozen mist always lands full dura even in ilvl gear... 15-20s duration(random?)
+Frozen mist is PHNYSICAL ONLY stoneskin...wtf
+
 Ruszor's don't go back to no glow(no animation sub or 0 or w/e). It should onyl be up while rampart SS or normal SS is active, not on a timer
 Hydro Wave should be water magic SS only(need a new mod for it...)
 Severing Fang works like Dark Ixions rampant stance goes off even if no one is in range https://wiki.ffo.jp/html/17683.html
