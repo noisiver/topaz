@@ -5,12 +5,13 @@
 -----------------------------------
 local ID = require("scripts/zones/Outer_Horutoto_Ruins/IDs")
 require("scripts/globals/npc_util")
+require("scripts/globals/items")
 -----------------------------------
 
 
 
 function onTrade(player, npc, trade)
-    if npcUtil.tradeHasExactly(trade, 479) then -- Purple Chip
+    if npcUtil.tradeHasExactly(trade, tpz.items.GREEN_CHIP) then -- Green Chip
       --  print("we got an item, boss!")
         if npcUtil.popFromQM(player, npc, ID.mob.GOBLIN_TOMB_RAIDER) then -- items and mob id here under mob = in IDs.lua
            -- print("we can pop the mob, boss!")
