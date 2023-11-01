@@ -248,7 +248,7 @@ namespace battleutils
     void                BindBreakCheck(CBattleEntity* PAttacker, CBattleEntity* PDefender);
 
     // returns damage taken
-    int32               HandleStoneskin(CBattleEntity* PDefender, int32 damage);
+    int32               HandleStoneskin(CBattleEntity* PDefender, int32 damage, ATTACKTYPE attackType);
     int32               HandleMagicStoneskin(CBattleEntity* PDefender, int32 damage);
     int32               HandleFanDance(CBattleEntity* PDefender, int32 damage);
     int32               HandlePositionalPDT(CBattleEntity* PDefender, int32 damage);

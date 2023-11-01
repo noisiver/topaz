@@ -13,7 +13,8 @@ function onEffectGain(target, effect)
 end
 
 function onEffectTick(target, effect)
-    local dmg = utils.stoneskin(target, effect:getPower())
+    local attackType = tpz.attackType.MAGICAL
+    local dmg = utils.stoneskin(target, effect:getPower(), attackType)
 
     if (dmg > 0) then
         target:takeDamage(dmg)

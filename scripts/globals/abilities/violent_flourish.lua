@@ -87,8 +87,9 @@ function onUseAbility(player, target, ability, action)
             ability:setMsg(tpz.msg.basic.JA_DAMAGE)
         end
 
+        local attackType = tpz.attackType.PHYSICAL
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
-        dmg = utils.stoneskin(target, dmg)
+        dmg = utils.stoneskin(target, dmg, attackType)
         target:takeDamage(dmg, player, tpz.attackType.PHYSICAL, player:getWeaponDamageType(tpz.slot.MAIN))
         target:updateEnmityFromDamage(player, dmg)
 

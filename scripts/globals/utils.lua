@@ -64,9 +64,23 @@ function utils.clamp(input, min_val, max_val)
 end
 
 -- returns unabsorbed damage
-function utils.stoneskin(target, dmg)
+function utils.stoneskin(target, dmg, attackType)
     --handling stoneskin
     if (dmg > 0) then
+
+        -- Check phys only Stoneskin
+        physSkin = target:getMod(tpz.mod.PHYSICAL_SS)
+        if (attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED) then
+            if (physSkin > 0) then
+                if (physSkin > dmg) then --absorb all damage
+                    target:delMod(tpz.mod.PHYSICAL_SS, dmg)
+                else --absorbs some damage then wear
+                    target:setMod(tpz.mod.PHYSICAL_SS, 0)
+                end
+            end
+        end
+
+        -- Check normal stoneskin
         skin = target:getMod(tpz.mod.STONESKIN)
         if (skin > 0) then
             if (skin > dmg) then --absorb all damage
@@ -86,20 +100,20 @@ end
 -- returns unabsorbed damage
 function utils.rampartstoneskin(target, dmg)
     --handling rampart stoneskin
-    local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
+    local ramSS = target:getMod(tpz.mod.MAGIC_SS)
     -- Handle absorbs
     if dmg < 0 then
         return dmg
     end
     if ramSS > 0 then
         if dmg >= ramSS then
-            target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+            target:setMod(tpz.mod.MAGIC_SS, 0)
             if target:isPC() then -- Remove Magic Shield off players
                 target:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
             end
             dmg = dmg - ramSS
         else
-            target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
+            target:setMod(tpz.mod.MAGIC_SS, ramSS - dmg)
             dmg = 0
         end
     end

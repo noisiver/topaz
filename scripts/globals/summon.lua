@@ -527,7 +527,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
 
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     -- handling normal stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    dmg = utils.stoneskin(target, dmg, attackType)
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, damageType)
     --printf("dmg %d", dmg)
@@ -587,7 +587,7 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     else
         -- Handling rampart stoneskin + normal stoneskin
         dmg = utils.rampartstoneskin(target, dmg)
-        dmg = utils.stoneskin(target, dmg)
+        dmg = utils.stoneskin(target, dmg, attackType)
 	    target:takeDamage(dmg, avatar, attackType, element)
     end
     target:updateEnmityFromDamage(avatar, dmg)

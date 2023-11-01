@@ -10,14 +10,14 @@ g_mixins.families.amphiptere = function(mob)
         mob:AnimationSub(0) -- No spiny shield
     end)
     mob:addListener("ROAM_TICK", "SOULFLAYER_ROAM", function(mob)
-        if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+        if (mob:getMod(tpz.mod.MAGIC_SS) == 0) then
             mob:AnimationSub(0) -- No spinny shield
         else
             mob:AnimationSub(1) -- One spiny shield
         end
     end)
 	mob:addListener("COMBAT_TICK", "SOULFLAYER_CTICK", function(mob)
-        if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+        if (mob:getMod(tpz.mod.MAGIC_SS) == 0) then
             mob:AnimationSub(0) -- No spinny shield
         else
             mob:AnimationSub(1) -- One spiny shield

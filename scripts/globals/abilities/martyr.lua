@@ -42,8 +42,8 @@ function onUseAbility(player, target, ability)
 
     -- Log HP Headed for Debug
     -- printf("Martyr Healed HP: %d", healHP)
-
-    damageHP = utils.stoneskin(player, damageHP)
+    local attackType = tpz.attackType.NONE
+    damageHP = utils.stoneskin(player, damageHP, attackType)
     player:delHP(damageHP)
     target:addHP(healHP)
 

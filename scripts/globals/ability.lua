@@ -830,7 +830,7 @@ function AbilityFinalAdjustments(dmg,mob,skill,target,skilltype,damagetype,shado
         return 0
     end
 
-    dmg = utils.stoneskin(target, dmg)
+    dmg = utils.stoneskin(target, dmg, skilltype)
 
     if (dmg > 0) then
         target:wakeUp()

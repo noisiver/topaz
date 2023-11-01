@@ -635,7 +635,7 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
 
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     -- handling normal stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    dmg = utils.stoneskin(target, dmg, attackType)
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, damageType)
     --printf("dmg %d", dmg)
@@ -701,7 +701,7 @@ function AutoMagicalFinalAdjustments(dmg, auto, skill, target, attackType, eleme
     else
         -- Handling rampart stoneskin + normal stoneskin
         dmg = utils.rampartstoneskin(target, dmg)
-        dmg = utils.stoneskin(target, dmg)
+        dmg = utils.stoneskin(target, dmg, attackType)
 	    target:takeDamage(dmg, auto, attackType, element)
     end
     target:updateEnmityFromDamage(auto, dmg)

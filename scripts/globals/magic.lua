@@ -1224,7 +1224,8 @@ function finalMagicAdjustments(caster, target, spell, dmg)
     dmg = utils.rampartstoneskin(target, dmg)
     
     --handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    local attackType = tpz.attackType.MAGICAL
+    dmg = utils.stoneskin(target, dmg, attackType)
     dmg = utils.clamp(dmg, -99999, 99999)
 
     if (dmg < 0) then
@@ -1264,7 +1265,8 @@ function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     dmg = utils.rampartstoneskin(target, dmg)
 
     --handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    local attackType = tpz.attackType.MAGICAL
+    dmg = utils.stoneskin(target, dmg, attackType)
 
     dmg = utils.clamp(dmg, -99999, 99999)
 

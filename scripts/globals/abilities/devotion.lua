@@ -40,8 +40,8 @@ function onUseAbility(player, target, ability)
     local healMP = player:getHP() * mpPercent
     healMP = utils.clamp(healMP, 0, target:getMaxMP() - target:getMP())
     -- printf("Devotion MP Healed: %d", healMP)
-
-    damageHP = utils.stoneskin(player, damageHP)
+    local attackType = tpz.attackType.NONE
+    damageHP = utils.stoneskin(player, damageHP, attackType)
     player:delHP(damageHP)
     target:addMP(healMP)
 

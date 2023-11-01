@@ -1818,10 +1818,10 @@ void CStatusEffectContainer::TickRegen(time_point tick)
         if (poison)
         {
             int16 damage = battleutils::HandleMagicStoneskin(m_POwner, poison);
-            int16 magicSS = m_POwner->getMod(Mod::RAMPART_STONESKIN);
+            int16 magicSS = m_POwner->getMod(Mod::MAGIC_SS);
             if (!magicSS)
             {
-                damage = battleutils::HandleStoneskin(m_POwner, poison);
+                damage = battleutils::HandleStoneskin(m_POwner, poison, ATTACK_NONE);
             }
 
             if (damage > 0)

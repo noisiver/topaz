@@ -10,7 +10,7 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+    if (mob:getMod(tpz.mod.MAGIC_SS) == 0) then
         -- only use this skill if there is no remainig magical stoneskin
         return 0
     end
@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
         magicalStoneskinAmount = 1500
     end
 
-    mob:setMod(tpz.mod.RAMPART_STONESKIN, magicalStoneskinAmount)
+    mob:setMod(tpz.mod.MAGIC_SS, magicalStoneskinAmount)
     skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT) -- lasted 15 mins
 
     return tpz.effect.MAGIC_SHIELD

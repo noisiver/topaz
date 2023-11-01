@@ -1231,7 +1231,7 @@ tpz.mod =
     LULLABYRES                      = 254,
     DEATHRES                        = 255,
     SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
-    RAMPART_STONESKIN               = 1181, -- Magic Stoneskin(Only absorbs magic damage)
+    MAGIC_SS               = 1181, -- Magic Stoneskin(Only absorbs magic damage)
 
     SLEEPRESTRAIT                   = 1240,
     POISONRESTRAIT                  = 1241,
@@ -1765,7 +1765,7 @@ tpz.mod =
     ENHANCES_COVER = 1178,
     AUGMENTS_COVER = 1179,
     COVERED_MP_FLAG = 1180,
-    RAMPART_STONESKIN = 1181,
+    MAGIC_SS = 1181,
     TAME_SUCCESS_RATE = 1182,
     MAGIC_STACKING_MDT = 1183,
     FIRE_BURDEN_DECAY = 1184,
@@ -1870,8 +1870,9 @@ tpz.mod =
     PET_ACC                 = 1351, -- Increases pets accuracy
     PET_DELAY               = 1352, -- Reduces pets delay(in percents)    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     PET_MACC                = 1353, -- Increases pets magic accuracy
+    PHYSICAL_SS             = 1354, --Physical damage only stoneskin
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1354 NEXT
+    -- 1355 NEXT
 }
 
 tpz.latent =

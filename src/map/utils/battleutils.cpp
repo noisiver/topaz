@@ -1017,10 +1017,10 @@ int getSDTTier(int SDT)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
             damage = battleutils::HandleMagicStoneskin(PDefender, damage);
-            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            int16 magicSS = PDefender->getMod(Mod::MAGIC_SS);
             if (!magicSS)
             {
-                damage = battleutils::HandleStoneskin(PDefender, damage);
+                damage = battleutils::HandleStoneskin(PDefender, damage, ATTACK_MAGICAL);
             }
         }
 
@@ -1215,10 +1215,10 @@ int getSDTTier(int SDT)
             Action->spikesParam = std::max(Action->spikesParam - PAttacker->getMod(Mod::PHALANX), 0);
             // Handle Stoneskin
             Action->spikesParam = HandleMagicStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
-            int16 magicSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
+            int16 magicSS = PAttacker->getMod(Mod::MAGIC_SS);
             if (!magicSS)
             {
-                Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+                Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))), ATTACK_MAGICAL);
             }
 
             uint8 element = 1;
@@ -1452,7 +1452,8 @@ int getSDTTier(int SDT)
             else
             {
                 auto ratio = std::clamp<uint8>(damage / 4, 1, 255);
-                Action->spikesParam = HandleStoneskin(PAttacker, damage - tpzrand::GetRandomNumber<uint16>(ratio) + tpzrand::GetRandomNumber<uint16>(ratio));
+                Action->spikesParam =
+                    HandleStoneskin(PAttacker, damage - tpzrand::GetRandomNumber<uint16>(ratio) + tpzrand::GetRandomNumber<uint16>(ratio), ATTACK_MAGICAL);
                 PAttacker->takeDamage(Action->spikesParam),
                                       PDefender,
                                       ATTACK_MAGICAL,
@@ -2857,7 +2858,7 @@ int getSDTTier(int SDT)
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-            damage = HandleStoneskin(PDefender, damage);
+            damage = HandleStoneskin(PDefender, damage, attackType);
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
         damage = std::clamp(damage, -99999, 99999);
@@ -3017,7 +3018,7 @@ int getSDTTier(int SDT)
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-            damage = HandleStoneskin(PDefender, damage);
+            damage = HandleStoneskin(PDefender, damage, attackType);
         }
 
         damage = getOverWhelmDamageBonus(PAttacker, PDefender, damage);
@@ -4610,10 +4611,10 @@ int getSDTTier(int SDT)
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
 
             damage = battleutils::HandleMagicStoneskin(PDefender, damage);
-            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            int16 magicSS = PDefender->getMod(Mod::MAGIC_SS);
             if (!magicSS)
             {
-                damage = battleutils::HandleStoneskin(PDefender, damage);
+                damage = battleutils::HandleStoneskin(PDefender, damage, ATTACK_MAGICAL);
             }
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
@@ -5079,13 +5080,13 @@ int getSDTTier(int SDT)
             auto stalwartSoul = std::clamp(m_PChar->getMod(Mod::STALWART_SOUL)* 0.001f, 0.0f, 0.10f);
 
             damage += (uint32)(m_PChar->health.hp * drainPercent);
-            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - stalwartSoul))));
+            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - stalwartSoul)), ATTACK_MAGICAL));
         }
         else if (m_PChar->GetSJob() == JOB_DRK &&m_PChar->health.hp >= 10 && m_PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SOULEATER))
         {
             //lose 10% Current HP, only HALF (5%) converted to damage
             damage += (uint32)(m_PChar->health.hp * 0.05f);
-            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * 0.1f)));
+            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * 0.1f), ATTACK_MAGICAL));
         }
         return damage;
     }
@@ -6129,8 +6130,25 @@ int getSDTTier(int SDT)
         }
     }
 
-    int32 HandleStoneskin(CBattleEntity* PDefender, int32 damage)
+    int32 HandleStoneskin(CBattleEntity* PDefender, int32 damage, ATTACKTYPE attackType)
     {
+        // Check phys only SS
+        int16 physSkin = PDefender->getMod(Mod::PHYSICAL_SS);
+        if (attackType == ATTACK_PHYSICAL || attackType == ATTACK_RANGED)
+        {
+            if (damage > 0 && physSkin > 0)
+            {
+                if (physSkin > damage)
+                {
+                    PDefender->delModifier(Mod::PHYSICAL_SS, damage);
+                }
+                else
+                {
+                    PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_STONESKIN);
+                }
+            }
+        }
+
         int16 skin = PDefender->getMod(Mod::STONESKIN);
         if (damage > 0 && skin > 0)
         {
@@ -6149,18 +6167,18 @@ int getSDTTier(int SDT)
 
     int32 HandleMagicStoneskin(CBattleEntity* PDefender, int32 damage)
     {
-        int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+        int16 magicSS = PDefender->getMod(Mod::MAGIC_SS);
         if (magicSS)
         {
             if (damage >= magicSS)
             {
-                PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
+                PDefender->setModifier(Mod::MAGIC_SS, 0);
                 PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_MAGIC_SHIELD);
                 damage = damage - magicSS;
             }
             else
             {
-                PDefender->setModifier(Mod::RAMPART_STONESKIN, magicSS - damage);
+                PDefender->setModifier(Mod::MAGIC_SS, magicSS - damage);
                 damage = 0;
             }
         }

@@ -82,11 +82,11 @@ function onMobFight(mob, target)
     end
 
     -- Dealing magic damage removes 1 shield
-    if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+    if (mob:getMod(tpz.mod.MAGIC_SS) == 0) then
         -- Reapply another magic stoneskin after first shield is broken
         if AnimationSub == 2 and ShieldBroken == 0 then
             mob:AnimationSub(1)
-            mob:setMod(tpz.mod.RAMPART_STONESKIN, 1500)
+            mob:setMod(tpz.mod.MAGIC_SS, 1500)
 		    mob:setLocalVar("ShieldBroken", 1)
         end
         -- Second shield broken

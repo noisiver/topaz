@@ -383,6 +383,8 @@ enum class Mod
     // Red Mage
     BLINK                     = 299, // Tracks blink shadows
     STONESKIN                 = 300, // Tracks stoneskin HP pool
+    MAGIC_SS                  = 1181,// Magic damage only stoneskin
+    PHYSICAL_SS               = 1354,//Physical damage only stoneskin
     PHALANX                   = 301, // Tracks direct damage reduction
     PHALANX_POTENCY           = 1273,// Increases power of phalanx(Gear mod)
     PHALANX_RECIEVED          = 1320,// Phalanx effect received.
@@ -982,7 +984,6 @@ enum class Mod
     ENHANCES_COVER = 1178,
     AUGMENTS_COVER = 1179,
     COVERED_MP_FLAG = 1180,
-    RAMPART_STONESKIN = 1181,
     TAME_SUCCESS_RATE = 1182,
     MAGIC_STACKING_MDT = 1183,
     FIRE_BURDEN_DECAY = 1184,
@@ -1036,7 +1037,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1354 NEXT
+    // 1355 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

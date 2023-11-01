@@ -642,11 +642,11 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         --handling rampart stoneskin
             dmg = utils.rampartstoneskin(target, dmg)
             -- handling stoneskin
-            dmg = utils.stoneskin(target, dmg)
+            dmg = utils.stoneskin(target, dmg, attackType)
             target:takeSpellDamage(caster, spell, dmg, attackType, damageType + spell:getElement())
         else
             -- handling stoneskin
-            dmg = utils.stoneskin(target, dmg)
+            dmg = utils.stoneskin(target, dmg, attackType)
             target:takeDamage(dmg, caster, attackType, damageType)
         end
     end

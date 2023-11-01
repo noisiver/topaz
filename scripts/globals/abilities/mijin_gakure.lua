@@ -27,11 +27,11 @@ function onUseAbility(player, target, ability)
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
         dmg = utils.clamp(dmg, 0, 99999)
     end
-
+    local attackType = tpz.attackType.SPECIAL
     --handling rampart stoneskin
     dmg = utils.rampartstoneskin(target, dmg)
 
-    dmg = utils.stoneskin(target, dmg)
+    dmg = utils.stoneskin(target, dmg, attackType)
 
     if (dmg < 0) then
         dmg = target:addHP(-dmg)
