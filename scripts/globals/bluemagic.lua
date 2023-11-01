@@ -539,11 +539,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     local dmg = 0
     local resist = applyResistance(caster, target, spell, params)
-    -- Use params.IGNORE_WSC and params.damage to set specific damage
-    -- Only used for Self-Destruct ATM
-    -- TODO: Doesn't work
-    if (params.IGNORE_WSC ~= nil) then
-    end
 
     magicAttack = math.floor(magicAttack * resist)
 
