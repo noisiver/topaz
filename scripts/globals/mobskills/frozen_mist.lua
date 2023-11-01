@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     mob:addStatusEffect(buffTypeEffect, 1000, 0, 300)
     local buffEffect = mob:getStatusEffect(buffTypeEffect)
     buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 15)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 10)
     -- Ice absorb
 	mob:AnimationSub(1)
 	mob:setLocalVar("icyMist", os.time() + 180)
