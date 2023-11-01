@@ -875,7 +875,7 @@ void SetupJob(CMobEntity* PMob)
 
                 PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
                 PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             }
             break;
         case JOB_NIN:
@@ -911,7 +911,7 @@ void SetupJob(CMobEntity* PMob)
                 }
 
                 PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
-                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             }
             break;
         case JOB_BST:
@@ -933,17 +933,17 @@ void SetupJob(CMobEntity* PMob)
         case JOB_BLM:
             // We don't want to do the mages stand-back part from subjob, so we have it here
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             break;
         case JOB_SCH:
             // We don't want to do the mages stand-back part from subjob, so we have it here
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             break;
         case JOB_GEO:
             // We don't want to do the mages stand-back part from subjob, so we have it here
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             break;
         default:
             break;
