@@ -13,6 +13,9 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+    if not target:isInfront(mob, 128) then
+        return 1
+    end
     return 0
 end
 
