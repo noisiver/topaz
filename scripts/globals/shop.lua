@@ -379,6 +379,19 @@ tpz.shop =
                 -- 5547,   15000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beef Stewpot
                 -- 5727,   15000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Zaru Soba
                 4466,       12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spicy Cracker
+        },
+        [curio.scrolls] =
+        {
+                4181,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Warp
+                4182,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Reraise
+                5428,     500,      tpz.ki.RHAPSODY_IN_AZURE,     -- Instant Retrace
+                5988,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Protect
+                5989,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Shell
+                5990,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Stoneskin
+               15533,    5000,      tpz.ki.RHAPSODY_IN_UMBER,     -- Chocobo Whistle
+        },
+        [curio.keys] =
+        {
                 17016,      11,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Alpha Biscuit
                 17017,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Beta Biscuit
                 19251,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Roborant
@@ -433,60 +446,6 @@ tpz.shop =
                 21464,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Rancid Broth
                 17912,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Fizzy Broth
                 21468,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Sap
-        },
-        [curio.scrolls] =
-        {
-                4181,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Warp
-                4182,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Reraise
-                5428,     500,      tpz.ki.RHAPSODY_IN_AZURE,     -- Instant Retrace
-                5988,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Protect
-                5989,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Shell
-                5990,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Stoneskin
-               15533,    5000,      tpz.ki.RHAPSODY_IN_UMBER,     -- Chocobo Whistle
-        },
-        [curio.keys] =
-        {
-            -- 1024,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ghelsba Chest Key
-            -- 1025,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Palborough Chest Key
-            -- 1026,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Giddeus Chest Key
-            -- 1027,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ranperre Chest Key
-            -- 1028,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Dangruf Chest Key
-            -- 1029,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Horutoto Chest Key
-            -- 1030,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ordelle Chest Key
-            -- 1031,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Gusgen Chest Key
-            -- 1032,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Shakhrami Chest Key
-            -- 1033,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Davoi Chest Key
-            -- 1034,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beadeaux Chest Key
-            -- 1035,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oztroja Chest Key
-            -- 1036,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Delkfutt Chest Key
-            -- 1037,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fei'Yin Chest Key
-            -- 1038,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Zvahl Chest Key
-            -- 1039,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Eldieme Chest Key
-            -- 1040,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Nest Chest Key
-            -- 1041,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Garlaige Chest Key
-            -- 1043,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beadeaux Coffer Key
-            -- 1042,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Davoi Coffer Key
-            -- 1044,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oztroja Coffer Key
-            -- 1045,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Nest Coffer Key
-            -- 1046,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Eldieme Coffer Key
-            -- 1047,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Garlaige Coffer Key
-            -- 1048,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Zvhal Coffer Key
-            -- 1049,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Uggalepih Coffer Key
-            -- 1050,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Den Coffer Key
-            -- 1051,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Kuftal Coffer Key
-            -- 1052,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Boyahda Coffer Key
-            -- 1053,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Cauldron Coffer Key
-            -- 1054,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Quicksand Coffer Key
-            -- 1055,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grotto Chest Key
-            -- 1056,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Onzozo Chest Key
-            -- 1057,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toraimarai Coffer Key
-            -- 1058,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ru'Aun Coffer Key
-            -- 1059,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grotto Coffer Key
-            -- 1060,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ve'Lugannon Coffer Key
-            -- 1061,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sacrarium Chest Key
-            -- 1062,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oldton Chest Key
-            -- 1063,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Newton Coffer Key
-            -- 1064,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pso'Xja Chest Key
         }
     }
 }
