@@ -277,26 +277,22 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 		BluAttkModifier = 1
 	end
 
+    -- Base attack from BLU skill
 	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
     --printf("Attack after Skill.. %u", bluphysattk)
+
     -- Add attack from food/gear/JA's
     bluphysattk = bluphysattk + caster:getStat(tpz.mod.ATT)
     --printf("Attack after food/gear/jas.. %u", bluphysattk)
-    -- Remove skill from weapon(sword/club/etc)
-    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.SWORD) then
-        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.SWORD) + caster:getMod(tpz.mod.SKILL_SWORD))
-    end
-    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.CLUB) then
-        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.CLUB) + caster:getMod(tpz.mod.CLUB))
-    end
-    --printf("Attack after weapon skill removed.. %u", bluphysattk)
-    -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
+
     -- Add attack from TP bonus and attack bonus on specific BLU spells
     bluphysattk = math.floor(bluphysattk * BluAttkModifier)
     --printf("Attack after TP bonus.. %u", bluphysattk)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
+
+    -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
     local physPotency = 1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
     bluphysattk = math.floor(bluphysattk * physPotency)
     --printf("Attack after potency merits.. %u", bluphysattk)
