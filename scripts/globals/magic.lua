@@ -2322,6 +2322,9 @@ function GetCharmMultiplier(SDT)
 end
 
 function GetCharmFamilyReduction(player, target)
+    if not target:isMob() then
+        return 0
+    end
     -- Slime, Puk -35%
     -- Old Opo-Opo -40%
     -- Ifrit's Raptor -75%

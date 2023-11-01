@@ -1689,6 +1689,9 @@ function TryBreakMob(target)
 end
 
 function GetMobFamily(target)
+    if not target:isMob() then
+        return 0
+    end
     if (target:getFamily() == 246) or (target:getFamily() == 308) or (target:getFamily() == 923) then
         return 'Troll'
     elseif (target:getFamily() == 176) or (target:getFamily() == 305) or (target:getFamily() == 591) then
