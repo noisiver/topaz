@@ -26,7 +26,7 @@ g_mixins.families.gnole = function(mob)
             mob:setMod(tpz.mod.MARTIAL_ARTS, 20)
             mob:addMod(tpz.mod.EVA, -60)
         end
-        mob:setLocalVar("transformTime", os.time())
+        mob:AnimationSub(math.random(0, 1))
     end)
 
     mob:addListener("ROAM_TICK", "GNOLE_ROAM", function(mob)
@@ -37,6 +37,10 @@ g_mixins.families.gnole = function(mob)
 		    mob:setMod(tpz.mod.REGEN, 0)
 	    end
         attemptTransform(mob, 300)
+    end)
+
+    mob:addListener("ENGAGE", "GNOLE_ENGAGE", function(mob, target)
+        mob:setLocalVar("transformTime", os.time() + 60)
     end)
 
     mob:addListener("COMBAT_TICK", "GNOLE_COMBAT", function(mob)
