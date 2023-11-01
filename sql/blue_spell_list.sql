@@ -78,7 +78,7 @@ INSERT INTO `blue_spell_list` VALUES ('579','1707','4','14','3','0','0'); -- Vor
 INSERT INTO `blue_spell_list` VALUES ('581','287','4','2','1','0','0'); -- Healing Breeze
 INSERT INTO `blue_spell_list` VALUES ('582','653','2','17','1','0','0'); -- Chaotic Eye
 INSERT INTO `blue_spell_list` VALUES ('584','264','2','2','1','0','0'); -- Sheep Song
-INSERT INTO `blue_spell_list` VALUES ('585','266','4','3','1','11','0'); -- Ram Charge
+INSERT INTO `blue_spell_list` VALUES ('585','266','4','8','4','11','0'); -- Ram Charge
 INSERT INTO `blue_spell_list` VALUES ('587','273','2','3','1','4','0'); -- Claw Cyclone
 INSERT INTO `blue_spell_list` VALUES ('588','497','2','4','1','0','0'); -- Lowing
 INSERT INTO `blue_spell_list` VALUES ('589','255','5','16','1','1','8'); -- Dimensional Death

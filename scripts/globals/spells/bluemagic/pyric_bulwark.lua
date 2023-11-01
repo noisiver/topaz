@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Pyric Bulwark
--- Grants magical stoneskin.
+-- Grants ncreases Chance of parrying and gives an enmity bonus upon a successful parry attempt.
 -- Spell cost: 10 MP
 -- Monster Type: Vermin
 -- Spell Type: Magical (Earth)
@@ -24,9 +24,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.MAGIC_SHIELD
-    local power = 500 + (caster:getSkillLevel(tpz.skill.BLUE_MAGIC) / 2)
-    local duration = 300
+    local duration = 60
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
@@ -38,9 +36,10 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
-    if (target:addStatusEffect(typeEffect, power, 0, duration) == false) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    end
+    -- Apply unbridled duration mod
+    duration = math.floor(duration * (1 + caster:getMod(tpz.mod.UNBRIDLED_DURATION) / 100))
+
+    target:addStatusEffect(tpz.effect.ISSEKIGAN, 50, 0, 60)
 
     return typeEffect
 end

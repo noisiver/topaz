@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Harden Shell
--- Enhances defense
+-- Grants Protect V and Shell V
 -- Spell cost: 10 MP
 -- Monster Type: Vermin
 -- Spell Type: Magical (Earth)
@@ -24,9 +24,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.DEFENSE_BOOST
-    local power = 100
-    local duration = 90
+    local duration = 600
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
@@ -41,9 +39,8 @@ function onSpellCast(caster, target, spell)
     -- Apply unbridled duration mod
     duration = math.floor(duration * (1 + caster:getMod(tpz.mod.UNBRIDLED_DURATION) / 100))
 
-    if (target:addStatusEffect(typeEffect, power, 0, duration) == false) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    end
+    target:addStatusEffect(tpz.effect.PROTECT, 60, 0, duration)
+    target:addStatusEffect(tpz.effect.SHELL, 24, 0, duration)
 
     return typeEffect
 end
