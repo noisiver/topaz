@@ -124,7 +124,13 @@ bool CMagicState::Update(time_point tick)
         {
             if (PTarget->objtype == TYPE_PC)
             {
+                // Ibterrupt when player is in a CS
                 if (PTarget->status == STATUS_CUTSCENE_ONLY)
+                {
+                    m_interrupted = true;
+                }
+                // Interrupt when players are zoning
+                if (PTarget->status == STATUS_DISAPPEAR)
                 {
                     m_interrupted = true;
                 }
