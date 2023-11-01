@@ -1682,6 +1682,8 @@ function TryBreakMob(target)
         end
     elseif (GetMobFamily(target) == 'Hydra') then
     elseif (GetMobFamily(target) == 'Chigoe') then
+		target:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+		target:setMobMod(tpz.mobMod.NO_DROPS, 1)
         target:setHP(0)
     end
 end
