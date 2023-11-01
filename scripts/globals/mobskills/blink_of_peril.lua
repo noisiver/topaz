@@ -21,7 +21,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local hpp = 0.95
     local dmg = MobThroatStabMove(mob, target, skill, hpp, tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
-    if  not target:isFacing(mob) then
+    if not target:isFacing(mob) then
         dmg = 0
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- TODO: Test
         return 0

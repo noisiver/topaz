@@ -27,6 +27,6 @@ function onMobWeaponSkill(target, mob, skill)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
     MobStatusEffectMove(mob, target, typeEffect, power, 3, 90)
     local effect1 = target:getStatusEffect(typeEffect)
-    effect1:unsetFlag(tpz.effectFlag.DISPELABLE) -- TODO: Test if this works
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     return dmg
 end

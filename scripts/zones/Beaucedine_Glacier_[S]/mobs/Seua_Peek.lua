@@ -59,6 +59,14 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
+function onSpellPrecast(mob, spell)
+    if spell:getID() == 252 then -- Stun
+        spell:setAoE(tpz.magic.aoe.RADIAL)
+        spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
+        spell:setRadius(15)
+	end
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 500)
 	if isKiller and math.random(1,100) <= 24 then 
