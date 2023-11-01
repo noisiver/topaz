@@ -1437,6 +1437,13 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
 
         PAI->TargetFind->findWithinCone(PActionTarget, radius, 45, flags);
     }
+    else if (aoeType == SPELLAOE_PBAOE)
+    {
+        // Aoe around caster
+        float distance = spell::GetSpellRadius(PSpell, this);
+
+        PAI->TargetFind->findWithinArea(PActionTarget, AOERADIUS_ATTACKER, distance, flags);
+    }
     else
     {
         if (this->objtype == TYPE_MOB && PActionTarget->objtype == TYPE_PC)

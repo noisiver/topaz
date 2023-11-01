@@ -6394,6 +6394,10 @@ int getSDTTier(int SDT)
             else
                 return SPELLAOE_NONE;
         }
+        if (PSpell->getAOE() == SPELLAOE_PBAOE)
+        {
+            return SPELLAOE_PBAOE;
+        }
 
         return PSpell->getAOE();
     }
