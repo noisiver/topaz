@@ -10,19 +10,39 @@ More mobs by Judicator Demon in Ule range
 Lvl 72-75 and lvl 81-83 bugards
 Mob Berserk should stack like Amplification / Memento Mori
 Item packet stuff, need new sql entries etc
+Hippogryph Hoof Volley wrong animation they are using spellid 1330 and animation ID 915
+Dispel msgs for mob TP moves are wrong and should show status removed in msg log
 
 Curaga action packet msgs:
 https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
 
 
+Make all "is behind" skills just return 1 if target is NOT behind target:isBehind(mob, 128) and target:isInfront(mob, 128)
+Soulflayers stand back even at 66% HP and are easy to silence
+HP stand back for mages and prob rangers/ninjas is 65%
+Tribulation 13/tick from an abyssea soulflayer
+Mob conals don't work properly if the target is behind them - tries to conal their front and NOT the target
+ShowNavError("CPathFind::FindPath Entity (%s - %d) could not find path\n", m_PTarget->GetName(), m_PTarget->id); <- Despawn mob here
+Move jugs from food to KI's 
 More content that forces bad jobs(like not allowing RDM somehow)
 Add more Mamools to Mamook
 More Lamia / Merrows in Arrapago
 You can turn away from grim glower and don't get perma petrified and Grim Glower can be used while it's still active(shouldn't be able to...I changed duration)
+Tune BCNM / KSNM for duo
+ID 175767304 shouldn't have tooltip/name when targetted copy other doors with no name?
+Cap Boost bonus effect on Chi BLast
+Raubahm mythic fight give Azure Lore immediately in final form
+No longer attack people after a poroggo charmed? or were they too far when I was charmed so I didn't aggro them? 
+444 -7 -284 too close to water and procs the swamp stuff in Caedarva
+Gnoles instantly change form on engage
+Ruszor's don't go back to no glow(no animation sub or 0 or w/e). It should onyl be up while rampart SS or normal SS is active, not on a timer
+Hydro Wave should be water magic SS only(need a new mod for it...)
+Severing Fang works like Dark Ixions rampant stance goes off even if no one is in range https://wiki.ffo.jp/html/17683.html
+
 
 BLU:
-Audit BLU spell list ids to mob skill IDs for all spells I added. check my wiki
-MP Drain Kiss never gets resisted?
+pbaoe radius for spells spells doesnt exist?
+Fix params.IGNORE_WSC on self destruct(looked like its also in wrong spot...)
 Fencer I - IV
 Jettuara longer duration(full on NMs) but make it apply a var that's os.time() + var and always resist if os.time() < var
 Restoral..and prob all spoells after triumphant_roar cast time(get from DAT)
@@ -31,14 +51,17 @@ Prot V and Shell V move (Unbridled Learning)
 Harden Shell Guard, Shield Block rate, Parry Rate boost effect
 Reraise spell
 can learn Firespit from wrong mamool type, maybe wrong spelLID or something? should match spellID from the blue mamools(firespit_magic 1923) Fix for trolls too(diamondhide)
+Saline Coat decay
+Use subpower or a var to determine spikes are coming from BLU for using blu MACC for its spike spells
+Better code for getting combat skill from weapon for attack
 
 
 
 
 
-
-DATS
-
+DATS:
+Master's Shield rare/ex
+Dmsg dats werent pushed or exported
 
 
 
@@ -46,4 +69,6 @@ DATS
 
 
 Wiki: 
-Azure lore 0  MP costs on all spells, stats, etc
+Pop Item / POS of all Mythic NMs
+POS of all ANNM NMs
+
