@@ -24,6 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local tp = skill:getTP()
     local hp = mob:getHP()
+    local attackType = tpz.attackType.BREATH
     local dmg = 0
 
 	dmg = math.floor(hp * (math.floor(0.016 * tp) + 16) / 256)
@@ -37,7 +38,7 @@ function onMobWeaponSkill(target, mob, skill)
         return 0
     end
 
-    dmg = utils.stoneskin(target, dmg)
+    dmg = utils.stoneskin(target, dmg, attackType)
 
     if (dmg > 0) then
         target:wakeUp()
