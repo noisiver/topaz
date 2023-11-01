@@ -2,12 +2,10 @@ Euvhi shouldn't instantly close / open on pull
 Euvhi should only close after taking x dmg
 Euvhi should open after ~80s in combat
 
-Mobs deaggroing on zone (Ghrahs floor 2 Ruhmet)
-Mobs deaggroing ONLY player on CS
-
-Kerwan Aura's work and can have all 3 up at once
+Gnoles should spawn as a random form and shouldn't instantly swap on engage and swap mid fight
 SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
-
+BLU phys attack, test if its working properly now
+Should all BLU spells that are 500 cast time be 250? Test headbutt I made it 250
 
 
 
@@ -18,9 +16,10 @@ X's knife BCNM
 WoE emp trading
 Do soulflayers and imps stand back? Go to helldiva
 can you silence colibri?
-can you silence poroggos and soulflayers easily?
+can you silence poroggos easily?
 Acroliths animationsubs and mechanics and maybe mobskill animations?
 Ruszor animation subs, mobskill animations, and mechanics
 Are ruszors in glacier[s] impossible to gauge?
 Frozen Mist terror duration take off gear to see(less meva)
-
+Hoof Volley animation ID
+Standback HP % for casters and ranged. Seemed to be 65% for soulflayers?
