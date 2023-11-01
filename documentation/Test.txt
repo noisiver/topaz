@@ -5,7 +5,6 @@ Euvhi should open after ~80s in combat
 Mobs deaggroing on zone (Ghrahs floor 2 Ruhmet)
 Mobs deaggroing ONLY player on CS
 
-Are BLU spells AoE around BLU or mob?
 Kerwan Aura's work and can have all 3 up at once
 SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
 
@@ -17,3 +16,11 @@ Parrying packet
 Mob move missing packet
 X's knife BCNM
 WoE emp trading
+Do soulflayers and imps stand back? Go to helldiva
+can you silence colibri?
+can you silence poroggos and soulflayers easily?
+Acroliths animationsubs and mechanics and maybe mobskill animations?
+Ruszor animation subs, mobskill animations, and mechanics
+Are ruszors in glacier[s] impossible to gauge?
+Frozen Mist terror duration take off gear to see(less meva)
+
