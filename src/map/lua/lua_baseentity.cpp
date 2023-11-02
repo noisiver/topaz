@@ -14491,6 +14491,8 @@ inline int32 CLuaBaseEntity::setSystem(lua_State* L)
 
 inline int32 CLuaBaseEntity::getFamily(lua_State* L)
 {
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
     auto entity = dynamic_cast<CMobEntity*>(m_PBaseEntity);
     TPZ_DEBUG_BREAK_IF(!entity);
 
