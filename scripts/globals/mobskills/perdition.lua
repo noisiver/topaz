@@ -13,11 +13,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) or target:hasStatusEffect(tpz.effect.FEALTY) or math.random(0, 99) < target:getMod(tpz.mod.DEATHRES) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
     else
 		target:setHP(0)
 	end

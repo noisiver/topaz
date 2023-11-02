@@ -914,7 +914,7 @@ function MobDrainMove(mob, target, skill, drainType, drain, attackType, damageTy
         return tpz.msg.basic.DAMAGE
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
@@ -956,7 +956,7 @@ function MobDrainAttribute(mob, target, typeEffect, power, tick, duration)
         return tpz.msg.basic.SKILL_MISS
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function DrainMultipleAttributes(mob, target, power, tick, count, duration)
@@ -1028,14 +1028,14 @@ function MobDrainStatusEffectMove(mob, target)
         return tpz.msg.basic.EFFECT_DRAINED
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 -- Adds a status effect to a target
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT
+	    return tpz.msg.basic.SKILL_MISS
     end
 
     if (typeEffect == nil) then
@@ -1062,7 +1062,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
             if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+                return tpz.msg.basic.SKILL_MISS
             end
         end
 
@@ -1079,7 +1079,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
             end
 
             if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+                return tpz.msg.basic.SKILL_MISS
             end
 
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
@@ -1087,16 +1087,16 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT
+        return tpz.msg.basic.SKILL_MISS
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT 
+    return tpz.msg.basic.SKILL_MISS 
 end
 
 -- Adds a status effect to a target with customizable duration and subpower
 function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT
+	    return tpz.msg.basic.SKILL_MISS
     end
 
     if (typeEffect == nil) then
@@ -1116,7 +1116,7 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
             if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+                return tpz.msg.basic.SKILL_MISS
             end
         end
 
@@ -1133,7 +1133,7 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
             end
 
             if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+                return tpz.msg.basic.SKILL_MISS
             end
 
             target:addStatusEffect(typeEffect, power, tick, totalDuration, subid, subpower, tier)
@@ -1141,16 +1141,16 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT
+        return tpz.msg.basic.SKILL_MISS
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT 
+    return tpz.msg.basic.SKILL_MISS 
 end
 
 -- Used for Slows that overwrite Haste
 function MobHasteOverwriteSlowMove(mob, target, power, tick, duration, subid, subpower, tier)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT
+	    return tpz.msg.basic.SKILL_MISS
     end
 
     local typeEffect = tpz.effect.SLOW
@@ -1179,9 +1179,9 @@ function MobHasteOverwriteSlowMove(mob, target, power, tick, duration, subid, su
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT
+        return tpz.msg.basic.SKILL_MISS
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT 
+    return tpz.msg.basic.SKILL_MISS 
 end
 
 -- similar to status effect move except, this will not land if the attack missed
@@ -1208,24 +1208,24 @@ end
 function MobGazeMove(mob, target, typeEffect, power, tick, duration)
     if (target:isFacing(mob)) then
 		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
-			return tpz.msg.basic.SKILL_NO_EFFECT
+			return tpz.msg.basic.SKILL_MISS
 		else
 			return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 		end
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 -- similar to statuseffect move except it will only take effect if facing
 function MobGazeMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
     if (target:isFacing(mob)) then
 		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
-			return tpz.msg.basic.SKILL_NO_EFFECT
+			return tpz.msg.basic.SKILL_MISS
 		else
 			return MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
 		end
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function MobBuffMove(mob, typeEffect, power, tick, duration)
@@ -1246,7 +1246,7 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 -- Adds a buff to the move with subpower
@@ -1268,7 +1268,7 @@ function MobBuffMoveSub(mob, typeEffect, power, tick, duration, subid, subpower,
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function MobHealMove(mob, target, skill, multiplier)
@@ -1381,12 +1381,12 @@ function MobCharmMove(mob, target, skill, costume, duration)
     target:addEnmity(mob, 1, 320)
 
 	if (not target:isPC()) then
-		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 	
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		else
         	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
 			mob:charm(target)
@@ -1394,7 +1394,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
             return skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
         end
 	else
-	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 end
 
@@ -1408,18 +1408,18 @@ function MobDeathMove(mob, target, skill)
 
 	 --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
-		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 	
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		else
             target:setHP(0)
             return skill:setMsg(tpz.msg.basic.FALL_TO_GROUND)
         end
 	else
-	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 end
 
@@ -1509,7 +1509,7 @@ function MobSelfDispelMove(mob, skill)
 
     if (dispel == tpz.effect.NONE) then
         -- no effect
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_MISS) -- no effect
     else
         skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
     end

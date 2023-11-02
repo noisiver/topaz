@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
     local needles = 10000 / skill:getTotalTargets()
     local dmg = MobFinalAdjustments(needles, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_WIPE_SHADOWS)
 	if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	else
 		target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	end

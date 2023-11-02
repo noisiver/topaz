@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     MobStatusEffectMove(mob, target, tpz.effect.STUN, 1, 0, 8)
 
     if (DISPEL == tpz.effect.NONE) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_MISS) -- no effect
     else
         skill:setMsg(tpz.msg.basic.SKILL_ERASE)
     end
