@@ -992,7 +992,11 @@ function getEffectResistanceTraitChance(caster, target, effect)
     end
     
     if (effectres ~= 0) then
-        local ret = target:getMod(effectres) + target:getMod(tpz.mod.STATUSRESTRAIT) -- TODO: Test
+        local ret = target:getMod(effectres)
+        -- All resist does not work on Terror or Death
+        if (effect ~= tpz.effect.KO and effect ~= tpz.effect.TERROR) then
+            ret = ret + target:getMod(tpz.mod.STATUSRESTRAIT) 
+        end
         if (not caster:isPC()) and caster:isNM() then
             ret = math.floor(ret/2)
         end

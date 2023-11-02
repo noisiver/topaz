@@ -1871,8 +1871,9 @@ tpz.mod =
     PET_DELAY               = 1352, -- Reduces pets delay(in percents)    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     PET_MACC                = 1353, -- Increases pets magic accuracy
     PHYSICAL_SS             = 1354, --Physical damage only stoneskin
+    TERRORRESTRAIT          = 1355,
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1355 NEXT
+    -- 1356 NEXT
 }
 
 tpz.latent =

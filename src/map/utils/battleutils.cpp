@@ -1483,7 +1483,7 @@ int getSDTTier(int SDT)
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::CURSERESTRAIT))
+                        tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::CURSERESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1495,7 +1495,7 @@ int getSDTTier(int SDT)
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                     //printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, (uint32)(45 * (float)resist)));
@@ -1508,7 +1508,7 @@ int getSDTTier(int SDT)
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::STUNRESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::STUNRESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, (uint32)(4 * (float)resist)));
                 }
@@ -1520,7 +1520,7 @@ int getSDTTier(int SDT)
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SILENCERESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SILENCERESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1532,7 +1532,7 @@ int getSDTTier(int SDT)
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 3500, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1544,7 +1544,7 @@ int getSDTTier(int SDT)
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 20, 3, (uint32)(30 * (float)resist)));
                 }
