@@ -322,6 +322,11 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
             {
                 mobHP = (baseMobHP + sjHP) * 3.0;
             }
+            // Chigoe family have ~20% of mob HP
+            else if (PMob->m_Family == 64)
+            {
+                mobHP = (baseMobHP + sjHP) * 0.20f;
+            }
             else
             {
                 mobHP = baseMobHP + sjHP;
