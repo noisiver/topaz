@@ -1504,11 +1504,9 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         }
 
         // TODO: this is really hacky and should eventually be moved into lua, and spellFlags should probably be in the spells table..
-        // Does not check if the spell is a BLU spell, as they have mulithit spells
         if (PSpell->canHitShadow() && aoeType == SPELLAOE_NONE
             && battleutils::IsAbsorbByShadow(PTarget)
-            && !(PSpell->getFlag() & SPELLFLAG_IGNORE_SHADOWS) &&
-            PSpell->getSkillType() != SKILLTYPE::SKILL_BLUE_MAGIC)
+            && !(PSpell->getFlag() & SPELLFLAG_IGNORE_SHADOWS))
         {
             // take shadow
             msg = MSGBASIC_SHADOW_ABSORB;
