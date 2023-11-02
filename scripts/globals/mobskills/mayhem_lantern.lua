@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
 	MobStatusEffectMove(mob, target, typeEffectTwo, powerTwo, 3, 300) -- Shock
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        skill:setMsg(tpz.msg.basic.EVADES)
     else
 		skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.CHARM, 1, 0, 60))
     end

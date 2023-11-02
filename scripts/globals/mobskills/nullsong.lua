@@ -31,7 +31,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local dispel =  MobFullDispelMove(mob, target, skill, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
-    local msg = tpz.msg.basic.SKILL_NO_EFFECT
+    local msg = tpz.msg.basic.EVADES
 	local amount = 0
 	
     if dispel > 0 then

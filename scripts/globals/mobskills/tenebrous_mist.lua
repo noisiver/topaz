@@ -27,7 +27,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local reset = 0
     if (target:getTP() == 0) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.EVADES) -- no effect
     else
         target:setTP(reset)
         skill:setMsg(tpz.msg.basic.TP_REDUCED)

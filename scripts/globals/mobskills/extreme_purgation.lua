@@ -60,7 +60,7 @@ function onMobWeaponSkill(target, mob, skill)
         end
 
         if count == 0 then
-            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+            skill:setMsg(tpz.msg.basic.EVADES)
         else
             skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
         end

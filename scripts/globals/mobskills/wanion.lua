@@ -16,7 +16,7 @@ function onMobWeaponSkill(target, mob, skill)
     if transferred then
         return effect
     else
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.EVADES) -- no effect
         return 0
     end
 end

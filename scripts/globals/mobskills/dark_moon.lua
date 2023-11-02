@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     if mob:getPool() == 5763 then -- Marquis Sabnock
         if target:hasStatusEffect(tpz.effect.FEALTY) then
-            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+            skill:setMsg(tpz.msg.basic.EVADES)
         else
             MobStatusEffectMove(mob, target, tpz.effect.WEAKNESS, 1, 0, 30)
         end

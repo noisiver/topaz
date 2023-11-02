@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     if (dispel == tpz.effect.NONE) then
         -- no effect
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.EVADES) -- no effect
     else
         skill:setMsg(tpz.msg.basic.SKILL_ERASE)
     end
