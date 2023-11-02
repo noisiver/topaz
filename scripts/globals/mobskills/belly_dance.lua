@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
         MobCharmMove(mob, target, skill, 0, 120)
         return tpz.effect.CHARM_I
     else
-        return skill:setMsg(tpz.msg.basic.EVADES)
+        return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     end
     return 0
 end

@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DOOM
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.EVADES)
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     else
         skill:setMsg(MobGazeMove(mob, target, typeEffect, 10, 3, 30))
     end

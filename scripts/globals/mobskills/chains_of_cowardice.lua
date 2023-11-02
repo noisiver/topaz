@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     if target:isPC() and ((target:getRace() == tpz.race.TARU_M or target:getRace() == tpz.race.TARU_F) and not target:hasKeyItem(tpz.ki.LIGHT_OF_HOLLA)) then
         skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))
     else
-        skill:setMsg(tpz.msg.basic.EVADES)
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     end
 
     return typeEffect

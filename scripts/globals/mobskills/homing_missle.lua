@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 	
 	if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.EVADES)
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
         dmg = 0
 	else
 		target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)

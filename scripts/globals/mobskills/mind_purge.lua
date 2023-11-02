@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     local msg -- to be set later
 
     if (dispel == 0) then
-        msg = tpz.msg.basic.EVADES -- no effect
+        msg = tpz.msg.basic.SKILL_NO_EFFECT -- no effect
     else
         msg = tpz.msg.basic.DISAPPEAR_NUM
     end

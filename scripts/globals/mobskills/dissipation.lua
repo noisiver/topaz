@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     local count =  MobFullDispelMove(mob, target, skill, tpz.effectFlag.DISPELABLE)
 
     if (count == 0) then
-        skill:setMsg(tpz.msg.basic.EVADES)
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     else
         skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
     end
