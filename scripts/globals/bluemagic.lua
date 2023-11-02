@@ -323,6 +323,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local hitsdone = 0
     local hitslanded = 0
     local finaldmg = 0
+    local shadowsTaken = 0
 
     while (hitsdone < params.numhits) do
         if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
@@ -362,22 +363,14 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 shadowbehav = 999
             end
 
-            if (params.shadowbehav ~= nil) then
-                shadowbehav = params.shadowbehav
-            end
+            if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
+                finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
 
-            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
-
-            -- dealt zero damage, so shadows took hit
-            if (finaldmg == 0) then
-                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-                return shadowbehav
-            end
-
-            --handle Third Eye using shadowbehav as a guide
-            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-                return 0
+                -- dealt zero damage, so shadows took hit
+                if (finaldmg == 0) then
+                    shadowsTaken = shadowsTaken + 1
+                    return
+                end
             end
 
             --handling phalanx
@@ -394,6 +387,21 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         -- TODO: Test if this is required on reail
         -- target:tryInterruptSpell(caster, 1)
     end
+
+    --handle Third Eye
+    if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
+        if utils.thirdeye(target)) then
+            spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+            return 0
+        end
+    end
+
+    -- All hits were absorbed by shadows
+    if (finaldmg == 0 and shadowsTaken > 0) then
+        spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+        return shadowsTaken
+    end
+
 
     -- Weapon resist
     finaldmg = finaldmg * utils.HandleWeaponResist(target, params.damageType)
