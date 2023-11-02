@@ -6,20 +6,13 @@ Gnoles should spawn as a random form and shouldn't instantly swap on engage and 
 SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
 BLU phys attack, test if its working properly now
 Should all BLU spells that are 500 cast time be 250? Test headbutt I made it 250
-
+BLU shadow param on utsu with multihits
 
 
 Retail:
 Parrying packet
-Mob move missing packet
+Mob move missing, buff, dispel, etc packet
 X's knife BCNM
-WoE emp trading
-Do soulflayers and imps stand back? Go to helldiva
-can you silence colibri?
-can you silence poroggos easily?
 Acroliths animationsubs and mechanics and maybe mobskill animations?
-Ruszor animation subs, mobskill animations, and mechanics
-Are ruszors in glacier[s] impossible to gauge?
-Frozen Mist terror duration take off gear to see(less meva)
 Hoof Volley animation ID
 Standback HP % for casters and ranged. Seemed to be 65% for soulflayers?

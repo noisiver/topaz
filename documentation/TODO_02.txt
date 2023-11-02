@@ -1,4 +1,13 @@
 
+Curaga action packet msgs:
+https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
+
+Sattva Ring missing Phalanx
+Poroggos are easy to silence
+Terror cannot be resisted when cast by mobs
+Deorc shouldnt be up
+Marid horn break rate is extremely high (5%+)
+Chigoes have extremely reduced HP (< 1k)
 Phalaenopsis unused item 1730 gil regional
 <player name>'s attack devastates the fiend!
 Custom name pets
@@ -12,12 +21,6 @@ Mob Berserk should stack like Amplification / Memento Mori
 Item packet stuff, need new sql entries etc
 Hippogryph Hoof Volley wrong animation they are using spellid 1330 and animation ID 915
 Dispel msgs for mob TP moves are wrong and should show status removed in msg log
-
-Curaga action packet msgs:
-https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
-
-
-
 Make all "is behind" skills just return 1 if target is NOT behind target:isBehind(mob, 128) and target:isInfront(mob, 128)
 Tribulation 13/tick from an abyssea soulflayer
 ShowNavError("CPathFind::FindPath Entity (%s - %d) could not find path\n", m_PTarget->GetName(), m_PTarget->id); <- Despawn mob here
@@ -32,10 +35,8 @@ No longer attack people after a poroggo charmed? or were they too far when I was
 444 -7 -284 too close to water and procs the swamp stuff in Caedarva
 
 BLU:
-Fencer I - IV
-Restoral..and prob all spoells after triumphant_roar cast time(get from DAT)
-Prot V and Shell V move (Unbridled Learning)
-Harden Shell Guard, Shield Block rate, Parry Rate boost effect
+Shadow param doesnt work properly?
+Add Fantod
 Reraise spell
 Saline Coat decay
 Use subpower or a var to determine spikes are coming from BLU for using blu MACC for its spike spells
@@ -46,7 +47,7 @@ Use subpower or a var to determine spikes are coming from BLU for using blu MACC
 
 DATS:
 Master's Shield rare/ex
-Dmsg dats werent pushed or exported
+Wild Oats attack down + choke
 
 
 
@@ -54,4 +55,5 @@ Dmsg dats werent pushed or exported
 
 
 Wiki: 
-
+Item implicits
+Custom item sets(brass gear, pup/smn gear, wise gear, etc)
