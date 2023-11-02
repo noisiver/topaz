@@ -1057,6 +1057,11 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
         local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
 
+        -- Terror cannot be resisted by players
+        if (target:isPC() and typeEffect == tpz.effect.TERROR) then
+            resist = 1
+        end
+
         target:addEnmity(mob, 1, 320)
 
         -- Doom and Gradual Petrification can't have a lower duration from resisting
@@ -1110,6 +1115,11 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
         local bonus = math.floor(mob:getMainLvl() / 2)
 
         local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
+
+        -- Terror cannot be resisted
+        if (target:isPC() and typeEffect == tpz.effect.TERROR) then
+            resist = 1
+        end
 
         target:addEnmity(mob, 1, 320)
 
