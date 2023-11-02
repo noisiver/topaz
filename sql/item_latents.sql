@@ -1802,20 +1802,23 @@ INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 60);     -- DEX+1 above level
 INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 75);     -- DEX+1 above level 75
 
 -- -------------------------------------------------------
--- Tamas Ring
+-- Sattva Ring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 45);     -- MP+5 above level 45
-INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 60);     -- MP+5 above level 60
-INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 75);     -- MP+5 above level 75
-INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 45);    -- INT+1 above level 45
-INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 60);    -- INT+1 above level 60
-INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 75);    -- INT+1 above level 75
-INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 45);    -- MND+1 above level 45
-INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 60);    -- MND+1 above level 60
-INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 75);    -- MND+1 above level 75
+INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 45);     -- HP+5 above level 45
+INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 60);     -- HP+5 above level 60
+INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 75);     -- HP+5 above level 75
+INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 45);    -- VIT+1 above level 45
+INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 60);    -- VIT+1 above level 60
+INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 75);    -- VIT+1 above level 75
+INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 45);    -- AGI+1 above level 45
+INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 60);    -- AGI+1 above level 60
+INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 75);    -- AGI+1 above level 75
+INSERT INTO `item_latents` VALUES(15544, 301, 1, 51, 45);    -- Phalanx +1 above level 45
+INSERT INTO `item_latents` VALUES(15544, 301, 1, 51, 60);    -- Phalanx +1 above level 60
+INSERT INTO `item_latents` VALUES(15544, 301, 1, 51, 75);    -- Phalanx +1 above level 75
 
 -- -------------------------------------------------------
--- Sattva Ring
+-- Tamas Ring
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(15545, 5, 5, 51, 45);     -- MP+5 above level 45
 INSERT INTO `item_latents` VALUES(15545, 5, 5, 51, 60);     -- MP+5 above level 60
