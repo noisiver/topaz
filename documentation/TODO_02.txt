@@ -2,12 +2,6 @@
 Curaga action packet msgs:
 https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
 
-Sattva Ring missing Phalanx
-Poroggos are easy to silence
-Terror cannot be resisted when cast by mobs
-Deorc shouldnt be up
-Marid horn break rate is extremely high (5%+)
-Chigoes have extremely reduced HP (< 1k)
 Phalaenopsis unused item 1730 gil regional
 <player name>'s attack devastates the fiend!
 Custom name pets
@@ -35,11 +29,8 @@ No longer attack people after a poroggo charmed? or were they too far when I was
 444 -7 -284 too close to water and procs the swamp stuff in Caedarva
 
 BLU:
-Shadow param doesnt work properly?
 Add Fantod
 Reraise spell
-Saline Coat decay
-Use subpower or a var to determine spikes are coming from BLU for using blu MACC for its spike spells
 
 
 
@@ -47,7 +38,6 @@ Use subpower or a var to determine spikes are coming from BLU for using blu MACC
 
 DATS:
 Master's Shield rare/ex
-Wild Oats attack down + choke
 
 
 
