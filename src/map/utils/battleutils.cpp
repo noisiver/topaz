@@ -673,13 +673,21 @@ int getSDTTier(int SDT)
         {
             magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
         }
-        if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_BLU && (int16)PAttacker->GetLocalVar("bluSpikes") > 0)
+        if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_BLU)
         {
-            magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_BLUE_MAGIC));
+            auto PChar = static_cast<CCharEntity*>(PAttacker);
+            if (charutils::GetCharVar(PChar, "bluSpikes") > 0)
+                {
+                    magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_BLUE_MAGIC));
+                }
         }
-        else if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_DRK && (int16)PAttacker->GetLocalVar("drkSpikes") > 0)
+        else if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_DRK)
         {
-            magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_DARK_MAGIC));
+                auto PChar = static_cast<CCharEntity*>(PAttacker);
+            if (charutils::GetCharVar(PChar, "drkSpikes") > 0)
+            {
+                magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_DARK_MAGIC));
+            }
         }
         magicacc += PAttacker->getMod(Mod::MACC);
         //printf("MACC after MACC mod %f\n", magicacc);

@@ -279,15 +279,15 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     -- Base attack from BLU skill
 	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    --printf("Attack after Skill.. %u", bluphysattk)
+    -- printf("Attack after Skill.. %u", bluphysattk)
 
     -- Add attack from food/gear/JA's
     bluphysattk = bluphysattk + caster:getStat(tpz.mod.ATT)
-    --printf("Attack after food/gear/jas.. %u", bluphysattk)
+    -- printf("Attack after food/gear/jas.. %u", bluphysattk)
 
     -- Add attack from TP bonus and attack bonus on specific BLU spells
     bluphysattk = math.floor(bluphysattk * BluAttkModifier)
-    --printf("Attack after TP bonus.. %u", bluphysattk)
+    -- printf("Attack after TP bonus.. %u", bluphysattk)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
@@ -323,7 +323,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local hitsdone = 0
     local hitslanded = 0
     local finaldmg = 0
-    local shadowsTaken = 0
 
     while (hitsdone < params.numhits) do
         if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
@@ -353,54 +352,41 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 finaldmg = finaldmg + ((math.floor(D + fStr + WSC)) * pdif) -- same as finalD but without multiplier (it should be 1.0)
             end
 
-            -- Check for shadows
-
-            -- If spell is AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow
-            -- Use params.shadowbehav for exceptions
-            local shadowbehav = 1
-
-            if spell:isAoE() then
-                shadowbehav = 999
-            end
-
-            if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
-                finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
-
-                -- dealt zero damage, so shadows took hit
-                if (finaldmg == 0) then
-                    shadowsTaken = shadowsTaken + 1
-                    return
-                end
-            end
-
             --handling phalanx
             finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
             hitslanded = hitslanded + 1
-            -- increment target's TP (100TP per hit landed)
-            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-            -- printf("TP given: %d", tpGiven)
-	        target:addTP(tpGiven)
         end
 
         hitsdone = hitsdone + 1
-        -- TODO: Test if this is required on reail
+        -- TODO: Test if this is required on retail
         -- target:tryInterruptSpell(caster, 1)
     end
 
-    --handle Third Eye
-    if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
-        if utils.thirdeye(target)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-            return 0
-        end
-    end
+    -- Check for shadows
+    -- If spell is AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow per hit landed
+    -- Use params.shadowbehav for exceptions
+    --local shadowbehav = hitslanded
+    --printf("shadowbehav %d", shadowbehav)
+    --printf("finaldmg %d", finaldmg)
+    --if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
+      --  finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+        --printf("shadowbehav %d", shadowbehav)
+        --printf("finaldmg %d", finaldmg)
+        -- All hits absorbed by shadows
+       -- if (finaldmg == 0) then
+         --   spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+          --  return shadowbehav
+        --end
+    --end
 
-    -- All hits were absorbed by shadows
-    if (finaldmg == 0 and shadowsTaken > 0) then
-        spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-        return shadowsTaken
-    end
+    --handle Third Eye
+    --if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
+      --  if utils.thirdeye(target) then
+       --     spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+         --   return 0
+       -- end
+    --end
 
 
     -- Weapon resist
@@ -461,8 +447,14 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
     end
 
-    if finaldmg == 0 then
+    if (finaldmg == 0) then
         spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+    end
+
+    local tpGiven = utils.CalculateSpellTPGiven(caster, target, hitslanded)
+    -- printf("TP given: %d", tpGiven)
+    if (finaldmg > 0 and spell:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) then
+        target:addTP(tpGiven)
     end
 
     -- print("Hits landed "..hitslanded.."/"..hitsdone.." for total damage: "..finaldmg)
@@ -606,7 +598,9 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     local tpGiven = utils.CalculateSpellTPGiven(caster, target)
     -- printf("TP given: %d", tpGiven)
-    target:addTP(tpGiven)
+    if (dmg > 0 and spell:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) then
+        target:addTP(tpGiven)
+    end
 
     return dmg
 end

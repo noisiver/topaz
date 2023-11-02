@@ -167,6 +167,7 @@ function utils.takeShadows(target, dmg, shadowbehav)
         if shadowType == tpz.mod.BLINK then
             for i = 1, shadowbehav, 1 do
                 if shadowsLeft > 0 then
+                    -- TODO: Get blink subpower for this, some are stronger than others
                     if math.random() <= 0.5 then -- https://www.bg-wiki.com/ffxi/Category:Utsusemi Blink has a 50% chance to not absorb damage/enfeeble spells
                         shadowsUsed = shadowsUsed + 1
                         shadowsLeft = shadowsLeft - 1
@@ -1069,11 +1070,14 @@ function utils.CalculateBaseTP(delay)
     return tp
 end
 
-function utils.CalculateSpellTPGiven(caster, target)
+function utils.CalculateSpellTPGiven(caster, target, totalhits)
     local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
     local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
     local sBlowMult = (utils.clamp((sBlow1 + sBlow2), -75, 75))
     local TP = 100
+    if (totalhits == nil) then
+        totalhits = 1
+    end
     -- Add casters Subtle Blow
     local sBlowReduction = math.floor(100 * sBlowMult / 100)
     -- Remove TP given from subtle blow
@@ -1081,6 +1085,9 @@ function utils.CalculateSpellTPGiven(caster, target)
 
     -- Add targets Store TP
     TP = math.floor(TP * (100 + target:getMod(tpz.mod.STORETP)) / 100)
+
+    -- Add TP per hit
+    TP = TP * totalhits
 
     return TP
 end

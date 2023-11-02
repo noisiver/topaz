@@ -17,5 +17,5 @@ end
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.SPIKES, 5)
     target:delMod(tpz.mod.SPIKES_DMG, effect:getPower())
-    target:setLocalVar("bluSpikes", 0)
+    target:setCharVar("bluSpikes", 0)
 end

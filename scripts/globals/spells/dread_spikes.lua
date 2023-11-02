@@ -24,7 +24,7 @@ function onSpellCast(caster, target, spell)
     end
 
     -- For tracking what skill to use for spikes MACC formula in C++
-    target:setLocalVar("drkSpikes", 1)
+    target:setCharVar("drkSpikes", 1)
 
     return typeEffect
 end
