@@ -1,7 +1,8 @@
 -----------------------------------
 -- Blink
 --No need for addMod since blinks never stack.
---
+-- tpz.effect.BLINK
+-- 40% base proc chance, use subpower to edit chance. (i.e. 75 subpower = 75%)
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------

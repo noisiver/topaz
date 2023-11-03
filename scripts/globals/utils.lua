@@ -167,8 +167,12 @@ function utils.takeShadows(target, dmg, shadowbehav)
         if shadowType == tpz.mod.BLINK then
             for i = 1, shadowbehav, 1 do
                 if shadowsLeft > 0 then
-                    -- TODO: Get blink subpower for this, some are stronger than others
-                    if math.random() <= 0.5 then -- https://www.bg-wiki.com/ffxi/Category:Utsusemi Blink has a 50% chance to not absorb damage/enfeeble spells
+                    local effect = target:getStatusEffect(tpz.effect.BLINK)
+                    local procChance = 0.4
+                    if effect:getSubPower() ~= nil then
+                        procChance = effect:getSubPower() / 10
+                    end
+                    if math.random() <= procChance then -- https://www.bg-wiki.com/ffxi/Category:Utsusemi Blink has a 50% chance to not absorb damage/enfeeble spells
                         shadowsUsed = shadowsUsed + 1
                         shadowsLeft = shadowsLeft - 1
                     end

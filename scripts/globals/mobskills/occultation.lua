@@ -16,8 +16,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local shadows = 10
     local typeEffect = tpz.effect.BLINK
+    local procChance = 100
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, base, 0, 300))
-    mob:addStatusEffectEx(tpz.effect.COPY_IMAGE, tpz.effect.COPY_IMAGE_3, 1, 0, 300, 0, shadows)
+    skill:setMsg(MobBuffMoveSub(mob, typeEffect, shadows, 0, 300, 0, procChance, 0))
     return typeEffect
 end
