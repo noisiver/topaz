@@ -144,3 +144,7 @@ INSERT INTO `blue_traits` VALUES (34, 6, 107, 986, 14); -- Fencer III
 INSERT INTO `blue_traits` VALUES (34, 8, 107, 903, 650); -- Fencer IV
 INSERT INTO `blue_traits` VALUES (34, 8, 107, 904, 12); -- Fencer IV
 INSERT INTO `blue_traits` VALUES (34, 8, 107, 986, 15); -- Fencer IV
+INSERT INTO `blue_traits` VALUES (35, 2, 25, 485, 10); -- Shield Mastery
+INSERT INTO `blue_traits` VALUES (35, 4, 25, 485, 20); -- Shield Mastery II 
+INSERT INTO `blue_traits` VALUES (35, 6, 25, 485, 30); -- Shield Mastery III
+INSERT INTO `blue_traits` VALUES (35, 8, 25, 485, 40); -- Shield Mastery IV

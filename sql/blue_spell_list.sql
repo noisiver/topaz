@@ -102,7 +102,7 @@ INSERT INTO `blue_spell_list` VALUES ('612','1441','4','14','4','0','0'); -- Act
 INSERT INTO `blue_spell_list` VALUES ('613','1463','5','6','1','0','0'); -- Reactor Cool
 INSERT INTO `blue_spell_list` VALUES ('614','1352','3','11','1','0','0'); -- Saline Coat
 INSERT INTO `blue_spell_list` VALUES ('615','1358','5','14','4','0','0'); -- Plasma Charge
-INSERT INTO `blue_spell_list` VALUES ('616','1366','5','8','1','0','0'); -- Temporal Shift
+INSERT INTO `blue_spell_list` VALUES ('616','1366','5','35','2','0','0'); -- Temporal Shift
 INSERT INTO `blue_spell_list` VALUES ('617','1447','3','11','1','9','0'); -- Vertical Cleave
 INSERT INTO `blue_spell_list` VALUES ('618','638','2','0','1','0','0'); -- Blastbomb
 INSERT INTO `blue_spell_list` VALUES ('620','609','3','8','1','8','0'); -- Battle Dance
@@ -116,7 +116,7 @@ INSERT INTO `blue_spell_list` VALUES ('631','777','3','25','1','5','0'); -- Hydr
 INSERT INTO `blue_spell_list` VALUES ('632','1897','3','31','1','0','0'); -- Diamondhide
 INSERT INTO `blue_spell_list` VALUES ('633','1745','5','21','2','0','0'); -- Enervation
 INSERT INTO `blue_spell_list` VALUES ('634','785','5','14','2','0','0'); -- Light of Penance
-INSERT INTO `blue_spell_list` VALUES ('636','1734','4','4','1','0','0'); -- Warm-Up
+INSERT INTO `blue_spell_list` VALUES ('636','1734','4','35','2','0','0'); -- Warm-Up
 INSERT INTO `blue_spell_list` VALUES ('637','1923','5','17','1','0','0'); -- Firespit
 INSERT INTO `blue_spell_list` VALUES ('638','617','3','25','1','1','0'); -- Feather Storm DW +4
 INSERT INTO `blue_spell_list` VALUES ('640','1771','4','20','1','5','0'); -- Tail Slap
