@@ -10,7 +10,6 @@
 -- Casting Time: 1.75 seconds
 -- Recast Time: 60 seconds
 -- Duration: 5 minutes
--- Absorbs 500 damage + BLU Skill  / 2
 -- Combos: None
 -----------------------------------------
 require("scripts/globals/bluemagic")
