@@ -50,6 +50,7 @@ DATS:
 Master's Shield rare/ex
 Quad Contin "Attack varies with TP."
 BLU spell recasts
+Uppercut attack varies with tp.
 
 
 
@@ -58,5 +59,5 @@ BLU spell recasts
 
 Wiki: 
 Item implicits
-Uppercut attack varies with tp.
+https://www.bg-wiki.com/ffxi/Shiyo_Server_Content/Mythic_NMs was fixed, use this to fix JSE necks
 Custom item sets(brass gear, pup/smn gear, wise gear, etc)
