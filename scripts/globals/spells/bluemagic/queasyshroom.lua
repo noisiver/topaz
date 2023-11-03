@@ -48,6 +48,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     params.eco = ECO_PLANTOID
     params.shadowbehav = BLUPARAM_WIPE_SHADOWS
+    print(params.shadowbehav)
 
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)

@@ -364,29 +364,48 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
 
     -- Check for shadows
-    -- If spell is AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow per hit landed
+    -- If spell is conal, then it takes 2-3 shadows, if it's' AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow per hit landed
     -- Use params.shadowbehav for exceptions
-    --local shadowbehav = hitslanded
-    --printf("shadowbehav %d", shadowbehav)
-    --printf("finaldmg %d", finaldmg)
-    --if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
-      --  finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
-        --printf("shadowbehav %d", shadowbehav)
-        --printf("finaldmg %d", finaldmg)
-        -- All hits absorbed by shadows
-       -- if (finaldmg == 0) then
-         --   spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-          --  return shadowbehav
-        --end
-    --end
+    local shadowbehav = hitslanded
+    local aoe = spell:isAoE()
 
-    --handle Third Eye
-    --if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RABGED) then
-      --  if utils.thirdeye(target) then
-       --     spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-         --   return 0
-       -- end
-    --end
+    if (spell:isAoE() == 2) then
+        shadowbehav = math.random(2, 3)
+        --printf("conal")
+    elseif (spell:isAoE() == 1 or spell:isAoE() == 8) then
+        --printf("aoe")
+        shadowbehav = 999
+    end
+
+    if (params.shadowbehav ~= nil) then
+        shadowbehav = params.shadowbehav
+    end
+    -- Don't check if the spell ignores shadows
+    if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
+        if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
+            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+            -- All hits absorbed by shadows
+            if (finaldmg == 0) then
+                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+                return shadowbehav
+            end
+        end
+    end
+
+    -- Handle Third Eye
+    -- Wipe Third Eye if an AoE or conal spell
+    if (spell:isAoE() > 0) then
+        target:delStatusEffectSilent(tpz.effect.THIRD_EYE)
+    end
+    -- Don't check if the spell ignores shadows
+    if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
+        if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
+            if utils.thirdeye(target) then
+                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+                return 0
+            end
+        end
+    end
 
 
     -- Weapon resist

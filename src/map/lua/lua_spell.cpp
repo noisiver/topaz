@@ -228,6 +228,7 @@ inline int32 CLuaSpell::getElement(lua_State *L)
 inline int32 CLuaSpell::isAoE(lua_State *L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    // Returns 0 to lua. You have to do spell:isAoE() > 0 for true and spell:isAoE() == 0 for false
     lua_pushinteger(L, m_PLuaSpell->getAOE());
     return 1;
 }
