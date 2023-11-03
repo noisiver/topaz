@@ -8,12 +8,13 @@ BLU phys attack, test if its working properly now
 Should all BLU spells that are 500 cast time be 250? Test headbutt I made it 250
 BLU shadow param on utsu /TE with multihits and single hits
 Chigoe HP
-Sattva Ring
 Terror TP moves on playesr and pets/mobs
 Res traits, TERRORRESTRAIT and DEATHRESTRAIT, STATUSRESTRAIT
+Heavy Strike acc penalty (check hit rate)
 
 
 Retail:
+Simplylog show buff mob gets from buff moves?
 Parrying packet
 Mob move missing, buff, dispel, etc packet
 X's knife BCNM

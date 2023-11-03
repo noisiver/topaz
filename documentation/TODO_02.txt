@@ -2,12 +2,16 @@
 Curaga action packet msgs:
 https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
 
+Fist WS are doing hits shown +1
+Something in c++ is making BLU spells take 1 shadow still for phys
+Double msg zoning into level sync zoned(level restricted to x)
 Phalaenopsis unused item 1730 gil regional
 <player name>'s attack devastates the fiend!
 Custom name pets
 Give some HQ jugs new TP moves like Rhinowrecker, give the super pool with 180 delay and make the jug more expensive
 Fix Raaz pet
 Aquaveil +1 gear
+MOb slinking to master + pets logic back and test again I tested wrong, do it on quadavs
 PathThrough no longer works? The lua binding, check LSB's or Wings since we changed the function of paththrough in  C++
 More mobs by Judicator Demon in Ule range
 Lvl 72-75 and lvl 81-83 bugards
@@ -18,7 +22,6 @@ Dispel msgs for mob TP moves are wrong and should show status removed in msg log
 Make all "is behind" skills just return 1 if target is NOT behind target:isBehind(mob, 128) and target:isInfront(mob, 128)
 Tribulation 13/tick from an abyssea soulflayer
 ShowNavError("CPathFind::FindPath Entity (%s - %d) could not find path\n", m_PTarget->GetName(), m_PTarget->id); <- Despawn mob here
-Move jugs from food to KI's 
 More content that forces bad jobs(like not allowing RDM somehow)
 Add more Mamools to Mamook
 More Lamia / Merrows in Arrapago
@@ -29,6 +32,13 @@ No longer attack people after a poroggo charmed? or were they too far when I was
 444 -7 -284 too close to water and procs the swamp stuff in Caedarva
 
 BLU:
+Headbutt cast time seems correct, make all spells that are 500 to 250
+Retail accurate 75% chance blink occultation
+Retail accurate Zephyr mantle
+Quad Contin too strong with TP, change its mod to attack or something and give a penalty
+Shield Mastery job trait
+Add DA back to demo roar
+Remove crit off triumphet roar
 Add Fantod
 Reraise spell
 
@@ -38,6 +48,8 @@ Reraise spell
 
 DATS:
 Master's Shield rare/ex
+Quad Contin "Attack varies with TP."
+BLU spell recasts
 
 
 
@@ -46,4 +58,5 @@ Master's Shield rare/ex
 
 Wiki: 
 Item implicits
+Uppercut attack varies with tp.
 Custom item sets(brass gear, pup/smn gear, wise gear, etc)
