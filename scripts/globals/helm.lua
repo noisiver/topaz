@@ -1023,8 +1023,8 @@ local helmInfo =
                     {1500, 1155}, -- Iron Sand
                     {1500,  768}, -- Flint Stone
                     {1500,  928}, -- Bomb Ash
-                    {1000, 1632}, -- Moblin Mail
-                    {1000, 1625}, -- Moblin Helm
+                    { 500, 1632}, -- Moblin Mail
+                    { 500, 1625}, -- Moblin Helm
                     { 500, 1631}, -- Moblin Armor
                     { 500, 2160}, -- Troll Pauldron
                     { 500, 2161}, -- Troll Vambrace
@@ -1114,10 +1114,10 @@ local helmInfo =
                     {1000,   643}, -- Iron Ore
                     {1000,   644}, -- Mythril Ore
                     {1000,   2763},-- Swamp Ore
-                    { 100,  1638}, -- Moblin Mask
-                    { 100,  1625}, -- Moblin Helm
-                    { 100,  1632}, -- Moblin Mail
-                    { 100,  1631}, -- Moblin Armor
+                    { 500,  1638}, -- Moblin Mask
+                    { 500,  1625}, -- Moblin Helm
+                    { 500,  1632}, -- Moblin Mail
+                    { 500,  1631}, -- Moblin Armor
                     { 100,   738}, -- Platium Ore
                 },
                 points =
