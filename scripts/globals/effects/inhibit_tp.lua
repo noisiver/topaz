@@ -1,6 +1,6 @@
 -----------------------------------
 --
--- INHIBIT_TP
+-- tpz.effect.INHIBIT_TP
 -- Reduces TP Gain By a % Factor
 --
 -----------------------------------

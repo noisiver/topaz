@@ -46,23 +46,14 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.3
     params.mnd_wsc = 0.3
     params.chr_wsc = 0.0
+    params.eco = ECO_BEAST
     damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-	local lizard = (target:getSystem() == 14)
-	local plantoid = (target:getSystem() == 17)
-
-	-- add correlation bonus
-	if lizard then
-	 	dmg = dmg * 1.25
-		params.bonus = params.bonus + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif plantoid then
-		dmg = dmg * 0.75
-		params.bonus = params.bonus - 25
-	end
-
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 200)
     params.effect = tpz.effect.STUN
-    BlueTryEnfeeble(caster, target, spell, 1, 1, 0, 15, params)
+    local duration = 25
+    BlueTryEnfeeble(caster, target, spell, 1, 1, 0, duration, params)
 
     return damage
 end
