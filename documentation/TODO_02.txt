@@ -2,8 +2,6 @@
 Curaga action packet msgs:
 https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
 
-Fist WS are doing hits shown +1
-Something in c++ is making BLU spells take 1 shadow still for phys
 Double msg zoning into level sync zoned(level restricted to x)
 Phalaenopsis unused item 1730 gil regional
 <player name>'s attack devastates the fiend!
@@ -32,13 +30,6 @@ No longer attack people after a poroggo charmed? or were they too far when I was
 444 -7 -284 too close to water and procs the swamp stuff in Caedarva
 
 BLU:
-Headbutt cast time seems correct, make all spells that are 500 to 250
-Retail accurate 75% chance blink occultation
-Retail accurate Zephyr mantle
-Quad Contin too strong with TP, change its mod to attack or something and give a penalty
-Shield Mastery job trait
-Add DA back to demo roar
-Remove crit off triumphet roar
 Add Fantod
 Reraise spell
 
@@ -48,9 +39,7 @@ Reraise spell
 
 DATS:
 Master's Shield rare/ex
-Quad Contin "Attack varies with TP."
-BLU spell recasts
-Uppercut attack varies with tp.
+
 
 
 

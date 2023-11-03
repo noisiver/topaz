@@ -10,6 +10,8 @@ BLU shadow param on utsu /TE with multihits and single hits
 Chigoe HP
 Terror TP moves on playesr and pets/mobs
 Res traits, TERRORRESTRAIT and DEATHRESTRAIT, STATUSRESTRAIT
+Occultation (Mob and player)
+Blink (mob and player) WS, autos, spells, and utils.takeshadows(so tp moves?)
 Heavy Strike acc penalty (check hit rate)
 
 
