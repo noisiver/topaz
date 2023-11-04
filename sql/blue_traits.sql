@@ -111,7 +111,8 @@ INSERT INTO `blue_traits` VALUES (27, 4, 110, 407, 7); -- Magic burst bonus II
 INSERT INTO `blue_traits` VALUES (27, 6, 110, 407, 9); -- Magic burst bonus III
 INSERT INTO `blue_traits` VALUES (27, 8, 110, 407, 11); -- Magic burst bonus IV
 INSERT INTO `blue_traits` VALUES (28, 2, 20, 0, 0);   -- Gilfinder
-INSERT INTO `blue_traits` VALUES (28, 4, 19, 303, 2); -- Treasure Hunter II
+INSERT INTO `blue_traits` VALUES (28, 4, 19, 303, 1); -- Treasure Hunter II
+INSERT INTO `blue_traits` VALUES (28, 4, 64, 303, 1); -- Treasure Hunter II
 INSERT INTO `blue_traits` VALUES (29, 2, 126, 31, 10);   -- Magic evasion bonus
 INSERT INTO `blue_traits` VALUES (29, 4, 126, 31, 12);   -- Magic evasion bonus II
 INSERT INTO `blue_traits` VALUES (29, 6, 126, 31, 14);   -- Magic evasion bonus III
