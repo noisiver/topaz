@@ -169,9 +169,11 @@ function utils.takeShadows(target, dmg, shadowbehav)
                 if shadowsLeft > 0 then
                     local effect = target:getStatusEffect(tpz.effect.BLINK)
                     local procChance = 0.4
-                    if (effect:getSubPower() ~= nil) then
-                        if (effect:getSubPower() > 0) then
-                            procChance = effect:getSubPower() / 10
+                    if (effect ~= nil) then
+                        if (effect:getSubPower() ~= nil) then
+                            if (effect:getSubPower() > 0) then
+                                procChance = effect:getSubPower() / 10
+                            end
                         end
                     end
                     if math.random() <= procChance then -- https://www.bg-wiki.com/ffxi/Category:Utsusemi Blink has a 50% chance to not absorb damage/enfeeble spells
