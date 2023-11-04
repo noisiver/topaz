@@ -4035,12 +4035,19 @@ int getSDTTier(int SDT)
             Shadow = PDefender->getMod(Mod::BLINK);
             modShadow = Mod::BLINK;
             uint16 procChance = 40;
-            CStatusEffect* effect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLINK);
-            if (effect->GetSubPower() > 0)
+            CStatusEffect* PStatusEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLINK);
+            if (PStatusEffect != nullptr)
             {
-                procChance = effect->GetSubPower() * 10;
+                if (PStatusEffect->GetSubPower() > 0)
+                {
+                    procChance = PStatusEffect->GetSubPower();
+                }
             }
-            if (tpzrand::GetRandomNumber(100) < procChance)
+            if (procChance > 99)
+            {
+                    procChance = 99;
+            }
+            if (tpzrand::GetRandomNumber(100) > procChance)
             {
                 return false;
             }

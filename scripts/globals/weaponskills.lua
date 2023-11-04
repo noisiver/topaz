@@ -1565,8 +1565,10 @@ function shadowAbsorb(target)
     if targShadows == 0 then
         local effect = target:getStatusEffect(tpz.effect.BLINK)
         local procChance = 0.4
-        if effect:getSubPower() ~= nil then
-            procChance = effect:getSubPower() / 10
+        if (effect:getSubPower() ~= nil) then
+            if (effect:getSubPower() > 0) then
+                procChance = effect:getSubPower() / 10
+            end
         end
         if math.random() < procChance then
             targShadows = target:getMod(tpz.mod.BLINK)
