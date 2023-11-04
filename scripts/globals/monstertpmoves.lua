@@ -1057,9 +1057,11 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
         local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
 
-        -- Terror cannot be resisted by players
+        -- Terror cannot be resisted by players outside of the trait
         if (target:isPC() and typeEffect == tpz.effect.TERROR) then
-            resist = 1
+            if math.random() > getEffectResistanceTraitChance(mob, target, tpz.effect.TERROR) then
+                resist = 1
+            end
         end
 
         target:addEnmity(mob, 1, 320)
