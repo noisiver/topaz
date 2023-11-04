@@ -14817,11 +14817,11 @@ INSERT INTO `mob_droplist` VALUES (2709,0,0,1000,17302,50);
 INSERT INTO `mob_droplist` VALUES (2710,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2710,0,0,1000,17302,11);
 INSERT INTO `mob_droplist` VALUES (2711,2,0,1000,751,0); -- (Yagudo Hierogrammat Castle Oztroja[S])
-INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4764,225); -- Scroll of Aero III
-INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4765,225); -- Scroll of Aero IV
-INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4793,225); -- Scroll of Aeroga II
-INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4794,225); -- Scroll of Aeroga III
-INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4816,100); -- Scroll of Tornado
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4764,200); -- Scroll of Aero III
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4765,200); -- Scroll of Aero IV
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4793,200); -- Scroll of Aeroga II
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4794,200); -- Scroll of Aeroga III
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4816,200); -- Scroll of Tornado
 INSERT INTO `mob_droplist` VALUES (2712,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (2712,0,0,1000,841,50);
 INSERT INTO `mob_droplist` VALUES (2712,0,0,1000,2525,1000); -- Bottled pixie
