@@ -976,10 +976,13 @@ end
 function SetNukeAnimationsToGa(mob, spell)
     -- Used with onSpellPrecast
     -- For setting ST nukes to -ga animations for Tabula Rasa / Manifeistation
-    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.ENHANCED_MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
-        if spell:canTargetEnemy() then
-            if (spell:getID() % 5 == 1) or (spell:getID() % 5 == 2) then -- t3/4 spells only (mod 5 == 1) for t3, (mod 5 == 2) for t4 (remainder)
-                spell:setAnimation(spell:getAnimation() + 30) -- t3/t4 becomes ga-3/ga-4
+    -- t1/t2/t3/t44 spells only (mod 5 == 1) for t3, (mod 5 == 2) for t4 (remainder)
+    if (spell:getID() >= 144 and spell:getID() <= 173) then -- T1 to T4 nukes
+        if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.ENHANCED_MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
+            if spell:canTargetEnemy() then
+                if (spell:getID() % 5 == 1) or (spell:getID() % 5 == 2) or (spell:getID() % 5 == 4) or (spell:getID() % 5 == 0) or (spell:getID() % 5 == 3) then
+                    spell:setAnimation(spell:getAnimation() + 30) 
+                end
             end
         end
     end
