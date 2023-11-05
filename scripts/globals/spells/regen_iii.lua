@@ -23,9 +23,10 @@ function onSpellCast(caster, target, spell)
     if caster:getMainJob() == tpz.job.SCH then 
         if caster:hasStatusEffect(tpz.effect.LIGHT_ARTS) or caster:hasStatusEffect(tpz.effect.ADDENDUM_WHITE) then
             duration = duration * 3
+            caster:PrintToPlayer(string.format( "Light arts bonus active!"))
         end
     end
-
+    caster:PrintToPlayer(string.format( "Power: %d. Duration: %d.", hp, duration))
     if target:addStatusEffect(tpz.effect.REGEN, hp, 3, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else

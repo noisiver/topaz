@@ -968,13 +968,16 @@ function getEffectResistanceTraitChance(caster, target, effect)
     
     if (effectres ~= 0) then
         local ret = target:getMod(effectres)
-        -- Caps at 90%
-        -- https://www.bg-wiki.com/ffxi/Resist#Status_Effect_Resistance_via_Bard_Songs_and_Barpell_Resist
-        utils.clamp(ret, 0, 90)
         -- All resist does not work on Terror or Death
         if (effect ~= tpz.effect.KO and effect ~= tpz.effect.TERROR) then
             ret = ret + target:getMod(tpz.mod.STATUSRESTRAIT) 
         end
+
+        -- Caps at 90%
+        -- https://www.bg-wiki.com/ffxi/Resist#Status_Effect_Resistance_via_Bard_Songs_and_Barpell_Resist
+        utils.clamp(ret, 0, 90)
+
+        -- Halved vs NM's
         if (not caster:isPC()) and caster:isNM() then
             ret = math.floor(ret/2)
         end
@@ -2967,6 +2970,7 @@ function calculateDuration(duration, magicSkill, spellGroup, caster, target, use
 
             -- Perpetuance
             if caster:hasStatusEffect(tpz.effect.PERPETUANCE) and spellGroup == tpz.magic.spellGroup.WHITE then
+                caster:PrintToPlayer(string.format( "Perpetuance bonus active!"))
                 duration  = duration * 2
             end
         elseif magicSkill == tpz.skill.ENFEEBLING_MAGIC then -- Enfeebling Magic
