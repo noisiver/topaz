@@ -27,5 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
         target:setTP(reset)
         skill:setMsg(tpz.msg.basic.TP_REDUCED)
     end
+    mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID())
+
     return reset
 end
