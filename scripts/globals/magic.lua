@@ -53,33 +53,6 @@ tpz.magic.buildcat =
 }
 
 ------------------------------------
--- Spell AOE IDs
-------------------------------------
-
-tpz.magic.aoe =
-{
-    NONE        = 0,
-    RADIAL      = 1,
-    CONAL       = 2,
-    RADIAL_MANI = 3, -- AOE when under SCH stratagem Manifestation
-    RADIAL_ACCE = 4, -- AOE when under SCH stratagem Accession
-    PIANISSIMO  = 5, -- Single target when under BRD JA Pianissimo
-    DIFFUSION   = 6, -- AOE when under Diffusion
-}
-
-------------------------------------
--- Spell flag bits
-------------------------------------
-
-tpz.magic.spellFlag =
-{
-    NONE           = 0x00,
-    HIT_ALL        = 0x01, -- Hit all targets in range regardless of party
-    WIPE_SHADOWS   = 0x02, -- Wipe shadows even if single target and miss/resist (example: "Maiden's Virelai")
-    IGNORE_SHADOWS = 0x04  -- Ignore shadows and hit player anyways (example: Mobs "Death" spell)
-}
-
-------------------------------------
 -- Tables by element
 ------------------------------------
 
@@ -995,6 +968,9 @@ function getEffectResistanceTraitChance(caster, target, effect)
     
     if (effectres ~= 0) then
         local ret = target:getMod(effectres)
+        -- Caps at 90%
+        -- https://www.bg-wiki.com/ffxi/Resist#Status_Effect_Resistance_via_Bard_Songs_and_Barpell_Resist
+        utils.clamp(ret, 0, 90)
         -- All resist does not work on Terror or Death
         if (effect ~= tpz.effect.KO and effect ~= tpz.effect.TERROR) then
             ret = ret + target:getMod(tpz.mod.STATUSRESTRAIT) 
