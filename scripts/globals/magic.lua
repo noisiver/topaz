@@ -2970,7 +2970,9 @@ function calculateDuration(duration, magicSkill, spellGroup, caster, target, use
 
             -- Perpetuance
             if caster:hasStatusEffect(tpz.effect.PERPETUANCE) and spellGroup == tpz.magic.spellGroup.WHITE then
+                if caster:isPC() then
                 caster:PrintToPlayer(string.format( "Perpetuance bonus active!"))
+                end
                 duration  = duration * 2
             end
         elseif magicSkill == tpz.skill.ENFEEBLING_MAGIC then -- Enfeebling Magic
