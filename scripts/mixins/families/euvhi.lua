@@ -84,6 +84,7 @@ g_mixins.families.euvhi = function(mob)
 
     mob:addListener("ENGAGE", "EUVHI_ENGAGE", function(mob, target)
         if mob:AnimationSub() == 4 then -- Petal
+            mob:setLocalVar("changeTime", os.time() + 80)
             PetalMods(mob)
         end
         mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
