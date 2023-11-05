@@ -73,6 +73,7 @@ function onEventFinish(player, csid, option)
     elseif (csid == 413 and option == 0) then
         player:addQuest(WINDURST, tpz.quest.id.windurst.A_SMUDGE_ON_ONE_S_RECORD)
     elseif (csid == 417) then
+        player:tradeComplete()
         player:needToZone(true)
         player:addGil(GIL_RATE*3000)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*3000)

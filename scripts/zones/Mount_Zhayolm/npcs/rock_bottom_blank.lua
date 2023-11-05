@@ -33,7 +33,6 @@ function onEventFinish(player, csid, option)
         player:addQuest(AHT_URHGAN, tpz.quest.id.ahtUrhgan.ROCK_BOTTOM)
         player:setCharVar("RockBottom", 1)
     elseif (csid == 8) then
-        player:confirmTrade()
         player:needToZone(true)
         player:setCharVar("RockBottom", 2)
     elseif (csid == 9) then
