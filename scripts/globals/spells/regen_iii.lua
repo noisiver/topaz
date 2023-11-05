@@ -29,7 +29,12 @@ function onSpellCast(caster, target, spell)
         end
     end
     if caster:isPC() then
-    caster:PrintToPlayer(string.format( "Power: %d. Duration: %d.", hp, duration))
+        caster:PrintToPlayer(string.format( "Power: %d. Duration: %d.", hp, duration))
+    end
+    if caster:isPC() then
+        if caster:hasStatusEffect(tpz.effect.TABULA_RASA) then
+            caster:PrintToPlayer(string.format( "Tabula Rasa bonus active!"))
+        end
     end
     if target:addStatusEffect(tpz.effect.REGEN, hp, 3, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
