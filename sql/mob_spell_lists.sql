@@ -5941,7 +5941,25 @@ INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,260,32,255);
 INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,473,1,255); -- Refresh II
 INSERT INTO `mob_spell_lists` VALUES ('Moblin_Billionaire',2085,879,1,255); -- Inundation
 
--- NEXT 533
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Fire', 533, 281, 1, 255); -- Pyrohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Fire', 533, 146, 1, 255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Fire', 533, 147, 1, 255); -- Fire IV
+
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Ice', 534, 282, 1, 255);
+
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Wind', 535, 280, 1, 255);
+
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Earth', 536, 278, 1, 255);
+
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Thunder', 537, 283, 1, 255);
+
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Water', 538, 279, 1, 255);
+
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Light', 539, 285, 1, 255);
+
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 284, 1, 255);
+
+-- NEXT 541
 -- NEXT 1022
 -- NEXT 2086(Custom)
 

@@ -33,8 +33,19 @@ function onMobInitialize(mob)
     mob:addListener("MAGIC_USE", "ULBRECHT_MAGIC_USE", function(entity, target, spell, action)
         local spellID = spell:getID()
         if spellID == 99 or (spellID >= 113 and spellID < 120) then
-            entity:setMod(tpz.mod.FIREDEF + spell:getElement() - 1, 52) -- 52/256 = 20% reduction
+            entity:setMod(tpz.mod.FIREDEF + spell:getElement() - 1, 128) -- 128/256 = 50% reduction
         end
+    end)
+
+    mob:addListener("EFFECT_GAIN", "ULBRECHT_EFFECT_GAIN", function(owner, effect)
+        -- Storms are undispellable
+        local effectType = effect:getType()
+        if effectType >= tpz.effect.FIRESTORM and effectType <= tpz.effect.VOIDSTORM then
+            local effect1 = owner:getStatusEffect(effectType)
+            effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
+        end
+        -- Change spell list based on active storm
+        --mob:setSpellList()
     end)
 
     mob:addListener("EFFECT_LOSE", "ULBRECHT_EFFECT_LOSE", function(owner, effect)
@@ -53,7 +64,6 @@ end
 function onMobSpawn(mob)
     mob:setDamage(40)
     mob:addMod(tpz.mod.ACC, 50)
-    mob:setUnkillable(true)
     mob:SetMagicCastingEnabled(false)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
@@ -67,28 +77,27 @@ function onMobFight(mob, player)
     local buffCD = mob:getLocalVar("buffCD")
     local stormCD = mob:getLocalVar("stormCD")
     local battleTime = mob:getBattleTime()
-
     -- Rebuff Shell III > Protect III > Regen II every 30s if not already active and Tabula Rasa is not active
     if not mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
-        if (battleTime <= buffCD) then
-            mob:setLocalVar("buffCD", battletime + 30)
+        if (battleTime >= buffCD) then
+            mob:setLocalVar("buffCD", battleTime + 30)
             if not mob:hasStatusEffect(tpz.effect.SHELL) then
-                mob:castSpell(50)
+                mob:castSpell(50, mob)
                 return
             elseif not mob:hasStatusEffect(tpz.effect.PROTECT) then
-                mob:castSpell(45)
+                mob:castSpell(45, mob)
                 return
             elseif not mob:hasStatusEffect(tpz.effect.REGEN) then
-                mob:castSpell(110)
+                mob:castSpell(110, mob)
                 return
             end
         end
     end
 
     -- Cast a random storm every minute
-    if (battleTime <= stormCD) then
-        mob:setLocalVar("buffCD", battletime + 60)
-        mob:castSpell(storms[math.random(#storms)])
+    if (battleTime >= stormCD) then
+        mob:setLocalVar("stormCD", battleTime + math.random(74, 89))
+        mob:castSpell(storms[math.random(#storms)], mob)
     end
 
     if mob:getHPP() < mob:getLocalVar("specialThreshold") then
@@ -167,6 +176,8 @@ end
 function onMobWeaponSkill(target, mob, skill, action)
     local skillID = skill:getID()
     if skillID >= 2314 and skillID < 2318 then
+        -- Force a spell to be cast
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 0)
         mob:setLocalVar("stratagem_cooldown", os.time() + 30)
         local forceStratagemTP = mob:getLocalVar("force_stratagem_tp")
         if forceStratagemTP > 0 then
@@ -186,6 +197,8 @@ function onCastStarting(mob, spell)
         -- end
         spell:castTime(spell:castTime()/10) -- 1000% increased cast speed
     end
+    -- Resets back to 25s spell recast timer after a JA sets to 0
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
 end
 
 function onSpellPrecast(mob, spell)
@@ -202,20 +215,15 @@ function onSpellPrecast(mob, spell)
                 -- end
             spell:multiplier(spell:multiplier() * 1.4) -- 40% potency increase
         end
-
     end
 
-    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
-        if spell:canTargetEnemy() then
-            -- if target and isPlayer then
-            --     target:PrintToPlayer("MANIFESTATION")
-            -- end
-            spell:setAoE(tpz.magic.aoe.RADIAL)
-            spell:setRadius(10)
-            if(spell:getID() % 5 == 1) then -- t3 spells only (mod 5 == 1)
-                spell:setAnimation(spell:getAnimation() + 30) -- t3 becomes ga-3
-            end
-        end
+    -- GA all T3-T4 nukes
+    SetNukeAnimationsToGa(mob, spell)
+
+    -- AOE Helix spells
+    if (spell:getID() >= 278 and spell:getID() <= 285) then
+        spell:setAoE(tpz.magic.aoe.RADIAL)
+        spell:setRadius(10)
     end
 
     if mob:hasStatusEffect(tpz.effect.PARSIMONY) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
