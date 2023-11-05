@@ -57,7 +57,7 @@ INSERT INTO `guild_shops` VALUES (5132,97,5508,13512,20,2,12);
 INSERT INTO `guild_shops` VALUES (5132,102,291,713,25,5,25);
 INSERT INTO `guild_shops` VALUES (5132,688,15,150,255,48,100);            -- arrowwood_log
 INSERT INTO `guild_shops` VALUES (5132,689,27,27,255,48,100);            -- lauan_log
-INSERT INTO `guild_shops` VALUES (5132,690,1378,10938,100,20,20);      -- elm_log
+INSERT INTO `guild_shops` VALUES (5132,690,1378,10938,100,20,100);      -- elm_log
 INSERT INTO `guild_shops` VALUES (5132,691,45,45,255,50,100);           -- maple_log
 INSERT INTO `guild_shops` VALUES (5132,693,640,3586,255,48,100);        -- walnut_log
 INSERT INTO `guild_shops` VALUES (5132,694,2119,2811,165,10,65);        -- chestnut_log
@@ -197,17 +197,17 @@ INSERT INTO `guild_shops` VALUES (514,17612,34440,39606,20,0,1);    -- beetle_kn
 
 -- Kuzah Hpirohpon (Windurst Woods) Clothcraft Guild (S)
 INSERT INTO `guild_shops` VALUES (5152,816,1333,7500,255,0,1);     -- silk_thread
-INSERT INTO `guild_shops` VALUES (5152,817,45,240,255,48,100);       -- grass_thread
-INSERT INTO `guild_shops` VALUES (5152,818,144,768,255,48,100);      -- cotton_thread
-INSERT INTO `guild_shops` VALUES (5152,819,750,4200,255,48,100);     -- linen_thread
-INSERT INTO `guild_shops` VALUES (5152,820,2700,12528,165,33,65);    -- wool_thread
+INSERT INTO `guild_shops` VALUES (5152,817,45,240,255,48,255);       -- grass_thread
+INSERT INTO `guild_shops` VALUES (5152,818,144,768,255,48,255);      -- cotton_thread
+INSERT INTO `guild_shops` VALUES (5152,819,750,4200,255,48,255);     -- linen_thread
+INSERT INTO `guild_shops` VALUES (5152,820,2700,12528,255,48,255);    -- wool_thread
 INSERT INTO `guild_shops` VALUES (5152,822,2416,10000,255,0,1);   -- silver_thread
 INSERT INTO `guild_shops` VALUES (5152,823,10000,109440,165,0,1);	 -- gold_thread
-INSERT INTO `guild_shops` VALUES (5152,824,240,1344,80,16,32);       -- grass_cloth
-INSERT INTO `guild_shops` VALUES (5152,825,480,2944,80,16,32);       -- cotton_cloth
-INSERT INTO `guild_shops` VALUES (5152,826,12840,12840,80,16,32);    -- linen_cloth
-INSERT INTO `guild_shops` VALUES (5152,827,9180,48384,55,11,22);      -- wool_cloth
-INSERT INTO `guild_shops` VALUES (5152,828,21851,31710,32,0,1);     -- velvet_cloth
+INSERT INTO `guild_shops` VALUES (5152,824,240,1344,255,48,255);       -- grass_cloth
+INSERT INTO `guild_shops` VALUES (5152,825,480,2944,255,48,255);       -- cotton_cloth
+INSERT INTO `guild_shops` VALUES (5152,826,12840,12840,255,48,255);    -- linen_cloth
+INSERT INTO `guild_shops` VALUES (5152,827,9180,48384,255,48,255);      -- wool_cloth
+INSERT INTO `guild_shops` VALUES (5152,828,21851,31710,48,0,1);     -- velvet_cloth
 INSERT INTO `guild_shops` VALUES (5152,832,675,4500,255,48,100);     -- sheep_wool
 INSERT INTO `guild_shops` VALUES (5152,833,15,15,375,75,150);        -- moko_grass
 INSERT INTO `guild_shops` VALUES (5152,834,79,200,255,48,100);       -- saruta_cotton
