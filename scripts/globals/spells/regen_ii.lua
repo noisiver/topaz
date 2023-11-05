@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
         end
     end
 
-    if target:addStatusEffect(tpz.effect.REGEN, hp, 0, duration) then
+    if target:addStatusEffect(tpz.effect.REGEN, hp, 3, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
