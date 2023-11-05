@@ -48,14 +48,14 @@ g_mixins.families.gnole = function(mob)
     end)
 end
 
-function attemptTransform(mob, timeThreshold)
+function attemptTransform(mob, timer)
     local transformTime = mob:getLocalVar("transformTime")
     local currentTime = os.time()
-    if currentTime - transformTime >= timeThreshold then
+    if currentTime >= transformTime then
         local animSub = mob:AnimationSub()
         animSub = (animSub + 1) % 2
         mob:AnimationSub(animSub)
-        mob:setLocalVar("transformTime", currentTime)
+        mob:setLocalVar("transformTime", currentTime + timer)
     end
 end
 
