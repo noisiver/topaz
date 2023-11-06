@@ -64,10 +64,6 @@ function onSpellCast(caster, target, spell)
         return 0
     end
 
-    if (target:getHP() < dmg) then
-        dmg = target:getHP()
-    end
-
 	local bird = (target:getSystem() == 8)
 	local aquan = (target:getSystem() == 2)
 	-- add correlation bonus
@@ -85,10 +81,16 @@ function onSpellCast(caster, target, spell)
 	-- add dmg variance
 	dmg = (dmg * math.random(85, 115)) / 100
  
+    local healing = dmg
+    -- Cap healing amount at the targets current HP
+    if (target:getHP() < dmg) then
+        healing = target:getHP()
+    end
+
     if dmg > 0 then
-		dmg = dmg * BLUE_POWER
-		caster:addHP(dmg)
-	end
+	    dmg = dmg * BLUE_POWER
+	    caster:addHP(healing)
+    end
 
 
     return dmg

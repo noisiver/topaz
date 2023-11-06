@@ -58,13 +58,18 @@ function onSpellCast(caster, target, spell)
         return dmg
     end
 
+    local healing = dmg
+    -- Cap healing amount at the targets current HP
+    if (target:getHP() < dmg) then
+        healing = target:getHP()
+    end
+
 	-- Heal for 0 if afflicted with zombie
 	if caster:hasStatusEffect(tpz.effect.CURSE_II) then
 		caster:addHP(0)
 	else
-		caster:addHP(dmg)
+		caster:addHP(healing)
 	end
 	
     return dmg
-
 end
