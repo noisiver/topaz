@@ -16,7 +16,5 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DROWN
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 15, 3, 120))
-    mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID())
-
     return typeEffect
 end
