@@ -946,7 +946,7 @@ INSERT INTO `mob_groups` VALUES (41,3073,25,'Overgrown_Rose',330,0,1964,0,0,47,5
 INSERT INTO `mob_groups` VALUES (42,4105,25,'Upyri',43200,0,2526,5500,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (43,1389,25,'Fomor_Red_Mage',330,1,855,0,0,49,51,0);
 INSERT INTO `mob_groups` VALUES (44,1391,25,'Fomor_Summoner',330,1,880,0,0,48,50,0);
-INSERT INTO `mob_groups` VALUES (45,1395,25,'Fomors_Elemental',0,128,0,0,0,43,49,0);
+INSERT INTO `mob_groups` VALUES (45,1395,25,'Fomors_Elemental',0,128,0,0,0,45,45,0);
 INSERT INTO `mob_groups` VALUES (46,1035,25,'Diatryma',330,0,651,0,0,47,51,0);
 INSERT INTO `mob_groups` VALUES (47,5773,25,'Okyupete',3600,0,3057,8000,0,57,60,0);
 INSERT INTO `mob_groups` VALUES (48,6360,25,'Bigclaw',330,0,271,0,0,45,48,0);
@@ -994,7 +994,7 @@ INSERT INTO `mob_groups` VALUES (21,2958,27,'Oil_Spill',960,0,15,0,0,44,47,0);
 INSERT INTO `mob_groups` VALUES (22,1398,27,'Fomor_Warrior',924,0,889,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (23,1397,27,'Fomor_Thief',924,0,886,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (24,1391,27,'Fomor_Summoner',924,0,881,0,0,44,48,0);
-INSERT INTO `mob_groups` VALUES (25,1395,27,'Fomors_Elemental',0,128,0,0,0,36,43,0);
+INSERT INTO `mob_groups` VALUES (25,1395,27,'Fomors_Elemental',0,128,0,0,0,42,42,0);
 INSERT INTO `mob_groups` VALUES (26,1412,27,'Foul_Meat',960,0,898,0,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (27,1387,27,'Fomor_Paladin',924,0,2877,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (28,1380,27,'Fomor_Bard',924,0,856,0,0,44,48,0);
@@ -1040,7 +1040,7 @@ INSERT INTO `mob_groups` VALUES (18,1389,28,'Fomor_Red_Mage',960,0,876,0,0,54,58
 INSERT INTO `mob_groups` VALUES (19,1390,28,'Fomor_Samurai',960,0,879,0,0,54,58,0);
 INSERT INTO `mob_groups` VALUES (20,1383,28,'Fomor_Dark_Knight',960,0,864,0,0,54,58,0);
 INSERT INTO `mob_groups` VALUES (21,1391,28,'Fomor_Summoner',960,0,882,0,0,54,58,0);
-INSERT INTO `mob_groups` VALUES (22,1395,28,'Fomors_Elemental',0,128,0,0,0,49,51,0);
+INSERT INTO `mob_groups` VALUES (22,1395,28,'Fomors_Elemental',0,128,0,0,0,54,54,0);
 INSERT INTO `mob_groups` VALUES (23,1398,28,'Fomor_Warrior',960,0,890,0,0,54,58,0);
 INSERT INTO `mob_groups` VALUES (24,1397,28,'Fomor_Thief',960,0,887,0,0,54,58,0);
 INSERT INTO `mob_groups` VALUES (25,1387,28,'Fomor_Paladin',960,0,872,0,0,54,58,0);
