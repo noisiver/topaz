@@ -1285,7 +1285,7 @@ local function moveChest(npc, zoneId, chestType, mimicSpawned, illusion)
         doMove(npc, mimicSpawned, unpack(point))
     else
         npc:entityAnimationPacket("open")
-        npc:queue(5000, function(npc)
+        npc:queue(15000, function(npc)
             doMove(npc, mimicSpawned, unpack(point))
         end)
     end
