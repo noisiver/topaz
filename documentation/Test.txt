@@ -2,10 +2,15 @@
 SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
 Quu Bokye pathing
 Reaving Wind and Reaving Wind Knock Back(both should knock back)
-Res traits cap at 90%
-NPCs 17179349 17179418 position
 Mount Z HP
-Fomor hate?
+BLU attack changes (Food, minuet and attack % buffs)
+Properly unequipping OH's if no MH or no DW  when level synced and job changed and stuff (can have shield with no mh). Check shield isn't unequipped too
+Osschaart (Copycat)
+Macan Gadangan (Wild Wild Whiskers)
+Platoon Scorpions(Operaiton Desert Storm)
+Regen III with Tabula Light Arts and Addendum White
+Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
+Chest / Coffer opening animation
 
 Retail:
 Simplylog show buff mob gets from buff moves?

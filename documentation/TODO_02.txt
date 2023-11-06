@@ -1,29 +1,16 @@
 Curaga action packet msgs:
 https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
 
-SAVE CHAR SQL DATA TO GOOGLE DRIVE
-Add Thief tools living tols and other item (forget name) to curi moogle
-Retune all KSNM / BCNM(Especially Royal Ramble!)
 Ulbrecht and Qultada custom msgs cant use msgids
-Daken Main job only param
-Give all 280 skill WS unique weapon icons
-Check if all regen potency mods is math.flooring properly
-Crafting shouldn't remove sneak, only invis/hide/camo
-Larceny same recast ID as normal 1 hours
 Code remaining COP map quests(Riverne and Sacraium [Paradise, Salvation, and Maps])
 Fomor Black mages in aquaducts shouldn't use grim halo they use a club(should use foxfire)
-Cap Sanguine, drain, drain2, digest, blood drain, apoc, etc healing at mobs current HP (use sanguine as a guide)
-Something wrong with regen / light arts / tabula rasa causing the regen power to randomly decrease
-Add new group for thunder eles in garlaige (17596603 17596526).prob earth eles too (17596604, 17596527)
 AH to WotG towns
 mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
 Camps to learn UL spells
-Level sync shouldn't unequip offhands!
 https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
 pickNewPosition 3rd arg as "false" for chests/coffers in treasures.lua
 Osschaart and other enmityList mobs to use proper new code for selecting a random target
 Gears weak to dark(chariots/ramparts too?)
-Beorht is spawned and shouldn't be(prob has files named wrong)
 Double msg zoning into level sync zoned(level restricted to x)
 Phalaenopsis unused item 1730 gil regional
 <player name>'s attack devastates the fiend!
@@ -66,11 +53,7 @@ THF:
 
 
 DATS:
-Lanolin stack to 99
 Buff other crit % KSNM weapons to be equal to destroyers
-Manticore hair stack to 12
-Expiacion attack varies with TP
-Enlight / Endark DRK and PLD
 Master's Shield rare/ex
 
 
