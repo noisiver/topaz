@@ -56,11 +56,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setDamage(100)
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ACC, 25) 
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
+    SetGenericNMStats(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setSpellList(2)
 end
@@ -69,12 +65,6 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    local battleTime = mob:getBattleTime()
-    local charmTimer = mob:getLocalVar("charmTimer")
-    local lastCharmTarget = mob:getLocalVar("lastCharmTarget")
-    local charmTarget = mob:getLocalVar("charmTarget")
-    local enmityList = mob:getEnmityList()
-    local charmTargetJob = mob:getLocalVar("charmTargetJob")
     local currentTwoHour = mob:getLocalVar("currentTwoHour")
 
     for _, spells in pairs(spellList) do
@@ -95,24 +85,44 @@ function onMobFight(mob, target)
     })
 
     -- Charms someone every 30 seconds. Always in the same order.
-    if (battleTime >= charmTimer) and mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING  and mob:getCurrentAction() ~= tpz.action.MOBABILITY_START
-        and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and mob:actionQueueEmpty() then
-        if enmityList and #enmityList > 0 then
-            mob:setLocalVar("charmTarget", math.random(#enmityList))
-            -- Make sure the same person isn't charmed twice in a row
-            if (charmTarget ~= lastCharmTarget) then
-                -- Draw in player, then use Charm
+    local battleTime = mob:getBattleTime()
+    local charmTimer = mob:getLocalVar("charmTimer")
+    local lastCharmTarget = mob:getLocalVar("lastCharmTarget")
+    local enmityList = mob:getEnmityList()
+    local charmTargetJob = mob:getLocalVar("charmTargetJob")
+    if (battleTime >= charmTimer)
+    and mob:getCurrentAction() ~= tpz.action.MOBABILITY_START
+    and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING
+    and mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING
+    and not mob:hasPreventActionEffect()
+    and mob:actionQueueEmpty()
+    and (tp < 1000) then
+        for _, enmity in ipairs(enmityList) do
+            if enmityList and #enmityList > 0 then
+                local randomTarget = enmityList[math.random(1,#enmityList)];
+                entityId = randomTarget.entity:getID();
+
+                -- Reroll if targets a pet
+                while (entityId > 10000) do
+                    randomTarget = enmityList[math.random(1,#enmityList)];
+                    entityId = randomTarget.entity:getID();
+                end
+
+                -- Reroll if charm target is last target so the same target won't be charmed twice in a row
+                while (entityId == lastCharmTarget) do
+                    randomTarget = enmityList[math.random(1,#enmityList)];
+                    entityId = randomTarget.entity:getID();
+                end
+
+                mob:setLocalVar("lastCharmTarget", entityId)
+                charmTarget = GetPlayerByID(entityId)
                 ForceDrawIn(mob, charmTarget)
-                mob:setLocalVar("charmTimer", battleTime + 30)
-                -- Remove charm from other players before applying charm so it stays on the currently deleted target
                 DeleteCharmFromOthers(mob)
-                mob:useMobAbility(710, GetPlayerByID(charmTarget))
-                mob:setLocalVar("lastCharmTarget", charmTarget)
+                mob:useMobAbility(tpz.jsa.CHARM, charmTarget)
+                mob:addJobTraits(charmTargetJob, mob:getMainLvl())
             end
         end
     end
-
-    mob:addJobTraits(charmTargetJob, 85)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -137,7 +147,7 @@ function onMobDespawn(mob)
 end
 
 function DeleteCharmFromOthers(mob)
-local zonePlayers = mob:getZone():getPlayers()
+    local zonePlayers = mob:getZone():getPlayers()
     for _, zonePlayer in pairs(zonePlayers) do
         if zonePlayer:hasStatusEffect(tpz.effect.CHARM_I) then
             zonePlayer:delStatusEffectSilent(tpz.effect.CHARM_I)

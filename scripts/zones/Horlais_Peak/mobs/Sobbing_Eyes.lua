@@ -10,9 +10,12 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:setMod(tpz.mod.SLEEPRES, 100)
-    mob:setMod(tpz.mod.SILENCERES, 75)
-    mob:setMod(tpz.mod.REGAIN, 1000)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_SILENCE, 30)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 5)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
+    mob:setMod(tpz.mod.REGAIN, 100)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

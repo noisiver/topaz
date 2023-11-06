@@ -25,6 +25,7 @@ zones[tpz.zone.BALGAS_DAIS] =
         TAKE_THAT_YOU_WHIPPERSNAPPER = 7634, -- Take that, you whippersnapper!
         NOW_THAT_IM_WARMED_UP        = 7635, -- Now that I'm warmed up...
         THAT_LL_HURT_IN_THE_MORNING  = 7636, -- Ungh... That'll hurt in the morning...
+        WHISKERS_VIOLENTLY           = 7657, -- Macan Gadangan's whiskers begin to twitch violently.
         PROMISE_ME_YOU_WONT_GO_DOWN  = 7674, -- Promise you won't go down too easy, okay?
         IM_JUST_GETTING_WARMED_UP    = 7675, -- Haha! I'm just getting warmed up!
         YOU_PACKED_MORE_OF_A_PUNCH   = 7676, -- Hah! You pack more of a punch than I thoughtaru. But I won't go down as easy as old Maat!

@@ -14,13 +14,8 @@ mixins =
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 20) 
-     mob:addMod(tpz.mod.ATTP, 10)
-     mob:addMod(tpz.mod.ACC, 30) 
-     mob:addMod(tpz.mod.EVA, 30)
-     mob:setMod(tpz.mod.REGAIN, 250)
-     mob:setMod(tpz.mod.REFRESH, 400)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
 function onMobInitialize(mob)
@@ -46,9 +41,12 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+    mob:setMod(tpz.mod.REGAIN, 125)
+
+    -- Rage Mode
 	if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or mob:hasStatusEffect(tpz.effect.BIND)) then
         mob:setDamage(255)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 8000)
+        mob:addStatusEffect(tpz.effect.HUNDRED_FISTS, 1, 0, 0)
         mob:setMod(tpz.mod.MEVA, 999)
         mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
         mob:setMod(tpz.mod.POISONRESTRAIT, 100)

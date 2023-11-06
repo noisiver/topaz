@@ -260,6 +260,7 @@ local loot =
     },
 
     -- KSNM The Hills are Alive
+    -- TODO
     [76] =
     {
         {
@@ -416,6 +417,7 @@ local loot =
     },
 
     -- BCNM Up In Arms
+    -- TODO
     [79] =
     {
         {
@@ -616,6 +618,7 @@ local loot =
     },
 
     -- KSNM Prehistoric Pigeons
+    -- TODO
     [82] =
     {
         {

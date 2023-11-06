@@ -1,8 +1,8 @@
 -----------------------------------
--- Area: Sacrificial Chamber
---  Mob: Elemental Pet
+-- Area: Throne Room
+--  Mob: Astral Flow
 -----------------------------------
-mixins = {require("scripts/mixins/families/elemental_spirit")}
+mixins = {require("scripts/mixins/families/avatar")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller, noKiller)

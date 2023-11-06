@@ -130,6 +130,7 @@ local loot =
         },
     },
     -- BCNM Treasure and Tribulations
+    -- TODO
     [100] =
     {
         {
@@ -377,6 +378,7 @@ local loot =
         },
     },
     -- KSNM Early Bird Catches the Wyrm
+    -- TODO
     [107] =
     {
         {
@@ -522,6 +524,7 @@ local loot =
         },
     },
     -- BCNM Rapid Raptors
+    -- TODO
     [109] =
     {
         {
@@ -682,6 +685,10 @@ local loot =
             {itemid = 866, droprate = 10},   -- Handful Of Wyvern Scales
         },
     },
+    -- KSNM Moa Constrictors
+    -- TODO
+    [113] =
+    {}
 }
 function onTrade(player, npc, trade)
 end

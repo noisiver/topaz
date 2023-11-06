@@ -3,31 +3,26 @@
 --  Mob: Platoon Scorpion
 -- BCNM: Operation Desert Swarm
 -----------------------------------
-
 local ID = require("scripts/zones/Waughroon_Shrine/IDs")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
+-----------------------------------
 
 function canForceTPMove(mob)
-    if mob == nil or not mob:isAlive() or mob:hasStatusEffect(tpz.effect.STUN) or mob:hasStatusEffect(tpz.effect.TERROR)
-    or mob:hasStatusEffect(tpz.effect.LULLABY) or mob:hasStatusEffect(tpz.effect.SLEEP_I) or mob:hasStatusEffect(tpz.effect.SLEEP_II)
-    or mob:hasStatusEffect(tpz.effect.AMNESIA) or mob:hasStatusEffect(tpz.effect.PETRIFICATION) then return false end
+    if (mob == nil)
+    or not mob:isAlive()
+    or mob:hasPreventActionEffect()
+    then return false end
+
     return true
 end
 
 function onMobInitialize(mob)
     mob:addListener("WEAPONSKILL_STATE_ENTER", "SCORP_MIMIC_START", function(mob, skillID)
-        if mob:getLocalVar('[ODS]mimic') ~= 1 then -- make sure we aren't infinitely looping through scorps
-            local bf = mob:getBattlefield():getArea()
-            for _, allyId in ipairs(ID.operationDesertSwarm[bf]) do
-                if mob:getID() ~= allyId then
-                    local potential_mimic = GetMobByID(allyId)
-                    if potential_mimic ~= nil and mob:checkDistance(potential_mimic) < 15 and potential_mimic:getLocalVar('[ODS]LastAbilityMimic') + 6 < os.time() and canForceTPMove(potential_mimic) then
-						potential_mimic:wakeUp() -- wings retards fix your shit
-                        potential_mimic:setLocalVar('[ODS]mimic', 1) -- set flag to prevent infinite loops
-                        potential_mimic:setLocalVar('[ODS]LastAbilityMimic', os.time())
-                        if skillID == 354 or skillID == 355 then potential_mimic:useMobAbility(skillID) end
-                    end
-                end
+        local bf = mob:getBattlefield():getArea()
+        for _, allyId in ipairs(ID.operationDesertSwarm[bf]) do
+            if (mob:getID() ~= allyId) then
+                GetMobByID(allyId):addTP(1000)
             end
         end
     end)
@@ -46,16 +41,48 @@ function onMobInitialize(mob)
     end)
 end
 
+function onMobFight(mob, target)
+    -- Gain resistance to sleep after every cast
+
+    mob:addListener("EFFECT_GAIN", "PLATOON_SCORP_EFFECT_GAIN", function(owner, effect)
+        local effectType = effect:getType()
+
+        -- Gains resistance to Sleep if it successfully lands
+        if (effectType == tpz.effect.SLEEP) then
+            if (mob:getMod(tpz.effect.EEM_DARK_SLEEP) >= 5) then -- Lowest EEM possible
+                if (mob:getMod(tpz.effect.EEM_DARK_SLEEP) == 100) then -- Next tier is -15%
+                    mob:setMod(tpz.effect.EEM_DARK_SLEEP, 85)
+                elseif (mob:getMod(tpz.effect.EEM_DARK_SLEEP) > 30) then -- 30-85 Tiers are -10% per tier
+                    mob:setMod(tpz.effect.EEM_DARK_SLEEP, mob:getMod(tpz.effect.EEM_DARK_SLEEP) -10)
+                else -- Rest are -5% per tier
+                    mob:setMod(tpz.effect.EEM_DARK_SLEEP, mob:getMod(tpz.effect.EEM_DARK_SLEEP) -5)
+                end
+            end
+        end
+
+        -- Gains resistance to Lullaby if it successfully lands
+        if (effectType == tpz.effect.LULLABY) then
+            if  (mob:getMod(tpz.effect.EEM_LIGHT_SLEEP) >= 5) then -- Lowest EEM possible
+                if (mob:getMod(tpz.effect.EEM_LIGHT_SLEEP) == 100) then -- Next tier is -15%
+                    mob:setMod(tpz.effect.EEM_LIGHT_SLEEP, 85)
+                elseif (mob:getMod(tpz.effect.EEM_LIGHT_SLEEP) > 30) then -- 30-85 Tiers are -10% per tier
+                    mob:setMod(tpz.effect.EEM_LIGHT_SLEEP, mob:getMod(tpz.effect.EEM_LIGHT_SLEEP) -10)
+                else -- Rest are -5% per tier
+                    mob:setMod(tpz.effect.EEM_LIGHT_SLEEP, mob:getMod(tpz.effect.EEM_LIGHT_SLEEP) -5)
+                end
+            end
+        end
+    end)
+end
+
 
 function onMobWeaponSkillPrepare(mob, target)
     if math.random() < 0.65 then return 354 else return 355 end -- prefer wild rage
 	end
 
 function onMobSpawn(mob)
-    -- wiki: They cannot be feasibly slept after the 3rd or 4th Sleep... By the 9th cast [of Lullaby] it wears off immediately.
-    mob:setLocalVar('WildRagePercent', 100)
-    --mob:setMod(tpz.mod.RESBUILD_SLEEP, 25) Resist building is not  coded 
-   -- mob:setMod(tpz.mod.RESBUILD_LULLABY, 15)
+    SetGenericNMStats(mob)
+	mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
@@ -63,12 +90,9 @@ function onMobDeath(mob, player, isKiller, noKiller)
         mob:setLocalVar('HasTriggeredDeathScriptOnce', 1)
         for _, allyId in ipairs(ID.operationDesertSwarm[mob:getBattlefield():getArea()]) do
             local scorp = GetMobByID(allyId)
-            if scorp ~= nil and scorp:isAlive() then
-                scorp:setLocalVar('WildRagePercent', scorp:getLocalVar('WildRagePercent') + 40) -- see wild_rage.lua... wiki: wild rage on the last scorp alive did 600+ damage to a BLU with protect *and* cocoon
-               -- mob:setMod(tpz.mod.RESBUILD_SLEEP, mob:getMod(tpz.mod.RESBUILD_SLEEP) + 12) -- wiki: Their Sleep resistance increases drastically when only few of them are left.
-               -- mob:setMod(tpz.mod.RESBUILD_LULLABY, mob:getMod(tpz.mod.RESBUILD_LULLABY) + 12)
+            if (scorp ~= nil) and scorp:isAlive() then
+                scorp:setDamage(150)
             end
-            
         end 
     end
 end

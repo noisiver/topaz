@@ -8,13 +8,9 @@ mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ATTP, 25)
-	mob:addMod(tpz.mod.ACC, 30) 
-	mob:addMod(tpz.mod.EVA, 30)
+    SetGenericNMStats(mob)
 	mob:setMod(tpz.mod.UFASTCAST, 50)
-	mob:setMod(tpz.mod.REFRESH, 400)
-	mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+	mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     local ChaosBladeBoost = mob:getLocalVar("ChaosBladeBoost")
@@ -24,7 +20,7 @@ function onMobSpawn(mob)
             {
                 id = tpz.jsa.SOUL_VOICE,
                 endCode = function(mob)
-                    mob:addMod(tpz.mod.ATT, 200)
+                    mob:setDamage(150)
 					mob:setLocalVar("ChaosBladeBoost", 1)
                 end,
             },
