@@ -975,10 +975,10 @@ function getEffectResistanceTraitChance(caster, target, effect)
 
         -- Caps at 90%
         -- https://www.bg-wiki.com/ffxi/Resist#Status_Effect_Resistance_via_Bard_Songs_and_Barpell_Resist
-        utils.clamp(ret, 0, 90)
+        ret = utils.clamp(ret, 0, 90)
 
         -- Halved vs NM's
-        if (not caster:isPC()) and caster:isNM() then
+        if (caster:isPC() and target:isNM()) then
             ret = math.floor(ret/2)
         end
 
@@ -2971,7 +2971,7 @@ function calculateDuration(duration, magicSkill, spellGroup, caster, target, use
             -- Perpetuance
             if caster:hasStatusEffect(tpz.effect.PERPETUANCE) and spellGroup == tpz.magic.spellGroup.WHITE then
                 if caster:isPC() then
-                caster:PrintToPlayer(string.format( "Perpetuance bonus active!"))
+                    caster:PrintToPlayer(string.format( "Perpetuance bonus active!"))
                 end
                 duration  = duration * 2
             end
