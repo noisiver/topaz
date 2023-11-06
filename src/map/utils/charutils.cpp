@@ -2634,7 +2634,7 @@ namespace charutils
             if (slotID == SLOT_SUB)
             {
                 // Unequip if no main weapon or a non-grip subslot without DW
-                if (!PChar->getEquip(SLOT_MAIN) && (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)) || !((CItemWeapon*)PItem)->IsShield())
+                if (!PChar->getEquip(SLOT_MAIN) && (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)) && !((CItemWeapon*)PItem)->IsShield())
                 {
                     UnequipItem(PChar, SLOT_SUB);
                     continue;
