@@ -1049,7 +1049,7 @@ INSERT INTO `item_basic` VALUES (1159,0,'wyvern_egg','wyvern_egg',1,61504,0,1,0)
 INSERT INTO `item_basic` VALUES (1160,0,'frag_rock','frag_rock',1,61504,0,1,0);
 INSERT INTO `item_basic` VALUES (1161,0,'uchitake','uchitake',99,4,49,0,10);
 INSERT INTO `item_basic` VALUES (1162,0,'tonberry_lantern','tonberry_lantern',99,4,50,0,75);
-INSERT INTO `item_basic` VALUES (1163,0,'lock_of_manticore_hair','manticore_hair',99,4,40,0,210);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (1163,0,'lock_of_manticore_hair','manticore_hair',12,4,40,0,210);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (1164,0,'tsurara','tsurara',99,4,49,0,10);
 INSERT INTO `item_basic` VALUES (1165,0,'doll_shard','doll_shard',99,4,44,0,1040);
 INSERT INTO `item_basic` VALUES (1166,0,'banishing_charm','banishing_charm',1,61504,0,1,0);
