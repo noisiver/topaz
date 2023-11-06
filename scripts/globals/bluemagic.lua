@@ -272,34 +272,41 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         SpellCritPdifModifier = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
     end
 	
-	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluphysattk
-	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluphysattk forrmula
+	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluAttack
+	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluAttack forrmula
 		BluAttkModifier = 1
 	end
 
     -- Base attack from BLU skill
-	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    -- printf("Attack after Skill.. %u", bluphysattk)
+	local bluAttack = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+    -- printf("Attack after Skill.. %u", bluAttack)
+
+    -- Add Minuets
+    if caster:hasStatusEffect(tpz.effect.MINUET) then
+        local minuets = caster:getStatusEffect(tpz.effect.MINUET)
+        bluAttack = bluAttack + minuets:getPower()
+        -- printf("Attack after minuets.. %u", bluAttack)
+    end
 
     -- Add +Attack %(percentage)
-    bluphysattk = bluphysattk * (1 + caster:getMod(tpz.mod.ATTP))
-    -- printf("Attack after Attack % mod.. %u", bluphysattk)
+    bluAttack = bluAttack * (1 + caster:getMod(tpz.mod.ATTP))
+    -- printf("Attack after Attack % mod.. %u", bluAttack)
 
     -- Add food +Attack %(percentage)
-    bluphysattk = bluphysattk * (1 + caster:getMod(tpz.mod.FOOD_ATTP))
-    -- printf("Attack after Food % mod.. %u", bluphysattk)
+    bluAttack = bluAttack * (1 + caster:getMod(tpz.mod.FOOD_ATTP))
+    -- printf("Attack after Food % mod.. %u", bluAttack)
 
     -- Add attack from TP bonus and attack bonus on specific BLU spells
-    bluphysattk = math.floor(bluphysattk * BluAttkModifier)
-    -- printf("Attack after TP bonus.. %u", bluphysattk)
+    bluAttack = math.floor(bluAttack * BluAttkModifier)
+    -- printf("Attack after TP bonus.. %u", bluAttack)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
-        params.offcratiomod = bluphysattk
+        params.offcratiomod = bluAttack
     end
 
     -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
     local physPotency = 1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
-    bluphysattk = math.floor(bluphysattk * physPotency)
-    --printf("Attack after potency merits.. %u", bluphysattk)
+    bluAttack = math.floor(bluAttack * physPotency)
+    --printf("Attack after potency merits.. %u", bluAttack)
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
