@@ -440,7 +440,7 @@ INSERT INTO `item_basic` VALUES (527,0,'linkshell','linkshell',1,4096,0,1,0);
 INSERT INTO `item_basic` VALUES (528,0,'linkshell','linkshell',1,4096,0,1,0);
 INSERT INTO `item_basic` VALUES (529,0,'luminicloth','luminicloth',99,4,40,0,241);
 INSERT INTO `item_basic` VALUES (530,0,'copy_of_the_castle_floor_plans','castle_floor_plans',1,61524,0,1,0);
-INSERT INTO `item_basic` VALUES (531,0,'lanolin_cube','lanolin',1,24660,0,0,680);
+INSERT INTO `item_basic` VALUES (531,0,'lanolin_cube','lanolin',99,24660,0,0,680);
 INSERT INTO `item_basic` VALUES (532,0,'magicmart_flyer','magicmart_flyer',99,4100,46,1,0);
 INSERT INTO `item_basic` VALUES (533,0,'chunk_of_derfland_humus','derfland_humus',1,4,46,0,800);
 INSERT INTO `item_basic` VALUES (534,0,'clump_of_gausebit_wildgrass','gausebit_grass',99,4,48,0,200);
