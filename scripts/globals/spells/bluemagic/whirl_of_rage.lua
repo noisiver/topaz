@@ -36,7 +36,7 @@ function onSpellCast(caster, target, spell)
     params.scattr2 = SC_DETONATION
     params.numhits = 1
     params.multiplier = 3.0
-    params.tp150 = 4.0
+    params.tp150 = 3.5
     params.tp300 = 4.0
     params.azuretp = 4.0
     params.duppercap = 80
