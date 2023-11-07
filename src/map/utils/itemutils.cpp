@@ -361,15 +361,15 @@ namespace itemutils
                     }
                     if (PItem->isType(ITEM_USABLE))
                     {
-                        ((CItemUsable*)PItem)->setValidTarget(Sql_GetUIntData(SqlHandle,7));
-                        ((CItemUsable*)PItem)->setActivationTime(Sql_GetUIntData(SqlHandle,8)*1000);
-                        ((CItemUsable*)PItem)->setAnimationID(Sql_GetUIntData(SqlHandle,9));
-                        ((CItemUsable*)PItem)->setAnimationTime(Sql_GetUIntData(SqlHandle,10)*1000);
-                        ((CItemUsable*)PItem)->setMaxCharges(Sql_GetUIntData(SqlHandle,11));
-                        ((CItemUsable*)PItem)->setCurrentCharges(Sql_GetUIntData(SqlHandle,12));
-                        ((CItemUsable*)PItem)->setUseDelay(Sql_GetUIntData(SqlHandle,13));
-                        ((CItemUsable*)PItem)->setReuseDelay(Sql_GetUIntData(SqlHandle,14));
-                        ((CItemUsable*)PItem)->setAoE(Sql_GetUIntData(SqlHandle,15));
+                        ((CItemUsable*)PItem)->setValidTarget(Sql_GetUIntData(SqlHandle, 7));
+                        ((CItemUsable*)PItem)->setActivationTime(Sql_GetUIntData(SqlHandle, 8) * 1000);
+                        ((CItemUsable*)PItem)->setAnimationID(Sql_GetUIntData(SqlHandle, 9));
+                        ((CItemUsable*)PItem)->setAnimationTime(Sql_GetUIntData(SqlHandle, 10) * 1000);
+                        ((CItemUsable*)PItem)->setMaxCharges(Sql_GetUIntData(SqlHandle, 11));
+                        ((CItemUsable*)PItem)->setCurrentCharges(Sql_GetUIntData(SqlHandle, 11));
+                        ((CItemUsable*)PItem)->setUseDelay(Sql_GetUIntData(SqlHandle, 12));
+                        ((CItemUsable*)PItem)->setReuseDelay(Sql_GetUIntData(SqlHandle, 13));
+                        ((CItemUsable*)PItem)->setAoE(Sql_GetUIntData(SqlHandle, 14));
                         ((CItemUsable*)PItem)->setMsg(Sql_GetUIntData(SqlHandle, 15));
                         ((CItemUsable*)PItem)->setParam(Sql_GetUIntData(SqlHandle, 16));
                     }
