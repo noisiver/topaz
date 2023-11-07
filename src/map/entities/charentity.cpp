@@ -2154,13 +2154,17 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     actionTarget_t& actionTarget = actionList.getNewActionTarget();
     actionTarget.animation = PItem->getAnimationID();
     actionTarget.reaction = REACTION_HIT;
-    // TODO: Different messageID for ethers, echo drops, etc too...
-    actionTarget.messageID = 24;
-    // TODO Add a row to SQL, if the SQL
-    // if (sqlentry > 0)
-    // actionTarget.param = sqlentry;
-    actionTarget.param = 0;
+    actionTarget.messageID = PItem->getMsg();
+    actionTarget.param = PItem->getParam();
 
+    // HP restored msg
+    if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
+    {
+        if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+        {
+            actionTarget.param = 0;
+        }
+    }
     if (PItem->isType(ITEM_EQUIPMENT))
     {
         if (PItem->getMaxCharges() > 1)

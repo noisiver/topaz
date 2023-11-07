@@ -370,6 +370,68 @@ inline int32 CLuaItem::setAppraisalID(lua_State* L)
     return 1;
 }
 
+inline int32 CLuaItem::getMsg(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaItem == nullptr);
+
+    auto PItem = (CItemUsable*)m_PLuaItem;
+
+    if (PItem)
+    {
+        lua_pushinteger(L, PItem->getMsg());
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+inline int32 CLuaItem::setMsg(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaItem == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    auto PItem = (CItemUsable*)m_PLuaItem;
+
+    if (PItem)
+    {
+        PItem->setMsg((uint16)lua_tointeger(L, 1));
+        return 0;
+    }
+}
+
+inline int32 CLuaItem::getParam(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaItem == nullptr);
+
+    auto PItem = (CItemUsable*)m_PLuaItem;
+
+    if (PItem)
+    {
+        lua_pushinteger(L, PItem->getParam());
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+inline int32 CLuaItem::setParam(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaItem == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    auto PItem = (CItemUsable*)m_PLuaItem;
+
+    if (PItem)
+    {
+        PItem->setParam((uint16)lua_tointeger(L, 1));
+        return 0;
+    }
+}
+
 //==========================================================//
 
 const char CLuaItem::className[] = "CItem";
@@ -401,7 +463,11 @@ Lunar<CLuaItem>::Register_t CLuaItem::methods[] =
     LUNAR_DECLARE_METHOD(CLuaItem,isHandToHand),
     LUNAR_DECLARE_METHOD(CLuaItem,isShield),
     LUNAR_DECLARE_METHOD(CLuaItem,getSignature),
-    LUNAR_DECLARE_METHOD(CLuaItem, getAppraisalID),
-    LUNAR_DECLARE_METHOD(CLuaItem, setAppraisalID),
+    LUNAR_DECLARE_METHOD(CLuaItem,getAppraisalID),
+    LUNAR_DECLARE_METHOD(CLuaItem,setAppraisalID),
+    LUNAR_DECLARE_METHOD(CLuaItem,getMsg),
+    LUNAR_DECLARE_METHOD(CLuaItem,setMsg),
+    LUNAR_DECLARE_METHOD(CLuaItem,getParam),
+    LUNAR_DECLARE_METHOD(CLuaItem,setParam),
     {nullptr,nullptr}
 };

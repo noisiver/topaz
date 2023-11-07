@@ -45,6 +45,8 @@ public:
 	uint32	getLastUseTime();
     uint32  getNextUseTime();
     uint16  getAoE();
+    uint16  getMsg();
+    uint16  getParam();
 
 	void	setUseDelay(uint8 UseDelay);
 	void	setCurrentCharges(uint8 CurrCharges);
@@ -57,6 +59,8 @@ public:
 	void	setLastUseTime(uint32 LastUseTime);
     void    setAssignTime(uint32 VanaTime);
 	void    setAoE(uint16 AoE);
+    void    setMsg(uint16 msg);
+    void    setParam(uint16 param);
 
 private:
 
@@ -69,6 +73,8 @@ private:
 	uint32	m_ReuseDelay;       // задержка между использованием предмета
     uint32  m_AssignTime;       // время экипировки предмета
     uint16  m_AoE;
+    uint16  m_Message;          // Message param in packet (Recovers X HP etc)
+    uint16  m_Param;            // Amount displayed in message (Player recovers 50 HP etc)
 };
 
 #endif
