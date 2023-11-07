@@ -448,7 +448,7 @@ tpz.shop =
                 21450,    2084,      tpz.ki.RHAPSODY_IN_EMERALD, -- Electrified Broth
                 21464,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Rancid Broth
                 17912,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Fizzy Broth
-                21468,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Sap
+                -- 21468,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Sap ID's past 124 break the server
         }
     }
 }
