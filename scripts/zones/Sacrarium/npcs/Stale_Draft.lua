@@ -4,10 +4,11 @@
 -- Notes: Used to spawn Swift Belt NM's
 -----------------------------------
 local ID = require("scripts/zones/Sacrarium/IDs")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrigger(player, npc)
-    local hate = player:getCharVar("FOMOR_HATE")
+    local hate = player:getFomorHate()
 
     if (hate < 8) then --hate lvl 1
         player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
@@ -22,17 +23,17 @@ end
 
 function onTrade(player, npc, trade)
     -- fomor codex
-    if (trade:hasItemQty(1877, 1) and trade:getItemCount() == 1) then
+    if npcUtil.tradeHasExactly(trade, tpz.items.FOMOR_CODEX) then
         local draftOffset = npc:getID() - ID.npc.STALE_DRAFT_OFFSET
         local nmId = ID.mob.SWIFT_BELT_NMS[draftOffset + 1][1]
         local races = ID.mob.SWIFT_BELT_NMS[draftOffset + 1][2]
         local nm = GetMobByID(nmId)
         local race = player:getRace()
-        local hate = player:getCharVar("FOMOR_HATE")
+        local hate = player:getFomorHate()
 
         if (races[race] and not nm:isSpawned() and hate >= 50) then
             player:tradeComplete()
-            player:setCharVar("FOMOR_HATE", 0)
+            player:setFomorHate(0)
             SpawnMob(nmId):updateClaim(player)
         else
             player:messageSpecial(ID.text.NOTHING_HAPPENS)
