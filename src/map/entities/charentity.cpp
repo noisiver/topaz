@@ -2157,6 +2157,18 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     actionTarget.messageID = PItem->getMsg();
     actionTarget.param = PItem->getParam();
 
+    // Percentage HP / MP restored  msg
+    if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
+    {
+        int hp = floor(this->GetMaxHP() * actionTarget.param);
+        int mp = floor(this->GetMaxMP() * actionTarget.param);
+        int hpp = floor(hp / 100);
+        int mpp = floor(mp / 100);
+
+        // MP is unused
+        actionTarget.param = hpp;
+    }
+
     // HP restored msg
     if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
     {
@@ -2165,6 +2177,7 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             actionTarget.param = 0;
         }
     }
+
     if (PItem->isType(ITEM_EQUIPMENT))
     {
         if (PItem->getMaxCharges() > 1)
