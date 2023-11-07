@@ -223,7 +223,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     if (chainAffinity ~= nil) then
 
-		if params.AttkTPModifier or (params.tpmod = TPMOD_ATTACK) then --Check if "Attack varies with TP"
+		if params.AttkTPModifier or (params.tpmod == TPMOD_ATTACK) then --Check if "Attack varies with TP"
 			AttkTPModifier =  BLUGetAttkTPModifier(caster:getTP())
             -- printf("Attack TP Bonus mod %d", AttkTPModifier*100)
 		end
@@ -282,6 +282,10 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- Base attack from BLU skill
 	local bluAttack = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
     -- printf("Attack after Skill.. %d", bluAttack)
+
+    -- Add STR
+    bluAttack = bluAttack  + math.floor(caster:getStat(tpz.mod.STR) * 0.75)
+    -- printf("Attack after STR.. %d", bluAttack)
 
     -- Add Minuets
     if caster:hasStatusEffect(tpz.effect.MINUET) then
@@ -992,9 +996,12 @@ end
 function BlueGetHitRate(attacker, target, capHitRate, params)
     local AccTPBonus = 0
 	local tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
-    if chainAffinity ~= nil then
-		if params.AccTPModifier then --Check if "Accuracy varies with TP"
-			AccTPBonus = BLUGetAccTPModifier(caster:getTP()) 
+    local chainAffinity = attacker:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
+
+    if (chainAffinity ~= nil) then
+		if params.AccTPModifier or (params.tpmod == TPMOD_ACC) then -- Check if "Accuracy varies with TP"
+			AccTPBonus = BLUGetAccTPModifier(attacker:getTP())
+            -- printf("AccTPBonus %d", AccTPBonus)
 		end
 	end
 
