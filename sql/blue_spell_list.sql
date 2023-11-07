@@ -140,7 +140,7 @@ INSERT INTO `blue_spell_list` VALUES ('655','2423','3','31','1','0','0'); -- Tri
 -- INSERT INTO `blue_spell_list` VALUES ('658','2174','4','0','1','0','0'); -- Plenilune Embrace (4 Legs)
 INSERT INTO `blue_spell_list` VALUES ('659','2101','4','24','1','0','0'); -- Demoralizing Roar
 -- INSERT INTO `blue_spell_list` VALUES ('660','2161','3','27','1','0','0'); -- Cimicine Discharge
-INSERT INTO `blue_spell_list` VALUES ('661','1782','5','25','1','0','0'); -- Animating Wail
+INSERT INTO `blue_spell_list` VALUES ('661','1782','5','25','2','0','0'); -- Animating Wail
 INSERT INTO `blue_spell_list` VALUES ('662','525','3','0','1','0','0'); -- Battery Charge
 -- INSERT INTO `blue_spell_list` VALUES ('663','331','4','27','1','0','0'); -- Leafstorm
 -- INSERT INTO `blue_spell_list` VALUES ('929','331','4','27','1','0','0'); -- Leafstorm
@@ -153,9 +153,9 @@ INSERT INTO `blue_spell_list` VALUES ('669','514','2','26','2','4','6'); -- Whir
 -- INSERT INTO `blue_spell_list` VALUES ('670','2629','4','23','1','9','1'); -- Benthic Typhoon
 INSERT INTO `blue_spell_list` VALUES ('671','1220','4','22','1','0','0'); -- Auroral Drape
 -- INSERT INTO `blue_spell_list` VALUES ('672','2631','5','13','1','0','0'); -- Osmosis
-INSERT INTO `blue_spell_list` VALUES ('673','741','4','25','1','10','4'); -- Quadratic Continuum
-INSERT INTO `blue_spell_list` VALUES ('673','742','4','25','1','10','4'); -- Quadratic Continuum
-INSERT INTO `blue_spell_list` VALUES ('673','743','4','25','1','10','4'); -- Quadratic Continuum
+INSERT INTO `blue_spell_list` VALUES ('673','741','4','25','2','10','4'); -- Quadratic Continuum
+INSERT INTO `blue_spell_list` VALUES ('673','742','4','25','2','10','4'); -- Quadratic Continuum
+INSERT INTO `blue_spell_list` VALUES ('673','743','4','25','2','10','4'); -- Quadratic Continuum
 -- INSERT INTO `blue_spell_list` VALUES ('674','580','1','20','1','0','0'); -- Fantod
 INSERT INTO `blue_spell_list` VALUES ('675','1817','3','8','1','0','0'); -- Thermal Pulse
 INSERT INTO `blue_spell_list` VALUES ('677','1230','3','24','1','2','4'); -- Empty Thrash
@@ -164,7 +164,7 @@ INSERT INTO `blue_spell_list` VALUES ('677','1275','3','24','1','2','4'); -- Emp
 INSERT INTO `blue_spell_list` VALUES ('679','1255','3','18','2','0','0'); -- Occultation
 INSERT INTO `blue_spell_list` VALUES ('680','483','4','28','2','0','0'); -- Charged Whisker
 -- INSERT INTO `blue_spell_list` VALUES ('681','1245','5','14','4','0','0'); -- Winds of Promyvion
-INSERT INTO `blue_spell_list` VALUES ('682','2154','2','25','1','3','6'); -- Delta Thrust
+INSERT INTO `blue_spell_list` VALUES ('682','2154','2','25','2','3','6'); -- Delta Thrust
 INSERT INTO `blue_spell_list` VALUES ('683','920','4','28','2','0','0'); -- Everyones Grudge
 -- INSERT INTO `blue_spell_list` VALUES ('684','2431','4','27','1','0','0'); -- Reaving Wind
 -- INSERT INTO `blue_spell_list` VALUES ('685','1703','3','15','1','0','0'); -- Barrier Tusk
@@ -181,8 +181,8 @@ INSERT INTO `blue_spell_list` VALUES ('688','1035','2','24','1','12','1'); -- He
 -- INSERT INTO `blue_spell_list` VALUES ('696','2201','5','21','1','0','0'); -- Orcish Counterstance
 -- INSERT INTO `blue_spell_list` VALUES ('697','1824','4','28','1','9','1'); -- Amorphic Spikes
 -- INSERT INTO `blue_spell_list` VALUES ('698','644','2','22','1','0','0'); -- Wind breath
-INSERT INTO `blue_spell_list` VALUES ('699','253','2','25','1','10','3'); -- Barbed Crescent
-INSERT INTO `blue_spell_list` VALUES ('699','245','2','25','1','10','3'); -- Barbed Crescent
+INSERT INTO `blue_spell_list` VALUES ('699','253','2','25','2','10','3'); -- Barbed Crescent
+INSERT INTO `blue_spell_list` VALUES ('699','245','2','25','2','10','3'); -- Barbed Crescent
 -- INSERT INTO `blue_spell_list` VALUES ('700','2945','6','16','8','0','0'); -- Nature's Meditation
 INSERT INTO `blue_spell_list` VALUES ('701','2950','6','18','2','0','0'); -- Tempestuous Upheaval
 -- INSERT INTO `blue_spell_list` VALUES ('702','2958','6','13','8','0','0'); -- Rending Deluge
