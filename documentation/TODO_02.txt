@@ -4,7 +4,6 @@ https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d
 Ulbrecht and Qultada custom msgs cant use msgids
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Code remaining COP map quests(Riverne and Sacraium [Paradise, Salvation, and Maps])
-Unequipping OH thing doesn't work properly
 Fomor Black mages in aquaducts shouldn't use grim halo they use a club(should use foxfire)
 AH to WotG towns
 mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
@@ -43,10 +42,6 @@ Ulbrecht:
 Spell school based on storm active 
 
 BLU:
-STR should give blu attack too at 0.75 per like everyone else
-params.tpmod or params.AccTPModifier 
-Are BLU spells(Multihits esp) too strong when getting attack from other sources? Maybe make multihits penalties stronger (-30%?)
-Probably add a "blu attack" mod and make triumphant roar give it or something, same with fantod.
 Add Fantod
 Reraise spell
 
