@@ -223,7 +223,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     if (chainAffinity ~= nil) then
 
-		if params.AttkTPModifier then --Check if "Attack varies with TP"
+		if params.AttkTPModifier or (params.tpmod = TPMOD_ATTACK) then --Check if "Attack varies with TP"
 			AttkTPModifier =  BLUGetAttkTPModifier(caster:getTP())
             -- printf("Attack TP Bonus mod %d", AttkTPModifier*100)
 		end

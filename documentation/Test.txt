@@ -3,7 +3,7 @@ SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
 Quu Bokye pathing
 Reaving Wind and Reaving Wind Knock Back(both should knock back)
 Mount Z HP
-BLU attack changes (Food, minuet and attack % buffs)
+BLU check if TPMOD_ATTACK is properly working  for AttkTPModifier
 Properly unequipping OH's if no MH or no DW  when level synced and job changed and stuff (can have shield with no mh). Check shield isn't unequipped too
 Osschaart (Copycat)
 Macan Gadangan (Wild Wild Whiskers)
