@@ -224,7 +224,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (chainAffinity ~= nil) then
 
 		if params.AttkTPModifier then --Check if "Attack varies with TP"
-			AttkTPModifier =  BLUGetAttkTPModifier(caster:getTP()) 
+			AttkTPModifier =  BLUGetAttkTPModifier(caster:getTP())
+            -- printf("Attack TP Bonus mod %d", AttkTPModifier*100)
 		end
 
         if params.CritTPModifier then --Check if "Chance of critical strike varies with TP"
@@ -276,29 +277,30 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluAttack forrmula
 		BluAttkModifier = 1
 	end
+    -- printf("Attack Bonus + TP Bonus mod %d", BluAttkModifier*100)
 
     -- Base attack from BLU skill
 	local bluAttack = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    -- printf("Attack after Skill.. %u", bluAttack)
+    -- printf("Attack after Skill.. %d", bluAttack)
 
     -- Add Minuets
     if caster:hasStatusEffect(tpz.effect.MINUET) then
         local minuets = caster:getStatusEffect(tpz.effect.MINUET)
         bluAttack = bluAttack + minuets:getPower()
-        -- printf("Attack after minuets.. %u", bluAttack)
+        -- printf("Attack after minuets.. %d", bluAttack)
     end
 
     -- Add +Attack %(percentage)
-    bluAttack = bluAttack * (1 + caster:getMod(tpz.mod.ATTP))
-    -- printf("Attack after Attack % mod.. %u", bluAttack)
+    bluAttack = math.floor(bluAttack * (1 + caster:getMod(tpz.mod.ATTP) / 100))
+    -- printf("Attack after Attackmod.. %d", bluAttack)
 
     -- Add food +Attack %(percentage)
-    bluAttack = bluAttack * (1 + caster:getMod(tpz.mod.FOOD_ATTP))
-    -- printf("Attack after Food % mod.. %u", bluAttack)
+    bluAttack = math.floor(bluAttack * (1 + caster:getMod(tpz.mod.FOOD_ATTP) / 100))
+    -- printf("Attack after Foodmod.. %d", bluAttack)
 
     -- Add attack from TP bonus and attack bonus on specific BLU spells
     bluAttack = math.floor(bluAttack * BluAttkModifier)
-    -- printf("Attack after TP bonus.. %u", bluAttack)
+    -- printf("Attack after TP bonus.. %d", bluAttack)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluAttack
     end
@@ -306,7 +308,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
     local physPotency = 1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
     bluAttack = math.floor(bluAttack * physPotency)
-    --printf("Attack after potency merits.. %u", bluAttack)
+    -- printf("Attack after potency merits.. %d", bluAttack)
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
@@ -391,14 +393,17 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.shadowbehav ~= nil) then
         shadowbehav = params.shadowbehav
     end
+
     -- Don't check if the spell ignores shadows
-    if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
-        if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
-            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
-            -- All hits absorbed by shadows
-            if (finaldmg == 0) then
-                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-                return shadowbehav
+    if target:hasStatusEffect(tpz.effect.BLINK) or target:hasStatusEffect(tpz.effect.COPY_IMAGE) then
+        if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
+            if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
+                finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+                -- All hits absorbed by shadows
+                if (finaldmg == 0) then
+                    spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+                    return shadowbehav
+                end
             end
         end
     end
@@ -408,12 +413,15 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (spell:isAoE() > 0) then
         target:delStatusEffectSilent(tpz.effect.THIRD_EYE)
     end
+
     -- Don't check if the spell ignores shadows
-    if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
-        if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
-            if utils.thirdeye(target) then
-                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-                return 0
+    if target:hasStatusEffect(tpz.effect.BLINK) or target:hasStatusEffect(tpz.effect.COPY_IMAGE) then
+        if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
+            if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
+                if utils.thirdeye(target) then
+                    spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+                    return 0
+                end
             end
         end
     end
@@ -920,7 +928,7 @@ function BLUGetEnfeebDurationModifier(tp)
 end
 
 function BLUGetAttkTPModifier(tp)
-  return 1.5 + (tp / 2000);
+  return (tp / 3000) -- 33% / 66% / 100%
 end
 
 function BLUGetCritTPModifier(tp)

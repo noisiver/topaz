@@ -42,6 +42,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     params.attkbonus = 0.9
+    params.AttkTPModifier = true
     params.shadowbehav = BLUPARAM_4_SHADOW
 
     damage = BluePhysicalSpell(caster, target, spell, params)
