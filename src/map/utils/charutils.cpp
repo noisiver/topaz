@@ -2633,11 +2633,20 @@ namespace charutils
 
             if (slotID == SLOT_SUB)
             {
-                // Unequip if no main weapon or a non-grip subslot without DW
-                if (!PChar->getEquip(SLOT_MAIN) && (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)) && !((CItemWeapon*)PItem)->IsShield())
+                // Check if the player has dual wield trait or not, and if they don't then unequip their weapons
+                if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
                 {
-                    UnequipItem(PChar, SLOT_SUB);
-                    continue;
+                    CItem* PItem = PChar->getEquip((SLOTTYPE)SLOT_SUB);
+                    // Don't unequip shields or Grips
+                    CItemWeapon* PWeapon = (CItemWeapon*)PItem;
+                    if (PItem)
+                    {
+                        if (!((CItemWeapon*)PItem)->IsShield() && !PWeapon->getSkillType() == SKILL_NONE)
+                        {
+                            UnequipItem(PChar, SLOT_SUB);
+                            continue;
+                        }
+                    }
                 }
             }
 
@@ -3090,7 +3099,7 @@ namespace charutils
         if (PChar->GetMJob() == JOB_BLU || PChar->GetSJob() == JOB_BLU)
         {
             blueutils::CalculateTraits(PChar);
-            // Check if the player has dual wield set trait or not, and if they don't then unequip their weapons
+            // Check if the player has dual wield trait or not, and if they don't then unequip their weapons
             if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
             {
                 CItem* PItem = PChar->getEquip((SLOTTYPE)SLOT_SUB);
@@ -3098,7 +3107,7 @@ namespace charutils
                 CItemWeapon* PWeapon = (CItemWeapon*)PItem;
                 if (PItem)
                 {
-                    if (!((CItemWeapon*)PItem)->IsShield() || !PWeapon->getSkillType() == SKILL_NONE)
+                    if (!((CItemWeapon*)PItem)->IsShield() && !PWeapon->getSkillType() == SKILL_NONE)
                     {
                         UnequipItem(PChar, SLOT_SUB);
                     }
