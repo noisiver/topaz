@@ -54,6 +54,4 @@ function onSpellCast(caster, target, spell)
     BlueTryEnfeeble(caster, target, spell, damage, 8, 0, 180, params)
 
     return damage
-
-
 end

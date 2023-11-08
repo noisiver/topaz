@@ -23,16 +23,18 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    params.tpmod = TPMOD_ATTACK
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
+    params.bonus = 0
+    params.tpmod = TPMOD_MACC
     params.attackType = tpz.attackType.PHYSICAL
     params.damageType = tpz.damageType.SLASHING
     params.scattr = SC_TRANSFIXION
     params.numhits = 1
-    params.multiplier = 3.0
-    params.tp150 = 3.0
-    params.tp300 = 3.0
-    params.azuretp = 3.0
+    params.multiplier = 2.5
+    params.tp150 = 2.5
+    params.tp300 = 2.5
+    params.azuretp = 2.5
     params.duppercap = 80
     params.str_wsc = 0.5
     params.dex_wsc = 0.0
@@ -41,10 +43,13 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    params.attkbonus = 1.50
+    params.attkbonus = 1.25
 
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+
+    params.effect = tpz.effect.EVASION_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
 
     return damage
 end
