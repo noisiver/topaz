@@ -21,6 +21,8 @@ Double msg zoning into level sync zoned(level restricted to x)
 Phalaenopsis unused item 1730 gil regional
 <player name>'s attack devastates the fiend!
 Custom name pets
+Quelveulat in Tav patrols
+Quu Bokye patrols
 Give some HQ jugs new TP moves like Rhinowrecker, give the super pool with 180 delay and make the jug more expensive
 Fix Raaz pet
 Aquaveil +1 gear
