@@ -15,7 +15,7 @@ mixins =
 
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobInitialize(mob)
