@@ -88,7 +88,7 @@ INSERT INTO `pet_list` VALUES (41, 'ShellbusterOrob', 4597, 53, 75, 1800, 0);
 INSERT INTO `pet_list` VALUES (42, 'VoraciousAudrey', 4620, 53, 75, 1800, 0);
 INSERT INTO `pet_list` VALUES (43, 'AmbusherAllie', 4622, 58, 75, 1800, 0);
 INSERT INTO `pet_list` VALUES (44, 'LifedrinkerLars', 4624, 63, 75, 3600, 0);
-INSERT INTO `pet_list` VALUES (45, 'PanzerGalahad', 6825, 63, 75, 1800, 0);
+INSERT INTO `pet_list` VALUES (45, 'PanzerGalahad', 4607, 63, 75, 1800, 0);
 INSERT INTO `pet_list` VALUES (46, 'ChopsueyChucky', 4626, 63, 85, 1800, 0);
 INSERT INTO `pet_list` VALUES (47, 'AmigoSabotender', 4618, 75, 85, 3600, 0);
 INSERT INTO `pet_list` VALUES (48, 'Wyvern', 5551, 1, 99, 0, 0);
@@ -170,7 +170,9 @@ INSERT INTO `pet_list` VALUES (121, 'Roland', 6820, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (122, 'MosquitoFamiliar', 6821, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (123, 'Yoko', 6822, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (124, 'Glenn', 6823, 73, 90, 1800, 0);
--- ID's past 124 break the server
--- INSERT INTO `pet_list` VALUES (125, 'YellowBeetleFamiliar', 6824, 73, 90, 1800, 0);
--- INSERT INTO `pet_list` VALUES (126, 'Sefina', 6825, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (125, 'YellowBeetleFamiliar', 6824, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (126, 'Sefina', 6825, 73, 90, 1800, 0);
+-- Need two extra pet IDs after final ones or else server breaks for some reason
+INSERT INTO `pet_list` VALUES (127, 'PH', 6825, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (128, 'PH', 6825, 73, 90, 1800, 0);
 

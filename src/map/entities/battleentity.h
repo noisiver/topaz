@@ -252,8 +252,8 @@ enum SUBSKILLTYPE
     SUBSKILL_YOKO = 123,  // HEAVENLY BROTH
     SUBSKILL_GLENN = 124,  // WISPY BROTH
     // ID"s past 124 break the server
-    // SUBSKILL_YELLOW_BEETLE = 125,  // ZESTFUL SAP
-    // SUBSKILL_SEFINA = 126,  // GASSY SAP
+    SUBSKILL_YELLOW_BEETLE = 125,  // ZESTFUL SAP
+    SUBSKILL_SEFINA = 126,  // GASSY SAP
 };
 
 // ячейки экипировки. монстры используют лишь первые четыре, персонаж использует все
