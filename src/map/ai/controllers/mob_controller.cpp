@@ -184,55 +184,47 @@ void CMobController::TryLink()
         ((CMobEntity*)PMob->PPet)->PEnmityContainer->AddBaseEnmity(PTarget);
     }
 
-    // Mobs shouldn't link to pets without master being engaged
-    if (PTarget->objtype == TYPE_PET && PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
+    // Don't link if no player is on mobs entity table or the mob has super linking mobmod
+    auto enmityList = PMob->PEnmityContainer->GetEnmityList();
+    for (auto iter = enmityList->begin(); iter != enmityList->end(); iter++)
     {
-        // Make sure the mob isn't supposed to super link
-        if (PMob->getMobMod(MOBMOD_SUPERLINK) == 0)
+        auto entity = iter->second.PEnmityOwner;
+        if (entity)
         {
-            return;
-        }
-    }
-
-    // Mobs shouldn't link to charmed pets
-    if (PTarget->objtype == TYPE_MOB && PTarget->isCharmed && PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
-    {
-        // Make sure the mob isn't supposed to super link
-        if (PMob->getMobMod(MOBMOD_SUPERLINK) == 0)
-        {
-            return;
-        }
-    }
-
-    // Handle monster linking if they are close enough
-    if (PMob->PParty != nullptr)
-    {
-        for (uint16 i = 0; i < PMob->PParty->members.size(); ++i)
-        {
-            CMobEntity* PPartyMember = (CMobEntity*)PMob->PParty->members[i];
-
-            if (PPartyMember->isAlive() && PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
+            if (entity->objtype == TYPE_PC || PMob->getMobMod(MOBMOD_SUPERLINK) > 0)
             {
-                PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
-
-                if (PPartyMember->m_roamFlags & ROAMFLAG_IGNORE)
+                // Handle monster linking if they are close enough
+                if (PMob->PParty != nullptr)
                 {
-                    // force into attack action
-                    //#TODO
-                    PPartyMember->PAI->Engage(PTarget->targid);
+                    for (uint16 i = 0; i < PMob->PParty->members.size(); ++i)
+                    {
+                        CMobEntity* PPartyMember = (CMobEntity*)PMob->PParty->members[i];
+
+                        if (PPartyMember->isAlive() && PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
+                        {
+                            PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
+
+                            if (PPartyMember->m_roamFlags & ROAMFLAG_IGNORE)
+                            {
+                                // force into attack action
+                                // #TODO
+                                PPartyMember->PAI->Engage(PTarget->targid);
+                            }
+                        }
+                    }
+                }
+
+                // ask my master for help
+                if (PMob->PMaster != nullptr && PMob->PMaster->PAI->IsRoaming())
+                {
+                    CMobEntity* PMaster = (CMobEntity*)PMob->PMaster;
+
+                    if (PMaster->PAI->IsRoaming() && PMaster->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
+                    {
+                        PMaster->PEnmityContainer->AddBaseEnmity(PTarget);
+                    }
                 }
             }
-        }
-    }
-
-    // ask my master for help
-    if (PMob->PMaster != nullptr && PMob->PMaster->PAI->IsRoaming())
-    {
-        CMobEntity* PMaster = (CMobEntity*)PMob->PMaster;
-
-        if (PMaster->PAI->IsRoaming() && PMaster->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
-        {
-            PMaster->PEnmityContainer->AddBaseEnmity(PTarget);
         }
     }
 }
