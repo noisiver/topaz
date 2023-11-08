@@ -86,7 +86,7 @@ local treasureInfo =
                 {
                     {
                         test = function(player) return player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.PARADISE_SALVATION_AND_MAPS) == QUEST_ACCEPTED and player:getCharVar("sacMapQuest") == 1 and not player:hasKeyItem(tpz.ki.PIECE_OF_RIPPED_FLOORPLANS) end,
-                        code = function(player) npcUtil.giveKeyItem(player, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS) player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS) end,
+                        code = function(player) npcUtil.giveKeyItem(player, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS) end,
                     },
                 },
                 points =
@@ -1470,6 +1470,7 @@ tpz.treasure.onTrade = function(player, npc, trade, chestType)
                 player:messageSpecial(msgBase)
                 v.code(player)
                 player:confirmTrade()
+                player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS, player:getID())
                 moveChest(npc, zoneId, chestType)
                 return
             end

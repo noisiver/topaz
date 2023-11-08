@@ -19,10 +19,10 @@ function onTrigger(player, npc)
 
     if (sacMapQuest == QUEST_AVAILABLE) then
         player:startEvent(223)
-    elseif (sacMapProgress == 1) then
+    elseif (sacMapProgress == 1) and not player:hasKeyItem(tpz.ki.PIECE_OF_RIPPED_FLOORPLANS) then
         player:startEvent(224)
     elseif player:hasKeyItem(tpz.ki.PIECE_OF_RIPPED_FLOORPLANS) then
-        player:startEvent(225)
+        player:startEvent(225, 0, 1, 2, 0, 67108863, 4210705, 4095, 4)
     elseif (sacMapProgress == 2) then
         player:startEvent(228, 7, 0, 2964, 0, 67108863, 4210705, 4095, 4)
     elseif (nivorajeanDialogue == 0) then -- Rotates between two messages when talking to him
@@ -45,6 +45,7 @@ function onEventFinish(player, csid, option)
         player:setCharVar("sacMapQuest", 1)
     elseif csid == 225 then
         player:setCharVar("sacMapQuest", 2)
+        player:delKeyItem(tpz.ki.PIECE_OF_RIPPED_FLOORPLANS)
     elseif csid == 228 then
         npcUtil.completeQuest(player, OTHER_AREAS_LOG, tpz.quest.id.otherAreas.PARADISE_SALVATION_AND_MAPS, {
             ki = tpz.ki.MAP_OF_THE_SACRARIUM,
