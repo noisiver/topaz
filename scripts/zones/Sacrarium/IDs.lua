@@ -31,6 +31,7 @@ zones[tpz.zone.SACRARIUM] =
         DRAWER_OPEN               = 7259, -- You open the drawer.
         DRAWER_EMPTY              = 7260, -- There is nothing inside.
         DRAWER_SHUT               = 7261, -- The drawer is jammed shut.
+        KEY_ITEM_OBTAINED_CHEST   = 7348, -- <player> obtains a key item, a <key item>, from the chest.
         CHEST_UNLOCKED            = 7350, -- You unlock the chest!
         START_GET_GOOSEBUMPS      = 7360, -- You start to get goosebumps.
         HEART_RACING              = 7361, -- Your heart is racing.
