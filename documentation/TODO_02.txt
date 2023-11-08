@@ -36,8 +36,8 @@ No longer attack people after a poroggo charmed? or were they too far when I was
 Sunflower Seeds rarely used item
 Content with a lot of chigoes / ja proc mobs for dnc to be useful
 
-Ulbrecht:
-Ulbrecht and Qultada custom msgs cant use msgids
+Mythic:
+Qultada custom msgs cant use msgids
 
 BLU:
 MAB + MACC on all Demon / Dragon Kilij
@@ -59,4 +59,3 @@ Wiki:
 Item implicits
 https://www.bg-wiki.com/ffxi/Shiyo_Server_Content/Mythic_NMs was fixed, use this to fix JSE necks
 Custom item sets(brass gear, pup/smn gear, wise gear, etc)
-MACC on spells
