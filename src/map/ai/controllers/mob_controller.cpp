@@ -236,6 +236,16 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
         return false;
     }
 
+    // Don't aggro I'm a fomor and I don't hate you
+    if (PMob->getMobMod(MOBMOD_FOMOR_HATE) > 0)
+    {
+        int32 hate = GetFomorHate(PTarget);
+        if (hate >= 0 && hate < 8)
+        {
+            return false;
+        }
+    }
+
     auto detects = PMob->m_Detects;
     auto currentDistance = distance(PTarget->loc.p, PMob->loc.p) + PTarget->getMod(Mod::STEALTH);
 
