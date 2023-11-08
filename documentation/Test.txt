@@ -13,6 +13,7 @@ Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the 
 Chest / Coffer opening animation
 
 Retail:
+Dancing Chains wipe shadows?
 Simplylog show buff mob gets from buff moves?
 Aldazal locus gears (nashmau hp > run east)
 Parrying packet
