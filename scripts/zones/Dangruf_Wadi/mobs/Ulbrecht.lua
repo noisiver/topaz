@@ -20,13 +20,13 @@ function onMobInitialize(mob)
         -- this should be high damage weaponskills but can't figure this out yet so, going with 30% chance
 
         if user:isPC() and math.random() < 0.3 then
-            target:messageText(target, ID.text.PAINFUL_LESSON)
+            utils.MessageParty(user, "Ugh... A painful lesson...", 0, "Ulbrecht")
         end
     end)
 
     mob:addListener("MAGIC_START", "ULBRECHT_MAGIC_START", function(entity, spell, action)
         if math.random() < 0.5 and spell:canTargetEnemy() then -- check offensive spells only
-            entity:messageText(entity, ID.text.TRUE_TEACHING)
+            utils.MessageParty(entity, "Prepare to receive the true teaching!", 0, "Ulbrecht")
         end
     end)
 
@@ -45,7 +45,7 @@ function onMobInitialize(mob)
             effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
         end
         -- Change spell list based on active storm
-        --mob:setSpellList()
+        mob:setSpellList(effectType + 355) -- Storm status effect ID + 355 will be spell list ID
     end)
 
     mob:addListener("EFFECT_LOSE", "ULBRECHT_EFFECT_LOSE", function(owner, effect)
@@ -70,7 +70,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
     mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 12)
-    mob:setLocalVar("specialThreshold", math.random(45, 55));
+    mob:setLocalVar("specialThreshold", math.random(45, 55))
 end
 
 function onMobFight(mob, player)
@@ -96,12 +96,12 @@ function onMobFight(mob, player)
 
     -- Cast a random storm every minute
     if (battleTime >= stormCD) then
-        mob:setLocalVar("stormCD", battleTime + math.random(74, 89))
+        mob:setLocalVar("stormCD", battleTime + 75)
         mob:castSpell(storms[math.random(#storms)], mob)
     end
 
     if mob:getHPP() < mob:getLocalVar("specialThreshold") then
-        mob:messageText(mob, ID.text.MOST_IMPRESSIVE)
+        utils.MessageParty(target, "Impressive. Most impressive. Perhaps I have been too easy on you up to now...", 0, "Ulbrecht")
         mob:useMobAbility(2261)
         mob:setLocalVar("specialThreshold", 0)
     end
@@ -118,7 +118,7 @@ function onMobEngaged(mob, target)
 
         mob:SetMagicCastingEnabled(true)
         mob:useMobAbility(2303) -- use dark arts
-        mob:messageText(mob, ID.text.MADE_YOUR_PEACE)
+        utils.MessageParty(target, "Have you made your peace with the Goddess?", 0, "Ulbrecht")
         mob:setLocalVar("dialog", 1)
         mob:setLocalVar("stratagem_cooldown", os.time())
         mob:setLocalVar("force_stratagem_tp", -1) -- prevent startup stratagem + ws
@@ -234,6 +234,6 @@ function onSpellPrecast(mob, spell)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
-    mob:messageText(mob, ID.text.STUDENT_BECOME_MASTER)
+function onMobDeath(mob, player, isKiller, noKiller)
+    OnDeathMessage(mob, player, isKiller, noKiller, "Inconceivable! The student has become...the master...", 0, "Ulbrecht")
 end

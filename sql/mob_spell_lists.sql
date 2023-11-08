@@ -5945,19 +5945,39 @@ INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Fire', 533, 281, 1, 255); -- Pyro
 INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Fire', 533, 146, 1, 255); -- Fire III
 INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Fire', 533, 147, 1, 255); -- Fire IV
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Ice', 534, 282, 1, 255);
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Ice', 534, 282, 1, 255); -- Cryohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Ice', 533, 151, 1, 255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Ice', 533, 152, 1, 255); -- Blizzard IV
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Wind', 535, 280, 1, 255);
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Wind', 535, 280, 1, 255); -- Anemohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Wind', 533, 156, 1, 255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Wind', 533, 157, 1, 255); -- Aero IV
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Earth', 536, 278, 1, 255);
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Earth', 536, 278, 1, 255); -- Geohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Earth', 533, 161, 1, 255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Earth', 533, 162, 1, 255); -- Stone IV
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Thunder', 537, 283, 1, 255);
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Thunder', 537, 283, 1, 255); -- Ionohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Thunder', 533, 166, 1, 255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Thunder', 533, 167, 1, 255); -- Thunder IV
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Water', 538, 279, 1, 255);
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Water', 538, 279, 1, 255); -- Hydrohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Water', 533, 171, 1, 255); -- Water III
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Water', 533, 172, 1, 255); -- Water IV
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Light', 539, 285, 1, 255);
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Light', 539, 285, 1, 255);   -- Luminohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Light', 539, 4, 1, 255);     -- Cure IV
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Light', 539, 21, 1, 255);    -- Holy
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Light', 539, 30, 1, 255);    -- Banish III
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Light', 539, 478, 1, 255);   -- Embrava
 
-INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 284, 1, 255);
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 284, 1, 255); -- Noctohelix
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 245, 1, 255); -- Drain
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 247, 1, 255); -- Aspir
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 253, 1, 255); -- Sleep
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 259, 1, 255); -- Sleep II
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 260, 1, 255); -- Dispel
+INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 502, 1, 255); -- Kaustra
 
 -- NEXT 541
 -- NEXT 1022
