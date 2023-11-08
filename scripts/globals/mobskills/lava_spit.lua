@@ -11,17 +11,17 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-  if(mob:getFamily() == 316) then
-    local mobSkin = mob:getModelId()
+    if(mob:getFamily() == 316) then
+        local mobSkin = mob:getModelId()
 
-    if (mobSkin == 1793) then
-        return 0
-    else
-        return 1
+        if (mobSkin == 1793) then
+            return 0
+        else
+            return 1
+        end
     end
-  end
 
-    if (target:isBehind(mob, 48) == true) then
+    if target:isBehind(mob, 128) then
         return 1
     else
         return 0

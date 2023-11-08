@@ -24,7 +24,11 @@ function onMobSkillCheck(target,mob,skill)
 		end
 	end
 
-    if (skillList == 54 or (skillList == 727 and mob:AnimationSub() == 1)) and target:isBehind(mob) then
+    if target:isInfront(mob, 128)
+        return 1
+    end
+
+    if (skillList == 54 or (skillList == 727 and mob:AnimationSub() == 1)) then
         return 0
     end
     return 1
