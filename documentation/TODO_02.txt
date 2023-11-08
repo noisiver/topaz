@@ -4,6 +4,7 @@ https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d
 Fomors shouldn't be able to blood aggro someone with 0 fomor hate
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton and prob summon WS say 0 shadow absorbed when shadow absobed
+Wind Weather in Tav safehold!
 Deaggro mobs if target is pet and master has chocobo effect
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
 16887851 fomor beastmaster pet isn't spawned? is it not a pet in mob_pet_list.sql or w/e?
