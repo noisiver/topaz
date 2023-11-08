@@ -23,6 +23,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../../zone.h"
 #include "../../entities/baseentity.h"
 #include "../../entities/mobentity.h"
+#include "../ai_container.h"
 #include "../../../common/utils.h"
 
 CPathFind::CPathFind(CBaseEntity* PTarget)
@@ -383,6 +384,18 @@ bool CPathFind::FindPath(const position_t& start, const position_t& end)
     if (m_points.size() <= 0)
     {
         ShowNavError("CPathFind::FindPath Entity (%s - %d) could not find path\n", m_PTarget->GetName(), m_PTarget->id);
+
+        // Send mob back to their spawn point and disengage
+        CMobEntity* PMob = (CMobEntity*)m_PTarget;
+        if (PMob)
+        {
+            PMob->loc.p.x = PMob->m_SpawnPoint.x;
+            PMob->loc.p.y = PMob->m_SpawnPoint.y;
+            PMob->loc.p.z = PMob->m_SpawnPoint.z;
+            PMob->loc.p.rotation = PMob->m_SpawnPoint.rotation;
+            PMob->PAI->Disengage();
+        }
+
         return false;
     }
 
