@@ -7,9 +7,7 @@ Osschaart (Copycat)
 Macan Gadangan (Wild Wild Whiskers)
 Platoon Scorpions(Operaiton Desert Storm)
 Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
-Chest / Coffer opening animation
 Ulbrecht being able to cast Kaustra / Embrava without eidting CanUseSpell in spell.cpp
-Mobs deaggroing your pet if you mount up
 Mobs linking to master properly(test on quadavs)
 Mobs resetting pos to spawn if they get stuck CPathFind::FindPath Entity (%s - %d) could not find path
 

@@ -3,6 +3,25 @@ https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d
 
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton WS and summoner shadow/TE logic rework
+!getspelllist GM command
+
+Add way to display obtaning KI / items from chests and coffers player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS)
+Also try to find a way to chars name as a param
+Line 1473
+
+
+Audit guild shop sql list
+Caithleann have Utsusemi Ni?
+
+
+HP/ tank food on curio moogle
+Peperoncino
+Vongole Rosso
+Melanzane
+
+Player pets disengage when you mount
+Code KS99 with custom drops
+Retune ISNM puk
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Code remaining COP map quests(Riverne)
@@ -10,6 +29,7 @@ Fomor Black mages in aquaducts shouldn't use grim halo they use a club(should us
 AH to WotG towns
 mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
 Camps to learn UL spells
+Windurst Salad / Taco
 https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
 pickNewPosition 3rd arg as "false" for chests/coffers in treasures.lua
 Osschaart and other enmityList mobs to use proper new code for selecting a random target
@@ -38,6 +58,9 @@ Content with a lot of chigoes / ja proc mobs for dnc to be useful
 
 Mythic:
 Qultada custom msgs cant use msgids
+Setting owner:setMobMod(tpz.mobMod.MAGIC_COOL, 20) then 0 on spellcast doesnt work due to buffs
+Find some way to code a lua binding to force a cast on current spell list or exclude buffs/storms
+on setting mod to 0
 
 BLU:
 MAB + MACC on all Demon / Dragon Kilij
