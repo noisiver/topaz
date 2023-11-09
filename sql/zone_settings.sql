@@ -280,9 +280,9 @@ INSERT INTO `zone_settings` VALUES (230,1,'127.0.0.1',54230,'Southern_San_dOria'
 INSERT INTO `zone_settings` VALUES (231,1,'127.0.0.1',54230,'Northern_San_dOria',107,107,107,107,0,0.00,72,0);
 INSERT INTO `zone_settings` VALUES (232,1,'127.0.0.1',54230,'Port_San_dOria',107,107,107,107,0,0.00,584,0);
 INSERT INTO `zone_settings` VALUES (233,1,'127.0.0.1',54230,'Chateau_dOraguille',156,156,156,156,0,0.00,8,0);
-INSERT INTO `zone_settings` VALUES (234,1,'127.0.0.1',54230,'Bastok_Mines',4248,152,4248,152,0,0.00,584,1);
-INSERT INTO `zone_settings` VALUES (235,1,'127.0.0.1',54230,'Bastok_Markets',4248,152,4248,152,0,0.00,584,1);
-INSERT INTO `zone_settings` VALUES (236,1,'127.0.0.1',54230,'Port_Bastok',4248,152,4248,152,0,0.00,72,1);
+INSERT INTO `zone_settings` VALUES (234,1,'127.0.0.1',54230,'Bastok_Mines',152,152,152,152,0,0.00,584,1);
+INSERT INTO `zone_settings` VALUES (235,1,'127.0.0.1',54230,'Bastok_Markets',152,152,152,152,0,0.00,584,1);
+INSERT INTO `zone_settings` VALUES (236,1,'127.0.0.1',54230,'Port_Bastok',152,152,152,152,0,0.00,72,1);
 INSERT INTO `zone_settings` VALUES (237,1,'127.0.0.1',54230,'Metalworks',154,154,154,154,0,0.00,8,1);
 INSERT INTO `zone_settings` VALUES (238,1,'127.0.0.1',54230,'Windurst_Waters',151,151,151,151,0,0.00,72,2);
 INSERT INTO `zone_settings` VALUES (239,1,'127.0.0.1',54230,'Windurst_Walls',151,151,151,151,0,0.00,584,2);
