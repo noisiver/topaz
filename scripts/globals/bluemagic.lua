@@ -280,7 +280,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- printf("Attack Bonus + TP Bonus mod %d", BluAttkModifier*100)
 
     -- Base attack from BLU skill
-	local bluAttack = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+	local bluAttack = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)  + 8
     -- printf("Attack after Skill.. %d", bluAttack)
 
     -- Add STR
@@ -294,13 +294,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         -- printf("Attack after minuets.. %d", bluAttack)
     end
 
-    -- Add +Attack %(percentage)
-    bluAttack = math.floor(bluAttack * (1 + caster:getMod(tpz.mod.ATTP) / 100))
+    -- Add +BLU Attack %(percentage)
+    bluAttack = math.floor(bluAttack * (1 + caster:getMod(tpz.mod.BLU_ATTP) / 100))
     -- printf("Attack after Attackmod.. %d", bluAttack)
-
-    -- Add food +Attack %(percentage)
-    bluAttack = math.floor(bluAttack * (1 + caster:getMod(tpz.mod.FOOD_ATTP) / 100))
-    -- printf("Attack after Foodmod.. %d", bluAttack)
 
     -- Add attack from TP bonus and attack bonus on specific BLU spells
     bluAttack = math.floor(bluAttack * BluAttkModifier)
