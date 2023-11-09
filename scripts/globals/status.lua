@@ -821,10 +821,12 @@ tpz.effect =
     MOBILIZATION             = 627,
     HOVER_SHOT               = 628,
     MOOGLE_AMPLIFIER         = 629,
-    TAINT                    = 630, -- Poison_II ?
-    HAUNT                    = 631, -- Curse_III ?
+    TAINT                    = 630, -- Undispellable Poison
+    HAUNT                    = 631, -- Undispellable Curse 
     EXPIRATION               = 632,
     BLACK_SANCTUS            = 633,
+    ANIMATED                 = 633,
+
     -- Effect icons in packet can go from 0-767, so no custom effects should go in that range.
 
     -- Purchased from Cruor Prospector

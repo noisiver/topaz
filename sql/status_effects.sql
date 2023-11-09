@@ -657,6 +657,7 @@ INSERT INTO `status_effects` VALUES (630,'taint',8405024,0,0,0,0,0,6,1,1);  -- U
 INSERT INTO `status_effects` VALUES (631,'haunt',8405024,0,0,0,0,0,8,1,1);  -- Undispellable Curse
 INSERT INTO `status_effects` VALUES (632,'expiration',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (633,'black_sanctus',5243168,0,0,0,0,0,0,0,0);
+-- INSERT INTO `status_effects` VALUES (633,'animated',5243168,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (768,'abyssea_str',4194560,0,0,0,0,0,1,0,0);
 INSERT INTO `status_effects` VALUES (769,'abyssea_dex',4194560,0,0,0,0,0,5,0,0);
 INSERT INTO `status_effects` VALUES (770,'abyssea_vit',4194560,0,0,0,0,0,4,0,0);
