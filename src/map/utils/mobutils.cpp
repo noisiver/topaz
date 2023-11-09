@@ -1412,6 +1412,11 @@ void RecalculateSpellContainer(CMobEntity* PMob)
     // clear spell list
     PMob->SpellContainer->ClearSpells();
 
+    if (PMob->m_SpellListContainer == nullptr)
+    {
+        return;
+    }
+
     //insert the rest of the spells
     for (std::vector<MobSpell_t>::iterator it = PMob->m_SpellListContainer->m_spellList.begin(); it != PMob->m_SpellListContainer->m_spellList.end(); ++it)
     {
@@ -1451,6 +1456,11 @@ void GetAvailableSpells(CMobEntity* PMob) {
 
 void SetSpellList(CMobEntity* PMob, uint16 spellList)
 {
+    if (PMob == nullptr)
+    {
+        return;
+    }
+
     PMob->m_SpellListContainer = mobSpellList::GetMobSpellList(spellList);
     RecalculateSpellContainer(PMob);
 }

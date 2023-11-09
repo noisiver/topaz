@@ -16,6 +16,18 @@ local buffs =
 local storms = { 99, 113, 114, 115, 116, 117, 118, 119 }
 
 function onMobInitialize(mob)
+end
+
+function onMobSpawn(mob)
+    mob:setDamage(40)
+    mob:addMod(tpz.mod.ACC, 50)
+    mob:SetMagicCastingEnabled(false)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 12)
+    mob:setLocalVar("specialThreshold", math.random(45, 55))
+
     mob:addListener("WEAPONSKILL_TAKE", "ULBRECHT_WEAPONSKILL_TAKE", function(target, user, wsid, tp, action)
         -- this should be high damage weaponskills but can't figure this out yet so, going with 30% chance
 
@@ -26,7 +38,8 @@ function onMobInitialize(mob)
 
     mob:addListener("MAGIC_START", "ULBRECHT_MAGIC_START", function(entity, spell, action)
         if math.random() < 0.5 and spell:canTargetEnemy() then -- check offensive spells only
-            utils.MessageParty(entity, "Prepare to receive the true teaching!", 0, "Ulbrecht")
+            local player = entity:getTarget()
+            utils.MessageParty(player, "Prepare to receive the true teaching!", 0, "Ulbrecht")
         end
     end)
 
@@ -35,17 +48,24 @@ function onMobInitialize(mob)
         if spellID == 99 or (spellID >= 113 and spellID < 120) then
             entity:setMod(tpz.mod.FIREDEF + spell:getElement() - 1, 128) -- 128/256 = 50% reduction
         end
+
+        -- Stop forcing a spell cast if a spell not a storm/buff spell was cast
+        if not (spellID >= 113 and spellID <= 119) and not (spellID == 45) and not (spellID == 50) and not (spellID == 110) and not (spellID == 99) then
+            entity:forceCast(false)
+        end
     end)
 
     mob:addListener("EFFECT_GAIN", "ULBRECHT_EFFECT_GAIN", function(owner, effect)
-        -- Storms are undispellable
         local effectType = effect:getType()
         if effectType >= tpz.effect.FIRESTORM and effectType <= tpz.effect.VOIDSTORM then
+
+            -- Storms are undispellable
             local effect1 = owner:getStatusEffect(effectType)
             effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
+
+            -- Change spell list based on active storm
+            owner:setSpellList(effectType + 355) -- Storm status effect ID + 355 will be spell list ID
         end
-        -- Change spell list based on active storm
-        mob:setSpellList(effectType + 355) -- Storm status effect ID + 355 will be spell list ID
     end)
 
     mob:addListener("EFFECT_LOSE", "ULBRECHT_EFFECT_LOSE", function(owner, effect)
@@ -55,22 +75,9 @@ function onMobInitialize(mob)
         end
 
         if effectType == tpz.effect.TABULA_RASA then
-            owner:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
             owner:setMod(tpz.mod.REGAIN, 0)
         end
     end)
-end
-
-function onMobSpawn(mob)
-    mob:setDamage(40)
-    mob:addMod(tpz.mod.ACC, 50)
-    mob:SetMagicCastingEnabled(false)
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
-    mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 12)
-    mob:setLocalVar("specialThreshold", math.random(45, 55))
 end
 
 function onMobFight(mob, player)
@@ -176,14 +183,14 @@ end
 function onMobWeaponSkill(target, mob, skill, action)
     local skillID = skill:getID()
     if skillID >= 2314 and skillID < 2318 then
-        -- Force a spell to be cast
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 0)
         mob:setLocalVar("stratagem_cooldown", os.time() + 30)
         local forceStratagemTP = mob:getLocalVar("force_stratagem_tp")
         if forceStratagemTP > 0 then
             mob:setLocalVar("force_stratagem_tp", 0)
             mob:setTP(forceStratagemTP)
         end
+        -- Force a spell to be cast after using a Dark Arts JA
+       mob:forceCast(true)
     end
 end
 
@@ -198,7 +205,6 @@ function onCastStarting(mob, spell)
         spell:castTime(spell:castTime()/10) -- 1000% increased cast speed
     end
     -- Resets back to 25s spell recast timer after a JA sets to 0
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
 end
 
 function onSpellPrecast(mob, spell)
