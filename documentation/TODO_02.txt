@@ -4,6 +4,8 @@ https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton WS and summoner shadow/TE logic rework
 !getspelllist GM command
+subzero smash added to rampant stance stuff in mobskill or w/e or make that a flag/param for iron giants harpieas etc too
+maintenance should add enmity to puppetmaster
 
 Add way to display obtaning KI / items from chests and coffers player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS)
 Also try to find a way to chars name as a param
