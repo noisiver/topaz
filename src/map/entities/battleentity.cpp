@@ -1463,6 +1463,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
     auto totalTargets = (uint16)PAI->TargetFind->m_targets.size();
 
     PSpell->setTotalTargets(totalTargets);
+    PSpell->setPrimaryTargetID(PActionTarget->id);
 
     action.id = id;
     action.actiontype = ACTION_MAGIC_FINISH;

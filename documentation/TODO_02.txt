@@ -1,6 +1,3 @@
-Curaga action packet msgs:
-https://github.com/AirSkyBoat/AirSkyBoat/commit/928ed3c15cec206564667d72c7bf5f5d865fb1f0#diff-c661b38a263e4b52cd90d8e1d8f82ea310182dbf540f6b5ef721f9725e03d1e7
-
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton WS and summoner shadow/TE logic rework
 !getspelllist GM command
@@ -13,15 +10,8 @@ Line 1473
 
 
 Audit guild shop sql list
-Caithleann have Utsusemi Ni?
 
 
-HP/ tank food on curio moogle
-Peperoncino
-Vongole Rosso
-Melanzane
-
-Player pets disengage when you mount
 Code KS99 with custom drops
 Retune ISNM puk
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
@@ -60,9 +50,6 @@ Content with a lot of chigoes / ja proc mobs for dnc to be useful
 
 Mythic:
 Qultada custom msgs cant use msgids
-Setting owner:setMobMod(tpz.mobMod.MAGIC_COOL, 20) then 0 on spellcast doesnt work due to buffs
-Find some way to code a lua binding to force a cast on current spell list or exclude buffs/storms
-on setting mod to 0
 
 BLU:
 MAB + MACC on all Demon / Dragon Kilij
@@ -77,8 +64,6 @@ DATS:
 Master's Shield rare/ex
 
 LAC:
-Flaggelant's Rope for Paralysis function
-
 
 Wiki: 
 Item implicits
