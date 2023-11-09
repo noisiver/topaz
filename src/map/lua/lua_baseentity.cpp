@@ -295,6 +295,11 @@ inline int32 CLuaBaseEntity::PrintToPlayer(lua_State* L)
 
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isstring(L, 1));
 
+    if (m_PBaseEntity->objtype == TYPE_MOB)
+    {
+        return 0;
+    }
+
     CHAT_MESSAGE_TYPE messageType = (lua_isnil(L, 2) || !lua_isnumber(L, 2)) ? MESSAGE_SYSTEM_1 : (CHAT_MESSAGE_TYPE)lua_tointeger(L, 2);
     std::string name = (lua_isnil(L, 3) || !lua_isstring(L, 3)) ? std::string() : lua_tostring(L, 3);
 
@@ -714,6 +719,28 @@ inline int32 CLuaBaseEntity::resetLocalVars(lua_State* L)
     m_PBaseEntity->ResetLocalVars();
 
     return 0;
+}
+
+/************************************************************************
+ *  Function: forceCast()
+ *  Purpose : Forces the mob to cast spell from it's spell list
+ *  Example : mob:forceCast(true)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::forceCast(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+
+    if (PMob)
+    {
+        PMob->m_forceCast = lua_toboolean(L, 1);
+    }
+
+    return 1;
 }
 
 /************************************************************************
@@ -15285,7 +15312,7 @@ inline int32 CLuaBaseEntity::SetMobSkillAttack(lua_State* L)
 /************************************************************************
  *  Function: SetClaimable()
  *  Purpose : Sets an entity as claimable
- *  Example : mob:SetClaimable()
+ *  Example : mob:SetClaimable(true)
  *  Notes   :
  ************************************************************************/
 
@@ -15295,7 +15322,11 @@ int32 CLuaBaseEntity::SetClaimable(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_PC);
 
     CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
-    PMob->m_IsClaimable = lua_toboolean(L, 1);
+
+    if (PMob)
+    {
+        PMob->m_IsClaimable = lua_toboolean(L, 1);
+    }
 
     return 1;
 }
@@ -16541,6 +16572,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getLocalVar),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setLocalVar),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetLocalVars),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,forceCast),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMaskBit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMaskBit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,countMaskBits),
