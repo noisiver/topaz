@@ -1,3 +1,18 @@
+https://docs.google.com/document/d/1ucbGM1HzEbNaYra-lPvhrK0y66GTvi6pJtuoxfRs-qU/edit?usp=sharing
+
+https://docs.google.com/document/d/109r9-j6k8QcgZNMfCzVFBMdpiFaaaWmxrjcVYGZLU_E/edit
+
+https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
+
+Ixion
+https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
+
+
+Pixies curing players
+https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
+
+player_charm_controller.cpp to fix charm aggro/linking/assisting
+buff sea gorgets and capes 
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton WS and summoner shadow/TE logic rework
 !getspelllist GM command
@@ -11,11 +26,12 @@ Line 1473
 
 Audit guild shop sql list
 
-
+Missing dynamis set bonuses
 Code KS99 with custom drops
 Retune ISNM puk
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
 Finish JP. Also need to add gifts function from lsb to actually get gifts
+Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
 Code remaining COP map quests(Riverne)
 Fomor Black mages in aquaducts shouldn't use grim halo they use a club(should use foxfire)
 AH to WotG towns
@@ -57,6 +73,9 @@ Knockback param to spells
 Add Fantod
 Reraise spell
 
+Unused Gear:
+https://www.bg-wiki.com/ffxi/Ebon/Ebur/Furia_Attire_Sets
+
 THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
 
@@ -66,6 +85,8 @@ Master's Shield rare/ex
 LAC:
 
 Wiki: 
+JSE 40 COP bodies
+Sea Torques / Capes
 Item implicits
 https://www.bg-wiki.com/ffxi/Shiyo_Server_Content/Mythic_NMs was fixed, use this to fix JSE necks
 Custom item sets(brass gear, pup/smn gear, wise gear, etc)
