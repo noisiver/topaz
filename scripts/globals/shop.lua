@@ -366,6 +366,9 @@ tpz.shop =
                 4410,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Roast Mushroom
                 4510,      24,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acorn Cookie
                 4394,      12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ginger Cookie
+                5188,      750,     tpz.ki.RHAPSODY_IN_WHITE,   -- Peperoncino
+                5213,     1500,     tpz.ki.RHAPSODY_IN_AZURE,   -- Melanzane
+                5189,     1833,     tpz.ki.RHAPSODY_IN_EMERALD, -- Vongole Rosso
                 -- 5782,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sugar Rusk
                 -- 5783,    2000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocolate Rusk
                 -- 5779,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Cherry Macaron
