@@ -554,6 +554,7 @@ enum class Mod
     EFFLUX_MULTIPLIER         = 1325,// Bonus to Efflux, in percents
     UNBRIDLED_DAMAGE          = 1326,// Bonus damage to Unbridled Learning spells, in percents
     UNBRIDLED_DURATION        = 1327,// Bonus duration to Unbridled Learning spells, in percents
+    BLU_ATTP                  = 1356,// Modifier to BLU phys attack (in percents)
 
     // Corsair
     TRIPLE_SHOT_RATE          = 987, // The rate that triple shot can proc. Without this, the default is 40%.
@@ -1038,7 +1039,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1356 NEXT
+    // 1357 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
