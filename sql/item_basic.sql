@@ -10690,7 +10690,7 @@ INSERT INTO `item_basic` VALUES (13354,0,'spinel_earring','spinel_earring',1,208
 INSERT INTO `item_basic` VALUES (13355,0,'sapphire_earring','sapphire_earring',1,2084,24,0,2709);
 INSERT INTO `item_basic` VALUES (13356,0,'death_earring','death_earring',1,2084,24,0,2709);
 INSERT INTO `item_basic` VALUES (13357,0,'angels_earring','angels_earring',1,2084,24,0,2709);
-INSERT INTO `item_basic` VALUES (13358,0,'judges_earring','judges_earring',1,2050,0,0,40);
+INSERT INTO `item_basic` VALUES (13358,0,'ebon_earring','ebon_earring',1,2050,0,0,40);
 INSERT INTO `item_basic` VALUES (13359,0,'bloodbead_earring','bloodbead_earring',1,34820,24,0,1890);
 INSERT INTO `item_basic` VALUES (13360,0,'twinstone_earring','twinstone_earring',1,2052,24,0,307);
 INSERT INTO `item_basic` VALUES (13361,0,'drone_earring','drone_earring',1,2080,24,0,432);

@@ -7333,15 +7333,19 @@ INSERT INTO `mob_droplist` VALUES (1395,0,0,1000,4377,240);
 INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,1856,1000); -- (Jailer of Faith) Third virtue
 INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,15512,150); -- Faith torque
 INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,18360,1000); -- Faith baghnakhs
+INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,12129,100); -- Ebon Headgear
 INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,1853,1000); --(Jailer of Fortitude) Second virtue
 INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,15511,150); -- Fortitude torque
 INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,18222,1000); -- Fortitude axe
+INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,12273,100); -- Ebon Gaiters
 INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,1847,1000); -- (Jailer of Hope) Fifth virtue
 INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,15509,240); -- Hope torque
 INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,17595,1000); -- Hope staff
+INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,12165,100); -- Ebon Vest
 INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,1848,1000); -- (Jailer of Justice) Fourth virtue
 INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,15508,240); -- Justice torque
 INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,17710,1000); -- Justice sword
+INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,12237,100); -- Ebon Tights
 INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,1911,240); -- (Jailer of Love) Aura of adulation
 INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,1912,240); -- Aura of voracity
 INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,15514,240); -- Love torque
@@ -7349,9 +7353,11 @@ INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,18100,1000); -- Love halberd
 INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,1849,1000); -- (Jailer of Prudence) Sixth virtue
 INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,15510,240); -- Prudence torque
 INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,18397,1000); -- Prudence rod
+INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,13358,100); -- Ebon Earring
 INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,1850,1000); -- (Jailer of Temperance) First virtue
 INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,15513,150); -- Temperance torque
 INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,17948,1000); -- Temperance axe
+INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,12201,100); -- Ebon Wristbands
 INSERT INTO `mob_droplist` VALUES (1403,0,0,1000,14551,1000);
 INSERT INTO `mob_droplist` VALUES (1404,0,0,1000,930,10);
 INSERT INTO `mob_droplist` VALUES (1404,0,0,1000,1125,10);

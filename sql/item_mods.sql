@@ -7120,8 +7120,8 @@ INSERT INTO `item_mods` VALUES (12128,8,3);
 INSERT INTO `item_mods` VALUES (12128,23,5);
 INSERT INTO `item_mods` VALUES (12128,25,3);
 INSERT INTO `item_mods` VALUES (12128,291,2);
-INSERT INTO `item_mods` VALUES (12129,1,25);
-INSERT INTO `item_mods` VALUES (12129,9,4);
+INSERT INTO `item_mods` VALUES (12129,1,25);        -- Ebon Headgear
+INSERT INTO `item_mods` VALUES (12129,384,300);     -- Haste +3%
 INSERT INTO `item_mods` VALUES (12129,25,3);
 INSERT INTO `item_mods` VALUES (12129,289,6);
 INSERT INTO `item_mods` VALUES (12130,1,25);
@@ -7280,7 +7280,7 @@ INSERT INTO `item_mods` VALUES (12164,8,4);
 INSERT INTO `item_mods` VALUES (12164,23,8);
 INSERT INTO `item_mods` VALUES (12164,25,8);
 INSERT INTO `item_mods` VALUES (12164,421,1);     -- Critical Hit Damage+1
-INSERT INTO `item_mods` VALUES (12165,1,42);
+INSERT INTO `item_mods` VALUES (12165,1,42);        -- Ebon Vest
 INSERT INTO `item_mods` VALUES (12165,9,6);
 INSERT INTO `item_mods` VALUES (12165,25,7);
 INSERT INTO `item_mods` VALUES (12165,68,7);
@@ -7442,8 +7442,8 @@ INSERT INTO `item_mods` VALUES (12200,1,17);
 INSERT INTO `item_mods` VALUES (12200,8,3);
 INSERT INTO `item_mods` VALUES (12200,25,5);
 INSERT INTO `item_mods` VALUES (12200,421,1);     -- Critical Hit Damage+1
-INSERT INTO `item_mods` VALUES (12201,1,16);
-INSERT INTO `item_mods` VALUES (12201,9,3);
+INSERT INTO `item_mods` VALUES (12201,1,16);        -- Ebon Wristbands
+INSERT INTO `item_mods` VALUES (12201,384,300);     -- Haste+3%
 INSERT INTO `item_mods` VALUES (12201,25,4);
 INSERT INTO `item_mods` VALUES (12201,289,8);
 INSERT INTO `item_mods` VALUES (12202,1,16);
@@ -7604,11 +7604,11 @@ INSERT INTO `item_mods` VALUES (12236,1,33);
 INSERT INTO `item_mods` VALUES (12236,8,2);
 INSERT INTO `item_mods` VALUES (12236,25,5);
 INSERT INTO `item_mods` VALUES (12236,291,2);
-INSERT INTO `item_mods` VALUES (12237,1,32);
-INSERT INTO `item_mods` VALUES (12237,9,2);
-INSERT INTO `item_mods` VALUES (12237,25,3);
-INSERT INTO `item_mods` VALUES (12237,68,3);
-INSERT INTO `item_mods` VALUES (12237,165,1);
+INSERT INTO `item_mods` VALUES (12237,1,32);        -- Ebon Tights
+INSERT INTO `item_mods` VALUES (12237,9,4);         -- DEX+4
+INSERT INTO `item_mods` VALUES (12237,25,5);        -- Accuracy+5
+INSERT INTO `item_mods` VALUES (12237,68,5);        -- Evasion+5
+INSERT INTO `item_mods` VALUES (12237,165,1);       -- Critical hit rate +1%
 INSERT INTO `item_mods` VALUES (12238,1,32);
 INSERT INTO `item_mods` VALUES (12238,9,2);
 INSERT INTO `item_mods` VALUES (12238,25,3);
@@ -7765,8 +7765,8 @@ INSERT INTO `item_mods` VALUES (12272,8,2);
 INSERT INTO `item_mods` VALUES (12272,23,2);
 INSERT INTO `item_mods` VALUES (12272,25,3);
 INSERT INTO `item_mods` VALUES (12272,291,1);
-INSERT INTO `item_mods` VALUES (12273,1,17);
-INSERT INTO `item_mods` VALUES (12273,9,3);
+INSERT INTO `item_mods` VALUES (12273,1,17);            -- Ebon Gaiters
+INSERT INTO `item_mods` VALUES (12273,384,200);         -- Haste+2%
 INSERT INTO `item_mods` VALUES (12273,25,4);
 INSERT INTO `item_mods` VALUES (12273,68,4);
 INSERT INTO `item_mods` VALUES (12273,289,4);
@@ -10572,7 +10572,7 @@ INSERT INTO `item_mods` VALUES (13356,5,10);
 INSERT INTO `item_mods` VALUES (13356,61,10);
 INSERT INTO `item_mods` VALUES (13357,2,10);
 INSERT INTO `item_mods` VALUES (13357,60,10);
-INSERT INTO `item_mods` VALUES (13358,1,20);
+INSERT INTO `item_mods` VALUES (13358,384,100); -- Ebon Earring Haste+1%
 INSERT INTO `item_mods` VALUES (13359,2,25);
 INSERT INTO `item_mods` VALUES (13360,55,-4);
 INSERT INTO `item_mods` VALUES (13360,56,4);
