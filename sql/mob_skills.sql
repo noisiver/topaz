@@ -2469,14 +2469,14 @@ INSERT INTO `mob_skills` VALUES (2499, 3326, 'deconstruction', 0, 25.0, 2000, 10
 -- INSERT INTO `mob_skills` VALUES (2508,2252,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2509,2253,'hypothermal_combustion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2510,2254,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2511,2255,'corpse_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2511,1775,'corpse_breath',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2512,1778,'venom_shower',1,15.0,2000,1500,4,0,0,0,0,0,0); -- Animation ID was 98
 INSERT INTO `mob_skills` VALUES (2513,1781,'mega_scissors',4,10.0,2000,1500,4,0,0,0,9,4,0); 
 INSERT INTO `mob_skills` VALUES (2514,1773,'cytokinesis',0,20.0,2000,1500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2515,2072,'phason_beam',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2516,1780,'gravitic_horn',4,10.0,2000,2000,4,0,0,4,0,0,0);
-INSERT INTO `mob_skills` VALUES (2517,2261,'quake_blast',1,20.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2518,1581,'norn_arrows',2,15.0,2000,1500,4,0,0,4,0,0,0); -- animationID was 2262
+INSERT INTO `mob_skills` VALUES (2517,1779,'quake_blast',1,20.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2518,1777,'norn_arrows',2,15.0,2000,1500,4,0,0,4,0,0,0); -- animationID was 2262
 INSERT INTO `mob_skills` VALUES (2519,1756,'dexter_wing',1,15.0,2000,1000,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (2520,1757,'sinister_wing',1,15.0,2000,1000,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (2521,1758,'chaos_blast',1,18.0,2000,1000,4,0,0,2,0,0,0);
@@ -2508,10 +2508,10 @@ INSERT INTO `mob_skills` VALUES (2545,1755,'doom_arc',1,18.0,2000,1000,4,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES (2546,2290,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2547,2291,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2548,2292,'fluid_spread',0,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2549,176,'fluid_toss_claret',0,15,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2549,1769,'fluid_toss_claret',0,15,2000,1500,4,0,0,0,0,0,0); -- Check animation
 INSERT INTO `mob_skills` VALUES (2550,1770,'dissolve',4,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2551,2295,'mucus_spread',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2552,2296,'epoxy_spread',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2551,1771,'mucus_spread',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2552,1772,'epoxy_spread',1,10.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2553,2297,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2554,2298,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2555,2299,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2670,9 +2670,9 @@ INSERT INTO `mob_skills` VALUES (2703,147,'dread_wind',0,7.0,2000,2000,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (2708,1880,'cosmic_breath',4,15.0,4000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2709,1881,'cataclysmic_vortex',1,15.0,4000,5000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2710,2454,'trance',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2711,1897,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2712,1898,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2713,1899,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2711,1897,'naraka_auto_one',0,7.0,2000,1500,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2712,1898,'naraka_auto_two',0,7.0,2000,1500,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2713,1899,'naraka_auto_three',0,7.0,2000,1500,4,16,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2714,1900,'yaksha_stance',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2715,1901,'yaksha_damnation',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2716,1902,'yaksha_bliss',1,18.0,2000,1000,4,0,0,0,0,0,0);
@@ -3446,7 +3446,7 @@ INSERT INTO `mob_skills` VALUES (3473,446,'stellar_burst',1,15.0,2000,1500,4,0,0
 -- INSERT INTO `mob_skills` VALUES (3484,3228,'hemorrhaze',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3485,439,'regulator',0,7.0,2000,0,4,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3486,260,'tongue_lash',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3487,429,'sidewinder',0,16.0,2000,1500,4,0,0,0,0,0,0); -- Semih Lafihna, TODO: Cap'd correctly, animation broken when used
+-- INSERT INTO `mob_skills` VALUES (3487,2477,'sidewinder',0,16.0,2000,1500,4,0,0,0,0,0,0); -- Semih Lafihna, TODO: Cap'd correctly, animation broken when used
 -- INSERT INTO `mob_skills` VALUES (3488,428,'arching_arrow',0,16.0,2000,1500,4,0,0,0,0,0,0); -- TODO: Cap'd correctly, animation broken when used
 -- INSERT INTO `mob_skills` VALUES (3489,430,'stellar_arrow',1,16.0,2000,1500,4,0,0,0,0,0,0); -- TODO: Cap'd correctly, animation broken when used
 -- INSERT INTO `mob_skills` VALUES (3490,431,'lux_arrow',0,16.0,2000,1500,4,0,0,0,0,0,0); -- TODO: Cap'd correctly, animation broken when used
