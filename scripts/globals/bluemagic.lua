@@ -284,8 +284,11 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- printf("Attack after Skill.. %d", bluAttack)
 
     -- Add STR
-    bluAttack = bluAttack  + math.floor(caster:getStat(tpz.mod.STR) * 0.75)
+    bluAttack = bluAttack + math.floor(caster:getStat(tpz.mod.STR) * 0.75)
     -- printf("Attack after STR.. %d", bluAttack)
+
+    -- Add BLU Attack mod
+    bluAttack = bluAttack + caster:getMod(tpz.mod.BLU_ATT)
 
     -- Add Minuets
     if caster:hasStatusEffect(tpz.effect.MINUET) then

@@ -1873,9 +1873,10 @@ tpz.mod =
     PET_MACC                = 1353, -- Increases pets magic accuracy
     PHYSICAL_SS             = 1354, -- Physical damage only stoneskin
     TERRORRESTRAIT          = 1355, -- Resist trait for terror (In percents)
-    BLU_ATTP                = 1356,-- Modifier to BLU phys attack (in percents)
+    BLU_ATT                 = 1356, -- Modifier to BLU phys attack
+    BLU_ATTP                = 1357, -- Modifier to BLU phys attack (in percents)
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1357 NEXT
+    -- 1358 NEXT
 }
 
 tpz.latent =
