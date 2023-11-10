@@ -2152,8 +2152,8 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             actionTarget.messageID = PItem->getMsg();
             actionTarget.param = PItem->getParam();
 
-            // Percentage HP / MP restored msg, Healing Powder
-            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322)
+            // Percentage HP / MP restored msg, Healing/Mana Powder
+            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
             {
                 int hp = floor(PActionTarget->GetMaxHP() * actionTarget.param);
                 int mp = floor(PActionTarget->GetMaxMP() * actionTarget.param);
@@ -2204,8 +2204,8 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
         actionTarget.messageID = PItem->getMsg();
         actionTarget.param = PItem->getParam();
 
-        // Percentage HP / MP restored msg, Healing Powder
-        if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322)
+        // Percentage HP / MP restored msg, Healing/Mana Powder
+        if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
         {
             int hp = floor(this->GetMaxHP() * actionTarget.param);
             int mp = floor(this->GetMaxMP() * actionTarget.param);
