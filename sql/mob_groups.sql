@@ -3406,10 +3406,10 @@ INSERT INTO `mob_groups` VALUES (9,705,72,'Cheese_Hoarder_Gigiroon',0,128,460,15
 INSERT INTO `mob_groups` VALUES (10,243,72,'Armed_Gears',0,128,168,40000,0,88,88,0);
 INSERT INTO `mob_groups` VALUES (11,4594,72,'Wulgaru',0,128,2828,32000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (12,1413,72,'Fourth_Rampart',300,0,0,0,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (13,218,72,'Archaic_Gear',300,0,0,0,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (14,216,72,'Archaic_Chariot',300,0,0,0,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (15,219,72,'Archaic_Gears',300,0,0,0,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (16,39,72,'Acrolith',300,128,0,0,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (13,218,72,'Archaic_Gear',300,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (14,216,72,'Archaic_Chariot',300,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (15,219,72,'Archaic_Gears',300,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (16,39,72,'Acrolith',300,128,0,0,0,82,83,0);
 
 INSERT INTO `mob_groups` VALUES (2362,82,72,'Alexander',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (2368,1506,72,'Gessho',0,128,0,0,0,0,0,0);
