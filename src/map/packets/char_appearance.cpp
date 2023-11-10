@@ -27,12 +27,12 @@
 CCharAppearancePacket::CCharAppearancePacket(CCharEntity* PChar)
 {
 	this->type = 0x51;
-    this->size = 0x18;
+	this->size = 0x0C;
 
     look_t *look = (PChar->getStyleLocked() ? &PChar->mainlook : &PChar->look);
 	ref<uint8>(0x04) = look->face;
 	ref<uint8>(0x05) = look->race;
-    ref<uint16>(0x06) = (PChar->menuConfigFlags.flags & NFLAG_DISPLAY_HEAD) ? 0x0 : look->head + 0x1000;
+	ref<uint16>(0x06) = (PChar->menuConfigFlags.flags & NFLAG_DISPLAY_HEAD) ? 0x0 : look->head + 0x1000;
 	ref<uint16>(0x08) = look->body   + 0x2000;
 	ref<uint16>(0x0A) = look->hands  + 0x3000;
 	ref<uint16>(0x0C) = look->legs   + 0x4000;

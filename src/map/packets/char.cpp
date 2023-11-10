@@ -32,7 +32,7 @@
 CCharPacket::CCharPacket(CCharEntity * PChar, ENTITYUPDATE type, uint8 updatemask)
 {
     this->type = 0x0D;
-    this->size = 0x74;
+    this->size = 0x3A;
 
     ref<uint32>(0x04) = PChar->id;
     updateWith(PChar, type, updatemask);

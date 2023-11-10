@@ -5233,13 +5233,9 @@ void SmallPacket0x0DC(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         auto flags = PChar->menuConfigFlags.byte4;
         auto param = data.ref<uint8>(0x10);
         if (param == 1)
-        {
             PChar->menuConfigFlags.flags |= NFLAG_DISPLAY_HEAD;
-        }
         else if (param == 2)
-        {
             PChar->menuConfigFlags.flags &= ~NFLAG_DISPLAY_HEAD;
-        }
 
         // This should only check that the display head bit has changed, since
         // a user gaining mentorship or losing new adventurer status at the
