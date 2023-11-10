@@ -1841,6 +1841,13 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                             damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN) + csJpDmgBonus) *
                                              DamageRatio);
                         }
+
+                        // Reduce counter damage if footwork is active to 25% for balancing reasons
+                        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+                        {
+                            damage *= 0.25;
+                        }
+
                         actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1, nullptr, true, false, true);
                         actionTarget.spikesMessage = 33;
                         if (PTarget->objtype == TYPE_PC)
