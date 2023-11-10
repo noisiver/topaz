@@ -17,7 +17,7 @@ function onItemCheck(target)
     return result
 end
 
-function onItemUse(target, item)
-    target:addMP(item:getParam())
-    target:messageBasic(tpz.msg.basic.RECOVERS_MP, target, item:getParam())
+function onItemUse(target)
+    target:addMP(200)
+    target:messageBasic(tpz.msg.basic.RECOVERS_MP, target, 200)
 end
