@@ -42,8 +42,8 @@ function onMobRoam(mob)
 	    mob:setLocalVar("RunAway", 3)
     end
     -- Make sure he doesn't roam with shiled up somehow
-    mob:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-    if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+    mob:setMod(tpz.mod.MAGIC_SS, 0)
+    if (mob:getMod(tpz.mod.MAGIC_SS) == 0) then
         mob:AnimationSub(0)
     end
     mob:setMod(tpz.mod.REGEN, 0)
@@ -152,7 +152,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.UDMGMAGIC, -13)
     end
 
-    if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+    if (mob:getMod(tpz.mod.MAGIC_SS) == 0) then
         mob:AnimationSub(0)
     else
         mob:AnimationSub(2)

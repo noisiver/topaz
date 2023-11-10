@@ -295,6 +295,11 @@ inline int32 CLuaBaseEntity::PrintToPlayer(lua_State* L)
 
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isstring(L, 1));
 
+    if (m_PBaseEntity->objtype == TYPE_MOB)
+    {
+        return 0;
+    }
+
     CHAT_MESSAGE_TYPE messageType = (lua_isnil(L, 2) || !lua_isnumber(L, 2)) ? MESSAGE_SYSTEM_1 : (CHAT_MESSAGE_TYPE)lua_tointeger(L, 2);
     std::string name = (lua_isnil(L, 3) || !lua_isstring(L, 3)) ? std::string() : lua_tostring(L, 3);
 
@@ -714,6 +719,28 @@ inline int32 CLuaBaseEntity::resetLocalVars(lua_State* L)
     m_PBaseEntity->ResetLocalVars();
 
     return 0;
+}
+
+/************************************************************************
+ *  Function: forceCast()
+ *  Purpose : Forces the mob to cast spell from it's spell list
+ *  Example : mob:forceCast(true)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::forceCast(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+
+    if (PMob)
+    {
+        PMob->m_forceCast = lua_toboolean(L, 1);
+    }
+
+    return 1;
 }
 
 /************************************************************************
@@ -2519,17 +2546,15 @@ inline int32 CLuaBaseEntity::sendGuild(lua_State* L)
     TPZ_DEBUG_BREAK_IF(open > close);
 
     uint8 VanadielHour = (uint8)CVanaTime::getInstance()->getHour();
-    // uint8 VanadielDay = (uint8)CVanaTime::getInstance()->getWeekday();
+    uint8 VanadielDay = (uint8)CVanaTime::getInstance()->getWeekday();
 
     GUILDSTATUS status = GUILD_OPEN;
 
-    /*
-     * No more guild holidays since 2014
     if (VanadielDay == holiday)
     {
         status = GUILD_HOLYDAY;
     }
-    */
+
     if ((VanadielHour < open) || (VanadielHour >= close))
     {
         status = GUILD_CLOSE;
@@ -3150,8 +3175,7 @@ inline int32 CLuaBaseEntity::setPos(lua_State *L)
         if (m_PBaseEntity->objtype == TYPE_PC)
         {
             CBattleEntity* PPet = ((CBattleEntity*)m_PBaseEntity)->PPet;
-            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR && !PPet->StatusEffectContainer->HasPreventActionEffect(false) &&
-                !PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
+            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
             {
                 if (!lua_isnil(L, 1) && lua_isnumber(L, 1))
                     PPet->loc.p.x = (float)lua_tonumber(L, 1);
@@ -3161,6 +3185,7 @@ inline int32 CLuaBaseEntity::setPos(lua_State *L)
                     PPet->loc.p.z = (float)lua_tonumber(L, 3);
                 if (!lua_isnil(L, 4) && lua_isnumber(L, 4))
                     PPet->loc.p.rotation = (uint8)lua_tointeger(L, 4);
+                petutils::RetreatToMaster((CBattleEntity*)m_PBaseEntity);
             }
         }
     }
@@ -14493,6 +14518,8 @@ inline int32 CLuaBaseEntity::setSystem(lua_State* L)
 
 inline int32 CLuaBaseEntity::getFamily(lua_State* L)
 {
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
     auto entity = dynamic_cast<CMobEntity*>(m_PBaseEntity);
     TPZ_DEBUG_BREAK_IF(!entity);
 
@@ -15285,7 +15312,7 @@ inline int32 CLuaBaseEntity::SetMobSkillAttack(lua_State* L)
 /************************************************************************
  *  Function: SetClaimable()
  *  Purpose : Sets an entity as claimable
- *  Example : mob:SetClaimable()
+ *  Example : mob:SetClaimable(true)
  *  Notes   :
  ************************************************************************/
 
@@ -15295,7 +15322,11 @@ int32 CLuaBaseEntity::SetClaimable(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_PC);
 
     CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
-    PMob->m_IsClaimable = lua_toboolean(L, 1);
+
+    if (PMob)
+    {
+        PMob->m_IsClaimable = lua_toboolean(L, 1);
+    }
 
     return 1;
 }
@@ -16142,10 +16173,14 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
                 PEntity->PAI->MobSkill(PTarget->targid, skillid);
             else if (dynamic_cast<CMobEntity*>(PEntity))
             {
-                if (PMobSkill->getValidTargets() & TARGET_ENEMY)
-                    PEntity->PAI->MobSkill(static_cast<CMobEntity*>(PEntity)->GetBattleTargetID(), skillid);
-                else if (PMobSkill->getValidTargets() & TARGET_SELF)
-                    PEntity->PAI->MobSkill(PEntity->targid, skillid);
+                if (luautils::OnMobSkillCheck(PTarget, PEntity, PMobSkill) == 0) // A script says that the move in question is valid
+                {
+                    if (PMobSkill->getValidTargets() & TARGET_ENEMY)
+                        PEntity->PAI->MobSkill(static_cast<CMobEntity*>(PEntity)->GetBattleTargetID(), skillid);
+                    else if (PMobSkill->getValidTargets() & TARGET_SELF)
+                        PEntity->PAI->MobSkill(PEntity->targid, skillid);
+
+                }
             }
         }));
     }
@@ -16537,6 +16572,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getLocalVar),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setLocalVar),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,resetLocalVars),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,forceCast),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getMaskBit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMaskBit),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,countMaskBits),

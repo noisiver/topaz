@@ -29,7 +29,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local resist = applyResistanceEffect(caster, target, spell, params)
     local multi = 3.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
@@ -47,16 +46,8 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_BEAST
     damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-	local lizard = (target:getSystem() == 14)
-	local plantoid = (target:getSystem() == 17)
-	-- add correlation bonus
-	if lizard then
-	 	damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-	elseif plantoid then
-		damage = damage * 0.75
-	end
-	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage

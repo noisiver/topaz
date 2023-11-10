@@ -20,6 +20,7 @@
 -- Unlike Magic Hammer, MP drained is not enhanced by Magic Attack Bonus.
 -- A positive Monster Correlation (vs Birds) or a negative Monster Correlation (vs Aquans), affects both accuracy and potency.
 -----------------------------------------
+require("scripts/globals/bluemagic")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -61,6 +62,11 @@ function onSpellCast(caster, target, spell)
 
     -- Check for zombie
     if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
+    if (target:isUndead()) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         return 0
     end
 

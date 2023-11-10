@@ -47,7 +47,9 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    mob:messageText(mob, ID.text.CRYPTONBERRY_EXECUTOR_DIE)
+    if isKiller or noKiller then
+        mob:messageText(mob, ID.text.CRYPTONBERRY_EXECUTOR_DIE)
+    end
     if player:getCurrentMission(COP) == tpz.mission.id.cop.CALM_BEFORE_THE_STORM and player:getCharVar("Cryptonberry_Executor_KILL") < 2 then
         player:setCharVar("Cryptonberry_Executor_KILL", 1)
     end

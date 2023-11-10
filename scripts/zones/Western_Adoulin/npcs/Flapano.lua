@@ -66,7 +66,7 @@ function onTrigger(player, npc)
             4405, 160,   -- Rice Ball
             5676, 76475, -- Mushroom Saute
         }
-        tpz.shop.general(player, stock)
+        tpz.shop.general(player, stock, ADOULIN)
 
         if (exoticDelicacies ~= QUEST_COMPLETED) then
             player:setCharVar("Flapano_Odd_Even", 0)

@@ -244,7 +244,7 @@ public:
     uint8					m_LearnedAbilities[47];			// learnable abilities (corsair rolls)
     std::bitset<49>         m_LearnedWeaponskills;          // learnable weaponskills
     uint8					m_TraitList[18];				// ist of active job traits in the form of a bit mask
-    uint8					m_PetCommands[32];				// список доступных команд питомцу
+    uint8					m_PetCommands[40];				// список доступных команд питомцу
     uint8					m_WeaponSkills[32];
     questlog_t				m_questLog[MAX_QUESTAREA];		// список всех квестов
     missionlog_t			m_missionLog[MAX_MISSIONAREA];	// список миссий

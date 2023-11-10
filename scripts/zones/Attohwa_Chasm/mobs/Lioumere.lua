@@ -11,6 +11,7 @@ require("scripts/globals/mobs")
 -- TODO: reset hate and disengage (goes unclaimed if not attacked)
 function onMobInitialize(mob)
     SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobInitialize(mob)

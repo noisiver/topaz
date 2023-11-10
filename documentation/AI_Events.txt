@@ -34,7 +34,7 @@ ENGAGE - Entity, Target
 DISENGAGE - Entity
 MOB_PATH - mob, target
 
-ATTACK - Attacker, defender, action
+ATTACK - Attacker, defender, action (Example: Goblin Collector)
 ATTACKED - Defender, attacker, action
 
 FRONT_CRITICAL_TAKE - Entity, target

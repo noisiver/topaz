@@ -10,7 +10,7 @@ g_mixins.families.empty = function(mob)
 
     mob:addListener("DEATH", "DYNAMIS_ITEM_DISTRIBUTION", function(mob, killer)
         local element = mob:getLocalVar("element")
-        local dropRate = GetDropRate(mob)
+        local dropRate = 0
 
         -- printf("Drop Rate: %s", dropRate)
         if element == 8  then

@@ -27,33 +27,37 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.effect = tpz.effect.TERROR
     params.bonus = 125
-	local demon = (target:getSystem() == 9)
+    params.eco = ECO_DRAGON
+    local duration = 180
 
-	if demon then
-		params.bonus = params.bonus + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	end
 
-    local duration = 60
-
-	if target:isNM() then
-		duration = duration / 2
-	end
-
-    typeEffect = tpz.effect.TERROR
-
-    if target:hasStatusEffect(typeEffect) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return typeEffect
-    end
-
-    params.effect = typeEffect
+    params.effect = tpz.effect.SLOW
+    local power = 3500
     if BlueTryEnfeeble(caster, target, spell, 1, power, 0, duration, params) then
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        returnEffect = params.effect
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
-    return tpz.effect.TERROR
+    params.effect = tpz.effect.PARALYSIS
+    local power = 30
+    if BlueTryEnfeeble(caster, target, spell, 1, power, 0, duration, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        returnEffect = params.effect
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+
+    params.effect = tpz.effect.tpz.effect.INHIBIT_TP
+    local power = 20
+    if BlueTryEnfeeble(caster, target, spell, 1, power, 0, duration, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        returnEffect = params.effect
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+
+    return returnEffect
 end

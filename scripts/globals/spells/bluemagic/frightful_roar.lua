@@ -26,15 +26,11 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 25
-    params.effect = tpz.effect.DEFENSE_DOWN
+    params.eco = ECO_DEMON
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 25)
     local resist = applyResistanceEffect(caster, target, spell, params)
+    params.effect = tpz.effect.DEFENSE_DOWN
     local power = 10
-	local dragon = (target:getSystem() == 10)
-	
-	if dragon then
-		params.bonus = 50 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	end
 
     if (resist >= 0.5) then -- Do it!
 	    local typeEffect = tpz.effect.DEFENSE_DOWN

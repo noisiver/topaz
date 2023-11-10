@@ -319,23 +319,24 @@ enum class Mod
     DEATHRES                  = 255, // Used by gear and ATMA that give resistance to instance KO
     STATUSRES                 = 1000, // "Resistance to All Status Ailments"
 
-    SLEEPRESTRAIT = 1240,
-    POISONRESTRAIT = 1241,
-    PARALYZERESTRAIT = 1242,
-    BLINDRESTRAIT = 1243,
-    SILENCERESTRAIT = 1244,
-    VIRUSRESTRAIT = 1245,
-    PETRIFYRESTRAIT = 1246,
-    BINDRESTRAIT = 1247,
-    CURSERESTRAIT = 1248,
-    GRAVITYRESTRAIT = 1249,
-    SLOWRESTRAIT = 1250,
-    STUNRESTRAIT = 1251,
-    CHARMRESTRAIT = 1252,
-    AMNESIARESTRAIT = 1253,
-    LULLABYRESTRAIT = 1254,
-    DEATHRESTRAIT = 1255,
-    STATUSRESTRAIT = 2000, // All res trait
+    SLEEPRESTRAIT             = 1240,
+    POISONRESTRAIT            = 1241,
+    PARALYZERESTRAIT          = 1242,
+    BLINDRESTRAIT             = 1243,
+    SILENCERESTRAIT           = 1244,
+    VIRUSRESTRAIT             = 1245,
+    PETRIFYRESTRAIT           = 1246,
+    BINDRESTRAIT              = 1247,
+    CURSERESTRAIT             = 1248,
+    GRAVITYRESTRAIT           = 1249,
+    SLOWRESTRAIT              = 1250,
+    STUNRESTRAIT              = 1251,
+    CHARMRESTRAIT             = 1252,
+    AMNESIARESTRAIT           = 1253,
+    LULLABYRESTRAIT           = 1254,
+    DEATHRESTRAIT             = 1255,
+    TERRORRESTRAIT            = 1355,
+    STATUSRESTRAIT            = 2000, // All res trait (Does not work on Death / Terror)
 
 
     PARALYZE                  = 257, // Paralyze -- percent chance to proc
@@ -383,6 +384,8 @@ enum class Mod
     // Red Mage
     BLINK                     = 299, // Tracks blink shadows
     STONESKIN                 = 300, // Tracks stoneskin HP pool
+    MAGIC_SS                  = 1181,// Magic damage only stoneskin
+    PHYSICAL_SS               = 1354,//Physical damage only stoneskin
     PHALANX                   = 301, // Tracks direct damage reduction
     PHALANX_POTENCY           = 1273,// Increases power of phalanx(Gear mod)
     PHALANX_RECIEVED          = 1320,// Phalanx effect received.
@@ -551,6 +554,8 @@ enum class Mod
     EFFLUX_MULTIPLIER         = 1325,// Bonus to Efflux, in percents
     UNBRIDLED_DAMAGE          = 1326,// Bonus damage to Unbridled Learning spells, in percents
     UNBRIDLED_DURATION        = 1327,// Bonus duration to Unbridled Learning spells, in percents
+    BLU_ATT                   = 1356,// Modifier to BLU phys attack
+    BLU_ATTP                  = 1357,// Modifier to BLU phys attack (in percents)
 
     // Corsair
     TRIPLE_SHOT_RATE          = 987, // The rate that triple shot can proc. Without this, the default is 40%.
@@ -982,7 +987,6 @@ enum class Mod
     ENHANCES_COVER = 1178,
     AUGMENTS_COVER = 1179,
     COVERED_MP_FLAG = 1180,
-    RAMPART_STONESKIN = 1181,
     TAME_SUCCESS_RATE = 1182,
     MAGIC_STACKING_MDT = 1183,
     FIRE_BURDEN_DECAY = 1184,
@@ -1036,7 +1040,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1354 NEXT
+    // 1358 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

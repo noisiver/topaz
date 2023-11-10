@@ -35,12 +35,18 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     -- Apply aftermath
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.RELIC)
 
+    local targetHP = target:getHP()
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-		if damage > 0 then player:trySkillUp(target, tpz.skill.SCYTHE, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.SCYTHE, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
     if not target:isUndead() then
         local drain = math.floor(damage * (math.random(30, 70) / 100))
+        -- Cap drain amount at the targets current HP
+        if (targetHP < damage) then
+            drain = targetHP
+        end
+
         if not player:hasStatusEffect(tpz.effect.CURSE_II) then
             player:addHP(drain)
         end

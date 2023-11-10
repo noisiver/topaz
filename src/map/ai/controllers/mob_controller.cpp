@@ -73,6 +73,19 @@ bool CMobController::TryDeaggro()
 
     }
 
+    // Deaggro player pets if they mount up
+    if (PTarget->objtype == TYPE_PET && PTarget->PMaster != nullptr)
+    {
+        if (PTarget->PMaster->isMounted())
+        {
+            if (PTarget)
+                PMob->PEnmityContainer->Clear(PTarget->id);
+            PTarget = PMob->PEnmityContainer->GetHighestEnmity();
+            PMob->SetBattleTargetID(PTarget ? PTarget->targid : 0);
+            return TryDeaggro();
+        }
+    }
+
     
     bool isForcedDeaggro = (std::find(m_forcedDeaggroEntities.begin(), m_forcedDeaggroEntities.end(), PTarget) != m_forcedDeaggroEntities.end());
     // target is no longer valid, so wipe them from our enmity list
@@ -172,7 +185,7 @@ void CMobController::TryLink()
     }
 
     // Mobs shouldn't link to pets without master being engaged
-    if (PTarget->objtype == TYPE_PET && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
+    if (PTarget->objtype == TYPE_PET && PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
     {
         // Make sure the mob isn't supposed to super link
         if (PMob->getMobMod(MOBMOD_SUPERLINK) == 0)
@@ -182,7 +195,7 @@ void CMobController::TryLink()
     }
 
     // Mobs shouldn't link to charmed pets
-    if (PTarget->objtype == TYPE_MOB && PTarget->isCharmed && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
+    if (PTarget->objtype == TYPE_MOB && PTarget->isCharmed && PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
     {
         // Make sure the mob isn't supposed to super link
         if (PMob->getMobMod(MOBMOD_SUPERLINK) == 0)
@@ -234,6 +247,16 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     if (PTarget->isDead() || PTarget->isMounted())
     {
         return false;
+    }
+
+    // Don't aggro I'm a fomor and I don't hate you
+    if (PMob->getMobMod(MOBMOD_FOMOR_HATE) > 0)
+    {
+        int32 hate = GetFomorHate(PTarget);
+        if (hate >= 0 && hate < 8)
+        {
+            return false;
+        }
     }
 
     auto detects = PMob->m_Detects;
@@ -809,9 +832,16 @@ void CMobController::DoCombatTick(time_point tick)
     }
 
     // Deaggro players in cutscenes
-    if (PTarget->status == STATUS_CUTSCENE_ONLY)
+    if (PTarget != nullptr && PTarget->status == STATUS_CUTSCENE_ONLY)
     {
-        DeaggroAll();
+        DeaggroEntity(PTarget);
+        return;
+    }
+
+    // Deaggro players zoning
+    if (PTarget != nullptr && PTarget->status == STATUS_DISAPPEAR)
+    {
+        DeaggroEntity(PTarget);
         return;
     }
 
@@ -1251,12 +1281,15 @@ void CMobController::FollowRoamPath()
         PMob->PAI->PathFind->FollowPath();
 
         CBattleEntity* PPet = PMob->PPet;
-        if (PPet != nullptr && PPet->PAI->IsSpawned() && !PPet->PAI->IsEngaged())
+        if (PPet != nullptr)
         {
-            // pet should follow me if roaming
-            position_t targetPoint = nearPosition(PMob->loc.p, 2.1f, (float)M_PI);
+            if (PPet != nullptr && PPet->PAI->IsSpawned() && !PPet->PAI->IsEngaged())
+            {
+                // pet should follow me if roaming
+                position_t targetPoint = nearPosition(PMob->loc.p, 2.1f, (float)M_PI);
 
-            PPet->PAI->PathFind->PathTo(targetPoint);
+                PPet->PAI->PathFind->PathTo(targetPoint);
+            }
         }
 
         // if I just finished reset my last action time
@@ -1553,6 +1586,11 @@ bool CMobController::IsSpellReady(float currentDistance)
     {
         // Mobs use ranged attacks quicker when standing back
         bonusTime = PMob->getBigMobMod(MOBMOD_STANDBACK_COOL);
+    }
+
+    if (PMob->m_forceCast)
+    {
+        return true;
     }
 
     if (PMob->StatusEffectContainer->HasStatusEffect({EFFECT_CHAINSPELL, EFFECT_MANAFONT, EFFECT_AZURE_LORE, EFFECT_TABULA_RASA}))

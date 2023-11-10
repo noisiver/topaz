@@ -571,9 +571,9 @@ INSERT INTO `item_mods_pet` VALUES (16022,25,5,0);      -- Fidelity Earring Pet:
 INSERT INTO `item_mods_pet` VALUES (16022,26,5,0);      -- Fidelity Earring Pet: Ranged Accuracy+5
 INSERT INTO `item_mods_pet` VALUES (16031,62,3,0);      -- Affinity Earring Pet: Attack+3%
 INSERT INTO `item_mods_pet` VALUES (16031,66,3,0);      -- Affinity Earring Pet: Ranged Attack+3%
-INSERT INTO `item_mods_pet` VALUES (10274,291,10,0);    -- Chelona Blazer Pet: Counter +10
+INSERT INTO `item_mods_pet` VALUES (10274,160,-10,0);   -- Chelona Blazer Pet: Daamge taken -10%
 INSERT INTO `item_mods_pet` VALUES (10274,27,5,0);      -- Chelona Blazer Pet: Enmity+5
-INSERT INTO `item_mods_pet` VALUES (10275,291,12,0);    -- Chelona Blazer +1 Pet: Counter +12
+INSERT INTO `item_mods_pet` VALUES (10275,160,-12,0);   -- Chelona Blazer +1 Pet: Damage taken -12%
 INSERT INTO `item_mods_pet` VALUES (10275,27,6,0);      -- Chelona Blazer +1 Pet: Enmity+6
 INSERT INTO `item_mods_pet` VALUES (10318,30,5,0);      -- Chelona Gloves Pet: Magic Accuracy+5
 INSERT INTO `item_mods_pet` VALUES (10318,28,5,0);      -- Chelona Gloves Pet: MAB+5
@@ -585,8 +585,8 @@ INSERT INTO `item_mods_pet` VALUES (10365,24,10,0);     -- Chelona Boots Pet: Ra
 INSERT INTO `item_mods_pet` VALUES (10365,365,5,0);     -- Chelona Boots Pet: Snapshot+5
 INSERT INTO `item_mods_pet` VALUES (10366,24,11,0);     -- Chelona Boots +1 Pet: Ranged Attack+11
 INSERT INTO `item_mods_pet` VALUES (10366,365,6,0);     -- Chelona Boots +1 Pet: Snapshot+6
-INSERT INTO `item_mods_pet` VALUES (10436,163,-5,0);    -- Chelona Hat Pet: Magic damage taken -5% 
-INSERT INTO `item_mods_pet` VALUES (10437,163,-6,0);    -- Chelona Hat +1 Pet: Magic damage taken -6% 
+INSERT INTO `item_mods_pet` VALUES (10436,160,-5,0);    -- Chelona Hat Pet: Damage taken -5% 
+INSERT INTO `item_mods_pet` VALUES (10437,160,-6,0);    -- Chelona Hat +1 Pet: Damage taken -6% 
 INSERT INTO `item_mods_pet` VALUES (17492,25,8,0);      -- Shiva's Claws: Accuracy+8
 INSERT INTO `item_mods_pet` VALUES (17492,12,3,0);      -- Shiva's Claws: INT+3
 INSERT INTO `item_mods_pet` VALUES (27589,25,20,0);     -- Thurandaut Ring: Accuracy+20
@@ -595,7 +595,9 @@ INSERT INTO `item_mods_pet` VALUES (27589,23,20,0);     -- Thurandaut Ring: Atta
 INSERT INTO `item_mods_pet` VALUES (27589,24,20,0);     -- Thurandaut Ring: Ranged Attack+20
 INSERT INTO `item_mods_pet` VALUES (27589,384,300,0);   -- Thurandaut Ring: Haste+3%
 INSERT INTO `item_mods_pet` VALUES (27589,160,-3,0);    -- Thurandaut Ring: Damage taken -3%
-INSERT INTO `item_mods_pet` VALUES (25495,160,-15,2);     -- Dragoon's Collar: Wyvern damage taken -15%
+INSERT INTO `item_mods_pet` VALUES (25495,160,-15,2);   -- Dragoon's Collar: Wyvern damage taken -15%
+INSERT INTO `item_mods_pet` VALUES (13467,160,-5,0);    -- Dragon Ring: Damage taken -5%
+INSERT INTO `item_mods_pet` VALUES (14627,160,-6,0);    -- Dragon Ring +1: Damage taken -6%
 
 
 

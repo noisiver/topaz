@@ -4,6 +4,7 @@ require("scripts/globals/utils")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/pets")
+require("scripts/globals/weaponskills")
 ------------------------------------
 -- Thanks to JP testing for all fTP values and damage formulas!
 -- https://w.atwiki.jp/bartlett3/pages/329.html 
@@ -202,13 +203,13 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             end
         end
 
-        -- PDif caps at 2.0 for non-crits on melee, 3.0 for ranged
+        -- PDif caps at 2.0 for non-crits on melee, 2.5 for ranged
         if attackType == tpz.attackType.PHYSICAL then
             if cRatio > 2 then cRatio = 2 end
         end
 
         if attackType == tpz.attackType.RANGED then
-            if cRatio > 3 then cRatio = 3 end
+            if cRatio > 2.5 then cRatio = 2.5 end
         end
 
         --Everything past this point is randomly computed per hit
@@ -224,6 +225,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local isBlocked = math.random()*100 < target:getBlockRate(avatar)
             local isParried = math.random()*100 < target:getParryRate(avatar)
             if isCrit then
+                TryBreakMob(target)
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
                     wRatio = wRatio * 1.25
@@ -242,6 +244,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
 
             if isCrit then
                 pDif = pDif * critAttackBonus
+                -- PDif caps at 3.0 for crits
+                if pDif > 3.0 then pDif = 3.0 end
             end
             --printf("pdif first hit %u", pDif * 100)
             finaldmg = avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp
@@ -298,6 +302,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local isBlocked = math.random()*100 < target:getBlockRate(avatar)
             local isParried = math.random()*100 < target:getParryRate(avatar)
             if isCrit then
+                TryBreakMob(target)
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
                     wRatio = wRatio * 1.25
@@ -318,6 +323,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             
             if isCrit then
                 pDif = pDif * critAttackBonus
+                -- PDif caps at 3.0 for crits
+                if pDif > 3.0 then pDif = 3.0 end
             end
             --printf("pdif multihits %u", pDif * 100)
             if params.multiHitFtp == nil then ftp = 1 end -- Not fTP transfer
@@ -520,7 +527,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
 
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     -- handling normal stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    dmg = utils.stoneskin(target, dmg, attackType)
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, damageType)
     --printf("dmg %d", dmg)
@@ -580,7 +587,7 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     else
         -- Handling rampart stoneskin + normal stoneskin
         dmg = utils.rampartstoneskin(target, dmg)
-        dmg = utils.stoneskin(target, dmg)
+        dmg = utils.stoneskin(target, dmg, attackType)
 	    target:takeDamage(dmg, avatar, attackType, element)
     end
     target:updateEnmityFromDamage(avatar, dmg)

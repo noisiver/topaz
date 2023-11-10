@@ -1,0 +1,24 @@
+
+SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
+Quu Bokye pathing
+Reaving Wind and Reaving Wind Knock Back(both should knock back)
+Mount Z HP
+Osschaart (Copycat)
+Macan Gadangan (Wild Wild Whiskers)
+Platoon Scorpions(Operaiton Desert Storm)
+Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
+
+
+Retail:
+Dancing Chains wipe shadows?
+Simplylog show buff mob gets from buff moves?
+Aldazal locus gears (nashmau hp > run east)
+Parrying packet
+Mob move missing, buff, dispel, etc packet
+X's knife BCNM
+Acroliths animationsubs and mechanics and maybe mobskill animations?
+Normal roc TP moves
+Hoof Volley animation ID
+Standback HP % for casters and ranged. Seemed to be 65% for soulflayers?
+https://ffxiclopedia.fandom.com/wiki/Go!_Go!_Gobmuffin! capture
+Tango with a tracker capture

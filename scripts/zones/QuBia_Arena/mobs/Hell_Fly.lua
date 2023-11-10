@@ -5,8 +5,7 @@
 -----------------------------------
 -----------------------------------
 function onMobSpawn(mob)
-     mob:setMod(tpz.mod.REFRESH, 400)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

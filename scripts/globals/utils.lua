@@ -64,9 +64,25 @@ function utils.clamp(input, min_val, max_val)
 end
 
 -- returns unabsorbed damage
-function utils.stoneskin(target, dmg)
+function utils.stoneskin(target, dmg, attackType)
     --handling stoneskin
     if (dmg > 0) then
+
+        -- Check phys only Stoneskin
+        physSkin = target:getMod(tpz.mod.PHYSICAL_SS)
+        if (attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED) then
+            if (physSkin > 0) then
+                if (physSkin > dmg) then --absorb all damage
+                    target:delMod(tpz.mod.PHYSICAL_SS, dmg)
+                    return 0
+                else --absorbs some damage then wear
+                    target:setMod(tpz.mod.PHYSICAL_SS, 0)
+                    dmg = dmg - physSkin
+                end
+            end
+        end
+
+        -- Check normal stoneskin
         skin = target:getMod(tpz.mod.STONESKIN)
         if (skin > 0) then
             if (skin > dmg) then --absorb all damage
@@ -86,20 +102,20 @@ end
 -- returns unabsorbed damage
 function utils.rampartstoneskin(target, dmg)
     --handling rampart stoneskin
-    local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
+    local ramSS = target:getMod(tpz.mod.MAGIC_SS)
     -- Handle absorbs
     if dmg < 0 then
         return dmg
     end
     if ramSS > 0 then
         if dmg >= ramSS then
-            target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+            target:setMod(tpz.mod.MAGIC_SS, 0)
             if target:isPC() then -- Remove Magic Shield off players
                 target:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
             end
             dmg = dmg - ramSS
         else
-            target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
+            target:setMod(tpz.mod.MAGIC_SS, ramSS - dmg)
             dmg = 0
         end
     end
@@ -151,7 +167,16 @@ function utils.takeShadows(target, dmg, shadowbehav)
         if shadowType == tpz.mod.BLINK then
             for i = 1, shadowbehav, 1 do
                 if shadowsLeft > 0 then
-                    if math.random() <= 0.5 then -- https://www.bg-wiki.com/ffxi/Category:Utsusemi Blink has a 50% chance to not absorb damage/enfeeble spells
+                    local effect = target:getStatusEffect(tpz.effect.BLINK)
+                    local procChance = 0.4
+                    if (effect ~= nil) then
+                        if (effect:getSubPower() ~= nil) then
+                            if (effect:getSubPower() > 0) then
+                                procChance = effect:getSubPower() / 10
+                            end
+                        end
+                    end
+                    if math.random() <= procChance then -- https://www.bg-wiki.com/ffxi/Category:Utsusemi Blink has a 50% chance to not absorb damage/enfeeble spells
                         shadowsUsed = shadowsUsed + 1
                         shadowsLeft = shadowsLeft - 1
                     end
@@ -886,8 +911,8 @@ function utils.getDropRate(mob, base)
     end
 
     local dropChance = dropRateBase[baseRate][th]
-    --printf("Base drop rate %s", baseRate)
-    --printf("Drop chance: %s", dropChance)
+    -- printf("Base drop rate %s", baseRate)
+    -- printf("Drop chance: %s", dropChance)
     return dropChance
 end
 
@@ -1005,9 +1030,6 @@ function utils.ApplyStoneskinBonuses(caster, power)
         power = math.floor(power * (1.5 + caster:getMod(tpz.mod.RAPTURE_AMOUNT)/100))
     end
 
-    caster:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
-    caster:delStatusEffectSilent(tpz.effect.RAPTURE)
-
     return power
 end
 
@@ -1056,11 +1078,14 @@ function utils.CalculateBaseTP(delay)
     return tp
 end
 
-function utils.CalculateSpellTPGiven(caster, target)
+function utils.CalculateSpellTPGiven(caster, target, totalhits)
     local sBlow1 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW), -50, 50)
     local sBlow2 = utils.clamp(caster:getMod(tpz.mod.SUBTLE_BLOW_II), -50, 50)
     local sBlowMult = (utils.clamp((sBlow1 + sBlow2), -75, 75))
     local TP = 100
+    if (totalhits == nil) then
+        totalhits = 1
+    end
     -- Add casters Subtle Blow
     local sBlowReduction = math.floor(100 * sBlowMult / 100)
     -- Remove TP given from subtle blow
@@ -1068,6 +1093,9 @@ function utils.CalculateSpellTPGiven(caster, target)
 
     -- Add targets Store TP
     TP = math.floor(TP * (100 + target:getMod(tpz.mod.STORETP)) / 100)
+
+    -- Add TP per hit
+    TP = TP * totalhits
 
     return TP
 end

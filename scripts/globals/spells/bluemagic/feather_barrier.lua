@@ -26,7 +26,7 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.PHALANX
     local power = 23
-    local duration = 180
+    local duration = 300
 
     -- Add phalanx recieved gear mod
     power = power + target:getMod(tpz.mod.PHALANX_RECIEVED)

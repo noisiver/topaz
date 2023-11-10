@@ -25,11 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 2.5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_WIPE_SHADOWS)
-
-  	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
-	mob:setMod(tpz.mod.RAMPART_STONESKIN, 1500)
-    -- Water absorb
-	mob:AnimationSub(2)
-	mob:setLocalVar("bubbles", os.time() + 180)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
+	mob:setMod(tpz.mod.MAGIC_SS, 1500)
     return dmg
 end

@@ -1437,6 +1437,13 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
 
         PAI->TargetFind->findWithinCone(PActionTarget, radius, 45, flags);
     }
+    else if (aoeType == SPELLAOE_PBAOE)
+    {
+        // Aoe around caster
+        float distance = spell::GetSpellRadius(PSpell, this);
+
+        PAI->TargetFind->findWithinArea(PActionTarget, AOERADIUS_ATTACKER, distance, flags);
+    }
     else
     {
         if (this->objtype == TYPE_MOB && PActionTarget->objtype == TYPE_PC)
@@ -1456,6 +1463,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
     auto totalTargets = (uint16)PAI->TargetFind->m_targets.size();
 
     PSpell->setTotalTargets(totalTargets);
+    PSpell->setPrimaryTargetID(PActionTarget->id);
 
     action.id = id;
     action.actiontype = ACTION_MAGIC_FINISH;
@@ -1498,6 +1506,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
 
         // TODO: this is really hacky and should eventually be moved into lua, and spellFlags should probably be in the spells table..
         if (PSpell->canHitShadow() && aoeType == SPELLAOE_NONE
+            && PSpell->getSkillType() != SKILLTYPE::SKILL_BLUE_MAGIC
             && battleutils::IsAbsorbByShadow(PTarget)
             && !(PSpell->getFlag() & SPELLFLAG_IGNORE_SHADOWS))
         {
@@ -1832,6 +1841,13 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                             damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN) + csJpDmgBonus) *
                                              DamageRatio);
                         }
+
+                        // Reduce counter damage if footwork is active to 25% for balancing reasons
+                        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+                        {
+                            damage *= 0.25;
+                        }
+
                         actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1, nullptr, true, false, true);
                         actionTarget.spikesMessage = 33;
                         if (PTarget->objtype == TYPE_PC)
@@ -1948,7 +1964,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
             if (PTarget->objtype == TYPE_PC)
             {
-                if (attack.IsGuarded() || ((map_config.newstyle_skillups & NEWSTYLE_GUARD) > 0))
+                if (actionTarget.reaction == REACTION_GUARD || ((map_config.newstyle_skillups & NEWSTYLE_GUARD) > 0))
                 {
                     if (battleutils::GetGuardRate(this, PTarget) > 0)
                     {
@@ -1956,7 +1972,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                     }
                 }
 
-                if (attack.IsBlocked() || ((map_config.newstyle_skillups & NEWSTYLE_BLOCK) > 0))
+                if (actionTarget.reaction == REACTION_BLOCK || ((map_config.newstyle_skillups & NEWSTYLE_BLOCK) > 0))
                 {
                     if (battleutils::GetBlockRate(this, PTarget) > 0)
                     {
@@ -1964,7 +1980,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                     }
                 }
 
-                if (attack.IsParried() || ((map_config.newstyle_skillups & NEWSTYLE_PARRY) > 0))
+                if (actionTarget.reaction == REACTION_PARRY || ((map_config.newstyle_skillups & NEWSTYLE_PARRY) > 0))
                 {
                     if (battleutils::GetParryRate(this, PTarget) > 0)
                     {

@@ -1,5 +1,6 @@
 require("scripts/globals/mixins")
 require("scripts/globals/status")
+local ID = require("scripts/zones/Balgas_Dais/IDs")
 
 
 g_mixins = g_mixins or {}

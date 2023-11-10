@@ -53,33 +53,6 @@ tpz.magic.buildcat =
 }
 
 ------------------------------------
--- Spell AOE IDs
-------------------------------------
-
-tpz.magic.aoe =
-{
-    NONE        = 0,
-    RADIAL      = 1,
-    CONAL       = 2,
-    RADIAL_MANI = 3, -- AOE when under SCH stratagem Manifestation
-    RADIAL_ACCE = 4, -- AOE when under SCH stratagem Accession
-    PIANISSIMO  = 5, -- Single target when under BRD JA Pianissimo
-    DIFFUSION   = 6, -- AOE when under Diffusion
-}
-
-------------------------------------
--- Spell flag bits
-------------------------------------
-
-tpz.magic.spellFlag =
-{
-    NONE           = 0x00,
-    HIT_ALL        = 0x01, -- Hit all targets in range regardless of party
-    WIPE_SHADOWS   = 0x02, -- Wipe shadows even if single target and miss/resist (example: "Maiden's Virelai")
-    IGNORE_SHADOWS = 0x04  -- Ignore shadows and hit player anyways (example: Mobs "Death" spell)
-}
-
-------------------------------------
 -- Tables by element
 ------------------------------------
 
@@ -521,7 +494,6 @@ function getCureFinal(caster, spell, basecure, minCure, isBlueMagic)
 
     local final = math.floor(math.floor(math.floor(math.floor(basecure) * potency) * dayWeatherBonus) * rapture) * dSeal
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
-    caster:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
     return final
 end
 
@@ -988,13 +960,25 @@ function getEffectResistanceTraitChance(caster, target, effect)
         effectres = tpz.mod.CHARMRESTRAIT
     elseif (effect == tpz.effect.AMNESIA) then
         effectres = tpz.mod.AMNESIARESTRAIT
+    elseif (effect == tpz.effect.TERROR) then
+        effectres = tpz.mod.TERRORRESTRAIT
     elseif (effect == tpz.effect.KO) then
         effectres = tpz.mod.DEATHRESTRAIT
     end
     
     if (effectres ~= 0) then
-        local ret = target:getMod(effectres) + target:getMod(tpz.mod.STATUSRESTRAIT) -- TODO: Test
-        if (not caster:isPC()) and caster:isNM() then
+        local ret = target:getMod(effectres)
+        -- All resist does not work on Terror or Death
+        if (effect ~= tpz.effect.KO and effect ~= tpz.effect.TERROR) then
+            ret = ret + target:getMod(tpz.mod.STATUSRESTRAIT) 
+        end
+
+        -- Caps at 90%
+        -- https://www.bg-wiki.com/ffxi/Resist#Status_Effect_Resistance_via_Bard_Songs_and_Barpell_Resist
+        ret = utils.clamp(ret, 0, 90)
+
+        -- Halved vs NM's
+        if (caster:isPC() and target:isNM()) then
             ret = math.floor(ret/2)
         end
 
@@ -1225,7 +1209,8 @@ function finalMagicAdjustments(caster, target, spell, dmg)
     dmg = utils.rampartstoneskin(target, dmg)
     
     --handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    local attackType = tpz.attackType.MAGICAL
+    dmg = utils.stoneskin(target, dmg, attackType)
     dmg = utils.clamp(dmg, -99999, 99999)
 
     if (dmg < 0) then
@@ -1265,7 +1250,8 @@ function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     dmg = utils.rampartstoneskin(target, dmg)
 
     --handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    local attackType = tpz.attackType.MAGICAL
+    dmg = utils.stoneskin(target, dmg, attackType)
 
     dmg = utils.clamp(dmg, -99999, 99999)
 
@@ -1292,8 +1278,11 @@ function calculateMagicBurst(caster, spell, target, params)
     local skillchainburst = 1.0
     local modburst = 1.0
 
-    if (spell:getSpellGroup() == 3 and not caster:hasStatusEffect(tpz.effect.BURST_AFFINITY)) then
-        return burst
+    -- Magic Burst BLU spells if Azure Lore or Burst AFfinity is active
+    if (spell:getSpellGroup() == 3) then
+        if not caster:hasStatusEffect(tpz.effect.BURST_AFFINITY) and not caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+            return burst
+        end
     end
 
     -- Obtain first multiplier from gear, atma and job traits
@@ -1782,6 +1771,9 @@ function canOverwrite(target, effect, power, mod)
 
     return true
 end
+
+-- Immunobreak
+-- 20->30, 30->40, 40->50 (no more immunobreaks from there)
 
 function getElementalSDT(element, target) -- takes into account if magic burst window is open -> increase tier by 1
     if target:isPC() then
@@ -2315,6 +2307,9 @@ function GetCharmMultiplier(SDT)
 end
 
 function GetCharmFamilyReduction(player, target)
+    if not target:isMob() then
+        return 0
+    end
     -- Slime, Puk -35%
     -- Old Opo-Opo -40%
     -- Ifrit's Raptor -75%
@@ -2870,14 +2865,7 @@ end
 
 
 function ApplyProtectShell(caster, target, effect, power, duration)
-    local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
-
-    if (effect == tpz.effect.PROTECT) then
-        power = math.floor(power * (1 + (protShellMod / 10))) -- Percent
-    elseif (effect == tpz.effect.SHELL) then
-        power = power + protShellMod -- Flat
-    end
-
+    -- Now handled in Protect and Shell effects files
     return target:addStatusEffect(effect, power, 0, duration) 
 end
 
@@ -2982,6 +2970,9 @@ function calculateDuration(duration, magicSkill, spellGroup, caster, target, use
 
             -- Perpetuance
             if caster:hasStatusEffect(tpz.effect.PERPETUANCE) and spellGroup == tpz.magic.spellGroup.WHITE then
+                if caster:isPC() then
+                    caster:PrintToPlayer(string.format( "Perpetuance bonus active!"))
+                end
                 duration  = duration * 2
             end
         elseif magicSkill == tpz.skill.ENFEEBLING_MAGIC then -- Enfeebling Magic

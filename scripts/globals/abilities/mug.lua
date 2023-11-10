@@ -55,22 +55,27 @@ function onUseAbility(player, target, ability, action)
         ability:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
     end
 
-    -- Add HP based on DEX + AGI
-    local recover = dex + agi
+    -- Deal damage based on DEX + AGI
+    local dmg = dex + agi
+    target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.NONE)
 
-    if ((player:getMaxHP() - player:getHP()) < recover) then
-        recover = (player:getMaxHP() - player:getHP())
+    -- Recover for amount dealt
+    if ((player:getMaxHP() - player:getHP()) < dmg) then
+        dmg = (player:getMaxHP() - player:getHP())
     end
 
+    -- No healing vs undead
     if target:isUndead() then
-        recover = 0
+        dmg = 0
     end
 
-    player:addHP(recover)
-    player:updateEnmityFromCure(player, recover)
+    player:addHP(dmg)
+    player:updateEnmityFromCure(player, dmg)
 
     if fail then
-        return recover
+        action:animation(target:getID(), 184)
+        action:additionalEffect(target:getID(),tpz.subEffect.HP_DRAIN)
+        return dmg
     else
         return gil
     end

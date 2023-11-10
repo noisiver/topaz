@@ -87,8 +87,9 @@ function onUseAbility(player, target, ability)
     -- Check for phalanx + stoneskin
 
     if (damage > 0) then
+        local attackType = tpz.attackType.PHYSICAL
         damage = damage - target:getMod(tpz.mod.PHALANX)
-        damage = utils.stoneskin(target, damage)
+        damage = utils.stoneskin(target, damage, attackType)
     end
 
     target:takeDamage(damage, player, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)

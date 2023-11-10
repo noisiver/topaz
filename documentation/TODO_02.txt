@@ -1,0 +1,89 @@
+https://docs.google.com/document/d/1ucbGM1HzEbNaYra-lPvhrK0y66GTvi6pJtuoxfRs-qU/edit?usp=sharing
+
+https://docs.google.com/document/d/109r9-j6k8QcgZNMfCzVFBMdpiFaaaWmxrjcVYGZLU_E/edit
+
+https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
+
+Ixion
+https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
+
+Dvergr trash mobs for learning
+Pixies curing players
+https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
+
+Readd superior stuff just be careful on the sql for getting item stuff
+Look at enmity_container.cpp and understand it
+player_charm_controller.cpp to fix charm aggro/linking/assisting
+Ulbrecht and Qultada custom msgs cant use msgids
+Automaton WS and summoner shadow/TE logic rework
+!getspelllist GM command
+subzero smash added to rampant stance stuff in mobskill or w/e or make that a flag/param for iron giants harpieas etc too
+maintenance should add enmity to puppetmaster
+
+Add way to display obtaning KI / items from chests and coffers player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS)
+Also try to find a way to chars name as a param
+Line 1473
+
+Change all healing items to item:getPower() for power in their scripts
+Audit guild shop sql list
+Missing dynamis set bonuses
+Code KS99 with custom drops
+The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
+Finish JP. Also need to add gifts function from lsb to actually get gifts
+Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
+Fomor Black mages in aquaducts shouldn't use grim halo they use a club(should use foxfire)
+AH to WotG towns
+mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
+Windurst Salad / Taco
+https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
+pickNewPosition 3rd arg as "false" for chests/coffers in treasures.lua
+Osschaart and other enmityList mobs to use proper new code for selecting a random target
+Gears weak to dark(chariots/ramparts too?)
+Double msg zoning into level sync zoned(level restricted to x)
+Phalaenopsis unused item 1730 gil regional
+<player name>'s attack devastates the fiend!
+Custom name pets
+Quelveulat in Tav patrols
+Quu Bokye patrols
+Aquaveil +1 gear
+PathThrough no longer works? The lua binding, check LSB's or Wings since we changed the function of paththrough in  C++
+More mobs by Judicator Demon in Ule range
+Lvl 72-75 and lvl 81-83 bugards
+Mob Berserk should stack like Amplification / Memento Mori
+Hippogryph Hoof Volley wrong animation they are using spellid 1330 and animation ID 915
+Dispel msgs for mob TP moves are wrong and should show status removed in msg log
+Tribulation 13/tick from an abyssea soulflayer
+More content that forces bad jobs(like not allowing RDM somehow)
+More content that is super good to have a thief lockpick in(assault with soulflayer / mamool ja training grounds)
+You can turn away from grim glower and don't get perma petrified and Grim Glower can be used while it's still active(shouldn't be able to...I changed duration)
+ID 175767304 shouldn't have tooltip/name when targetted copy other doors with no name?
+No longer attack people after a poroggo charmed? or were they too far when I was charmed so I didn't aggro them? 
+Sunflower Seeds rarely used item
+Content with a lot of chigoes / ja proc mobs for dnc to be useful
+
+Mythic:
+Qultada custom msgs cant use msgids
+
+BLU:
+MAB + MACC on all Demon / Dragon Kilij
+Knockback param to spells
+Add Fantod
+Reraise spell
+
+Unused Gear:
+https://www.bg-wiki.com/ffxi/Ebon/Ebur/Furia_Attire_Sets
+
+THF:
+"Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
+
+DATS:
+Master's Shield rare/ex
+
+LAC:
+
+Wiki: 
+JSE 40 COP bodies
+Sea Torques / Capes
+Item implicits
+https://www.bg-wiki.com/ffxi/Shiyo_Server_Content/Mythic_NMs was fixed, use this to fix JSE necks
+Custom item sets(brass gear, pup/smn gear, wise gear, etc)

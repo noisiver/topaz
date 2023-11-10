@@ -12,8 +12,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-
-local ColoredDrop = 4258+math.random(0, 7)
+    local ColoredDrop = 4258+math.random(0, 7)
 
     -- COP mission
     if (player:getCurrentMission(COP) == tpz.mission.id.cop.THREE_PATHS and player:getCharVar("COP_Louverance_s_Path") == 2) then
@@ -27,9 +26,8 @@ local ColoredDrop = 4258+math.random(0, 7)
         end
     -- standard dialog
     else
-
+        return 1
     end
-
 end
 
 function onEventUpdate(player, csid, option)

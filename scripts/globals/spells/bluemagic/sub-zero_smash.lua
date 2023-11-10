@@ -29,7 +29,6 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.PARALYSIS
-    local resist = applyResistanceEffect(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_CRITICAL
     params.attackType = tpz.attackType.PHYSICAL
@@ -48,21 +47,12 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_AQUAN
 	params.attkbonus = 1.25
     params.CritTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
-	local amorph = (target:getSystem() == 1)
-	local bird = (target:getSystem() == 8)
-	-- add correlation bonus
-	if amorph then
-	 	damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-	elseif plantoid then
-		bird = damage * 0.75
-	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-
-    params.effect = tpz.effect.PARALYSIS
     BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
 
     return damage

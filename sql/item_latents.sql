@@ -1802,20 +1802,23 @@ INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 60);     -- DEX+1 above level
 INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 75);     -- DEX+1 above level 75
 
 -- -------------------------------------------------------
--- Tamas Ring
+-- Sattva Ring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 45);     -- MP+5 above level 45
-INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 60);     -- MP+5 above level 60
-INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 75);     -- MP+5 above level 75
-INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 45);    -- INT+1 above level 45
-INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 60);    -- INT+1 above level 60
-INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 75);    -- INT+1 above level 75
-INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 45);    -- MND+1 above level 45
-INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 60);    -- MND+1 above level 60
-INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 75);    -- MND+1 above level 75
+INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 45);     -- HP+5 above level 45
+INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 60);     -- HP+5 above level 60
+INSERT INTO `item_latents` VALUES(15544, 2, 5, 51, 75);     -- HP+5 above level 75
+INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 45);    -- VIT+1 above level 45
+INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 60);    -- VIT+1 above level 60
+INSERT INTO `item_latents` VALUES(15544, 10, 1, 51, 75);    -- VIT+1 above level 75
+INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 45);    -- AGI+1 above level 45
+INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 60);    -- AGI+1 above level 60
+INSERT INTO `item_latents` VALUES(15544, 11, 1, 51, 75);    -- AGI+1 above level 75
+INSERT INTO `item_latents` VALUES(15544, 301, 1, 51, 45);    -- Phalanx +1 above level 45
+INSERT INTO `item_latents` VALUES(15544, 301, 1, 51, 60);    -- Phalanx +1 above level 60
+INSERT INTO `item_latents` VALUES(15544, 301, 1, 51, 75);    -- Phalanx +1 above level 75
 
 -- -------------------------------------------------------
--- Sattva Ring
+-- Tamas Ring
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(15545, 5, 5, 51, 45);     -- MP+5 above level 45
 INSERT INTO `item_latents` VALUES(15545, 5, 5, 51, 60);     -- MP+5 above level 60
@@ -2376,7 +2379,7 @@ INSERT INTO `item_latents` VALUES(17448, 13, 1, 53, 0);     -- MND +1 in areas o
 INSERT INTO `item_latents` VALUES(17449, 13, 2, 53, 0);     -- MND +2 in areas outside own nation's control
 
 INSERT INTO `item_latents` VALUES(17451, 165, 6, 47, 0);
-INSERT INTO `item_latents` VALUES(17451, 366, 13, 47, 0);
+INSERT INTO `item_latents` VALUES(17451, 366, 18, 47, 0);
 INSERT INTO `item_latents` VALUES(17456, 2, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(17456, 5, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(17456, 57, -10, 47, 0);
@@ -2525,7 +2528,7 @@ INSERT INTO `item_latents` VALUES(17697, 56, 15, 31, 0);    -- [Element: Wind]+1
 INSERT INTO `item_latents` VALUES(17697, 366, 8, 31, 0);    -- Mighty Talwar DMG+8 on Windsday
 INSERT INTO `item_latents` VALUES(17697, 366, 8, 52, 3);    -- Mighty Talwar DMG+8 in Wind Weather
 INSERT INTO `item_latents` VALUES(17699, 165, 6, 47, 0);
-INSERT INTO `item_latents` VALUES(17699, 366, 13, 47, 0);
+INSERT INTO `item_latents` VALUES(17699, 366, 16, 47, 0);
 
 -- -------------------------------------------------------
 -- Shiva's Shotel
@@ -2598,7 +2601,7 @@ INSERT INTO `item_latents` VALUES(17824, 54, 15, 28, 0);    -- [Element: Fire]+1
 INSERT INTO `item_latents` VALUES(17824, 366, 10, 28, 0);   -- Nukemaru DMG+10 on Firesday
 INSERT INTO `item_latents` VALUES(17824, 366, 10, 52, 1);   -- Nukemaru DMG+10 in Fire Weather
 INSERT INTO `item_latents` VALUES(17827, 165, 6, 47, 0);
-INSERT INTO `item_latents` VALUES(17827, 366, 13, 47, 0);
+INSERT INTO `item_latents` VALUES(17827, 366, 19, 47, 0);
 INSERT INTO `item_latents` VALUES(17831, 369, 1, 13, 2);
 INSERT INTO `item_latents` VALUES(17831, 370, 1, 13, 19);
 
@@ -2622,7 +2625,7 @@ INSERT INTO `item_latents` VALUES(17941, 56, 15, 31, 0);    -- [Element: Wind]+1
 INSERT INTO `item_latents` VALUES(17941, 366, 5, 31, 0);    -- Mighty Pick DMG+5 on Windsday
 INSERT INTO `item_latents` VALUES(17941, 366, 5, 52, 3);    -- Mighty Pick DMG+5 in Wind Weather
 INSERT INTO `item_latents` VALUES(17944, 165, 6, 47, 0);
-INSERT INTO `item_latents` VALUES(17944, 366, 13, 47, 0);
+INSERT INTO `item_latents` VALUES(17944, 366, 17, 47, 0);
 
 -- -------------------------------------------------------
 -- Maneater
@@ -2710,7 +2713,7 @@ INSERT INTO `item_latents` VALUES(18000, 56, 15, 31, 0);    -- [Element: Wind]+1
 INSERT INTO `item_latents` VALUES(18000, 366, 10, 31, 0);   -- Mighty Knife DMG+10 on Windsday
 INSERT INTO `item_latents` VALUES(18000, 366, 10, 52, 3);   -- Mighty Knife DMG+10 in Wind Weather
 INSERT INTO `item_latents` VALUES(18005, 165, 6, 47, 0);
-INSERT INTO `item_latents` VALUES(18005, 366, 15, 47, 0);
+INSERT INTO `item_latents` VALUES(18005, 366, 17, 47, 0);
 
 -- -------------------------------------------------------
 -- Blau Dolch
@@ -2734,7 +2737,7 @@ INSERT INTO `item_latents` VALUES(18049, 56, 15, 31, 0);    -- [Element: Wind]+1
 INSERT INTO `item_latents` VALUES(18049, 366, 8, 31, 0);    -- Mighty Zaghnal DMG+8 on Windsday
 INSERT INTO `item_latents` VALUES(18049, 366, 8, 52, 3);    -- Mighty Zaghnal DMG+8 in Wind Weather
 INSERT INTO `item_latents` VALUES(18053, 165, 6, 47, 0);
-INSERT INTO `item_latents` VALUES(18053, 366, 13, 47, 0);
+INSERT INTO `item_latents` VALUES(18053, 366, 18, 47, 0);
 
 -- -------------------------------------------------------
 -- Garuda's Sickle
@@ -2825,7 +2828,7 @@ INSERT INTO `item_latents` VALUES(18213, 54, 15, 28, 0);    -- [Element: Fire]+1
 INSERT INTO `item_latents` VALUES(18213, 366, 10, 28, 0);   -- Mighty Axe DMG+10 on Firesday
 INSERT INTO `item_latents` VALUES(18213, 366, 10, 52, 1);   -- Mighty Axe DMG+10 in Fire Weather
 INSERT INTO `item_latents` VALUES(18217, 165, 6, 47, 0);
-INSERT INTO `item_latents` VALUES(18217, 366, 13, 47, 0);
+INSERT INTO `item_latents` VALUES(18217, 366, 16, 47, 0);
 INSERT INTO `item_latents` VALUES(18256, 23, 1, 25, 0);     -- Orphic Egg, ATT+1 song/roll active
 INSERT INTO `item_latents` VALUES(18256, 25, 1, 25, 0);     -- Orphic Egg, ACC+1 song/roll active
 INSERT INTO `item_latents` VALUES(18256, 68, 1, 25, 0);     -- Orphic Egg, EVA+1 song/roll active
@@ -3869,26 +3872,26 @@ INSERT INTO `item_latents` VALUES(10730, 1308, 15, 13, 57); -- Warrior's Calliga
 -- -------------------------------------------------------
 -- Trial Mythic Weapons
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18492, 355, 24, 47, 0);   -- Sturdy Axe
-INSERT INTO `item_latents` VALUES(18753, 355, 15, 47, 0);   -- Burning FIsts
-INSERT INTO `item_latents` VALUES(18851, 355, 29, 47, 0);   -- Werebuster
-INSERT INTO `item_latents` VALUES(18589, 355, 30, 47, 0);   -- Mage's Staff
-INSERT INTO `item_latents` VALUES(17742, 355, 20, 47, 0);   -- Vorpal Sword
-INSERT INTO `item_latents` VALUES(18003, 355, 17, 47, 0);   -- Swordbreaker
-INSERT INTO `item_latents` VALUES(17744, 355, 21, 47, 0);   -- Brave Blade
-INSERT INTO `item_latents` VALUES(18944, 355, 25, 47, 0);   -- Death Sickle
-INSERT INTO `item_latents` VALUES(17956, 355, 23, 47, 0);   -- Double Axe
-INSERT INTO `item_latents` VALUES(18034, 355, 18, 47, 0);   -- Dancing Dagger
-INSERT INTO `item_latents` VALUES(18719, 355, 33, 47, 0);   -- Killer Bow
-INSERT INTO `item_latents` VALUES(18443, 355, 28, 47, 0);   -- Windslicer
-INSERT INTO `item_latents` VALUES(18426, 355, 27, 47, 0);   -- Sasuke Katana
-INSERT INTO `item_latents` VALUES(18120, 355, 26, 47, 0);   -- Radiant Lance
-INSERT INTO `item_latents` VALUES(18590, 355, 31, 47, 0);   -- Scepter Staff
-INSERT INTO `item_latents` VALUES(17743, 355, 22, 47, 0);   -- Wightslayer
-INSERT INTO `item_latents` VALUES(18720, 355, 34, 47, 0);   -- Quicksilver
-INSERT INTO `item_latents` VALUES(18754, 355, 16, 47, 0);   -- Inferno Claws
-INSERT INTO `item_latents` VALUES(19102, 355, 19, 47, 0);   -- Main Gauche
-INSERT INTO `item_latents` VALUES(18592, 355, 32, 47, 0);   -- Elder Staff
+INSERT INTO `item_latents` VALUES(18492, 355, 90, 47, 0);   -- Sturdy Axe
+INSERT INTO `item_latents` VALUES(18753, 355, 11, 47, 0);   -- Burning FIsts
+INSERT INTO `item_latents` VALUES(18851, 355, 171, 47, 0);  -- Werebuster
+INSERT INTO `item_latents` VALUES(18589, 355, 186, 47, 0);  -- Mage's Staff
+INSERT INTO `item_latents` VALUES(17742, 355, 44, 47, 0);   -- Vorpal Sword
+INSERT INTO `item_latents` VALUES(18003, 355, 27, 47, 0);   -- Swordbreaker
+INSERT INTO `item_latents` VALUES(17744, 355, 45, 47, 0);   -- Brave Blade
+INSERT INTO `item_latents` VALUES(18944, 355, 106, 47, 0);  -- Death Sickle
+INSERT INTO `item_latents` VALUES(17956, 355, 74, 47, 0);   -- Double Axe
+INSERT INTO `item_latents` VALUES(18034, 355, 28, 47, 0);   -- Dancing Dagger
+INSERT INTO `item_latents` VALUES(18719, 355, 217, 47, 0);  -- Killer Bow
+INSERT INTO `item_latents` VALUES(18443, 355, 154, 47, 0);  -- Windslicer
+INSERT INTO `item_latents` VALUES(18426, 355, 138, 47, 0);  -- Sasuke Katana
+INSERT INTO `item_latents` VALUES(18120, 355, 122, 47, 0);  -- Radiant Lance
+INSERT INTO `item_latents` VALUES(18590, 355, 187, 47, 0);  -- Scepter Staff
+INSERT INTO `item_latents` VALUES(17743, 355, 46, 47, 0);   -- Wightslayer
+INSERT INTO `item_latents` VALUES(18720, 355, 218, 47, 0);  -- Quicksilver
+INSERT INTO `item_latents` VALUES(18754, 355, 12, 47, 0);   -- Inferno Claws
+INSERT INTO `item_latents` VALUES(19102, 355, 29, 47, 0);   -- Main Gauche
+INSERT INTO `item_latents` VALUES(18592, 355, 188, 47, 0);  -- Elder Staff
 
 
 --  `itemId` smallint(5) unsigned NOT NULL,

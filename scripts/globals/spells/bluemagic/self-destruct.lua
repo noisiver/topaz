@@ -46,10 +46,11 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    params.IGNORE_WSC = true
     local playerHP = caster:getLocalVar("self-destruct_hp")
-    params.damage = ((playerHP - 1) * 1.25) 
-    local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+    local damage = ((playerHP - 1) * 1.25) 
+    local resist = applyResistance(caster, target, spell, params)
+    damage = math.floor(damage * resist)
+    damage = math.floor(addBonuses(caster, spell, target, damage))
 
 	if (target:isUndead()) then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)

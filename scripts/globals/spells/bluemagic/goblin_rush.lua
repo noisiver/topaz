@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Goblin Rush
--- Damage varies with TP. Additional Effect: Accuracy Down
+-- Accuracy varies with TP.
 -- Spell cost: 39 MP
 -- Monster Type: Vermin
 -- Spell Type: Physical (Ranged)
@@ -24,9 +24,9 @@ end
 function onSpellCast(caster, target, spell)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    params.tpmod = TPMOD_DAMAGE
+    params.tpmod = TPMOD_ACC
     params.attackType = tpz.attackType.PHYSICAL
-    params.damageType = tpz.damageType.BLUNT
+    params.damageType = tpz.damageType.SLASHING
     params.scattr = SC_TRANSFIXION
     params.numhits = 3
     params.multiplier = 1.25
@@ -42,6 +42,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     params.attkbonus = 1.35
+    params.shadowbehav = BLUPARAM_3_SHADOW
 
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)

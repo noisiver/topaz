@@ -54,7 +54,8 @@ function onUseAbility(player, target, ability)
 
     if (damage > 0) then
         damage = damage - target:getMod(tpz.mod.PHALANX)
-        damage = utils.stoneskin(target, damage)
+        local attackType = tpz.attackType.PHYSICAL
+        damage = utils.stoneskin(target, damage, attackType)
     end
 
     target:addStatusEffect(tpz.effect.INTERVENE, 1, 0, 30)

@@ -19,7 +19,7 @@ function onItemUse(target)
     if target:hasStatusEffect(tpz.effect.AMNESIA) then
         target:messageBasic(tpz.msg.basic.NO_EFFECT)
     else
-	    target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 180)
+	    target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 30)
 	    target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.AMNESIA)
     end
 end

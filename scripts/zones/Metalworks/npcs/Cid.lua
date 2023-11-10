@@ -157,7 +157,7 @@ function onEventFinish(player, csid, option)
         player:addMission(COP, tpz.mission.id.cop.CALM_BEFORE_THE_STORM)
     elseif (csid == 857) then
         player:setCharVar("PromathiaStatus", 2)
-        player:setCharVar("Promathia_CID_timer", VanadielDayOfTheYear())
+        player:setCharVar("Promathia_CID_timer", 0)
     elseif (csid == 855) then
         player:setCharVar("COP_Ulmia_s_Path", 8)
         checkThreePaths(player)

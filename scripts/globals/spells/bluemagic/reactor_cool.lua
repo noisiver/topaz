@@ -51,6 +51,7 @@ function onSpellCast(caster, target, spell)
 
     if (target:addStatusEffect(typeEffectOne, powerOne, 0, duration) == false and target:addStatusEffect(typeEffectTwo, powerTwo, 0, duration) == false) then -- both statuses fail to apply
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return returnEffect
     elseif (target:addStatusEffect(typeEffectOne, powerOne, 0, duration) == false) then -- the first status fails to apply
         target:addStatusEffect(typeEffectTwo, powerTwo, 0, durationTwo)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
@@ -61,6 +62,9 @@ function onSpellCast(caster, target, spell)
         target:addStatusEffect(typeEffectTwo, powerTwo, 0, durationTwo)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     end
+
+    -- For tracking what skill to use for spikes MACC formula in C++
+    target:setCharVar("bluSpikes", 1)
 
     return returnEffect
 end

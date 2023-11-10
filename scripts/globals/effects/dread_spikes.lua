@@ -15,4 +15,5 @@ end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.SPIKES, 3)
+    target:setCharVar("drkSpikes", 0)
 end

@@ -614,6 +614,7 @@ void CLatentEffectContainer::CheckLatentsZone()
         case LATENT_SIGNET_EXP_BONUS:
         case LATENT_SANCTION_EXP_BONUS:
         case LATENT_SIGIL_EXP_BONUS:
+        case LATENT_CITIZEN_OF:
         case LATENT_ZONE_HOME_NATION:
             return ProcessLatentEffect(latentEffect);
             break;

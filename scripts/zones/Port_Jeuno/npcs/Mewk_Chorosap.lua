@@ -354,7 +354,8 @@ local function AdvanceRequest(player)
                 --All stages complete... do whatever.
                 if npcUtil.giveItem(player, shieldData.Shields[4]) then
                     player:tradeComplete()
-                    local itemName = shieldData.Shields[4]:getName()
+                    local itemNameRaw = GetItem(shieldData.Shields[4])
+                    local itemName = string.gsub(itemNameRaw:getName(), '_', ' ');
                     player:PrintToPlayer("Please enjoy your new " .. itemName .. "!",0, "Mewek")
                     player:setCharVar("ShieldCurrentSkillType", 0)
                 end
@@ -364,7 +365,8 @@ local function AdvanceRequest(player)
                 currentStage = currentStage + 1;
                 if npcUtil.giveItem(player, shieldData.Shields[currentStage]) then
                     player:tradeComplete()
-                    local itemName = shieldData.Shields[currentStage]:getName()
+                    local itemNameRaw = GetItem(shieldData.Shields[currentStage])
+                    local itemName = string.gsub(itemNameRaw:getName(), '_', ' ');
                     player:PrintToPlayer("Please enjoy your new " .. itemName .. "!",0, "Mewek")
                 else
                     -- Don't set variables if the players inventory is full
@@ -396,7 +398,8 @@ local function AdvanceRequest(player)
         end
     end
 
-    local itemName = selectedItem.Id:getName()
+    local itemNameRaw = GetItem(selectedItem.Id)
+    local itemName = string.gsub(itemNameRaw:getName(), '_', ' ');
     player:PrintToPlayer('My next request.. I will need you to bring me ' .. tostring(selectedItem.Quantity) .. ' ' .. itemName .. '.', 0, "Mewk");
 end
 
@@ -405,7 +408,8 @@ local function checkTradeProgress(player, npc, trade)
     if npcUtil.tradeHas(trade, requestedItem) then
 
 
-        local itemName = requestedItem:getName()
+        local itemNameRaw = GetItem(requestedItem)
+        local itemName = string.gsub(itemNameRaw:getName(), '_', ' ');
         local requestedQuantity = player:getCharVar('ShieldStageMaximum');
         local progress = player:getCharVar('ShieldStageProgress');
         local tradedAmount = trade:getItemQty(requestedItem);
@@ -442,7 +446,8 @@ function onTrigger(player, npc)
         player:PrintToPlayer("I don't have time for unskilled adventurers." ,0, "Mewk")
     else
         local requestedItem = player:getCharVar('ShieldStageItem');
-        local itemName = requestedItem:getName();
+        local itemNameRaw = GetItem(requestedItem)
+        local itemName = string.gsub(itemNameRaw:getName(), '_', ' ');
         local requestedQuantity = player:getCharVar('ShieldStageMaximum');
         local progress = player:getCharVar('ShieldStageProgress');
         if (progress < requestedQuantity) then

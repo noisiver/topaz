@@ -48,11 +48,9 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     params.eco = ECO_UNDEAD
-
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.effect = tpz.effect.ACCURACY_DOWN
     BlueTryEnfeeble(caster, target, spell, damage, 30, 0, 180, params)
 
     return damage

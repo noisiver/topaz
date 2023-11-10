@@ -48,16 +48,12 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.eco = ECO_DRAGON
     params.AttkTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-	local demon = (target:getSystem() == 9)
-	
-	if demon then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	end
-    
+
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 0)
     params.effect = tpz.effect.ATTACK_DOWN
     BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 

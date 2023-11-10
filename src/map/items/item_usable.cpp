@@ -39,6 +39,7 @@ CItemUsable::CItemUsable(uint16 id) : CItem(id)
 	m_ReuseDelay	 = 0;
     m_AssignTime     = 0;
     m_AoE            = 0;
+    m_Message        = 0;
 }
 
 CItemUsable::~CItemUsable()
@@ -148,6 +149,26 @@ uint16 CItemUsable::getAoE()
 void CItemUsable::setAoE(uint16 AoE)
 {
     m_AoE = AoE;
+}
+
+uint16 CItemUsable::getMsg()
+{
+    return m_Message;
+}
+
+void CItemUsable::setMsg(uint16 msg)
+{
+    m_Message = msg;
+}
+
+uint16 CItemUsable::getParam()
+{
+    return m_Param;
+}
+
+void CItemUsable::setParam(uint16 param)
+{
+    m_Param = param;
 }
 
 /************************************************************************

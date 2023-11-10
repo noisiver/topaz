@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     if (target:getMainLvl()%5 == 0) then
         skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, 1, 0, 30, 0, 0, 0))
     else
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_MISS) -- no effect
     end
 
     if allSeeingOnyxEye then

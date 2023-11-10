@@ -306,6 +306,12 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
             {
                 mobHP = (baseMobHP + sjHP) * .95;
             }
+            // Trolls, Mamools and Lamia / Merrow get 10% more HP
+            else if (PMob->m_Family == 171 || PMob->m_Family == 176 || PMob->m_Family == 177 || PMob->m_Family == 182 || PMob->m_Family == 246 ||
+                     PMob->m_Family == 591)
+            {
+                mobHP = (baseMobHP + sjHP) * 1.10;
+            }
             // Manticore family has 50% more HP
             else if (PMob->m_Family == 179)
             {
@@ -315,6 +321,11 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
             else if (PMob->m_Family >= 203 && PMob->m_Family <= 205)
             {
                 mobHP = (baseMobHP + sjHP) * 3.0;
+            }
+            // Chigoe family have ~20% of mob HP
+            else if (PMob->m_Family == 64)
+            {
+                mobHP = (baseMobHP + sjHP) * 0.20f;
             }
             else
             {
@@ -869,7 +880,7 @@ void SetupJob(CMobEntity* PMob)
 
                 PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
                 PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             }
             break;
         case JOB_NIN:
@@ -905,7 +916,7 @@ void SetupJob(CMobEntity* PMob)
                 }
 
                 PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
-                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             }
             break;
         case JOB_BST:
@@ -927,17 +938,17 @@ void SetupJob(CMobEntity* PMob)
         case JOB_BLM:
             // We don't want to do the mages stand-back part from subjob, so we have it here
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             break;
         case JOB_SCH:
             // We don't want to do the mages stand-back part from subjob, so we have it here
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             break;
         case JOB_GEO:
             // We don't want to do the mages stand-back part from subjob, so we have it here
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 65);
             break;
         default:
             break;
@@ -1401,6 +1412,11 @@ void RecalculateSpellContainer(CMobEntity* PMob)
     // clear spell list
     PMob->SpellContainer->ClearSpells();
 
+    if (PMob->m_SpellListContainer == nullptr)
+    {
+        return;
+    }
+
     //insert the rest of the spells
     for (std::vector<MobSpell_t>::iterator it = PMob->m_SpellListContainer->m_spellList.begin(); it != PMob->m_SpellListContainer->m_spellList.end(); ++it)
     {
@@ -1440,6 +1456,11 @@ void GetAvailableSpells(CMobEntity* PMob) {
 
 void SetSpellList(CMobEntity* PMob, uint16 spellList)
 {
+    if (PMob == nullptr)
+    {
+        return;
+    }
+
     PMob->m_SpellListContainer = mobSpellList::GetMobSpellList(spellList);
     RecalculateSpellContainer(PMob);
 }

@@ -151,8 +151,9 @@ tpz.pet.id =
     MOSQUITO = 122,  -- WETLANDS BROTH
     YOKO = 123,  -- HEAVENLY BROTH
     GLENN = 124,  -- WISPY BROTH
-    YELLOW_BEETLE = 125,  -- ZESTFUL SAP
-    SEFINA = 126,  -- GASSY SAP
+    -- ID''s past 124 break the server
+    -- YELLOW_BEETLE = 125,  -- ZESTFUL SAP
+    -- SEFINA = 126,  -- GASSY SAP
 
     --  Dragoon
     WYVERN                = 48,

@@ -30,14 +30,14 @@ function onSpellCast(caster, target, spell)
     params.diff = dMND
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
-    params.effect = tpz.effect.SLOW
+    params.eco = ECO_VERMIN
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 0)
     local resist = applyResistanceEffect(caster, target, spell, params)
-    local typeEffect = tpz.effect.SLOW
+    params.effect = tpz.effect.SLOW
     local power = utils.clamp(math.floor(dMND * 226 / 15) + 2380, 1250, 3510)
 
     if resist >= 0.5 then -- Do it!
-        if target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, true)) then
+        if target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, true)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
@@ -46,5 +46,5 @@ function onSpellCast(caster, target, spell)
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
-    return typeEffect
+    return params.effect
 end

@@ -7,20 +7,18 @@ require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/magic")
 require("scripts/globals/player")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.MAIN_DMG_RATING, 50)
-    mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 25) 
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.MDEF, 60)
     mob:setMod(tpz.mod.UDMGMAGIC, -20)
-    mob:setMod(tpz.mod.REFRESH, 40)
-end
-
-function onMobInitialize(mob)
     mob:setMod(tpz.mod.REGAIN, 50)
     mob:setMod(tpz.mod.UFASTCAST,15)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 18)
+end
+
+function onMobInitialize(mob)
 end
 
 function onMobEngaged(mob,target)

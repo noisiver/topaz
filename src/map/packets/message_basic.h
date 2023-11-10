@@ -35,10 +35,15 @@ enum MSGBASIC_ID : uint16
 {
     MSGBASIC_NONE                   = 0, /* Display nothing */
 	MSGBASIC_DEFEATS_TARG			= 6, /* The <player> defeats <target>. */
+    MSGBASIC_MAGIC_RECOVERS_HP      = 7, /* <caster> casts <spell>. <target> recovers <amount> HP. */
+    MSGBASIC_SELF_HEAL_SECONDARY    = 263, /* <target recovers <amount> HP | Used for Curaga */
 	MSGBASIC_ALREADY_CLAIMED		= 12, /* Cannot attack. Your target is already claimed. */
 	MSGBASIC_IS_INTERRUPTED			= 16, /* The <player>'s casting is interrupted. */
 	MSGBASIC_UNABLE_TO_CAST			= 18, /* Unable to cast spells at this time. */
     MSGBASIC_FALLS_TO_GROUND        = 20, /* The <target> falls to the ground. */
+    MSGBASIC_RECOVERS_HP            = 24, /* The <target> recovers HP. */
+    MSGBASIC_RECOVERS_MP            = 25, /* The <target> recovers MP. */
+    MSGBASIC_RECOVERS_HP_MP         = 26, /* The <target> recovers HP and MP. */
 	MSGBASIC_UNABLE_TO_USE_JA		= 87, /* Unable to use job ability. */
 	MSGBASIC_UNABLE_TO_USE_JA2		= 88, /* Unable to use job ability. */
 	MSGBASIC_IS_PARALYZED			= 29, /* The <player> is paralyzed. */

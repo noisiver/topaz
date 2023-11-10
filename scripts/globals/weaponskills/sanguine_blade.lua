@@ -48,13 +48,18 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         end
     end
 
+    local targetHP = target:getHP()
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
-	
 
+    local healing = damage
+    -- Cap healing amount at the targets current HP
+    if (targetHP < damage) then
+        healing = targetHP
+    end
 
     if not target:isUndead() then
-        player:addHP((damage/100) * drain)
+        player:addHP(math.floor((healing/100) * drain))
     end
 
     return tpHits, extraHits, criticalHit, damage

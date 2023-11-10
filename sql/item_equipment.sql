@@ -1895,7 +1895,7 @@ INSERT INTO `item_equipment` VALUES (12125,'ebur_visor',71,0,66560,251,0,0,16,0,
 INSERT INTO `item_equipment` VALUES (12126,'shikkoku_hatsuburi',71,0,133122,252,0,0,16,0,0);
 INSERT INTO `item_equipment` VALUES (12127,'shinku_hatsuburi',71,0,133122,253,0,0,16,0,0);
 INSERT INTO `item_equipment` VALUES (12128,'ginhaku_hatsuburi',71,0,133122,254,0,0,16,0,0);
-INSERT INTO `item_equipment` VALUES (12129,'ebon_headgear',71,0,2363424,255,0,0,16,0,0);
+INSERT INTO `item_equipment` VALUES (12129,'ebon_headgear',71,0,4194303,255,0,0,16,0,0);
 INSERT INTO `item_equipment` VALUES (12130,'furia_headgear',71,0,2363424,256,0,0,16,0,0);
 INSERT INTO `item_equipment` VALUES (12131,'ebur_headgear',71,0,2363424,257,0,0,16,0,0);
 INSERT INTO `item_equipment` VALUES (12132,'ebon_tam',71,0,33296,258,0,0,16,0,0);
@@ -1931,7 +1931,7 @@ INSERT INTO `item_equipment` VALUES (12161,'ebur_jerkin',71,0,66560,251,0,0,32,0
 INSERT INTO `item_equipment` VALUES (12162,'shikkoku_togi',71,0,133122,252,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (12163,'shinku_togi',71,0,133122,253,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (12164,'ginhaku_togi',71,0,133122,254,0,0,32,0,0);
-INSERT INTO `item_equipment` VALUES (12165,'ebon_vest',71,0,2363424,255,0,0,32,0,0);
+INSERT INTO `item_equipment` VALUES (12165,'ebon_vest',71,0,4194303,255,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (12166,'furia_vest',71,0,2363424,256,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (12167,'ebur_vest',71,0,2363424,257,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (12168,'ebon_talar',71,0,33296,258,0,0,32,0,0);
@@ -1967,7 +1967,7 @@ INSERT INTO `item_equipment` VALUES (12197,'ebur_bracers',71,0,66560,251,0,0,64,
 INSERT INTO `item_equipment` VALUES (12198,'shikkoku_kote',71,0,133122,252,0,0,64,0,0);
 INSERT INTO `item_equipment` VALUES (12199,'shinku_kote',71,0,133122,253,0,0,64,0,0);
 INSERT INTO `item_equipment` VALUES (12200,'ginhaku_kote',71,0,133122,254,0,0,64,0,0);
-INSERT INTO `item_equipment` VALUES (12201,'ebon_wristbands',71,0,2363424,255,0,0,64,0,0);
+INSERT INTO `item_equipment` VALUES (12201,'ebon_wristbands',71,0,4194303,255,0,0,64,0,0);
 INSERT INTO `item_equipment` VALUES (12202,'furia_wristbands',71,0,2363424,256,0,0,64,0,0);
 INSERT INTO `item_equipment` VALUES (12203,'ebur_wristbands',71,0,2363424,257,0,0,64,0,0);
 INSERT INTO `item_equipment` VALUES (12204,'ebon_gants',71,0,33296,258,0,0,64,0,0);
@@ -2003,7 +2003,7 @@ INSERT INTO `item_equipment` VALUES (12233,'ebur_braccae',71,0,66560,251,0,0,128
 INSERT INTO `item_equipment` VALUES (12234,'shikkoku_haidate',71,0,133122,252,0,0,128,0,0);
 INSERT INTO `item_equipment` VALUES (12235,'shinku_haidate',71,0,133122,253,0,0,128,0,0);
 INSERT INTO `item_equipment` VALUES (12236,'ginhaku_haidate',71,0,133122,254,0,0,128,0,0);
-INSERT INTO `item_equipment` VALUES (12237,'ebon_tights',71,0,2363424,255,0,0,128,0,0);
+INSERT INTO `item_equipment` VALUES (12237,'ebon_tights',71,0,4194303,255,0,0,128,0,0);
 INSERT INTO `item_equipment` VALUES (12238,'furia_tights',71,0,2363424,256,0,0,128,0,0);
 INSERT INTO `item_equipment` VALUES (12239,'ebur_tights',71,0,2363424,257,0,0,128,0,0);
 INSERT INTO `item_equipment` VALUES (12240,'ebon_slacks',71,0,33296,258,0,0,128,0,0);
@@ -2039,7 +2039,7 @@ INSERT INTO `item_equipment` VALUES (12269,'ebur_socks',71,0,66560,251,0,0,256,0
 INSERT INTO `item_equipment` VALUES (12270,'shikkoku_sune-ate',71,0,133122,252,0,0,256,0,0);
 INSERT INTO `item_equipment` VALUES (12271,'shinku_sune-ate',71,0,133122,253,0,0,256,0,0);
 INSERT INTO `item_equipment` VALUES (12272,'ginhaku_sune-ate',71,0,133122,254,0,0,256,0,0);
-INSERT INTO `item_equipment` VALUES (12273,'ebon_gaiters',71,0,2363424,255,0,0,256,0,0);
+INSERT INTO `item_equipment` VALUES (12273,'ebon_gaiters',71,0,4194303,255,0,0,256,0,0);
 INSERT INTO `item_equipment` VALUES (12274,'furia_gaiters',71,0,2363424,256,0,0,256,0,0);
 INSERT INTO `item_equipment` VALUES (12275,'ebur_gaiters',71,0,2363424,257,0,0,256,0,0);
 INSERT INTO `item_equipment` VALUES (12276,'ebon_brogues',71,0,33296,258,0,0,256,0,0);
@@ -3116,7 +3116,7 @@ INSERT INTO `item_equipment` VALUES (13354,'spinel_earring',67,0,4194303,0,0,0,6
 INSERT INTO `item_equipment` VALUES (13355,'sapphire_earring',67,0,4194303,0,0,0,6144,0,0);
 INSERT INTO `item_equipment` VALUES (13356,'death_earring',67,0,4194303,0,0,0,6144,0,0);
 INSERT INTO `item_equipment` VALUES (13357,'angels_earring',67,0,4194303,0,0,0,6144,0,0);
-INSERT INTO `item_equipment` VALUES (13358,'judges_earring',1,0,4194303,0,0,0,6144,0,0);
+INSERT INTO `item_equipment` VALUES (13358,'ebon_earring',1,0,4194303,0,0,0,6144,0,0);
 INSERT INTO `item_equipment` VALUES (13359,'bloodbead_earring',32,0,4194303,0,0,0,6144,0,0);
 INSERT INTO `item_equipment` VALUES (13360,'twinstone_earring',24,0,4194303,0,0,0,6144,0,0);
 INSERT INTO `item_equipment` VALUES (13361,'drone_earring',35,0,4194303,0,0,0,6144,0,0);
@@ -8882,7 +8882,7 @@ INSERT INTO `item_equipment` VALUES (19181,'moogles_largesse',1,0,4194303,0,0,0,
 INSERT INTO `item_equipment` VALUES (19182,'ruszor_arrow',89,0,1024,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19183,'drk._adm._bolt',89,0,1024,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19184,'drk._adm._bullet',90,0,1024,0,0,0,8,0,0);
-INSERT INTO `item_equipment` VALUES (19185,'automat._oil_+3',80,0,131072,0,0,0,8,0,0);
+INSERT INTO `item_equipment` VALUES (19185,'automat._oil_+3',75,0,131072,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19186,'tiny_tathlum',15,0,4194303,0,0,0,8,0,0);
 INSERT INTO `item_equipment` VALUES (19187,'murti_bow',85,0,3072,86,0,0,4,0,0);
 INSERT INTO `item_equipment` VALUES (19188,'killer_shortbow',83,0,7665,41,0,0,4,0,0);
@@ -11846,6 +11846,7 @@ INSERT INTO `item_equipment` VALUES (25774,'fancy_gilet',1,0,4194303,447,0,0,32,
 INSERT INTO `item_equipment` VALUES (25775,'fancy_top',1,0,4194303,448,0,0,32,64,0);
 INSERT INTO `item_equipment` VALUES (25776,'bl._chocobo_suit',1,0,4194303,449,0,0,32,448,0);
 INSERT INTO `item_equipment` VALUES (25777,'iratsugo_happi',1,0,4194303,452,0,0,32,0,0);
+INSERT INTO `item_equipment` VALUES (25778,'iratsume_happi',1,0,4194303,452,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (25779,'flamma_korazin',99,119,10433,195,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (25780,'flamma_korazin_+1',99,119,10433,195,0,0,32,0,0);
 INSERT INTO `item_equipment` VALUES (25781,'mummu_jacket',99,119,332834,196,0,0,32,0,0);

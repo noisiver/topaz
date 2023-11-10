@@ -6,9 +6,9 @@
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
-     mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
-     mob:setMod(tpz.mod.REFRESH, 400)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 15)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

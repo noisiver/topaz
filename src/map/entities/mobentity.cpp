@@ -127,7 +127,10 @@ CMobEntity::CMobEntity()
 
     // For Dyna Stats
     m_StatPoppedMobs = false;
+
+
     m_IsClaimable = true;
+    m_forceCast = false;
 
     PAI = std::make_unique<CAIContainer>(this, std::make_unique<CPathFind>(this), std::make_unique<CMobController>(this),
         std::make_unique<CTargetFind>(this));
@@ -583,6 +586,10 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         ((CCharEntity*)PMembermember)->m_autoTargetOverride = (CBattleEntity*)PWinner;
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    {
+                                        petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
+                                    }
                                 });
                         }
                     }
@@ -653,6 +660,10 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         PMembermember->m_autoTargetOverride = (CBattleEntity*)PWinner;
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    {
+                                        petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
+                                    }
                                 });
                         }
                     }

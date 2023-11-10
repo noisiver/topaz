@@ -29,18 +29,11 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
     params.effect = tpz.effect.LULLABY
+    params.eco = ECO_BIRD
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 25)
     local resist = applyResistanceEffect(caster, target, spell, params)
-	local aquan = (target:getSystem() == 2)
-	local amorph = (target:getSystem() == 1)
-	
-	if aquan then
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif amorph then
-		params.bonus = -25
-	end
-    local duration = 90 * resist
+    local duration = 90
 
     -- Can't overwrite any sleep
     if hasSleepT1Effect(target) then

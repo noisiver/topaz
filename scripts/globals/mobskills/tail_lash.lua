@@ -12,10 +12,10 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-	if target:isBehind(mob, 90) then
-        return 0
+	if target:isInfront(mob, 128) then
+        return 1
     end
-    return 1
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)

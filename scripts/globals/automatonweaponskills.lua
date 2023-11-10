@@ -4,6 +4,7 @@ require("scripts/globals/utils")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/pets")
+require("scripts/globals/weaponskills")
 ------------------------------------
 -- Mostly re-used from summon.lua
 
@@ -290,13 +291,13 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
         cRatio = cRatio - levelcor
 
 
-        -- PDif caps at 2.0 for non-crits on melee, 3.0 for ranged
+        -- PDif caps at 2.0 for non-crits on melee, 2.5 for ranged
         if attackType == tpz.attackType.PHYSICAL then
             if cRatio > 2 then cRatio = 2 end
         end
 
         if attackType == tpz.attackType.RANGED then
-            if cRatio > 3 then cRatio = 3 end
+            if cRatio > 2.5 then cRatio = 2.5 end
         end
         --printf("CRatio after correction: %i", cRatio*100)
         --Everything past this point is randomly computed per hit
@@ -312,6 +313,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             local isBlocked = math.random()*100 < target:getBlockRate(auto)
             local isParried = math.random()*100 < target:getParryRate(auto)
             if isCrit then
+                TryBreakMob(target)
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
                     wRatio = wRatio * 1.25
@@ -330,6 +332,8 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
 
             if isCrit then
                 pDif = pDif * critAttackBonus
+                -- PDif caps at 3.0 for crits
+                if pDif > 3.0 then pDif = 3.0 end
             end
             --printf("pdif first hit %u", pDif * 100)
             finaldmg = autoHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp
@@ -386,6 +390,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             local isBlocked = math.random()*100 < target:getBlockRate(auto)
             local isParried = math.random()*100 < target:getParryRate(auto)
             if isCrit then
+                TryBreakMob(target)
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
                     wRatio = wRatio * 1.25
@@ -406,6 +411,8 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             
             if isCrit then
                 pDif = pDif * critAttackBonus
+                -- PDif caps at 3.0 for crits
+                if pDif > 3.0 then pDif = 3.0 end
             end
             --printf("pdif multihits %u", pDif * 100)
             if params.multiHitFtp == nil then ftp = 1 end -- Not fTP transfer
@@ -628,7 +635,7 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
 
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     -- handling normal stoneskin
-    dmg = utils.stoneskin(target, dmg)
+    dmg = utils.stoneskin(target, dmg, attackType)
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, damageType)
     --printf("dmg %d", dmg)
@@ -694,7 +701,7 @@ function AutoMagicalFinalAdjustments(dmg, auto, skill, target, attackType, eleme
     else
         -- Handling rampart stoneskin + normal stoneskin
         dmg = utils.rampartstoneskin(target, dmg)
-        dmg = utils.stoneskin(target, dmg)
+        dmg = utils.stoneskin(target, dmg, attackType)
 	    target:takeDamage(dmg, auto, attackType, element)
     end
     target:updateEnmityFromDamage(auto, dmg)

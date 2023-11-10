@@ -6,8 +6,15 @@
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
-     mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.CHARM, hpp = math.random(25, 50)},
+        },
+    })
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

@@ -31,7 +31,8 @@ function onUseAbility(player, target, ability)
         target:addStatusEffect(tpz.effect.INHIBIT_TP,25,3,penance)
     end
 
-    dmg = utils.stoneskin(target, dmg)
+    local attackType = tpz.attackType.BREATH
+    dmg = utils.stoneskin(target, dmg, attackType)
     target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
     target:updateEnmityFromDamage(player, dmg)
     target:updateClaim(player)

@@ -32,7 +32,7 @@ local function openMouth(mob)
     mob:addMod(tpz.mod.UDMGBREATH, 100)
     mob:addMod(tpz.mod.UDMGMAGIC, 100)
     mob:addMod(tpz.mod.UDMGRANGE, 100)
-    mob:setLocalVar("[hpemde]closeMouthHP", mob:getHP() - math.ceil(mob:getMaxHP() / 3))
+    mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
     mob:AnimationSub(3)
     mob:wait(2000)
 end
@@ -43,6 +43,8 @@ local function closeMouth(mob)
     mob:delMod(tpz.mod.UDMGBREATH, 100)
     mob:delMod(tpz.mod.UDMGMAGIC, 100)
     mob:delMod(tpz.mod.UDMGRANGE, 100)
+    mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
+    mob:setLocalVar("damageTaken", 0)
     mob:AnimationSub(6)
     mob:wait(2000)
 end
@@ -74,9 +76,12 @@ g_mixins.families.hpemde = function(mob)
     mob:addListener("TAKE_DAMAGE", "HPEMDE_TAKE_DAMAGE", function(mob, damage, attacker, attackType, damageType)
         local damageTaken = mob:getLocalVar("damageTaken")
         local animationSub = mob:AnimationSub()
-        mob:setLocalVar("damageTaken", mob:getLocalVar("damageTaken") + damage)
-        if (animationSub == 3) and (damageTaken >= 250) then  -- Closes mouth after taking >= 250 damage
-            closeMouth(mob)
+        -- Only track damage taken while open
+        if (animationSub == 3) then
+            mob:setLocalVar("damageTaken", mob:getLocalVar("damageTaken") + damage)
+            if (damageTaken >= 250) then  -- Closes mouth after taking >= 250 damage
+                closeMouth(mob)
+            end
         end
     end)
 

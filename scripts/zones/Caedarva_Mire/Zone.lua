@@ -21,15 +21,11 @@ function onInitialize(zone)
     zone:registerRegion(5, 299, 14, -341, 0, 0, 0) -- North(By Key ???)
     zone:registerRegion(6, 302, 14, -377, 0, 0, 0) -- Middle Pond(By Jnun)
     --Jnun/Imp/Fly Marsh 
-    zone:registerRegion(7, 447, 6, -288, 0, 0, 0)
-    zone:registerRegion(8, 451, 6, -298, 0, 0, 0)
-    zone:registerRegion(9, 458, 6, -310, 0, 0, 0)
-    zone:registerRegion(10, 469, 6, -301, 0, 0, 0)
-    zone:registerRegion(11, 457, 6, -328, 0, 0, 0)
-    zone:registerRegion(12, 458, 6, -341, 0, 0, 0)
-    zone:registerRegion(13, 466, 6, -329, 0, 0, 0)
-    zone:registerRegion(14, 465, 6, -311, 0, 0, 0)
-    zone:registerRegion(15, 460, 6, -294, 0, 0, 0)
+    zone:registerRegion(7, 452, 6, -302, 0, 0, 0)
+    zone:registerRegion(8, 457, 6, -308, 0, 0, 0)
+    zone:registerRegion(9, 469, 6, -301, 0, 0, 0)
+    zone:registerRegion(10, 457, 6, -328, 0, 0, 0)
+    zone:registerRegion(11, 458, 6, -339, 0, 0, 0)
 
     UpdateNMSpawnPoint(ID.mob.AYNU_KAYSEY)
 
@@ -78,7 +74,7 @@ function onRegionEnter(player, region)
     local RegionID = region:GetRegionID()
     local tick = player:getLocalVar("Caedarva_Mire_Swamp_Tick")
     
-    if (RegionID <= 15 and not player:hasStatusEffect(tpz.effect.MOUNTED) and os.time() >= tick) then
+    if (RegionID <= 11 and not player:hasStatusEffect(tpz.effect.MOUNTED) and os.time() >= tick) then
         printf("Entered Region")
         player:setLocalVar("Caedarva_Mire_Swamp_Tick", os.time() + 5)
         if RNG < 50 then
@@ -100,7 +96,6 @@ function onRegionEnter(player, region)
             end
         elseif RNG < 95 and Respawn <= os.time() then
             --printf("Spawn Zikko")
-            player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
             Zikko:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
             SpawnMob(ID.mob.ZIKKO):updateClaim(player)
             SetServerVariable("Zikko_Respawn", os.time() + 7200)

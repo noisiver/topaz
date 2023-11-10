@@ -56,7 +56,11 @@ function onSpellCast(caster, target, spell)
 		target:addHP(final)
 		target:wakeUp()
 		caster:updateEnmityFromCure(target, final)
-		spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
+        if target:getID() == spell:getPrimaryTargetID() then
+            spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
+        else
+            spell:setMsg(tpz.msg.basic.SELF_HEAL_SECONDARY)
+        end
 	end
 
     return final

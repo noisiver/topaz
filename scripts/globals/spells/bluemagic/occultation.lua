@@ -23,15 +23,10 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.BLINK
     local skill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    local power = (skill / 50)
+    -- 300 skill = 8 shadows
+    local numShadows = 2 + math.floor(skill / 50)
     local duration = 300
-
-    -- 400 skill = 8 shadows, 450 = 9 shadows, so I am assuming every 50 skill is a shadow.
-    -- Also assuming minimum of 2 shadows.
-    -- I've never seen the spell cast with under 100 skill, so I could be wrong.
-    if (skill < 100) then
-        power = 2
-    end
+    local procChance = 75
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
@@ -43,7 +38,7 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
-    if (target:addStatusEffect(typeEffect, power, 0, duration) == false) then
+    if (target:addStatusEffect(typeEffect, numShadows, 0, duration, 0, procChance, 0) == false) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
 

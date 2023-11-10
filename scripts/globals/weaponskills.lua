@@ -396,7 +396,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     calcParams.guaranteedHit = calcParams.sneakApplicable or calcParams.trickApplicable
     calcParams.mightyStrikesApplicable = attacker:hasStatusEffect(tpz.effect.MIGHTY_STRIKES)
     calcParams.forcedFirstCrit = calcParams.sneakApplicable or calcParams.assassinApplicable
-    calcParams.extraOffhandHit = attacker:isDualWielding() or attack.weaponType == tpz.skill.HAND_TO_HAND
+    calcParams.extraOffhandHit = attacker:isDualWielding()
     calcParams.hybridHit = wsParams.hybridWS
     calcParams.flourishEffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
     calcParams.fencerBonus = fencerBonus(attacker)
@@ -1563,7 +1563,16 @@ function shadowAbsorb(target)
     local shadowType = tpz.mod.UTSUSEMI
 
     if targShadows == 0 then
-        if math.random() < 0.5 then
+        local effect = target:getStatusEffect(tpz.effect.BLINK)
+        local procChance = 0.4
+        if (effect ~= nil) then
+            if (effect:getSubPower() ~= nil) then
+                if (effect:getSubPower() > 0) then
+                    procChance = effect:getSubPower() / 10
+                end
+            end
+        end
+        if math.random() < procChance then
             targShadows = target:getMod(tpz.mod.BLINK)
             shadowType = tpz.mod.BLINK
         end
@@ -1681,10 +1690,18 @@ function TryBreakMob(target)
             target:AnimationSub(1)
         end
     elseif (GetMobFamily(target) == 'Hydra') then
+    elseif (GetMobFamily(target) == 'Chigoe') then
+		target:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+		target:setMobMod(tpz.mobMod.NO_DROPS, 1)
+        target:setHP(0)
     end
 end
 
 function GetMobFamily(target)
+    if not target:isMob() then
+        return 0
+    end
+
     if (target:getFamily() == 246) or (target:getFamily() == 308) or (target:getFamily() == 923) then
         return 'Troll'
     elseif (target:getFamily() == 176) or (target:getFamily() == 305) or (target:getFamily() == 591) then
@@ -1707,8 +1724,10 @@ function GetMobFamily(target)
         return 'Gears'
     elseif (target:getFamily() == 168) or (target:getFamily() == 315) then 
         return 'Khimaira'
-    elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313)  then 
+    elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313) then 
         return 'Hydra'
+    elseif (target:getFamily() == 64) then 
+        return 'Chigoe'
     end
 end
 

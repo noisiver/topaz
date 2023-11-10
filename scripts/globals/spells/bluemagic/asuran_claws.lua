@@ -24,26 +24,26 @@ end
 function onSpellCast(caster, target, spell)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-        params.tpmod = TPMOD_ACC
-        params.attackType = tpz.attackType.PHYSICAL
-        params.damageType = tpz.damageType.SLASHING
-        params.scattr = SC_IMPACTION
-        params.numhits = 6
-		params.multiplier = 1
-		params.tp150 = 1
-		params.tp300 = 1
-		params.azuretp = 1
-		params.duppercap = 80 -- D upper >=69
-        params.str_wsc = 0.5
-        params.dex_wsc = 0.0
-        params.vit_wsc = 0.0
-        params.agi_wsc = 0.0
-        params.int_wsc = 0.0
-        params.mnd_wsc = 0.0
-        params.chr_wsc = 0.0
-		params.attkbonus = 0.9
-        params.AccTPModifier = true
-        params.shadowbehav = BLUPARAM_6_SHADOW
+    params.tpmod = TPMOD_ACC
+    params.attackType = tpz.attackType.PHYSICAL
+    params.damageType = tpz.damageType.SLASHING
+    params.scattr = SC_IMPACTION
+    params.numhits = 6
+	params.multiplier = 1
+	params.tp150 = 1
+	params.tp300 = 1
+	params.azuretp = 1
+	params.duppercap = 80 -- D upper >=69
+    params.str_wsc = 0.5
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+	params.attkbonus = 0.9
+    params.AccTPModifier = true
+    params.shadowbehav = BLUPARAM_6_SHADOW
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)

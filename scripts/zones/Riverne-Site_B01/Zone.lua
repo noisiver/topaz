@@ -10,6 +10,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onInitialize(zone)
+    zone:registerRegion(1, 283, -89, 835, 0, 0, 0) --Go! Go! Gobmuffin!
 end
 
 function onConquestUpdate(zone, updatetype)
@@ -31,6 +32,14 @@ function afterZoneIn(player)
 end
 
 function onRegionEnter(player, region)
+    if (RegionID == 1 and player:getCharVar("riverneMapQuest") > 0 and player:getCharVar("riverneMapQuest") < 4) then
+        SetServerVariable("Gobmuffin", os.time() + 360)
+        for v = 16896152, 16896154, 1 do
+            if not GetMobByID(v):isSpawned() then
+                SpawnMob(GetMobByID(v)):updateClaim(player)
+            end
+        end
+    end
 end
 
 function onEventUpdate(player, csid, option)

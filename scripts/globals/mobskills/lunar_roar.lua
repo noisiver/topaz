@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
     if (num == 0) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
     end
     mob:setTP(0)
 

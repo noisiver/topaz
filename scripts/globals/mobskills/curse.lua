@@ -19,7 +19,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if (mob:getPool() == 9004) then -- The Big One
         if target:hasStatusEffect(tpz.effect.FEALTY) then
-            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+            skill:setMsg(tpz.msg.basic.SKILL_MISS)
         else
             local typeEffect = tpz.effect.CURSE_II -- Zombie
 

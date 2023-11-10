@@ -19,14 +19,15 @@ function onSpellCast(caster, target, spell)
     local duration = calculateDuration(60 + caster:getMod(tpz.mod.REGEN_DURATION), spell:getSkillType(), spell:getSpellGroup(), caster, target)
     duration = calculateDurationForLvl(duration, 59, target:getMainLvl())
 
-    -- SCH main while Light Arts being active tripled the duration
-    if caster:getMainJob() == tpz.job.SCH then 
-        if caster:hasStatusEffect(tpz.effect.LIGHT_ARTS) or caster:hasStatusEffect(tpz.effect.ADDENDUM_WHITE) then
-            duration = duration * 3
+    if caster:isPC() then
+        caster:PrintToPlayer(string.format( "Power: %d. Duration: %d.", hp, duration))
+    end
+    if caster:isPC() then
+        if caster:hasStatusEffect(tpz.effect.TABULA_RASA) then
+            caster:PrintToPlayer(string.format( "Tabula Rasa bonus active!"))
         end
     end
-
-    if target:addStatusEffect(tpz.effect.REGEN, hp, 0, duration) then
+    if target:addStatusEffect(tpz.effect.REGEN, hp, 3, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect

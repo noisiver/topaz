@@ -9,9 +9,7 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (target:isBehind(mob, 48) == true) then
-        return 1
-    elseif (mob:AnimationSub() == 1) then
+    if (mob:AnimationSub() == 1) then
         return 1
     end
     return 0
@@ -22,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     if (dispel == 0) then
         -- no effect
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_MISS) -- no effect
     else
         skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
     end

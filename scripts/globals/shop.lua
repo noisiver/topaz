@@ -145,7 +145,7 @@ tpz.shop =
             4112,  910, -- Potion
             4153, 1000, -- Antacid
         }
-        tpz.shop.general(player, stock)
+        tpz.shop.general(player, stock, JEUNO)
     end,
 
     --[[ *******************************************************************************
@@ -169,7 +169,7 @@ tpz.shop =
             4240, 3000, -- Cyclone Crystal
             4241, 3000, -- Terra Crystal
         }
-        tpz.shop.general(player, stock)
+        tpz.shop.general(player, stock, JEUNO)
     end,
 
     --[[ *******************************************************************************
@@ -265,6 +265,7 @@ tpz.shop =
                 18731,    50,       tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil
                 18732,    250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +1
                 18733,    500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +2
+                19185,   1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +3
         },
         [curio.ammunition] =
         {
@@ -306,6 +307,9 @@ tpz.shop =
                 6302,     700,      tpz.ki.RHAPSODY_IN_AZURE,   -- Fuma Shuriken Pouch
                 6303,    1000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Iga Shuriken Pouch
                 5870,    4752,      tpz.ki.RHAPSODY_IN_WHITE,   -- Trump Card Case
+                1022,    3643,      tpz.ki.RHAPSODY_IN_AZURE,   -- Thief's Tools
+                1023,    5520,      tpz.ki.RHAPSODY_IN_EMERALD, -- Living Key
+                1115,    6574,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Skeleton Key
         },
         [curio.ninjutsuTools] =
         {
@@ -362,6 +366,9 @@ tpz.shop =
                 4410,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Roast Mushroom
                 4510,      24,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acorn Cookie
                 4394,      12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ginger Cookie
+                5188,      750,     tpz.ki.RHAPSODY_IN_WHITE,   -- Peperoncino
+                5213,     1500,     tpz.ki.RHAPSODY_IN_AZURE,   -- Melanzane
+                5189,     1833,     tpz.ki.RHAPSODY_IN_EMERALD, -- Vongole Rosso
                 -- 5782,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sugar Rusk
                 -- 5783,    2000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocolate Rusk
                 -- 5779,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Cherry Macaron
@@ -378,6 +385,19 @@ tpz.shop =
                 -- 5547,   15000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beef Stewpot
                 -- 5727,   15000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Zaru Soba
                 4466,       12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spicy Cracker
+        },
+        [curio.scrolls] =
+        {
+                4181,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Warp
+                4182,     500,      tpz.ki.RHAPSODY_IN_UMBER,     -- Instant Reraise
+                5428,     500,      tpz.ki.RHAPSODY_IN_AZURE,     -- Instant Retrace
+                5988,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Protect
+                5989,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Shell
+                5990,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Stoneskin
+               15533,    5000,      tpz.ki.RHAPSODY_IN_UMBER,     -- Chocobo Whistle
+        },
+        [curio.keys] =
+        {
                 17016,      11,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Alpha Biscuit
                 17017,      82,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Food Beta Biscuit
                 19251,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pet Roborant
@@ -407,85 +427,31 @@ tpz.shop =
                 17888,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lively Mole Broth
                 17891,     695,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antica Broth
                 17892,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Fragrant Antica Broth
-                17889,    500,      tpz.ki.RHAPSODY_IN_UMBER,    -- Blood Broth
+                17889,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Blood Broth
                 17890,    1500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Clear Blood Broth
                 17902,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Lucky Broth
                 17904,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Briny Broth
-                17874,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cunning Brain Broth
-                17893,    1500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
-                17879,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Curdled Plasma Broth
-                17883,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Mellow Bird Broth
-                17900,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cloudy Wheat Broth
-                17903,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Shadowy Broth
-                21470,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Decaying Broth
-                21466,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Frizzante Broth
-                21442,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sticky Webbing
-                21440,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sugary Broth
-                21494,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wetlands Broth
-                17914,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wispy Broth
-                21446,    5000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Airy Broth
-                17909,    6000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Spicy Broth
-                21488,    6000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Pristine Sap
-                17911,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Salubrious Broth
-                21438,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Poisonous Broth
-                21450,    7000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Electrified Broth
-                21464,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Rancid Broth
-                17912,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Fizzy Broth
-                21468,    8000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Broth
-        },
-        [curio.scrolls] =
-        {
-                4181,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Instant Warp
-                4182,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Instant Reraise
-                5428,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Instant Retrace
-                5988,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Protect
-                5989,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Shell
-                5990,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Stoneskin
-               15533,    5000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Chocobo Whistle
-        },
-        [curio.keys] =
-        {
-            -- 1024,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ghelsba Chest Key
-            -- 1025,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Palborough Chest Key
-            -- 1026,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Giddeus Chest Key
-            -- 1027,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ranperre Chest Key
-            -- 1028,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Dangruf Chest Key
-            -- 1029,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Horutoto Chest Key
-            -- 1030,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ordelle Chest Key
-            -- 1031,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Gusgen Chest Key
-            -- 1032,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Shakhrami Chest Key
-            -- 1033,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Davoi Chest Key
-            -- 1034,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beadeaux Chest Key
-            -- 1035,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oztroja Chest Key
-            -- 1036,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Delkfutt Chest Key
-            -- 1037,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fei'Yin Chest Key
-            -- 1038,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Zvahl Chest Key
-            -- 1039,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Eldieme Chest Key
-            -- 1040,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Nest Chest Key
-            -- 1041,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Garlaige Chest Key
-            -- 1043,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beadeaux Coffer Key
-            -- 1042,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Davoi Coffer Key
-            -- 1044,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oztroja Coffer Key
-            -- 1045,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Nest Coffer Key
-            -- 1046,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Eldieme Coffer Key
-            -- 1047,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Garlaige Coffer Key
-            -- 1048,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Zvhal Coffer Key
-            -- 1049,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Uggalepih Coffer Key
-            -- 1050,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Den Coffer Key
-            -- 1051,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Kuftal Coffer Key
-            -- 1052,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Boyahda Coffer Key
-            -- 1053,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Cauldron Coffer Key
-            -- 1054,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Quicksand Coffer Key
-            -- 1055,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grotto Chest Key
-            -- 1056,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Onzozo Chest Key
-            -- 1057,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toraimarai Coffer Key
-            -- 1058,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ru'Aun Coffer Key
-            -- 1059,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grotto Coffer Key
-            -- 1060,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ve'Lugannon Coffer Key
-            -- 1061,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sacrarium Chest Key
-            -- 1062,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oldton Chest Key
-            -- 1063,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Newton Coffer Key
-            -- 1064,    2500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pso'Xja Chest Key
+                17874,     417,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cunning Brain Broth
+                17893,    4000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wool Grease
+                17879,     708,      tpz.ki.RHAPSODY_IN_UMBER,   -- Curdled Plasma Broth
+                17883,     583,      tpz.ki.RHAPSODY_IN_UMBER,   -- Mellow Bird Broth
+                17900,     417,      tpz.ki.RHAPSODY_IN_UMBER,   -- Cloudy Wheat Broth
+                17903,    2084,      tpz.ki.RHAPSODY_IN_UMBER,   -- Shadowy Broth
+                21470,     354,      tpz.ki.RHAPSODY_IN_UMBER,   -- Decaying Broth
+                21466,     583,      tpz.ki.RHAPSODY_IN_UMBER,   -- Frizzante Broth
+                21442,     708,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sticky Webbing TODO: Recipe and cost
+                21440,     354,      tpz.ki.RHAPSODY_IN_UMBER,   -- Sugary Broth TODO: Recipe and cost
+                21494,    1042,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wetlands Broth TODO: Recipe and cost
+                17914,     250,      tpz.ki.RHAPSODY_IN_UMBER,   -- Wispy Broth
+                21446,     519,      tpz.ki.RHAPSODY_IN_AZURE,   -- Airy Broth
+                17909,     708,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Spicy Broth TODO: Recipe and cost
+                21488,    1146,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Pristine Sap
+                17911,    2084,      tpz.ki.RHAPSODY_IN_EMERALD, -- Salubrious Broth
+                21438,    2084,      tpz.ki.RHAPSODY_IN_EMERALD, -- Poisonous Broth
+                21450,    2084,      tpz.ki.RHAPSODY_IN_EMERALD, -- Electrified Broth
+                21464,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Rancid Broth
+                17912,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Fizzy Broth
+                21468,    2084,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Zestful Sap
         }
     }
 }

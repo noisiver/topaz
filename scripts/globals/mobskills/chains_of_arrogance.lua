@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     if target:isPC() and ((target:getRace() == tpz.race.ELVAAN_M or target:getRace() == tpz.race.ELVAAN_F) and not target:hasKeyItem(tpz.ki.LIGHT_OF_MEA)) then
         skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))
     else
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
     end
 
     return typeEffect

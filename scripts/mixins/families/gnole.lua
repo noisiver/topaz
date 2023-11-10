@@ -9,20 +9,6 @@ g_mixins.families = g_mixins.families or {}
 
 g_mixins.families.gnole = function(mob)
     mob:addListener("SPAWN", "GNOLE_SPAWN", function(mob)
-        mob:setLocalVar("transformTime", os.time())
-    end)
-
-    mob:addListener("ROAM_TICK", "GNOLE_ROAM", function(mob)
-        local currentHour = VanadielHour()
-	    if currentHour >= 18 and currentHour < 6 then
-		    mob:setMod(tpz.mod.REGEN, 30)
-	    else
-		    mob:setMod(tpz.mod.REGEN, 0)
-	    end
-        attemptTransform(mob, 300)
-    end)
-
-    mob:addListener("COMBAT_TICK", "GNOLE_COMBAT", function(mob)
         local moon = utils.getMoonPhase()
         local moonphase = 0
         if (moon == 'Full') then
@@ -40,18 +26,36 @@ g_mixins.families.gnole = function(mob)
             mob:setMod(tpz.mod.MARTIAL_ARTS, 20)
             mob:addMod(tpz.mod.EVA, -60)
         end
+        mob:AnimationSub(math.random(0, 1))
+    end)
+
+    mob:addListener("ROAM_TICK", "GNOLE_ROAM", function(mob)
+        local currentHour = VanadielHour()
+	    if currentHour >= 18 and currentHour < 6 then
+		    mob:setMod(tpz.mod.REGEN, 30)
+	    else
+		    mob:setMod(tpz.mod.REGEN, 0)
+	    end
+        attemptTransform(mob, 300)
+    end)
+
+    mob:addListener("ENGAGE", "GNOLE_ENGAGE", function(mob, target)
+        mob:setLocalVar("transformTime", os.time() + 60)
+    end)
+
+    mob:addListener("COMBAT_TICK", "GNOLE_COMBAT", function(mob)
         attemptTransform(mob, 60)
     end)
 end
 
-function attemptTransform(mob, timeThreshold)
+function attemptTransform(mob, timer)
     local transformTime = mob:getLocalVar("transformTime")
     local currentTime = os.time()
-    if currentTime - transformTime >= timeThreshold then
+    if currentTime >= transformTime then
         local animSub = mob:AnimationSub()
         animSub = (animSub + 1) % 2
         mob:AnimationSub(animSub)
-        mob:setLocalVar("transformTime", currentTime)
+        mob:setLocalVar("transformTime", currentTime + timer)
     end
 end
 

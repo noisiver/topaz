@@ -4,6 +4,7 @@ require("scripts/globals/magic")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
 require("scripts/globals/mobs")
+require("scripts/globals/weaponskills")
 
 -- Foreword: A lot of this is good estimating since the FFXI playerbase has not found all of info for individual moves.
 --            What is known is that they roughly follow player Weaponskill calculations (pDIF, dMOD, ratio, etc) so this is what
@@ -218,9 +219,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local hitchance = math.random()
     local finaldmg = 0
     local hitsdone = 1
-    local bonusHits = 0
-    local quadRate = 0
-    local tripleRate = 0
     local hitslanded = 0
 
     local chance = math.random()
@@ -244,6 +242,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
         if isCrit(mob, critRate) then
+            TryBreakMob(target)
             -- Ranged crits are pdif * 1.25
             if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
@@ -279,24 +278,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         finaldmg = finaldmg + hitdamage * pdif
         hitslanded = hitslanded + 1
     end
-    -- Check multihit(qa/ta/da)
-    local quadRate = mob:getMod(tpz.mod.QUAD_ATTACK) / 100
-    local tripleRate = mob:getMod(tpz.mod.TRIPLE_ATTACK) / 100
-    local doubleRate = mob:getMod(tpz.mod.DOUBLE_ATTACK) / 100
 
-    if math.random() < quadRate then
-        bonusHits = bonusHits + 3
-    elseif math.random() < tripleRate then
-        bonusHits = bonusHits + 2
-    elseif math.random() < doubleRate then
-        bonusHits = bonusHits + 1
-    end
-
-    -- Ranged attacks can't multihit
-    if (tpeffect==TP_RANGED) then bonusHits = 0 end
-
-    -- Add multi-hit procs
-    numberofhits = numberofhits + bonusHits
     -- Cap at 8 hits
     if numberofhits > 8 then numberofhits = 8 end
 
@@ -307,6 +289,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
             if isCrit(mob, critRate) then
+                TryBreakMob(target)
                 -- Ranged crits are pdif * 1.25
                 if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
@@ -635,10 +618,18 @@ end
 -- base is no longer used
 -- Equation: (HP * percent) + (LVL / base)
 -- cap is optional, defines a maximum damage
-function MobHPBasedMove(mob, target, percent, base, element, cap)
-    local damage = (mob:getHP() * percent)
+function MobHPBasedMove(mob, target, percent, base, element, cap, isSuicide)
+    local mobHP = mob:getHP() 
     local resist = 1
     local bonus = 0
+
+    -- Used for mob suicide moves
+    -- Needed or else additional targets beyond first will take 0 damage
+    if (isSuicide ~= nil) then
+        mobHP = mob:getLocalVar("self-destruct_hp") 
+    end
+
+    local damage = (mobHP * percent)
 
     if not mob:isPet() then
         bonus = bonus + 50 -- Mob TP moves have issues landing with new MACC formula, probably have a bonus in retail
@@ -803,12 +794,12 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return 0
     end
 
-    if (dmg < 0) then
-        return 0
+    -- Not being absorbed
+    if (dmg > 0) then
+        --handling phalanx
+        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        dmg = utils.clamp(dmg, 0, 99999)
     end
-
-    --handling phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     --printf("dmg before %u",dmg)
     --handling absorb
@@ -818,7 +809,14 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
             dmg = adjustForTarget(target, dmg, element)
         end
     end
+
+    --handling magic stoneskin / stoneskin
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
+        dmg = utils.rampartstoneskin(target, dmg)
+    end
+    dmg = utils.stoneskin(target, dmg)
     dmg = utils.clamp(dmg, -99999, 99999)
+
     -- Add HP if absorbed
     if (dmg < 0) then
         -- Multiply damage so it outheals the damage it does in the skills lua file
@@ -831,11 +829,6 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return dmg
     end
 
-    --handling magic stoneskin / stoneskin
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
-        dmg = utils.rampartstoneskin(target, dmg)
-    end
-    dmg = utils.stoneskin(target, dmg)
     --printf("dmg after %u",dmg)
     if (dmg > 0) then
         local tpAdded = math.floor((25 * (100 + target:getMod(tpz.mod.STORETP))) / 100)
@@ -921,7 +914,7 @@ function MobDrainMove(mob, target, skill, drainType, drain, attackType, damageTy
         return tpz.msg.basic.DAMAGE
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
@@ -963,7 +956,7 @@ function MobDrainAttribute(mob, target, typeEffect, power, tick, duration)
         return tpz.msg.basic.SKILL_MISS
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function DrainMultipleAttributes(mob, target, power, tick, count, duration)
@@ -1035,16 +1028,14 @@ function MobDrainStatusEffectMove(mob, target)
         return tpz.msg.basic.EFFECT_DRAINED
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 -- Adds a status effect to a target
-function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, params)
-
-    local params = {}
+function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT
+	    return tpz.msg.basic.SKILL_MISS
     end
 
     if (typeEffect == nil) then
@@ -1066,12 +1057,19 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, par
 
         local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
 
+        -- Terror cannot be resisted by players outside of the trait
+        if (target:isPC() and typeEffect == tpz.effect.TERROR) then
+            if math.random() > getEffectResistanceTraitChance(mob, target, tpz.effect.TERROR) then
+                resist = 1
+            end
+        end
+
         target:addEnmity(mob, 1, 320)
 
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
             if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+                return tpz.msg.basic.SKILL_MISS
             end
         end
 
@@ -1087,8 +1085,8 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, par
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteHaste == nil) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) then
+                return tpz.msg.basic.SKILL_MISS
             end
 
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
@@ -1096,16 +1094,16 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration, par
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT
+        return tpz.msg.basic.SKILL_MISS
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT 
+    return tpz.msg.basic.SKILL_MISS 
 end
 
 -- Adds a status effect to a target with customizable duration and subpower
-function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier, params)
+function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT
+	    return tpz.msg.basic.SKILL_MISS
     end
 
     if (typeEffect == nil) then
@@ -1120,12 +1118,17 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
 
         local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
 
+        -- Terror cannot be resisted
+        if (target:isPC() and typeEffect == tpz.effect.TERROR) then
+            resist = 1
+        end
+
         target:addEnmity(mob, 1, 320)
 
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
             if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+                return tpz.msg.basic.SKILL_MISS
             end
         end
 
@@ -1141,8 +1144,8 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
                 totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
             end
 
-            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) and (params.overwriteHaste == nil) then
-                return tpz.msg.basic.SKILL_NO_EFFECT
+            if (typeEffect == tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.HASTE) then
+                return tpz.msg.basic.SKILL_MISS
             end
 
             target:addStatusEffect(typeEffect, power, tick, totalDuration, subid, subpower, tier)
@@ -1150,9 +1153,47 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT
+        return tpz.msg.basic.SKILL_MISS
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT 
+    return tpz.msg.basic.SKILL_MISS 
+end
+
+-- Used for Slows that overwrite Haste
+function MobHasteOverwriteSlowMove(mob, target, power, tick, duration, subid, subpower, tier)
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+	    return tpz.msg.basic.SKILL_MISS
+    end
+
+    local typeEffect = tpz.effect.SLOW
+
+    if not target:hasImmunity(tpz.immunity.SLOW) then
+        local statmod = tpz.mod.INT
+        local dStat = mob:getStat(statmod)-target:getStat(statmod)
+        local element = mob:getStatusEffectElement(typeEffect)
+        local bonus = math.floor(mob:getMainLvl() / 2)
+
+        local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
+
+        target:addEnmity(mob, 1, 320)
+
+        if (resist >= 0.50) then
+
+            -- Reduce duration by resist percentage
+            local totalDuration = duration * resist
+
+            -- add TP scaling
+            local tp = mob:getLocalVar("tp")
+
+            target:delStatusEffectSilent(tpz.effect.HASTE)
+            target:addStatusEffect(typeEffect, power, tick, totalDuration, subid, subpower, tier)
+
+            return tpz.msg.basic.SKILL_ENFEEB_IS
+        end
+
+        return tpz.msg.basic.SKILL_MISS
+    end
+    return tpz.msg.basic.SKILL_MISS 
 end
 
 -- similar to status effect move except, this will not land if the attack missed
@@ -1179,24 +1220,24 @@ end
 function MobGazeMove(mob, target, typeEffect, power, tick, duration)
     if (target:isFacing(mob)) then
 		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
-			return tpz.msg.basic.SKILL_NO_EFFECT
+			return tpz.msg.basic.SKILL_MISS
 		else
 			return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 		end
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 -- similar to statuseffect move except it will only take effect if facing
 function MobGazeMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
     if (target:isFacing(mob)) then
 		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
-			return tpz.msg.basic.SKILL_NO_EFFECT
+			return tpz.msg.basic.SKILL_MISS
 		else
 			return MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
 		end
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function MobBuffMove(mob, typeEffect, power, tick, duration)
@@ -1217,7 +1258,7 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 -- Adds a buff to the move with subpower
@@ -1239,7 +1280,7 @@ function MobBuffMoveSub(mob, typeEffect, power, tick, duration, subid, subpower,
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
 
-    return tpz.msg.basic.SKILL_NO_EFFECT
+    return tpz.msg.basic.SKILL_MISS
 end
 
 function MobHealMove(mob, target, skill, multiplier)
@@ -1352,12 +1393,12 @@ function MobCharmMove(mob, target, skill, costume, duration)
     target:addEnmity(mob, 1, 320)
 
 	if (not target:isPC()) then
-		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 	
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		else
         	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
 			mob:charm(target)
@@ -1365,7 +1406,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
             return skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
         end
 	else
-	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 end
 
@@ -1379,18 +1420,18 @@ function MobDeathMove(mob, target, skill)
 
 	 --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
-		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 	
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		else
             target:setHP(0)
             return skill:setMsg(tpz.msg.basic.FALL_TO_GROUND)
         end
 	else
-	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 end
 
@@ -1480,7 +1521,7 @@ function MobSelfDispelMove(mob, skill)
 
     if (dispel == tpz.effect.NONE) then
         -- no effect
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_MISS) -- no effect
     else
         skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
     end

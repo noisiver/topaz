@@ -73,6 +73,7 @@ function onUseAbility(player, target, ability, action)
         hit = 2
         dmg = base * pdif
         local spell = getSpell(216)
+        local attackType = tpz.attackType.PHYSICAL
         local params = {}
         params.diff = 0
         params.skillType = player:getWeaponSkillType(tpz.slot.MAIN)
@@ -83,8 +84,8 @@ function onUseAbility(player, target, ability, action)
         if resist >= 0.5 then
             if target:hasStatusEffect(tpz.effect.WEIGHT) then
                 dmg = dmg - target:getMod(tpz.mod.PHALANX)
-                dmg = utils.stoneskin(target, dmg)
-                target:takeDamage(dmg, player, tpz.attackType.PHYSICAL, player:getWeaponDamageType(tpz.slot.MAIN))
+                dmg = utils.stoneskin(target, dmg, attackType)
+                 target:takeDamage(dmg, player, tpz.attackType.PHYSICAL, player:getWeaponDamageType(tpz.slot.MAIN))
                 target:updateEnmityFromDamage(player, dmg)
                 action:animation(target:getID(), getFlourishAnimation(player:getWeaponSkillType(tpz.slot.MAIN)))
                 action:speceffect(target:getID(), hit)
@@ -92,7 +93,7 @@ function onUseAbility(player, target, ability, action)
                 return 0
             else
                 dmg = dmg - target:getMod(tpz.mod.PHALANX)
-                dmg = utils.stoneskin(target, dmg)
+                dmg = utils.stoneskin(target, dmg, attackType)
                 target:takeDamage(dmg, player, tpz.attackType.PHYSICAL, player:getWeaponDamageType(tpz.slot.MAIN))
                 target:updateEnmityFromDamage(player, dmg)
                 action:animation(target:getID(), getFlourishAnimation(player:getWeaponSkillType(tpz.slot.MAIN)))
@@ -103,7 +104,7 @@ function onUseAbility(player, target, ability, action)
             end
         else
             dmg = dmg - target:getMod(tpz.mod.PHALANX)
-            dmg = utils.stoneskin(target, dmg)
+            dmg = utils.stoneskin(target, dmg, attackType)
             target:takeDamage(dmg, player, tpz.attackType.PHYSICAL, player:getWeaponDamageType(tpz.slot.MAIN))
             target:updateEnmityFromDamage(player, dmg)
             action:animation(target:getID(), getFlourishAnimation(player:getWeaponSkillType(tpz.slot.MAIN)))

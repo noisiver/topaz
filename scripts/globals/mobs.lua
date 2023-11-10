@@ -954,12 +954,10 @@ function SetGenericNMStats(mob)
     -- Mobs normal weapon damage formula is mob level + 2
     wepDMG = level + 20
 
-    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP then
-        if isH2H then
-            local h2hskill = math.floor(utils.getSkillLvl(1, mob:getMainLvl()))
-            wepDMG = 0.11 * h2hskill + 3 + 18 * math.floor((mob:getMainLvl() + 20) / 75)
-            wepDMG = wepDMG * 0.4
-        end
+    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP or isH2H then
+        local h2hskill = math.floor(utils.getSkillLvl(1, mob:getMainLvl()))
+        wepDMG = 0.11 * h2hskill + 3 + 18 * math.floor((mob:getMainLvl() + 20) / 75)
+        wepDMG = wepDMG * 0.4
     end
 
 	mob:setDamage(wepDMG)
@@ -978,10 +976,13 @@ end
 function SetNukeAnimationsToGa(mob, spell)
     -- Used with onSpellPrecast
     -- For setting ST nukes to -ga animations for Tabula Rasa / Manifeistation
-    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.ENHANCED_MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
-        if spell:canTargetEnemy() then
-            if (spell:getID() % 5 == 1) or (spell:getID() % 5 == 2) then -- t3/4 spells only (mod 5 == 1) for t3, (mod 5 == 2) for t4 (remainder)
-                spell:setAnimation(spell:getAnimation() + 30) -- t3/t4 becomes ga-3/ga-4
+    -- t1/t2/t3/t44 spells only (mod 5 == 1) for t3, (mod 5 == 2) for t4 (remainder)
+    if (spell:getID() >= 144 and spell:getID() <= 173) then -- T1 to T4 nukes
+        if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.ENHANCED_MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
+            if spell:canTargetEnemy() then
+                if (spell:getID() % 5 == 1) or (spell:getID() % 5 == 2) or (spell:getID() % 5 == 4) or (spell:getID() % 5 == 0) or (spell:getID() % 5 == 3) then
+                    spell:setAnimation(spell:getAnimation() + 30) 
+                end
             end
         end
     end
@@ -1042,18 +1043,31 @@ function CorruptBuffs(mob, target, amount)
         { tpz.effect.MAGIC_EVASION_BOOST_II, tpz.effect.MAGIC_EVASION_DOWN },
     }
 
-    -- Corrupt as many buffs as specified in the amount arg
-    for _, buff in pairs(buffsList) do
-        while (amount < corruptCount) do
-            if target:hasStatusEffect(buff[1]) then
-                local currentBuff = buff[1]
-                local power = currentBuff:getPower()
-                local tick = currentBuff:getTick()
-                local duration = math.ceil((currentBuff:getTimeRemaining())/1000)
+    local randomList = {};
+    local count = #buffsList;
+    while (#randomList < count) do
+        local index = math.random(count)
+        local buff = buffsList[index];
+        if buff then
+            randomList[#randomList + 1] = buff;
+            buffsList[index] = nil;
+        end
+    end
 
-                target:delStatusEffectSilent(buff[1])
-                target:addStatusEffect(buff[2], currentBuff, power, tick, duration)
-                corruptCount = corruptCount + 1
+    local corruptCount = 0
+    -- Corrupt as many buffs as specified in the amount arg
+    for _, buff in ipairs(randomList) do
+        if target:hasStatusEffect(buff[1]) then
+            local currentBuff = target:getStatusEffect(buff[1])
+            local power = currentBuff:getPower()
+            local tick = currentBuff:getTick()
+            local duration = math.ceil((currentBuff:getTimeRemaining())/1000)
+
+            target:delStatusEffectSilent(buff[1])
+            target:addStatusEffect(buff[2], power, tick, duration)
+            corruptCount = corruptCount + 1
+            if (corruptCount == amount) then
+                break;
             end
         end
     end

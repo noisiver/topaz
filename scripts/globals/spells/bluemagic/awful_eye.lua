@@ -30,18 +30,8 @@ function onSpellCast(caster, target, spell)
         params.diff = dINT
         params.attribute = tpz.mod.INT
         params.skillType = tpz.skill.BLUE_MAGIC
-        params.bonus = 30
-        params.effect = nil
-        local resist = applyResistanceEffect(caster, target, spell, params)
-		local level = (caster:getMainLvl()  / 5)
-		local power = level 
-		local family = target:getSystem()
-
-		 if (family == tpz.eco.VERMIN) then
-			params.bonus = 55 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-		elseif (family == tpz.eco.BEAST) then
-			params.bonus = 5
-		end
+        params.eco = ECO_LIZARD
+		local power = (caster:getMainLvl()  / 5) 
 
         if ((target:isFacing(caster))) then 
             local returnEffect = typeEffectOne

@@ -18,6 +18,7 @@ function onMobSkillCheck(target, mob, skill)
     if mob:isNM() then
         return 1
     end
+    mob:setLocalVar("self-destruct_hp", mob:getHP())
     return 0
 end
 
@@ -45,9 +46,9 @@ function onMobWeaponSkill(target, mob, skill)
 		hpPercent = 0.30
 	end
 	
-    local damage = MobHPBasedMove(mob, target, hpPercent, 1, tpz.magic.ele.DARK, 1250)
+    local damage = MobHPBasedMove(mob, target, hpPercent, 1, tpz.magic.ele.DARK, 1250, true)
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
-    mob:setHP(0)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
+    mob:setHP(0)
     return dmg
 end

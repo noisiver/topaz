@@ -45,7 +45,7 @@ function onMobFight(mob,target)
         mob:setLocalVar("teleport", os.time() + 45)
         TeleportMob(mob, 5000)
         mob:timer(2000, function(mob)
-		    mob:setPos(mob:getXPos() + math.random(5, 15), mob:getYPos(), mob:getZPos() + math.random(5,15))
+		    mob:setPos(mob:getXPos() + math.random(-10, 10), mob:getYPos(), mob:getZPos() + math.random(-10,10))
         end)
     end
     
@@ -73,7 +73,19 @@ function onMobFight(mob,target)
         end
     end
 
-end;
+    -- Safety check incase the mob gets stuck
+    mob:addListener("ATTACK","PROF_MARI_ATTACK", function(mob)
+        mob:setLocalVar("lastAttack", os.time())
+    end)
+
+    local targetPos = target:getPos()
+    local lastattack = mob:getLocalVar("lastAttack")
+    if (os.time() + 30 > lastAttack) then
+        if not mob:hasPreventActionEffect() and mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING and not mob:isDead() then
+            mob:setPos(targetPos.x +2, targetPos.y, targetPos.z +2)
+        end
+    end
+end
 
 function onMonsterMagicPrepare(mob, target)
     rnd = math.random()
@@ -104,7 +116,6 @@ function onMobDeath(mob, player, isKiller, noKiller)
     -- Set random variable for determining Old Prof. Mariselle's next spawn location
     local rand = math.random((2), (7))
     SetServerVariable("Old_Prof_Spawn_Location", rand)
-
 end
 
 function onMobDespawn( mob )
@@ -121,5 +132,4 @@ function onMobDespawn( mob )
     -- Set random variable for determining Old Prof. Mariselle's next spawn location
     local rand = math.random((2), (7))
     SetServerVariable("Old_Prof_Spawn_Location", rand)
-
 end

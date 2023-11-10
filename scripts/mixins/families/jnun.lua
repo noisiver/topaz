@@ -1,6 +1,6 @@
 --[[
 https://ffxiclopedia.fandom.com/wiki/Category:Crawlers
-
+-- Sleep during the day and are awake at night only
 jnun mobs can optionally be modified by calling tpz.mix.jnun.config(mob, params) from within onMobSpawn.
 
 params is a table that can contain the following keys:
@@ -10,8 +10,8 @@ params is a table that can contain the following keys:
 Example:
 
 tpz.mix.jnun.config(mob, {
-    sleepHour = 20,
-    wakeHour = 4,
+    sleepHour = 6,
+    wakeHour = 18,
 })
 
 --]]
@@ -52,8 +52,9 @@ end
 g_mixins.families.jnun = function(mob)
     -- these defaults can be overwritten by using tpz.mix.jnun.config() in onMobSpawn.  sleepHour must be > wakeHour to function properly.
     mob:addListener("SPAWN", "JNUN_SPAWN", function(mob)
-        mob:setLocalVar("[jnun]sleepHour", 18)
-        mob:setLocalVar("[jnun]wakeHour", 6)
+        mob:setLocalVar("[jnun]sleepHour", 6)
+        mob:setLocalVar("[jnun]wakeHour", 18)
+        mob:setMobMod(tpz.mobMod.NO_ROAM , 1)
     end)
 
     mob:addListener("ROAM_TICK", "JNUN_ROAM_TICK", function(mob)
@@ -72,6 +73,12 @@ g_mixins.families.jnun = function(mob)
             end
         elseif subAnimation == 1 and currentHour < sleepHour and currentHour >= mob:getLocalVar("[jnun]wakeHour") then
             wakeUp(mob)
+        end
+        -- Roam back home if too far from spawn POS
+        if mob:checkDistance(mob:getSpawnPos()) > 1 then
+            mob:setMobMod(tpz.mobMod.NO_ROAM , 0)
+        else
+            mob:setMobMod(tpz.mobMod.NO_ROAM , 1)
         end
     end)
 

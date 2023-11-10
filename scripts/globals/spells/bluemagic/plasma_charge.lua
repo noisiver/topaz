@@ -46,7 +46,11 @@ function onSpellCast(caster, target, spell)
 
     if (target:addStatusEffect(typeEffect, power, 0, duration) == false) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
     end
+
+    -- For tracking what skill to use for spikes MACC formula in C++
+    target:setCharVar("bluSpikes", 1)
 
     return typeEffect
 end

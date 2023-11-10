@@ -74,7 +74,7 @@ INSERT INTO `pet_list` VALUES (28, 'FlowerpotBill', 4602, 28, 40, 1800, 0);
 INSERT INTO `pet_list` VALUES (29, 'EftFamiliar', 4621, 33, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (30, 'LizardFamiliar', 4600, 33, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (31, 'MayflyFamiliar', 4596, 33, 45, 1800, 0);
-INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 65, 1800, 0);
+INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 75, 1800, 0);
 INSERT INTO `pet_list` VALUES (33, 'BeetleFamiliar', 4606, 38, 45, 1800, 0);
 INSERT INTO `pet_list` VALUES (34, 'AntlionFamiliar', 4625, 38, 50, 1800, 0);
 INSERT INTO `pet_list` VALUES (35, 'DiremiteFamiliar', 4623, 43, 55, 1800, 0);
@@ -150,7 +150,7 @@ INSERT INTO `pet_list` VALUES (101, 'WeevilFamiliar', 6800, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (102, 'Angelina', 6801, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (103, 'Reinhard', 6802, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (104, 'Hermes', 6803, 73, 90, 1800, 0);
-INSERT INTO `pet_list` VALUES (105, 'Porte CrabFamiliar', 6804, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (105, 'PorterCrabFamiliar', 6804, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (106, 'Edwin', 6805, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (107, 'Ibuki', 6806, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (108, 'Zhivago', 6807, 73, 90, 1800, 0);
@@ -172,4 +172,7 @@ INSERT INTO `pet_list` VALUES (123, 'Yoko', 6822, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (124, 'Glenn', 6823, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (125, 'YellowBeetleFamiliar', 6824, 73, 90, 1800, 0);
 INSERT INTO `pet_list` VALUES (126, 'Sefina', 6825, 73, 90, 1800, 0);
+-- Need two extra pet IDs after final ones or else server breaks for some reason
+INSERT INTO `pet_list` VALUES (127, 'PH', 6825, 73, 90, 1800, 0);
+INSERT INTO `pet_list` VALUES (128, 'PH', 6825, 73, 90, 1800, 0);
 

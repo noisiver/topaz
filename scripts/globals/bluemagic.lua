@@ -11,6 +11,7 @@ TPMOD_DAMAGE = 2
 TPMOD_ACC = 3
 TPMOD_ATTACK = 4
 TPMOD_DURATION = 5
+TPMOD_MACC = 6
 
 --shadowbehav (number of shadows to take off)
 BLUPARAM_IGNORE_SHADOWS = 0
@@ -64,7 +65,7 @@ ECO_ARCANA = 9
 ECO_DRAGON = 10
 ECO_DEMON = 11
 
-ECO_LUMORIAN = 12
+ECO_LUMINIAN = 12
 ECO_LUMINION = 13
 
 ECO_NONE = 0 -- beastmen or other ecosystems that have no strength/weaknesses
@@ -145,19 +146,29 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
     local efflux = caster:getStatusEffect(tpz.effect.EFFLUX)
-    local affluxBonus = caster:getStatusEffect(tpz.effect.EFFLUX_BONUS)
-    local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
+    local affluxBonus = caster:getMod(tpz.effect.EFFLUX_BONUS)
+    local tp = 0
+    local effluxTP = 0
 
-    if (chainAffinity ~= nil) or (azureLore ~= nil) or (efflux ~= nil) then
+    -- Efflux treats all spells like they're 1k TP
+    if (efflux ~= nil) then
+        local effluxMultiplier = 1 + caster:getMod(tpz.effect.EFFLUX_BONUS) / 100
+        tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
+        -- Efflux also increases the base damage of the spell it is used with by 50% (x 1.5)
+        -- https://www.bg-wiki.com/ffxi/Efflux
+        bonusWSC = bonusWSC + 0.5
+    end
+
+    if (chainAffinity ~= nil) or (azureLore ~= nil) then
         -- Calculate the total TP available for the fTP multiplier.
+
+        -- Add caster's current TP
+        tp = tp + caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
+
         if (tp > 3000) then
             tp = 3000
         end
-        -- Efflux treats all spells like they're 1k TP
-        if (efflux ~= nil) then
-            local effluxMultiplier = 1 + caster:getStatusEffect(tpz.effect.EFFLUX_BONUS) / 100
-            tp = math.floor((1000 + affluxBonus) * effluxMultiplier)
-        end
+
         -- Azure Lore treats all spells like they're 3k TP
         if (azureLore ~= nil) then
             tp = 3000
@@ -168,8 +179,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
 
     -- Calculate final WSC bonuses
-
-    WSC = WSC + (WSC * bonusWSC)
+    WSC = WSC + math.floor((WSC * bonusWSC))
 
     -- See BG Wiki for reference. Chain Affinity is Double WSC. BLU Empyrean is Triple WSC
     -- when the set procs, and stacks with Chain Affinity for a maximum 4x WSC total.
@@ -213,8 +223,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     if (chainAffinity ~= nil) then
 
-		if params.AttkTPModifier then --Check if "Attack varies with TP"
-			AttkTPModifier =  BLUGetAttkTPModifier(caster:getTP()) 
+		if params.AttkTPModifier or (params.tpmod == TPMOD_ATTACK) then --Check if "Attack varies with TP"
+			AttkTPModifier =  BLUGetAttkTPModifier(caster:getTP())
+            -- printf("Attack TP Bonus mod %d", AttkTPModifier*100)
 		end
 
         if params.CritTPModifier then --Check if "Chance of critical strike varies with TP"
@@ -262,34 +273,46 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         SpellCritPdifModifier = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
     end
 	
-	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluphysattk
-	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluphysattk forrmula
+	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluAttack
+	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluAttack forrmula
 		BluAttkModifier = 1
 	end
+    -- printf("Attack Bonus + TP Bonus mod %d", BluAttkModifier*100)
 
-	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    --printf("Attack after Skill.. %u", bluphysattk)
-    -- Add attack from food/gear/JA's
-    bluphysattk = bluphysattk + caster:getStat(tpz.mod.ATT)
-    --printf("Attack after food/gear/jas.. %u", bluphysattk)
-    -- Remove skill from weapon(sword/club/etc)
-    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.SWORD) then
-        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.SWORD) + caster:getMod(tpz.mod.SKILL_SWORD))
+    -- Base attack from BLU skill
+	local bluAttack = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)  + 8
+    --printf("Attack after Skill.. %d", bluAttack)
+
+    -- Add STR
+    bluAttack = bluAttack + math.floor(caster:getStat(tpz.mod.STR) * 0.75)
+    -- printf("Attack after STR.. %d", bluAttack)
+
+    -- Add BLU Attack mod
+    bluAttack = bluAttack + caster:getMod(tpz.mod.BLU_ATT)
+    -- printf("Attack after BLU attack mod.. %d", bluAttack)
+
+    -- Add Minuets
+    if caster:hasStatusEffect(tpz.effect.MINUET) then
+        local minuets = caster:getStatusEffect(tpz.effect.MINUET)
+        bluAttack = bluAttack + minuets:getPower()
+        -- printf("Attack after minuets.. %d", bluAttack)
     end
-    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.CLUB) then
-        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.CLUB) + caster:getMod(tpz.mod.CLUB))
-    end
-    --printf("Attack after weapon skill removed.. %u", bluphysattk)
-    -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
+
+    -- Add +BLU Attack %(percentage)
+    bluAttack = math.floor(bluAttack * (1 + caster:getMod(tpz.mod.BLU_ATTP) / 100))
+    -- printf("Attack after BLU attack percent.. %d", bluAttack)
+
     -- Add attack from TP bonus and attack bonus on specific BLU spells
-    bluphysattk = math.floor(bluphysattk * BluAttkModifier)
-    --printf("Attack after TP bonus.. %u", bluphysattk)
+    bluAttack = math.floor(bluAttack * BluAttkModifier)
+    -- printf("Attack after TP bonus.. %d", bluAttack)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
-        params.offcratiomod = bluphysattk
+        params.offcratiomod = bluAttack
     end
+
+    -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
     local physPotency = 1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
-    bluphysattk = math.floor(bluphysattk * physPotency)
-    --printf("Attack after potency merits.. %u", bluphysattk)
+    bluAttack = math.floor(bluAttack * physPotency)
+    -- printf("Attack after potency merits.. %d", bluAttack)
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
@@ -303,7 +326,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- Add correlation ACC bonus
     if (correlation > 0 and params.bonus ~= nil) then
         params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif correlation < 0 then
+    elseif (correlation < 0 and params.bonus ~= nil) then
         params.bonus = params.bonus - 25 
     end
 
@@ -328,10 +351,14 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             if isRanged then
                 pdif = math.random((rangedcratio[1]*1000), (rangedcratio[2]*1000))
                 pdif = pdif/1000 * SpellCritPdifModifier
+                -- 2.5 pDIF cap for ranged
+                if pdif > 2.5 then pdif = 2.5 end
                 --printf("Ranged pdif: %s", pdif)
             else
                 pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
                 pdif = pdif/1000 + SpellCritPdifModifier
+                -- 2.0 pDIF cap
+                if pdif > 2.0 then pdif = 2.0 end
                 --printf("Melee pdif: %s", pdif)
             end
 
@@ -342,48 +369,67 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 finaldmg = finaldmg + ((math.floor(D + fStr + WSC)) * pdif) -- same as finalD but without multiplier (it should be 1.0)
             end
 
-            -- Check for shadows
-
-            -- If spell is AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow
-            -- Use params.shadowbehav for exceptions
-            local shadowbehav = 1
-
-            if spell:isAoE() then
-                shadowbehav = 999
-            end
-
-            if (params.shadowbehav ~= nil) then
-                shadowbehav = params.shadowbehav
-            end
-
-            finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
-
-            -- dealt zero damage, so shadows took hit
-            if (finaldmg == 0) then
-                spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-                return shadowbehav
-            end
-
-            --handle Third Eye using shadowbehav as a guide
-            if (params.attackType  == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-                return 0
-            end
-
             --handling phalanx
             finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
             hitslanded = hitslanded + 1
-            -- increment target's TP (100TP per hit landed)
-            local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-            -- printf("TP given: %d", tpGiven)
-	        target:addTP(tpGiven)
         end
 
         hitsdone = hitsdone + 1
-        -- TODO: Test if this is required on reail
+        -- TODO: Test if this is required on retail
         -- target:tryInterruptSpell(caster, 1)
     end
+
+    -- Check for shadows
+    -- If spell is conal, then it takes 2-3 shadows, if it's' AOE, then it wipes shadows, otherwise it's absorbed by 1 shadow per hit landed
+    -- Use params.shadowbehav for exceptions
+    local shadowbehav = hitslanded
+    local aoe = spell:isAoE()
+
+    if (spell:isAoE() == 2) then
+        shadowbehav = math.random(2, 3)
+        --printf("conal")
+    elseif (spell:isAoE() == 1 or spell:isAoE() == 8) then
+        --printf("aoe")
+        shadowbehav = 999
+    end
+
+    if (params.shadowbehav ~= nil) then
+        shadowbehav = params.shadowbehav
+    end
+
+    -- Don't check if the spell ignores shadows
+    if target:hasStatusEffect(tpz.effect.BLINK) or target:hasStatusEffect(tpz.effect.COPY_IMAGE) then
+        if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
+            if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
+                finaldmg = utils.takeShadows(target, finaldmg, shadowbehav)
+                -- All hits absorbed by shadows
+                if (finaldmg == 0) then
+                    spell:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+                    return shadowbehav
+                end
+            end
+        end
+    end
+
+    -- Handle Third Eye
+    -- Wipe Third Eye if an AoE or conal spell
+    if (spell:isAoE() > 0) then
+        target:delStatusEffectSilent(tpz.effect.THIRD_EYE)
+    end
+
+    -- Don't check if the spell ignores shadows
+    if target:hasStatusEffect(tpz.effect.BLINK) or target:hasStatusEffect(tpz.effect.COPY_IMAGE) then
+        if (shadowbehav ~= BLUPARAM_IGNORE_SHADOWS) then
+            if (params.attackType == tpz.attackType.PHYSICAL or params.attackType == tpz.attackType.RANGED) then
+                if utils.thirdeye(target) then
+                    spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+                    return 0
+                end
+            end
+        end
+    end
+
 
     -- Weapon resist
     finaldmg = finaldmg * utils.HandleWeaponResist(target, params.damageType)
@@ -417,7 +463,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
 
     -- Handle correlation bonus
-    dmg = BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
+    finaldmg = BlueHandleCorrelationDamage(caster, target, spell, finaldmg, correlation)
 
     -- Handle Positional PDT
     if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
@@ -443,8 +489,14 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
     end
 
-    if finaldmg == 0 then
+    if (finaldmg == 0) then
         spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
+    end
+
+    local tpGiven = utils.CalculateSpellTPGiven(caster, target, hitslanded)
+    -- printf("TP given: %d", tpGiven)
+    if (finaldmg > 0 and spell:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) then
+        target:addTP(tpGiven)
     end
 
     -- print("Hits landed "..hitslanded.."/"..hitsdone.." for total damage: "..finaldmg)
@@ -519,17 +571,14 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     -- Add correlation MACC bonus
     if correlation > 0 then
         params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif correlation < 0 then
+    elseif (correlation < 0 and params.bonus ~= nil) then
         params.bonus = params.bonus - 25 
     end
 
     local dmg = 0
+    local resist = applyResistance(caster, target, spell, params)
 
-    -- Use params.IGNORE_WSC and params.damage to set specific damage
-    -- Only used for Self-Destruct ATM
-    if (params.IGNORE_WSC ~= nil) then
-        magicAttack = math.floor(magicAttack * applyResistance(caster, target, spell, params))
-    end
+    magicAttack = math.floor(magicAttack * resist)
 
     dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
 
@@ -537,7 +586,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         dmg = 0
     end
 
-    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
     -- Handle correlation bonus
     dmg = BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
@@ -554,7 +602,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         end
 
         dmg = dmg * ConvergenceBonus
-		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
     -- Handle Unbridle gear mod
@@ -593,7 +640,9 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     local tpGiven = utils.CalculateSpellTPGiven(caster, target)
     -- printf("TP given: %d", tpGiven)
-    target:addTP(tpGiven)
+    if (dmg > 0 and spell:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) then
+        target:addTP(tpGiven)
+    end
 
     return dmg
 end
@@ -628,17 +677,20 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         --handling rampart stoneskin
             dmg = utils.rampartstoneskin(target, dmg)
             -- handling stoneskin
-            dmg = utils.stoneskin(target, dmg)
+            dmg = utils.stoneskin(target, dmg, attackType)
             target:takeSpellDamage(caster, spell, dmg, attackType, damageType + spell:getElement())
         else
             -- handling stoneskin
-            dmg = utils.stoneskin(target, dmg)
+            dmg = utils.stoneskin(target, dmg, attackType)
             target:takeDamage(dmg, caster, attackType, damageType)
         end
     end
 
     if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
         target:updateEnmityFromDamage(caster, dmg)
+    end
+    if (params.bonus ~= nil) then
+        params.bonus = 0
     end
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
@@ -668,7 +720,7 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     -- Add correlation MACC bonus
     if correlation > 0 then
         params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif correlation < 0 then
+    elseif (correlation < 0 and params.bonus ~= nil) then
         params.bonus = params.bonus - 25 
     end
 
@@ -687,7 +739,6 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
         end
 
 		dmg = math.floor(dmg * ConvergenceBonus)
-		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
 	-- Add breath damage gear
@@ -713,8 +764,6 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     dmg = math.floor(dmg * resist)
     -- Add weather
     dmg = math.floor(dmg * BlueGetWeatherDayBonus(caster, element))
-
-    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
     -- Cap damage for BLU mobs
     if caster:isMob() then
@@ -780,7 +829,7 @@ function BluecRatio(ratio, atk_lvl, def_lvl)
     end
     ratio = ratio - levelcor
 
-    -- apply caps
+    -- 2.0 pDIF cap
     if (ratio<0) then
         ratio = 0
     elseif (ratio>2) then
@@ -823,8 +872,9 @@ function BluecRangedRatio(ratio, atk_lvl, def_lvl)
     end
     ratio = ratio - levelcor
 
-    if (ratio > 3 - levelcor) then
-        ratio = 3 - levelcor
+    -- 2.5 pDIF cap
+    if (ratio > 2.5 - levelcor) then
+        ratio = 2.5 - levelcor
     end
 
     if (ratio < 0) then
@@ -877,12 +927,12 @@ function BluefTP(tp, ftp1, ftp2, ftp3)
     return 1 -- no ftp mod
 end
 
-function BLUGetTPModifier(tp)
-  return 1.0 + (tp / 3000);
+function BLUGetEnfeebDurationModifier(tp)
+  return 1.0 + (tp / 3000); -- 33% / 66% / 99%
 end
 
 function BLUGetAttkTPModifier(tp)
-  return 1.5 + (tp / 2000);
+  return (tp / 3000) -- 33% / 66% / 100%
 end
 
 function BLUGetCritTPModifier(tp)
@@ -893,6 +943,9 @@ function BLUGetAccTPModifier(tp)
   return (20+ ((tp - 1000) * 0.010))
 end
 
+function BLUGetMaccTPModifier(tp)
+    return (10+ ((tp - 1000) * 0.010)) -- 10, 20, 30
+end
 
 function BluefSTR(dSTR)
     local fSTR = 0
@@ -942,10 +995,13 @@ end
 
 function BlueGetHitRate(attacker, target, capHitRate, params)
     local AccTPBonus = 0
-	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
-    if chainAffinity ~= nil then
-		if params.AccTPModifier then --Check if "Accuracy varies with TP"
-			AccTPBonus = BLUGetAccTPModifier(caster:getTP()) 
+	local tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
+    local chainAffinity = attacker:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
+
+    if (chainAffinity ~= nil) then
+		if params.AccTPModifier or (params.tpmod == TPMOD_ACC) then -- Check if "Accuracy varies with TP"
+			AccTPBonus = BLUGetAccTPModifier(attacker:getTP())
+            -- printf("AccTPBonus %d", AccTPBonus)
 		end
 	end
 
@@ -1035,10 +1091,42 @@ function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, p
     local enfeeblingPotency = 1 + (caster:getMod(tpz.mod.ENF_MAG_POTENCY) / 100)
     power = math.floor(power * enfeeblingPotency)
 
+    local tp = caster:getTP()
+    if caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+        tp = 3000
+    end
+
     -- Calculate duration bonuses
     local finalDuration = calculateDuration(duration, skill, spellGroup, caster, target, false)
 
+    -- Apply TP duration mod
+    if (params.tpmod == TPMOD_DURATION) then
+        if caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY) or caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+            finalDuration = math.floor(finalDuration * BLUGetEnfeebDurationModifier(tp))
+        end
+    end
+
+    local maccBonus = 0
+    -- Add Correlation Bonus
+    if (params.bonus ~= nil) then
+        maccBonus = BlueHandleCorrelationMACC(caster, target, spell, params, params.bonus)
+    end
+
+    -- Add "Chance of effect varies with TP" mod
+    if (params.tpmod == TPMOD_MACC) then
+        if (caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY) or caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+            if (maccBonus ~= nil) then 
+                maccBonus = maccBonus + math.floor(BLUGetMaccTPModifier(tp))
+            end
+        end
+    end
     local resist = applyResistanceEffect(caster, target, spell, params)
+
+    -- Reset param as a safety check after doing resist check
+    if (params.bonus ~= nil) then
+        params.bonus = 0
+    end
+
     -- Check for resist trait proc
     if (resist == 0) then
         return false
@@ -1067,6 +1155,11 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
       resist = 0
     end
 
+    local tp = caster:getTP()
+    if caster:hasStatusEffect(tpz.effect.AZURE_LORE) then
+        tp = 3000
+    end
+
     if (effect == tpz.effect.BIND) then
         duration = 30 * resist
     elseif (effect == tpz.effect.STUN) then
@@ -1089,7 +1182,7 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     end
 
     if (varieswithtp and caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY)) then
-        duration = duration * BLUGetTPModifier(caster:getTP())
+        duration = duration * BLUGetEnfeebDurationModifier(tp)
     end
 
     -- Calculate duration bonuses
@@ -1099,24 +1192,26 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
 end
 
 function GetTargetEcosystem(target)
-	local sys = target:getSystem()
+    if target:isMob() then
+	    local sys = target:getSystem()
 
-    -- honestly just taking the topaz enum standard and converting it an easier enum standard
-    -- this makes it very easy to explain the strengths/weaknesses (in the next function)
+        -- honestly just taking the topaz enum standard and converting it an easier enum standard
+        -- this makes it very easy to explain the strengths/weaknesses (in the next function)
 
-	if sys == 6 then return 1
-	elseif sys == 14 then return 2
-	elseif sys == 20 then return 3
-	elseif sys == 17 then return 4
-	elseif sys == 2 then return 5
-	elseif sys == 1 then return 6
-	elseif sys == 8 then return 7
-	elseif sys == 19 then return 8
-	elseif sys == 3 then return 9
-	elseif sys == 10 then return 10
-	elseif sys == 9 then return 11
-	elseif sys == 15 then return 12
-	elseif sys == 16 then return 13 end
+	    if sys == 6 then return 1
+	    elseif sys == 14 then return 2
+	    elseif sys == 20 then return 3
+	    elseif sys == 17 then return 4
+	    elseif sys == 2 then return 5
+	    elseif sys == 1 then return 6
+	    elseif sys == 8 then return 7
+	    elseif sys == 19 then return 8
+	    elseif sys == 3 then return 9
+	    elseif sys == 10 then return 10
+	    elseif sys == 9 then return 11
+	    elseif sys == 15 then return 12
+	    elseif sys == 16 then return 13 end
+    end
 
 	return 0
 end
@@ -1221,13 +1316,31 @@ function BlueGetWeatherDayBonus(caster, element)
 end
 
 function BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
-    if correlation > 0 then
+    if (correlation > 0) then
         dmg = math.floor(dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100))
-    elseif correlation < 0 then
+    elseif (correlation < 0) then
         dmg = math.floor(dmg * 0.75)
     end
 
     return dmg
+end
+
+function BlueHandleCorrelationMACC(caster, target, spell, params, bonus, correlation)
+    local bonusMACC = bonus
+
+    -- Figure out correlation if not provided as an arg
+    if (correlation == nil) and target:isMob() then
+        correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
+    end
+
+    local gearMeritBonus = caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    if (correlation > 0) then
+        bonusMACC = bonusMACC + 25 + gearMeritBonus
+    elseif (correlation < 0) then
+        bonusMACC = bonusMACC - 25
+    end
+
+    return bonusMACC
 end
 
 

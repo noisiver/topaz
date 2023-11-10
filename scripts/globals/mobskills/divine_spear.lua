@@ -10,7 +10,7 @@ require("scripts/globals/status")
 
 function onMobSkillCheck(target, mob, skill)
     -- Only used if player with hate is in front.
-    if (target:isBehind(mob, 48)) then
+    if target:isBehind(mob, 128) then
         return 1
     end
     return 0

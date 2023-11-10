@@ -12,6 +12,7 @@
 -- Magic Bursts on: Transfixion, Fusion, Light
 -- Combos: None
 -----------------------------------------
+require("scripts/globals/bluemagic")
 require("scripts/globals/magic")
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -58,8 +59,9 @@ function onSpellCast(caster, target, spell)
         dmg = 0
     end
 
-    if (target:getHP() < dmg) then
-        dmg = target:getHP()
+    if (target:isUndead()) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return 0
     end
 
 	local bird = (target:getSystem() == 8)
@@ -79,10 +81,16 @@ function onSpellCast(caster, target, spell)
 	-- add dmg variance
 	dmg = (dmg * math.random(85, 115)) / 100
  
+    local healing = dmg
+    -- Cap healing amount at the targets current HP
+    if (target:getHP() < dmg) then
+        healing = target:getHP()
+    end
+
     if dmg > 0 then
-		dmg = dmg * BLUE_POWER
-		caster:addHP(dmg)
-	end
+	    dmg = dmg * BLUE_POWER
+	    caster:addHP(healing)
+    end
 
 
     return dmg

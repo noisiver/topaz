@@ -46,6 +46,7 @@ zones[tpz.zone.THE_ELDIEME_NECROPOLIS] =
         ALREADY_POSSESS_TEMP             = 7591,  -- You already possess that temporary item.
         NO_COMBINATION                   = 7596,  -- You were unable to enter a combination.
         REGIME_REGISTERED                = 9674,  -- New training regime registered!
+        MAGICKED_ASTROLABE_FLARES        = 11626, -- The constellations on your magicked astrolabe flare up with a lucent aura!
         COMMON_SENSE_SURVIVAL            = 11628, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },
     mob =

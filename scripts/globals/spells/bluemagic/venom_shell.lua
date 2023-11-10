@@ -31,17 +31,9 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = typeEffect
-    local resist = applyResistanceEffect(caster, target, spell, params)
+    params.eco = ECO_AQUAN
     local skill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
     local power = (skill / 6) 
-	local amorph = (target:getSystem() == 1)
-	local bird = (target:getSystem() == 8)
-	-- add correlation bonus
-	if amorph then
-	 	 params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	elseif plantoid then
-		 params.bonus = -25
-	end	
 
     if target:hasStatusEffect(typeEffect) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

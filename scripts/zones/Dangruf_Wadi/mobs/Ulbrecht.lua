@@ -16,24 +16,55 @@ local buffs =
 local storms = { 99, 113, 114, 115, 116, 117, 118, 119 }
 
 function onMobInitialize(mob)
+end
+
+function onMobSpawn(mob)
+    mob:setDamage(40)
+    mob:addMod(tpz.mod.ACC, 50)
+    mob:SetMagicCastingEnabled(false)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 12)
+    mob:setLocalVar("specialThreshold", math.random(45, 55))
+
     mob:addListener("WEAPONSKILL_TAKE", "ULBRECHT_WEAPONSKILL_TAKE", function(target, user, wsid, tp, action)
         -- this should be high damage weaponskills but can't figure this out yet so, going with 30% chance
 
         if user:isPC() and math.random() < 0.3 then
-            target:messageText(target, ID.text.PAINFUL_LESSON)
+            utils.MessageParty(user, "Ugh... A painful lesson...", 0, "Ulbrecht")
         end
     end)
 
     mob:addListener("MAGIC_START", "ULBRECHT_MAGIC_START", function(entity, spell, action)
         if math.random() < 0.5 and spell:canTargetEnemy() then -- check offensive spells only
-            entity:messageText(entity, ID.text.TRUE_TEACHING)
+            local player = entity:getTarget()
+            utils.MessageParty(player, "Prepare to receive the true teaching!", 0, "Ulbrecht")
         end
     end)
 
     mob:addListener("MAGIC_USE", "ULBRECHT_MAGIC_USE", function(entity, target, spell, action)
         local spellID = spell:getID()
         if spellID == 99 or (spellID >= 113 and spellID < 120) then
-            entity:setMod(tpz.mod.FIREDEF + spell:getElement() - 1, 52) -- 52/256 = 20% reduction
+            entity:setMod(tpz.mod.FIREDEF + spell:getElement() - 1, 128) -- 128/256 = 50% reduction
+        end
+
+        -- Stop forcing a spell cast if a spell not a storm/buff spell was cast
+        if not (spellID >= 113 and spellID <= 119) and not (spellID == 45) and not (spellID == 50) and not (spellID == 110) and not (spellID == 99) then
+            entity:forceCast(false)
+        end
+    end)
+
+    mob:addListener("EFFECT_GAIN", "ULBRECHT_EFFECT_GAIN", function(owner, effect)
+        local effectType = effect:getType()
+        if effectType >= tpz.effect.FIRESTORM and effectType <= tpz.effect.VOIDSTORM then
+
+            -- Storms are undispellable
+            local effect1 = owner:getStatusEffect(effectType)
+            effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
+
+            -- Change spell list based on active storm
+            owner:setSpellList(effectType + 355) -- Storm status effect ID + 355 will be spell list ID
         end
     end)
 
@@ -44,55 +75,40 @@ function onMobInitialize(mob)
         end
 
         if effectType == tpz.effect.TABULA_RASA then
-            owner:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
             owner:setMod(tpz.mod.REGAIN, 0)
         end
     end)
-end
-
-function onMobSpawn(mob)
-    mob:setDamage(40)
-    mob:addMod(tpz.mod.ACC, 50)
-    mob:setUnkillable(true)
-    mob:SetMagicCastingEnabled(false)
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
-    mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 12)
-    mob:setLocalVar("specialThreshold", math.random(45, 55));
 end
 
 function onMobFight(mob, player)
     local buffCD = mob:getLocalVar("buffCD")
     local stormCD = mob:getLocalVar("stormCD")
     local battleTime = mob:getBattleTime()
-
     -- Rebuff Shell III > Protect III > Regen II every 30s if not already active and Tabula Rasa is not active
     if not mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
-        if (battleTime <= buffCD) then
-            mob:setLocalVar("buffCD", battletime + 30)
+        if (battleTime >= buffCD) then
+            mob:setLocalVar("buffCD", battleTime + 30)
             if not mob:hasStatusEffect(tpz.effect.SHELL) then
-                mob:castSpell(50)
+                mob:castSpell(50, mob)
                 return
             elseif not mob:hasStatusEffect(tpz.effect.PROTECT) then
-                mob:castSpell(45)
+                mob:castSpell(45, mob)
                 return
             elseif not mob:hasStatusEffect(tpz.effect.REGEN) then
-                mob:castSpell(110)
+                mob:castSpell(110, mob)
                 return
             end
         end
     end
 
     -- Cast a random storm every minute
-    if (battleTime <= stormCD) then
-        mob:setLocalVar("buffCD", battletime + 60)
-        mob:castSpell(storms[math.random(#storms)])
+    if (battleTime >= stormCD) then
+        mob:setLocalVar("stormCD", battleTime + 75)
+        mob:castSpell(storms[math.random(#storms)], mob)
     end
 
     if mob:getHPP() < mob:getLocalVar("specialThreshold") then
-        mob:messageText(mob, ID.text.MOST_IMPRESSIVE)
+        utils.MessageParty(target, "Impressive. Most impressive. Perhaps I have been too easy on you up to now...", 0, "Ulbrecht")
         mob:useMobAbility(2261)
         mob:setLocalVar("specialThreshold", 0)
     end
@@ -109,7 +125,7 @@ function onMobEngaged(mob, target)
 
         mob:SetMagicCastingEnabled(true)
         mob:useMobAbility(2303) -- use dark arts
-        mob:messageText(mob, ID.text.MADE_YOUR_PEACE)
+        utils.MessageParty(target, "Have you made your peace with the Goddess?", 0, "Ulbrecht")
         mob:setLocalVar("dialog", 1)
         mob:setLocalVar("stratagem_cooldown", os.time())
         mob:setLocalVar("force_stratagem_tp", -1) -- prevent startup stratagem + ws
@@ -173,6 +189,8 @@ function onMobWeaponSkill(target, mob, skill, action)
             mob:setLocalVar("force_stratagem_tp", 0)
             mob:setTP(forceStratagemTP)
         end
+        -- Force a spell to be cast after using a Dark Arts JA
+       mob:forceCast(true)
     end
 end
 
@@ -186,6 +204,7 @@ function onCastStarting(mob, spell)
         -- end
         spell:castTime(spell:castTime()/10) -- 1000% increased cast speed
     end
+    -- Resets back to 25s spell recast timer after a JA sets to 0
 end
 
 function onSpellPrecast(mob, spell)
@@ -202,20 +221,15 @@ function onSpellPrecast(mob, spell)
                 -- end
             spell:multiplier(spell:multiplier() * 1.4) -- 40% potency increase
         end
-
     end
 
-    if mob:hasStatusEffect(tpz.effect.MANIFESTATION) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
-        if spell:canTargetEnemy() then
-            -- if target and isPlayer then
-            --     target:PrintToPlayer("MANIFESTATION")
-            -- end
-            spell:setAoE(tpz.magic.aoe.RADIAL)
-            spell:setRadius(10)
-            if(spell:getID() % 5 == 1) then -- t3 spells only (mod 5 == 1)
-                spell:setAnimation(spell:getAnimation() + 30) -- t3 becomes ga-3
-            end
-        end
+    -- GA all T3-T4 nukes
+    SetNukeAnimationsToGa(mob, spell)
+
+    -- AOE Helix spells
+    if (spell:getID() >= 278 and spell:getID() <= 285) then
+        spell:setAoE(tpz.magic.aoe.RADIAL)
+        spell:setRadius(10)
     end
 
     if mob:hasStatusEffect(tpz.effect.PARSIMONY) or mob:hasStatusEffect(tpz.effect.TABULA_RASA) then
@@ -226,6 +240,6 @@ function onSpellPrecast(mob, spell)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
-    mob:messageText(mob, ID.text.STUDENT_BECOME_MASTER)
+function onMobDeath(mob, player, isKiller, noKiller)
+    OnDeathMessage(mob, player, isKiller, noKiller, "Inconceivable! The student has become...the master...", 0, "Ulbrecht")
 end

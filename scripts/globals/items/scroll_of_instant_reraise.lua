@@ -12,7 +12,7 @@ end
 
 function onItemUse(target)
     local power = 1
-    local duration = 1800
+    local duration = 7200
     if (target:hasStatusEffect(tpz.effect.RERAISE)) then
         local effect = target:getStatusEffect(tpz.effect.RERAISE)
         local oPower = effect:getPower()

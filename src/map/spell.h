@@ -223,7 +223,8 @@ enum SPELLAOE
     SPELLAOE_RADIAL_ACCE    = 4,  //AOE when under SCH stratagem Accession
     SPELLAOE_PIANISSIMO     = 5,  //Single target when under BRD JA Pianissimo
     SPELLAOE_DIFFUSION      = 6,  //AOE when under Diffusion
-    SPELLAOE_TABULA         = 7   //AOE when under Tabula(Mob Only)
+    SPELLAOE_TABULA         = 7,  //AOE when under Tabula(Mob Only)
+    SPELLAOE_PBAOE          = 8   // Point blank AoE
 };
 
 enum SPELLFLAG
@@ -931,6 +932,7 @@ public:
 
     uint16      getTotalTargets();
     SpellID     getID();
+    uint32      getPrimaryTargetID() const;
     uint8       getJob(JOBTYPE JobID);
     uint16      getMPCost();
     uint32      getCastTime();
@@ -971,6 +973,7 @@ public:
     void        setRadius(float radius);
     void        setTotalTargets(uint16 total);
     void        setID(SpellID id);
+    void        setPrimaryTargetID(uint32);
     void        setJob(int8* jobs);
     void        setMPCost(uint16 MP);
     void        setCastTime(uint32 CastTime);
@@ -1007,6 +1010,7 @@ protected:
 
 private:
     SpellID     m_ID;                                      // spell id
+    uint32      m_primaryTargetID{};                        // primary target ID
     uint32      m_castTime {};                             // time to cast spell
     uint32      m_recastTime {};                           // recast time
     uint16      m_animation {};                            // animation for spell

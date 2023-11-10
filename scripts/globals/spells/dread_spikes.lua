@@ -20,7 +20,11 @@ function onSpellCast(caster, target, spell)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
     end
+
+    -- For tracking what skill to use for spikes MACC formula in C++
+    target:setCharVar("drkSpikes", 1)
 
     return typeEffect
 end

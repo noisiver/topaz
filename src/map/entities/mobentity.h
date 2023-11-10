@@ -256,6 +256,7 @@ public:
     uint8     m_HasSpellScript;                        // 1 if they have a spell script to use for working out what to cast.
 
     bool m_IsClaimable;
+    bool m_forceCast;
 
     static constexpr float sound_range {8.f};
     static constexpr float sight_range {10.f};

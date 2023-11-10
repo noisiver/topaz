@@ -49,14 +49,22 @@ function onUseAbility(player, target, ability, action)
         thfLevel = player:getSubLvl()
     end
 
-    local stealMod = player:getMod(tpz.mod.STEAL)
+    local stealMod = player:getMod(tpz.mod.STEAL) * 10
 
-    local stealChance = 50 + stealMod * 2 + thfLevel - target:getMainLvl()
+    local stealChance = 500 + stealMod * 2 + thfLevel - target:getMainLvl()
 	
-	stealChance = utils.clamp(stealChance, 5, 75) -- Cap at 75% chance
+	stealChance = utils.clamp(stealChance, 50, 750) -- Cap at 75% chance
+
+    -- THF JSE quest
+    -- Sentient Carafe and Greater Cockatrice
+    if target:isMob() then
+        if target:getPool() == 6598 or target:getPool() == 1801 then
+            stealChance = 50 + stealMod
+        end
+    end
 
     stolen = target:getStealItem()
-    if (target:isMob() and math.random(100) < stealChance and stolen ~= 0) then
+    if (target:isMob() and math.random(1000) < stealChance and stolen ~= 0) then
         if (checkThfAfQuest(player, target) == true) then
             stolen = 4569
         end
@@ -80,21 +88,26 @@ function onUseAbility(player, target, ability, action)
         if (resist >= 0.50) then
             local auraStealChance = math.min(player:getMerit(tpz.merit.AURA_STEAL), 95)
             if (math.random(100) < auraStealChance) then
-                stolen = player:stealStatusEffect(target)
-                if (stolen ~= 0) then
-                    ability:setMsg(tpz.msg.basic.STEAL_EFFECT)
-                end
+                effect = player:stealStatusEffect(target)
+                ability:setMsg(tpz.msg.basic.STEAL_EFFECT)
+                action:animation(target:getID(), 181)
             else
                 effect = target:dispelStatusEffect()
+                ability:setMsg(322)
+                action:animation(target:getID(), 181)
             end
 
             -- Try for a second effect if we have the augment
             if ((effect ~= tpz.effect.NONE or stolen ~= 0) and player:getMod(tpz.mod.AUGMENTS_AURA_STEAL) > 0) then
                 if (math.random(100) < auraStealChance) then
                     if (stolenEffect2 ~= nil and math.random(100) < auraStealChance) then
-                        player:stealStatusEffect(target)
+                        effect = player:stealStatusEffect(target)
+                        ability:setMsg(tpz.msg.basic.STEAL_EFFECT)
+                        action:animation(target:getID(), 181)
                     else
-                        target:dispelStatusEffect()
+                        effect = target:dispelStatusEffect()
+                        ability:setMsg(322)
+                        action:animation(target:getID(), 181)
                     end
                 end
             end

@@ -18,7 +18,7 @@ function onTrigger(player, npc)
     }
 
     player:showText(npc, ID.text.KHEL_PAHLHAMA_SHOP_DIALOG, 513)
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, WINDURST)
 end
 
 function onEventUpdate(player, csid, option)

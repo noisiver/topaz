@@ -111,7 +111,7 @@ INSERT INTO `blue_traits` VALUES (27, 4, 110, 407, 7); -- Magic burst bonus II
 INSERT INTO `blue_traits` VALUES (27, 6, 110, 407, 9); -- Magic burst bonus III
 INSERT INTO `blue_traits` VALUES (27, 8, 110, 407, 11); -- Magic burst bonus IV
 INSERT INTO `blue_traits` VALUES (28, 2, 20, 0, 0);   -- Gilfinder
-INSERT INTO `blue_traits` VALUES (28, 4, 19, 303, 2); -- Treasure Hunter II
+INSERT INTO `blue_traits` VALUES (28, 4, 64, 303, 2); -- Treasure Hunter II
 INSERT INTO `blue_traits` VALUES (29, 2, 126, 31, 10);   -- Magic evasion bonus
 INSERT INTO `blue_traits` VALUES (29, 4, 126, 31, 12);   -- Magic evasion bonus II
 INSERT INTO `blue_traits` VALUES (29, 6, 126, 31, 14);   -- Magic evasion bonus III
@@ -132,3 +132,19 @@ INSERT INTO `blue_traits` VALUES (33, 2, 117, 2000, 5); -- Tenacity
 INSERT INTO `blue_traits` VALUES (33, 4, 117, 2000, 7); -- Tenacity II
 INSERT INTO `blue_traits` VALUES (33, 6, 117, 2000, 9); -- Tenacity III
 INSERT INTO `blue_traits` VALUES (33, 8, 117, 2000, 11); -- Tenacity IV
+INSERT INTO `blue_traits` VALUES (34, 2, 107, 903, 500); -- Fencer
+INSERT INTO `blue_traits` VALUES (34, 2, 107, 904, 5); -- Fencer
+INSERT INTO `blue_traits` VALUES (34, 2, 107, 986, 10); -- Fencer
+INSERT INTO `blue_traits` VALUES (34, 4, 107, 903, 550); -- Fencer II
+INSERT INTO `blue_traits` VALUES (34, 4, 107, 904, 7); -- Fencer  II
+INSERT INTO `blue_traits` VALUES (34, 4, 107, 986, 12); -- Fencer II
+INSERT INTO `blue_traits` VALUES (34, 6, 107, 903, 600); -- Fencer III
+INSERT INTO `blue_traits` VALUES (34, 6, 107, 904, 10); -- Fencer III
+INSERT INTO `blue_traits` VALUES (34, 6, 107, 986, 14); -- Fencer III
+INSERT INTO `blue_traits` VALUES (34, 8, 107, 903, 650); -- Fencer IV
+INSERT INTO `blue_traits` VALUES (34, 8, 107, 904, 12); -- Fencer IV
+INSERT INTO `blue_traits` VALUES (34, 8, 107, 986, 15); -- Fencer IV
+INSERT INTO `blue_traits` VALUES (35, 2, 25, 485, 10); -- Shield Mastery
+INSERT INTO `blue_traits` VALUES (35, 4, 25, 485, 20); -- Shield Mastery II 
+INSERT INTO `blue_traits` VALUES (35, 6, 25, 485, 30); -- Shield Mastery III
+INSERT INTO `blue_traits` VALUES (35, 8, 25, 485, 40); -- Shield Mastery IV

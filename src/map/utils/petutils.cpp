@@ -917,7 +917,12 @@ namespace petutils
         PPet->setModifier(Mod::REFRESH, 500);
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;
+        uint16 WeaponDelay = 240;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
+
 
         // Apply pet delay mod / job point reduction bonus
         if (PMaster->objtype == TYPE_PC)
@@ -1126,7 +1131,11 @@ namespace petutils
         // follows PC calcs (w/o SJ)
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;  // 320 delay
+        uint16 WeaponDelay = 320;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
 
         // Apply pet delay mod / job point reduction bonus
         if (PMaster->objtype == TYPE_PC)
@@ -1146,13 +1155,13 @@ namespace petutils
 
         // https://www.bg-wiki.com/ffxi/Wyvern_(Dragoon_Pet)#Combat_Stats
         // innate -40 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
-        PPet->setModifier(Mod::UDMGPHYS, -40);
-        PPet->setModifier(Mod::UDMGBREATH, -40);
-        PPet->setModifier(Mod::UDMGMAGIC, -40);
-        PPet->setModifier(Mod::UDMGRANGE, -40);
+        PPet->addModifier(Mod::UDMGPHYS, -40);
+        PPet->addModifier(Mod::UDMGBREATH, -40);
+        PPet->addModifier(Mod::UDMGMAGIC, -40);
+        PPet->addModifier(Mod::UDMGRANGE, -40);
 
         // innate + 40 subtle blow
-        PPet->setModifier(Mod::SUBTLE_BLOW, 40);
+        PPet->addModifier(Mod::SUBTLE_BLOW, 40);
 
         //Job Point: Wyvern Max HP
         if (PMaster->objtype == TYPE_PC)
@@ -1186,7 +1195,11 @@ namespace petutils
         // clang-format on
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;
+        uint16 WeaponDelay = 240;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
 
         // Apply pet delay mod / job point reduction bonus
         if (PMaster->objtype == TYPE_PC)
@@ -1199,13 +1212,13 @@ namespace petutils
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (WeaponDelay / 60.0f))));
 
         // innate -25 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
-        PPet->setModifier(Mod::UDMGPHYS, -25);
-        PPet->setModifier(Mod::UDMGBREATH, -25);
-        PPet->setModifier(Mod::UDMGMAGIC, -25);
-        PPet->setModifier(Mod::UDMGRANGE, -25);
+        PPet->addModifier(Mod::UDMGPHYS, -25);
+        PPet->addModifier(Mod::UDMGBREATH, -25);
+        PPet->addModifier(Mod::UDMGMAGIC, -25);
+        PPet->addModifier(Mod::UDMGRANGE, -25);
 
         // innate + 40 subtle blow
-        PPet->setModifier(Mod::SUBTLE_BLOW, 40);
+        PPet->addModifier(Mod::SUBTLE_BLOW, 40);
 
         // Get the Jug pet cap level
         uint8 highestLvl = PPetData->maxLevel;
@@ -1250,7 +1263,11 @@ namespace petutils
         static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDamage((uint16)(floor(meleeSkill * 0.11) * 3));
 
         // Base delay
-        uint16 WeaponDelay = PPetData->cmbDelay;
+        uint16 WeaponDelay = 240;
+        if (PPetData != nullptr)
+        {
+            WeaponDelay = PPetData->cmbDelay;
+        }
 
         CAutomatonEntity* PAutomaton = (CAutomatonEntity*)PPet;
         switch (PAutomaton->getFrame())
@@ -1296,7 +1313,11 @@ namespace petutils
                 PPet->addModifier(Mod::ACC, 10);
                 PPet->addModifier(Mod::EVA, 10);
                 PPet->addModifier(Mod::DEFP, 60);
-                PPet->addModifier(Mod::DMG, -13);
+                // innate -15 % DT, which does not contribute to the -50 % cap (this is a unique attribute to pets having a "higher" DT cap)
+                PPet->addModifier(Mod::UDMGPHYS, -25);
+                PPet->addModifier(Mod::UDMGBREATH, -25);
+                PPet->addModifier(Mod::UDMGMAGIC, -25);
+                PPet->addModifier(Mod::UDMGRANGE, -25);
                 break;
             case FRAME_SHARPSHOT:
                 PPet->SetMJob(JOB_RNG);

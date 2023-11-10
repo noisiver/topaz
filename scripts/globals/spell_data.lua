@@ -43,6 +43,8 @@ tpz.magic.aoe =
     RADIAL_ACCE = 4, -- AOE when under SCH stratagem Accession
     PIANISSIMO  = 5, -- Single target when under BRD JA Pianissimo
     DIFFUSION   = 6, -- AOE when under Diffusion
+    TABULA      = 7, -- AOE when under Tabula(Mob Only)
+    PBAOE       = 8  -- Point blank AoE
 }
 
 ------------------------------------

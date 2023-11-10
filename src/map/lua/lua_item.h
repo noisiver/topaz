@@ -82,6 +82,12 @@ public:
 
     int32 getAppraisalID(lua_State*); // Get Appraisal ID
     int32 setAppraisalID(lua_State*); // Set Appraisal ID
+
+    int32 getMsg(lua_State*);   // get the item's msg
+    int32 setMsg(lua_State*); // set the item's msg
+
+    int32 getParam(lua_State*);    // get the item's param (healing / MP restored)
+    int32 setParam(lua_State*); // set the item's parmam (healing / MP restored)
 };
 
 #endif

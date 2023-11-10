@@ -33,7 +33,7 @@ function onTrigger(player, npc)
         6078, 43740,  -- Scroll of Indi-VIT
         6077, 46440,  -- Scroll of Indi-DEX
     }
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, ADOULIN)
 end
 
 function onEventUpdate(player, csid, option)

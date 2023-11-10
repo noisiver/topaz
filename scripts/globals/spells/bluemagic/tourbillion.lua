@@ -28,6 +28,7 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DAMAGE
     params.attackType = tpz.attackType.PHYSICAL
@@ -54,12 +55,12 @@ function onSpellCast(caster, target, spell)
     -- Spell physically hit, check for additional effect proccing
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL) then
         params.effect = tpz.effect.DEFENSE_DOWN
-        params.bonus = 125
+        params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 125)
         local resist = applyResistanceEffect(caster, target, spell, params)
         local power = 33
         -- Check for defense down landing
         if (resist >= 0.5) then
-            target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, false))
+            target:addStatusEffect(params.effect, power, 0, 180)
         end
     end
 

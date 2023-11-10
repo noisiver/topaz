@@ -1047,7 +1047,11 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
                     }
                     else
                     {
-                        health.tp = 0;
+                        // Don't consume TP from spells casted during Azure Lore
+                        if (!StatusEffectContainer->HasStatusEffect(EFFECT_AZURE_LORE))
+                        {
+                            health.tp = 0;
+                        }
                     }
 
                     StatusEffectContainer->DelStatusEffectSilent(EFFECT_CHAIN_AFFINITY);
@@ -1057,7 +1061,33 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     }
     StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
     charutils::RemoveStratagems(this, PSpell);
-    // Delete Elemental Seal if the spell is black magic, blue magic, ninjitsu, a song, or a divine spell
+
+    // Remove Burst Affinity, Convergence and Efflux if a BLU offensive spell was used
+    if (PSpell->getSpellGroup() == SPELLGROUP_BLUE)
+    {
+        if (PSpell->dealsDamage() || PSpell->getID() == SpellID::MP_Drainkiss || PSpell->getID() == SpellID::Magic_Hammer)
+        {
+            // Magical damage spells only
+            if (static_cast<CBlueSpell*>(PSpell)->getPrimarySkillchain() == 0)
+            {
+                StatusEffectContainer->DelStatusEffectSilent(EFFECT_BURST_AFFINITY);
+                StatusEffectContainer->DelStatusEffectSilent(EFFECT_CONVERGENCE);
+
+            }
+            // Physical spells only
+            else
+            {
+                StatusEffectContainer->DelStatusEffectSilent(EFFECT_EFFLUX);
+            }
+        }
+    }
+    // Remove Divine seal if the spell is a healing spell or Stoneskin
+    if (PSpell->isHeal() || PSpell->getID() == SpellID::Stoneskin)
+    {
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_DIVINE_SEAL);
+    }
+
+    // Remove Elemental Seal if the spell is black magic, blue magic, ninjitsu, a song, or a divine spell
     if (PSpell->getSpellGroup() >= SPELLGROUP_SONG && PSpell->getSpellGroup() <= SPELLGROUP_NINJUTSU ||
         PSpell->getSkillType()  == SKILL_DIVINE_MAGIC)
     {
@@ -1377,14 +1407,14 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             }
         }
 
-        // remove invisible if aggressive
-		if (PAbility->getID() != ABILITY_TAME)
+        // Remove invisible if aggressive and not specific BST JA's
+        if (PAbility->getID() != ABILITY_TAME && PAbility->getID() != ABILITY_FIGHT)
         {
             if (PAbility->getValidTarget() & TARGET_ENEMY)
             {
                 StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
-                // aggressive action, pet "assault" commands don't remove sneak but remove invis and quickening
-                if (PAbility->getID() != ABILITY_ASSAULT && PAbility->getID() != ABILITY_FIGHT && PAbility->getID() != ABILITY_DEPLOY)
+                // aggressive action, SMN/PUP pet "assault" commands don't remove sneak but remove invis and quickening
+                if (PAbility->getID() != ABILITY_ASSAULT && PAbility->getID() != ABILITY_DEPLOY)
                     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
                 else 
                     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_INVISIBLE);
@@ -2102,7 +2132,56 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
                 }
             }
         });
+        float radius = 10.0f;
+        PAI->TargetFind->findWithinArea(PTarget, AOERADIUS_ATTACKER, radius, FINDFLAGS_NONE);
+
+        uint16 targets = (uint16)PAI->TargetFind->m_targets.size();
+
+        for (auto&& PActionTarget : PAI->TargetFind->m_targets)
+        {
+            action.id = this->id;
+            action.actiontype = ACTION_ITEM_FINISH;
+            action.actionid = PItem->getID();
+
+            actionList_t& actionList = action.getNewActionList();
+            actionList.ActionTargetID = PActionTarget->id;
+
+            actionTarget_t& actionTarget = actionList.getNewActionTarget();
+            actionTarget.animation = PItem->getAnimationID();
+            actionTarget.reaction = REACTION_HIT;
+            actionTarget.messageID = PItem->getMsg();
+            actionTarget.param = PItem->getParam();
+
+            // Percentage HP / MP restored msg, Healing/Mana Powder
+            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
+            {
+                int hp = floor(PActionTarget->GetMaxHP() * actionTarget.param);
+                int mp = floor(PActionTarget->GetMaxMP() * actionTarget.param);
+                int hpp = floor(hp / 100);
+                int mpp = floor(mp / 100);
+
+                actionTarget.param = hpp;
+
+                // Mana Powder
+                if (PItem->getID() == 4255)
+                {
+                    actionTarget.param = mpp;
+                }
+            }
+
+            // HP restored msg
+            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
+            {
+                if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+                {
+                    actionTarget.param = 0;
+                }
+            }
+        }
+
+
     }
+    // Maybe can use PAI->TargetFind->findSingleTarget(PActionTarget, flags); instead of findWithinArea and not need else?
     else
     {
         luautils::OnItemUse(PTarget, PItem);
@@ -2112,17 +2191,45 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
         {
             this->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
         }
+        action.id = this->id;
+        action.actiontype = ACTION_ITEM_FINISH;
+        action.actionid = PItem->getID();
+
+        actionList_t& actionList = action.getNewActionList();
+        actionList.ActionTargetID = PTarget->id;
+
+        actionTarget_t& actionTarget = actionList.getNewActionTarget();
+        actionTarget.animation = PItem->getAnimationID();
+        actionTarget.reaction = REACTION_HIT;
+        actionTarget.messageID = PItem->getMsg();
+        actionTarget.param = PItem->getParam();
+
+        // Percentage HP / MP restored msg, Healing/Mana Powder
+        if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
+        {
+            int hp = floor(this->GetMaxHP() * actionTarget.param);
+            int mp = floor(this->GetMaxMP() * actionTarget.param);
+            int hpp = floor(hp / 100);
+            int mpp = floor(mp / 100);
+
+            actionTarget.param = hpp;
+
+            // Mana Powder
+            if (PItem->getID() == 4255)
+            {
+                actionTarget.param = mpp;
+            }
+        }
+
+        // HP restored msg
+        if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
+        {
+            if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+            {
+                actionTarget.param = 0;
+            }
+        }
     }
-
-    action.id = this->id;
-    action.actiontype = ACTION_ITEM_FINISH;
-    action.actionid = PItem->getID();
-
-    actionList_t& actionList = action.getNewActionList();
-    actionList.ActionTargetID = PTarget->id;
-
-    actionTarget_t& actionTarget = actionList.getNewActionTarget();
-    actionTarget.animation = PItem->getAnimationID();
 
     if (PItem->isType(ITEM_EQUIPMENT))
     {

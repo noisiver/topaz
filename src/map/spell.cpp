@@ -63,6 +63,16 @@ SpellID CSpell::getID()
     return m_ID;
 }
 
+void CSpell::setPrimaryTargetID(uint32 targid)
+{
+    m_primaryTargetID = targid;
+}
+
+uint32 CSpell::getPrimaryTargetID() const
+{
+    return m_primaryTargetID;
+}
+
 uint8 CSpell::getJob(JOBTYPE JobID)
 {
     return (m_job[JobID] == CANNOT_USE_SPELL ? 255 : m_job[JobID]);
@@ -748,19 +758,30 @@ namespace spell
     {
         float total = spell->getRadius();
 
+            // -Ga Enfeebles are 15 yalms
+        if (spell->getID() >= SpellID::Paralyga && spell->getID() <= SpellID::Graviga)
+        {
+            total = 15.0f;
+        }
+
+        // Horde Lullaby AOE is small
+        if (spell->getID() == SpellID::Horde_Lullaby || spell->getID() == SpellID::Horde_Lullaby_II)
+        {
+            total = 5.0f;
+        }
+
         // brd gets bonus radius from string skill
         if(spell->getSpellGroup() == SPELLGROUP_SONG && (spell->getValidTarget() & TARGET_SELF)){
             if(entity->objtype == TYPE_MOB || (entity->GetMJob() == JOB_BRD &&
                 entity->objtype == TYPE_PC && ((CCharEntity*)entity)->getEquip(SLOT_RANGED) &&
                 ((CItemWeapon*)((CCharEntity*)entity)->getEquip(SLOT_RANGED))->getSkillType() == SKILL_STRING_INSTRUMENT))
             {
-                // Horde Lullaby AOE is small
-                total = 5;
                 total += ((float)entity->GetSkill(SKILL_STRING_INSTRUMENT) / 276) * 10;
             }
 
-            if (total > 20){
-                total = 20;
+            if (total > 20.0f)
+            {
+                total = 20.0f;
             }
         }
 

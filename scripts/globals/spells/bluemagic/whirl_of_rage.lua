@@ -36,7 +36,7 @@ function onSpellCast(caster, target, spell)
     params.scattr2 = SC_DETONATION
     params.numhits = 1
     params.multiplier = 3.0
-    params.tp150 = 4.0
+    params.tp150 = 3.5
     params.tp300 = 4.0
     params.azuretp = 4.0
     params.duppercap = 80
@@ -48,12 +48,12 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.3
     params.chr_wsc = 0.0
     params.eco = ECO_ARCANA
+    params.shadowbehav = BLUPARAM_WIPE_SHADOWS
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.bonus = 25
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 25)
     local resist = applyResistanceEffect(caster, target, spell, params)
-
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.25) and not target:hasStatusEffect(tpz.effect.STUN) then
         target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, params.effect, false))
     end

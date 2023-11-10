@@ -28,6 +28,7 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DAMAGE
     params.attackType = tpz.attackType.PHYSICAL
@@ -50,29 +51,29 @@ function onSpellCast(caster, target, spell)
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.bonus = 125
+    params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 125)
+    local power = 25
     -- Spell physically hit, check for additional effect proccing
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL) then
         params.effect = tpz.effect.ATTACK_DOWN
         local resist = applyResistanceEffect(caster, target, spell, params)
-        local power = 25
         -- Check for attack down landing
         if (resist >= 0.5) then
-            target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, false))
+            target:addStatusEffect(params.effect, power, 0, 180)
         end
 
         params.effect = tpz.effect.ACCURACY_DOWN
         resist = applyResistanceEffect(caster, target, spell, params)
         -- Check for accuracy down landing
         if (resist >= 0.5) then
-            target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, false))
+            target:addStatusEffect(params.effect, power, 0, 180)
         end
 
         params.effect = tpz.effect.DEFENSE_DOWN
         resist = applyResistanceEffect(caster, target, spell, params)
         -- Check for defense down landing
         if (resist >= 0.5) then
-            target:addStatusEffect(params.effect, power, 0, getBlueEffectDuration(caster, resist, params.effect, false))
+            target:addStatusEffect(params.effect, power, 0, 180)
         end
     end
 

@@ -14,18 +14,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local params = {}
-    params.overwriteHaste = true
-
     local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 3000)
     dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.2)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
-    local typeEffectOne = tpz.effect.PLAGUE
-    local typeEffectTwo = tpz.effect.SLOW
+    local typeEffect = tpz.effect.PLAGUE
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.EARTH)
-    MobStatusEffectMove(mob, target, typeEffectOne, 5, 3, 300)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 5000, 0, 300, params)
+    MobStatusEffectMove(mob, target, typeEffect, 5, 3, 300)
+    obHasteOverwriteSlowMove(mob, target, 5000, 0, 90, 0, 0, 2)
     return dmg
 end

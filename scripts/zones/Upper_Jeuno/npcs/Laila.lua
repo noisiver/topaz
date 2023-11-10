@@ -8,6 +8,7 @@
 -- make sure the surrounding npcs react to the player accordingly after each quest. There are a few event IDs that I don't recall using
 -- make global variables for all these event hexvalues and put them in textids
 --TODO--
+-- DNC job quest NPC
 -----------------------------------
 local ID = require("scripts/zones/Upper_Jeuno/IDs")
 require("scripts/globals/keyitems")
@@ -15,14 +16,20 @@ require("scripts/globals/settings")
 require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/jsequests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    tpz.jsequest.onTrade(player, npc, trade, tpz.job.DNC)
 end
 
 function onTrigger(player, npc)
     local lakesideMin = player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.LAKESIDE_MINUET)
     local lakeProg = player:getCharVar("Lakeside_Minuet_Progress")
+
+    -- JSE quests
+    tpz.jsequest.onTrigger(player, npc, tpz.job.DNC)
+
     if (lakesideMin == QUEST_AVAILABLE and player:getMainLvl() >= ADVANCED_JOB_LEVEL and ENABLE_WOTG == 1) then
         player:startEvent(10111) -- Start quest csid, asks for Key Item Stardust Pebble
     elseif (lakesideMin == QUEST_COMPLETED and player:needToZone()) then

@@ -49,6 +49,7 @@ local THE_ELDIEME_NECROPOLIS =
         if npc:getAnimation() == tpz.anim.CLOSE_DOOR then
             if player:hasKeyItem(tpz.ki.MAGICKED_ASTROLABE) then
                 npc:openDoor(8)
+                player:messageSpecial(ID.text.MAGICKED_ASTROLABE_FLARES)
             else
                 player:messageSpecial(ID.text.SOLID_STONE)
             end

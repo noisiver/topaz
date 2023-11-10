@@ -673,9 +673,21 @@ int getSDTTier(int SDT)
         {
             magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
         }
-        if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_BLU && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SHOCK_SPIKES))
+        if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_BLU)
         {
-            magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_BLUE_MAGIC));
+            auto PChar = static_cast<CCharEntity*>(PAttacker);
+            if (charutils::GetCharVar(PChar, "bluSpikes") > 0)
+                {
+                    magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_BLUE_MAGIC));
+                }
+        }
+        else if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_DRK)
+        {
+                auto PChar = static_cast<CCharEntity*>(PAttacker);
+            if (charutils::GetCharVar(PChar, "drkSpikes") > 0)
+            {
+                magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_DARK_MAGIC));
+            }
         }
         magicacc += PAttacker->getMod(Mod::MACC);
         //printf("MACC after MACC mod %f\n", magicacc);
@@ -1017,10 +1029,10 @@ int getSDTTier(int SDT)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
             damage = battleutils::HandleMagicStoneskin(PDefender, damage);
-            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            int16 magicSS = PDefender->getMod(Mod::MAGIC_SS);
             if (!magicSS)
             {
-                damage = battleutils::HandleStoneskin(PDefender, damage);
+                damage = battleutils::HandleStoneskin(PDefender, damage, ATTACK_MAGICAL);
             }
         }
 
@@ -1215,10 +1227,10 @@ int getSDTTier(int SDT)
             Action->spikesParam = std::max(Action->spikesParam - PAttacker->getMod(Mod::PHALANX), 0);
             // Handle Stoneskin
             Action->spikesParam = HandleMagicStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
-            int16 magicSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
+            int16 magicSS = PAttacker->getMod(Mod::MAGIC_SS);
             if (!magicSS)
             {
-                Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+                Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))), ATTACK_MAGICAL);
             }
 
             uint8 element = 1;
@@ -1452,7 +1464,8 @@ int getSDTTier(int SDT)
             else
             {
                 auto ratio = std::clamp<uint8>(damage / 4, 1, 255);
-                Action->spikesParam = HandleStoneskin(PAttacker, damage - tpzrand::GetRandomNumber<uint16>(ratio) + tpzrand::GetRandomNumber<uint16>(ratio));
+                Action->spikesParam =
+                    HandleStoneskin(PAttacker, damage - tpzrand::GetRandomNumber<uint16>(ratio) + tpzrand::GetRandomNumber<uint16>(ratio), ATTACK_MAGICAL);
                 PAttacker->takeDamage(Action->spikesParam),
                                       PDefender,
                                       ATTACK_MAGICAL,
@@ -1482,7 +1495,7 @@ int getSDTTier(int SDT)
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::CURSERESTRAIT))
+                        tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::CURSERESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1494,7 +1507,7 @@ int getSDTTier(int SDT)
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                     //printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, (uint32)(45 * (float)resist)));
@@ -1507,7 +1520,7 @@ int getSDTTier(int SDT)
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::STUNRESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::STUNRESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, (uint32)(4 * (float)resist)));
                 }
@@ -1519,7 +1532,7 @@ int getSDTTier(int SDT)
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SILENCERESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SILENCERESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1531,7 +1544,7 @@ int getSDTTier(int SDT)
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 3500, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1543,7 +1556,7 @@ int getSDTTier(int SDT)
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
-                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT))
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT) + PAttacker->getMod(Mod::STATUSRESTRAIT))
                 {
                         PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 20, 3, (uint32)(30 * (float)resist)));
                 }
@@ -2341,6 +2354,19 @@ int getSDTTier(int SDT)
             return false;
         }
 
+        // cannot interrupt when chainspell is active
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_CHAINSPELL))
+        {
+            return false;
+        }
+
+        // Don't try to interrupt if not in casting state
+        if (!PDefender->PAI->IsCurrentState<CMagicState>())
+        {
+            return false;
+        }
+
+
         // Songs cannot be interrupted by physical attacks.
         if ((SKILLTYPE)PSpell->getSkillType() == SKILL_SINGING)
         {
@@ -2844,7 +2870,7 @@ int getSDTTier(int SDT)
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-            damage = HandleStoneskin(PDefender, damage);
+            damage = HandleStoneskin(PDefender, damage, attackType);
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
         damage = std::clamp(damage, -99999, 99999);
@@ -3004,7 +3030,7 @@ int getSDTTier(int SDT)
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-            damage = HandleStoneskin(PDefender, damage);
+            damage = HandleStoneskin(PDefender, damage, attackType);
         }
 
         damage = getOverWhelmDamageBonus(PAttacker, PDefender, damage);
@@ -4008,8 +4034,20 @@ int getSDTTier(int SDT)
         {
             Shadow = PDefender->getMod(Mod::BLINK);
             modShadow = Mod::BLINK;
-            //random chance, assume 80% proc
-            if (tpzrand::GetRandomNumber(100) < 40)
+            uint16 procChance = 40;
+            CStatusEffect* PStatusEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLINK);
+            if (PStatusEffect != nullptr)
+            {
+                if (PStatusEffect->GetSubPower() > 0)
+                {
+                    procChance = PStatusEffect->GetSubPower();
+                }
+            }
+            if (procChance > 99)
+            {
+                    procChance = 99;
+            }
+            if (tpzrand::GetRandomNumber(100) > procChance)
             {
                 return false;
             }
@@ -4597,10 +4635,10 @@ int getSDTTier(int SDT)
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
 
             damage = battleutils::HandleMagicStoneskin(PDefender, damage);
-            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            int16 magicSS = PDefender->getMod(Mod::MAGIC_SS);
             if (!magicSS)
             {
-                damage = battleutils::HandleStoneskin(PDefender, damage);
+                damage = battleutils::HandleStoneskin(PDefender, damage, ATTACK_MAGICAL);
             }
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
@@ -5066,13 +5104,13 @@ int getSDTTier(int SDT)
             auto stalwartSoul = std::clamp(m_PChar->getMod(Mod::STALWART_SOUL)* 0.001f, 0.0f, 0.10f);
 
             damage += (uint32)(m_PChar->health.hp * drainPercent);
-            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - stalwartSoul))));
+            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - stalwartSoul)), ATTACK_MAGICAL));
         }
         else if (m_PChar->GetSJob() == JOB_DRK &&m_PChar->health.hp >= 10 && m_PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SOULEATER))
         {
             //lose 10% Current HP, only HALF (5%) converted to damage
             damage += (uint32)(m_PChar->health.hp * 0.05f);
-            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * 0.1f)));
+            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * 0.1f), ATTACK_MAGICAL));
         }
         return damage;
     }
@@ -6116,8 +6154,25 @@ int getSDTTier(int SDT)
         }
     }
 
-    int32 HandleStoneskin(CBattleEntity* PDefender, int32 damage)
+    int32 HandleStoneskin(CBattleEntity* PDefender, int32 damage, ATTACKTYPE attackType)
     {
+        // Check phys only SS
+        int16 physSkin = PDefender->getMod(Mod::PHYSICAL_SS);
+        if (attackType == ATTACK_PHYSICAL || attackType == ATTACK_RANGED)
+        {
+            if (damage > 0 && physSkin > 0)
+            {
+                if (physSkin > damage)
+                {
+                    PDefender->delModifier(Mod::PHYSICAL_SS, damage);
+                    return 0;
+                }
+
+                PDefender->setModifier(Mod::PHYSICAL_SS, 0);
+                damage -= physSkin;
+            }
+        }
+
         int16 skin = PDefender->getMod(Mod::STONESKIN);
         if (damage > 0 && skin > 0)
         {
@@ -6136,18 +6191,18 @@ int getSDTTier(int SDT)
 
     int32 HandleMagicStoneskin(CBattleEntity* PDefender, int32 damage)
     {
-        int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+        int16 magicSS = PDefender->getMod(Mod::MAGIC_SS);
         if (magicSS)
         {
             if (damage >= magicSS)
             {
-                PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
+                PDefender->setModifier(Mod::MAGIC_SS, 0);
                 PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_MAGIC_SHIELD);
                 damage = damage - magicSS;
             }
             else
             {
-                PDefender->setModifier(Mod::RAMPART_STONESKIN, magicSS - damage);
+                PDefender->setModifier(Mod::MAGIC_SS, magicSS - damage);
                 damage = 0;
             }
         }
@@ -6362,6 +6417,10 @@ int getSDTTier(int SDT)
                 return SPELLAOE_RADIAL;
             else
                 return SPELLAOE_NONE;
+        }
+        if (PSpell->getAOE() == SPELLAOE_PBAOE)
+        {
+            return SPELLAOE_PBAOE;
         }
 
         return PSpell->getAOE();

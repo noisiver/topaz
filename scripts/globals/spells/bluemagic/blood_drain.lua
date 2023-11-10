@@ -60,13 +60,9 @@ function onSpellCast(caster, target, spell)
 
     if (target:isUndead()) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return dmg
+        return 0
     end
 
-    if (target:getHP() < dmg) then
-        dmg = target:getHP()
-    end
-	
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)
 	
@@ -82,10 +78,16 @@ function onSpellCast(caster, target, spell)
 
     -- add dmg variance
 	dmg = (dmg * math.random(85, 115)) / 100
-    
+
+    local healing = dmg
+    -- Cap healing amount at the targets current HP
+    if (target:getHP() < dmg) then
+        healing = target:getHP()
+    end
+
     if dmg > 0 then
 	    dmg = dmg * BLUE_POWER
-	    caster:addHP(damage)
+	    caster:addHP(healing)
     end
 
     return dmg

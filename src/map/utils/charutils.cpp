@@ -1803,6 +1803,7 @@ namespace charutils
 
         if ((PChar->m_EquipBlock & (1 << equipSlotID)) ||
             !(PItem->getJobs() & (1 << (PChar->GetMJob() - 1))) ||
+            (PItem->getSuperiorLevel() > PChar->getMod(Mod::SUPERIOR_LEVEL)) ||
             (PItem->getReqLvl() > (map_config.disable_gear_scaling ?
             PChar->GetMLevel() : PChar->jobs.job[PChar->GetMJob()])))
         {
@@ -2633,11 +2634,20 @@ namespace charutils
 
             if (slotID == SLOT_SUB)
             {
-                // Unequip if no main weapon or a non-grip subslot without DW
-                if (!PChar->getEquip(SLOT_MAIN) && (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)) || !((CItemWeapon*)PItem)->IsShield())
+                // Check if the player has dual wield trait or not, and if they don't then unequip their weapons
+                if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
                 {
-                    UnequipItem(PChar, SLOT_SUB);
-                    continue;
+                    CItem* PItem = PChar->getEquip((SLOTTYPE)SLOT_SUB);
+                    // Don't unequip shields or Grips
+                    CItemWeapon* PWeapon = (CItemWeapon*)PItem;
+                    if (PItem)
+                    {
+                        if (!((CItemWeapon*)PItem)->IsShield() && !PWeapon->getSkillType() == SKILL_NONE)
+                        {
+                            UnequipItem(PChar, SLOT_SUB);
+                            continue;
+                        }
+                    }
                 }
             }
 
@@ -2773,6 +2783,9 @@ namespace charutils
                 }
             }
         }
+
+        // Add in WS from gear mod
+        addWeaponSkill(PChar, PChar->getMod(Mod::ADDS_WEAPONSKILL));
     }
 
     void BuildingCharPetAbilityTable(CCharEntity* PChar, CPetEntity* PPet, uint32 PetID) {
@@ -2795,28 +2808,28 @@ namespace charutils
 
                 if (PPet->GetMLevel() >= PAbility->getLevel() && PetID >= 8 && PetID <= 20 && CheckAbilityAddtype(PChar, PAbility))
                 {
-                    if (PetID == 8)
+                    if (PetID == PETID_CARBUNCLE)
                     {
                         if (PAbility->getID() >= ABILITY_HEALING_RUBY && PAbility->getID() <= ABILITY_SOOTHING_RUBY)
                         {
                             addPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY);
                         }
                     }
-                    else if (PetID >= 9 && PetID <= 15)
+                    else if (PetID >= PETID_FENRIR && PetID <= PETID_RAMUH)
                     {
                         if (PAbility->getID() >= (ABILITY_HEALING_RUBY + ((PetID - 8) * 16)) && PAbility->getID() < (ABILITY_HEALING_RUBY + ((PetID - 7) * 16)))
                         {
                             addPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY);
                         }
                     }
-                    else if (PetID == 16)
+                    else if (PetID == PETID_DIABOLOS)
                     {
                         if (PAbility->getID() >= ABILITY_CAMISADO && PAbility->getID() <= ABILITY_PERFECT_DEFENSE)
                         {
                             addPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY);
                         }
                     }
-                    else if (PetID == 20)
+                    else if (PetID == PETID_CAIT_SITH)
                     {
                         if (PAbility->getID() > ABILITY_SOOTHING_RUBY && PAbility->getID() <= ABILITY_MOONLIT_CHARGE)
                         {
@@ -3085,7 +3098,7 @@ namespace charutils
         if (PChar->GetMJob() == JOB_BLU || PChar->GetSJob() == JOB_BLU)
         {
             blueutils::CalculateTraits(PChar);
-            // Check if the player has dual wield set trait or not, and if they don't then unequip their weapons
+            // Check if the player has dual wield trait or not, and if they don't then unequip their weapons
             if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
             {
                 CItem* PItem = PChar->getEquip((SLOTTYPE)SLOT_SUB);
@@ -3093,7 +3106,7 @@ namespace charutils
                 CItemWeapon* PWeapon = (CItemWeapon*)PItem;
                 if (PItem)
                 {
-                    if (!((CItemWeapon*)PItem)->IsShield() || !PWeapon->getSkillType() == SKILL_NONE)
+                    if (!((CItemWeapon*)PItem)->IsShield() && !PWeapon->getSkillType() == SKILL_NONE)
                     {
                         UnequipItem(PChar, SLOT_SUB);
                     }
@@ -5250,8 +5263,8 @@ namespace charutils
         }
 
         int32 rovBonus = 0;
-        // Only apply RoV bonuses for players below 75, to not effect merits
-        if (PChar->GetMLevel() < 75)
+        // Only apply RoV bonuses for players below 75 and not in a level capped zone, to not effect merits
+        if (PChar->GetMLevel() < 75 && !PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_RESTRICTION))
         {
             for (auto i = 2884; i <= 2892; ++i) // RHAPSODY KI are sequential, so start at WHITE and end at OCHRE
             {
@@ -6091,6 +6104,87 @@ namespace charutils
     {
         auto timerPacket = new CTimerBarUtilPacket();
         PChar->pushPacket(timerPacket);
+    }
+
+    uint8 getMaxItemLevel(CCharEntity* PChar)
+    {
+        uint8 maxItemLevel = 0;
+
+        for (uint8 slotID = 0; slotID < 16; ++slotID)
+        {
+            CItemEquipment* PItem = PChar->getEquip((SLOTTYPE)slotID);
+
+            if (PItem && PItem->getILvl() > maxItemLevel)
+            {
+                maxItemLevel = PItem->getILvl();
+            }
+        }
+
+        return maxItemLevel;
+    }
+
+    uint8 getItemLevelDifference(CCharEntity* PChar)
+    {
+        float itemLevelDiff = 0;
+        uint8 highestItem = 0;
+
+        // Find the highest iLevel in weapons, this is 50% of the iLvl diff value
+        for (uint8 slotID = 0; slotID < 4; ++slotID)
+        {
+            CItemEquipment* PItem = PChar->getEquip((SLOTTYPE)slotID);
+
+            if (PItem && PItem->getILvl() > highestItem)
+            {
+                highestItem = PItem->getILvl();
+            }
+        }
+
+        if (highestItem > 99)
+        {
+            itemLevelDiff += (highestItem - 99) / 2.f;
+        }
+
+        for (uint8 slotID = 4; slotID < 9; ++slotID)
+        {
+            CItemEquipment* PItem = PChar->getEquip((SLOTTYPE)slotID);
+
+            if (PItem && PItem->getILvl() > 99)
+            {
+                itemLevelDiff += (PItem->getILvl() - 99) / 10.f;
+            }
+        }
+
+        return floor(itemLevelDiff);
+    }
+
+    uint8 getMainhandItemLevel(CCharEntity* PChar)
+    {
+        CItemEquipment* PItem = PChar->getEquip(SLOTTYPE::SLOT_MAIN);
+
+        if (PItem)
+        {
+            return PItem->getILvl();
+        }
+
+        return 0;
+    }
+
+    // Return Ranged Weapon Item Level; If ranged slot exists use that, else use Ammo
+    uint8 getRangedItemLevel(CCharEntity* PChar)
+    {
+        CItemEquipment* PItem = PChar->getEquip(SLOTTYPE::SLOT_RANGED);
+        if (PItem)
+        {
+            return PItem->getILvl();
+        }
+
+        PItem = PChar->getEquip(SLOTTYPE::SLOT_AMMO);
+        if (PItem)
+        {
+            return PItem->getILvl();
+        }
+
+        return 0;
     }
 
         bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity)

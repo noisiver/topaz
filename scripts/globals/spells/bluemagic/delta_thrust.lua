@@ -34,7 +34,7 @@ function onSpellCast(caster, target, spell)
     params.attackType = tpz.attackType.PHYSICAL
     params.damageType = tpz.damageType.SLASHING
     params.scattr = SC_TRANSFIXION
-    params.numhits = 1
+    params.numhits = 3
     params.multiplier = 1.09375
     params.tp150 = 1.09375
     params.tp300 = 1.09375
@@ -48,11 +48,11 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     params.eco = ECO_LIZARD
+    params.shadowbehav = BLUPARAM_3_SHADOW
 
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.effect = tpz.effect.PLAGUE
     BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 60, params)
 
     return damage

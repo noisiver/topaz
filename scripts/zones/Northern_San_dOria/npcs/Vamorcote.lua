@@ -2,7 +2,7 @@
 -- Area: Northern San d'Oria
 --   NPC: Vamorcote
 -- Starts and Finishes Quest: The Setting Sun
--- Expert logger
+-- Expert Logger
 -- !pos -137.070 10.999 161.855 231
 --
 -- Auto-Script: Requires Verification (Verified by Brawndo)
