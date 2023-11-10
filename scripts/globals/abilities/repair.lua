@@ -112,6 +112,7 @@ function onUseAbility(player, target, ability)
     pet:delStatusEffect(tpz.effect.REGEN)
     pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, regenTime) -- 3 = tick, each 3 seconds.
     player:removeAmmo()
+    player:updateEnmityFromCure(pet, totalHealing)
 
     return totalHealing
 end
