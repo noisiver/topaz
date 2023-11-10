@@ -7,9 +7,12 @@ Osschaart (Copycat)
 Macan Gadangan (Wild Wild Whiskers)
 Platoon Scorpions(Operaiton Desert Storm)
 Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
-Ulbrecht being able to cast Kaustra / Embrava without eidting CanUseSpell in spell.cpp
-Mobs linking to master properly(test on quadavs)
-Mobs resetting pos to spawn if they get stuck CPathFind::FindPath Entity (%s - %d) could not find path
+
+AOE items on pets and mobs
+Being able to summon puppet and change its attachments
+character loading properly, gear swapping properly on zoning, and displayhelm properly saving on zone
+Potions / Elixirs / Ethers restoring hp and mp
+BLU attack mod working properly
 
 Retail:
 Dancing Chains wipe shadows?

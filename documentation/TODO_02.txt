@@ -14,7 +14,6 @@ https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee61295
 Readd superior stuff just be careful on the sql for getting item stuff
 Look at enmity_container.cpp and understand it
 player_charm_controller.cpp to fix charm aggro/linking/assisting
-buff sea gorgets and capes 
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton WS and summoner shadow/TE logic rework
 !getspelllist GM command
@@ -25,22 +24,16 @@ Add way to display obtaning KI / items from chests and coffers player:messageSpe
 Also try to find a way to chars name as a param
 Line 1473
 
-Footwork counters should do 1/4th the dmg (if person countering has footwork status effect then dmg * 0.25)
 Change all healing items to item:getPower() for power in their scripts
-Tremor / Battering ram(or w/e konschtat ram is) 10:30 repopwr
 Audit guild shop sql list
-AOE items animation/param
 Missing dynamis set bonuses
 Code KS99 with custom drops
-Retune ISNM puk
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
-Code remaining COP map quests(Riverne)
 Fomor Black mages in aquaducts shouldn't use grim halo they use a club(should use foxfire)
 AH to WotG towns
 mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
-Camps to learn UL spells
 Windurst Salad / Taco
 https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
 pickNewPosition 3rd arg as "false" for chests/coffers in treasures.lua
