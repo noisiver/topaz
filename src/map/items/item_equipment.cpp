@@ -37,6 +37,7 @@ CItemEquipment::CItemEquipment(uint16 id) : CItemUsable(id)
     m_iLvl         = 0;
 	m_equipSlotID  = 255;
     m_absorption   = 0;
+    m_superiorLevel = 0;
 }
 
 CItemEquipment::~CItemEquipment()
@@ -119,6 +120,16 @@ uint8 CItemEquipment::getSlotType()
 	uint32 result = 0;
 	getMSB(&result,(uint32)m_equipSlotID);
 	return result;
+}
+
+uint8 CItemEquipment::getSuperiorLevel()
+{
+        return m_superiorLevel;
+}
+
+void CItemEquipment::setSuperiorLevel(uint8 level)
+{
+        m_superiorLevel = level;
 }
 
 /************************************************************************
