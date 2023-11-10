@@ -8,11 +8,6 @@ Macan Gadangan (Wild Wild Whiskers)
 Platoon Scorpions(Operaiton Desert Storm)
 Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
 
-AOE items on pets and mobs
-Being able to summon puppet and change its attachments
-character loading properly, gear swapping properly on zoning, and displayhelm properly saving on zone
-Potions / Elixirs / Ethers restoring hp and mp
-BLU attack mod working properly
 
 Retail:
 Dancing Chains wipe shadows?

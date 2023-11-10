@@ -281,15 +281,15 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     -- Base attack from BLU skill
 	local bluAttack = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)  + 8
-    printf("Attack after Skill.. %d", bluAttack)
+    --printf("Attack after Skill.. %d", bluAttack)
 
     -- Add STR
     bluAttack = bluAttack + math.floor(caster:getStat(tpz.mod.STR) * 0.75)
-    printf("Attack after STR.. %d", bluAttack)
+    -- printf("Attack after STR.. %d", bluAttack)
 
     -- Add BLU Attack mod
     bluAttack = bluAttack + caster:getMod(tpz.mod.BLU_ATT)
-    printf("Attack after BLU a ttack mod.. %d", bluAttack)
+    -- printf("Attack after BLU attack mod.. %d", bluAttack)
 
     -- Add Minuets
     if caster:hasStatusEffect(tpz.effect.MINUET) then
@@ -300,11 +300,11 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     -- Add +BLU Attack %(percentage)
     bluAttack = math.floor(bluAttack * (1 + caster:getMod(tpz.mod.BLU_ATTP) / 100))
-    printf("Attack after Attackmod.. %d", bluAttack)
+    -- printf("Attack after BLU attack percent.. %d", bluAttack)
 
     -- Add attack from TP bonus and attack bonus on specific BLU spells
     bluAttack = math.floor(bluAttack * BluAttkModifier)
-    printf("Attack after TP bonus.. %d", bluAttack)
+    -- printf("Attack after TP bonus.. %d", bluAttack)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluAttack
     end
@@ -312,7 +312,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
     local physPotency = 1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
     bluAttack = math.floor(bluAttack * physPotency)
-    printf("Attack after potency merits.. %d", bluAttack)
+    -- printf("Attack after potency merits.. %d", bluAttack)
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
