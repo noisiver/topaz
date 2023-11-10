@@ -2132,7 +2132,56 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
                 }
             }
         });
+        float radius = 10.0f;
+        PAI->TargetFind->findWithinArea(PTarget, AOERADIUS_ATTACKER, radius, FINDFLAGS_NONE);
+
+        uint16 targets = (uint16)PAI->TargetFind->m_targets.size();
+
+        for (auto&& PActionTarget : PAI->TargetFind->m_targets)
+        {
+            action.id = this->id;
+            action.actiontype = ACTION_ITEM_FINISH;
+            action.actionid = PItem->getID();
+
+            actionList_t& actionList = action.getNewActionList();
+            actionList.ActionTargetID = PActionTarget->id;
+
+            actionTarget_t& actionTarget = actionList.getNewActionTarget();
+            actionTarget.animation = PItem->getAnimationID();
+            actionTarget.reaction = REACTION_HIT;
+            actionTarget.messageID = PItem->getMsg();
+            actionTarget.param = PItem->getParam();
+
+            // Percentage HP / MP restored msg, Healing Powder
+            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322)
+            {
+                int hp = floor(PActionTarget->GetMaxHP() * actionTarget.param);
+                int mp = floor(PActionTarget->GetMaxMP() * actionTarget.param);
+                int hpp = floor(hp / 100);
+                int mpp = floor(mp / 100);
+
+                actionTarget.param = hpp;
+
+                // Mana Powder
+                if (PItem->getID() == 4255)
+                {
+                    actionTarget.param = mpp;
+                }
+            }
+
+            // HP restored msg
+            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
+            {
+                if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+                {
+                    actionTarget.param = 0;
+                }
+            }
+        }
+
+
     }
+    // Maybe can use PAI->TargetFind->findSingleTarget(PActionTarget, flags); instead of findWithinArea and not need else?
     else
     {
         luautils::OnItemUse(PTarget, PItem);
@@ -2142,39 +2191,43 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
         {
             this->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
         }
-    }
+        action.id = this->id;
+        action.actiontype = ACTION_ITEM_FINISH;
+        action.actionid = PItem->getID();
 
-    action.id = this->id;
-    action.actiontype = ACTION_ITEM_FINISH;
-    action.actionid = PItem->getID();
+        actionList_t& actionList = action.getNewActionList();
+        actionList.ActionTargetID = PTarget->id;
 
-    actionList_t& actionList = action.getNewActionList();
-    actionList.ActionTargetID = PTarget->id;
+        actionTarget_t& actionTarget = actionList.getNewActionTarget();
+        actionTarget.animation = PItem->getAnimationID();
+        actionTarget.reaction = REACTION_HIT;
+        actionTarget.messageID = PItem->getMsg();
+        actionTarget.param = PItem->getParam();
 
-    actionTarget_t& actionTarget = actionList.getNewActionTarget();
-    actionTarget.animation = PItem->getAnimationID();
-    actionTarget.reaction = REACTION_HIT;
-    actionTarget.messageID = PItem->getMsg();
-    actionTarget.param = PItem->getParam();
-
-    // Percentage HP / MP restored  msg
-    if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
-    {
-        int hp = floor(this->GetMaxHP() * actionTarget.param);
-        int mp = floor(this->GetMaxMP() * actionTarget.param);
-        int hpp = floor(hp / 100);
-        int mpp = floor(mp / 100);
-
-        // MP is unused
-        actionTarget.param = hpp;
-    }
-
-    // HP restored msg
-    if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
-    {
-        if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+        // Percentage HP / MP restored msg, Healing Powder
+        if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322)
         {
-            actionTarget.param = 0;
+            int hp = floor(this->GetMaxHP() * actionTarget.param);
+            int mp = floor(this->GetMaxMP() * actionTarget.param);
+            int hpp = floor(hp / 100);
+            int mpp = floor(mp / 100);
+
+            actionTarget.param = hpp;
+
+            // Mana Powder
+            if (PItem->getID() == 4255)
+            {
+                actionTarget.param = mpp;
+            }
+        }
+
+        // HP restored msg
+        if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
+        {
+            if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+            {
+                actionTarget.param = 0;
+            }
         }
     }
 
