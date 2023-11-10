@@ -7,10 +7,12 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
 
-
+Dvergr trash mobs for learning
 Pixies curing players
 https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
 
+Readd superior stuff just be careful on the sql for getting item stuff
+Look at enmity_container.cpp and understand it
 player_charm_controller.cpp to fix charm aggro/linking/assisting
 buff sea gorgets and capes 
 Ulbrecht and Qultada custom msgs cant use msgids
@@ -23,9 +25,11 @@ Add way to display obtaning KI / items from chests and coffers player:messageSpe
 Also try to find a way to chars name as a param
 Line 1473
 
-
+Footwork counters should do 1/4th the dmg (if person countering has footwork status effect then dmg * 0.25)
+Change all healing items to item:getPower() for power in their scripts
+Tremor / Battering ram(or w/e konschtat ram is) 10:30 repopwr
 Audit guild shop sql list
-
+AOE items animation/param
 Missing dynamis set bonuses
 Code KS99 with custom drops
 Retune ISNM puk
