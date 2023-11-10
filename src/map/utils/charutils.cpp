@@ -2782,6 +2782,9 @@ namespace charutils
                 }
             }
         }
+
+        // Add in WS from gear mod
+        addWeaponSkill(PChar, PChar->getMod(Mod::ADDS_WEAPONSKILL));
     }
 
     void BuildingCharPetAbilityTable(CCharEntity* PChar, CPetEntity* PPet, uint32 PetID) {
