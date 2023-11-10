@@ -16,7 +16,7 @@ function onItemCheck(target)
     return 0
 end
 
-function onItemUse(target)
-    target:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, target:addHP(150*ITEM_POWER))
+function onItemUse(target, item)
+    target:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, target:addHP(item:getParam()*ITEM_POWER))
     target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 180)
 end
