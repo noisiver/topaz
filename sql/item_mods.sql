@@ -14097,8 +14097,9 @@ INSERT INTO `item_mods` VALUES (14402,27,1);
 INSERT INTO `item_mods` VALUES (14403,1,32);
 INSERT INTO `item_mods` VALUES (14403,26,2);
 INSERT INTO `item_mods` VALUES (14403,384,400);
-INSERT INTO `item_mods` VALUES (14404,1,37);
-INSERT INTO `item_mods` VALUES (14404,73,9);
+INSERT INTO `item_mods` VALUES (14404,1,37);        -- Shinimusha Hara-ate
+INSERT INTO `item_mods` VALUES (14404,25,10);       -- Accuracy+10
+INSERT INTO `item_mods` VALUES (14404,73,9);        -- StoreTP +9
 INSERT INTO `item_mods` VALUES (14405,1,36);        -- Wyvern Mail
 INSERT INTO `item_mods` VALUES (14405,402,30);      -- Wyvern Breaths +11%(30/256)
 INSERT INTO `item_mods` VALUES (14406,1,29);        -- Shikaree Aketon
