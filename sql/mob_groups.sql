@@ -2704,6 +2704,7 @@ INSERT INTO `mob_groups` VALUES (92,5198,54,'Dimgruzub',0,128,0,30000,5000,95,95
 INSERT INTO `mob_groups` VALUES (93,5199,54,'Assassins_Apprentice',0,128,0,0,5000,83,83,0);
 INSERT INTO `mob_groups` VALUES (94,6673,54,'Lamia_Palace_Guard',300,0,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (95,6754,54,'Lamia_Exon_COR',0,128,0,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (96,5796,54,'Dvergr',0,330,0,0,0,82,83,0);
 
 INSERT INTO `mob_groups` VALUES (1806,110,54,'Amnaf_blu',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (1815,872,54,'Cutter',0,128,0,0,0,65,70,0);
