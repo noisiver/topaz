@@ -96,7 +96,6 @@ function onRegionEnter(player, region)
             end
         elseif RNG < 95 and Respawn <= os.time() then
             --printf("Spawn Zikko")
-            player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
             Zikko:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
             SpawnMob(ID.mob.ZIKKO):updateClaim(player)
             SetServerVariable("Zikko_Respawn", os.time() + 7200)
