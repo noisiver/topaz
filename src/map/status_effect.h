@@ -688,8 +688,7 @@ enum EFFECT
     MOOGLE_AMPLIFIER                = 629,
     TAINT                           = 630, // Undispellable Poison
     HAUNT                           = 631, // Undispellable Curse
-    EXPIRATION                      = 632,
-    BLACK_SANCTUS                   = 633,
+    BLACK_SANCTUS                   = 632,
     ANIMATED                        = 633,
 
     // Effect icons in packet can go from 0-767, so no custom effects should go in that range.
