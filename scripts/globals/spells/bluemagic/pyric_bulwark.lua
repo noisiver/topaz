@@ -40,5 +40,5 @@ function onSpellCast(caster, target, spell)
 
     target:addStatusEffect(tpz.effect.ISSEKIGAN, 50, 0, 60)
 
-    return typeEffect
+    return tpz.effect.ISSEKIGAN
 end
