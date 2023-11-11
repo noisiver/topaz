@@ -196,7 +196,7 @@ INSERT INTO `mob_groups` VALUES (48,3591,4,'Shen',0,128,2835,50000,0,84,86,0);
 INSERT INTO `mob_groups` VALUES (49,3592,4,'Shens_Filtrate',0,128,0,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (50,4669,4,'Bismarck',0,128,0,0,9999,95,98,0);
 INSERT INTO `mob_groups` VALUES (51,0,4,'Intuila',0,128,0,0,0,99,99,0);
-INSERT INTO `mob_groups` VALUES (52,387,4,'Behemoth',330,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (52,9118,4,'Behemoth',330,0,0,0,0,82,83,0); -- G-10
 
 -- ------------------------------------------------------------
 -- Uleguerand_Range (Zone 5)
@@ -328,7 +328,7 @@ INSERT INTO `mob_groups` VALUES (51,80,7,'Alastor_Antlion',0,128,45,50000,10000,
 INSERT INTO `mob_groups` VALUES (52,104,7,'Ambusher_Antlion',3600,0,61,12500,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (53,71,7,'Air_Elemental',330,4,38,0,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (54,1160,7,'Earth_Elemental',330,4,733,0,0,75,77,0);
-INSERT INTO `mob_groups` VALUES (55,2813,7,'Wyrm',330,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (55,9120,7,'Wyrm',330,0,0,0,0,82,83,0); -- E-9
 
 -- ------------------------------------------------------------
 -- Boneyard_Gully (Zone 8)
@@ -2448,7 +2448,7 @@ INSERT INTO `mob_groups` VALUES (52,1773,51,'Gotoh_Zha_the_Redolent',0,128,1210,
 INSERT INTO `mob_groups` VALUES (53,3922,51,'Tinnin',0,128,2418,60000,0,90,90,0);
 INSERT INTO `mob_groups` VALUES (54,6582,51,'Vampyr',330,1,6028,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (55,714,51,'Chigoe_Marid',0,128,466,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (56,2018,51,'Hydra_Normal_Mob',330,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (56,9121,51,'Lesser_Hydra',330,0,0,0,0,82,83,0); -- H-11
 
 INSERT INTO `mob_groups` VALUES (1617,110,51,'Amnaf_blu',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (1620,361,51,'Battering_Bugard',0,128,0,0,0,75,80,0);
@@ -2704,7 +2704,7 @@ INSERT INTO `mob_groups` VALUES (92,5198,54,'Dimgruzub',0,128,0,30000,5000,95,95
 INSERT INTO `mob_groups` VALUES (93,5199,54,'Assassins_Apprentice',0,128,0,0,5000,83,83,0);
 INSERT INTO `mob_groups` VALUES (94,6673,54,'Lamia_Palace_Guard',300,0,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (95,6754,54,'Lamia_Exon_COR',0,128,0,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (96,5796,54,'Dvergr',0,330,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (96,9124,54,'Dvergr',330,0,0,0,0,82,83,0); -- I-5 Map 1
 
 INSERT INTO `mob_groups` VALUES (1806,110,54,'Amnaf_blu',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (1815,872,54,'Cutter',0,128,0,0,0,65,70,0);
@@ -2980,7 +2980,7 @@ INSERT INTO `mob_groups` VALUES (54,3465,61,'Sarameya',0,128,2162,60000,0,90,90,
 INSERT INTO `mob_groups` VALUES (55,5191,61,'Vanasarvik',0,128,0,0,25000,94,95,0);
 INSERT INTO `mob_groups` VALUES (56,4280,61, 'Wamoura', 330, 0, 2608, 0, 0, 81, 82, 0);
 INSERT INTO `mob_groups` VALUES (57,6765,61,'Fahrafahr_the_Bloodied',3600,0,6069,10000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (58,680,61,'Cerberus_Normal_Mob',330,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (58,9122,61,'Lesser_Cerberus',330,0,0,0,0,82,83,0); -- "Dahak Island" D-6
 
 INSERT INTO `mob_groups` VALUES (2058,3327,61,'Raubahn',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (2060,3581,61,'Shailham',0,128,0,0,0,0,0,0);
@@ -3407,10 +3407,12 @@ INSERT INTO `mob_groups` VALUES (9,705,72,'Cheese_Hoarder_Gigiroon',0,128,460,15
 INSERT INTO `mob_groups` VALUES (10,243,72,'Armed_Gears',0,128,168,40000,0,88,88,0);
 INSERT INTO `mob_groups` VALUES (11,4594,72,'Wulgaru',0,128,2828,32000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (12,1413,72,'Fourth_Rampart',300,0,0,0,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (13,218,72,'Archaic_Gear',300,0,0,0,0,82,83,0);
-INSERT INTO `mob_groups` VALUES (14,216,72,'Archaic_Chariot',300,0,0,0,0,82,83,0);
-INSERT INTO `mob_groups` VALUES (15,219,72,'Archaic_Gears',300,0,0,0,0,82,83,0);
-INSERT INTO `mob_groups` VALUES (16,39,72,'Acrolith',300,128,0,0,0,82,83,0);
+-- Bhaflau Remnants entrance
+INSERT INTO `mob_groups` VALUES (13,218,72,'Archaic_Gear',330,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (14,216,72,'Archaic_Chariot',330,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (15,219,72,'Archaic_Gears',330,0,0,0,0,82,83,0);
+-- Zhayolm Remnants entrance 
+INSERT INTO `mob_groups` VALUES (16,39,72,'Acrolith',330,0,0,0,0,82,83,0); -- West Room
 
 INSERT INTO `mob_groups` VALUES (2362,82,72,'Alexander',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (2368,1506,72,'Gessho',0,128,0,0,0,0,0,0);
@@ -4169,7 +4171,7 @@ INSERT INTO `mob_groups` VALUES (69,6747,79,'Vidhuwa_The_Wrathborn',7200,0,6020,
 INSERT INTO `mob_groups` VALUES (70,714,79,'Chigoe_Karakul',0,128,466,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (71,6483,79,'Jnun_Exp_Camp',330,0,1408,0,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (72,6636,79,'Heraldic_Imp_Exp_Camp',330,0,6117,0,0,80,81,0);
-INSERT INTO `mob_groups` VALUES (73,2220,79,'Khimaira_Normal_Mob',330,0,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (73,9123,79,'Lesser_Khimaira',330,0,0,0,0,82,83,0); -- G-7 Map2
 
 INSERT INTO `mob_groups` VALUES (2811,2810,79,'Nareema',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (2812,2941,79,'Odin',0,128,0,0,0,0,0,0);
@@ -13507,7 +13509,7 @@ INSERT INTO `mob_groups` VALUES (17,4390,212,'Wyvernpoacher_Drachlox',3600,0,268
 INSERT INTO `mob_groups` VALUES (18,1085,212,'Doom_Soldier',330,0,686,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (19,1083,212,'Doom_Mage',330,0,680,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (20,4580,212,'Boulder_Eater',330,0,849,0,0,77,79,0);
-INSERT INTO `mob_groups` VALUES (21,4579,212,'Pygmytoise',330,0,0,0,0,79,80,0);
+INSERT INTO `mob_groups` VALUES (21,9119,212,'Pygmytoise',330,0,0,0,0,82,83,0); -- I-7 Map2
 INSERT INTO `mob_groups` VALUES (22,1160,212,'Earth_Elemental',330,4,733,0,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (23,1082,212,'Doom_Guard',330,0,675,0,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (24,1087,212,'Doom_Warlock',330,0,688,0,0,76,78,0);
