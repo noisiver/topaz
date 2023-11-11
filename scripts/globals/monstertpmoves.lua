@@ -12,13 +12,13 @@ require("scripts/globals/weaponskills")
 
 -- mob types
 -- used in mob:isMobType()
-MOBTYPE_NORMAL            = 0x00
-MOBTYPE_0X01             = 0x01
-MOBTYPE_NOTORIOUS        = 0x02
-MOBTYPE_FISHED            = 0x04
-MOBTYPE_CALLED            = 0x08
-MOBTYPE_BATTLEFIELD        = 0x10
-MOBTYPE_EVENT            = 0x20
+MOBTYPE_NORMAL              = 0x00
+MOBTYPE_QUEST               = 0x01
+MOBTYPE_NOTORIOUS           = 0x02
+MOBTYPE_FISHED              = 0x04
+MOBTYPE_CALLED              = 0x08
+MOBTYPE_BATTLEFIELD         = 0x10
+MOBTYPE_EVENT               = 0x20
 
 MOBDRAIN_HP = 0
 MOBDRAIN_MP = 1
