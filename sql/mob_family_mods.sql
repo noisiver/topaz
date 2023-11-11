@@ -411,16 +411,16 @@ INSERT INTO `mob_family_mods` VALUES (339,106,3,1);	-- Chapuli
 INSERT INTO `mob_family_mods` VALUES (585,106,3,1);	-- Chapuli-Jug
 
 -- Magic Aggro range
-INSERT INTO `mob_family_mods` VALUES (34,86,40,1);	-- Carbuncle 
-INSERT INTO `mob_family_mods` VALUES (35,86,40,1);	-- Diabolos 
-INSERT INTO `mob_family_mods` VALUES (319,86,40,1);	-- Shiva
-INSERT INTO `mob_family_mods` VALUES (320,86,40,1);	-- Ramuh
-INSERT INTO `mob_family_mods` VALUES (321,86,40,1);	-- Titan
-INSERT INTO `mob_family_mods` VALUES (322,86,40,1);	-- Ifrit 
-INSERT INTO `mob_family_mods` VALUES (323,86,40,1);	-- Leviathan	
-INSERT INTO `mob_family_mods` VALUES (324,86,40,1);	-- Garuda 
-INSERT INTO `mob_family_mods` VALUES (325,86,40,1);	-- Fenrir 
-INSERT INTO `mob_family_mods` VALUES (378,86,40,1);	-- Diabolos 
+INSERT INTO `mob_family_mods` VALUES (34,95,40,1);	-- Carbuncle 
+INSERT INTO `mob_family_mods` VALUES (35,95,40,1);	-- Diabolos 
+INSERT INTO `mob_family_mods` VALUES (319,95,40,1);	-- Shiva
+INSERT INTO `mob_family_mods` VALUES (320,95,40,1);	-- Ramuh
+INSERT INTO `mob_family_mods` VALUES (321,95,40,1);	-- Titan
+INSERT INTO `mob_family_mods` VALUES (322,95,40,1);	-- Ifrit 
+INSERT INTO `mob_family_mods` VALUES (323,95,40,1);	-- Leviathan	
+INSERT INTO `mob_family_mods` VALUES (324,95,40,1);	-- Garuda 
+INSERT INTO `mob_family_mods` VALUES (325,95,40,1);	-- Fenrir 
+INSERT INTO `mob_family_mods` VALUES (378,95,40,1);	-- Diabolos 
 
 -- Yovra
 INSERT INTO `mob_family_mods` VALUES (271,68,50,0);		-- +50 Evasion Racial
