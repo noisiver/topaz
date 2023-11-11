@@ -9,6 +9,7 @@ require("scripts/globals/quests")
 -----------------------------------
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
