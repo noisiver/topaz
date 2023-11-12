@@ -345,15 +345,15 @@ tpz.shop =
                 4376,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Jerky
                 4578,     140,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sausage
                 4371,     184,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grilled Hare
-                4381,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Meat Mithkabob
+                4381,     583,      tpz.ki.RHAPSODY_IN_UMBER,   -- Meat Mithkabob
                 4456,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Boiled Crab
-                4398,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Mithkabob
+                4398,     833,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Mithkabob
                 5166,    1500,      tpz.ki.RHAPSODY_IN_EMERALD, -- Coeurl Sub
                 4538,     900,      tpz.ki.RHAPSODY_IN_UMBER,   -- Roast Pipira
                 6217,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Anchovy Slice
                 6215,     400,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pepperoni Slice
-                5752,    3500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pot-auf-feu
-                4488,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Jack-o'-Lantern
+                5752,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pot-au-feu
+                4488,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Jack-o'-Lantern
                 5721,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Crab Sushi
                 5148,    1250,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Squid Sushi
                 5176,    1000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Bream Sushi
