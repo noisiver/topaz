@@ -977,8 +977,8 @@ function getEffectResistanceTraitChance(caster, target, effect)
         -- https://www.bg-wiki.com/ffxi/Resist#Status_Effect_Resistance_via_Bard_Songs_and_Barpell_Resist
         ret = utils.clamp(ret, 0, 90)
 
-        -- Halved vs NM's
-        if (caster:isPC() and target:isNM()) then
+        -- Player resistance traits are halved vs NM's
+        if (target:isPC() and caster:isNM()) then
             ret = math.floor(ret/2)
         end
 
