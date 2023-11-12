@@ -954,7 +954,7 @@ function SetGenericNMStats(mob)
     -- Mobs normal weapon damage formula is mob level + 2
     wepDMG = level + 20
 
-    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP then
+    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP or isH2H then
         local h2hskill = math.floor(utils.getSkillLvl(1, mob:getMainLvl()))
         wepDMG = 0.11 * h2hskill + 3 + 18 * math.floor((mob:getMainLvl() + 20) / 75)
         wepDMG = wepDMG * 0.4
