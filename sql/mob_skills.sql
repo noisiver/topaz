@@ -332,7 +332,7 @@ INSERT INTO `mob_skills` VALUES (393,137,'sonic_boom',1,12.5,2000,1500,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (394,138,'blood_drain',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (395,139,'jet_stream',0,7.0,2000,1500,4,0,0,0,3,0,0);
 -- INSERT INTO `mob_skills` VALUES (396,140,'smite_of_fury',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (397,141,'flurry_of_rage',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (397,276,'flurry_of_rage',0,7.0,2000,3000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (398,142,'whispers_of_ire',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (399,143,'scratch',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (400,144,'triple_attack',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -561,7 +561,7 @@ INSERT INTO `mob_skills` VALUES (626,437,'vulture_3',0,7.0,2000,0,1,2,0,0,0,0,0)
 INSERT INTO `mob_skills` VALUES (627,438,'vulture_4',0,7.0,2000,0,1,2,0,0,0,0,0); -- 2 hr cloud (Thunder / Yellow)
 INSERT INTO `mob_skills` VALUES (628,372,'wild_horn',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (629,373,'thunderbolt',1,30.0,2000,1500,4,8,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (630,374,'kick_out',3,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (630,374,'kick_out',1,30.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (631,375,'shock_wave',4,10.0,2000,1500,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (632,376,'flame_armor',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (633,377,'howl',1,20.0,2000,1500,1,0,0,0,0,0,0); -- Behemoth family Howl
@@ -1503,7 +1503,7 @@ INSERT INTO `mob_skills` VALUES (1553,1138,'teraflare',1,10.0,2000,1500,4,0,0,0,
 -- INSERT INTO `mob_skills` VALUES (1556,1300,'regeneration',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1557,1146,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- ees breath
 INSERT INTO `mob_skills` VALUES (1558,1302,'smite_of_fury',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1559,257,'flurry_of_rage',0,7.0,2000,1500,4,0,0,0,0,0,0); -- TODO: Get real animation
+-- INSERT INTO `mob_skills` VALUES (1559,276,'flurry_of_rage',0,7.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1560,1304,'whispers_of_ire',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1561,24,'sonic_wave_nightmare',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1562,25,'stomping_nightmare',4,10.0,2000,1500,4,0,0,0,0,0,0);

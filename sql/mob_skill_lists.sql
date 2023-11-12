@@ -3948,7 +3948,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Valoredge',1174,1941);
 INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Sharpshot',1175,1942);
 
 INSERT INTO `mob_skill_lists` VALUES ('Blighting_Brand',1176,1560); -- Whispers of Ire only
-INSERT INTO `mob_skill_lists` VALUES ('Eldritch_Edge',1177,1559); -- Flurry of Rage only
+INSERT INTO `mob_skill_lists` VALUES ('Eldritch_Edge',1177,397); -- Flurry of Rage only
 
 INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 16);
 INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 17);
