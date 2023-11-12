@@ -242,7 +242,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
         if isCrit(mob, critRate) then
-            TryBreakMob(target)
+            if target:isMob() then
+                TryBreakMob(target)
+            end
             -- Ranged crits are pdif * 1.25
             if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
@@ -289,7 +291,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
             if isCrit(mob, critRate) then
-                TryBreakMob(target)
+                if target:isMob() then
+                    TryBreakMob(target)
+                end
                 -- Ranged crits are pdif * 1.25
                 if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
