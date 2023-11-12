@@ -10,6 +10,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
+    mob:setDamage(21)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setLocalVar("TwoHourUsed", 0)
 end
