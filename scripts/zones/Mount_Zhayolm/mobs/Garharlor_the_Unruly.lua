@@ -6,9 +6,11 @@ local ID = require("scripts/zones/Mount_Zhayolm/IDs")
 mixins = {
 require("scripts/mixins/weapon_break"),
 }
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-     mob:setMod(tpz.mod.REFRESH, 400)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setLocalVar("TwoHourUsed", 0)
 end
 

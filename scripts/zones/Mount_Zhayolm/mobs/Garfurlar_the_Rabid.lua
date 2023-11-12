@@ -7,12 +7,14 @@ require("scripts/mixins/weapon_break"),
 require("scripts/mixins/job_special")
 }
 require("scripts/globals/pathfind")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
+    SetGenericNMStats(mob)
 	mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17027467)
-     mob:setMod(tpz.mod.REFRESH, 400)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-	 onPath(mob)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+	onPath(mob)
 end
 
 function onMobFight(mob, target)
