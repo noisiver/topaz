@@ -112,6 +112,13 @@ function onUseAbility(player, target, ability, action)
                 end
             end
         end
+
+        -- No valid effects on target to steal
+        if (effect == tpz.effect.NONE)
+            ability:setMsg(tpz.msg.basic.STEAL_FAIL) -- Failed to steal
+            action:animation(target:getID(), 182)
+        end
+
         return effect
     end
 
