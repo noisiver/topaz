@@ -543,7 +543,7 @@ INSERT INTO `mob_groups` VALUES (32,2704,12,'Moblin_Scalpelman',300,0,1719,0,0,7
 --INSERT INTO `mob_groups` VALUES (33,1645,12,'Goblin_Collector',0,128,1037,0,0,79,81,0); -- NM
 INSERT INTO `mob_groups` VALUES (33,1645,12,'Goblin_Collector',0,128,1037,15000,0,79,81,0); -- NM
 --INSERT INTO `mob_groups` VALUES (34,562,12,'Bugbear_Matman',0,128,375,20000,0,75,79,0);
-INSERT INTO `mob_groups` VALUES (34,562,12,'Bugbear_Matman',0,128,375,10000,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (34,562,12,'Bugbear_Matman',0,128,375,10000,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (35,1160,12,'Earth_Elemental',300,4,733,0,0,80,80,0);
 --INSERT INTO `mob_groups` VALUES (36,6718,12,'Sword_Sorcerer_Solisoq',0,128,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (36,6718,12,'Sword_Sorcerer_Solisoq',7200,0,6043,20000,0,83,83,0);
