@@ -361,8 +361,8 @@ tpz.shop =
                 5775,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocolate Crepe
                 5766,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Butter Crepe
                 4413,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Apple Pie
-                4421,     800,      tpz.ki.RHAPSODY_IN_AZURE,   -- Melon Pie
-                4446,    1200,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pumpkin Pie
+                4421,     416,      tpz.ki.RHAPSODY_IN_AZURE,   -- Melon Pie
+                4446,     250,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pumpkin Pie
                 4410,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Roast Mushroom
                 4510,      24,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acorn Cookie
                 4394,      12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ginger Cookie
