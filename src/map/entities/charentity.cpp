@@ -2123,6 +2123,7 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     auto PItem = static_cast<CItemUsable*>(state.GetItem());
 
     //#TODO: I'm sure this is supposed to be in the action packet... (animation, message)
+    PAI->TargetFind->reset();
     if (PItem->getAoE())
     {
         PTarget->ForParty([PItem, PTarget](CBattleEntity* PMember)
@@ -2139,7 +2140,7 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             }
         });
         float radius = 10.0f;
-        PAI->TargetFind->findWithinArea(PTarget, AOERADIUS_ATTACKER, radius, FINDFLAGS_NONE);
+        PAI->TargetFind->findWithinArea(PTarget, AOERADIUS_ATTACKER, radius);
 
         uint16 targets = (uint16)PAI->TargetFind->m_targets.size();
 
@@ -2190,7 +2191,6 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
 
 
     }
-    // Maybe can use PAI->TargetFind->findSingleTarget(PActionTarget, flags); instead of findWithinArea and not need else?
     else
     {
         luautils::OnItemUse(PTarget, PItem);
