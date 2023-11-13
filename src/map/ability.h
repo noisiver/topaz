@@ -45,7 +45,8 @@ enum ADDTYPE
 
 enum ABILITYRECAST
 {
-    ABILITYRECAST_TWO_HOUR = 0,
+    ABILITYRECAST_TWO_HOUR      = 0,
+    ABILITYRECAST_TWO_HOUR_TWO  = 254, // 2nd set of 2 hours
 };
 
 enum ABILITY
