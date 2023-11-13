@@ -17,7 +17,7 @@ function onSpellCast(caster, target, spell)
 	--62/256 = 24.218% ～ 70/256 = 27.343% *
 	-- 2/256 per merit
 
-    local duration = calculateDuration(1800, spell:getSkillType(), spell:getSpellGroup(), caster, target, false)
+    local duration = 1800
     duration = calculateDurationForLvl(duration, 75, target:getMainLvl())
 
     local typeEffect = tpz.effect.SHELL
