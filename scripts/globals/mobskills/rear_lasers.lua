@@ -24,7 +24,7 @@ function onMobSkillCheck(target,mob,skill)
 		end
 	end
 
-    if target:isInfront(mob, 128)
+    if target:isInfront(mob, 90)
         return 1
     end
 

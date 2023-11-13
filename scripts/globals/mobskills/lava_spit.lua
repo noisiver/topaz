@@ -21,7 +21,7 @@ function onMobSkillCheck(target, mob, skill)
         end
     end
 
-    if target:isBehind(mob, 128) then
+    if target:isBehind(mob, 90) then
         return 1
     else
         return 0
