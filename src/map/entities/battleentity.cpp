@@ -1607,7 +1607,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         PActionTarget->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
     }
 
-    this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_MAGIC_END);
+    this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_MAGIC_END, true);
 }
 
 void CBattleEntity::OnCastInterrupted(CMagicState& state, action_t& action, MSGBASIC_ID msg)

@@ -2885,7 +2885,7 @@ int getSDTTier(int SDT)
 
         if (damage > 0)
         {
-            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
+            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE, true);
 
             // Check for bind breaking
             BindBreakCheck(PAttacker, PDefender);
@@ -3010,7 +3010,7 @@ int getSDTTier(int SDT)
             ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, 0);
 
         if (PAttacker->objtype == TYPE_PC && !isRanged)
-            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
+            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK, true);
 
         return damage;
 
@@ -3050,7 +3050,7 @@ int getSDTTier(int SDT)
 
         if (damage > 0)
         {
-            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
+            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE, true);
 
             // Check for bind breaking
             BindBreakCheck(PAttacker, PDefender);
@@ -3134,7 +3134,7 @@ int getSDTTier(int SDT)
 
         if (!isRanged && attackType == ATTACK_PHYSICAL)
         {
-            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
+            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK, true);
         }
 
         // Apply TP
@@ -3175,7 +3175,7 @@ int getSDTTier(int SDT)
         // Remove effects from damage
         if (PSpell->canTargetEnemy() && damage > 0 && PSpell->dealsDamage())
         {
-            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
+            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE, true);
             // Check for bind breaking
             BindBreakCheck(PAttacker, PDefender);
 
