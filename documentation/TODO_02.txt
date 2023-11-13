@@ -8,6 +8,9 @@ Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
 
 Claustrom equal to full HQ ele staves
+Pets cant parry
+Single target Items still aoe players with msg
+Items have infinite aoe range again
 Kohlrouladen 100 attack/rattk(Ruszor meat item)
 Cap mug heal at targets HP like sanguine etc
 Newton Moval needs a 2nd group for thunder eles(maybe earth too)

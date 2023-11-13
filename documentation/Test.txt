@@ -11,12 +11,7 @@ All UL camp mobs can use their UL tp move
 Move 17027467 Garharlor_the_Unruly because he keeps patrolling into the wall where he can't be hit
 Hypnic Lamp working properly nightmare sleep and all
 Items properly AOEing
-Pets healed to full after gaining traits(can test on tiger easily)
-Pets MEVA being C rank
-Jug pet weapon damage
-Jug Pets new stat rank formulas working(eva/attk/def)
 Pet parry trait works properly (Chapuli Jug)
-Mob MEVA being C rank not tied to the mobs evasion rank
 King Behemoth Ecliptic Meteor + meteor death mechanic
 
 
