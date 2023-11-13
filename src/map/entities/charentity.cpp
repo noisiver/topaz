@@ -1435,6 +1435,12 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             action.recast -= getMod(Mod::ONE_HOUR_RECAST);
         }
 
+        // For testing
+        if (charutils::GetCharVar(this, "GodMode") > 0 || charutils::GetCharVar(this, "SoftGodMode") > 0)
+        {
+            action.recast = 0;
+        }
+
         action.id = this->id;
         action.actiontype = PAbility->getActionType();
         action.actionid = PAbility->getID();
