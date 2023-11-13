@@ -54,6 +54,7 @@ Line 1473
 Change all healing items to item:getPower() for power in their scripts
 Add Drain / Aspir spell IDs to dealsdamage() for 70% tryskillup() chance
 Legendary rare drops rare and not rare/ex(so tradable)
+Put all 2nd 2 hours into some recast thing for action.recast -= getMod(Mod::ONE_HOUR_RECAST); (charentity.cpp and not going on recast when parad
 Yasha Gear mods
 Audit guild shop sql list
 Missing dynamis set bonuses
