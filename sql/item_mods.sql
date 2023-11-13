@@ -22413,8 +22413,9 @@ INSERT INTO `item_mods` VALUES (17963,73,1);
 INSERT INTO `item_mods` VALUES (17964,48,5);      -- Barkborer: Weapon Skill Accuracy +5
 INSERT INTO `item_mods` VALUES (17964,229,10);    -- Plantoid Killer(Intimidate)
 INSERT INTO `item_mods` VALUES (17964,1229,10);   -- Plantoid Circle(% DMG)
-INSERT INTO `item_mods` VALUES (17965,55,5);
+INSERT INTO `item_mods` VALUES (17965,55,5);        -- Sirocco Axe
 INSERT INTO `item_mods` VALUES (17965,56,5);
+INSERT INTO `item_mods` VALUES (17965,431,1);
 INSERT INTO `item_mods` VALUES (17966,366,4);
 INSERT INTO `item_mods` VALUES (17967,26,4);
 INSERT INTO `item_mods` VALUES (17968,24,3);
