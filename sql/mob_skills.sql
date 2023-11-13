@@ -2545,7 +2545,7 @@ INSERT INTO `mob_skills` VALUES (2579,48,'phaeosynthesis',0,7.0,2000,1500,1,0,0,
 -- INSERT INTO `mob_skills` VALUES (2583,2327,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2584,2328,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2585,1658,'testudo_tremor',1,10.0,2000,2500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2586,1684,'ecliptic_meteor',1,20.0,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2586,1684,'ecliptic_meteor',1,10.0,2000,3000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2587,2331,'inspirit',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2588,2332,'debonair_rush',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2589,2333,'iridal_pierce',0,7.0,2000,1500,4,0,0,0,0,0,0);

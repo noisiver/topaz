@@ -21,6 +21,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 39)
     mob:addMod(tpz.mod.EVA, 40)
     mob:setMod(tpz.mod.MP, 5000)
+    mob:setMod(tpz.mod.UFASTCAST, 100)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 20000) 
     mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
@@ -28,18 +29,38 @@ function onMobSpawn(mob)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.BEHEMOTH_QM):setStatus(tpz.status.DISAPPEAR)
     end
-
+    mob:setUnkillable(true)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
 
 function onMobFight(mob, target)
+    -- Casts Meteor at 1% HP
+    if (mob:getHPP() <= 1) then
+        mob:castSpell(218)
+    end
+
+    -- Dies immediately after casting meteor
+    mob:addListener("MAGIC_STATE_EXIT", "KING_BEHEMOTH_MAGIC_STATE_EXIT", function(mob, spell)
+        mob:setUnkillable(false)
+        mob:setHP(0)
+    end)
 end
 
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN, {chance = 20, duration = 5})
 end
 
+function onCastStarting(mob, spell)
+end
+
 function onSpellPrecast(mob, spell)
+    if (spell:getID() == 218) then -- Meteor
+        spell:setAoE(tpz.magic.aoe.RADIAL)
+        spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
+        spell:setRadius(50)
+        spell:setAnimation(280)
+        spell:setMPCost(1)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

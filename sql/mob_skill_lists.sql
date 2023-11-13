@@ -4741,6 +4741,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3139); -- biting_abrogation
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3140); -- permafrost_requiem
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3141); -- glacial_tomb
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3142); -- glassy_nova
+
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,628);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,629);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,630);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,631);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,632);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,633);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,2586); -- Ecliptic Meteor
 -- Next available ID: 1198
--- Next custom ID: 6142
+-- Next custom ID: 6143
 
