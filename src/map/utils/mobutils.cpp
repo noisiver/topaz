@@ -120,7 +120,7 @@ namespace mobutils
 
     uint16 GetMagicEvasion(CMobEntity* PMob)
     {
-        uint8 mEvaRank = PMob->evaRank;
+        uint8 mEvaRank = 3;
         return GetBase(PMob, mEvaRank);
     }
 
