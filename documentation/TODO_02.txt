@@ -7,24 +7,54 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
 
+Reduce capped fame bonus multiplier by ~5-10%ish(not a lot)
+BLM ALL occult acumen traits(so like 5 tiers) starting a level 5
+Items are AOEing mobs if engaged to them(check objtype is pc?)
+Claustrom equal to full HQ ele staves
+Kohlrouladen 100 attack/rattk(Ruszor meat item)
+Change isInFront() and isBehind() moves to ~60 radius not 128
+Cap mug heal at targets HP like sanguine etc
+Newton Moval needs a 2nd group for thunder eles(maybe earth too)
+Garharlor_the_Unruly and probably all ranger trolls should have h2h weapon type
+Energetic Eruca should only be immune to slashing(look in db sql)
+17965 / Sirocco Axe missing add effect mod on item
+Audit DelStatusEffectsByFlag false arg for silent
+T3 automaton attachments desynth alchemy(100) into some type of augment mat or something
+Emps / Relics / Mythics long term goal weapons that slowly get better and are usable early on like ambu weapons
+Sky / Sea / ZNM / VWNM / etc (all gear) augmentable by doing the content slowly upgrades over time 
+autotarget stuff
+https://github.com/search?q=repo%3ALandSandBoat%2Fserver%20autotarget&type=code 
+Fomors in Sacrarium are aggroing with 0 fomor hate, either missing mobmod or something else. Didn't aggro GM with 0 fomor but aggrod with 8. Agrod main char with 0 hate..
 Dvergr trash mobs for learning
+Tabin / Jaridah / Sipahi etc gear on vendor in white gate by al zhabi exit
+Enchantsments on gear make them good and give job abilities / spells from other jobs so you always want one and crafted only
+King Behemoth instant cast meteor before dying and ecliptic meteor
+Tabula Rasa should be it's own 2 hour timer and not normal one
+Cracked orb from wings
+Pets need to be healed to full after gaining traits/stats in petutils.cpp (For max hp boost) I think
+All HNM flail moves AOE(1) radius(30)
++Duration stuff shouldn't work on prot/shell
 Pixies curing players
 https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
-
-Readd superior stuff just be careful on the sql for getting item stuff
+Retune ENM's for duo
+Nation zoning stuff
+https://github.com/AirSkyBoat/AirSkyBoat/commit/ac79b8d3db6ef317effe5044a7e5e40c68908e9a
+Fomor TP moves based on their weapon somehow and not their job
+I changed char look or load packet or something recently (had status effect of coloure by it). revert that, it broke displayhelm I think
 Look at enmity_container.cpp and understand it
 player_charm_controller.cpp to fix charm aggro/linking/assisting
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton WS and summoner shadow/TE logic rework
 !getspelllist GM command
-subzero smash added to rampant stance stuff in mobskill or w/e or make that a flag/param for iron giants harpieas etc too
-maintenance should add enmity to puppetmaster
 
 Add way to display obtaning KI / items from chests and coffers player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS)
 Also try to find a way to chars name as a param
 Line 1473
 
 Change all healing items to item:getPower() for power in their scripts
+Add Drain / Aspir spell IDs to dealsdamage() for 70% tryskillup() chance
+Legendary rare drops rare and not rare/ex(so tradable)
+Yasha Gear mods
 Audit guild shop sql list
 Missing dynamis set bonuses
 Code KS99 with custom drops
@@ -61,6 +91,15 @@ No longer attack people after a poroggo charmed? or were they too far when I was
 Sunflower Seeds rarely used item
 Content with a lot of chigoes / ja proc mobs for dnc to be useful
 
+Requiume of sin:
+Pets aren't summoned at start
+Have regain
+use 2 hours(familiar / blood weapon)
+Wyvern uses healing breath on everyone when Shikaree Z casts a spell
+Wyvern uses normal offensive breaths and defensive whenever it gains TP
+Pets aren't despawned on masters dying and need to be killed for the chest to spawn
+Spawns a chest with loot. Chest can have no loot.
+
 Mythic:
 Qultada custom msgs cant use msgids
 
@@ -77,13 +116,30 @@ THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
 
 DATS:
+Pestle isn't supposed to give all resists
+Dusk Gear Rare / EX
+Wise Body(diff stats, enspell dmg is ass)
+Beastly Earring pet stats
+ToAU ring buffs
+Aketon change to damage taken not phalanx check others with same type of text
+Oneiros / Mujin items(neo dynamis) lvls
+JSE necks rare/ex
 Master's Shield rare/ex
+Ninja Nodowa missing a \n before Magic Accuracy
 
 LAC:
 
 Wiki: 
-JSE 40 COP bodies
-Sea Torques / Capes
+Yasha Gear
+War Shinobi Gi
+Aketon
+Bloody Aketon
+Kyudogi
+Lord's Set
+Rasetsu Set
+Ogre Set
+Gavial / Hydra Gear
+Khimaira gear
 Item implicits
 https://www.bg-wiki.com/ffxi/Shiyo_Server_Content/Mythic_NMs was fixed, use this to fix JSE necks
 Custom item sets(brass gear, pup/smn gear, wise gear, etc)

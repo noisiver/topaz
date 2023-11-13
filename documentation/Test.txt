@@ -7,6 +7,12 @@ Osschaart (Copycat)
 Macan Gadangan (Wild Wild Whiskers)
 Platoon Scorpions(Operaiton Desert Storm)
 Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
+Riverne map quest
+Steal msg with aurasteal when mob has no item and nothing to steal should just say miss
+All UL camp mobs can use their UL tp move
+Move 17027467 Garharlor_the_Unruly because he keeps patrolling into the wall where he can't be hit
+Steal with no effect on target and no item to steal
+Hypnic Lamp working properly nightmare sleep and all
 
 
 Retail:
