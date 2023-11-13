@@ -2948,7 +2948,8 @@ tpz.mobMod =
     ALLI_HATE           = 68, -- Range around target to add alliance member to enmity list.
     NO_LINK             = 69, -- If set, mob cannot link until unset.
     NO_REST             = 70, -- Mob cannot regain hp (e.g. re-burrowing antlions during ENM).
-    FAMILYLINK          = 74,  -- Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
+    FAMILYLINK          = 74, -- Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
+    FOMOR_HATE          = 85, -- Mob aggros according to fomor hate
     AGGRO_SIGHT         = 86, -- aggros sight 0 = false 1 = true
     AGGRO_SOUND         = 87, -- aggros sound 0 = false 1 = true
     AGGRO_MAGIC         = 88, -- aggros magic 0 = false 1 = true
