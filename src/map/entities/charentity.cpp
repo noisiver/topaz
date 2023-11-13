@@ -1095,7 +1095,7 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     }
     if (PSpell->tookEffect())
     {
-        if (PSpell->dealsDamage())
+        if (PSpell->dealsDamage() || PSpell->getSpellFamily() == SPELLFAMILY_DRAIN || PSpell->getSpellFamily() == SPELLFAMILY_ASPIR)
         {
             charutils::TrySkillUP(this, (SKILLTYPE)PSpell->getSkillType(), PTarget->GetMLevel(), true);
         }
