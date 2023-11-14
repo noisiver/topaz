@@ -6,6 +6,15 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
+Version update:
+https://github.com/LandSandBoat/server/commit/ab64eca52d17136f6fbb2cdb9645d5638c7f708f
+
+Cherukiki:
+No auto-attack animation
+Missing skill list
+MIssing spell list
+Sibblings have no auto-attack animation an d missing skill list
+Cherukiki cures players and not siblings
 
 Korolokka onmobdisengage setpos back to spawn
 Drain/Aspir skill ups dont work?(70%)
@@ -24,7 +33,10 @@ Pixies curing players
 https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
 Retune ENM's for duo
 Nation zoning stuff
-https://github.com/AirSkyBoat/AirSkyBoat/commit/ac79b8d3db6ef317effe5044a7e5e40c68908e9a
+https://github.com/AirSkyBoat/AirSkyBoat/commit/ac79b8d3db6ef317effe5044a7e5e40c68908e9a +
+Latent Stuff
+https://github.com/LandSandBoat/server/commit/9868b8ac177283b9b885fdbd229ca7218460cf40
+https://github.com/LandSandBoat/server/commit/99a326d83f0591b671628e97fe12edcb10373996
 Look at enmity_container.cpp and understand it
 player_charm_controller.cpp to fix charm aggro/linking/assisting
 Ulbrecht and Qultada custom msgs cant use msgids
