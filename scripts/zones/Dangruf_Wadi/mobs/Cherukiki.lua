@@ -32,8 +32,8 @@ function onMobFight(mob, target)
             local makki = mob:getID() +1
             local kukki = mob:getID() +2
             for v = makki, kukki do
-                v:spawn()
-                v:updateEnmity(mob:getTarget())
+                GetMobByID(v):spawn()
+                GetMobByID(v):updateEnmity(mob:getTarget())
             end
             MessageGroup(mob, target, "Feel the fear! The Chebukkis are here!", 0, "Cherukiki")
             MessageGroup(mob, target, "Chebukki Sumo Siblings!", 0, "Kukki-Chebukki")
@@ -49,6 +49,15 @@ function onMobFight(mob, target)
     if (phase == 2) then
         mob:SetAutoAttackEnabled(false)
         TryCastSpell(mob)
+        -- Remove unkillable if Kukki and Makki are dead
+        if AreSiblingsDead(mob) then
+            MessageGroup(mob, target, "I learned this from Prishe!", 0, "Cherukiki")
+            mob:useMobAbility(3395) -- Lvl up!
+            mob:setHP(4500)
+            mob:SetAutoAttackEnabled(true)
+            mob:setUnkillable(false)
+            mob:setLocalVar("phase", 3)
+        end
     end
 
     if (phase == 3) then
@@ -59,16 +68,6 @@ function onMobFight(mob, target)
         mob:addMod(tpz.mod.EVA, 25)
         mob:setMod(tpz.mod.REGAIN, 100)
         mob:setMod(tpz.mod.DMG, -50)
-    end
-
-    -- Remove unkillable if Kukki and Makki are dead
-    if AreSiblingsDead(mob) then
-        MessageGroup(mob, target, "I learned this from Prishe!", 0, "Cherukiki")
-        mob:useMobAbility(3395) -- Lvl up!
-        mob:setHP(4500)
-        mob:SetAutoAttackEnabled(true)
-        mob:setUnkillable(false)
-        mob:setLocalVar("phase", 3)
     end
 end
 
@@ -101,11 +100,12 @@ end
 function TryCastSpell(mob)
     local spellTimer = mob:getLocalVar("spellTimer")
     local battleTime = mob:getBattleTime()
-    local spell = GetBestSpell(mob)
+    local spell, target = GetBestSpell(mob)
+    -- printf("target %d", target)
 
     if (spellTimer < battleTime) then
         mob:setLocalVar("spellTimer", battleTime + 10)
-        mob:castSpell(spell)
+        mob:castSpell(spell, GetMobByID(target))
     end
 end
 
@@ -120,20 +120,28 @@ function GetBestSpell(mob)
 
     local makki = mob:getID() +1
     local kukki = mob:getID() +2
+    local spell = 0
+    local target = 0
+
     for v = makki, kukki do
-        -- Try to Cure if their HP is below 75%
-        if (v:getHPP() <= 75) then
-            return tpz.magic.spell.CURE_V
-        end
-        -- Check for buffs if their HP is ok
+        -- Check for buffs
         for _, buffs in pairs(buffIds) do
-            if not v:hasStatusEffect(buffs[1]) then
-                return buffs[2]
+            if GetMobByID(v):isAlive() and not GetMobByID(v):hasStatusEffect(buffs[1]) then
+                spell = buffs[2]
+                target = v
+                break
             end
+        end
+
+        -- Try to Cure if their HP is below 75%
+        if (GetMobByID(v):isAlive() and GetMobByID(v):getHPP() <= 75) then
+             spell = tpz.magic.spell.CURE_V
+             target = v
+             break
         end
     end
 
-    return 0
+    return spell, target
 end
 
 function ResetVars(mob)
