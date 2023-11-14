@@ -505,7 +505,7 @@ INSERT INTO `mob_groups` VALUES (10,2690,12,'Moblin_Draftsman',300,0,1707,0,0,66
 INSERT INTO `mob_groups` VALUES (11,1044,12,'Dire_Bat',300,0,234,0,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (12,2710,12,'Moblin_Yardman',300,0,1724,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (13,3806,12,'Succubus_Bats',300,0,0,0,0,63,65,0);
-INSERT INTO `mob_groups` VALUES (14,3912,12,'Thunder_Elemental',300,4,2410,0,0,70,80,0);
+INSERT INTO `mob_groups` VALUES (14,3912,12,'Thunder_Elemental',300,4,2410,0,0,70,71,0);
 INSERT INTO `mob_groups` VALUES (15,1160,12,'Earth_Elemental',300,4,733,0,0,70,71,0);
 --INSERT INTO `mob_groups` VALUES (16,1676,12,'Goblin_Headman',300,0,1091,0,0,75,79,0);
 --INSERT INTO `mob_groups` VALUES (17,1720,12,'Goblins_Bat',0,128,1167,0,0,71,73,0);
@@ -549,6 +549,7 @@ INSERT INTO `mob_groups` VALUES (35,1160,12,'Earth_Elemental',300,4,733,0,0,80,8
 INSERT INTO `mob_groups` VALUES (36,6718,12,'Sword_Sorcerer_Solisoq',7200,0,6043,20000,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (37,2684,12,'Moblin_Aidman_Guard',0,128,1703,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (38,2692,12,'Moblin_Engineman_Guard',0,128,1708,0,0,72,74,0);
+INSERT INTO `mob_groups` VALUES (39,3912,12,'Thunder_Elemental',300,4,2410,0,0,80,80,0);
 
 -- ------------------------------------------------------------
 -- Mine_Shaft_2716 (Zone 13)
