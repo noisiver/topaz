@@ -26,6 +26,7 @@ end
 function onSpellCast(caster, target, spell)
     local duration = 300
     local durationTwo = 900
+    local aquaveilPower = 10 + caster:getMod(tpz.mod.AQUAVEIL_COUNT)
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
@@ -42,9 +43,11 @@ function onSpellCast(caster, target, spell)
     duration = math.floor(duration * (1 + caster:getMod(tpz.mod.UNBRIDLED_DURATION) / 100))
     durationTwo = math.floor(durationTwo * (1 + caster:getMod(tpz.mod.UNBRIDLED_DURATION) / 100))
 
+    target:delStatusEffectSilent(tpz.effect.AQUAVEIL)
+
     target:addStatusEffect(tpz.effect.ATTACK_BOOST, 20, 0, duration)
     target:addStatusEffect(tpz.effect.MAGIC_ATK_BOOST, 20, 0, duration)
-    target:addStatusEffect(tpz.effect.AQUAVEIL, 10, 0, durationTwo)
+    target:addStatusEffect(tpz.effect.AQUAVEIL, aquaveilPower, 0, durationTwo)
     spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
 
     return tpz.effect.AQUAVEIL
