@@ -963,7 +963,7 @@ function utils.getWeaponStyle(player)
 
     for _, combatSkills in pairs(oneHandedSkills) do
         for _, combatSkills in pairs(twoHandedSkills) do
-            if subSkill == nil or subSkill == tpz.skill.NONE or subSkill:isShield() then
+            if subSkill == nil or subSkill == tpz.skill.NONE then
                 return 'SHIELD'
             else
                 return 'DW'
