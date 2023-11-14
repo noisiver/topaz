@@ -16,7 +16,7 @@ end
 
 function onMobEngaged(mob, target)
     for v = 17027467, 17027469 do
-        GetMobByID(v):updateEnmity(player)
+        GetMobByID(v):updateEnmity(target)
     end
 end
 
