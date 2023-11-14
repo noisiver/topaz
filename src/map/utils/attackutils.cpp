@@ -105,7 +105,7 @@ namespace attackutils
     {
         if (!PDefender->StatusEffectContainer->HasPreventActionEffect(false) && facing(PDefender->loc.p, PAttacker->loc.p, 64))
         {
-            if (PDefender->objtype == TYPE_MOB)
+            if (PDefender->objtype == TYPE_MOB || PDefender->objtype == TYPE_PET)
             {
                 return (tpzrand::GetRandomNumber(100) < battleutils::GetMobParryRate(PAttacker, PDefender));
             }
