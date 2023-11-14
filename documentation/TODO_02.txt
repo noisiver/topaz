@@ -6,41 +6,31 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
-Troll trio updateenmity thing doesn't work properly
+
 Korolokka onmobdisengage setpos back to spawn
-Spontaneity doesn't properly set a spells recast to 0
 Drain/Aspir skill ups dont work?(70%)
-Revet displayhelm changes i did to charpacket or charloadpacket or zone_in packet
+Revert displayhelm changes i did to charpacket or charloadpacket or zone_in packet
 Claustrom equal to full HQ ele staves
-Pets cant parry
-Single target Items still aoe players with msg
-Items have infinite aoe range again
-Kohlrouladen 100 attack/rattk(Ruszor meat item)
 Cap mug heal at targets HP like sanguine etc
-Newton Moval needs a 2nd group for thunder eles(maybe earth too)
 T3 automaton attachments desynth alchemy(100) into some type of augment mat or something
 Emps / Relics / Mythics long term goal weapons that slowly get better and are usable early on like ambu weapons
 Sky / Sea / ZNM / VWNM / etc (all gear) augmentable by doing the content slowly upgrades over time 
 autotarget stuff
 https://github.com/search?q=repo%3ALandSandBoat%2Fserver%20autotarget&type=code 
 Fomors in Sacrarium are aggroing with 0 fomor hate, either missing mobmod or something else. Didn't aggro GM with 0 fomor but aggrod with 8. Agrod main char with 0 hate..
-Tabin / Jaridah / Sipahi etc gear on vendor in white gate by al zhabi exit
 Enchantsments on gear make them good and give job abilities / spells from other jobs so you always want one and crafted only
 Cracked orb from wings
-All HNM flail moves AOE(1) radius(30)
 Pixies curing players
 https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
 Retune ENM's for duo
 Nation zoning stuff
 https://github.com/AirSkyBoat/AirSkyBoat/commit/ac79b8d3db6ef317effe5044a7e5e40c68908e9a
-Fomor TP moves based on their weapon somehow and not their job
-I changed char look or load packet or something recently (had status effect of coloure by it). revert that, it broke displayhelm I think
 Look at enmity_container.cpp and understand it
 player_charm_controller.cpp to fix charm aggro/linking/assisting
 Ulbrecht and Qultada custom msgs cant use msgids
 Automaton WS and summoner shadow/TE logic rework
 !getspelllist GM command
-
+Aketon gear mods
 Add way to display obtaning KI / items from chests and coffers player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS)
 Also try to find a way to chars name as a param
 Line 1473
@@ -54,7 +44,6 @@ Code KS99 with custom drops
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
-Fomor Black mages in aquaducts shouldn't use grim halo they use a club(should use foxfire)
 AH to WotG towns
 mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
 Windurst Salad / Taco
@@ -96,11 +85,7 @@ Spawns a chest with loot. Chest can have no loot.
 Mythic:
 Qultada custom msgs cant use msgids
 
-BLM:
-Manawell should be self target(prob change DAT too)
-
 BLU:
-MAB + MACC on all Demon / Dragon Kilij
 Knockback param to spells
 Add Fantod
 Reraise spell
@@ -112,10 +97,6 @@ THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
 
 DATS:
-Ether / Elixir cast times
-Occult acumen description
-Pestle isn't supposed to give all resists
-Wise Body(diff stats, enspell dmg is ass)
 Beastly Earring pet stats
 ToAU ring buffs
 Aketon change to damage taken not phalanx check others with same type of text
@@ -127,8 +108,7 @@ Ninja Nodowa missing a \n before Magic Accuracy
 LAC:
 
 Wiki: 
-Manawell should be self target, is this dat editable?
-BLM and SAM traits/JA's
+SAM traits/JA's
 Yasha Gear
 War Shinobi Gi
 Aketon
