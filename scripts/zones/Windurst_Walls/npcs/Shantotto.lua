@@ -92,7 +92,7 @@ function onTrigger(player, npc)
     local wsQuestEvent = tpz.wsquest.getTriggerEvent(wsQuest, player)
     local foiledAgain = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_1)
     local CFA2 = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_2)
-    local gameDay = VanadielDayOfTheYear()
+    local gameDay = 0
     local FoiledAGolem = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_A_GOLEM)
     local golemdelivery = player:getCharVar("foiledagolemdeliverycomplete")
     local WildcatWindurst = player:getCharVar("WildcatWindurst")

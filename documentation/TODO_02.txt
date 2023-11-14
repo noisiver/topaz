@@ -6,7 +6,11 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
-
+Troll trio updateenmity thing doesn't work properly
+Korolokka onmobdisengage setpos back to spawn
+Spontaneity doesn't properly set a spells recast to 0
+Drain/Aspir skill ups dont work?(70%)
+Revet displayhelm changes i did to charpacket or charloadpacket or zone_in packet
 Claustrom equal to full HQ ele staves
 Pets cant parry
 Single target Items still aoe players with msg
@@ -92,6 +96,9 @@ Spawns a chest with loot. Chest can have no loot.
 Mythic:
 Qultada custom msgs cant use msgids
 
+BLM:
+Manawell should be self target(prob change DAT too)
+
 BLU:
 MAB + MACC on all Demon / Dragon Kilij
 Knockback param to spells
@@ -105,6 +112,8 @@ THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
 
 DATS:
+Ether / Elixir cast times
+Occult acumen description
 Pestle isn't supposed to give all resists
 Wise Body(diff stats, enspell dmg is ass)
 Beastly Earring pet stats
@@ -118,6 +127,8 @@ Ninja Nodowa missing a \n before Magic Accuracy
 LAC:
 
 Wiki: 
+Manawell should be self target, is this dat editable?
+BLM and SAM traits/JA's
 Yasha Gear
 War Shinobi Gi
 Aketon

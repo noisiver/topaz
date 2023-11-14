@@ -16,6 +16,7 @@ King Behemoth Ecliptic Meteor + meteor death mechanic
 
 
 Retail:
+FOV/GOV elite training
 Dancing Chains wipe shadows?
 Simplylog show buff mob gets from buff moves?
 Aldazal locus gears (nashmau hp > run east)
