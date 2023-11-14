@@ -13,6 +13,7 @@ Hypnic Lamp working properly nightmare sleep and all
 Items properly AOEing
 Pet parry trait works properly (Chapuli Jug)
 King Behemoth Ecliptic Meteor + meteor death mechanic
+SPONTANEITY working properly to set recast to 0(turn off sofgodmode / gm)
 
 
 Retail:
