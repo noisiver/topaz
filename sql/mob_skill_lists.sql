@@ -4749,6 +4749,18 @@ INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,631);
 INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,632);
 INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,633);
 INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,2586); -- Ecliptic Meteor
+
+-- Colkhab
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,2999); -- bztavian_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,3000); -- bztavian_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,3001); -- bztavian_auto_three
+
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3002); -- mandibular_lashing
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3003); -- vespine_hurricane
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3004); -- stinger_volley
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3005); -- droning_whirlwind
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3006); -- incisive_denouement
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3007); -- incisive_apotheosis
 -- Next available ID: 1198
--- Next custom ID: 6143
+-- Next custom ID: 6145
 

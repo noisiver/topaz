@@ -2958,13 +2958,13 @@ INSERT INTO `mob_skills` VALUES (2992,2159,'jungle_wallop',1,18.0,2000,1000,4,0,
 -- INSERT INTO `mob_skills` VALUES (2996,2740,'velkkan_pygmachia',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2997,112,'saurian_swamp',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2998,2742,'jungle_hoodoo',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2999,2133,'bztavian_auto_one',0,7.0,0,0,4,16,0,0,0,0,0);    -- colkhab and muyingwa melee specials
-INSERT INTO `mob_skills` VALUES (3000,2134,'bztavian_auto_two',4,10.0,0,0,4,16,0,0,0,0,0);   -- colkhab and muyingwa melee specials
+INSERT INTO `mob_skills` VALUES (2999,2133,'bztavian_auto_one',0,7.0,0,0,4,16,0,3,0,0,0);    -- colkhab and muyingwa melee specials
+INSERT INTO `mob_skills` VALUES (3000,2134,'bztavian_auto_two',4,10.0,0,0,4,16,0,3,0,0,0);   -- colkhab and muyingwa melee specials
 INSERT INTO `mob_skills` VALUES (3001,2135,'bztavian_auto_three',1,10.0,0,0,4,16,0,0,0,0,0); -- colkhab and muyingwa melee specials
 INSERT INTO `mob_skills` VALUES (3002,2136,'mandibular_lashing',4,10.0,2000,2000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3003,2137,'vespine_hurricane',4,10.0,2000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3003,2137,'vespine_hurricane',4,10.0,2000,2000,4,0,0,5,0,0,0);
 INSERT INTO `mob_skills` VALUES (3004,2138,'stinger_volley',4,10.0,2000,2000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3005,2139,'droning_whirlwind',1,10.0,2000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3005,2139,'droning_whirlwind',1,10.0,2000,2000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (3006,2140,'incisive_denouement',0,7.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3007,2141,'incisive_apotheosis',4,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3008,2193,'rockfin_auto_one',0,7.0,0,0,4,16,0,0,0,0,0); -- tchakka and dakuwaqa melee specials
