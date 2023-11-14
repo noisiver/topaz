@@ -45,13 +45,28 @@ function onMobFight(mob, target)
         end
     end
 
+    -- Stops attacking and only heals and buffs her Siblings
     if (phase == 2) then
+        mob:SetAutoAttackEnabled(false)
+        TryCastSpell(mob)
     end
+
     if (phase == 3) then
+	    mob:setDamage(125)
+        mob:addMod(tpz.mod.ATTP, 25)
+        mob:addMod(tpz.mod.DEFP, 25) 
+        mob:addMod(tpz.mod.ACC, 25) 
+        mob:addMod(tpz.mod.EVA, 25)
+        mob:setMod(tpz.mod.REGAIN, 100)
+        mob:setMod(tpz.mod.DMG, -50)
     end
 
     -- Remove unkillable if Kukki and Makki are dead
     if AreSiblingsDead(mob) then
+        MessageGroup(mob, target, "I learned this from Prishe!", 0, "Cherukiki")
+        mob:useMobAbility(3395) -- Lvl up!
+        mob:setHP(4500)
+        mob:SetAutoAttackEnabled(true)
         mob:setUnkillable(false)
         mob:setLocalVar("phase", 3)
     end
@@ -86,9 +101,11 @@ end
 function TryCastSpell(mob)
     local spellTimer = mob:getLocalVar("spellTimer")
     local battleTime = mob:getBattleTime()
+    local spell = GetBestSpell(mob)
 
     if (spellTimer < battleTime) then
         mob:setLocalVar("spellTimer", battleTime + 10)
+        mob:castSpell(spell)
     end
 end
 
