@@ -121,7 +121,7 @@ function onTrigger(player, npc)
         player:startEvent(172, 0, 0, 0, 0, 0, 0, 928, 880)
         -- Curses, Foiled...Again!?
     elseif (foiledAgain == QUEST_COMPLETED and CFA2 == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 2 and
-        player:getMainLvl() >= 5 and CFAtimer == 1) then
+        player:getMainLvl() >= 5 and CFAtimer == 0) then
         player:startEvent(180, 0, 0, 0, 0, 928, 880, 17316, 940) -- Quest Start
     elseif (CFA2 == QUEST_ACCEPTED) then
         player:startEvent(181, 0, 0, 0, 0, 0, 0, 17316, 940) -- Reminder dialog
