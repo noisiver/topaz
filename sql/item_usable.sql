@@ -1094,7 +1094,7 @@ INSERT INTO `item_usable` VALUES (5251,'dose_of_barthunder_ointment',1,2,0,0,0,0
 INSERT INTO `item_usable` VALUES (5252,'dose_of_barwater_ointment',1,2,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5253,'hermes_quencher',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5254,'hyper_potion',1,1,31,0,0,0,0,0,24,500);
-INSERT INTO `item_usable` VALUES (5255,'hyper_ether',1,2,33,0,0,0,0,0,25,150);
+INSERT INTO `item_usable` VALUES (5255,'hyper_ether',1,4,33,0,0,0,0,0,25,150);
 INSERT INTO `item_usable` VALUES (5256,'fire_feather',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5257,'blaze_feather',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5258,'revive_feather',1,1,0,0,0,0,0,0,0,0);
@@ -1166,8 +1166,8 @@ INSERT INTO `item_usable` VALUES (5323,'copy_of_the_brenner_bluebook',1,1,0,0,0,
 INSERT INTO `item_usable` VALUES (5324,'page_of_the_brenner_bluebook',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5325,'copy_of_the_brenner_blackbook',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5326,'page_of_the_brenner_blackbook',1,1,0,0,0,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5327,'bottle_of_potion_drops',1,2,30,0,0,0,0,0,24,150);
-INSERT INTO `item_usable` VALUES (5328,'bottle_of_hi-potion_drops',1,2,31,0,0,0,0,0,24,250);
+INSERT INTO `item_usable` VALUES (5327,'bottle_of_potion_drops',1,1,30,0,0,0,0,0,24,150);
+INSERT INTO `item_usable` VALUES (5328,'bottle_of_hi-potion_drops',1,1,31,0,0,0,0,0,24,250);
 INSERT INTO `item_usable` VALUES (5329,'tarutaru_snare',4,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5330,'mithra_snare',4,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5331,'qiqirn_mine',1,1,55,0,0,0,0,0,0,0);
@@ -1196,8 +1196,8 @@ INSERT INTO `item_usable` VALUES (5353,'iron_bullet_pouch',1,1,55,0,0,0,0,0,0,0)
 INSERT INTO `item_usable` VALUES (5354,'flask_of_walahra_water',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5355,'elixir_vitae',1,1,4,0,0,0,0,0,26,25);
 INSERT INTO `item_usable` VALUES (5356,'jar_of_remedy_ointment',1,1,7,0,0,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5357,'bottle_of_ether_drops',1,2,32,0,0,0,0,0,25,0);
-INSERT INTO `item_usable` VALUES (5358,'bottle_of_hi-ether_drops',1,2,33,0,0,0,0,0,25,0);
+INSERT INTO `item_usable` VALUES (5357,'bottle_of_ether_drops',1,4,32,0,0,0,0,0,25,0);
+INSERT INTO `item_usable` VALUES (5358,'bottle_of_hi-ether_drops',1,4,33,0,0,0,0,0,25,0);
 INSERT INTO `item_usable` VALUES (5359,'bronze_bullet_pouch',1,1,55,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5360,'muteppo',1,10,102,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5361,'datechochin',1,1,101,0,0,0,0,0,0,0);
