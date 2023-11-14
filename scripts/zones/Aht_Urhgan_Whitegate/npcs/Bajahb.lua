@@ -12,11 +12,21 @@ end
 function onTrigger(player, npc)
     local stock =
     {
-        12424, 10260,    -- Iron Mask
-        12552, 15840,    -- Chainmail
-        12680,  8460,    -- Chain Mittens
-        12808, 12600,    -- Chain Hose
-        12936,  7740     -- Greaves
+        tpz.items.SIPAHI_TURBAN,    40260,
+        tpz.items.JARIDAH_KHUD,     42840,
+        tpz.items.TABIN_BERET,      40460,
+        tpz.items.SIPAHI_JAWSHAN,   60921
+        tpz.items.JARIDAH_PETI,     60843
+        tpz.items.TABIN_JUPON,      60572
+        tpz.items.SIPAHI_DASTANA,   25986
+        tpz.items.JARIDAH_BAZUBANDS,25178
+        tpz.items.TABIN_BRACERS,    25590
+        tpz.items.SIPAHI_ZEREHS,    50329
+        tpz.items.JARIDAH_SALVARS,  50662
+        tpz.items.TABIN_HOSE,       50801
+        tpz.items.SIPAHI_BOOTS,     25336
+        tpz.items.JARIDAH_NAILS,    23899
+        tpz.items.TABIN_BOOTS,      23906
     }
 
     player:showText(npc, ID.text.BAJAHB_SHOP_DIALOG)
