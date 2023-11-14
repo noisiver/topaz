@@ -14226,13 +14226,13 @@ INSERT INTO `item_mods` VALUES (14440,5,20);
 INSERT INTO `item_mods` VALUES (14440,25,5);
 INSERT INTO `item_mods` VALUES (14440,27,-2);
 INSERT INTO `item_mods` VALUES (14440,30,5);
-INSERT INTO `item_mods` VALUES (14440,432,3);     -- Sword enhancement spell damage +3
+INSERT INTO `item_mods` VALUES (14440,832,1);     -- Aquaveil +1
 INSERT INTO `item_mods` VALUES (14441,1,44);      -- Chasuble +1
 INSERT INTO `item_mods` VALUES (14441,5,25);
 INSERT INTO `item_mods` VALUES (14441,25,6);
 INSERT INTO `item_mods` VALUES (14441,27,-3);
 INSERT INTO `item_mods` VALUES (14441,30,6);
-INSERT INTO `item_mods` VALUES (14441,432,4);     -- Sword enhancement spell damage +4
+INSERT INTO `item_mods` VALUES (14441,832,2);     -- Aquaveil +2
 INSERT INTO `item_mods` VALUES (14442,1,44);      -- Yasha Samue +1: DEF 44
 INSERT INTO `item_mods` VALUES (14442,12,4);      -- INT +4
 INSERT INTO `item_mods` VALUES (14442,27,5);      -- Enmity +5
