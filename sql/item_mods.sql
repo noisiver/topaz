@@ -11865,8 +11865,14 @@ INSERT INTO `item_mods` VALUES (13810,511,5);     -- Chocobo riding time +5
 INSERT INTO `item_mods` VALUES (13811,1,12);      -- Rider's Jack Coat: DEF 12
 INSERT INTO `item_mods` VALUES (13811,511,5);     -- Chocobo riding time +5
 INSERT INTO `item_mods` VALUES (13812,1,45);      -- Holy Breastplate
+INSERT INTO `item_mods` VALUES (13812,11,-5);     -- AGI-5
+INSERT INTO `item_mods` VALUES (13812,13,-20);    -- MND-20
+INSERT INTO `item_mods` VALUES (13812,68,-10);    -- Evasion-10
 INSERT INTO `item_mods` VALUES (13812,160,-10);   -- -10% DT
 INSERT INTO `item_mods` VALUES (13813,1,50);      -- Divine Breastplate
+INSERT INTO `item_mods` VALUES (13813,11,-5);     -- AGI-5
+INSERT INTO `item_mods` VALUES (13813,13,-20);    -- MND-20
+INSERT INTO `item_mods` VALUES (13813,68,-10);    -- Evasion-10
 INSERT INTO `item_mods` VALUES (13813,160,-10);   -- -10% DT
 INSERT INTO `item_mods` VALUES (13814,1,29);
 INSERT INTO `item_mods` VALUES (13814,14,-2);
