@@ -11,7 +11,7 @@ https://github.com/LandSandBoat/server/commit/ab64eca52d17136f6fbb2cdb9645d5638c
 
 Divine / Holy Breastplate -MND -cure potency -eva
 Add getspellfamily() lua binding and use it for line 1220 magic.lua
-casting being interrupted makes all recasts have a 3s gcd or w/e in magic_state
+make casting being interrupted makes all recasts have a 3s gcd or w/e in magic_state
 Cherukiki:
 No auto-attack animation
 Missing skill list
