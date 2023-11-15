@@ -1217,15 +1217,17 @@ function finalMagicAdjustments(caster, target, spell, dmg)
         dmg = target:addHP(-dmg)
         spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
     else
-        target:takeSpellDamage(caster, spell, dmg, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL + spell:getElement())
-        target:handleAfflatusMiseryDamage(dmg)
-        target:updateEnmityFromDamage(caster, dmg)
-        -- Only add TP if the target is a mob
-        if (dmg > 0) then
-            if (target:getObjType() ~= tpz.objType.PC) then
-                local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-                -- printf("TP given: %d", tpGiven)
-                target:addTP(tpGiven)
+        if not (spell:getID() == tpz.magic.spell.ASPIR) and not (spell:getID() == tpz.magic.spell.ASPIR_II) then
+            target:takeSpellDamage(caster, spell, dmg, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL + spell:getElement())
+            target:handleAfflatusMiseryDamage(dmg)
+            target:updateEnmityFromDamage(caster, dmg)
+            -- Only add TP if the target is a mob
+            if (dmg > 0) then
+                if (target:getObjType() ~= tpz.objType.PC) then
+                    local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+                    -- printf("TP given: %d", tpGiven)
+                    target:addTP(tpGiven)
+                end
             end
         end
     end
