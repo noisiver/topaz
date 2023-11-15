@@ -946,24 +946,24 @@ function utils.givePartyKeyItem(entity, keyitem)
 end
 
 function utils.getWeaponStyle(player)
-    local twoHandedSkills = { 4, 6, 7, 8, 10, 12 };
-    local oneHandedSkills = { 2, 3, 5, 9, 11 };
-    local mainHandSkill = player:getWeaponSkillType(tpz.slot.MAIN)
-    local subSkill = player:getWeaponSubSkillType(tpz.slot.SUB)
+    if not player:isPC() then
+        return 'Unknown'
+    end
 
-    if mainHandSkill == 1 then
+    local mainEquip = player:getStorageItem(0, 0, tpz.slot.MAIN)
+    local subEquip = player:getStorageItem(0, 0, tpz.slot.SUB)
+
+    if mainEquip:isHandToHand() then
         return 'H2H'
     end
 
-    for _, combatSkills in pairs(twoHandedSkills) do
-        if mainHandSkill == combatSkills then
-            return '2H'
-        end
+    if mainEquip:isTwoHanded() then
+        return '2H'
     end
 
     for _, combatSkills in pairs(oneHandedSkills) do
         for _, combatSkills in pairs(twoHandedSkills) do
-            if subSkill == nil or subSkill == tpz.skill.NONE then
+            if subEquip == nil or subEquip:getSkillType() == tpz.skill.NONE or subEquip:isShield() then
                 return 'SHIELD'
             else
                 return 'DW'
