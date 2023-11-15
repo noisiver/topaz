@@ -4761,6 +4761,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3004); -- stinger_volley
 INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3005); -- droning_whirlwind
 INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3006); -- incisive_denouement
 INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3007); -- incisive_apotheosis
+
+INSERT INTO `mob_skill_lists` VALUES ('Empyreal_Arrow_Only',6145,199); -- Empyreal Arrow Only
 -- Next available ID: 1198
--- Next custom ID: 6145
+-- Next custom ID: 6146
 

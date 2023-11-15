@@ -5979,7 +5979,24 @@ INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 259, 1, 255); -- Slee
 INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 260, 1, 255); -- Dispel
 INSERT INTO `mob_spell_lists` VALUES('Ulbrecht-Dark', 540, 502, 1, 255); -- Kaustra
 
--- NEXT 541
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,218,1,255); -- Meteor
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,147,1,255); -- fire_iv
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,152,1,255); -- blizzard_iv
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,157,1,255); -- aero_iv
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,163,1,255); -- stone_iv
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,167,1,255); -- thunder_iv
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,172,1,255); -- water_iv
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,181,1,255); -- blizzaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,186,1,255); -- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,191,1,255); -- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,196,1,255); -- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,201,1,255); -- waterga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,227,1,255); -- poisonga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,232,1,255); -- bio_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,249,1,255); -- blaze_spikes
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki-Mythic',541,367,1,255); -- Death
+
+-- NEXT 542
 -- NEXT 1022
 -- NEXT 2086(Custom)
 

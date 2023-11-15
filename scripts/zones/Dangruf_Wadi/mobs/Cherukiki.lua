@@ -13,7 +13,9 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:SetAutoAttackEnabled(false)
     mob:setUnkillable(true)
+    mob:setSpellList(1)
     ResetVars(mob)
 end
 
@@ -28,6 +30,12 @@ function onMobFight(mob, target)
     -- Casts benediction on herself then summons her siblings
     -- Buffs them with Protectra V and Shellra V
     if (phase == 1) then
+        mob:setMod(tpz.mod.DEFP, 0)
+        mob:setMod(tpz.mod.MDEF, 0) 
+        mob:setMod(tpz.mod.DMG, 0)
+        mob:setSpellList(1)
+        mob:SetMagicCastingEnabled(true)
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
         if (mob:getHPP() <= 20) then
             local makki = mob:getID() +1
             local kukki = mob:getID() +2
@@ -47,27 +55,25 @@ function onMobFight(mob, target)
 
     -- Stops attacking and only heals and buffs her Siblings
     if (phase == 2) then
-        mob:SetAutoAttackEnabled(false)
+        mob:SetMagicCastingEnabled(false)
         TryCastSpell(mob)
         -- Remove unkillable if Kukki and Makki are dead
         if AreSiblingsDead(mob) then
             MessageGroup(mob, target, "I learned this from Prishe!", 0, "Cherukiki")
             mob:useMobAbility(3395) -- Lvl up!
             mob:setHP(4500)
-            mob:SetAutoAttackEnabled(true)
             mob:setUnkillable(false)
             mob:setLocalVar("phase", 3)
         end
     end
 
     if (phase == 3) then
-	    mob:setDamage(125)
-        mob:addMod(tpz.mod.ATTP, 25)
-        mob:addMod(tpz.mod.DEFP, 25) 
-        mob:addMod(tpz.mod.ACC, 25) 
-        mob:addMod(tpz.mod.EVA, 25)
-        mob:setMod(tpz.mod.REGAIN, 100)
-        mob:setMod(tpz.mod.DMG, -50)
+        mob:setMod(tpz.mod.DEFP, 33)
+        mob:setMod(tpz.mod.MDEF, 33) 
+        mob:setMod(tpz.mod.DMG, -33)
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
+        mob:setSpellList(541)
+        mob:SetMagicCastingEnabled(true)
     end
 end
 
