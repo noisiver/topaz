@@ -9,6 +9,9 @@ https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387
 Version update:
 https://github.com/LandSandBoat/server/commit/ab64eca52d17136f6fbb2cdb9645d5638c7f708f
 
+Divine / Holy Breastplate -MND -cure potency -eva
+Add getspellfamily() lua binding and use it for line 1220 magic.lua
+casting being interrupted makes all recasts have a 3s gcd or w/e in magic_state
 Cherukiki:
 No auto-attack animation
 Missing skill list
@@ -16,7 +19,10 @@ MIssing spell list
 Sibblings have no auto-attack animation an d missing skill list
 Cherukiki cures players and not siblings
 
+utils.getWeaponStyle(player) should have some type of shield check at "if subSkill == nil or subSkill == tpz.skill.NONE then" (Look at fencer logic in weaponskills.lua)
+Burning Blade / Red Lotus Blade in tcrossbar needs a diff itemID this ones blink use Fire Sword for burning and Flame Sword for Red Lotus? Or did I typo the itemID?
 Korolokka onmobdisengage setpos back to spawn
+Item use aftercast maybe in onitemuse stuff? or item_state or something
 Drain/Aspir skill ups dont work?(70%)
 Revert displayhelm changes i did to charpacket or charloadpacket or zone_in packet
 Claustrom equal to full HQ ele staves
@@ -120,6 +126,7 @@ Ninja Nodowa missing a \n before Magic Accuracy
 LAC:
 
 Wiki: 
+Auspice + store TP
 SAM traits/JA's
 Yasha Gear
 War Shinobi Gi
