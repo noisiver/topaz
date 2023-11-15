@@ -1199,7 +1199,7 @@ function finalMagicAdjustments(caster, target, spell, dmg)
     dmg = target:magicDmgTaken(dmg, element)
 
     if (dmg > 0) then
-        if not (spell:getID() == 247) and not (spell:getID() == 248) then -- Aspir isn't reduced by Phalanx
+        if not (spell:getSpellFamily() == tpz.magic.spellFamily.ASPIR) then
             dmg = dmg - target:getMod(tpz.mod.PHALANX)
         end
         dmg = utils.clamp(dmg, 0, 99999)
@@ -1217,7 +1217,7 @@ function finalMagicAdjustments(caster, target, spell, dmg)
         dmg = target:addHP(-dmg)
         spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
     else
-        if not (spell:getID() == tpz.magic.spell.ASPIR) and not (spell:getID() == tpz.magic.spell.ASPIR_II) then
+        if not (spell:getSpellFamily() == tpz.magic.spellFamily.ASPIR) then
             target:takeSpellDamage(caster, spell, dmg, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL + spell:getElement())
             target:handleAfflatusMiseryDamage(dmg)
             target:updateEnmityFromDamage(caster, dmg)
