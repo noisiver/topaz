@@ -969,7 +969,7 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         {
             target.reaction = REACTION_HIT;
             // Don't add TP if the TP move is a two hour, buff, heal, or enfeeble.
-            if (msg != 101 && msg != 186 && msg != 238 && msg != 242)
+            if (msg != MSGBASIC_USES && msg != MSGBASIC_SKILL_GAIN_EFFECT && msg != MSGBASIC_SELF_HEAL && msg != MSGBASIC_SKILL_ENFEEB_IS)
             {
                 int16 delay = this->GetWeaponDelay(true);
                 float ratio = 1.0f;

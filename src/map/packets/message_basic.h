@@ -81,6 +81,11 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_TOO_FAR_AWAY			= 78, /* <target> is too far away. */
     MSGASIC_CANNOT_SEE_TARGET       = 217,/* <You cannot see <target>. */
     MSGASIC_CANNOT_SEE_TARGET2      = 219,/* <You cannot see <target>. */
+    /* Mobskills */
+    MSGBASIC_USES                   = 101, /* 2 hour mob TP move. */           
+    MSGBASIC_SKILL_GAIN_EFFECT      = 186, /* Buff mob TP move buff. */                   
+    MSGBASIC_SELF_HEAL              = 238, /* Healing mob TP move. */
+    MSGBASIC_SKILL_ENFEEB_IS        = 242, /* Enfeebling mob TP move. */
 	/* Weaponskills */
     MSGBASIC_UNABLE_TO_USE_WS       = 89,  /* Unable to use weaponskill. */
 	MSGBASIC_CANNOT_USE_WS			= 190, /* The <player> cannot use that weapon ability. */
