@@ -72,6 +72,7 @@ tpz.msg.basic =
 {
     NONE                    = 0, -- Display nothing
     HIT_DMG                 = 1, -- <actor> hits <target> for <amount> points of damage.
+    MISS                    = 15, --The <entity> misses <target>.
 
     -- Magic
     MAGIC_DMG              = 2,   -- <caster> casts <spell>. <target> takes <amount> damage.
