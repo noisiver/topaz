@@ -44943,6 +44943,17 @@ INSERT INTO `item_mods` VALUES (27736,1,31);     -- Quiahuiz Helm
 INSERT INTO `item_mods` VALUES (27736,2,32);
 INSERT INTO `item_mods` VALUES (27736,23,20);
 INSERT INTO `item_mods` VALUES (27736,288,31);
+INSERT INTO `item_mods` VALUES (27737,1,23);     -- Kaabnax Hat
+INSERT INTO `item_mods` VALUES (27737,2,28); 
+INSERT INTO `item_mods` VALUES (27737,5,25); 
+INSERT INTO `item_mods` VALUES (27737,8,4); 
+INSERT INTO `item_mods` VALUES (27737,9,4); 
+INSERT INTO `item_mods` VALUES (27737,10,3); 
+INSERT INTO `item_mods` VALUES (27737,11,3); 
+INSERT INTO `item_mods` VALUES (27737,12,-5); 
+INSERT INTO `item_mods` VALUES (27737,13,-5); 
+INSERT INTO `item_mods` VALUES (27737,14,-5); 
+INSERT INTO `item_mods` VALUES (27737,30,15); 
 INSERT INTO `item_mods` VALUES (27739,1,100);
 INSERT INTO `item_mods` VALUES (27739,2,32);
 INSERT INTO `item_mods` VALUES (27739,5,22);
@@ -49748,6 +49759,17 @@ INSERT INTO `item_mods` VALUES (28166,1,47);       -- Quiahuiz Trousers
 INSERT INTO `item_mods` VALUES (28166,2,37);
 INSERT INTO `item_mods` VALUES (28166,8,12);
 INSERT INTO `item_mods` VALUES (28166,288,3);
+INSERT INTO `item_mods` VALUES (28167,1,34);       -- Kaabnax Trousers
+INSERT INTO `item_mods` VALUES (28167,2,37);  
+INSERT INTO `item_mods` VALUES (28167,8,5);  
+INSERT INTO `item_mods` VALUES (28167,10,5);  
+INSERT INTO `item_mods` VALUES (28167,11,5);  
+INSERT INTO `item_mods` VALUES (28167,12,5);  
+INSERT INTO `item_mods` VALUES (28167,13,5);  
+INSERT INTO `item_mods` VALUES (28167,14,5);  
+INSERT INTO `item_mods` VALUES (28167,25,5);  
+INSERT INTO `item_mods` VALUES (28167,26,5);  
+INSERT INTO `item_mods` VALUES (28167,68,5);  
 INSERT INTO `item_mods` VALUES (28168,1,116);      -- Outrider Hose: DEF 116
 INSERT INTO `item_mods` VALUES (28168,2,44);
 INSERT INTO `item_mods` VALUES (28168,8,31);
@@ -52334,22 +52356,22 @@ INSERT INTO `item_mods` VALUES (28456,2,30);
 INSERT INTO `item_mods` VALUES (28456,27,3);
 INSERT INTO `item_mods` VALUES (28456,68,13);
 INSERT INTO `item_mods` VALUES (28456,384,400);
-INSERT INTO `item_mods` VALUES (28457,1,10);
+INSERT INTO `item_mods` VALUES (28457,1,10);        -- Kuku Stone
 INSERT INTO `item_mods` VALUES (28457,25,5);
 INSERT INTO `item_mods` VALUES (28457,68,5);
-INSERT INTO `item_mods` VALUES (28457,384,600);
-INSERT INTO `item_mods` VALUES (28458,5,30);       -- Jaq'ij Sash: MP+30
-INSERT INTO `item_mods` VALUES (28458,913,5);      -- "Blood Bood"+5
+INSERT INTO `item_mods` VALUES (28457,384,300);     -- Haste+3%
+INSERT INTO `item_mods` VALUES (28458,5,30);        -- Jaq'ij Sash: MP+30
+INSERT INTO `item_mods` VALUES (28458,913,5);       -- "Blood Bood"+5
 INSERT INTO `item_mods` VALUES (28459,8,7);
 INSERT INTO `item_mods` VALUES (28459,10,5);
 INSERT INTO `item_mods` VALUES (28459,375,5);
 INSERT INTO `item_mods` VALUES (28459,384,500);
-INSERT INTO `item_mods` VALUES (28460,1,14);    -- Celt Belt
-INSERT INTO `item_mods` VALUES (28460,288,4);
-INSERT INTO `item_mods` VALUES (28460,384,500);
-INSERT INTO `item_mods` VALUES (28461,1,10);      -- Sekhmet Corset: DEF 10
-INSERT INTO `item_mods` VALUES (28461,296,3);     -- Conserve MP +3%
-INSERT INTO `item_mods` VALUES (28461,311,15);    -- Magic Damage +15
+INSERT INTO `item_mods` VALUES (28460,1,14);        -- Celt Belt
+INSERT INTO `item_mods` VALUES (28460,288,2);       -- Double Attack +2%
+INSERT INTO `item_mods` VALUES (28460,384,400);     -- Haste+4%
+INSERT INTO `item_mods` VALUES (28461,1,10);        -- Sekhmet Corset: DEF 10
+INSERT INTO `item_mods` VALUES (28461,296,3);       -- Conserve MP +3
+INSERT INTO `item_mods` VALUES (28461,311,15);      -- Magic Damage +15
 INSERT INTO `item_mods` VALUES (28462,1,13);
 INSERT INTO `item_mods` VALUES (28462,25,15);
 INSERT INTO `item_mods` VALUES (28462,384,700);
@@ -52482,9 +52504,9 @@ INSERT INTO `item_mods` VALUES (28510,61,10);
 INSERT INTO `item_mods` VALUES (28511,2,1);
 INSERT INTO `item_mods` VALUES (28512,9,3);
 INSERT INTO `item_mods` VALUES (28512,11,3);
-INSERT INTO `item_mods` VALUES (28513,11,2);
+INSERT INTO `item_mods` VALUES (28513,11,2);       -- Phawaylla Earring
 INSERT INTO `item_mods` VALUES (28513,68,7);
-INSERT INTO `item_mods` VALUES (28514,27,2);       -- 28514
+INSERT INTO `item_mods` VALUES (28514,27,2);       -- Friomisi Earring
 INSERT INTO `item_mods` VALUES (28514,28,7);
 INSERT INTO `item_mods` VALUES (28515,27,5);      -- Trux Earring: Enmity +5
 INSERT INTO `item_mods` VALUES (28515,88,5);      -- Katana skill +5
@@ -52734,35 +52756,21 @@ INSERT INTO `item_mods` VALUES (28608,10,7);
 INSERT INTO `item_mods` VALUES (28608,27,7);
 INSERT INTO `item_mods` VALUES (28608,57,25);
 INSERT INTO `item_mods` VALUES (28610,1,10);      -- Ik Cape: DEF 10
-INSERT INTO `item_mods` VALUES (28610,11,8);      -- AGI +8
 INSERT INTO `item_mods` VALUES (28610,56,20);     -- Wind resistance +20
-INSERT INTO `item_mods` VALUES (28610,68,8);      -- Evasion +8
 INSERT INTO `item_mods` VALUES (28610,461,3);     -- Occasionally absorbs wind elemental damage +3%
 INSERT INTO `item_mods` VALUES (28611,1,10);      -- Tuilha Cape: DEF 10
-INSERT INTO `item_mods` VALUES (28611,13,8);      -- MND +8
-INSERT INTO `item_mods` VALUES (28611,29,4);      -- Magic Def. Bonus +4
 INSERT INTO `item_mods` VALUES (28611,59,20);     -- Water resistance +20
 INSERT INTO `item_mods` VALUES (28611,464,3);     -- Occasionally absorbs water elemental damage +3%
 INSERT INTO `item_mods` VALUES (28612,1,10);      -- Buquwik Cape: DEF 10
-INSERT INTO `item_mods` VALUES (28612,8,8);       -- STR +8
-INSERT INTO `item_mods` VALUES (28612,23,10);     -- Attack +10
-INSERT INTO `item_mods` VALUES (28612,24,10);     -- Ranged Attack +10
 INSERT INTO `item_mods` VALUES (28612,54,20);     -- Fire resistance +20
 INSERT INTO `item_mods` VALUES (28612,459,3);     -- Occasionally absorbs fire elemental damage +3%
 INSERT INTO `item_mods` VALUES (28613,1,10);      -- Kayapa Cape: DEF 10
-INSERT INTO `item_mods` VALUES (28613,9,8);       -- DEX +8
-INSERT INTO `item_mods` VALUES (28613,25,10);     -- Accuracy +10
-INSERT INTO `item_mods` VALUES (28613,26,10);     -- Ranged Accuracy +10
 INSERT INTO `item_mods` VALUES (28613,58,20);     -- Thunder resistance +20
 INSERT INTO `item_mods` VALUES (28613,463,3);     -- Occasionally absorbs thunder elemental damage +3%
 INSERT INTO `item_mods` VALUES (28614,1,10);      -- Iximulew Cape: DEF 10
-INSERT INTO `item_mods` VALUES (28614,10,8);      -- VIT +8
 INSERT INTO `item_mods` VALUES (28614,57,20);     -- Earth resistance +20
-INSERT INTO `item_mods` VALUES (28614,161,-4);    -- Physical damage taken -4%
 INSERT INTO `item_mods` VALUES (28614,462,3);     -- Occasionally absorbs earth elemental damage +3%
 INSERT INTO `item_mods` VALUES (28615,1,10);      -- Toro Cape: DEF 10
-INSERT INTO `item_mods` VALUES (28615,12,8);      -- INT +8
-INSERT INTO `item_mods` VALUES (28615,28,10);     -- Magic Atk. Bonus +10
 INSERT INTO `item_mods` VALUES (28615,55,20);     -- Ice resistance +20
 INSERT INTO `item_mods` VALUES (28615,460,3);     -- Occasionally absorbs ice elemental damage +3%
 INSERT INTO `item_mods` VALUES (28616,1,19);      -- Fravashi Mantle: DEF 19
