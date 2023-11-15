@@ -11,7 +11,7 @@ https://github.com/LandSandBoat/server/commit/ab64eca52d17136f6fbb2cdb9645d5638c
 
 
 make casting being interrupted makes all recasts have a 3s gcd or w/e in magic_state
-
+abilID 256 WZ_RECOVER_ALL is used by chests in Limbus
 Korolokka onmobdisengage setpos back to spawn
 Item use aftercast maybe in onitemuse stuff? or item_state or something
 Drain/Aspir skill ups dont work?(70%)
