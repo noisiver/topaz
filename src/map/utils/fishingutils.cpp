@@ -824,7 +824,8 @@ namespace fishingutils
     // Generate a non-cumulative normal distribution value
     static double NormalDist(double x, double mean, double standard_dev)
     {
-        return exp(-0.5 * log(2 * std::_Pi) - log(standard_dev) - pow(x - mean, 2) / (2 * standard_dev * standard_dev));
+        const double PI = 3.1415926535897932384626433832795028841971693993751058209;
+        return exp(-0.5 * log(2 * PI) - log(standard_dev) - pow(x - mean, 2) / (2 * standard_dev * standard_dev));
     }
 
     void FishingSkillup(CCharEntity* PChar, uint8 catchLevel, uint8 successType)
