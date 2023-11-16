@@ -1316,6 +1316,10 @@ function BlueGetWeatherDayBonus(caster, element)
 end
 
 function BlueHandleCorrelationDamage(caster, target, spell, dmg, correlation)
+    if target:isPC() then
+        return dmg
+    end
+
     if (correlation > 0) then
         dmg = math.floor(dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100))
     elseif (correlation < 0) then
