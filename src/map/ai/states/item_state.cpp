@@ -155,7 +155,7 @@ bool CItemState::Update(time_point tick)
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
         Complete();
     }
-    else if (IsCompleted() && tick > GetEntryTime() + m_castTime + m_animationTime)
+    else if (IsCompleted() && tick > GetEntryTime() + m_castTime)
     {
         m_PEntity->PAI->EventHandler.triggerListener("ITEM_STATE_EXIT", m_PEntity, m_PItem);
         return true;
