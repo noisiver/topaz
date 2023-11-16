@@ -113,9 +113,11 @@ function onSpellCast(caster, target, spell)
     --Applying server mods....
     final = final * CURE_POWER
 
-    target:addHP(final)
-
-    target:wakeUp()
+    -- Check for curse
+    if not target:hasStatusEffect(tpz.effect.CURSE_II) then
+        target:addHP(final)
+        target:wakeUp()
+    end
 
     --Enmity for Cura is fixed, so its CE/VE is set in the SQL and not calculated with updateEnmityFromCure
 

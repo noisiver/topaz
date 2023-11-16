@@ -112,9 +112,12 @@ function onSpellCast(caster, target, spell)
     if (final > diff) then
         final = diff
     end
-    target:addHP(final)
 
-    target:wakeUp()
+    -- Check for curse
+    if not target:hasStatusEffect(tpz.effect.CURSE_II) then
+        target:addHP(final)
+        target:wakeUp()
+    end
 
     --Enmity for Cura III is fixed, so its CE/VE is set in the SQL and not calculated with updateEnmityFromCure
 
