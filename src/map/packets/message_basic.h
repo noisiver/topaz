@@ -72,6 +72,10 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_USES_BUT_MISSES		= 324, /* The <player> uses .. but misses <target>. */
 	MSGBASIC_CANT_BE_USED_IN_AREA	= 316, /* That action cannot be used in this area. */
 	MSGBASIC_REQUIRES_SHIELD		= 199, /* That action requires a shield. */
+    /* Magic */
+    MSGBASIC_STATUS_NO_LONGER       = 204, /* <target> is no longer${status}. */
+    MSGBASIC_GAINS_EFFECT_OF_STATUS = 205, /* ${target} gains the effect of ${status}. */
+    MSGBASIC_STATUS_WEARS_OFF       = 206, /* ${target}'s ${status} effect wears off. */
     MSGBASIC_MAGIC_BURST_BLACK      = 252, /* "Magic Burst!" Black Magic   */
     MSGBASIC_MAGIC_BURST_BREATH     = 265, /* "Magic Burst!" BLU breaths */
 	/* Distance */
