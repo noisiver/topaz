@@ -42,11 +42,9 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BURN
     local power = 40
-
-    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
-
     local dmgmod = mob:getMainLvl() * 12.5 + getMobDStat(INT_BASED, mob, target)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
+    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
     return dmg
 end

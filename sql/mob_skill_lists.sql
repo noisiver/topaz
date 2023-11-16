@@ -4751,6 +4751,7 @@ INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,633);
 INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,2586); -- Ecliptic Meteor
 
 -- Colkhab
+-- Autos
 INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,2999); -- bztavian_auto_one
 INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,3000); -- bztavian_auto_two
 INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,3001); -- bztavian_auto_three
@@ -4763,6 +4764,20 @@ INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3006); -- incisive_denoueme
 INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3007); -- incisive_apotheosis
 
 INSERT INTO `mob_skill_lists` VALUES ('Empyreal_Arrow_Only',6145,199); -- Empyreal Arrow Only
+
+-- Achuka
+-- Autos
+INSERT INTO `mob_skill_lists` VALUES ('Achuka_Autos',6146,3017); -- bztavian_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Achuka_Autos',6146,3018); -- bztavian_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Achuka_Autos',6146,3019); -- bztavian_auto_three
+
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3020); -- blistering_roar
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3021); -- searing_serration
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3022); -- volcanic_stasis
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3023); -- tyrannical_blow
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3024); -- batholithic_shell
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3025); -- pyroclastic_surge
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3026); -- incinerating_lahar
 -- Next available ID: 1198
--- Next custom ID: 6146
+-- Next custom ID: 6148
 

@@ -17763,7 +17763,7 @@ INSERT INTO `mob_droplist` VALUES (6124,0,0,1000,8733,1000);  -- Partialy Digest
 INSERT INTO `mob_droplist` VALUES (6124,0,0,1000,8733,240);
 INSERT INTO `mob_droplist` VALUES (6124,0,0,1000,8733,150);
 
--- Kumhau
+-- Colkhab
 INSERT INTO `mob_droplist` VALUES (6125,1,1,240,942,500);       -- Philosopher's Stone
 INSERT INTO `mob_droplist` VALUES (6125,1,1,240,1446,500);      -- Lacquer Tree Log 
 INSERT INTO `mob_droplist` VALUES (6125,1,2,240,823,333);       -- Gold Thread
@@ -17785,6 +17785,29 @@ INSERT INTO `mob_droplist` VALUES (6125,1,8,240,28610,250);     -- Ik Cape
 INSERT INTO `mob_droplist` VALUES (6125,1,8,240,28457,250);     -- Kuku Stone
 INSERT INTO `mob_droplist` VALUES (6125,1,8,240,28384,250);     -- Huani Collar
 INSERT INTO `mob_droplist` VALUES (6125,1,8,240,28513,250);     -- Phawaylla Earring
+
+-- Achuka
+INSERT INTO `mob_droplist` VALUES (6125,1,1,240,942,500);       -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (6125,1,1,240,1446,500);      -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (6125,1,2,240,823,333);       -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (6125,1,2,240,821,333);       -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (6125,1,2,240,816,334);       -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (6125,1,3,240,644,333);       -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (6125,1,3,240,737,333);       -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (6125,1,3,240,738,334);       -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (6125,1,4,240,703,333);       -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (6125,1,4,240,702,333);       -- Ebony log
+INSERT INTO `mob_droplist` VALUES (6125,1,4,240,700,334);       -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (6125,1,5,150,4175,500);      -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (6125,1,5,150,4174,500);      -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (6125,1,6,150,4173,500);      -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (6125,1,6,150,4172,500);      -- Reraiser
+INSERT INTO `mob_droplist` VALUES (6125,1,7,100,27779,500);     -- Quauhpilli Helm
+INSERT INTO `mob_droplist` VALUES (6125,1,7,100,28062,500);     -- Quauhpilli Gloves
+INSERT INTO `mob_droplist` VALUES (6125,1,8,240,28612,250);     -- Buquwik Cape
+INSERT INTO `mob_droplist` VALUES (6125,1,8,240,21426,250);     -- Achaq Grip
+INSERT INTO `mob_droplist` VALUES (6125,1,8,240,28386,250);     -- Cuamiz Collar
+INSERT INTO `mob_droplist` VALUES (6125,1,8,240,21385,250);     -- Aqreqaq Bomblet
 
 ---------------------Dynamis---------------------
 

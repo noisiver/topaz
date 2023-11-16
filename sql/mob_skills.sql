@@ -2977,15 +2977,15 @@ INSERT INTO `mob_skills` VALUES (3014,2199,'carcharian_verve',0,7.0,2000,3000,1,
 INSERT INTO `mob_skills` VALUES (3015,2200,'tidal_guillotine',4,10.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3016,2201,'marine_mayhem',1,40.0,2000,6000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3017,2142,'gabbrath_auto_one',0,7.0,0,0,4,16,0,0,0,0,0);   -- achuka and tojil melee specials
-INSERT INTO `mob_skills` VALUES (3018,2143,'gabbrath_auto_two',4,10.0,0,0,4,16,0,0,0,0,0); -- achuka and tojil melee specials
-INSERT INTO `mob_skills` VALUES (3019,2144,'gabbrath_auto_three',1,10.0,0,0,4,16,0,0,0,0,0);   -- achuka and tojil melee specials
-INSERT INTO `mob_skills` VALUES (3020,2145,'blistering_roar',1,18.0,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3018,2143,'gabbrath_auto_two',4,10.0,0,0,4,16,0,5,0,0,0); -- achuka and tojil melee specials
+INSERT INTO `mob_skills` VALUES (3019,2144,'gabbrath_auto_three',1,10.0,0,0,4,16,0,3,0,0,0);   -- achuka and tojil melee specials
+INSERT INTO `mob_skills` VALUES (3020,2145,'blistering_roar',1,15.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3021,2146,'searing_serration',0,7.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3022,2147,'volcanic_stasis',4,10.0,2000,3000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3023,2148,'tyrannical_blow',1,18.0,2000,3000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3024,2149,'batholithic_shell',0,7.0,2000,3000,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3025,2150,'pyroclastic_surge',1,18.0,2000,4000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3026,2151,'incinerating_lahar',1,10.0,2000,6000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3023,2148,'tyrannical_blow',1,15.0,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3024,2149,'batholithic_shell',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3025,2150,'pyroclastic_surge',1,15.0,2000,4000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3026,2151,'incinerating_lahar',1,10.0,2000,6000,4,0,0,5,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3027,104,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3028,105,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3029,106,'',0,7.0,2000,1500,4,0,0,0,0,0,0);

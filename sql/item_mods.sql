@@ -45453,21 +45453,20 @@ INSERT INTO `item_mods` VALUES (27777,29,1);  -- Magic Def. Bonus +1
 INSERT INTO `item_mods` VALUES (27777,31,38); -- meva 38
 INSERT INTO `item_mods` VALUES (27777,68,22); -- eva 22
 INSERT INTO `item_mods` VALUES (27777,384,600); -- haste 6%
-INSERT INTO `item_mods` VALUES (27779,1,72);
-INSERT INTO `item_mods` VALUES (27779,2,12);
-INSERT INTO `item_mods` VALUES (27779,5,18);
-INSERT INTO `item_mods` VALUES (27779,8,20);
-INSERT INTO `item_mods` VALUES (27779,9,12);
-INSERT INTO `item_mods` VALUES (27779,10,15);
-INSERT INTO `item_mods` VALUES (27779,11,12);
-INSERT INTO `item_mods` VALUES (27779,12,11);
-INSERT INTO `item_mods` VALUES (27779,13,11);
-INSERT INTO `item_mods` VALUES (27779,14,11);
-INSERT INTO `item_mods` VALUES (27779,23,20);
-INSERT INTO `item_mods` VALUES (27779,31,18);
-INSERT INTO `item_mods` VALUES (27779,68,9);
-INSERT INTO `item_mods` VALUES (27779,288,2);
-INSERT INTO `item_mods` VALUES (27779,384,700);
+INSERT INTO `item_mods` VALUES (27779,1,28);        -- Quauhpilli Helm
+INSERT INTO `item_mods` VALUES (27779,2,12);        -- HP+12
+INSERT INTO `item_mods` VALUES (27779,5,18);        -- MP+18
+INSERT INTO `item_mods` VALUES (27779,8,4);         -- STR+4
+INSERT INTO `item_mods` VALUES (27779,9,3);         -- DEX+3
+INSERT INTO `item_mods` VALUES (27779,10,-5);       -- VIT-5
+INSERT INTO `item_mods` VALUES (27779,11,-5);       -- AGI-5
+INSERT INTO `item_mods` VALUES (27779,12,-6);       -- INT-6
+INSERT INTO `item_mods` VALUES (27779,13,-6);       -- MND-6
+INSERT INTO `item_mods` VALUES (27779,14,-6);       -- CHR-6
+INSERT INTO `item_mods` VALUES (27779,23,12);       -- Attack+12
+INSERT INTO `item_mods` VALUES (27779,68,9);        -- Evasion+9
+INSERT INTO `item_mods` VALUES (27779,288,2);       -- Double Attack+2%
+INSERT INTO `item_mods` VALUES (27779,384,300);     -- Haste+3%
 INSERT INTO `item_mods` VALUES (27780,1,64);
 INSERT INTO `item_mods` VALUES (27780,2,12);
 INSERT INTO `item_mods` VALUES (27780,5,18);
@@ -48675,22 +48674,17 @@ INSERT INTO `item_mods` VALUES (28061,30,8);
 INSERT INTO `item_mods` VALUES (28061,31,21);
 INSERT INTO `item_mods` VALUES (28061,68,6);
 INSERT INTO `item_mods` VALUES (28061,384,200);
-INSERT INTO `item_mods` VALUES (28062,1,53);
-INSERT INTO `item_mods` VALUES (28062,2,7);
-INSERT INTO `item_mods` VALUES (28062,5,70);
-INSERT INTO `item_mods` VALUES (28062,8,3);
-INSERT INTO `item_mods` VALUES (28062,9,14);
-INSERT INTO `item_mods` VALUES (28062,10,13);
-INSERT INTO `item_mods` VALUES (28062,11,2);
-INSERT INTO `item_mods` VALUES (28062,12,10);
-INSERT INTO `item_mods` VALUES (28062,13,17);
-INSERT INTO `item_mods` VALUES (28062,14,10);
-INSERT INTO `item_mods` VALUES (28062,28,13);
-INSERT INTO `item_mods` VALUES (28062,29,1);
-INSERT INTO `item_mods` VALUES (28062,30,8);
-INSERT INTO `item_mods` VALUES (28062,31,21);
-INSERT INTO `item_mods` VALUES (28062,68,6);
-INSERT INTO `item_mods` VALUES (28062,384,200);
+INSERT INTO `item_mods` VALUES (28062,1,22);        -- Quauhpilli Gloves
+INSERT INTO `item_mods` VALUES (28062,2,7);         -- HP+7
+INSERT INTO `item_mods` VALUES (28062,5,22);        -- MP+22
+INSERT INTO `item_mods` VALUES (28062,8,3);         -- STR+3
+INSERT INTO `item_mods` VALUES (28062,9,4);         -- DEX+4
+INSERT INTO `item_mods` VALUES (28062,10,5);        -- VIT+5
+INSERT INTO `item_mods` VALUES (28062,11,2);        -- AGI+2
+INSERT INTO `item_mods` VALUES (28062,12,-7);       -- INT-7
+INSERT INTO `item_mods` VALUES (28062,13,-7);       -- MND-7
+INSERT INTO `item_mods` VALUES (28062,14,-7);       -- CHR-7
+INSERT INTO `item_mods` VALUES (28062,384,300);     -- Haste+3%
 INSERT INTO `item_mods` VALUES (28064,1,40);
 INSERT INTO `item_mods` VALUES (28064,8,3);
 INSERT INTO `item_mods` VALUES (28064,9,14);
@@ -52763,22 +52757,22 @@ INSERT INTO `item_mods` VALUES (28608,27,7);
 INSERT INTO `item_mods` VALUES (28608,57,25);
 INSERT INTO `item_mods` VALUES (28610,1,10);      -- Ik Cape: DEF 10
 INSERT INTO `item_mods` VALUES (28610,56,20);     -- Wind resistance +20
-INSERT INTO `item_mods` VALUES (28610,461,3);     -- Occasionally absorbs wind elemental damage +3%
+INSERT INTO `item_mods` VALUES (28610,461,10);    -- Occasionally absorbs wind elemental damage +10%
 INSERT INTO `item_mods` VALUES (28611,1,10);      -- Tuilha Cape: DEF 10
 INSERT INTO `item_mods` VALUES (28611,59,20);     -- Water resistance +20
-INSERT INTO `item_mods` VALUES (28611,464,3);     -- Occasionally absorbs water elemental damage +3%
+INSERT INTO `item_mods` VALUES (28611,464,10);    -- Occasionally absorbs water elemental damage +10%
 INSERT INTO `item_mods` VALUES (28612,1,10);      -- Buquwik Cape: DEF 10
 INSERT INTO `item_mods` VALUES (28612,54,20);     -- Fire resistance +20
-INSERT INTO `item_mods` VALUES (28612,459,3);     -- Occasionally absorbs fire elemental damage +3%
+INSERT INTO `item_mods` VALUES (28612,459,10);    -- Occasionally absorbs fire elemental damage +10%
 INSERT INTO `item_mods` VALUES (28613,1,10);      -- Kayapa Cape: DEF 10
 INSERT INTO `item_mods` VALUES (28613,58,20);     -- Thunder resistance +20
-INSERT INTO `item_mods` VALUES (28613,463,3);     -- Occasionally absorbs thunder elemental damage +3%
+INSERT INTO `item_mods` VALUES (28613,463,10);    -- Occasionally absorbs thunder elemental damage +10%
 INSERT INTO `item_mods` VALUES (28614,1,10);      -- Iximulew Cape: DEF 10
 INSERT INTO `item_mods` VALUES (28614,57,20);     -- Earth resistance +20
-INSERT INTO `item_mods` VALUES (28614,462,3);     -- Occasionally absorbs earth elemental damage +3%
+INSERT INTO `item_mods` VALUES (28614,462,10);    -- Occasionally absorbs earth elemental damage +10%
 INSERT INTO `item_mods` VALUES (28615,1,10);      -- Toro Cape: DEF 10
 INSERT INTO `item_mods` VALUES (28615,55,20);     -- Ice resistance +20
-INSERT INTO `item_mods` VALUES (28615,460,3);     -- Occasionally absorbs ice elemental damage +3%
+INSERT INTO `item_mods` VALUES (28615,460,10);    -- Occasionally absorbs ice elemental damage +10%
 INSERT INTO `item_mods` VALUES (28616,1,19);      -- Fravashi Mantle: DEF 19
 INSERT INTO `item_mods` VALUES (28616,2,40);      -- HP +40
 INSERT INTO `item_mods` VALUES (28616,27,6);      -- Enmity +6

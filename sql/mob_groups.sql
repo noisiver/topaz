@@ -12715,8 +12715,8 @@ INSERT INTO `mob_groups` VALUES (33,9001,191,'Kogarasumaru',0,128,3178,12500,0,8
 INSERT INTO `mob_groups` VALUES (34,4678,191,'Hurkan',7200,0,6122,35000,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (35,4078,191,'Ulbrecht',0,128,3190,12500,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (36,9016,191,'Cherukiki',0,128,3191,4500,0,81,81,0);
-INSERT INTO `mob_groups` VALUES (37,2492,191,'Makki-Chebukki',0,128,0,4500,0,81,81,0);
-INSERT INTO `mob_groups` VALUES (38,2293,191,'Kukki-Chebukki',0,128,0,4500,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (37,9017,191,'Makki-Chebukki',0,128,0,4500,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (38,9018,191,'Kukki-Chebukki',0,128,0,4500,0,81,81,0);
 
 INSERT INTO `mob_groups` VALUES (9557,1527,191,'Giant_Grub',330,0,967,0,0,9,12,0);
 INSERT INTO `mob_groups` VALUES (9570,5733,191,'Snipper',330,0,2283,0,0,16,20,0);
@@ -13323,6 +13323,7 @@ INSERT INTO `mob_groups` VALUES (29,3844,205,'Tarasque',0,128,2377,15000,0,72,74
 INSERT INTO `mob_groups` VALUES (30,607,205,'Cailleach_Bheur',0,128,0,18000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (31,5175,205,'Ildebrann',0,128,0,0,9999,98,99,0);
 INSERT INTO `mob_groups` VALUES (32,5176,205,'HraunDragon',0,128,0,0,0,95,96,0);
+INSERT INTO `mob_groups` VALUES (33,4677,205,'Achuka',7200,0,6126,35000,0,81,81,0);
 
 INSERT INTO `mob_groups` VALUES (9979,2226,205,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9980,2405,205,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);

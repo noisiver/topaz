@@ -5,6 +5,7 @@
 local ID = require("scripts/zones/Dangruf_Wadi/IDs")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/titles")
 -----------------------------------
 function onMobInitialize(mob)
 end
@@ -54,6 +55,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
+    player:addTitle(tpz.title.HURKAN_BIRDLIMEIST)
 end
 
 function onMobDespawn(mob)
