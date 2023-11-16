@@ -9,7 +9,14 @@ https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387
 Version update:
 https://github.com/LandSandBoat/server/commit/ab64eca52d17136f6fbb2cdb9645d5638c7f708f
 
-
+Return 0 if target is PC in all correlation stuff in bluemagic 
+Use same msg dispel.lua uses for mob tp move dispel
+Buff Cura / Cura II / Cura III
+Hypnosis cast time made longer
+Increase TA width tachar battleentity or utils i think
+Shining / Seraph blade icons for tcrossbar
+How do I AOE run wild and spur animation?
+Add more mobs around Dread Demons in Ule range(esp dread demons)
 make casting being interrupted makes all recasts have a 3s gcd or w/e in magic_state
 abilID 256 WZ_RECOVER_ALL is used by chests in Limbus
 Korolokka onmobdisengage setpos back to spawn
