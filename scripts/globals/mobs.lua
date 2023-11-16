@@ -427,6 +427,7 @@ local additionalEffects =
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.DISPEL,
         mod = tpz.mod.INT,
+        negMsg = tpz.msg.basic.ADD_EFFECT_DISPEL,
         bonusAbilityParams = {bonusmab = 0, includemab = false},
         code = function(mob, target, power) target:dispelStatusEffect() end,
     },
