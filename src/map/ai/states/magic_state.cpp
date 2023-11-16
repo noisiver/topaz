@@ -162,14 +162,20 @@ bool CMagicState::Update(time_point tick)
     }
     else if (IsCompleted())
     {
-        // No aftercast on Enhancing, Enfeebling or Elemental magic
+        // No aftercast on Enhancing, Enfeebling or Elemental magic unless interrupted
         auto castTime = m_castTime;
-        if (m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENHANCING_MAGIC && m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENFEEBLING_MAGIC  &&
+        if (m_interrupted || m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENHANCING_MAGIC && m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENFEEBLING_MAGIC &&
             m_PSpell->getSkillType() != SKILLTYPE::SKILL_ELEMENTAL_MAGIC)
+        {
             castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
+        }
+
         // Spells still have aftercast during Manafont and Chainspell for balance reasons
         if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_MANAFONT, EFFECT_CHAINSPELL }))
+        {
             castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
+        }
+
         if (tick > GetEntryTime() + castTime)
         {
             // Add TP from Occult Acumen to non-damaging spells
