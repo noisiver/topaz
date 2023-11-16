@@ -17,8 +17,15 @@ Cherukiki
 Mob Phys TP move miss msg on perfect dodge / normal dodge / parry / third eye with simplelog on
 Aspir getSpellFamily two things working correctly
 utils.getWeaponStyle() returning correct weapon style for GetMaxWeaponPdif in weaponskills.lua
+1 to 31 status effects fading messages
+Spam use items:
+Item uses, remoevd animationtime being added to the cast lock out see if you can spam learn spell scrolls and pots etc now
+Being interrupted on spell cast gives you the full animation + cast time lock out on ele/enhancing/enfeebling magic
+Endispel message(mobs)
+Achuka, Colkhab
 
 Retail:
+Double down / shuffle (cardian NM tp moves) animations
 FOV/GOV elite training
 Dancing Chains wipe shadows?
 Simplelog show buff mob gets from buff moves?
