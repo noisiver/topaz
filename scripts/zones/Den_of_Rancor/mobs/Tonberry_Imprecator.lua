@@ -8,10 +8,6 @@ local ID = require("scripts/zones/Den_of_Rancor/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
 -----------------------------------
-function onMobFight(mob, target)
-    SetDropRate(2438, 4774, 100)
-    SetDropRate(2438, 4803, 100)
-end
 
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.regime.checkRegime(player, mob, 798, 1, tpz.regime.type.GROUNDS)
