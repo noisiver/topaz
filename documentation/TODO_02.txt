@@ -13,7 +13,7 @@ All immune to silence
 
 Does +MACC work on add effects like acid bolts? check function
 Tufflaire 1.5x piercing(jug too)
-https://cdn.discordapp.com/attachments/1168274946313683024/1174930563833024542/image.png?ex=6569625b&is=6556ed5b&hm=4da944325862dad394d874a91ca4ef8bddc1d837e2e603dfbce2b313e2d1f2e7&
+https://wiki.ffo.jp/html/3184.html
 Edit setdroprate() to allow editing/adding drop groups or add another funcion binding to do it
 Sabotender Ballarin missing?
 Stoneskin blocks marrow drain and mob MP drain moves?
