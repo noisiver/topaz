@@ -12,6 +12,7 @@ Cherukki:
 All immune to silence
 
 Does +MACC work on add effects like acid bolts? check function
+Tufflaire 1.5x piercing(jug too)
 Edit setdroprate() to allow editing/adding drop groups or add another funcion binding to do it
 Sabotender Ballarin missing?
 Stoneskin blocks marrow drain and mob MP drain moves?
