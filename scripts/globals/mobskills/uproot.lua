@@ -1,7 +1,7 @@
 ---------------------------------------------
--- Firefly Fandango
+-- FUproot
 --
--- Description: AoE magical damage Additional effect: Paralysis, Flash, and Max MP Down
+-- Description: AoE magical damage Additional effect: Slow, hate reset and dispels all effects on self.
 -- Type: Magical
 -- Element: Light
 ---------------------------------------------
@@ -15,21 +15,12 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.FLASH
-    local typeEffectTwo = tpz.effect.PARALYSIS
-    local typeEffectThree = tpz.effect.MAX_MP_DOWN
-    local dmgmod = 7.0
+    local dmgmod = 9.0
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg , mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
-    MobStatusEffectMove(mob, target, typeEffect, 300, 3, 30)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 33, 0, 30)
-    MobStatusEffectMove(mob, target, typeEffectThree, 25, 0, 30)
+    MobHasteOverwriteSlowMove(mob, target, 5000, 0, 90, 0, 0, 2)
+    MobSelfDispelMove(mob, skill)
+    mob:resetEnmity(target)
     return dmg
 end
-
-
-
-
-
-

@@ -12669,6 +12669,7 @@ INSERT INTO `mob_groups` VALUES (43,798,190,'Corrupted_Ulbrig',0,128,0,0,0,63,63
 INSERT INTO `mob_groups` VALUES (44,5164,190,'Hahava',0,128,0,0,9999,100,100,0);
 INSERT INTO `mob_groups` VALUES (45,6543,190,'Enchanted_Bones',330,1,769,0,0,4,8,0);
 INSERT INTO `mob_groups` VALUES (46,6563,190,'Nachzehrer',330,0,1771,0,0,15,18,0);
+INSERT INTO `mob_groups` VALUES (47,4926,190,'Yumcax',7200,0,6127,35000,0,81,81,0);
 
 INSERT INTO `mob_groups` VALUES (9519,862,190,'Curilla',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9548,3946,190,'Tomb_Worm',960,0,6001,0,0,58,60,0);
