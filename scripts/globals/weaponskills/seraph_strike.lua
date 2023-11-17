@@ -52,6 +52,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             end
         end
     end
+    player:addHP(healAmount)
 
     return tpHits, extraHits, criticalHit, damage
 end
