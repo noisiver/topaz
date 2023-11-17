@@ -22,7 +22,8 @@ Spam use items:
 Item uses, remoevd animationtime being added to the cast lock out see if you can spam learn spell scrolls and pots etc now
 Being interrupted on spell cast gives you the full animation + cast time lock out on ele/enhancing/enfeebling magic
 Endispel message(mobs)
-Achuka, Colkhab
+Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
+Trick attack angle / min distance
 
 Retail:
 Sleep waking up msg

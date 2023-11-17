@@ -6,24 +6,12 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
-Version update:
-https://github.com/LandSandBoat/server/commit/ab64eca52d17136f6fbb2cdb9645d5638c7f708f
-Cherukki:
-All immune to silence
 
-Does +MACC work on add effects like acid bolts? check function
-Tufflaire 1.5x piercing(jug too)
-https://wiki.ffo.jp/html/3184.html
+Flan "Spikey" mixin
 Edit setdroprate() to allow editing/adding drop groups or add another funcion binding to do it
 Sabotender Ballarin missing?
-Stoneskin blocks marrow drain and mob MP drain moves?
-Goblin Chapman(dropID 1036) drops
-Remove the 0.5 yalm check on trick attack in battleutils
-Gears mixin for archaic gears but not archaic gear
-Add intimidate to the no longer xed in status_effect_container.cpp or wherever
 Set to exp if limit points is capped(get from wings repo?)
 Maybe scroll animation times for learning shouldnt have such a long animation time? i can spam quivers without an issue
-Sprinkler drops(copy Aura Pot dropid 193)
 Shining / Seraph blade icons for tcrossbar
 abilID 256 WZ_RECOVER_ALL is used by chests in Limbus
 Korolokka onmobdisengage setpos back to spawn
