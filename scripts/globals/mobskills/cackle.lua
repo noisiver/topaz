@@ -11,6 +11,11 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    -- Normal Dvegr for learning  Bilgestorm
+    if (mob:getPool() == 9124) then
+        return 0
+    end
+
     return 0
 end
 

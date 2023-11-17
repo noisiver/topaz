@@ -16,8 +16,6 @@ function onMobSkillCheck(target, mob, skill)
         return 1
     elseif mob:hasStatusEffect(tpz.effect.BLOOD_WEAPON) then
         return 1
-    elseif not target:isInfront(mob, 90) then
-        return 1
     elseif mob:AnimationSub() == 1 then
         return 1
     end

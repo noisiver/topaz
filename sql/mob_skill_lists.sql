@@ -422,13 +422,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,484);
 INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,485);
 INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,1665); -- Marrow Drain
 INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,1795); -- Malediction
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2113);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2114);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2115);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2116);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2117);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2118);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2119);
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2113); -- hellsnap
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2114); -- hellclap
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2115); -- cackle
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2116); -- necrobane
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2117); -- necropurge
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2118); -- bilgestorm
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2119); -- thundris_shriek
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,594);
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,596);
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,1171);
