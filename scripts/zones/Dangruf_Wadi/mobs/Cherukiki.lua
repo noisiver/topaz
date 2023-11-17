@@ -13,6 +13,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
     mob:SetAutoAttackEnabled(false)
     mob:setUnkillable(true)
     mob:setSpellList(1)
@@ -27,15 +28,15 @@ function onMobFight(mob, target)
     local phase = mob:getLocalVar("phase")
 
     -- Phase 1 ends once Cherukiki gets to 20% HP or less.
-    -- Casts benediction on herself then summons her siblings
-    -- Buffs them with Protectra V and Shellra V
     if (phase == 1) then
         mob:setMod(tpz.mod.DEFP, 0)
         mob:setMod(tpz.mod.MDEF, 0) 
         mob:setMod(tpz.mod.DMG, 0)
         mob:setSpellList(1)
         mob:SetMagicCastingEnabled(true)
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
+
+        -- Cast benediction on herself then summons her siblings once she gets to 20% HP for the first time
+        -- Buffs them with Protectra V and Shellra V
         if (mob:getHPP() <= 20) then
             local makki = mob:getID() +1
             local kukki = mob:getID() +2
@@ -71,7 +72,6 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.DEFP, 33)
         mob:setMod(tpz.mod.MDEF, 33) 
         mob:setMod(tpz.mod.DMG, -33)
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
         mob:setSpellList(541)
         mob:SetMagicCastingEnabled(true)
     end

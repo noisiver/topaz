@@ -31,8 +31,8 @@ KSNM/BCNM:
 
 
 Map quests
-Buy escape
 Cunning earring quest
-warp quest
-warp2 quest
 sleepga2 quest
+
+thundaga II - Tonberry Imprecator(den of rancor)
+waterga II - Sapphire Quadav
