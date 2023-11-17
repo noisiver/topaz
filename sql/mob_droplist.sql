@@ -12821,8 +12821,8 @@ INSERT INTO `mob_droplist` VALUES (2438,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1119,240); -- Tonberry coat
 INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1138,150); -- Unlit lantern
 INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1429,150); -- Black mage's testimony
-INSERT INTO `mob_droplist` VALUES (2438,1,1,50,4774,500); -- Scroll of Thunder III
-INSERT INTO `mob_droplist` VALUES (2438,1,1,50,4803,500); -- Scroll of Thundaga II
+INSERT INTO `mob_droplist` VALUES (2438,1,1,100,4774,500); -- Scroll of Thunder III
+INSERT INTO `mob_droplist` VALUES (2438,1,1,100,4803,500); -- Scroll of Thundaga II
 INSERT INTO `mob_droplist` VALUES (2439,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,1119,240);
 INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,1138,110);
