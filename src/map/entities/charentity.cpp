@@ -1576,10 +1576,8 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                         actionTarget.messageID = ability::GetAbsorbMessage(actionTarget.messageID);
                         actionTarget.param = -value;
                     }
-                    if (PAbility->getID() != ABILITY_MANAWELL)
-                    {
-                        state.ApplyEnmity();
-                    }
+
+                    state.ApplyEnmity();
                 }
 
                 first = false;
