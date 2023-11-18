@@ -14,5 +14,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.MANAWELL, 1, 0, 9)
+    player:addStatusEffect(tpz.effect.WEIGHT, 95, 0, 30)
+    player:addStatusEffect(tpz.effect.MUTE, 1, 0, 30)
+    player:addStatusEffect(tpz.effect.MANAWELL, 1, 0, 30)
 end
