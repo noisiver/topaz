@@ -7,6 +7,9 @@
 -- Tier: Used for Enspell Calculation
 --
 --------------------------------------
+require("scripts/globals/status")
+require("scripts/globals/magic")
+--------------------------------------
 
 function onEffectGain(target, effect)
     --Auspice Reduces TP via adding to your Subtle Blow Mod
@@ -20,7 +23,7 @@ function onEffectGain(target, effect)
     --Afflatus Misery Bonuses
     if (target:hasStatusEffect(tpz.effect.AFFLATUS_MISERY)) then
         target:getStatusEffect(tpz.effect.AFFLATUS_MISERY):setSubPower(0)
-        target:addMod(tpz.mod.ENSPELL, 19)
+        target:addMod(tpz.mod.ENSPELL, tpz.magic.enspell.AUSPICE)
         target:addMod(tpz.mod.ENSPELL_DMG, effect:getPower())
     end
 end
