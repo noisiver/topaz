@@ -76,20 +76,24 @@ CAbility* CAbilityState::GetAbility()
 void CAbilityState::ApplyEnmity()
 {
     auto PTarget = GetTarget();
-    if (m_PEntity)
+    auto PAbility = GetAbility();
+    if (PAbility->getID() != ABILITY_MANAWELL)
     {
-        if (m_PAbility->getValidTarget() & TARGET_ENEMY && PTarget->allegiance != m_PEntity->allegiance)
+        if (m_PEntity)
         {
-            if (PTarget->objtype == TYPE_MOB && !(m_PAbility->getCE() == 0 && m_PAbility->getVE() == 0))
+            if (m_PAbility->getValidTarget() & TARGET_ENEMY && PTarget->allegiance != m_PEntity->allegiance)
             {
-                CMobEntity* mob = (CMobEntity*)PTarget;
-                mob->PEnmityContainer->UpdateEnmity(m_PEntity, m_PAbility->getCE(), m_PAbility->getVE(), false, m_PAbility->getID() == ABILITY_CHARM);
-                battleutils::ClaimMob(mob, m_PEntity);
+                if (PTarget->objtype == TYPE_MOB && !(m_PAbility->getCE() == 0 && m_PAbility->getVE() == 0))
+                {
+                    CMobEntity* mob = (CMobEntity*)PTarget;
+                    mob->PEnmityContainer->UpdateEnmity(m_PEntity, m_PAbility->getCE(), m_PAbility->getVE(), false, m_PAbility->getID() == ABILITY_CHARM);
+                    battleutils::ClaimMob(mob, m_PEntity);
+                }
             }
-        }
-        else if (PTarget->allegiance == m_PEntity->allegiance)
-        {
-            battleutils::GenerateInRangeEnmity(m_PEntity, m_PAbility->getCE(), m_PAbility->getVE());
+            else if (PTarget->allegiance == m_PEntity->allegiance)
+            {
+                battleutils::GenerateInRangeEnmity(m_PEntity, m_PAbility->getCE(), m_PAbility->getVE());
+            }
         }
     }
 }
@@ -101,29 +105,26 @@ bool CAbilityState::CanChangeState()
 
 bool CAbilityState::Update(time_point tick)
 {
-    if (m_PEntity)
+    if (!IsCompleted() && tick > GetEntryTime() + m_castTime)
     {
-        if (!IsCompleted() && tick > GetEntryTime() + m_castTime)
+        if (CanUseAbility())
         {
-            if (CanUseAbility())
+            action_t action;
+            m_PEntity->OnAbility(*this, action);
+            m_PEntity->PAI->EventHandler.triggerListener("ABILITY_USE", m_PEntity, GetTarget(), m_PAbility.get(), &action);
+            m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
+            if (auto target = GetTarget())
             {
-                action_t action;
-                m_PEntity->OnAbility(*this, action);
-                m_PEntity->PAI->EventHandler.triggerListener("ABILITY_USE", m_PEntity, GetTarget(), m_PAbility.get(), &action);
-                m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
-                if (auto target = GetTarget())
-                {
-                    target->PAI->EventHandler.triggerListener("ABILITY_TAKE", target, m_PEntity, m_PAbility.get(), &action);
-                }
+                target->PAI->EventHandler.triggerListener("ABILITY_TAKE", target, m_PEntity, m_PAbility.get(), &action);
             }
-            Complete();
         }
+        Complete();
+    }
 
-        if (IsCompleted() && tick > GetEntryTime() + m_castTime + m_PAbility->getAnimationTime())
-        {
-            m_PEntity->PAI->EventHandler.triggerListener("ABILITY_STATE_EXIT", m_PEntity, m_PAbility.get());
-            return true;
-        }
+    if (IsCompleted() && tick > GetEntryTime() + m_castTime + m_PAbility->getAnimationTime())
+    {
+        m_PEntity->PAI->EventHandler.triggerListener("ABILITY_STATE_EXIT", m_PEntity, m_PAbility.get());
+        return true;
     }
 
     return false;
@@ -131,37 +132,34 @@ bool CAbilityState::Update(time_point tick)
 
 bool CAbilityState::CanUseAbility()
 {
-    if (m_PEntity)
-{
-        if (m_PEntity->objtype == TYPE_PC)
+    if (m_PEntity->objtype == TYPE_PC)
+    {
+        auto PAbility = GetAbility();
+        auto PChar = static_cast<CCharEntity*>(m_PEntity);
+        std::unique_ptr<CBasicPacket> errMsg;
+        auto PTarget = GetTarget();
+        if (PChar->IsValidTarget(PTarget->targid, PAbility->getValidTarget(), errMsg))
         {
-            auto PAbility = GetAbility();
-            auto PChar = static_cast<CCharEntity*>(m_PEntity);
-            std::unique_ptr<CBasicPacket> errMsg;
-            auto PTarget = GetTarget();
-            if (PChar->IsValidTarget(PTarget->targid, PAbility->getValidTarget(), errMsg))
+            if (PChar != PTarget && distance(PChar->loc.p, PTarget->loc.p) > PAbility->getRange())
             {
-                if (PChar != PTarget && distance(PChar->loc.p, PTarget->loc.p) > PAbility->getRange())
-                {
-                    PChar->pushPacket(new CMessageBasicPacket(PChar, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY));
-                    return false;
-                }
-                if (m_PEntity->loc.zone->CanUseMisc(MISC_LOS_BLOCK) && !m_PEntity->CanSeeTarget(PTarget, false))
-                {
-                    PChar->pushPacket(new CMessageBasicPacket(PChar, PTarget, 0, 0, MSGASIC_CANNOT_SEE_TARGET));
-                    return false;
-                }
-                CBaseEntity* PMsgTarget = PChar;
-                int32 errNo = luautils::OnAbilityCheck(PChar, PTarget, PAbility, &PMsgTarget);
-                if (errNo != 0)
-                {
-                    PChar->pushPacket(new CMessageBasicPacket(PChar, PMsgTarget, PAbility->getID(), PAbility->getID(), errNo));
-                    return false;
-                }
-                return true;
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY));
+                return false;
             }
-            return false;
+            if (m_PEntity->loc.zone->CanUseMisc(MISC_LOS_BLOCK) && !m_PEntity->CanSeeTarget(PTarget, false))
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PTarget, 0, 0, MSGASIC_CANNOT_SEE_TARGET));
+                return false;
+            }
+            CBaseEntity* PMsgTarget = PChar;
+            int32 errNo = luautils::OnAbilityCheck(PChar, PTarget, PAbility, &PMsgTarget);
+            if (errNo != 0)
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PMsgTarget, PAbility->getID(), PAbility->getID(), errNo));
+                return false;
+            }
+            return true;
         }
-}
+        return false;
+    }
     return true;
 }
