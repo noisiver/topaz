@@ -37,7 +37,7 @@ function onZoneIn(player, prevZone)
         cs = 29
     elseif (prevZone == tpz.zone.QUBIA_ARENA and player:getQuestStatus(BASTOK, tpz.quest.id.bastok.THE_FIRST_MEETING) == QUEST_ACCEPTED and not player:hasKeyItem(tpz.ki.LETTER_FROM_DALZAKK)) then
         cs = 16 -- MNK AF
-    elseif (prevZone == tpz.zone.BEAUCEDINE_GLACIER and player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.PIEUJE_S_DECISION) == QUEST_ACCEPTED and player:getCharVar("pieujesDecisionCS") == 0) then
+    elseif (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.PIEUJE_S_DECISION) == QUEST_ACCEPTED and player:getCharVar("pieujesDecisionCS") == 0) then
         cs = 19 -- WHM AF
     end
 
