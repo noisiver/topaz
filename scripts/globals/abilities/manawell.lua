@@ -16,7 +16,10 @@ end
 function onUseAbility(player, target, ability)
     player:addStatusEffect(tpz.effect.WEIGHT, 95, 0, 30)
     player:addStatusEffect(tpz.effect.MUTE, 1, 0, 30)
+    player:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 30)
     player:addStatusEffect(tpz.effect.MANAWELL, 1, 0, 30)
     local effect = player:getStatusEffect(tpz.effect.WEIGHT)
+    local effectTwo = player:getStatusEffect(tpz.effect.AMNESIA)
     effect:unsetFlag(tpz.effectFlag.WALTZABLE)
+    effectTwo:unsetFlag(tpz.effectFlag.WALTZABLE)
 end
