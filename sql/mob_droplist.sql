@@ -3295,7 +3295,7 @@ INSERT INTO `mob_droplist` VALUES (570,0,0,1000,940,10);
 INSERT INTO `mob_droplist` VALUES (570,0,0,1000,940,10);
 INSERT INTO `mob_droplist` VALUES (570,0,0,1000,940,10);
 INSERT INTO `mob_droplist` VALUES (570,0,0,1000,940,50);
-INSERT INTO `mob_droplist` VALUES (570,2,0,1000,1098,50);
+INSERT INTO `mob_droplist` VALUES (570,0,0,1000,1098,50); -- tavnazia_bell
 INSERT INTO `mob_droplist` VALUES (570,1,1,100,4876,333); -- scroll_of_absorb-vit
 INSERT INTO `mob_droplist` VALUES (570,1,1,100,4877,333); -- scroll_of_absorb-agi
 INSERT INTO `mob_droplist` VALUES (570,1,1,100,4878,334); -- scroll_of_absorb-int
