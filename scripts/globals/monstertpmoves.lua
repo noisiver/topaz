@@ -662,8 +662,6 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
 
     -- physical attack missed, skip rest
     if (skill:hasMissMsg()) then
-
-        skill:setMsg(tpz.msg.basic.MISS)
         return 0
     end
 
@@ -671,14 +669,14 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH))
         and attackType == tpz.attackType.PHYSICAL) then
 
-        skill:setMsg(tpz.msg.basic.MISS)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
 
     -- Handle fanatics drink/powder
     if (target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD)) and (target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3) then
 
-        skill:setMsg(tpz.msg.basic.MISS)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
 
@@ -722,8 +720,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
 
     --handle Third Eye using shadowbehav as a guide
     if (attackType == tpz.attackType.PHYSICAL and utils.thirdeye(target)) then
-
-        skill:setMsg(tpz.msg.basic.MISS)
+        skill:setMsg(tpz.msg.basic.ANTICIPATE)
         return 0
     end
 
@@ -795,8 +792,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
 
     -- Handle TPEVA mod
     if math.random(100) <= target:getMod(tpz.mod.TPEVA) then
-
-        skill:setMsg(tpz.msg.basic.MISS)
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
 
