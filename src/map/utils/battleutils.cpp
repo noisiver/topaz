@@ -1763,12 +1763,12 @@ int getSDTTier(int SDT)
                     PChar->updatemask |= UPDATE_HP;
                 }
             }
-            else if (enspell == ENSPELL_AUSPICE && isFirstSwing)
+            else if (enspell == ENSPELL_AUSPICE)
             {
                 Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
-                    CalculateEnspellDamage(PAttacker, PDefender, 2, 7);
+                    CalculateEnspellDamage(PAttacker, PDefender, 1, 7);
 
                 if (Action->addEffectParam < 0)
                 {
