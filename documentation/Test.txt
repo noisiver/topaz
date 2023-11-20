@@ -14,18 +14,15 @@ Items properly AOEing
 Pet parry trait works properly (Chapuli Jug)
 King Behemoth Ecliptic Meteor + meteor death mechanic
 Cherukiki
-Mob Phys TP move miss msg on perfect dodge / normal dodge / parry / third eye with simplelog on
-Aspir getSpellFamily two things working correctly
-utils.getWeaponStyle() returning correct weapon style for GetMaxWeaponPdif in weaponskills.lua
-1 to 31 status effects fading messages
-Spam use items:
-Item uses, remoevd animationtime being added to the cast lock out see if you can spam learn spell scrolls and pots etc now
-Being interrupted on spell cast gives you the full animation + cast time lock out on ele/enhancing/enfeebling magic
 Endispel message(mobs)
 Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
 Trick attack angle / min distance
+Amnesia on Manawell, see if it crashes server
 
 Retail:
+Opening chests or going into cutscene disengage pets?
+Dullahan TP moves - Atramentous Libations gives mob intimidate?
+Goblin Call Beast
 Sleep waking up msg
 Double down / shuffle (cardian NM tp moves) animations
 FOV/GOV elite training

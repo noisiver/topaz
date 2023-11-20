@@ -7,6 +7,45 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
 
+Give Cherukiki TP moves and maybe give Makki-Chebukki more TP moves(need to code lua files for other archery moves)
+Add target:lowerEnmity(player, enmityShed) to enmityShed files
+Unrevert "(TP Moves) Add miss msg to TP moves" and then add Miss(msgID 15) to hasMissMsg in C+++
+
+WKR:
+NM family stats(attack/def% mods, vit mods, etc)
+Add WKR NM to comments of NM file
+Set weather to double of their element on engage and periodiocally on fighting. Delete when procced
+
+Increase all status bolts/arrows duration to 180s
+Blocked! message when mobs block/guard(prob parry) you. add to players as well?
+UpdateForCure() or w/e for mob tp move healing work properly? correct target args?
+Catholicon cast time(check DAT)
+
+Target prob needs to be pet for pet healing/status removal items
+Pets shouldn't DoAutoTarget() if they have healing status effect
+Pet heal items don't show healing amount (healing salve I / II)
+
+Redesign Subtle Sorcery 
+- Reduces cumulative enmity from magic spells to 0.
+- Removes the forced resistance to spells when the target has a resistance rank of 50% or lower for Elemental Magic.
+
+Increase Ancient Magic(and II?) back to normal cast times(check DATs) and remove fast cast off macan or w/e pentinent's belt BCNM
+Enhances "Cascade" effect gear (+TP always to cascade)
+Finish Enspell / Spikes enum in spelldata
+Add Enlight / Endark to DRK and PLD
+Add !givetemps command
+Don't set pet pos(two places) if CSID is noninterrupted CS or w/e
+Arcana Breaker coded?
+JSE necks rare/ex and make sure I didnt accidentally make them all jobs
+Peiste mantle coded
+Finish JP. Also need to add gifts function from lsb to actually get gifts
+Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
+Allow itemname for !addtreasure
+-Enmtiy items and items that are super sidegrades like 10% cure pot body with -2 enmity(minor upgrade to nobles) etc
+Holy / Divine shield trade vendor the NM drops and random chance at HQ on trade
+Add if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0)  to all remedy/panacea/echo drops/clerics drink etc status removal(all temps and pots)
+Pet temps don't play animation on the pet
+!usews crashes server via OnMobSkillCheck() if positional(is facing)
 Flan "Spikey" mixin
 Edit setdroprate() to allow editing/adding drop groups or add another funcion binding to do it
 Sabotender Ballarin missing?
@@ -15,7 +54,6 @@ Maybe scroll animation times for learning shouldnt have such a long animation ti
 Shining / Seraph blade icons for tcrossbar
 abilID 256 WZ_RECOVER_ALL is used by chests in Limbus
 Korolokka onmobdisengage setpos back to spawn
-Drain/Aspir skill ups dont work?(70%)
 Revert displayhelm changes i did to charpacket or charloadpacket or zone_in packet
 Claustrom equal to full HQ ele staves
 Cap mug heal at targets HP like sanguine etc
@@ -52,14 +90,12 @@ Audit guild shop sql list
 Missing dynamis set bonuses
 Code KS99 with custom drops
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
-Finish JP. Also need to add gifts function from lsb to actually get gifts
-Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
 AH to WotG towns
 mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
 Windurst Salad / Taco
 https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
 pickNewPosition 3rd arg as "false" for chests/coffers in treasures.lua
-Osschaart and other enmityList mobs to use proper new code for selecting a random target
+Osschaart and other enmityList mobs to use proper new code for selecting a random target (bio on arthas too)
 Gears weak to dark(chariots/ramparts too?)
 Double msg zoning into level sync zoned(level restricted to x)
 Phalaenopsis unused item 1730 gil regional
@@ -107,6 +143,11 @@ THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
 
 DATS:
+Manawell
+Birdman cape diff stats
+Divine shield HP
+Divine + Holy shield rare/ex
+JSE necks rare/ex
 Beastly Earring pet stats
 ToAU ring buffs
 Aketon change to damage taken not phalanx check others with same type of text
