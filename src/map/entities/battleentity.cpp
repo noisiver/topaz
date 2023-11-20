@@ -1580,6 +1580,10 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         {
             state.ApplyMagicCoverEnmity(POriginalTarget, PActionTarget, (CMobEntity*)this);
         }
+        else if (this->StatusEffectContainer->HasStatusEffect(EFFECT_SUBTLE_SORCERY))
+        {
+            state.ApplyEnmity(PTarget, 0, ve);
+        }
         else
         {
             state.ApplyEnmity(PTarget, ce, ve);

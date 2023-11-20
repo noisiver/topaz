@@ -587,13 +587,15 @@ function applyResistance(caster, target, spell, params)
         res = utils.clamp(res, 0.5, 1.0)
     end
 	
+    -- Subtle Sorcery bypasses this forced resist
+    if not caster:hasStatusEffect(tpz.effect.SUBTLE_SORCERY) then
+        if SDT <= 50 then -- .5 or below SDT drops a resist tier
+            res = res / 2
+        end
 
-    if SDT <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
-    end
-
-    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
-        res = 1/8
+        if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+            res = 1/8
+        end
     end
 
 
