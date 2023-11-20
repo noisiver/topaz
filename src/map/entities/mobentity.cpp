@@ -586,7 +586,9 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         ((CCharEntity*)PMembermember)->m_autoTargetOverride = (CBattleEntity*)PWinner;
-                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    // Player pet should auto-target too(if the pet is not currently healing)
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr &&
+                                        !((CCharEntity*)PMembermember)->PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
                                     {
                                         petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
                                     }
@@ -660,7 +662,9 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         PMembermember->m_autoTargetOverride = (CBattleEntity*)PWinner;
-                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    // Player pet should auto-target too(if the pet is not currently healing)
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr &&
+                                        !((CCharEntity*)PMembermember)->PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
                                     {
                                         petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
                                     }
