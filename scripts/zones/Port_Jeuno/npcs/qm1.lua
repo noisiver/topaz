@@ -19,7 +19,7 @@ function onTrigger(player, npc)
     ShadowFlames = player:hasKeyItem(tpz.ki.SHADOW_FLAMES)
     BorghertzCS = player:getCharVar("BorghertzCS")
 
-    if (OldGauntlets == true and ShadowFlames == false) then
+    if (OldGauntlets == true and ShadowFlames == false and BorghertzCS == 1) then
         player:startEvent(20)
     elseif (OldGauntlets == true and ShadowFlames == false and BorghertzCS == 2) then
         player:startEvent(49)
@@ -32,9 +32,7 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    local hasDoneBefore = player:getCharVar("BorghertzGlovesCompleted")
-
-    if (csid == 20 and option == 1 and hasDoneBefore > 0) then
+    if (csid == 20 and option == 1) then
         player:setCharVar("BorghertzCS", 2)
     elseif (csid == 48) then
         NumQuest = tpz.quest.id.jeuno.BORGHERTZ_S_WARRING_HANDS + player:getCharVar("BorghertzAlreadyActiveWithJob") - 1

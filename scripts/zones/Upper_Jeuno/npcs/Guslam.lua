@@ -167,11 +167,14 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
+    local hasDoneBefore = player:getCharVar("BorghertzGlovesCompleted")
 
     if (csid == 155) then
         local NumQuest = tpz.quest.id.jeuno.BORGHERTZ_S_WARRING_HANDS + player:getMainJob() - 1
         player:addQuest(JEUNO, NumQuest)
         player:setCharVar("BorghertzAlreadyActiveWithJob", player:getMainJob())
+        if (hasDoneBefore > 0) then
+            player:setCharVar("BorghertzCS", 1)
+        end
     end
-
 end
