@@ -15,9 +15,6 @@ end
 function onUseAbility(player, target, ability)
     if target:isMob() then
         local enmityShed = 100
-        if player:getMainJob() ~= tpz.job.BLM then
-            enmityShed = 1000
-        end
         target:lowerEnmity(player, enmityShed)
     end
 end

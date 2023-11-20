@@ -17,10 +17,8 @@ function onUseAbility(player, target, ability)
     local duration = math.random(30, 60)
     duration = duration * (1 + player:getMod(tpz.mod.HIDE_DURATION)/100)
     player:addStatusEffect(tpz.effect.HIDE, 1, 0, math.floor(duration * SNEAK_INVIS_DURATION_MULTIPLIER))
-        if (target:isMob()) then
-        local enmityShed = 1000
-        if player:getMainJob() ~= tpz.job.THF then
-            enmityShed = 1000
-        end
+    if (target:isMob()) then
+        local enmityShed = 100
+        target:lowerEnmity(player, enmityShed)
     end
 end
