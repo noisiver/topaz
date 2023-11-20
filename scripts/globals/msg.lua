@@ -254,10 +254,10 @@ tpz.msg.basic =
     NO_RANGED_WEAPON       = 216, -- You do not have an appropriate ranged weapon equipped.
     CANNOT_SEE             = 217, -- You cannot see <target>.
     MOVE_AND_INTERRUPT     = 218, -- You move and interrupt your aim.
-    RANGED_MISS            = 354 -- The <player>'s ranged attack misses.
+    RANGED_MISS            = 354, -- The <player>'s ranged attack misses.
 
     -- Additional effects and spike effects
-    SPIKES_EFFECT_DMG      = 44 , -- <Defender>'s spikes deal <number> points of damage to the <Attacker>.
+    SPIKES_EFFECT_DMG      = 44, -- <Defender>'s spikes deal <number> points of damage to the <Attacker>.
     SPIKES_EFFECT_HP_DRAIN = 132, -- <Defender>'s spikes drain <number> HP from the <Attacker>.
     ADD_EFFECT_MP_HEAL     = 152, -- Additional effect: The <player> recovers <number> MP.
     ADD_EFFECT_STATUS      = 160, -- Additional effect: <Status Effect>.
