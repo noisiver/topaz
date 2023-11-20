@@ -17825,12 +17825,13 @@ INSERT INTO `mob_droplist` VALUES (6127,1,5,150,4175,500);      -- Vile Elixir +
 INSERT INTO `mob_droplist` VALUES (6127,1,5,150,4174,500);      -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (6127,1,6,150,4173,500);      -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (6127,1,6,150,4172,500);      -- Reraiser
-INSERT INTO `mob_droplist` VALUES (6127,1,7,100,27779,500);     -- Quauhpilli Helm
-INSERT INTO `mob_droplist` VALUES (6127,1,7,100,28062,500);     -- Quauhpilli Gloves
-INSERT INTO `mob_droplist` VALUES (6127,1,8,240,28612,250);     -- Buquwik Cape
-INSERT INTO `mob_droplist` VALUES (6127,1,8,240,21426,250);     -- Achaq Grip
-INSERT INTO `mob_droplist` VALUES (6127,1,8,240,28386,250);     -- Cuamiz Collar
-INSERT INTO `mob_droplist` VALUES (6127,1,8,240,21385,250);     -- Aqreqaq Bomblet
+INSERT INTO `mob_droplist` VALUES (6127,1,7,100,27767,500);     -- Buremte Hat
+INSERT INTO `mob_droplist` VALUES (6127,1,7,100,28050,500);     -- Buremte Gloves
+INSERT INTO `mob_droplist` VALUES (6127,1,8,240,28614,250);     -- Iximulew Cape
+INSERT INTO `mob_droplist` VALUES (6127,1,8,240,28548,250);     -- Barataria Ring
+INSERT INTO `mob_droplist` VALUES (6127,1,8,240,28400,250);     -- Ocachi Gorget
+INSERT INTO `mob_droplist` VALUES (6127,1,8,240,28577,250);     -- Kunaji Ring
+INSERT INTO `mob_droplist` VALUES (6127,1,8,240,28640,250);     -- Pahtli Cape
 
 -- Tchakka
 INSERT INTO `mob_droplist` VALUES (6128,1,1,240,942,500);       -- Philosopher's Stone

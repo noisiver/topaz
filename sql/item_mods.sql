@@ -45283,17 +45283,11 @@ INSERT INTO `item_mods` VALUES (27766,2,28);    -- HP+28
 INSERT INTO `item_mods` VALUES (27766,5,22);    -- MP+22
 INSERT INTO `item_mods` VALUES (27766,8,2);     -- STR+2
 INSERT INTO `item_mods` VALUES (27766,165,3);   -- Critical hit rate +3%
-INSERT INTO `item_mods` VALUES (27767,1,84);    -- Buremte Hat: DEF:84
+INSERT INTO `item_mods` VALUES (27767,1,24);    -- Buremte Hat: DEF:24
 INSERT INTO `item_mods` VALUES (27767,2,28);    -- HP+28
 INSERT INTO `item_mods` VALUES (27767,5,30);    -- MP+30
-INSERT INTO `item_mods` VALUES (27767,8,20);    -- STR+20
-INSERT INTO `item_mods` VALUES (27767,9,20);    -- DEX+20
-INSERT INTO `item_mods` VALUES (27767,10,20);   -- VIT+20
-INSERT INTO `item_mods` VALUES (27767,11,20);   -- AGI+20
-INSERT INTO `item_mods` VALUES (27767,12,24);   -- INT+24
-INSERT INTO `item_mods` VALUES (27767,13,24);   -- MND+24
-INSERT INTO `item_mods` VALUES (27767,14,24);   -- CHR+24
-INSERT INTO `item_mods` VALUES (27767,29,4);    -- "Magic Def. Bonus"+4
+INSERT INTO `item_mods` VALUES (27767,13,4);    -- MND+4
+INSERT INTO `item_mods` VALUES (27767,27,-7);   -- Enmity-7
 INSERT INTO `item_mods` VALUES (27767,30,15);   -- Magic Accuracy+15
 INSERT INTO `item_mods` VALUES (27767,31,65);   -- Magic Evasion+65
 INSERT INTO `item_mods` VALUES (27767,68,28);   -- Evasion+28
@@ -48494,39 +48488,32 @@ INSERT INTO `item_mods` VALUES (28049,31,32); -- Magic Evasio +32
 INSERT INTO `item_mods` VALUES (28049,28,20); -- "Magic Atk. Bonus" +20
 INSERT INTO `item_mods` VALUES (28049,29,1); -- "Magic Def. Bonus" +1
 INSERT INTO `item_mods` VALUES (28049,384,400); -- Haste +4%
-INSERT INTO `item_mods` VALUES (28049,291,3); -- Counter +3
-INSERT INTO `item_mods` VALUES (28049,288,2); -- "Double Attack" +2
-INSERT INTO `item_mods` VALUES (28049,224,2); -- "Vermin Killer" effect
-INSERT INTO `item_mods` VALUES (28049,225,2); -- "Bird Killer" effect
-INSERT INTO `item_mods` VALUES (28049,226,2); -- "Amorph Killer" effect
-INSERT INTO `item_mods` VALUES (28049,227,2); -- "Lizard Killer" effect
-INSERT INTO `item_mods` VALUES (28049,228,2); -- "Aquan Killer" effect
-INSERT INTO `item_mods` VALUES (28049,229,2); -- "Plantiod Killer" effect
-INSERT INTO `item_mods` VALUES (28049,230,2); -- "Beast Killer" effect
-INSERT INTO `item_mods` VALUES (28049,231,2); -- "Undead Killer" effect
-INSERT INTO `item_mods` VALUES (28049,232,2); -- "Arcana Killer" effect
-INSERT INTO `item_mods` VALUES (28049,233,2); -- "Dragon Killer" effect
-INSERT INTO `item_mods` VALUES (28049,234,2); -- "Demon Killer" effect
-INSERT INTO `item_mods` VALUES (28049,235,2); -- "Empty Killer" effect
-INSERT INTO `item_mods` VALUES (28049,236,2); -- "Humanoid Killer" effect
-INSERT INTO `item_mods` VALUES (28049,237,2); -- "Lumorian Killer" effect
-INSERT INTO `item_mods` VALUES (28049,238,2); -- "Luminion Killer" effect
-INSERT INTO `item_mods` VALUES (28050,1,74);
+INSERT INTO `item_mods` VALUES (28049,291,3);       -- Counter +3
+INSERT INTO `item_mods` VALUES (28049,288,2);       -- "Double Attack" +2
+INSERT INTO `item_mods` VALUES (28049,224,2);       -- "Vermin Killer" effect
+INSERT INTO `item_mods` VALUES (28049,225,2);       -- "Bird Killer" effect
+INSERT INTO `item_mods` VALUES (28049,226,2);       -- "Amorph Killer" effect
+INSERT INTO `item_mods` VALUES (28049,227,2);       -- "Lizard Killer" effect
+INSERT INTO `item_mods` VALUES (28049,228,2);       -- "Aquan Killer" effect
+INSERT INTO `item_mods` VALUES (28049,229,2);       -- "Plantiod Killer" effect
+INSERT INTO `item_mods` VALUES (28049,230,2);       -- "Beast Killer" effect
+INSERT INTO `item_mods` VALUES (28049,231,2);       -- "Undead Killer" effect
+INSERT INTO `item_mods` VALUES (28049,232,2);       -- "Arcana Killer" effect
+INSERT INTO `item_mods` VALUES (28049,233,2);       -- "Dragon Killer" effect
+INSERT INTO `item_mods` VALUES (28049,234,2);       -- "Demon Killer" effect
+INSERT INTO `item_mods` VALUES (28049,235,2);       -- "Empty Killer" effect
+INSERT INTO `item_mods` VALUES (28049,236,2);       -- "Humanoid Killer" effect
+INSERT INTO `item_mods` VALUES (28049,237,2);       -- "Lumorian Killer" effect
+INSERT INTO `item_mods` VALUES (28049,238,2);       -- "Luminion Killer" effect
+INSERT INTO `item_mods` VALUES (28050,1,24);        -- Buremte Gloves
 INSERT INTO `item_mods` VALUES (28050,2,19);
-INSERT INTO `item_mods` VALUES (28050,8,9);
-INSERT INTO `item_mods` VALUES (28050,9,31);
-INSERT INTO `item_mods` VALUES (28050,10,27);
+INSERT INTO `item_mods` VALUES (28050,8,3);
+INSERT INTO `item_mods` VALUES (28050,9,2);
+INSERT INTO `item_mods` VALUES (28050,10,5);
 INSERT INTO `item_mods` VALUES (28050,11,4);
-INSERT INTO `item_mods` VALUES (28050,12,11);
-INSERT INTO `item_mods` VALUES (28050,13,26);
-INSERT INTO `item_mods` VALUES (28050,14,15);
-INSERT INTO `item_mods` VALUES (28050,25,20);
-INSERT INTO `item_mods` VALUES (28050,26,20);
-INSERT INTO `item_mods` VALUES (28050,29,1);
-INSERT INTO `item_mods` VALUES (28050,31,32);
-INSERT INTO `item_mods` VALUES (28050,68,19);
-INSERT INTO `item_mods` VALUES (28050,375,13);
-INSERT INTO `item_mods` VALUES (28050,384,300);
+INSERT INTO `item_mods` VALUES (28050,25,7);
+INSERT INTO `item_mods` VALUES (28050,26,7);
+INSERT INTO `item_mods` VALUES (28050,375,5);       -- Potency of CUre effects received +5%
 INSERT INTO `item_mods` VALUES (28051,1,84); -- Cizin Mufflers -- 84 Def
 INSERT INTO `item_mods` VALUES (28051,2,20); -- 20 HP
 INSERT INTO `item_mods` VALUES (28051,8,8);  -- 8 STR
@@ -52586,7 +52573,7 @@ INSERT INTO `item_mods` VALUES (28544,163,-5);    -- Magic damage taken -5%
 INSERT INTO `item_mods` VALUES (28545,25,8);      -- Yacuruna Ring +1: Accuracy +8
 INSERT INTO `item_mods` VALUES (28545,163,-6);    -- Magic damage taken -6%
 INSERT INTO `item_mods` VALUES (28547,881,3);     -- Phantom Roll+ SOA
-INSERT INTO `item_mods` VALUES (28548,881,5);     -- Phantom Roll+ SOA
+INSERT INTO `item_mods` VALUES (28548,881,1);     -- Barataria Ring: Phantom Roll+1
 INSERT INTO `item_mods` VALUES (28549,9,2);
 INSERT INTO `item_mods` VALUES (28549,25,7);
 INSERT INTO `item_mods` VALUES (28550,8,2);
@@ -52888,9 +52875,9 @@ INSERT INTO `item_mods` VALUES (28639,1,17);      -- Repulse Mantle: DEF 17
 INSERT INTO `item_mods` VALUES (28639,2,30);      -- HP +30
 INSERT INTO `item_mods` VALUES (28639,161,-4);    -- Physical damage taken -4%
 INSERT INTO `item_mods` VALUES (28640,1,16);      -- Pahtli Cape: DEF 16
-INSERT INTO `item_mods` VALUES (28640,5,50);      -- MP +50
-INSERT INTO `item_mods` VALUES (28640,13,8);      -- MND +8
-INSERT INTO `item_mods` VALUES (28640,519,8);     -- Cure spellcasting time -8%
+INSERT INTO `item_mods` VALUES (28640,5,15);      -- MP +15
+INSERT INTO `item_mods` VALUES (28640,13,2);      -- MND +2
+INSERT INTO `item_mods` VALUES (28640,519,3);     -- Cure spellcasting time -3%
 INSERT INTO `item_mods` VALUES (28641,1,20);      -- Vespid Mantle: DEF 20
 INSERT INTO `item_mods` VALUES (28641,23,35);     -- Attack +35
 INSERT INTO `item_mods` VALUES (28641,48,10);     -- Weapon Skill Accuracy +10
