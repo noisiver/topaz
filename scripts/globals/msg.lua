@@ -57,7 +57,7 @@ tpz.msg.area =
 
 tpz.msg.textColor =
 {
-    WHITE     =   0, -- Name shown
+    WHITE       =   0, -- Name shown
     GOLD        =   0x1F,
     GREEN       =   0x1C,
     BLUE        =   0xF,
@@ -72,7 +72,7 @@ tpz.msg.basic =
 {
     NONE                    = 0, -- Display nothing
     HIT_DMG                 = 1, -- <actor> hits <target> for <amount> points of damage.
-    MISS                    = 15, --The <entity> misses <target>.
+    MISS                    = 15,--The <entity> misses <target>.
 
     -- Magic
     MAGIC_DMG              = 2,   -- <caster> casts <spell>. <target> takes <amount> damage.
@@ -254,6 +254,7 @@ tpz.msg.basic =
     NO_RANGED_WEAPON       = 216, -- You do not have an appropriate ranged weapon equipped.
     CANNOT_SEE             = 217, -- You cannot see <target>.
     MOVE_AND_INTERRUPT     = 218, -- You move and interrupt your aim.
+    RANGED_MISS            = 354 -- The <player>'s ranged attack misses.
 
     -- Additional effects and spike effects
     SPIKES_EFFECT_DMG      = 44 , -- <Defender>'s spikes deal <number> points of damage to the <Attacker>.

@@ -36,8 +36,9 @@ enum MSGBASIC_ID : uint16
     MSGBASIC_NONE                   = 0, /* Display nothing */
 	MSGBASIC_DEFEATS_TARG			= 6, /* The <player> defeats <target>. */
     MSGBASIC_MAGIC_RECOVERS_HP      = 7, /* <caster> casts <spell>. <target> recovers <amount> HP. */
-    MSGBASIC_SELF_HEAL_SECONDARY    = 263, /* <target recovers <amount> HP | Used for Curaga */
-	MSGBASIC_ALREADY_CLAIMED		= 12, /* Cannot attack. Your target is already claimed. */
+    MSGBASIC_SELF_HEAL_SECONDARY    = 263,/* <target recovers <amount> HP | Used for Curaga */
+    MSGBASIC_MISS                   = 15, /* The <entity> misses <target>. */
+    MSGBASIC_ALREADY_CLAIMED		= 12, /* Cannot attack. Your target is already claimed. */
 	MSGBASIC_IS_INTERRUPTED			= 16, /* The <player>'s casting is interrupted. */
 	MSGBASIC_UNABLE_TO_CAST			= 18, /* Unable to cast spells at this time. */
     MSGBASIC_FALLS_TO_GROUND        = 20, /* The <target> falls to the ground. */
@@ -47,6 +48,7 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_UNABLE_TO_USE_JA		= 87, /* Unable to use job ability. */
 	MSGBASIC_UNABLE_TO_USE_JA2		= 88, /* Unable to use job ability. */
 	MSGBASIC_IS_PARALYZED			= 29, /* The <player> is paralyzed. */
+    MSGBASIC_ANTICIPATE             = 30,
 	MSGBASIC_SHADOW_ABSORB			= 31, /* .. of <target>'s shadows absorb the damage and disappear. */
 	MSGBASIC_NOT_ENOUGH_MP			= 34, /* The <player> does not have enough MP to cast (nullptr). */
 	MSGBASIC_NO_NINJA_TOOLS			= 35, /* The <player> lacks the ninja tools to cast (nullptr). */
@@ -72,6 +74,8 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_USES_BUT_MISSES		= 324, /* The <player> uses .. but misses <target>. */
 	MSGBASIC_CANT_BE_USED_IN_AREA	= 316, /* That action cannot be used in this area. */
 	MSGBASIC_REQUIRES_SHIELD		= 199, /* That action requires a shield. */
+    MSGBASIC_JA_MISS                = 158, /* <user> uses <ability>, but misses. (no name included) */
+
     /* Magic */
     MSGBASIC_STATUS_NO_LONGER       = 204, /* <target> is no longer${status}. */
     MSGBASIC_GAINS_EFFECT_OF_STATUS = 205, /* ${target} gains the effect of ${status}. */
@@ -90,6 +94,7 @@ enum MSGBASIC_ID : uint16
     MSGBASIC_SKILL_GAIN_EFFECT      = 186, /* Buff mob TP move buff. */                   
     MSGBASIC_SELF_HEAL              = 238, /* Healing mob TP move. */
     MSGBASIC_SKILL_ENFEEB_IS        = 242, /* Enfeebling mob TP move. */
+    MSGBASIC_SKILL_MISS             = 188, /* Mob TP move miss / resist message. */
 	/* Weaponskills */
     MSGBASIC_UNABLE_TO_USE_WS       = 89,  /* Unable to use weaponskill. */
 	MSGBASIC_CANNOT_USE_WS			= 190, /* The <player> cannot use that weapon ability. */
@@ -116,6 +121,7 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_NO_RANGED_WEAPON		= 216, /* You do not have an appropriate ranged weapon equipped. */
 	MSGBASIC_CANNOT_SEE				= 217, /* You cannot see <target>. */
 	MSGBASIC_MOVE_AND_INTERRUPT		= 218, /* You move and interrupt your aim. */
+    MSGBASIC_RANGED_MISS            = 354, /* The<player>'s ranged attack misses. */
 	/* Charm */
 	MSGBASIC_CANNOT_CHARM			= 210, /* The <player> cannot charm <target>! */
 	MSGBASIC_VERY_DIFFICULT_CHARM	= 211, /* It would be very difficult for the <player> to charm <target>. */
