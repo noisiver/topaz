@@ -15,9 +15,16 @@ Pet parry trait works properly (Chapuli Jug)
 King Behemoth Ecliptic Meteor + meteor death mechanic
 Cherukiki
 Endispel message(mobs)
+UpdateForCure() or w/e for mob tp move healing work properly? correct target args?
 Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
 Trick attack angle / min distance
-Amnesia on Manawell, see if it crashes server
+Subtle Sorcery 0 CE and ignoring 50% and less SDT forced resists(50% and 5%)
+Not bringing pet on cutscenes not gov/fov books/chests but bringing on others still(staging point door)
+Clear salve targetting pet with animation
+Healing Salve targetting pet with animation and showing heal #
+Catholicion cast time matching DAT
+hasMissMsg() and mobs missing working correctly (status effects shouldnt apply on phys hit miss)
+!setmod PHANTOM_ROLL 1 2 and 3 working properly
 
 Retail:
 Opening chests or going into cutscene disengage pets?
