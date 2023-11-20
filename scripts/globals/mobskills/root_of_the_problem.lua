@@ -30,9 +30,3 @@ function onMobWeaponSkill(target, mob, skill)
     end
     return dmg
 end
-
-
-
-
-
-

@@ -28,9 +28,3 @@ function onMobWeaponSkill(target, mob, skill)
     MobAllStatDownMove(mob, target, 21, 60)
     return dmg
 end
-
-
-
-
-
-

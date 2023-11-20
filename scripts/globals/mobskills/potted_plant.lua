@@ -24,9 +24,3 @@ function onMobWeaponSkill(target, mob, skill)
     MobHasteOverwriteSlowMove(mob, target, 5000, 0, 90, 0, 0, 2)
     return dmg
 end
-
-
-
-
-
-

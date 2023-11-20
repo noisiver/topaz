@@ -27,9 +27,3 @@ function onMobWeaponSkill(target, mob, skill)
     MobStatusEffectMove(mob, target, typeEffectThree, 25, 0, 30)
     return dmg
 end
-
-
-
-
-
-
