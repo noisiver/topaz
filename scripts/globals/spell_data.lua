@@ -100,44 +100,44 @@ tpz.magic.ele = tpz.magic.element
 
 tpz.magic.enspell =
 {
-    NONE =  0,
-    FIRE = 1,
-    ICE = 2,
-    WIND = 3,
-    EARTH = 4,
-    THUNDER = 5,
-    WATER = 6,
-    LIGHT = 7,
-    DARK = 8,
-    FIRE = 9,
-    ICE = 10,
-    WIND = 11,
-    EARTH = 12,
-    THUNDER = 13,
-    WATER = 14,
-    LIGHT = 15,
-    DARK = 16,
-    BLOOD_WEAPON = 17,
-    AUSPICE = 19,
-    DRAIN_SAMBA = 20,
-    ASPIR_SAMBA = 21,
-    HASTE_SAMBA = 22
+    NONE            = 0,
+    FIRE            = 1,
+    ICE             = 2,
+    WIND            = 3,
+    EARTH           = 4,
+    THUNDER         = 5,
+    WATER           = 6,
+    LIGHT           = 7,
+    DARK            = 8,
+    FIRE            = 9,
+    ICE             = 10,
+    WIND            = 11,
+    EARTH           = 12,
+    THUNDER         = 13,
+    WATER           = 14,
+    LIGHT           = 15,
+    DARK            = 16,
+    BLOOD_WEAPON    = 17,
+    AUSPICE         = 19,
+    DRAIN_SAMBA     = 20,
+    ASPIR_SAMBA     = 21,
+    HASTE_SAMBA     = 22
 }
 
 tpz.magic.spikes =
 {
-    NONE = 0,
-    BLAZE = 1,
-    ICE = 2,
-    DREAD = 3,
-    CURSE = 4,
-    SHOCK = 5,
-    REPRISAL = 6,
-    GALE = 7,
-    CLOD = 8,
-    DELUGE = 9,
-    GLINT = 10,
-    RETALIATION = 63
+    NONE            = 0,
+    BLAZE           = 1,
+    ICE             = 2,
+    DREAD           = 3,
+    CURSE           = 4,
+    SHOCK           = 5,
+    REPRISAL        = 6,
+    GALE            = 7,
+    CLOD            = 8,
+    DELUGE          = 9,
+    GLINT           = 10,
+    RETALIATION     = 63
 }
 
 ------------------------------------
