@@ -1743,7 +1743,7 @@ INSERT INTO `mob_skills` VALUES (1791,1217,'incinerate',4,12.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (1792,1212,'nullsong',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1793,1213,'vampiric_root',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1794,1214,'perdition',0,7.0,2000,5000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1795,1215,'malediction',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1795,1215,'malediction',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1796,209,'cerberus_howl',0,7.0,2000,0,1,0,0,0,0,0,0); -- was piercing_shriek and animationID 1540
 INSERT INTO `mob_skills` VALUES (1797,1320,'rushing_slash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1798,1321,'decussate',1,10.0,2000,1500,4,0,0,0,0,0,0);
@@ -2721,12 +2721,12 @@ INSERT INTO `mob_skills` VALUES (2756,1930,'dead_prophet',4,10.0,2000,1000,4,0,0
 -- INSERT INTO `mob_skills` VALUES (2759,2503,'telsonic_tempest',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2760,396,'preternatural_gleam',4,10.0,2000,3000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2761,2505,'chupa_blossom',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2762,2506,'hell_slash',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2763,2507,'horror_cloud',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2764,2508,'black_cloud',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2765,2509,'blood_saber',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2766,2510,'malediction',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2767,1936,'crepuscule_blade',4,10.0,2000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2762,1937,'hell_slash',0,7.0,2000,1500,4,0,0,0,0,0,0); -- "Gasha" SAM skeleton (VW)
+-- INSERT INTO `mob_skills` VALUES (2763,1938,'horror_cloud',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2764,1939,'black_cloud',0,15.0,2000,1500,4,0,0,0,0,0,0); -- "Gasha" SAM skeleton (VW)
+INSERT INTO `mob_skills` VALUES (2765,1940,'blood_saber',0,15.0,2000,1500,4,0,0,0,0,0,0); -- "Gasha" SAM skeleton (VW)
+-- INSERT INTO `mob_skills` VALUES (2766,2510,'malediction',0,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2767,1936,'crepuscule_blade',4,10.0,2000,2000,4,0,0,0,0,0,0); -- "Gasha" SAM skeleton (VW)
 -- INSERT INTO `mob_skills` VALUES (2768,2512,'deathly_glare',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2769,2513,'blighted_bouquet',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2770,1944,'booming_bombination',1,15.0,2000,1500,4,0,0,0,0,0,0);
@@ -3177,11 +3177,11 @@ INSERT INTO `mob_skills` VALUES (3205,673,'berserk-ruf',0,7.0,2000,1500,4,0,0,0,
 INSERT INTO `mob_skills` VALUES (3215,1483,'peacebreaker',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3216,676,'red_lotus_blade',0,7.0,2000,1500,4,0,0,0,3,6,0);
 INSERT INTO `mob_skills` VALUES (3217,678,'savage_blade',0,7.0,2000,1500,4,0,0,0,12,4,0);
-INSERT INTO `mob_skills` VALUES (3218,251,'villainous_rebuke',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3219,252,'stygian_release',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3220,2301,'infernal_bulwark',1,18.0,2000,1000,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3221,254,'atramentous_libations',1,18.0,2000,1000,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3222,2966,'noahionto',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3218,2299,'villainous_rebuke',4,10.0,2000,1000,4,0,0,0,0,0,0); -- Check animationID
+INSERT INTO `mob_skills` VALUES (3219,2300,'stygian_release',4,10.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3220,2301,'infernal_bulwark',0,7.0,2000,1000,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3221,2302,'atramentous_libations',1,15.0,2000,2500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (3222,2966,'noahionto',1,15.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3223,2967,'shockiavona',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3224,2968,'hemorrhaze',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3225,2294,'suspended_sculpture_one',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Suspended Sculptures in Outer Raz
