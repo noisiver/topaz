@@ -1,6 +1,7 @@
 -----------------------------------
--- Area: King Ramprre's Tomb'
+-- Area: King Ramprre's Tomb
 --  Mob: Yumcax
+-- WKR NM
 -----------------------------------
 local ID = require("scripts/zones/King_Ranperres_Tomb/IDs")
 require("scripts/globals/mobs")

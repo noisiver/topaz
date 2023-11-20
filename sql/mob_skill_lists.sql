@@ -4787,6 +4787,18 @@ INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3060); -- canopierce
 INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3061); -- firefly_fandango
 INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3062); -- tiiimbeeer
 
+-- Tchakka
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka_Autos',6150,3008); -- rockfin_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka_Autos',6150,3009); -- rockfin_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka_Autos',6150,3010); -- rockfin_auto_three
+
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3011); -- protolithic_puncture
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3012); -- aquatic_lance
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3013); -- pelagic_cleaver
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3014); -- carcharian_verve
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3015); -- tidal_guillotine
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3016); -- marine_mayhem
+
 -- Next available ID: 1198
--- Next custom ID: 6150
+-- Next custom ID: 6152
 

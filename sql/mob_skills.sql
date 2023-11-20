@@ -2968,8 +2968,8 @@ INSERT INTO `mob_skills` VALUES (3005,2139,'droning_whirlwind',1,10.0,2000,2000,
 INSERT INTO `mob_skills` VALUES (3006,2140,'incisive_denouement',0,7.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3007,2141,'incisive_apotheosis',4,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3008,2193,'rockfin_auto_one',0,7.0,0,0,4,16,0,0,0,0,0); -- tchakka and dakuwaqa melee specials
-INSERT INTO `mob_skills` VALUES (3009,2194,'rockfin_auto_two',4,10.0,0,0,4,16,0,0,0,0,0);  -- tchakka and dakuwaqa melee specials
-INSERT INTO `mob_skills` VALUES (3010,2195,'rockfin_auto_three',1,10.0,0,0,4,16,0,0,0,0,0); -- tchakka and dakuwaqa melee specials
+INSERT INTO `mob_skills` VALUES (3009,2194,'rockfin_auto_two',4,10.0,0,0,4,16,0,3,0,0,0);  -- tchakka and dakuwaqa melee specials
+INSERT INTO `mob_skills` VALUES (3010,2195,'rockfin_auto_three',1,10.0,0,0,4,16,0,3,0,0,0); -- tchakka and dakuwaqa melee specials
 INSERT INTO `mob_skills` VALUES (3011,2196,'protolithic_puncture',0,7.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3012,2197,'aquatic_lance',4,10.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3013,2198,'pelagic_cleaver',1,18.0,2000,3000,1,0,0,0,0,0,0);

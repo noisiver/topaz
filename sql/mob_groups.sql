@@ -13144,6 +13144,7 @@ INSERT INTO `mob_groups` VALUES (47,9014,198,'Tebhi',0,128,0,0,10500,79,79,0);
 INSERT INTO `mob_groups` VALUES (48,71,198,'Air_Elemental',330,4,40,0,0,80,81,0);
 INSERT INTO `mob_groups` VALUES (49,1160,198,'Earth_Elemental',330,4,736,0,0,80,81,0);
 INSERT INTO `mob_groups` VALUES (50,9117,198,'Qultada',0,128,3192,12500,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (51,4925,198,'Tchakka',7200,0,6128,35000,0,81,81,0);
 
 INSERT INTO `mob_groups` VALUES (9847,913,198,'Dark_Elemental',0,128,0,0,0,33,36,0);
 INSERT INTO `mob_groups` VALUES (9860,1720,198,'Goblins_Bat',0,128,0,0,0,24,26,0);
