@@ -13,8 +13,8 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
-    mob:SetAutoAttackEnabled(false)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
+    mob:SetAutoAttackEnabled(true)
     mob:setUnkillable(true)
     mob:setSpellList(1)
     ResetVars(mob)
@@ -56,6 +56,7 @@ function onMobFight(mob, target)
 
     -- Stops attacking and only heals and buffs her Siblings
     if (phase == 2) then
+        mob:SetAutoAttackEnabled(false)
         mob:SetMagicCastingEnabled(false)
         TryCastSpell(mob)
         -- Remove unkillable if Kukki and Makki are dead
@@ -73,6 +74,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.MDEF, 33) 
         mob:setMod(tpz.mod.DMG, -33)
         mob:setSpellList(541)
+        mob:SetAutoAttackEnabled(true)
         mob:SetMagicCastingEnabled(true)
     end
 end
