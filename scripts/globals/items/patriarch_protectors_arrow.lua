@@ -1,25 +1,18 @@
 -----------------------------------------
 -- ID: 17329
 -- Item: Patriarch Protectors Arrow
--- Additional Effect: Paralysis (30 power)
+-- Additional Effect: Paralysis
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
-
 function onAdditionalEffect(player, target, damage)
     local chance = CalculateAdditionalEffectChance(player, 100)
-    if (target:getMainLvl() > player:getMainLvl()) then
-        chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
-        chance = utils.clamp(chance, 5, 95)
-    end
-    if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) <= 0.5) then
-        return 0, 0, 0
-    else
-        if (not target:hasStatusEffect(tpz.effect.PARALYSIS)) then
-            target:addStatusEffect(tpz.effect.PARALYSIS, 30, 0, 30)
-        end
-        return tpz.subEffect.PARALYSIS, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.PARALYSIS
-    end
-end
+    local power = 15
+    local duration = 180
+    local subpower = 0
+    local tier = 1
+    local bonus = 0
+    return TryApplyAdditionalEffect(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, power, tick, duration, subpower, tier, chance, bonus)
+ end
