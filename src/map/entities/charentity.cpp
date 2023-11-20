@@ -2207,6 +2207,15 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
         actionList_t& actionList = action.getNewActionList();
         actionList.ActionTargetID = PTarget->id;
 
+        // Healing / Clear Salve (Pet items)
+        if (PItem->getID() >= 5835 && PItem->getID() <= 5838)
+        {
+            if (PTarget->PPet != nullptr)
+            {
+                actionList.ActionTargetID = PTarget->PPet->id;
+            }
+        }
+
         actionTarget_t& actionTarget = actionList.getNewActionTarget();
         actionTarget.animation = PItem->getAnimationID();
         actionTarget.reaction = REACTION_HIT;
