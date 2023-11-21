@@ -20,6 +20,11 @@ Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
 Trick attack angle / min distance
 Catholicion cast time matching DAT
 !setmod PHANTOM_ROLL 1 2 and 3 working properly
+Muddle working properly to block item usage
+bottle_of_dawn_mulsum on pets
+Manawall remove negative effects
+Consumables that remove status effects work still
+
 
 Retail:
 Opening chests or going into cutscene disengage pets?

@@ -14,15 +14,6 @@ I suppose we should be checking to see if the final removed member was a trust o
 if it wasn't, don't
 
 Give BLM Aspir II at 75
-Give Cherukiki TP moves and maybe give Makki-Chebukki more TP moves(need to code lua files for other archery moves)
-Noble's Tunic and Aristocrats drop off King Behemoth
-Add muddle to Mana Wall and Mana Well
-T4 nuke(maybe all? check gas too) nukes cast times are wrong? check DAT. ALl their cast times should be longer half a 0.75s of a sec or so
-Add Mulsum(sp) to pet items in charentity and in item_Basic msg and param
-Mana Wall dispel all negative status effects(get from monsterptmoves) and update DAT description to state that
-Manawell won't add it's status effects if they already exist (if not has status effect x). and also check for SILENCE for mute
-Dusk gear shouldn't be on AH check flags
-Demon Helm(+1) rare/ex from a Demon NM in Ule range(or castle since I have custom NMs there)
 
 WKR:
 NM family stats(attack/def% mods, vit mods, etc)
@@ -31,8 +22,7 @@ Set weather to double of their element on engage and periodiocally on fighting. 
 
 Blocked! message when mobs block/guard(prob parry) you. add to players as well?
 
-All status removal items antidotes/remedies/qutrub badnage thing/clerics drink/ecphoria ring etc not remove if effect isnt waltzable flag
-Sorcerer's Gloves have magic burst bonus?
+Add if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0)  to all remedy/panacea/echo drops/clerics drink etc status removal(all temps and pots)
 Enhances "Cascade" effect gear (+TP always to cascade)
 Add Enlight / Endark to DRK and PLD
 Add !givetemps command
@@ -44,7 +34,6 @@ Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
 Allow itemname for !addtreasure
 -Enmtiy items and items that are super sidegrades like 10% cure pot body with -2 enmity(minor upgrade to nobles) etc
 Holy / Divine shield trade vendor the NM drops and random chance at HQ on trade
-Add if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0)  to all remedy/panacea/echo drops/clerics drink etc status removal(all temps and pots)
 !usews crashes server via OnMobSkillCheck() if positional(is facing)
 Flan "Spikey" mixin
 Edit setdroprate() to allow editing/adding drop groups or add another funcion binding to do it
