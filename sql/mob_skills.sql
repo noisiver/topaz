@@ -2972,10 +2972,10 @@ INSERT INTO `mob_skills` VALUES (3009,2194,'rockfin_auto_two',4,10.0,0,0,4,16,0,
 INSERT INTO `mob_skills` VALUES (3010,2195,'rockfin_auto_three',1,10.0,0,0,4,16,0,3,0,0,0); -- tchakka and dakuwaqa melee specials
 INSERT INTO `mob_skills` VALUES (3011,2196,'protolithic_puncture',0,7.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3012,2197,'aquatic_lance',4,10.0,2000,3000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3013,2198,'pelagic_cleaver',1,18.0,2000,3000,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3013,2198,'pelagic_cleaver',1,10.0,2000,3000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3014,2199,'carcharian_verve',0,7.0,2000,3000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3015,2200,'tidal_guillotine',4,10.0,2000,3000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3016,2201,'marine_mayhem',1,40.0,2000,6000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3016,2201,'marine_mayhem',1,20.0,2000,6000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3017,2142,'gabbrath_auto_one',0,7.0,0,0,4,16,0,0,0,0,0);   -- achuka and tojil melee specials
 INSERT INTO `mob_skills` VALUES (3018,2143,'gabbrath_auto_two',4,10.0,0,0,4,16,0,5,0,0,0); -- achuka and tojil melee specials
 INSERT INTO `mob_skills` VALUES (3019,2144,'gabbrath_auto_three',1,10.0,0,0,4,16,0,3,0,0,0);   -- achuka and tojil melee specials

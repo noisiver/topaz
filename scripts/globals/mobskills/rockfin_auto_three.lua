@@ -3,7 +3,7 @@
 --
 -- Magical
 -- Element: Water
--- AOE 10''
+-- AOE 10'
 ---------------------------------------------------
 
 require("scripts/globals/settings")

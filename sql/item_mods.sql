@@ -45278,20 +45278,21 @@ INSERT INTO `item_mods` VALUES (27764,236,2); -- Enhances "Humanoid Killer" effe
 INSERT INTO `item_mods` VALUES (27764,237,2); -- Enhances "Lumorian Killer" effect
 INSERT INTO `item_mods` VALUES (27764,238,2); -- Enhances "Luminion Killer" effect
 INSERT INTO `item_mods` VALUES (27765,1,1);
-INSERT INTO `item_mods` VALUES (27766,1,21);    -- Uk'uxkaj Cap
-INSERT INTO `item_mods` VALUES (27766,2,28);    -- HP+28
-INSERT INTO `item_mods` VALUES (27766,5,22);    -- MP+22
-INSERT INTO `item_mods` VALUES (27766,8,2);     -- STR+2
-INSERT INTO `item_mods` VALUES (27766,165,3);   -- Critical hit rate +3%
-INSERT INTO `item_mods` VALUES (27767,1,24);    -- Buremte Hat: DEF:24
-INSERT INTO `item_mods` VALUES (27767,2,28);    -- HP+28
-INSERT INTO `item_mods` VALUES (27767,5,30);    -- MP+30
-INSERT INTO `item_mods` VALUES (27767,13,4);    -- MND+4
-INSERT INTO `item_mods` VALUES (27767,27,-7);   -- Enmity-7
-INSERT INTO `item_mods` VALUES (27767,30,15);   -- Magic Accuracy+15
-INSERT INTO `item_mods` VALUES (27767,31,65);   -- Magic Evasion+65
-INSERT INTO `item_mods` VALUES (27767,68,28);   -- Evasion+28
-INSERT INTO `item_mods` VALUES (27767,311,35);  -- Magic Damage+35
+INSERT INTO `item_mods` VALUES (27766,1,21);      -- Uk'uxkaj Cap
+INSERT INTO `item_mods` VALUES (27766,2,28);      -- HP+28
+INSERT INTO `item_mods` VALUES (27766,5,22);      -- MP+22
+INSERT INTO `item_mods` VALUES (27766,8,2);       -- STR+2
+INSERT INTO `item_mods` VALUES (27766,165,3);     -- Critical hit rate +3%
+INSERT INTO `item_mods` VALUES (27767,1,24);      -- Buremte Hat: DEF:24
+INSERT INTO `item_mods` VALUES (27767,2,28);      -- HP+28
+INSERT INTO `item_mods` VALUES (27767,5,30);      -- MP+30
+INSERT INTO `item_mods` VALUES (27767,8,4);       -- STR+4
+INSERT INTO `item_mods` VALUES (27767,9,3);       -- DEX+3
+INSERT INTO `item_mods` VALUES (27767,12,-6);     -- INT-4
+INSERT INTO `item_mods` VALUES (27767,13,-6);     -- MND-4
+INSERT INTO `item_mods` VALUES (27767,14,-6);     -- CHR-4
+INSERT INTO `item_mods` VALUES (27767,27,-7);     -- Enmity-7
+INSERT INTO `item_mods` VALUES (27767,384,200);   -- Haste +2%
 INSERT INTO `item_mods` VALUES (27768,1,94);      -- Cizin Helm: DEF 94
 INSERT INTO `item_mods` VALUES (27768,2,28);      -- HP +28
 INSERT INTO `item_mods` VALUES (27768,5,21);      -- MP +21
@@ -45461,21 +45462,17 @@ INSERT INTO `item_mods` VALUES (27779,23,12);       -- Attack+12
 INSERT INTO `item_mods` VALUES (27779,68,9);        -- Evasion+9
 INSERT INTO `item_mods` VALUES (27779,288,2);       -- Double Attack+2%
 INSERT INTO `item_mods` VALUES (27779,384,300);     -- Haste+3%
-INSERT INTO `item_mods` VALUES (27780,1,64);
+INSERT INTO `item_mods` VALUES (27780,1,31);        -- Chocaliztli Mask
 INSERT INTO `item_mods` VALUES (27780,2,12);
 INSERT INTO `item_mods` VALUES (27780,5,18);
-INSERT INTO `item_mods` VALUES (27780,8,18);
-INSERT INTO `item_mods` VALUES (27780,9,13);
-INSERT INTO `item_mods` VALUES (27780,10,14);
-INSERT INTO `item_mods` VALUES (27780,11,16);
-INSERT INTO `item_mods` VALUES (27780,12,12);
-INSERT INTO `item_mods` VALUES (27780,13,15);
-INSERT INTO `item_mods` VALUES (27780,14,12);
-INSERT INTO `item_mods` VALUES (27780,25,15);
+INSERT INTO `item_mods` VALUES (27780,11,5);
+INSERT INTO `item_mods` VALUES (27780,12,4);
+INSERT INTO `item_mods` VALUES (27780,13,4);
+INSERT INTO `item_mods` VALUES (27780,14,4);
+INSERT INTO `item_mods` VALUES (27780,25,7);
 INSERT INTO `item_mods` VALUES (27780,29,2);
-INSERT INTO `item_mods` VALUES (27780,31,25);
-INSERT INTO `item_mods` VALUES (27780,68,9);
-INSERT INTO `item_mods` VALUES (27780,384,700);
+INSERT INTO `item_mods` VALUES (27780,68,7);
+INSERT INTO `item_mods` VALUES (27780,384,300);
 INSERT INTO `item_mods` VALUES (27781,1,61);
 INSERT INTO `item_mods` VALUES (27781,2,11);
 INSERT INTO `item_mods` VALUES (27781,5,70);
@@ -51930,19 +51927,18 @@ INSERT INTO `item_mods` VALUES (28342,14,10);     -- CHR +10
 INSERT INTO `item_mods` VALUES (28342,27,-5);     -- Enmity -5
 INSERT INTO `item_mods` VALUES (28342,30,8);      -- Magic Accuracy +8
 INSERT INTO `item_mods` VALUES (28342,31,42);     -- Magic Evasion +42
-INSERT INTO `item_mods` VALUES (28343,1,53);
+INSERT INTO `item_mods` VALUES (28343,1,23);      -- Chocaliztli Boots
 INSERT INTO `item_mods` VALUES (28343,2,45);
 INSERT INTO `item_mods` VALUES (28343,5,40);
-INSERT INTO `item_mods` VALUES (28343,8,12);
-INSERT INTO `item_mods` VALUES (28343,9,9);
-INSERT INTO `item_mods` VALUES (28343,10,8);
-INSERT INTO `item_mods` VALUES (28343,11,17);
-INSERT INTO `item_mods` VALUES (28343,13,5);      -- MND +5
-INSERT INTO `item_mods` VALUES (28343,14,14);
-INSERT INTO `item_mods` VALUES (28343,25,10);     -- Accuracy +10
-INSERT INTO `item_mods` VALUES (28343,31,43);
-INSERT INTO `item_mods` VALUES (28343,68,15);
-INSERT INTO `item_mods` VALUES (28343,384,400);
+INSERT INTO `item_mods` VALUES (28343,8,2);
+INSERT INTO `item_mods` VALUES (28343,9,2);
+INSERT INTO `item_mods` VALUES (28343,10,6);
+INSERT INTO `item_mods` VALUES (28343,11,-5);
+INSERT INTO `item_mods` VALUES (28343,12,-5);      
+INSERT INTO `item_mods` VALUES (28343,13,-5);      
+INSERT INTO `item_mods` VALUES (28343,14,-5);
+INSERT INTO `item_mods` VALUES (28343,161,-2);   -- Physical damage taken -2%
+INSERT INTO `item_mods` VALUES (28343,291,3);     -- Counter +3
 INSERT INTO `item_mods` VALUES (28344,1,32);
 INSERT INTO `item_mods` VALUES (28344,8,4);
 INSERT INTO `item_mods` VALUES (28344,9,7);
