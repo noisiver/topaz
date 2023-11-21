@@ -17,7 +17,7 @@ function onItemUse(target)
         local effect = target:getStatusEffect(tpz.effect.SILENCE)
         local effectFlags = effect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-            target:delStatusEffectSilent(tpz.effect.SILENCE)
+            target:delStatusEffect(tpz.effect.SILENCE)
         end
     end
 
@@ -25,7 +25,7 @@ function onItemUse(target)
         local effect = target:getStatusEffect(tpz.effect.BLINDNESS)
         local effectFlags = effect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-            target:delStatusEffectSilent(tpz.effect.BLINDNESS)
+            target:delStatusEffect(tpz.effect.BLINDNESS)
         end
     end
 
@@ -33,7 +33,7 @@ function onItemUse(target)
         local effect = target:getStatusEffect(tpz.effect.POISON)
         local effectFlags = effect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-            target:delStatusEffectSilent(tpz.effect.POISON)
+            target:delStatusEffect(tpz.effect.POISON)
         end
     end
 
@@ -41,7 +41,7 @@ function onItemUse(target)
         local effect = target:getStatusEffect(tpz.effect.PARALYSIS)
         local effectFlags = effect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-            target:delStatusEffectSilent(tpz.effect.PARALYSIS)
+            target:delStatusEffect(tpz.effect.PARALYSIS)
         end
     end
 
@@ -51,7 +51,7 @@ function onItemUse(target)
             local effect = target:getStatusEffect(tpz.effect.DISEASE)
             local effectFlags = effect:getFlag()
             if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-                target:delStatusEffectSilent(tpz.effect.DISEASE)
+                target:delStatusEffect(tpz.effect.DISEASE)
             end
         end
 
@@ -59,7 +59,7 @@ function onItemUse(target)
             local effect = target:getStatusEffect(tpz.effect.PLAGUE)
             local effectFlags = effect:getFlag()
             if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-                target:delStatusEffectSilent(tpz.effect.PLAGUE)
+                target:delStatusEffect(tpz.effect.PLAGUE)
             end
         end
     end

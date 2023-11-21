@@ -35,8 +35,8 @@ function onItemUse(target)
 
     local function removeStatus()
         for _, effect in ipairs(statusEffectTable) do
-            if (target:hasStatusEffect(effect) then
-                local currentEffect = target:getStatusEffect(effect)
+            if (pet:hasStatusEffect(effect)) then
+                local currentEffect = pet:getStatusEffect(effect)
                 local effectFlags = currentEffect:getFlag()
                 if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
                     if pet:delStatusEffect(effect) then return true end

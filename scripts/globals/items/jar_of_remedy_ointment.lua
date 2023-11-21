@@ -71,7 +71,7 @@ local removablesMinor =
             local currentEffect = target:getStatusEffect(tpz.effect.BLINDNESS)
             local effectFlags = currentEffect:getFlag()
             if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-                target:delStatusEffectSilent(effect);
+                target:delStatusEffect(effect);
             end
         end
     end
@@ -82,7 +82,7 @@ local removablesMinor =
             local currentEffect = target:getStatusEffect(tpz.effect.BLINDNESS)
             local effectFlags = currentEffect:getFlag()
             if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-                target:delStatusEffectSilent(effect);
+                target:delStatusEffect(effect);
             end
         end
     end

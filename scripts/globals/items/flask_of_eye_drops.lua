@@ -15,7 +15,7 @@ function onItemUse(target)
         local effect = target:getStatusEffect(tpz.effect.BLINDNESS)
         local effectFlags = effect:getFlag()
         if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
-            target:delStatusEffectSilent(tpz.effect.BLINDNESS)
+            target:delStatusEffect(tpz.effect.BLINDNESS)
         end
     end
 end

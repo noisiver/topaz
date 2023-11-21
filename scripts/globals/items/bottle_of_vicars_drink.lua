@@ -32,7 +32,7 @@ function onItemUse(target)
     end
 
     for k,v in pairs(has) do
-        if (target:hasStatusEffect(v) then
+        if (target:hasStatusEffect(v)) then
             local effect = target:getStatusEffect(v)
             local effectFlags = effect:getFlag()
             if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
