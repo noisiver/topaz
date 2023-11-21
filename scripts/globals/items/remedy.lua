@@ -14,11 +14,21 @@ end
 function onItemUse(target)
 
     if (target:hasStatusEffect(tpz.effect.SILENCE) == true) then
-        target:delStatusEffectSilent(tpz.effect.SILENCE)
+        local effect = target:getStatusEffect(tpz.effect.SILENCE)
+        local effectFlags = effect:getFlag()
+        if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+            target:delStatusEffectSilent(tpz.effect.SILENCE)
+        end
     end
+
     if (target:hasStatusEffect(tpz.effect.BLINDNESS) == true) then
-        target:delStatusEffectSilent(tpz.effect.BLINDNESS)
+        local effect = target:getStatusEffect(tpz.effect.BLINDNESS)
+        local effectFlags = effect:getFlag()
+        if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+            target:delStatusEffectSilent(tpz.effect.BLINDNESS)
+        end
     end
+
     if (target:hasStatusEffect(tpz.effect.POISON) == true) then
         local effect = target:getStatusEffect(tpz.effect.POISON)
         local effectFlags = effect:getFlag()
@@ -26,14 +36,32 @@ function onItemUse(target)
             target:delStatusEffectSilent(tpz.effect.POISON)
         end
     end
+
     if (target:hasStatusEffect(tpz.effect.PARALYSIS) == true) then
-        target:delStatusEffectSilent(tpz.effect.PARALYSIS)
+        local effect = target:getStatusEffect(tpz.effect.PARALYSIS)
+        local effectFlags = effect:getFlag()
+        if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+            target:delStatusEffectSilent(tpz.effect.PARALYSIS)
+        end
     end
 
     local rDisease = math.random(1, 2) -- Disease is not garunteed to be cured, 1 means removed 2 means fail. 50% chance
-    if (rDisease == 1 and target:hasStatusEffect(tpz.effect.DISEASE) == true or target:hasStatusEffect(tpz.effect.PLAGUE) == true) then
-        target:delStatusEffectSilent(tpz.effect.DISEASE)
-		target:delStatusEffectSilent(tpz.effect.PLAGUE)
+    if (rDisease == 1) then
+        if (target:hasStatusEffect(tpz.effect.DISEASE) == true) then
+            local effect = target:getStatusEffect(tpz.effect.DISEASE)
+            local effectFlags = effect:getFlag()
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+                target:delStatusEffectSilent(tpz.effect.DISEASE)
+            end
+        end
+
+        if (target:hasStatusEffect(tpz.effect.PLAGUE) == true) then
+            local effect = target:getStatusEffect(tpz.effect.PLAGUE)
+            local effectFlags = effect:getFlag()
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+                target:delStatusEffectSilent(tpz.effect.PLAGUE)
+            end
+        end
     end
 end
 

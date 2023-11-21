@@ -67,12 +67,24 @@ local removablesMinor =
 
     if (#activeMajor > 0) then
         local effect = activeMajor[math.random(#activeMajor)];
-        target:delStatusEffectSilent(effect);
+        if (target:hasStatusEffect(tpz.effect.BLINDNESS) == true) then
+            local currentEffect = target:getStatusEffect(tpz.effect.BLINDNESS)
+            local effectFlags = currentEffect:getFlag()
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+                target:delStatusEffectSilent(effect);
+            end
+        end
     end
 
     if (#activeMinor > 0) then
         local effect = activeMinor[math.random(#activeMinor)];
-        target:delStatusEffectSilent(effect);
+        if (target:hasStatusEffect(tpz.effect.BLINDNESS) == true) then
+            local currentEffect = target:getStatusEffect(tpz.effect.BLINDNESS)
+            local effectFlags = currentEffect:getFlag()
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+                target:delStatusEffectSilent(effect);
+            end
+        end
     end
 end
 
