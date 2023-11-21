@@ -4799,6 +4799,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3014); -- carcharian_verve
 INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3015); -- tidal_guillotine
 INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3016); -- marine_mayhem
 
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,167); -- judgment
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,168); -- hexa_strike
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,169); -- black_halo
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,252); -- dancing_chains
+
 -- Next available ID: 1198
--- Next custom ID: 6152
+-- Next custom ID: 6153
 

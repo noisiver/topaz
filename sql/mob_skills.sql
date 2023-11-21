@@ -149,7 +149,7 @@ INSERT INTO `mob_skills` VALUES (163,79,'starlight',0,5.0,2000,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (164,80,'moonlight',1,5.0,2000,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (165,81,'skullbreaker',0,7.0,2000,0,4,0,0,0,7,5,0);
 INSERT INTO `mob_skills` VALUES (166,82,'true_strike',0,7.0,2000,0,4,0,0,0,6,8,0);
-INSERT INTO `mob_skills` VALUES (167,83,'judgment',0,5.0,2000,0,4,0,0,0,8,0,0);
+INSERT INTO `mob_skills` VALUES (167,83,'judgment',0,7.0,2000,0,4,0,0,0,8,0,0);
 INSERT INTO `mob_skills` VALUES (168,84,'hexa_strike',0,7.0,2000,0,4,0,0,0,11,0,0);
 INSERT INTO `mob_skills` VALUES (169,85,'black_halo',0,7.0,2000,0,4,0,0,0,12,2,0);
 INSERT INTO `mob_skills` VALUES (176,136,'heavy_swing',0,5.0,2000,0,4,0,0,0,8,0,0);

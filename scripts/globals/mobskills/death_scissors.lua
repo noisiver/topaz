@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Death Scissors
 --
---  Description: Damage varies with TP.
+--  Description: Chance of critical strike varies with TP.
 --  Type: Physical (Slashing)
 --
 --
