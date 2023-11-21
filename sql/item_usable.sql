@@ -1250,7 +1250,7 @@ INSERT INTO `item_usable` VALUES (5407,'water_card_case',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5408,'light_card_case',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5409,'dark_card_case',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5410,'virtue_stone_pouch',1,1,55,0,0,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5411,'bottle_of_dawn_mulsum',1,1,34,0,0,0,0,0,0,0);
+INSERT INTO `item_usable` VALUES (5411,'bottle_of_dawn_mulsum',1,1,34,0,0,0,0,0,26,50);
 INSERT INTO `item_usable` VALUES (5412,'scapegoat',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5413,'smouldering_lamp',0,0,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5414,'glowing_lamp',1,0,0,0,0,0,0,0,0,0);

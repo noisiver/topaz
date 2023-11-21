@@ -2207,8 +2207,8 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
         actionList_t& actionList = action.getNewActionList();
         actionList.ActionTargetID = PTarget->id;
 
-        // Healing / Clear Salve (Pet items)
-        if (PItem->getID() >= 5835 && PItem->getID() <= 5838)
+        // Healing / Clear Salve / Dawn Mulsum (Pet items)
+        if (PItem->getID() >= 5835 && PItem->getID() <= 5838 || PItem->getID() == 5411)
         {
             if (PTarget->PPet != nullptr)
             {
