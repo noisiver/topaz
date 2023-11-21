@@ -9940,7 +9940,7 @@ INSERT INTO `item_basic` VALUES (12601,0,'linen_robe','linen_robe',1,2084,18,0,6
 INSERT INTO `item_basic` VALUES (12602,0,'wool_robe','wool_robe',1,2084,18,0,4626);
 INSERT INTO `item_basic` VALUES (12603,0,'velvet_robe','velvet_robe',1,2084,18,0,4256);
 INSERT INTO `item_basic` VALUES (12604,0,'silk_coat','silk_coat',1,2084,18,0,7030);
-INSERT INTO `item_basic` VALUES (12605,0,'nobles_tunic','nobles_tunic',1,2084,18,0,10077);
+INSERT INTO `item_basic` VALUES (12605,0,'nobles_tunic','nobles_tunic',1,63572,0,0,10077);
 INSERT INTO `item_basic` VALUES (12606,0,'tactician_magicians_coat','tct.mgc._coat',1,2052,18,0,6460);
 INSERT INTO `item_basic` VALUES (12607,0,'bronze_harness_+1','bronze_harness_+1',1,2080,18,0,64);
 INSERT INTO `item_basic` VALUES (12608,0,'tunic','tunic',1,2084,18,0,280);
@@ -11106,7 +11106,7 @@ INSERT INTO `item_basic` VALUES (13770,0,'war_shinobi_gi_+1','war_shinobi_gi_+1'
 INSERT INTO `item_basic` VALUES (13771,0,'war_aketon_+1','war_aketon_+1',1,2080,18,0,14456);
 INSERT INTO `item_basic` VALUES (13772,0,'bloody_aketon','bloody_aketon',1,2084,18,0,11565);
 INSERT INTO `item_basic` VALUES (13773,0,'carnage_aketon','carnage_aketon',1,2080,18,0,11565);
-INSERT INTO `item_basic` VALUES (13774,0,'aristocrats_coat','aristocrats_coat',1,2080,18,0,11180);
+INSERT INTO `item_basic` VALUES (13774,0,'aristocrats_coat','aristocrats_coat',1,63572,0,0,11180);
 INSERT INTO `item_basic` VALUES (13775,0,'blue_cotehardie','blue_cotehardie',1,63572,0,0,10685);
 INSERT INTO `item_basic` VALUES (13776,0,'blue_cotehardie_+1','blue_cotehard._+1',1,63572,0,0,13356);
 INSERT INTO `item_basic` VALUES (13777,0,'silk_cloak_+1','silk_cloak_+1',1,2080,18,0,13217);
