@@ -7,8 +7,21 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
 
+Party disband stuff
+Relevant: https://github.com/LandSandBoat/server/pull/1245
+https://github.com/LandSandBoat/server/issues/1247
+I suppose we should be checking to see if the final removed member was a trust or not: if it was a trust, disband,
+if it wasn't, don't
+
+Give BLM Aspir II at 75
 Give Cherukiki TP moves and maybe give Makki-Chebukki more TP moves(need to code lua files for other archery moves)
-Unrevert "(TP Moves) Add miss msg to TP moves" and then add Miss(msgID 15) to hasMissMsg in C+++
+Noble's Tunic and Aristocrats drop off King Behemoth
+Add muddle to Mana Wall and Mana Well
+T4 nuke(maybe all? check gas too) nukes cast times are wrong? check DAT. ALl their cast times should be longer half a 0.75s of a sec or so
+Add Mulsum(sp) to pet items in charentity and in item_Basic msg and param
+Mana Wall dispel all negative status effects(get from monsterptmoves) and update DAT description to state that
+Manawell won't add it's status effects if they already exist (if not has status effect x). and also check for SILENCE for mute
+Dusk gear shouldn't be on AH check flags
 
 WKR:
 NM family stats(attack/def% mods, vit mods, etc)
@@ -17,6 +30,8 @@ Set weather to double of their element on engage and periodiocally on fighting. 
 
 Blocked! message when mobs block/guard(prob parry) you. add to players as well?
 
+All status removal items antidotes/remedies/qutrub badnage thing/clerics drink/ecphoria ring etc not remove if effect isnt waltzable flag
+Sorcerer's Gloves have magic burst bonus?
 Enhances "Cascade" effect gear (+TP always to cascade)
 Add Enlight / Endark to DRK and PLD
 Add !givetemps command
@@ -124,6 +139,8 @@ THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
 
 DATS:
+Noble's / Aristocrat's Tunic rare/ex
+Buff Noble's/ Aristocrat's Crown / Mitts / Slacks  / Pumps  
 Birdman cape diff stats
 Divine shield HP
 Divine + Holy shield rare/ex
@@ -139,6 +156,7 @@ Ninja Nodowa missing a \n before Magic Accuracy
 LAC:
 
 Wiki: 
+BLM JA's
 https://ffxiclopedia.fandom.com/wiki/SkyNav_Guide
 SAM traits/JA's
 Yasha Gear

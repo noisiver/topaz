@@ -12,7 +12,7 @@ Uggy Pendant / Ungur
 Avatars. ENMS. NMs.  Bcnms. Argus. Cheviot cape.
 
 Lohar / Tungi / Pelican Shield / Optical Hat / Diabolos Earring / Rutter Sabatons / Optical Hat Hakutaku farming
-Vampyr Earring / Enhancing Dura Staff Yhoator Tree / Ele WSD neck(Golem) / Buburimu Gorget(?)
+Vampyr Earring / Enhancing Dura Staff Yhoator Tree / Ele WSD neck(Golem) / Buburimu Gorget(?) / Phantom Tathlum
 Swift belt, sea gorgets, sea obis
 Zilart / ToAU augmenting
 
@@ -25,14 +25,23 @@ KSNM/BCNM:
     Pentinent's Belt,
     Dissector
 
-
-
-    raise2 scroll
-beak necklace
-
-Map quests
-Cunning earring quest
-sleepga2 quest
-
 Break - Lamia Necromancer?
 waterga II - Sapphire Quadav
+raise2 scroll
+
+
+Quests:
+    Maps
+    Cunning earring
+    sleepga2
+
+
+Buy: 
+    beak necklace
+    errant hoppal(body)
+    Igqira gear not body
+
+    Raise II
+    Raise III
+    Reraise III
+    Curaga III and Curaga IV
