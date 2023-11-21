@@ -9679,7 +9679,7 @@ INSERT INTO `item_basic` VALUES (12340,0,'marine_shield','marine_shield',1,2052,
 INSERT INTO `item_basic` VALUES (12341,0,'tropical_shield','tropical_shield',1,2052,16,0,893);
 INSERT INTO `item_basic` VALUES (12342,0,'lantern_shield','lantern_shield',1,2052,16,0,1169);
 INSERT INTO `item_basic` VALUES (12343,0,'faerie_shield','faerie_shield',1,2052,16,0,2361);
-INSERT INTO `item_basic` VALUES (12344,0,'master_shield','master_shield',1,2052,16,0,3788);
+INSERT INTO `item_basic` VALUES (12344,0,'master_shield','master_shield',1,63572,16,0,3788);
 INSERT INTO `item_basic` VALUES (12345,0,'bloodbead_ecu','bloodbead_ecu',1,63572,0,1,0);
 INSERT INTO `item_basic` VALUES (12346,0,'darksteel_shield_+1','dst._shield_+1',1,2080,16,0,5463);
 INSERT INTO `item_basic` VALUES (12347,0,'spiked_buckler','spiked_buckler',1,2080,16,0,4298);
@@ -11254,8 +11254,8 @@ INSERT INTO `item_basic` VALUES (13918,0,'tiger_mask','tiger_mask',1,2084,17,0,1
 INSERT INTO `item_basic` VALUES (13919,0,'feral_mask','feral_mask',1,2080,17,0,2280);
 INSERT INTO `item_basic` VALUES (13920,0,'wyvern_helm','wyvern_helm',1,63572,0,0,6625);
 INSERT INTO `item_basic` VALUES (13921,0,'wyvern_helm_+1','wyvern_helm_+1',1,63572,0,0,8467);
-INSERT INTO `item_basic` VALUES (13922,0,'demon_helm','demon_helm',1,2084,0,0,3570);
-INSERT INTO `item_basic` VALUES (13923,0,'demon_helm_+1','demon_helm_+1',1,2080,0,0,4941);
+INSERT INTO `item_basic` VALUES (13922,0,'demon_helm','demon_helm',1,63572,0,0,3570);
+INSERT INTO `item_basic` VALUES (13923,0,'demon_helm_+1','demon_helm_+1',1,63572,0,0,4941);
 INSERT INTO `item_basic` VALUES (13924,0,'armada_celata','armada_celata',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (13925,0,'rasetsu_jinpachi','rst._jinpachi',1,2084,17,0,4202);
 INSERT INTO `item_basic` VALUES (13926,0,'rasetsu_jinpachi_+1','rst._jinpachi_+1',1,2080,17,0,5252);
