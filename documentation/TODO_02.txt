@@ -22,6 +22,7 @@ Add Mulsum(sp) to pet items in charentity and in item_Basic msg and param
 Mana Wall dispel all negative status effects(get from monsterptmoves) and update DAT description to state that
 Manawell won't add it's status effects if they already exist (if not has status effect x). and also check for SILENCE for mute
 Dusk gear shouldn't be on AH check flags
+Demon Helm(+1) rare/ex from a Demon NM in Ule range(or castle since I have custom NMs there)
 
 WKR:
 NM family stats(attack/def% mods, vit mods, etc)
