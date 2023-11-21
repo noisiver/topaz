@@ -23,7 +23,8 @@ Catholicion cast time matching DAT
 Muddle working properly to block item usage
 bottle_of_dawn_mulsum on pets
 Manawall remove negative effects
-Consumables that remove status effects work still
+Consumables that remove status effects work still 
+https://github.com/mootowncow/topaz/commit/bb921357e829d78c1363bc3d3e2bbfbdd5910f13
 
 
 Retail:
