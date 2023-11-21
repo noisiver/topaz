@@ -14,9 +14,18 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.WEIGHT, 95, 0, 30)
-    player:addStatusEffect(tpz.effect.MUTE, 1, 0, 30)
-    player:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 30)
+    if not player:hasStatusEffect(tpz.effect.WEIGHT) then
+        player:addStatusEffect(tpz.effect.WEIGHT, 95, 0, 30)
+    end
+    if not player:hasStatusEffect(tpz.effect.SILENCE) and player:hasStatusEffect(tpz.effect.MUTE) then
+        player:addStatusEffect(tpz.effect.MUTE, 1, 0, 30)
+    end
+    if not player:hasStatusEffect(tpz.effect.AMNESIA) then
+        player:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 30)
+    end
+    if not player:hasStatusEffect(tpz.effect.MUDDLE) then
+        player:addStatusEffect(tpz.effect.MUDDLE, 1, 0, 30)
+    end
     player:addStatusEffect(tpz.effect.MANAWELL, 1, 0, 30)
     local effect = player:getStatusEffect(tpz.effect.WEIGHT)
     local effectTwo = player:getStatusEffect(tpz.effect.AMNESIA)
