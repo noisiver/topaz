@@ -7,6 +7,10 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
 
+Get Sped Stuff:
+https://github.com/LandSandBoat/server/pull/4756
+
+
 Party disband stuff
 Relevant: https://github.com/LandSandBoat/server/pull/1245
 https://github.com/LandSandBoat/server/issues/1247
@@ -14,6 +18,17 @@ I suppose we should be checking to see if the final removed member was a trust o
 if it wasn't, don't
 
 Give BLM Aspir II at 75
+Buff Footwork counter to 50%
+Rework Footwork somehow. +DMG to next "KICK WS" and fades after WS?(remove in C++ where sekka is). 2m cd or something
+Add Cura II to WHM and make it same MP cost as cure II but heal for 4x Cura II using the misery stacked mod from taking dmg. Scroll on vendor
+Encurse msg doesn't appear? simplelog bug or wrong msg on server?
+Seraph Strike SC properties on addon wrong or missing one?
+Something wrong with how it saves weapons on job change saving?
+
+Afflictor msg and animation! Also need to add arg for target for entityAnimationPacket()
+https://github.com/LandSandBoat/server/blob/c2509c660eb906d000300bce90a955480427a081/scripts/zones/Beadeaux/Zone.lua#L50C1-L53C41
+
+player:injectActionPacket(player:getID(), 4, [spells animation ID here], 0, 0, [message id here], 10, 1)
 
 WKR:
 NM family stats(attack/def% mods, vit mods, etc)
@@ -127,6 +142,8 @@ https://www.bg-wiki.com/ffxi/Ebon/Ebur/Furia_Attire_Sets
 
 THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
+
+Chokehold draws in + silence
 
 DATS:
 Noble's / Aristocrat's Tunic rare/ex

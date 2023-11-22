@@ -15,8 +15,8 @@ function onTrigger(player, npc)
         player:setCharVar("cCollectSilence", 1)
     end
 
+    npc:entityAnimationPacket('sils', player)
     player:addStatusEffect(tpz.effect.SILENCE, 0, 0, math.random(420, 840))
-
 end
 
 function onEventUpdate(player, csid, option)

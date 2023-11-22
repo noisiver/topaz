@@ -18,13 +18,10 @@ Endispel message(mobs)
 UpdateForCure() or w/e for mob tp move healing work properly? correct target args?
 Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
 Trick attack angle / min distance
-Catholicion cast time matching DAT
 !setmod PHANTOM_ROLL 1 2 and 3 working properly
 Muddle working properly to block item usage
-bottle_of_dawn_mulsum on pets
 Manawall remove negative effects
-Consumables that remove status effects work still 
-https://github.com/mootowncow/topaz/commit/bb921357e829d78c1363bc3d3e2bbfbdd5910f13
+Auspice do light damage now?
 
 
 Retail:
