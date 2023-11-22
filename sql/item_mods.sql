@@ -8117,10 +8117,10 @@ INSERT INTO `item_mods` VALUES (12379,903,500);     -- Fencer +5
 INSERT INTO `item_mods` VALUES (12379,904,5);       -- Fencer +5
 INSERT INTO `item_mods` VALUES (12379,986,5);       -- Fencer +5
 INSERT INTO `item_mods` VALUES (12380,1,14);        -- Divine Shield
-INSERT INTO `item_mods` VALUES (12380,2,15);
-INSERT INTO `item_mods` VALUES (12380,5,15);
+INSERT INTO `item_mods` VALUES (12380,2,55);
+INSERT INTO `item_mods` VALUES (12380,5,30);
 INSERT INTO `item_mods` VALUES (12380,13,2);
-INSERT INTO `item_mods` VALUES (12380,25,15);       -- Accuracy +15
+INSERT INTO `item_mods` VALUES (12380,25,17);       -- Accuracy +17
 INSERT INTO `item_mods` VALUES (12380,903,500);     -- Fencer +5
 INSERT INTO `item_mods` VALUES (12380,904,5);       -- Fencer +5
 INSERT INTO `item_mods` VALUES (12380,986,5);       -- Fencer +5
