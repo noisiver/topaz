@@ -145,15 +145,27 @@ function onMobFight(mob, target)
     end
 
     -- Holy IIs a random target after using certain TP moves in Phase 2
-    if mob:actionQueueEmpty() then
-        if enmityList and #enmityList > 0 and (holyEnabled > 0) then
-            mob:setLocalVar("holyEnabled", 0)
-            holyTarget = math.random(#enmityList)
-            mob:castSpell(22, GetPlayerByID(holyTarget)) -- Holy II
+    if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START
+    and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING
+    and mob:actionQueueEmpty() then
+        for _, enmity in ipairs(enmityList) do
+            if enmityList and #enmityList > 0 and (holyEnabled > 0) then
+                local randomTarget = enmityList[math.random(1,#enmityList)];
+                entityId = randomTarget.entity:getID();
+                if (entityId > 10000) then -- ID is a mob(pet) then
+                    holyTarget = GetMobByID(entityId)
+                else
+                    holyTarget = GetPlayerByID(entityId)
+                end
+                mob:setLocalVar("holyEnabled", 0)
+                mob:castSpell(22, GetPlayerByID(holyTarget)) -- Holy II
+            end
         end
     end
 
-    if mob:actionQueueEmpty() then
+    if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START
+    and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING
+    and mob:actionQueueEmpty() then
         if mob:getHPP() < (80 - (phase * 20)) then
             mob:useMobAbility(1524) -- use Dissipation on phase change
             phase = phase + 1

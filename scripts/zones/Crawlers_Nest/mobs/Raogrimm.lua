@@ -29,17 +29,25 @@ function onMobFight(mob, target)
     local KOTarget
 
     -- Picks a target target, draws them in, then sets their HP to 1 and gives them weakness for 30 seconds
-    if enmityList and #enmityList > 0 then
-        if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
-            mob:actionQueueEmpty() and (tp < 1000) then 
-            if (os.time() >= KOTimer) then
-                KOTarget = math.random(15, 16)
-                if not GetPlayerByID(KOTarget):isDead() then
-                    mob:setLocalVar("KOTimer", os.time() + 60)
-                    ForceDrawIn(mob, KOTarget)
-                    GetPlayerByID(KOTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
-                    mob:useMobAbility(3, GetPlayerByID(KOTarget)) -- One Inch Punch
-                    utils.MessageParty(target, "You got knocked the $^(!@*^ out!", 0, "Raogrimm")
+    for _, enmity in ipairs(enmityList) do
+        if enmityList and #enmityList > 0 then
+            if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
+                mob:actionQueueEmpty() and (tp < 1000) then 
+                if (os.time() >= KOTimer) then
+                    local randomTarget = enmityList[math.random(1,#enmityList)];
+                    entityId = randomTarget.entity:getID();
+                    if (entityId > 10000) then -- ID is a mob(pet) then
+                        KOTarget = GetMobByID(entityId)
+                    else
+                        KOTarget = GetPlayerByID(entityId)
+                    end
+                    if not GetPlayerByID(KOTarget):isDead() then
+                        mob:setLocalVar("KOTimer", os.time() + 60)
+                        ForceDrawIn(mob, KOTarget)
+                        GetPlayerByID(KOTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+                        mob:useMobAbility(3, GetPlayerByID(KOTarget)) -- One Inch Punch
+                        utils.MessageParty(target, "You got knocked the $^(!@*^ out!", 0, "Raogrimm")
+                    end
                 end
             end
         end

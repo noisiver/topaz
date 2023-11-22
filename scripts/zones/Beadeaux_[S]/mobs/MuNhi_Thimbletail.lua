@@ -63,10 +63,18 @@ function onMobFight(mob, target)
         local vial = GetMobByID(mob:getID() + math.random(3))
         if not vial:isSpawned() then
             local enmityList = mob:getEnmityList()
-            if enmityList and #enmityList > 0 then
-                vialTarget = math.random(#enmityList)
-                vial:setSpawn(GetPlayerByID(vialTarget):getXPos(), GetPlayerByID(vialTarget):getYPos(), GetPlayerByID(vialTarget):getZPos())
-                utils.spawnPetInBattle(mob, vial)
+            for _, enmity in ipairs(enmityList) do
+                if enmityList and #enmityList > 0 then
+                    local randomTarget = enmityList[math.random(1,#enmityList)];
+                    entityId = randomTarget.entity:getID();
+                    if (entityId > 10000) then -- ID is a mob(pet) then
+                        vialTarget = GetMobByID(entityId)
+                    else
+                        vialTarget = GetPlayerByID(entityId)
+                    end
+                    vial:setSpawn(GetPlayerByID(vialTarget):getXPos(), GetPlayerByID(vialTarget):getYPos(), GetPlayerByID(vialTarget):getZPos())
+                    utils.spawnPetInBattle(mob, vial)
+                end
             end
         end
     end
