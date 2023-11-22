@@ -18,17 +18,6 @@ I suppose we should be checking to see if the final removed member was a trust o
 if it wasn't, don't
 
 Give BLM Aspir II at 75
-Buff Footwork counter to 50%
-Rework Footwork somehow. +DMG to next "KICK WS" and fades after WS?(remove in C++ where sekka is). 2m cd or something
-Add Cura II to WHM and make it same MP cost as cure II but heal for 4x Cura II using the misery stacked mod from taking dmg. Scroll on vendor
-Encurse msg doesn't appear? simplelog bug or wrong msg on server?
-Seraph Strike SC properties on addon wrong or missing one?
-Something wrong with how it saves weapons on job change saving?
-
-Afflictor msg and animation! Also need to add arg for target for entityAnimationPacket()
-https://github.com/LandSandBoat/server/blob/c2509c660eb906d000300bce90a955480427a081/scripts/zones/Beadeaux/Zone.lua#L50C1-L53C41
-
-player:injectActionPacket(player:getID(), 4, [spells animation ID here], 0, 0, [message id here], 10, 1)
 
 WKR:
 NM family stats(attack/def% mods, vit mods, etc)
@@ -37,7 +26,6 @@ Set weather to double of their element on engage and periodiocally on fighting. 
 
 Blocked! message when mobs block/guard(prob parry) you. add to players as well?
 
-Add if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0)  to all remedy/panacea/echo drops/clerics drink etc status removal(all temps and pots)
 Enhances "Cascade" effect gear (+TP always to cascade)
 Add Enlight / Endark to DRK and PLD
 Add !givetemps command
@@ -46,8 +34,6 @@ JSE necks rare/ex and make sure I didnt accidentally make them all jobs
 Peiste mantle coded
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
-Allow itemname for !addtreasure
--Enmtiy items and items that are super sidegrades like 10% cure pot body with -2 enmity(minor upgrade to nobles) etc
 Holy / Divine shield trade vendor the NM drops and random chance at HQ on trade
 !usews crashes server via OnMobSkillCheck() if positional(is facing)
 Flan "Spikey" mixin
@@ -88,6 +74,7 @@ Line 1473
 
 Change all healing items to item:getPower() for power in their scripts
 Legendary rare drops rare and not rare/ex(so tradable)
+Dullahan TP moves - Atramentous Libations gives mob intimidate
 Yasha Gear mods
 Audit guild shop sql list
 Missing dynamis set bonuses
@@ -98,7 +85,6 @@ mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves a
 Windurst Salad / Taco
 https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
 pickNewPosition 3rd arg as "false" for chests/coffers in treasures.lua
-Osschaart and other enmityList mobs to use proper new code for selecting a random target (bio on arthas too)
 Gears weak to dark(chariots/ramparts too?)
 Double msg zoning into level sync zoned(level restricted to x)
 Phalaenopsis unused item 1730 gil regional

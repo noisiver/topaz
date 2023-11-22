@@ -1,5 +1,3 @@
-
-SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
 Quu Bokye pathing
 Reaving Wind and Reaving Wind Knock Back(both should knock back)
 Mount Z HP
@@ -7,10 +5,7 @@ Osschaart (Copycat)
 Macan Gadangan (Wild Wild Whiskers)
 Platoon Scorpions(Operaiton Desert Storm)
 Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
-All UL camp mobs can use their UL tp move
-Move 17027467 Garharlor_the_Unruly because he keeps patrolling into the wall where he can't be hit
 Hypnic Lamp working properly nightmare sleep and all
-Items properly AOEing
 Pet parry trait works properly (Chapuli Jug)
 King Behemoth Ecliptic Meteor + meteor death mechanic
 Cherukiki
@@ -22,11 +17,18 @@ Trick attack angle / min distance
 Muddle working properly to block item usage
 Manawall remove negative effects
 Auspice do light damage now?
-
+Footwork being removed on WS and making tornado / dragon kick do 30% more dmg but others do 50% less
+Fomor level up and touchdown still crash simple log?
+Test: https://github.com/mootowncow/topaz/commit/c366f18473631e2c205684f5d79f0ffe6ad3b74f
+Mute / Afflictor animations
+Something wrong with how it saves weapons on job change saving? Test without LAC
+!addtreasure
+Cura II
+Seraph / Shining strike and mystic boon still work(<= 10 yards)
+Asylum
 
 Retail:
-Opening chests or going into cutscene disengage pets?
-Dullahan TP moves - Atramentous Libations gives mob intimidate?
+send balamor file and capture other ones models
 Goblin Call Beast
 Sleep waking up msg
 Double down / shuffle (cardian NM tp moves) animations
