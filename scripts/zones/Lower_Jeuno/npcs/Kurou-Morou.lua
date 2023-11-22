@@ -36,7 +36,7 @@ function onTrigger(player, npc)
     if (JFame >= 2 and YourCrystalBall == QUEST_AVAILABLE) then
         player:startEvent(194) -- Start "Your Crystal Ball" quest
 
-    elseif (JFame >= 5 and YourCrystalBall == QUEST_COMPLETED and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.NEVER_TO_RETURN) == QUEST_AVAILABLE and player:getCharVar("QuestNeverToReturn_day") ~= VanadielDayOfTheYear()) then
+    elseif (JFame >= 5 and YourCrystalBall == QUEST_COMPLETED and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.NEVER_TO_RETURN) == QUEST_AVAILABLE) then
         prog = player:getCharVar("QuestNeverToReturn_prog")
         if (prog <= 2) then
             fortune = math.random(1, 99)
@@ -84,7 +84,7 @@ function onEventFinish(player, csid, option)
         player:completeQuest(JEUNO, tpz.quest.id.jeuno.YOUR_CRYSTAL_BALL)
     elseif (csid == 204 and option == 0) then
         player:addCharVar("QuestNeverToReturn_prog", 1)  -- Keep track of how many times the players fortune has been read
-        player:setCharVar("QuestNeverToReturn_day", VanadielDayOfTheYear()) -- new vanadiel day
+        player:setCharVar("QuestNeverToReturn_day", 0)
     elseif (csid == 202 and option == 0) then
         player:addQuest(JEUNO, tpz.quest.id.jeuno.NEVER_TO_RETURN)
         player:setCharVar("QuestNeverToReturn_prog", 0)
