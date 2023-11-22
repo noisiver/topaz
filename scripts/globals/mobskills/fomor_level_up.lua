@@ -31,6 +31,6 @@ function onMobWeaponSkill(target, mob, skill)
     mob:addMod(tpz.mod.RACC, 10)
     mob:addMod(tpz.mod.MACC, 10)
     mob:addMod(tpz.mod.FASTCAST, 1)
-    skill:setMsg(0)
+    skill:setMsg(tpz.msg.basic.NONE)
     return 0
 end
