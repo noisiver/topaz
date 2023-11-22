@@ -523,10 +523,15 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
         end
     end
 
-    -- Handle Footwork damage reduction
-	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
-	    finaldmg = math.floor(finaldmg * 0.5)
-	end
+    -- Handle Footwork 
+	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) then
+        -- +30% Damage to Kick WS, removed in core after executing a WS
+        if (wsID == tpz.weaponskill.DRAGON_KICK) or (wsID == tpz.weaponskill.TORNADO_KICK) then
+            finaldmg = math.floor(finaldmg * 1.3)
+        else -- Non-kick WS deal half damage while Footwork is active
+	        finaldmg = math.floor(finaldmg * 0.5)
+	    end
+    end
 
     -- Handle Scarlet Delirium
     finaldmg = utils.ScarletDeliriumBonus(attacker, finaldmg)
