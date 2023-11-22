@@ -1768,7 +1768,7 @@ int getSDTTier(int SDT)
                 Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
-                    CalculateEnspellDamage(PAttacker, PDefender, 1, 7);
+                    CalculateEnspellDamage(PAttacker, PDefender, 1, ELEMENT_LIGHT -1);
 
                 if (Action->addEffectParam < 0)
                 {
