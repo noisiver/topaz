@@ -368,7 +368,7 @@ INSERT INTO `abilities` VALUES (321,'bully',6,40,4,60,240,127,0,248,2000,0,6,8.0
 INSERT INTO `abilities` VALUES (322,'maintenance',18,30,1,90,214,0,0,83,2000,0,6,12.0,0,0,0,1474,0,'ABYSSEA',0); -- ta257
 INSERT INTO `abilities` VALUES (323,'brazen_rush',1,96,1,7200,254,100,0,271,2000,0,6,0.0,0,1,300,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (324,'inner_strength',2,96,1,7200,254,100,0,272,2000,0,6,0.0,0,0,0,0,0,NULL,0); -- check animation
-INSERT INTO `abilities` VALUES (325,'asylum',3,96,1,7200,254,100,0,273,2000,0,6,0.0,0,0,0,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (325,'asylum',3,70,1,60,254,100,0,273,2000,0,6,10.0,1,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (326,'subtle_sorcery',4,60,1,300,75,0,0,274,2000,0,6,0.0,0,0,0,0,4,NULL,0);
 INSERT INTO `abilities` VALUES (327,'stymie',5,75,1,600,254,100,0,275,2000,0,6,20.0,0,1,80,0,0,'SOA',0);
 INSERT INTO `abilities` VALUES (328,'larceny',6,1,4,7200,0,153,0,182,2000,0,3,5.4,0,1,300,0,0,NULL,0);
