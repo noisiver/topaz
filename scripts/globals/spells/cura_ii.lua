@@ -94,7 +94,7 @@ function onSpellCast(caster, target, spell)
 
         --printf("BEFORE AFFLATUS MISERY BONUS: %d", basecure)
 
-        basecure = basecure + (misery * 5)
+        basecure = basecure + (misery * 3)
 
         --printf("AFTER AFFLATUS MISERY BONUS: %d", basecure)
 
