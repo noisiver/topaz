@@ -1599,6 +1599,14 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         }
     }
 
+    if (PSpell->getRequirements() & SPELLREQ_UNBRIDLED_LEARNING)
+    {
+        if (this->StatusEffectContainer->HasStatusEffect({ EFFECT_UNBRIDLED_LEARNING, EFFECT_UNBRIDLED_WISDOM }))
+        {
+            this->StatusEffectContainer->DelStatusEffect(EFFECT_UNBRIDLED_LEARNING);
+        }
+    }
+
     // TODO: Pixies will probably break here, once they're added.
     if (this->allegiance != PActionTarget->allegiance)
     {

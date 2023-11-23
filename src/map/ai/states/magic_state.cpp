@@ -186,14 +186,6 @@ bool CMagicState::Update(time_point tick)
                 m_PEntity->addTP(tp);
             }
 
-            if (m_PSpell->getRequirements() & SPELLREQ_UNBRIDLED_LEARNING)
-            {
-                if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_UNBRIDLED_LEARNING, EFFECT_UNBRIDLED_WISDOM }))
-                {
-                    m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_UNBRIDLED_LEARNING);
-                }
-            }
-
             m_PEntity->PAI->EventHandler.triggerListener("MAGIC_STATE_EXIT", m_PEntity, m_PSpell.get());
             return true;
         }
