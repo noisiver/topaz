@@ -388,6 +388,11 @@ function doEnspell(caster, target, spell, effect)
         duration = 3600
     end
 
+    -- Afflatus Misery doubles the potency of enspells
+    if caster:hasStatusEffect(tpz.effect.AFFLATUS_MISERY) then
+        potency = potency * 2
+    end
+
     if target:addStatusEffect(effect, potency, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
