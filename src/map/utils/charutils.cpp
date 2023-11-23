@@ -2386,7 +2386,7 @@ namespace charutils
         }
     }
 
-        void SaveJobChangeGear(CCharEntity* PChar)
+    void SaveJobChangeGear(CCharEntity* PChar)
     {
         if (PChar == nullptr)
         {
