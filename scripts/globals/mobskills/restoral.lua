@@ -12,7 +12,7 @@ function onMobSkillCheck(target, mob, skill)
         return 0
     end
     local AnimationSub = mob:AnimationSub()
-    if AnimationSub > 0 and (math.random(1,100) <= 20) then -- 20% chance to use
+    if AnimationSub > 0 then
         return 0
     else
         return 1
