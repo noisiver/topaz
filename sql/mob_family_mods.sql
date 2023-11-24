@@ -223,6 +223,7 @@ INSERT INTO `mob_family_mods` VALUES (119,68,25,0);		-- Gear +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (120,68,25,0);		-- Gears +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (166,68,25,0);		-- Jakko(Imp) +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (90,68,25,0);		-- Dvergr +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (316,68,25,0);		-- Dvergr +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (131,68,25,0);		-- Gnat +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (6,68,25,0);		-- Amphiptere +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (117,68,25,0);		-- Gargouille +25 Evasion Racial
@@ -308,6 +309,7 @@ INSERT INTO `mob_family_mods` VALUES (191,389,-13,0);	-- Orobon  -13%
 INSERT INTO `mob_family_mods` VALUES (551,389,-13,0);	-- "Blue" Sea Monk  -13%
 INSERT INTO `mob_family_mods` VALUES (233,389,-25,0);	-- Soulflayer  -25%
 INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
+INSERT INTO `mob_family_mods` VALUES (316,389,-50,0);	-- Dvergr  -50%
 INSERT INTO `mob_family_mods` VALUES (117,389,-13,0);	-- Gargouille  -13%
 INSERT INTO `mob_family_mods` VALUES (118,389,-13,0);	-- Gargoyle  -13%
 INSERT INTO `mob_family_mods` VALUES (6,389,-25,0);		-- Amphiptere  -25%
@@ -333,10 +335,11 @@ INSERT INTO `mob_family_mods` VALUES (284,29,20,0); 	-- Vampyr(NM) +20 MDB
 INSERT INTO `mob_family_mods` VALUES (89,29,20,0);  	-- Draugar +20 MDB
 INSERT INTO `mob_family_mods` VALUES (52,29,20,0);  	-- Bhoot +20 MDB
 INSERT INTO `mob_family_mods` VALUES (233,29,20,0); 	-- Soulflayer +20 MDB
-INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	  -- Dvergr +40 MDB
-INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	  -- Amphiptere +20 MDB
+INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	    -- Dvergr +40 MDB
+INSERT INTO `mob_family_mods` VALUES (316,29,40,0); 	-- Dvergr +40 MDB
+INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	    -- Amphiptere +20 MDB
 INSERT INTO `mob_family_mods` VALUES (195,29,16,0); 	-- Pixie +16 MDB
-INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	  -- Dark Monoceros +40 MDB
+INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	    -- Dark Monoceros +40 MDB
 INSERT INTO `mob_family_mods` VALUES (109,29,20,0); 	-- Euvhi +20 MDB
 INSERT INTO `mob_family_mods` VALUES (122,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB
