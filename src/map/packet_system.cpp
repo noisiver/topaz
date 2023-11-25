@@ -6257,6 +6257,7 @@ void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             JOBTYPE prevjob = PChar->GetMJob();
             PChar->resetPetZoningInfo();
 
+            charutils::SaveCharEquip(PChar);
             charutils::SaveJobChangeGear(PChar);
             charutils::RemoveAllEquipment(PChar);
             PChar->SetMJob(mjob);
@@ -6328,6 +6329,7 @@ void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         charutils::BuildingCharAbilityTable(PChar);
         charutils::BuildingCharWeaponSkills(PChar);
         charutils::LoadJobChangeGear(PChar);
+        charutils::SaveCharEquip(PChar);
 
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE | EFFECTFLAG_ON_JOBCHANGE, true);
 
