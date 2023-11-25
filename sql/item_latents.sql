@@ -3052,10 +3052,6 @@ INSERT INTO `item_latents` VALUES(18407, 27, -3, 58, 0);    -- enmity -3
 INSERT INTO `item_latents` VALUES(18407, 366, 2, 58, 0);    -- Imperial Wand dmg +2
 INSERT INTO `item_latents` VALUES(18416, 289, 1, 58, 0);    -- subtle blow +1
 INSERT INTO `item_latents` VALUES(18416, 366, 4, 58, 0);    -- Karasuageha dmg +4
-INSERT INTO `item_latents` VALUES(18422, 62, 1, 13, 66);
-INSERT INTO `item_latents` VALUES(18422, 62, 1, 13, 444);
-INSERT INTO `item_latents` VALUES(18422, 62, 1, 13, 445);
-INSERT INTO `item_latents` VALUES(18422, 62, 1, 13, 446);
 
 -- -------------------------------------------------------
 -- Perdu Blade
@@ -3808,7 +3804,7 @@ INSERT INTO `item_latents` VALUES(13227, 23, 5, 1, 51);    -- Attack +5 while HP
 -- -------------------------------------------------------
 -- Ryumon
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18422,62,2,13,66); 		-- +2% Attack 1 Shadow
+INSERT INTO `item_latents` VALUES(18422,62,2,13,66); 	-- +2% Attack 1 Shadow
 INSERT INTO `item_latents` VALUES(18422,62,4,13,444); 	-- +4% Attack 2 Shadows
 INSERT INTO `item_latents` VALUES(18422,62,6,13,445); 	-- +6% Attack 3 Shadows
 INSERT INTO `item_latents` VALUES(18422,62,10,13,446);	-- +10% Attack 4+ Shadows
