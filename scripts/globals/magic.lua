@@ -604,11 +604,20 @@ function applyResistance(caster, target, spell, params)
     end
 
 
-    if target:isPC() and element ~= nil and element > 0 and element < 9 then
-        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
-        local eleres = target:getMod(element+53)
-        if     eleres < params.bonus  and res < 0.5  then res = 0.5
-        elseif eleres < (params.bonus + 1) and res < 0.25 then res = 0.25 end
+    -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+    -- Players are guaranteed to always take half damage if negative resistance
+    -- Players cannot 1/8 resist magic without positive resistance
+    if target:isPC() then
+        if element ~= nil and element > 0 and element < 9 then
+            local eleres = target:getMod(element+53)
+            if  eleres < bonus  and res < 0.5  then
+                res = 0.5
+            elseif eleres > (bonus + 1) and res < 0.25 then
+                res = utils.clamp(res, 0.125, 1)
+            else
+                res = utils.clamp(res, 0.25, 1)
+            end
+        end
     end
     -- print(string.format("res was %f",res))
     
@@ -696,15 +705,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = 1
     end
 
-    if target:isPC() and element ~= nil and element > 0 and element < 9 then
-        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
-        local eleres = target:getMod(element+53)
-        if     eleres < params.bonus  and res < 0.5  then res = 0.5
-        elseif eleres < (params.bonus + 1) and res < 0.25 then res = 0.25 end
-    end
-
     -- print(string.format("enfeeble res was %f", res))
-    
     return res
 end
 
@@ -765,11 +766,20 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
         res = 1/8
     end
 
-    if target:isPC() and element ~= nil and element > 0 and element < 9 then
-        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
-        local eleres = target:getMod(element+53)
-        if     eleres < bonus  and res < 0.5  then res = 0.5
-        elseif eleres < (bonus + 1) and res < 0.25 then res = 0.25 end
+    -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+    -- Players are guaranteed to always take half damage if negative resistance
+    -- Players cannot 1/8 resist magic without positive resistance
+    if target:isPC() and (effect == nil) then
+        if element ~= nil and element > 0 and element < 9 then
+            local eleres = target:getMod(element+53)
+            if  eleres < bonus  and res < 0.5  then
+                res = 0.5
+            elseif eleres > (bonus + 1) and res < 0.25 then
+                res = utils.clamp(res, 0.125, 1)
+            else
+                res = utils.clamp(res, 0.25, 1)
+            end
+        end
     end
     -- printf("res was %f", res)
     return res

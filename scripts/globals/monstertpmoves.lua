@@ -1061,7 +1061,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         local element = mob:getStatusEffectElement(typeEffect)
         local bonus = math.floor(mob:getMainLvl() / 2)
 
-        local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
+        local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
 
         -- Terror cannot be resisted by players outside of the trait
         if (target:isPC() and typeEffect == tpz.effect.TERROR) then
@@ -1122,7 +1122,7 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
         local element = mob:getStatusEffectElement(typeEffect)
         local bonus = math.floor(mob:getMainLvl() / 2)
 
-        local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
+        local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
 
         -- Terror cannot be resisted
         if (target:isPC() and typeEffect == tpz.effect.TERROR) then
@@ -1179,7 +1179,7 @@ function MobHasteOverwriteSlowMove(mob, target, power, tick, duration, subid, su
         local element = mob:getStatusEffectElement(typeEffect)
         local bonus = math.floor(mob:getMainLvl() / 2)
 
-        local resist = ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
+        local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
 
         target:addEnmity(mob, 1, 320)
 
@@ -2058,25 +2058,22 @@ end
 
 function ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, element)
     -- Determines if a players +/- resist on gear allows them to change the resist tier of the spell
-    -- Flash has a +256 MACC bonus
-    -- Make a param later if used for more than just flash and add params after element in arg then check all places function is called that they have a params table.
-    local spellBonus = 0 -- Used for resist gear on players.
-    if (typeEffect ~= nil) then
-        if (typeEffect == tpz.effect.FLASH) then
-            bonus = 256
-            spellBonus = 256
+    local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
+    -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+    -- Players are guaranteed to always take half damage if negative resistance
+    -- Players cannot 1/8 resist magic without positive resistance
+    if target:isPC() then
+        if element ~= nil and element > 0 and element < 9 then
+            local eleres = target:getMod(element+53)
+            if  eleres < 0  and resist < 0.5  then
+                resist = 0.5
+            elseif eleres > 0 and resist < 0.25 then
+                resist = utils.clamp(resist, 0.125, 1)
+            else
+                resist = utils.clamp(resist, 0.25, 1)
+            end
         end
     end
-
-    local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
-
-    -- Check +/- resist on gear for players
-    if target:isPC() and element ~= nil and element > 0 and element < 9 then
-        local eleres = target:getMod(element+53)
-        if     eleres < spellBonus  and resist < 0.5  then resist = 0.5
-        elseif eleres < (spellBonus + 1) and resist < 0.25 then resist = 0.25 end
-    end
-
     return resist
 end
 
