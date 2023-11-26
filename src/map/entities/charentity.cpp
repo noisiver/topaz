@@ -2123,7 +2123,6 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
     auto PItem = static_cast<CItemUsable*>(state.GetItem());
 
-    //#TODO: I'm sure this is supposed to be in the action packet... (animation, message)
     PAI->TargetFind->reset();
     if (PItem->getAoE())
     {
