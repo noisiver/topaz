@@ -21,7 +21,7 @@ function onTrigger(player, npc)
     local diaryPage = player:getCharVar("DiaryPage")
     local fameLevel = player:getFameLevel(SANDORIA)
 
-    if player:getCharVar("aTasteForMeat") == 0 and aTasteForMeat == QUEST_COMPLETED and fameLevel >= 8 and diaryPage >= 4 then
+    if  fameLevel >= 8 and diaryPage >= 4 then
         local overTheHillsAndFarAway = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.OVER_THE_HILLS_AND_FAR_AWAY)
 
         if overTheHillsAndFarAway == QUEST_AVAILABLE then
