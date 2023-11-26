@@ -478,7 +478,7 @@ INSERT INTO `mob_groups` VALUES (30,2699,11,'Moblin_Pikeman',300,0,1714,0,0,42,4
 INSERT INTO `mob_groups` VALUES (31,566,11,'Bugbear_Strongman',3600,0,378,5500,0,50,52,0);
 INSERT INTO `mob_groups` VALUES (32,1712,11,'Goblin_Shovelman',300,0,1157,0,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (33,1663,11,'Goblin_Freelance',300,0,1061,0,0,45,47,0);
-INSERT INTO `mob_groups` VALUES (34,2685,11,'Moblin_Ashman',300,0,3078,0,0,45,45,0);
+INSERT INTO `mob_groups` VALUES (34,2685,11,'Moblin_Ashman',300,0,3078,3900,0,45,45,0);
 INSERT INTO `mob_groups` VALUES (35,556,11,'Bugallug',0,128,0,0,0,45,50,0);
 INSERT INTO `mob_groups` VALUES (36,2696,11,'Moblin_Gurneyman',300,0,1711,0,0,46,47,0);
 INSERT INTO `mob_groups` VALUES (37,1746,11,'Goblin_Wolfman',0,128,1189,7400,0,50,55,0);
