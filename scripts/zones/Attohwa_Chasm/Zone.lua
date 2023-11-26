@@ -66,7 +66,7 @@ function onRegionEnter(player, region)
         local gasponia = GetNPCByID(ID.npc.GASPONIA_OFFSET + (regionId - 1))
         if (gasponia ~= nil) then
             gasponia:openDoor(3)
-            if (not player:hasStatusEffect(tpz.effect.POISON)) then
+            if not player:hasStatusEffect(tpz.effect.POISON) and not player:hasStatusEffect(tpz.effect.MOUNTED) then
                 player:addStatusEffect(tpz.effect.POISON, 15, 0, math.random(120, 300))
                 player:messageSpecial(ID.text.GASPONIA_POISON)
             end
