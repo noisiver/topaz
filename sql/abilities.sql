@@ -80,7 +80,7 @@ INSERT INTO `abilities` VALUES (53,'gauge',9,10,4,30,98,0,0,14,2000,0,6,23.0,0,0
 INSERT INTO `abilities` VALUES (54,'tame',9,30,4,600,99,0,0,15,2000,0,6,18.0,0,0,0,904,0,NULL,0);
 INSERT INTO `abilities` VALUES (55,'pet_commands',9,1,1,0,255,0,0,0,2000,0,6,18.0,0,0,0,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (56,'scavenge',11,10,1,180,121,0,0,21,2000,0,6,20.0,0,1,80,1024,0,NULL,0);
-INSERT INTO `abilities` VALUES (57,'shadowbind',11,40,4,300,122,0,0,188,2000,0,3,18.0,0,1,800,0,0,NULL,0);
+INSERT INTO `abilities` VALUES (57,'shadowbind',11,40,4,45,122,0,0,188,2000,0,3,18.0,0,1,800,0,0,NULL,0);
 INSERT INTO `abilities` VALUES (58,'camouflage',11,20,1,120,123,0,0,10,2000,0,6,20.0,0,1,80,1026,0,NULL,0); -- made 2m
 INSERT INTO `abilities` VALUES (59,'sharpshot',11,1,1,300,124,0,0,22,2000,0,6,20.0,0,1,600,1028,0,NULL,0);
 INSERT INTO `abilities` VALUES (60,'barrage',11,30,1,180,125,0,0,23,2000,0,6,20.0,0,1,600,0,0,NULL,0);	-- made 3m
