@@ -2844,12 +2844,12 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         end
     else
         -- Try to Immunobreak
-        local element = mob:getStatusEffectElement(effect)
+        local element = target:getStatusEffectElement(effect)
         local SDT = getEnfeeblelSDT(effect, element, target)
         -- 10% chance to Immunobreak
         if caster:isPC() then
             if (SDT > 10 and SDT < 100) then
-                return TryImmunobreak(caster, target, effect, SDT)
+                return TryImmunobreak(caster, target, spell, effect, SDT)
             end
         end
 
@@ -2858,7 +2858,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     end
 end
 
-function TryImmunobreak(caster, target, effect, SDT)
+function TryImmunobreak(caster, target, spell, effect, SDT)
     local immunobreakTable =
     {
         tpz.effect.SLEEP_I,
@@ -2881,20 +2881,24 @@ function TryImmunobreak(caster, target, effect, SDT)
     if math.random(100) <= ImmunobreakChance then
         for _, effectSDT in pairs(immunobreakTable) do
             if (effect == effectSDT) then
-                IncreaseSDTTier(SDT)
+                IncreaseSDTTier(caster, target, spell, effect, SDT)
             end
         end
         -- Reset Immunobreak chance on a successful proc
         target:setLocalVar("immunobreak" .. effect, 0)
-        return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNOBREAK)
+        if target:getID() == spell:getPrimaryTargetID() then
+            return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNOBREAK)
+        else
+            return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNOBREAK_2)
+        end
     end
 
     -- Increase Immunobreak proc rate by 10 on a failed proc
-    target:setLocalVar("immunobreak" .. effect, ImmunobreakChance +10)
+    target:setLocalVar("immunobreak" .. effect, target:getLocalVar("immunobreak" .. effect) +10)
     return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
 end
 
-function IncreaseSDTTier(caster, target, effect, SDT)
+function IncreaseSDTTier(caster, target, spell, effect, SDT)
     local tierTable =
     {
         { Tier = 85, Increase = 15 },
@@ -2907,21 +2911,44 @@ function IncreaseSDTTier(caster, target, effect, SDT)
         { Tier = 20, Increase = 5  },
         { Tier = 15, Increase = 5  },
     }
+    local SDTTable =
+    {
+        { Effect = tpz.effect.SLEEP_I,          Mod = tpz.mod.EEM_DARK_SLEEP    },
+        { Effect = tpz.effect.SLEEP_II,         Mod = tpz.mod.EEM_DARK_SLEEP    },
+        { Effect = tpz.effect.POISON,           Mod = tpz.mod.EEM_POISON        },
+        { Effect = tpz.effect.PARALYSIS,        Mod = tpz.mod.EEM_PARALYZE      },
+        { Effect = tpz.effect.BLINDNESS,        Mod = tpz.mod.EEM_BLIND         },
+        { Effect = tpz.effect.SILENCE,          Mod = tpz.mod.EEM_SILENCE       },
+        { Effect = tpz.effect.PETRIFICATION,    Mod = tpz.mod.EEM_PETRIFY       },
+        { Effect = tpz.effect.STUN,             Mod = tpz.mod.EEM_STUN          },
+        { Effect = tpz.effect.BIND ,            Mod = tpz.mod.EEM_BIND          },
+        { Effect = tpz.effect.WEIGHT,           Mod = tpz.mod.EEM_GRAVITY       },
+        { Effect = tpz.effect.SLOW,             Mod = tpz.mod.EEM_SLOW          },
+        { Effect = tpz.effect.LULLABY,          Mod = tpz.mod.EEM_LIGHT_SLEEP   },
+    }
     -- Incriment SDT by 1 tier
     for _, entry in pairs(tierTable) do
         if (SDT == entry.Tier) then
             local newSDT = entry.Tier + entry.Increase
-            target:setMod(SDT, newSDT)
+            for _, statusId in pairs (SDTTable) do
+                if (effect == statusId.Effect) then
+                local currentMod = statusId.Mod
+                    target:setMod(currentMod, newSDT)
+                end
+            end
         end
     end
 
     -- Check if the caster has +Immunobreak mod
     -- Incriment SDT by 1 tier
-    if caster:getMod(tpz.mod.ENHANCES_IMMUNOBREAK) > 0 then
-        for _, entry in pairs(tierTable) do
-            if (SDT == entry.Tier) then
-                local newSDT = entry.Tier + entry.Increase
-                target:setMod(SDT, newSDT)
+    for _, entry in pairs(tierTable) do
+        if (SDT == entry.Tier) then
+            local newSDT = entry.Tier + entry.Increase
+            for _, statusId in pairs (SDTTable) do
+                if (effect == statusId.Effect) then
+                local currentMod = statusId.Mod
+                    target:setMod(currentMod, newSDT)
+                end
             end
         end
     end
