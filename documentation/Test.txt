@@ -8,29 +8,23 @@ Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the 
 Hypnic Lamp working properly nightmare sleep and all
 Pet parry trait works properly (Chapuli Jug)
 King Behemoth Ecliptic Meteor + meteor death mechanic
-Cherukiki
 Endispel message(mobs)
 UpdateForCure() or w/e for mob tp move healing work properly? correct target args?
 Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
 Trick attack angle / min distance
 !setmod PHANTOM_ROLL 1 2 and 3 working properly
-Muddle working properly to block item usage
 Manawall remove negative effects
 Auspice do light damage now?
-Footwork being removed on WS and making tornado / dragon kick do 30% more dmg but others do 50% less
 Fomor level up and touchdown still crash simple log?
 Test: https://github.com/mootowncow/topaz/commit/c366f18473631e2c205684f5d79f0ffe6ad3b74f
-Mute / Afflictor animations
-Something wrong with how it saves weapons on job change saving? Test without LAC
 !addtreasure
-Cura II
-Seraph / Shining strike and mystic boon still work(<= 10 yards)
-Asylum
+DNC 76+ Flourishes (mainly animation)
+Mob dying mid wyvernn breath from DRG wyvern crashing simple log
 
 Retail:
-send balamor file and capture other ones models
+Stealth job trait
+Tres Duendes + Grand Train
 Goblin Call Beast
-Sleep waking up msg
 Double down / shuffle (cardian NM tp moves) animations
 FOV/GOV elite training
 Dancing Chains wipe shadows?

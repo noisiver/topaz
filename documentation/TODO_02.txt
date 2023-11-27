@@ -10,6 +10,11 @@ https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387
 Get Sped Stuff:
 https://github.com/LandSandBoat/server/pull/4756
 
+New WS IDs
+https://github.com/Windower/Resources/blob/master/resources_data/weapon_skills.lua
+
+Mob autos stuff:
+https://wiki-ffo-jp.translate.goog/html/1743.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US
 
 Party disband stuff
 Relevant: https://github.com/LandSandBoat/server/pull/1245
@@ -17,7 +22,49 @@ https://github.com/LandSandBoat/server/issues/1247
 I suppose we should be checking to see if the final removed member was a trust or not: if it was a trust, disband,
 if it wasn't, don't
 
+Torando Kick icon on skillchain.lua
+Add Immunobreak logic(if resist > 0.5 and <30 SDT then tier = tier +1?)
+
+non-interruptable CS shouldn't interrupt casting in magic_state.lua(get eventids from other non-interruptable CS, maybe consider making namespace function)
+and shouldn't interrupt if a player is casting on a playerm in a CS anyways, why did it?1
+Garden Bangles(+1) rare/ex and drop from NM(Lebioisbka or w/e?)
+War Aketon +1 set stats coded?
+Divine Might and Apoc Nigh earrings buffed
+Set to exp if limit points is capped(get from wings repo?)
+Audit despoils to be different from steals
+Shining / Seraph blade icons for tcrossbar
 Give BLM Aspir II at 75
+Give WHM Full Cure, doesn't consume any MP and only usable in Afflatus Solace  edit description DAT
+Ryumon doesn't work properly due to how utsu adds status effects and you don't get the proper status effect ID for shadows initially
+Change nukes validtaget to same as cure so they can be cast on self for damage for mobs?
+Manawall should be usable with amnesia active(have to core in C++)
+Fomor / player WS for mobs say "radies xxx move" in onmobskillcheck. maybe can just be <= 256 IDs or something?
+!addbuffs gm command that gives basic buffs for testing Haste2 / Temper / Refresh 2 / Protect4 / Shell 4
+!adddebuffs gm command for basic debuffs at a good potency para2 slow2 addle blind etc
+Autoattack TP moves need their own function setting msg to hit_dmg then to shadow absorb if absorbed
+Audit guild shop sql list
+AH to WotG towns
+Missing dynamis set bonuses
+Code KS99 with custom drops
+Buff New Moon Armlets a lot
+Add hit check for Mystic Boon giving its buffs
+Move scorp off attowha HP
+All hydras/khims/cerbs should have no turn like wyrms (Cerbs do but Hydra's and Khims do not)
+Ele WS MACC gear(does the mod exist? add it too if not but it should def exist 99% sure)
+Dispel resist mod, apply to Asylum and make it work on dispel/dispelga/blu spells and monstertpmove dispels
+
+RDM AF+1 should have the super bonuses that were augs from Taza before
+BST and PUP AF+1 also needs stuff
+All AF for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
+
+Refactor frost choke etc effects so they can be customized for mob / BLU stat downs
+Sublimation 2/tick and auto regen 2/tick both going at once don't make char stand up
+flagellants rope (13248) is bugged and when equipped it gives you a stacking +dmg taken debuff that doesnt go away when parad ends
++5 MACC per AM2 merit so +25 at 5/5(is it coded in magic.lua?)
+Audit hi pot / hi ether / antidote / echo drop prices to be same as shop.lua
+Add effect magian trial weapons require 255+ of venom etc potions relating to their add effect
+Cracked orb from wings
+https://gitlab.com/ffxiwings/wings/-/commit/5ac7a62748db3757cac2649f6f11798bcfc90d05
 
 WKR:
 NM family stats(attack/def% mods, vit mods, etc)
@@ -27,6 +74,7 @@ Set weather to double of their element on engage and periodiocally on fighting. 
 Blocked! message when mobs block/guard(prob parry) you. add to players as well?
 
 Enhances "Cascade" effect gear (+TP always to cascade)
+Custom Tres Duendes mob with changing stance
 Add Enlight / Endark to DRK and PLD
 Add !givetemps command
 Arcana Breaker coded?
@@ -34,13 +82,10 @@ JSE necks rare/ex and make sure I didnt accidentally make them all jobs
 Peiste mantle coded
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
-Holy / Divine shield trade vendor the NM drops and random chance at HQ on trade
 !usews crashes server via OnMobSkillCheck() if positional(is facing)
 Flan "Spikey" mixin
 Edit setdroprate() to allow editing/adding drop groups or add another funcion binding to do it
 Sabotender Ballarin missing?
-Set to exp if limit points is capped(get from wings repo?)
-Shining / Seraph blade icons for tcrossbar
 abilID 256 WZ_RECOVER_ALL is used by chests in Limbus
 Korolokka onmobdisengage setpos back to spawn
 Revert displayhelm changes i did to charpacket or charloadpacket or zone_in packet
@@ -53,7 +98,6 @@ autotarget stuff
 https://github.com/search?q=repo%3ALandSandBoat%2Fserver%20autotarget&type=code 
 Fomors in Sacrarium are aggroing with 0 fomor hate, either missing mobmod or something else. Didn't aggro GM with 0 fomor but aggrod with 8. Agrod main char with 0 hate..
 Enchantsments on gear make them good and give job abilities / spells from other jobs so you always want one and crafted only
-Cracked orb from wings
 Pixies curing players
 https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
 Retune ENM's for duo
@@ -76,11 +120,7 @@ Change all healing items to item:getPower() for power in their scripts
 Legendary rare drops rare and not rare/ex(so tradable)
 Dullahan TP moves - Atramentous Libations gives mob intimidate
 Yasha Gear mods
-Audit guild shop sql list
-Missing dynamis set bonuses
-Code KS99 with custom drops
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
-AH to WotG towns
 mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
 Windurst Salad / Taco
 https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
@@ -132,6 +172,8 @@ THF:
 Chokehold draws in + silence
 
 DATS:
+Afflatus Misery buffing auspice enspell effect
+Mystic Boon / Asylum and Footwork descriptions
 Noble's / Aristocrat's Tunic rare/ex
 Buff Noble's/ Aristocrat's Crown / Mitts / Slacks  / Pumps  
 Birdman cape diff stats
@@ -149,6 +191,9 @@ Ninja Nodowa missing a \n before Magic Accuracy
 LAC:
 
 Wiki: 
+Afflatus MIsery buffing auspice enspell effect
+Tornado Kick fTP and WSC
+Dragon Kick  and Asectic's Fury fTP
 BLM JA's
 https://ffxiclopedia.fandom.com/wiki/SkyNav_Guide
 SAM traits/JA's
