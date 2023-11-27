@@ -47,16 +47,16 @@ CREATE TABLE `guild_shops` (
 -- The above 30 item limit no longer exists..
 
 -- Chaupire (Northern San d'Oria) Woodworking Guild (S)
-INSERT INTO `guild_shops` VALUES (5132,3,295500,295500,20,0,3);
-INSERT INTO `guild_shops` VALUES (5132,22,282,691,20,5,20);
-INSERT INTO `guild_shops` VALUES (5132,23,829,2035,20,3,15);
-INSERT INTO `guild_shops` VALUES (5132,24,70200,408096,20,0,3);
-INSERT INTO `guild_shops` VALUES (5132,26,31500,31500,20,0,6);
-INSERT INTO `guild_shops` VALUES (5132,92,738,2322,20,0,10);
-INSERT INTO `guild_shops` VALUES (5132,97,5508,13512,20,2,12);
-INSERT INTO `guild_shops` VALUES (5132,102,291,713,25,5,25);
-INSERT INTO `guild_shops` VALUES (5132,688,15,150,255,48,100);            -- arrowwood_log
-INSERT INTO `guild_shops` VALUES (5132,689,27,27,255,48,100);            -- lauan_log
+INSERT INTO `guild_shops` VALUES (5132,3,295500,295500,20,0,3);         -- oak_bed
+INSERT INTO `guild_shops` VALUES (5132,22,282,691,20,5,20);             -- workbench
+INSERT INTO `guild_shops` VALUES (5132,23,829,2035,20,3,15);            -- maple_table
+INSERT INTO `guild_shops` VALUES (5132,24,70200,408096,20,0,3);         -- oak_table
+INSERT INTO `guild_shops` VALUES (5132,26,31500,31500,20,0,6);          -- tarutaru_desk
+INSERT INTO `guild_shops` VALUES (5132,92,738,2322,20,0,10);            -- tarutaru_stool
+INSERT INTO `guild_shops` VALUES (5132,97,5508,13512,20,2,12);          -- Book Holder
+INSERT INTO `guild_shops` VALUES (5132,102,291,713,25,5,25);            -- flower_stand
+INSERT INTO `guild_shops` VALUES (5132,688,15,150,255,48,100);          -- arrowwood_log
+INSERT INTO `guild_shops` VALUES (5132,689,27,27,255,48,100);           -- lauan_log
 INSERT INTO `guild_shops` VALUES (5132,690,1378,10938,100,20,100);      -- elm_log
 INSERT INTO `guild_shops` VALUES (5132,691,45,45,255,50,100);           -- maple_log
 INSERT INTO `guild_shops` VALUES (5132,693,640,3586,255,48,100);        -- walnut_log
@@ -82,8 +82,8 @@ INSERT INTO `guild_shops` VALUES (5132,714,607,2559,255,48,100);        -- holly
 INSERT INTO `guild_shops` VALUES (5132,715,72,403,255,48,100);          -- ash_lumber
 INSERT INTO `guild_shops` VALUES (5132,716,4740,23257,165,33,65);       -- oak_lumber
 INSERT INTO `guild_shops` VALUES (5132,719,23552,25216,165,0,65);       -- ebony_lumber
-INSERT INTO `guild_shops` VALUES (5132,12289,88,232,20,2,15);
-INSERT INTO `guild_shops` VALUES (5132,12290,847,1173,20,0,10);
+INSERT INTO `guild_shops` VALUES (5132,12289,88,232,20,2,15);           -- lauan_shield
+INSERT INTO `guild_shops` VALUES (5132,12290,847,1173,20,0,10);         -- maple_shield
 INSERT INTO `guild_shops` VALUES (5132,12984,176,280,20,0,15);
 INSERT INTO `guild_shops` VALUES (5132,12985,1625,1625,20,0,15);
 INSERT INTO `guild_shops` VALUES (5132,12986,6885,17625,20,0,15);
