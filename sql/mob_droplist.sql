@@ -8786,7 +8786,7 @@ INSERT INTO `mob_droplist` VALUES (1672,1,1,1000,1556,333); --(Mildaunegeux - Dy
 INSERT INTO `mob_droplist` VALUES (1672,1,1,1000,1564,333); -- Attestation of legerity
 INSERT INTO `mob_droplist` VALUES (1672,1,1,1000,1570,334); -- Attestation of accuracy
 INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,939,240); -- (Million Eyes - Den of Rancor) Hecteyes eye
-INSERT INTO `mob_droplist` VALUES (1673,1,1,100,1288,100); -- Wooden Hakutaku eye
+INSERT INTO `mob_droplist` VALUES (1673,0,0,100,1288,100); -- Wooden Hakutaku eye
 INSERT INTO `mob_droplist` VALUES (1673,1,1,100,4754,250); -- Scroll of Fire III
 INSERT INTO `mob_droplist` VALUES (1673,1,1,100,4755,250); -- Scroll of Fire IV
 INSERT INTO `mob_droplist` VALUES (1673,1,1,100,4784,250); -- Scroll of Firaga III
