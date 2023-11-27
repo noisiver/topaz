@@ -23,6 +23,7 @@ I suppose we should be checking to see if the final removed member was a trust o
 if it wasn't, don't
 
 Torando Kick icon on skillchain.lua
+Remove mobparam_shadows from all BLU spells
 Add Immunobreak logic(if resist > 0.5 and <30 SDT then tier = tier +1?)
 
 non-interruptable CS shouldn't interrupt casting in magic_state.lua(get eventids from other non-interruptable CS, maybe consider making namespace function)
