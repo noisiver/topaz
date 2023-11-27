@@ -3258,15 +3258,15 @@ INSERT INTO `mob_skills` VALUES (3295,1721,'songbird_swoop',0,7.0,2000,1500,4,0,
 INSERT INTO `mob_skills` VALUES (3296,259,'temblor_blade',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Ingrid
 INSERT INTO `mob_skills` VALUES (3297,260,'cobra_clamp',0,7.0,2000,1500,4,0,0,0,0,0,0); -- RomaaMihgo
 -- INSERT INTO `mob_skills` VALUES (3298,304,'illustrious_aid',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3299,295,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3300,296,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3301,297,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (3302,298,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3303,299,'feast_of_arrows',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3299,2343,'defiant_auto_one',0,7.0,0,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3300,2344,'defiant_auto_two',0,7.0,0,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3301,2345,'defiant_auto_three',0,7.0,0,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3302,2346,'defiant_auto_four',0,7.0,0,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3303,2347,'feast_of_arrows',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3304,2348,'cruel_joke',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3305,2349,'regurgitated_swarm',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3306,302,'setting_the_stage',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3307,303,'last_laugh',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3306,2350,'setting_the_stage',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3307,2351,'last_laugh',1,18.0,2000,1000,4,0,0,0,0,0,0);        -- Check Animation ID
 INSERT INTO `mob_skills` VALUES (3308,1714,'thorned_dance',0,18.0,2000,1000,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3309,1715,'sensual_dance',1,18.0,2000,1000,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3310,1712,'dancers_fury',0,7.0,2000,1000,4,0,0,0,0,0,0);
