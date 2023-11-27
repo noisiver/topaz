@@ -131,12 +131,14 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, recastSeconds, 0, MSGBASIC_TIME_LEFT));
             return false;
         }
-        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
+
+        // Cannot use JA's while under the effect of Amnesia unless Mana Wall
+        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA) && abilityid != ABILITY_MANA_WALL)
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
             return false;
         }
-        if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) ||
+        if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) && abilityid != ABILITY_MANA_WALL ||
             (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
             (PAbility->isPetAbility() && !charutils::hasPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY)))
         {
