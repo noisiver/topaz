@@ -1,66 +1,30 @@
-https://docs.google.com/document/d/1ucbGM1HzEbNaYra-lPvhrK0y66GTvi6pJtuoxfRs-qU/edit?usp=sharing
-
-https://docs.google.com/document/d/109r9-j6k8QcgZNMfCzVFBMdpiFaaaWmxrjcVYGZLU_E/edit
-
-https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
-
-Ixion
-https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
-
-Get Sped Stuff:
-https://github.com/LandSandBoat/server/pull/4756
-
-New WS IDs
-https://github.com/Windower/Resources/blob/master/resources_data/weapon_skills.lua
-
-Mob autos stuff:
-https://wiki-ffo-jp.translate.goog/html/1743.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US
-
-Party disband stuff
-Relevant: https://github.com/LandSandBoat/server/pull/1245
-https://github.com/LandSandBoat/server/issues/1247
-I suppose we should be checking to see if the final removed member was a trust or not: if it was a trust, disband,
-if it wasn't, don't
-
 Torando Kick icon on skillchain.lua
-Remove mobparam_shadows from all BLU spells
-Add Immunobreak logic(if resist > 0.5 and <30 SDT then tier = tier +1?)
 
-non-interruptable CS shouldn't interrupt casting in magic_state.lua(get eventids from other non-interruptable CS, maybe consider making namespace function)
-and shouldn't interrupt if a player is casting on a playerm in a CS anyways, why did it?1
-Garden Bangles(+1) rare/ex and drop from NM(Lebioisbka or w/e?)
 War Aketon +1 set stats coded?
 Divine Might and Apoc Nigh earrings buffed
-Set to exp if limit points is capped(get from wings repo?)
+Elemental debuff effects changable and not hard coded functions for mob moves and BLU spells
 Audit despoils to be different from steals
 Shining / Seraph blade icons for tcrossbar
 Give BLM Aspir II at 75
 Give WHM Full Cure, doesn't consume any MP and only usable in Afflatus Solace  edit description DAT
 Ryumon doesn't work properly due to how utsu adds status effects and you don't get the proper status effect ID for shadows initially
 Change nukes validtaget to same as cure so they can be cast on self for damage for mobs?
-Manawall should be usable with amnesia active(have to core in C++)
 Fomor / player WS for mobs say "radies xxx move" in onmobskillcheck. maybe can just be <= 256 IDs or something?
 !addbuffs gm command that gives basic buffs for testing Haste2 / Temper / Refresh 2 / Protect4 / Shell 4
 !adddebuffs gm command for basic debuffs at a good potency para2 slow2 addle blind etc
 Autoattack TP moves need their own function setting msg to hit_dmg then to shadow absorb if absorbed
-Audit guild shop sql list
 AH to WotG towns
 Missing dynamis set bonuses
 Code KS99 with custom drops
 Buff New Moon Armlets a lot
-Add hit check for Mystic Boon giving its buffs
-Move scorp off attowha HP
 All hydras/khims/cerbs should have no turn like wyrms (Cerbs do but Hydra's and Khims do not)
 Ele WS MACC gear(does the mod exist? add it too if not but it should def exist 99% sure)
-Dispel resist mod, apply to Asylum and make it work on dispel/dispelga/blu spells and monstertpmove dispels
 
 RDM AF+1 should have the super bonuses that were augs from Taza before
 BST and PUP AF+1 also needs stuff
 All AF for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
 
 Refactor frost choke etc effects so they can be customized for mob / BLU stat downs
-Sublimation 2/tick and auto regen 2/tick both going at once don't make char stand up
-flagellants rope (13248) is bugged and when equipped it gives you a stacking +dmg taken debuff that doesnt go away when parad ends
 +5 MACC per AM2 merit so +25 at 5/5(is it coded in magic.lua?)
 Audit hi pot / hi ether / antidote / echo drop prices to be same as shop.lua
 Add effect magian trial weapons require 255+ of venom etc potions relating to their add effect
@@ -171,6 +135,33 @@ THF:
 "Decoy" move for THF that summons a pet temp to SA/TA or a bodyguard perma pet
 
 Chokehold draws in + silence
+
+https://docs.google.com/document/d/1ucbGM1HzEbNaYra-lPvhrK0y66GTvi6pJtuoxfRs-qU/edit?usp=sharing
+
+https://docs.google.com/document/d/109r9-j6k8QcgZNMfCzVFBMdpiFaaaWmxrjcVYGZLU_E/edit
+
+https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
+
+Ixion
+https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
+
+Get Sped Stuff:
+https://github.com/LandSandBoat/server/pull/4756
+
+New WS IDs
+https://github.com/Windower/Resources/blob/master/resources_data/weapon_skills.lua
+
+Mob autos stuff:
+https://wiki-ffo-jp.translate.goog/html/1743.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US
+
+Party disband stuff
+Relevant: https://github.com/LandSandBoat/server/pull/1245
+https://github.com/LandSandBoat/server/issues/1247
+I suppose we should be checking to see if the final removed member was a trust or not: if it was a trust, disband,
+if it wasn't, don't
+
+Rune Fencer Merits:
+https://github.com/AirSkyBoat/AirSkyBoat/commit/f1c415bb239c9afdc4247eb1b2444433f8671341
 
 DATS:
 Afflatus Misery buffing auspice enspell effect
