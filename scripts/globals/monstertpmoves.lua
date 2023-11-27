@@ -1463,12 +1463,12 @@ function MobDispelMove(mob, target, skill, element, param1, param2)
 
     -- Check for dispel resistance trait
 	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
-        return 0
+        return tpz.effect.NONE
     end
 
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return 0
+		    return tpz.effect.NONE
 		else
             if (param2 ~= nil) then
                 return target:dispelStatusEffect(bit.bor(param1, param2))
@@ -1477,7 +1477,7 @@ function MobDispelMove(mob, target, skill, element, param1, param2)
             end
         end
 	else
-	    return 0
+	    return tpz.effect.NONE
 	end
 end
 
@@ -1493,12 +1493,12 @@ function MobFullDispelMove(mob, target, skill, param1, param2)
 
     -- Check for dispel resistance trait
 	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
-        return 0
+        return tpz.effect.NONE
     end
 
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return 0
+		    return tpz.effect.NONE
 		else
             if (param2 ~= nil) then
                 return target:dispelAllStatusEffect(bit.bor(param1, param2))
@@ -1507,7 +1507,7 @@ function MobFullDispelMove(mob, target, skill, param1, param2)
             end
         end
 	else
-	    return 0
+	    return tpz.effect.NONE
 	end
 end
 

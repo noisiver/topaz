@@ -33,7 +33,7 @@ function onSpellCast(caster, target, spell)
 
     -- Check for dispel resistance trait
 	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
         return effect
     end
 
