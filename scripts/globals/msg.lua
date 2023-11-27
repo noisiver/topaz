@@ -82,6 +82,7 @@ tpz.msg.basic =
     MAGIC_CANNOT_CAST      = 47,  -- <caster> cannot cast <spell>.
     MAGIC_CANNOT_BE_CAST   = 48,  -- <spell> cannot be cast on <target>. (example: tractor)
     MAGIC_NO_EFFECT        = 75,  -- <caster>'s <spell> has no effect on <target>.
+    MAGIC_IMMUNOBREAK      = 653, -- <caster> casts <spell>. -><target> resists the spell. ->Immunobreak!
     MAGIC_IMMUNE           = 655,  -- {actor} casts {lb}${target} completely resists the spell.
     MAGIC_IMMUNE_2         = 656,  -- target} completely resists the spell
     MAGIC_REMOVE_EFFECT    = 83,  -- <caster> casts <spell>. <caster> successfully removes <target>'s <status>.

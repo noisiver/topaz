@@ -1876,8 +1876,9 @@ tpz.mod =
     BLU_ATT                 = 1356, -- Modifier to BLU phys attack
     BLU_ATTP                = 1357, -- Modifier to BLU phys attack (in percents)
     DISPELRESTRAIT          = 1358, -- Resistance to dispel effects
+    ENHANCES_IMMUNOBREAK    = 1359, -- Causes Immunobreak to increase by 2 Tiers
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1359 NEXT
+    -- 1360 NEXT
 }
 
 tpz.latent =

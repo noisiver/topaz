@@ -394,6 +394,7 @@ enum class Mod
     ENFEEB_MAGIC_DURATION     = 1347,// Enfeebling Magic Duration increase % 
     ENH_MAGIC_DURATION        = 890, // Enhancing Magic Duration increase %
     ENHANCES_SABOTEUR         = 297, // Increases Saboteur Potency %
+    ENHANCES_IMMUNOBREAK      = 1359,// Causes Immunobreak to increase by 2 Tiers
 
     // Thief
     FLEE_DURATION             = 93,  // Flee duration in seconds
@@ -1041,7 +1042,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1359 NEXT
+    // 1360 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

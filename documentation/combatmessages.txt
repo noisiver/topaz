@@ -627,6 +627,8 @@
 634 - Prowess boosted: Enhanced "Cure" potency.
 635 - Prowess boosted: increased weapon skill damage.
 636 - Prowess boosted: "Killer" effects bonus.
+653 - <caster> casts <spell>. -><target> resists the spell. ->Immunobreak!
+654 - -><target> resists the spell. ->Immunobreak!
 [655] = {id=655,en="${actor} casts ${spell}.${lb}${target} completely resists the spell.",color="R"},
 [656] = {id=656,en="${target} completely resists the spell.",color="R"},
 673 - <player> obtains <param> corpuscles of mweya plasm.

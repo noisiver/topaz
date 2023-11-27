@@ -2822,6 +2822,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
+        -- Overwrite weaker effects of the same type
         if target:getStatusEffect(effect) then
             if (target:getStatusEffect(effect):getPower() < power) then
                 target:delStatusEffectSilent(effect)
@@ -2832,7 +2833,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
             if GetEnfeebleMagicBurstMessage(caster, spell, target) then
                 return spell:setMsg(spell:getMagicBurstMessage()) 
             end
-            -- Check for songs enfeebles
+            -- Check for songs enfeebles (Different enfeeble message)
             if spell:getSkillType() == tpz.skill.SINGING then
                 return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             end
@@ -2842,7 +2843,87 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
             return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     else
+        -- Try to Immunobreak
+        local element = mob:getStatusEffectElement(effect)
+        local SDT = getEnfeeblelSDT(effect, element, target)
+        -- 10% chance to Immunobreak
+        if caster:isPC() then
+            if (SDT > 10 and SDT < 100) then
+                return TryImmunobreak(caster, target, effect, SDT)
+            end
+        end
+
+        -- Normal resist if no Immunobreak proc
         return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+end
+
+function TryImmunobreak(caster, target, effect, SDT)
+    local immunobreakTable =
+    {
+        tpz.effect.SLEEP_I,
+        tpz.effect.SLEEP_II,
+        tpz.effect.POISON,
+        tpz.effect.PARALYSIS,
+        tpz.effect.BLINDNESS,
+        tpz.effect.SILENCE,
+        tpz.effect.PETRIFICATION,
+        tpz.effect.STUN,
+        tpz.effect.BIND ,
+        tpz.effect.WEIGHT,
+        tpz.effect.SLOW,
+        tpz.effect.LULLABY,
+    }
+
+    -- If Immunobreak procs, increase the SDT tier by 1
+    -- 10% base chance
+    local ImmunobreakChance = 10 + target:getLocalVar("immunobreak" .. effect)
+    if math.random(100) <= ImmunobreakChance then
+        for _, effectSDT in pairs(immunobreakTable) do
+            if (effect == effectSDT) then
+                IncreaseSDTTier(SDT)
+            end
+        end
+        -- Reset Immunobreak chance on a successful proc
+        target:setLocalVar("immunobreak" .. effect, 0)
+        return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNOBREAK)
+    end
+
+    -- Increase Immunobreak proc rate by 10 on a failed proc
+    target:setLocalVar("immunobreak" .. effect, ImmunobreakChance +10)
+    return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+end
+
+function IncreaseSDTTier(caster, target, effect, SDT)
+    local tierTable =
+    {
+        { Tier = 85, Increase = 15 },
+        { Tier = 70, Increase = 15 },
+        { Tier = 60, Increase = 10 },
+        { Tier = 50, Increase = 10 },
+        { Tier = 40, Increase = 10 },
+        { Tier = 30, Increase = 10 },
+        { Tier = 25, Increase = 5  },
+        { Tier = 20, Increase = 5  },
+        { Tier = 15, Increase = 5  },
+    }
+    -- Incriment SDT by 1 tier
+    for _, entry in pairs(tierTable) do
+        if (SDT == entry.Tier) then
+            local newSDT = entry.Tier + entry.Increase
+            target:setMod(SDT, newSDT)
+        end
+    end
+
+    -- Check if the caster has +Immunobreak mod
+    -- Incriment SDT by 1 tier
+    if caster:getMod(tpz.mod.ENHANCES_IMMUNOBREAK) > 0 then
+        for _, entry in pairs(tierTable) do
+            if (SDT == entry.Tier) then
+                local newSDT = entry.Tier + entry.Increase
+                target:setMod(SDT, newSDT)
+            end
+        end
     end
 end
 
