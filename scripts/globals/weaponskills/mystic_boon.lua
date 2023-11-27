@@ -48,7 +48,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     stoneskinAmount = utils.ApplyStoneskinBonuses(player, stoneskinAmount)
 
-    if not action:messageID(tpz.msg.basic.SKILL_MISS) and not action:messageID(tpz.msg.basic.EVADES) then
+    if (damage > 0) then
         if party ~= nil then
             for _,member in ipairs(party) do
                 if member:isAlive() and player:checkDistance(member) <= 10 then
