@@ -1461,6 +1461,11 @@ function MobDispelMove(mob, target, skill, element, param1, param2)
 
     target:addEnmity(mob, 1, 320)
 
+    -- Check for dispel resistance trait
+	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
+        return 0
+    end
+
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return 0
@@ -1485,6 +1490,11 @@ function MobFullDispelMove(mob, target, skill, param1, param2)
     local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
 
     target:addEnmity(mob, 1, 320)
+
+    -- Check for dispel resistance trait
+	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
+        return 0
+    end
 
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then

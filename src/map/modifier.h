@@ -336,6 +336,7 @@ enum class Mod
     LULLABYRESTRAIT           = 1254,
     DEATHRESTRAIT             = 1255,
     TERRORRESTRAIT            = 1355,
+    DISPELRESTRAIT            = 1358, // Resistance to dispel effects
     STATUSRESTRAIT            = 2000, // All res trait (Does not work on Death / Terror)
 
 
@@ -1040,7 +1041,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1358 NEXT
+    // 1359 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

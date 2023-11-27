@@ -1875,8 +1875,9 @@ tpz.mod =
     TERRORRESTRAIT          = 1355, -- Resist trait for terror (In percents)
     BLU_ATT                 = 1356, -- Modifier to BLU phys attack
     BLU_ATTP                = 1357, -- Modifier to BLU phys attack (in percents)
+    DISPELRESTRAIT          = 1358, -- Resistance to dispel effects
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1358 NEXT
+    -- 1359 NEXT
 }
 
 tpz.latent =

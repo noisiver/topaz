@@ -31,6 +31,12 @@ function onSpellCast(caster, target, spell)
     params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 175)
     local resist = applyResistanceEffect(caster, target, spell, params)
 
+    -- Check for dispel resistance trait
+	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return effect
+    end
+
     local effect = tpz.effect.NONE
     if (resist >= 0.50) then
         spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
