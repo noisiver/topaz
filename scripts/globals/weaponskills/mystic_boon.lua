@@ -48,17 +48,19 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     stoneskinAmount = utils.ApplyStoneskinBonuses(player, stoneskinAmount)
 
-    if party ~= nil then
-        for _,member in ipairs(party) do
-            if member:isAlive() and player:checkDistance(member) <= 10 then
-                member:addHP(healAmount)
-                player:updateEnmityFromCure(member, healAmount)
-                member:removeAllNegativeEffects()
-                if not member:hasStatusEffect(tpz.effect.STONESKIN) then
-                    member:addStatusEffect(tpz.effect.STONESKIN, stoneskinAmount, 0, 60)
-                end
-                if not member:hasStatusEffect(tpz.effect.MAGIC_DEF_BOOST) then
-                    member:addStatusEffect(tpz.effect.MAGIC_DEF_BOOST, 25, 0, 60)
+    if not action:messageID(tpz.msg.basic.SKILL_MISS) and not action:messageID(tpz.msg.basic.EVADES) then
+        if party ~= nil then
+            for _,member in ipairs(party) do
+                if member:isAlive() and player:checkDistance(member) <= 10 then
+                    member:addHP(healAmount)
+                    player:updateEnmityFromCure(member, healAmount)
+                    member:removeAllNegativeEffects()
+                    if not member:hasStatusEffect(tpz.effect.STONESKIN) then
+                        member:addStatusEffect(tpz.effect.STONESKIN, stoneskinAmount, 0, 60)
+                    end
+                    if not member:hasStatusEffect(tpz.effect.MAGIC_DEF_BOOST) then
+                        member:addStatusEffect(tpz.effect.MAGIC_DEF_BOOST, 25, 0, 60)
+                    end
                 end
             end
         end
