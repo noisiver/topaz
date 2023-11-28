@@ -599,6 +599,7 @@ INSERT INTO `item_mods_pet` VALUES (25495,160,-15,2);   -- Dragoon's Collar: Wyv
 INSERT INTO `item_mods_pet` VALUES (13467,160,-5,0);    -- Dragon Ring: Damage taken -5%
 INSERT INTO `item_mods_pet` VALUES (14627,160,-6,0);    -- Dragon Ring +1: Damage taken -6%
 INSERT INTO `item_mods_pet` VALUES (28457,384,400,0);   -- Kuku Stone: Haste+4%
+INSERT INTO `item_mods_pet` VALUES (14742,384,500,0);   -- Brastly Earring: Haste+5%
 
 
 

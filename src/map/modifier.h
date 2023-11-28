@@ -428,6 +428,7 @@ enum class Mod
     ARCANE_CIRCLE_DURATION    = 858, // Arcane Circle extended duration in seconds
     SOULEATER_EFFECT          = 96,  // Souleater power in percents
     DESPERATE_BLOWS           = 906, // Adds ability haste to Last Resort
+    LAST_RESORT_DURATION      = 1360,// Increases Last Resort duration (in seconds)
     STALWART_SOUL             = 907, // Reduces damage taken from Souleater
     DREAD_SPIKES_EFFECT       = 1328,// Percent increase to total HP drain for Dread Spikes
     ENHANCES_BLOOD_WEAPON     = 1329,// Enhances "Blood Weapon" effect (increases Blood Weapon's duration in seconds)
@@ -491,6 +492,7 @@ enum class Mod
     ZANSHIN                   = 306, // Zanshin percent chance
     THIRD_EYE_COUNTER_RATE    = 508, // Adds counter to 3rd eye anticipates & if using Seigan counter rate is increased by 15%
     THIRD_EYE_ANTICIPATE_RATE = 839, // Adds anticipate rate in percents
+    HASSO_HASTE               = 1361,// Increases the JA haste bonus of Hasso. 10000 base, 375 = 3.75%
 
     // Ninja
     UTSUSEMI                  = 307, // Everyone's favorite --tracks shadows.
@@ -498,7 +500,7 @@ enum class Mod
     NINJA_TOOL                = 308, // Percent chance to not use a tool.
     NIN_NUKE_BONUS            = 522, // magic attack bonus for NIN nukes
     DAKEN                     = 911, // chance to throw a shuriken without consuming it
-    NINJUTSU_DURATION         = 1323, //  Increases the effect duration of ninjutsu (in percents)
+    NINJUTSU_DURATION         = 1323,// Increases the effect duration of ninjutsu (in percents)
 
     // Dragoon
     ANCIENT_CIRCLE_DURATION   = 859, // Ancient Circle extended duration in seconds
@@ -1042,7 +1044,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1360 NEXT
+    // 1362 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

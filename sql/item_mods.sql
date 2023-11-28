@@ -15212,18 +15212,23 @@ INSERT INTO `item_mods` VALUES (14728,12,2);
 INSERT INTO `item_mods` VALUES (14739,11,2);
 INSERT INTO `item_mods` VALUES (14739,82,5);
 INSERT INTO `item_mods` VALUES (14739,259,5);
-INSERT INTO `item_mods` VALUES (14740,10,2);
+INSERT INTO `item_mods` VALUES (14740,10,2);        -- Knight's Earring
 INSERT INTO `item_mods` VALUES (14740,109,5);
 INSERT INTO `item_mods` VALUES (14740,111,5);
-INSERT INTO `item_mods` VALUES (14741,12,2);
+INSERT INTO `item_mods` VALUES (14740,903,300);     -- Fencer +3
+INSERT INTO `item_mods` VALUES (14740,904,3);       -- Fencer +3
+INSERT INTO `item_mods` VALUES (14740,986,3);       -- Fencer +3
+INSERT INTO `item_mods` VALUES (14741,12,2);        -- Abyssal Earring
 INSERT INTO `item_mods` VALUES (14741,86,5);
 INSERT INTO `item_mods` VALUES (14741,116,5);
+INSERT INTO `item_mods` VALUES (14741,1360,30);     -- Last Resort +30 seconds
 INSERT INTO `item_mods` VALUES (14742,14,2);
 INSERT INTO `item_mods` VALUES (14742,68,5);
 INSERT INTO `item_mods` VALUES (14742,84,5);
-INSERT INTO `item_mods` VALUES (14743,8,2);
+INSERT INTO `item_mods` VALUES (14743,8,2);         -- Bushinomimi
 INSERT INTO `item_mods` VALUES (14743,89,5);
 INSERT INTO `item_mods` VALUES (14743,110,5);
+INSERT INTO `item_mods` VALUES (14743,1361,300);     -- Hasso +3
 INSERT INTO `item_mods` VALUES (14744,231,-2);
 INSERT INTO `item_mods` VALUES (14744,232,2);
 INSERT INTO `item_mods` VALUES (14745,231,2);
