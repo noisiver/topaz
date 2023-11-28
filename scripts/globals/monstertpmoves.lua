@@ -2075,7 +2075,7 @@ function ApplyPlayerGearResistModCheck(mob, target, typeEffect, dStat, bonus, el
     if target:isPC() then
         if element ~= nil and element > 0 and element < 9 then
             local eleres = target:getMod(element+53)
-            if  eleres < 0  and resist < 0.5  then
+            if eleres < 0  and resist < 0.5  then
                 resist = 0.5
             elseif eleres > 0 and resist < 0.25 then
                 resist = utils.clamp(resist, 0.125, 1)
