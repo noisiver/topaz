@@ -21,6 +21,6 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
     MobDrainMove(mob, target, skill, MOBDRAIN_HP, dmg, tpz.attackType.BREATH, tpz.damageType.DARK)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.DARK)
-    skill:setMsg(tpz.msg.basic.HIT_DMG) 
+    MobAutoAttackMoveMsg(skill)
     return dmg
 end

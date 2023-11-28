@@ -1620,6 +1620,12 @@ function MobAllStatDownMovePhysical(mob, target, skill, power, duration)
     end
 end
 
+function MobAutoAttackMoveMsg(skill)
+    if skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB then
+        skill:setMsg(tpz.msg.basic.HIT_DMG)
+    end
+end
+
 function MobTakeAoEShadow(mob, target, max)
 
     return max

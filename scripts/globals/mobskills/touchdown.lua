@@ -21,6 +21,6 @@ function onMobWeaponSkill(target, mob, skill)
     mob:delStatusEffect(tpz.effect.TOO_HIGH)
     mob:SetMobSkillAttack(0)
     mob:AnimationSub(2)
-    skill:setMsg(tpz.msg.basic.HIT_DMG) 
+    MobAutoAttackMoveMsg(skill)
     return dmg
 end

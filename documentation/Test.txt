@@ -21,7 +21,8 @@ DNC 76+ Flourishes (mainly animation)
 Mob dying mid wyvernn breath from DRG wyvern crashing simple log
 Convert left over exp if going over exp cap to merit points.
 If merits are capped in merit(Limit) mode, gain experience instead
-Resist mods properly work with nukes
+Resist mods properly work with nukes (Divine magic too)
+Test MobAutoAttackMoveMsg
 
 Retail:
 Stealth job trait
