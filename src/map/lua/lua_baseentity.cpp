@@ -16396,7 +16396,7 @@ inline int32 CLuaBaseEntity::addTreasure(lua_State *L)
 *  Function: getStealItem()
 *  Purpose : Used to return the Item ID of a mob's item which can be stolen
 *  Example : steamItem = target:getStealItem()
-*  Notes   : Used only in Thief quest and Maat
+*  Notes   : If multiple steal items exist in the db, an item is picked at random
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::getStealItem(lua_State *L)
@@ -16411,13 +16411,21 @@ inline int32 CLuaBaseEntity::getStealItem(lua_State *L)
 
         if (PDropList && !PMob->m_ItemStolen)
         {
+            // Steal item randomly selected from steal drop table
+            std::vector<uint16> items;
+
             for (const DropItem_t& drop : PDropList->Items)
             {
                 if (drop.DropType == DROP_STEAL)
                 {
-                    lua_pushinteger(L, drop.ItemID);
-                    return 1;
+                    items.emplace_back(drop.ItemID);
                 }
+            }
+
+            if (!items.empty())
+            {
+                lua_pushinteger(L,tpzrand::GetRandomElement(items));
+                return 1;
             }
         }
     }
@@ -16430,7 +16438,7 @@ inline int32 CLuaBaseEntity::getStealItem(lua_State *L)
 *  Function: getDespoilItem()
 *  Purpose : Used to return the Item ID of a mob's item which can be despoiled
 *  Example : despoilItem = target:getDespoilItem()
-*  Notes   : Defaults to getStealItem() if no despoil item exists
+*  Notes   : If multiple steal items exist in the db, an item is picked at random 
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::getDespoilItem(lua_State *L)
@@ -16444,18 +16452,27 @@ inline int32 CLuaBaseEntity::getDespoilItem(lua_State *L)
         DropList_t* PDropList = itemutils::GetDropList(PMob->m_DropID);
         if (PDropList && !PMob->m_ItemStolen)
         {
+            // Steal item randomly selected from steal drop table
+            std::vector<uint16> items;
+
             for (const DropItem_t& drop : PDropList->Items)
             {
                 if (drop.DropType == DROP_DESPOIL)
                 {
-                    lua_pushinteger(L, drop.ItemID);
-                    return 1;
+                    items.emplace_back(drop.ItemID);
                 }
+            }
+
+            if (!items.empty())
+            {
+                lua_pushinteger(L, tpzrand::GetRandomElement(items));
+                return 1;
             }
         }
     }
 
-    return getStealItem(L);
+    lua_pushinteger(L, 0);
+    return 1;
 }
 
 /************************************************************************

@@ -51,9 +51,10 @@ function onUseAbility(player, target, ability, action)
 
     local stealMod = player:getMod(tpz.mod.STEAL) * 10
 
-    local stealChance = 500 + stealMod * 2 + thfLevel - target:getMainLvl()
+    -- 20% Base chance
+    local stealChance = 200 + stealMod + thfLevel - target:getMainLvl()
 	
-	stealChance = utils.clamp(stealChance, 50, 750) -- Cap at 75% chance
+	stealChance = utils.clamp(stealChance, 50, 450) -- Cap at 45% chance
 
     -- THF JSE quest
     -- Sentient Carafe and Greater Cockatrice

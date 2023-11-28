@@ -14940,6 +14940,7 @@ INSERT INTO `mob_droplist` VALUES (2733,0,0,1000,12864,13);
 INSERT INTO `mob_droplist` VALUES (2733,0,0,1000,12992,13);
 INSERT INTO `mob_droplist` VALUES (2734,0,0,1000,841,50);
 INSERT INTO `mob_droplist` VALUES (2735,2,0,1000,751,0); -- (Yagudo Nokizaru - Castle Oztroja)
+INSERT INTO `mob_droplist` VALUES (2735,4,0,1000,5149,0); -- Sole Sushi(Despoil)
 INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2519,10); -- Yagudo Osode
 INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2520,100); -- Yagudo kote
 INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2566,150); -- Jar of Gnat pellets
@@ -17634,8 +17635,9 @@ INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,17962,100);   -- Fleetwing
 INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,11474,100);   -- Louhi's mask
 INSERT INTO `mob_droplist` VALUES (6100,0,0,1000,846,240); -- (Tsetse Fly) Insect Wing
 INSERT INTO `mob_droplist` VALUES (6101,4,0,1000,838,0);    -- (Spinner - Mamook) Spider Web(Despoil)
+INSERT INTO `mob_droplist` VALUES (6101,4,0,1000,821,0);    -- Rainbow Thread (Despoil)
 INSERT INTO `mob_droplist` VALUES (6101,0,0,1000,838,150);  -- Spider's Web
-INSERT INTO `mob_droplist` VALUES (6101,0,0,1000,9894,5);  -- Spinner Heart
+INSERT INTO `mob_droplist` VALUES (6101,0,0,1000,9894,5);   -- Spinner Heart
 INSERT INTO `mob_droplist` VALUES (6102,0,0,1000,2337,150); -- (Wamoura - Halvung) Clump Of Wamoura Hair
 INSERT INTO `mob_droplist` VALUES (6102,0,0,1000,2338,240); -- Wamoura scale
 INSERT INTO `mob_droplist` VALUES (6102,0,0,1000,9895,5);  -- Wamoura Feeler
