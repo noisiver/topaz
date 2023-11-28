@@ -122,9 +122,9 @@ bool CMagicState::Update(time_point tick)
 
         if (PTarget != nullptr)
         {
-            if (PTarget->objtype == TYPE_PC)
+            if (m_PEntity->objtype == TYPE_MOB && PTarget->objtype == TYPE_PC)
             {
-                // Ibterrupt when player is in a CS
+                // In oterrupt when player is in a CS
                 if (PTarget->status == STATUS_CUTSCENE_ONLY)
                 {
                     m_interrupted = true;
@@ -136,10 +136,7 @@ bool CMagicState::Update(time_point tick)
                 }
                 if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
                 {
-                    if (m_PEntity->objtype == TYPE_MOB)
-                    {
-                        m_interrupted = true;
-                    }
+                    m_interrupted = true;
                 }
             }
         }
