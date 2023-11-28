@@ -972,7 +972,7 @@ function utils.getWeaponStyle(player)
     end
 
 
-    return 'Unknown'
+    return 'H2H'
 end
 
 function utils.GetWeaponType(player)
