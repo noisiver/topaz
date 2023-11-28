@@ -75,7 +75,7 @@ g_mixins.families.aern = function(mob)
     mob:addListener("TAKE_DAMAGE", "AERN_TAKE_DAMAGE", function(mob, damage, attacker, attackType, damageType)
         local Mode = mob:getLocalVar("Mode")
         -- Only track damage while outside of bracelet mode
-        if (mode == 0) then
+        if (Mode == 0) then
             mob:setLocalVar("dmgTaken", mob:getLocalVar("dmgTaken") + damage)
         end
     end)
