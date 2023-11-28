@@ -1664,9 +1664,6 @@ end
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
     stat_down = dot + 10
-    if dot > 30 then
-        stat_down = 39 -- BLU"s cold wave is -39 stat down
-    end
     return stat_down
 end
 

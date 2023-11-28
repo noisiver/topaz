@@ -43,7 +43,7 @@ function onMobWeaponSkill(target, mob, skill)
         else
             local typeEffect = tpz.effect.BURN
             local power = 35
-            MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
+            MobStatusEffectMoveSub(mob, target, typeEffect, power, 3, 60, 0, 33, 0)
         end
     return dmg
 end

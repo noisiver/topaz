@@ -33,8 +33,8 @@ function onMobWeaponSkill(target, mob, skill)
 		MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 50, 0, 30)
 		MobStatusEffectMove(mob, target, tpz.effect.ACCURACY_DOWN, 50, 0, 30)
 		MobStatusEffectMove(mob, target, tpz.effect.EVASION_DOWN, 50, 0, 30)
-		MobStatusEffectMove(mob, target, tpz.effect.RASP, 25, 3, 30)
-
+        local power = 25
+        MobStatusEffectMoveSub(mob, target, tpz.effect.RASP, power, 3, 60, 0, 69, 0)
 
 		local dmgmod = 1.5
         local params_phys = {}

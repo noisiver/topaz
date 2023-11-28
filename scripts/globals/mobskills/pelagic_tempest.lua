@@ -38,7 +38,8 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SHOCK, 28, 3, 90)
+    local power = 28
+    MobPhysicalStatusEffectMoveSub(mob, target, skill, tpz.effect.SHOCK, power, 3, 60, 0, 33, 0)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.TERROR, 1, 0, 45)
     return dmg
 end

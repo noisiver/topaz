@@ -19,7 +19,8 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WATER, dmgmod, TP_MAB_BONUS, 1)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
-    MobStatusEffectMove(mob, target, tpz.effect.DROWN, 15, 3, 300)
+    local power = 33
+    MobStatusEffectMoveSub(mob, target, tpz.effect.DROWN, power, 3, 60, 0, 33, 0)
     MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 76, 0, 300)
     return dmg
 end

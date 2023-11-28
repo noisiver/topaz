@@ -62,7 +62,14 @@ function onSpellCast(caster, target, spell)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     params.effect = tpz.effect.BURN
-    BlueTryEnfeeble(caster, target, spell, 1, 5, 3, 60, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
+    local DOT = 22
+    local duration = 90 * resist
+    local statDown = 47
+    if not target:getStatusEffect(tpz.effect.DROWN) then
+        target:delStatusEffectSilent(tpz.effect.FROST)
+        target:addStatusEffect(params.effect, DOT, 3, duration, 0, statDown, 0)
+    end
 
     return damage
 end
