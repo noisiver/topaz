@@ -1,20 +1,9 @@
-Torando Kick icon on skillchain.lua
-Autoattack TP moves need their own function setting msg to hit_dmg then to shadow absorb if absorbed
-Aern ressing brought it's Wyvern to it's position, make so pets don't setpos for mobs and only players on teleport/CS/etc
+
 WKR:
-NM family stats(i.e bee = +Evasion, trex = +attack)
-Garden Bangles quest (Great Boyahda Moss off Ancient Goobbue and drop off Korrigans)
 Add WKR NM to comments of NM file
 Set weather to double of their element on engage and periodiocally on fighting. Delete when procced
 
-Blocked! message when mobs block/guard(prob parry) you. add to players as well?
-16912545 - 16912547 Xzomit broken
-Baby Xzomits (Monks) correct weapon type (1?) and 50 dmg multi? Just make all babies pets to the mommmy's? mob_pets.sql or w/e
-War Aketon +1 set stats coded?
-Add +BLU Attp% to to Attp % temps(stalwarts)
-Divine Might and Apoc Nigh earrings buffed
-Elemental debuff effects changable and not hard coded functions for mob moves and BLU spells
-Audit despoils to be different from steals
+Torando Kick icon on skillchain.lua
 Shining / Seraph blade icons for tcrossbar
 Give BLM Aspir II at 75
 Give WHM Full Cure, doesn't consume any MP and only usable in Afflatus Solace  edit description DAT
@@ -27,17 +16,12 @@ Fomor / player WS for mobs say "radies xxx move" in onmobskillcheck. maybe can j
 AH to WotG towns
 Missing dynamis set bonuses and stats(DRK AF mostly for stats)
 Code KS99 with custom drops
-Buff New Moon Armlets a lot
 All hydras/khims/cerbs should have no turn like wyrms (Cerbs do but Hydra's and Khims do not)
 Ele WS MACC gear(does the mod exist? add it too if not but it should def exist 99% sure)
 Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
 
-RDM AF+1 should have the super bonuses that were augs from Taza before
-BST and PUP AF+1 also needs stuff
-
 Relic +1 for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
 
-Refactor frost choke etc effects so they can be customized for mob / BLU stat downs
 +5 MACC per AM2 merit so +25 at 5/5(is it coded in magic.lua?)
 Audit hi pot / hi ether / antidote / echo drop prices to be same as shop.lua
 Add effect magian trial weapons require 255+ of venom etc potions relating to their add effect
@@ -86,6 +70,8 @@ Aketon gear mods
 Add way to display obtaning KI / items from chests and coffers player:messageSpecial(ID.text.KEY_ITEM_OBTAINED_CHEST, tpz.ki.PIECE_OF_RIPPED_FLOORPLANS)
 Also try to find a way to chars name as a param
 Line 1473
+Aern ressing brought it's Wyvern to it's position, make so pets don't setpos for mobs and only players on teleport/CS/etc
+
 
 Change all healing items to item:getPower() for power in their scripts
 Legendary rare drops rare and not rare/ex(so tradable)
@@ -170,6 +156,7 @@ Rune Fencer Merits:
 https://github.com/AirSkyBoat/AirSkyBoat/commit/f1c415bb239c9afdc4247eb1b2444433f8671341
 
 DATS:
+Stinking Gas is choke
 Afflatus Misery buffing auspice enspell effect
 Mystic Boon / Asylum and Footwork descriptions
 Noble's / Aristocrat's Tunic rare/ex

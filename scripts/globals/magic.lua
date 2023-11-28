@@ -1305,7 +1305,10 @@ function calculateMagicBurst(caster, spell, target, params)
     end
 
     -- Obtain first multiplier from gear, atma and job traits
-    modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100) + params.AMIIburstBonus
+    modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100) +
+
+    -- BLM AM2 magic burst bonus merits
+    modburst = modburst + (params.AMIIburstBonus / 100)
 
     -- BLM Job Point: Magic Burst Damage
     modburst = modburst + (caster:getJobPointLevel(tpz.jp.MAGIC_BURST_DMG_BONUS) / 100)
@@ -1630,6 +1633,9 @@ function addBonusesAbility(caster, ele, target, dmg, params)
 end
 
 -- get elemental damage reduction
+-- FIREDEF - DARKDEF
+-- Percentage damage reduction to specific Elements
+-- 128 = 128 / 256 = 50% reduction
 function getElementalDamageReduction(target, element)
     local defense = 1
     if (element > 0) then
