@@ -15,6 +15,7 @@ function onTrade(player, npc, trade)
         else
             npcUtil.giveItem(player, tpz.items.HOLY_SHIELD)
         end
+        player:tradeComplete()
     end
 end
 

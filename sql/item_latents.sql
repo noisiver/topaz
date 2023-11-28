@@ -1100,7 +1100,7 @@ INSERT INTO `item_latents` VALUES(14062, 346, 0, 9, 8);
 -- Garden Bangles / Feronia's Bangles
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(14065, 370, 1, 26, 0);    -- Daytime: Regen +1HP/tick
-INSERT INTO `item_latents` VALUES(14066, 370, 1, 26, 0);    -- Daytime: Regen +1HP/tick
+INSERT INTO `item_latents` VALUES(14066, 370, 2, 26, 0);    -- Daytime: Regen +2HP/tick
 
 -- -------------------------------------------------------
 -- Serpentes Sabots
