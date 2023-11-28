@@ -1762,7 +1762,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
         if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE, 0) || PTarget->isSuperJumped)
         {
-            actionTarget.messageID = 32;
+            actionTarget.messageID = MSGBASIC_DODGE;
             actionTarget.reaction = REACTION_EVADE;
             actionTarget.speceffect = SPECEFFECT_NONE;
 
@@ -1778,7 +1778,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             // Check parry.
             if (attack.IsParried())
             {
-                actionTarget.messageID = 70;
+                actionTarget.messageID = MSGBASIC_PARRY;
                 actionTarget.reaction = REACTION_PARRY;
                 actionTarget.speceffect = SPECEFFECT_NONE;
                 battleutils::HandleTacticalParry(PTarget);
@@ -1797,7 +1797,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             {
                 if (attack.IsAnticipated())
                 {
-                    actionTarget.messageID = 30;
+                    actionTarget.messageID = MSGBASIC_ANTICIPATE;
                     actionTarget.reaction = REACTION_EVADE;
                     actionTarget.speceffect = SPECEFFECT_NONE;
                 }
@@ -1955,6 +1955,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 if (attack.IsBlocked())
                 {
                     actionTarget.reaction = REACTION_BLOCK;
+                    actionTarget.messageID = MSGBASIC_SHIELD_BLOCK;
                 }
 
                 // Check damage if the attack actually hit and wasn't absorbed by shadows, countered, parried, etc
@@ -2006,7 +2007,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             // misses the target
             actionTarget.reaction = REACTION_EVADE;
             actionTarget.speceffect = SPECEFFECT_NONE;
-            actionTarget.messageID = 15;
+            actionTarget.messageID = MSGBASIC_MISS;
             attack.SetEvaded(true);
 
             // Check for TP gain on evade mod
