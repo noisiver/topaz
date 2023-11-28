@@ -7,7 +7,7 @@ Lava / Kusha ring
 life belt, pca, emp hairpin, leaping boots, precision bandana, 
 Fidelity/Ardent/Affinity earring, Hauby / Hauberk. SH
 Viking shield / Strider Boots / Tarasque Mitts / Jaded Jody / Genie Gages / Energetic Eruca(Hanzo tekko) / Alkys
-Uggy Pendant / Ungur 
+Uggy Pendant 
 
 Avatars. ENMS. NMs.  Bcnms. Argus. Cheviot cape.
 
@@ -15,6 +15,13 @@ Lohar / Tungi / Pelican Shield / Optical Hat / Diabolos Earring / Rutter Sabaton
 Vampyr Earring / Enhancing Dura Staff Yhoator Tree / Ele WSD neck(Golem) / Buburimu Gorget(?) / Phantom Tathlum
 Swift belt, sea gorgets, sea obis
 Zilart / ToAU augmenting
+
+Soil Gorget:
+Gorget
+Yellow Chip
+Aern Organ x5
+Xzomit Organ x10
+Yovra Organ x1
 
 HNM:
 Behemoth, Vivian(Feiyin Malboro)

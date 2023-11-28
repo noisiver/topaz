@@ -19,11 +19,9 @@ Test: https://github.com/mootowncow/topaz/commit/c366f18473631e2c205684f5d79f0ff
 !addtreasure
 DNC 76+ Flourishes (mainly animation)
 Mob dying mid wyvernn breath from DRG wyvern crashing simple log
-Mystic boon still applies its add effect and won't if miss/evade(PD)
 Convert left over exp if going over exp cap to merit points.
 If merits are capped in merit(Limit) mode, gain experience instead
-Test dispel res trait: https://github.com/mootowncow/topaz/commit/7e53c8dde83abd75061dce47d0b3706223c16a90
-Immunobreak!
+Resist mods properly work with nukes
 
 Retail:
 Stealth job trait
