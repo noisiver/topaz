@@ -169,13 +169,15 @@ INSERT INTO `mob_family_mods` VALUES (180,62,25,0);		-- Marid +25% Attack
 INSERT INTO `mob_family_mods` VALUES (89,62,25,0);		-- Draugar +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (252,62,25,0);		-- Vampyr +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (191,62,25,0);		-- Orobon +25% Attack 
-INSERT INTO `mob_family_mods` VALUES (1,62,25,0);		  -- Acrolith +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (1,62,25,0);		-- Acrolith +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (132,62,25,0);		-- Gnole +25% Attack 
-INSERT INTO `mob_family_mods` VALUES (6,62,25,0);		  -- Amphiptere +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (6,62,25,0);		-- Amphiptere +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (207,62,25,0);		-- Rafflesia +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (211,62,25,0);		-- Ruszor +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (944,62,25,0);		-- WotG Orc +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (945,62,25,0);		-- WotG Orc War Machine +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (461,62,25,0);     -- Gabbrath(Achuka) +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (626,62,25,0);	    -- Gabbrath +25% Attack 
 
 -- Flat Attack Penalty
 INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
@@ -184,19 +186,21 @@ INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
 INSERT INTO `mob_family_mods` VALUES (272,63,20,0);		-- Zdei +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		  -- Adamantoise +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		-- Adamantoise +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (275,63,20,0);		-- Mini-Adamantoise +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (253,63,25,0);	  -- Wamoura +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (254,63,25,0);	  -- Wamouracampa +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (252,63,25,0);	  -- Vampyr +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (191,63,25,0);	  -- Orobon +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (253,63,25,0);	    -- Wamoura +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (254,63,25,0);	    -- Wamouracampa +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (252,63,25,0);	    -- Vampyr +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (191,63,25,0);	    -- Orobon +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (27,63,25,0);		-- Apkallu +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (246,63,25,0);	  -- Troll +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (209,63,25,0);	  -- Rampart +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (246,63,25,0);	    -- Troll +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (209,63,25,0);	    -- Rampart +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (63,63,25,0);	 	-- Chariot +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (180,63,25,0);	  -- Marid +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (180,63,25,0);	    -- Marid +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (211,63,25,0);		-- Ruszor +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (942,63,25,0);		-- WotG Quadav +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (465,63,25,0);		-- Yggreant(Yumcax) +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (628,63,25,0);		-- Yggreant +25% Defense Bonus
 
 -- Defense Penalty
 INSERT INTO `mob_family_mods` VALUES (1,63,-25,0);		-- Acrolith -25% Defense Penalty
@@ -238,8 +242,8 @@ INSERT INTO `mob_family_mods` VALUES (617,68,25,0);		-- Pixie +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (231,68,25,0);		-- Slug +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (943,68,25,0);		-- WotG Yagudo +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (460,68,50,0);		-- Waktza(Hurkan) +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (524,68,50,0);		-- Waktza +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (460,68,25,0);		-- Waktza(Hurkan) +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (524,68,25,0);		-- Waktza +25 Evasion Racial
 
 -- Evasion Penalty
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	    -- Bugbear -10 Evasion
@@ -320,8 +324,18 @@ INSERT INTO `mob_family_mods` VALUES (164,389,-63,0);	-- Hydra  -63%
 INSERT INTO `mob_family_mods` VALUES (168,389,-63,0);	-- Khimaira  -63%
 INSERT INTO `mob_family_mods` VALUES (252,389,-25,0); 	-- Vampyr(NM) -25%
 INSERT INTO `mob_family_mods` VALUES (284,389,-38,0); 	-- Vampyr(NM) -38%
-INSERT INTO `mob_family_mods` VALUES (460,389,35,0);	-- Hurkan +35%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (457,389,20,0);	-- Kumhau +20%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (460,389,35,0);	-- Waktza(Hurkan) +35%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (524,389,35,0);	-- Waktza +35%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (457,389,20,0);	-- Cehuetzi (Kumhau) +20%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (618,389,20,0);	-- Cehuetzi +20%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (461,389,35,0);	-- Gabbrath(Achuka) +35%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (626,389,35,0);	-- Gabbrath +35%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (456,389,-5,0);	-- Bztavian(Colkhab) -5%
+INSERT INTO `mob_family_mods` VALUES (625,389,-5,0);	-- Bztavian -5%
+INSERT INTO `mob_family_mods` VALUES (629,389,35,0);	-- Rockfin(Tchakka) +35%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (452,389,35,0);	-- Rockfin +35%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (465,389,-10,0);	-- Yggdreant(Yumcax) -10%
+INSERT INTO `mob_family_mods` VALUES (628,389,-10,0);	-- Yggdreant -10%
 INSERT INTO `mob_family_mods` VALUES (464,389,-25,0);	-- Snapweed -25%
 
 
@@ -349,6 +363,8 @@ INSERT INTO `mob_family_mods` VALUES (449,29,62,0); 	-- Bahamut +62 MDB
 INSERT INTO `mob_family_mods` VALUES (163,29,29,0); 	-- Hydra +29 MDB
 INSERT INTO `mob_family_mods` VALUES (164,29,29,0); 	-- Hydra +29 MDB
 INSERT INTO `mob_family_mods` VALUES (16,29,250,0); 	-- Animated Weapon(Instrument) +250 MDB
+INSERT INTO `mob_family_mods` VALUES (629,29,50,0); 	-- Rockfin(Tchakka) +50 MDB
+INSERT INTO `mob_family_mods` VALUES (452,29,50,0); 	-- Rockfin +50 MDB
 
 -- MEVA
 INSERT INTO `mob_family_mods` VALUES (99,31,30,0); 	    -- Elemental +30 MEVA
@@ -378,6 +394,8 @@ INSERT INTO `mob_family_mods` VALUES (941,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (943,31,30,0);		-- WotG Yagudo +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (165,31,30,0); 	-- Imp +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (166,31,30,0); 	-- Imp +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (456,31,25,0);		-- Bztavian(Colkhab) +25 MEVA
+INSERT INTO `mob_family_mods` VALUES (625,31,25,0);		-- Bztavian +25 MEVA
 
 
 -- Move Speed
@@ -387,6 +405,8 @@ INSERT INTO `mob_family_mods` VALUES (1,169,-15,0); 	-- Acrolith -15%
 INSERT INTO `mob_family_mods` VALUES (176,165,10,0);    -- Mamool ja +10% Crit
 
 --Crit Reduction
+INSERT INTO `mob_family_mods` VALUES (457,908,25,0);    -- Cehuetzi(Kumhau) -25% critical hit damage taken
+INSERT INTO `mob_family_mods` VALUES (618,908,25,0);    -- Cehuetzi -25% critical hit damage taken
 
 -- -GA Chance
 INSERT INTO `mob_family_mods` VALUES (175,7,50,1);	-- Magic Pot 50% chance to -Ga
