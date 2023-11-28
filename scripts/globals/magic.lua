@@ -2848,7 +2848,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         local SDT = getEnfeeblelSDT(effect, element, target)
         -- 10% chance to Immunobreak
         if caster:isPC() then
-            -- Immunobreak caps at 50 SDT and +40 tiers increase max
+            -- Immunobreak caps at 50 SDT and +4 tiers increase max
             if (SDT > 15 and SDT < 50) then
                 return TryImmunobreak(caster, target, spell, effect, SDT)
             end
