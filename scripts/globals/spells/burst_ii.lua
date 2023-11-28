@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local spellParams = {}
     spellParams.hasMultipleTargetReduction = false
-    spellParams.resistBonus = 0
+    spellParams.resistBonus = caster:getMerit(tpz.merit.BURST_II) * 5
     spellParams.V = 710
     spellParams.V0 = 900
     spellParams.V50 = 1100
@@ -25,8 +25,7 @@ function onSpellCast(caster, target, spell)
     spellParams.M100 = 3.75
     spellParams.M200 = 3
     spellParams.I = 780
-    spellParams.bonusmab = caster:getMerit(tpz.merit.ANCIENT_MAGIC_ATK_BONUS)
-    spellParams.AMIIburstBonus = caster:getMerit(tpz.merit.ANCIENT_MAGIC_BURST_DMG)/100
+    spellParams.AMIIburstBonus = caster:getMerit(tpz.merit.BURST_II) * 3 
 
     -- no point in making a separate function for this if the only thing they won't have in common is the name
     handleNinjutsuDebuff(caster, target, spell, 30, 60, tpz.mod.EARTHRES)

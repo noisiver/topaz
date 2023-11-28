@@ -1305,7 +1305,7 @@ function calculateMagicBurst(caster, spell, target, params)
     end
 
     -- Obtain first multiplier from gear, atma and job traits
-    modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100) +
+    modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100)
 
     -- BLM AM2 magic burst bonus merits
     modburst = modburst + (params.AMIIburstBonus / 100)
