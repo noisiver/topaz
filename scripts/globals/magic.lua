@@ -610,9 +610,9 @@ function applyResistance(caster, target, spell, params)
     if target:isPC() then
         if element ~= nil and element > 0 and element < 9 then
             local eleres = target:getMod(element+53)
-            if  eleres < bonus  and res < 0.5  then
+            if  eleres < params.bonus  and res < 0.5  then
                 res = 0.5
-            elseif eleres > (bonus + 1) and res < 0.25 then
+            elseif eleres > (params.bonus + 1) and res < 0.25 then
                 res = utils.clamp(res, 0.125, 1)
             else
                 res = utils.clamp(res, 0.25, 1)
