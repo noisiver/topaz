@@ -60,10 +60,10 @@ local afArmorPlusOne =
     [ 39] = {trade = {14221, 1944, 1945,  664}, abc = 20, reward = {15568, 1, tpz.augments.CRITHITRATE, 2} }, -- chaos_flanchard_+1
     [ 40] = {trade = {14096, 1944, 1945,  664}, abc = 20, reward = {15359, 1, tpz.augments.INT, 4} }, -- chaos_sollerets_+1
     [ 41] = {trade = {12517, 1946, 1947, 2002}, abc = 30, reward = {15233, 1, 0, 0} }, -- beast_helm_+1
-    [ 42] = {trade = {12646, 1946, 1947, 2003}, abc = 40, reward = {14481, 1, 0, 0} }, -- beast_jackcoat_+1
-    [ 43] = {trade = {13969, 1946, 1947, 2003}, abc = 20, reward = {14898, 1, 0, 0} }, -- beast_gloves_+1
+    [ 42] = {trade = {12646, 1946, 1947, 2003}, abc = 40, reward = {14481, 1, tpz.augments.ATTK, 14, tpz.augments.ACC, 14} }, -- beast_jackcoat_+1
+    [ 43] = {trade = {13969, 1946, 1947, 2003}, abc = 20, reward = {14898, 1, tpz.augments.HASTE, 2} }, -- beast_gloves_+1
     [ 44] = {trade = {14222, 1946, 1947,  848}, abc = 30, reward = {15569, 1, 0, 0} }, -- beast_trousers_+1
-    [ 45] = {trade = {14097, 1946, 1947,  848}, abc = 20, reward = {15360, 1, 0, 0} }, -- beast_gaiters_+1
+    [ 45] = {trade = {14097, 1946, 1947,  848}, abc = 20, reward = {15360, 1, tpz.augments.HASTE, 1} }, -- beast_gaiters_+1
     [ 46] = {trade = {13857, 1948, 1949,  823}, abc = 15, reward = {15234, 1, tpz.augments.SONG_SPELLCASTING_TIME_MINUS, 4} }, -- choral_roundlet_+1
     [ 47] = {trade = {12647, 1948, 1949, 1117}, abc = 40, reward = {14482, 1, tpz.augments.CURE_POTENCY, 9} }, -- choral_justaucorps_+1
     [ 48] = {trade = {13970, 1948, 1949, 1117}, abc = 25, reward = {14899, 1, tpz.augments.SONG_SPELLCASTING_TIME_MINUS, 4} }, -- choral_cuffs_+1

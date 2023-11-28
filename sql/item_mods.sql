@@ -12860,6 +12860,7 @@ INSERT INTO `item_mods` VALUES (14092,5,10);      -- MP +10
 INSERT INTO `item_mods` VALUES (14092,11,3);      -- AGI +3
 INSERT INTO `item_mods` VALUES (14092,27,-1);     -- Enmity -1
 INSERT INTO `item_mods` VALUES (14092,168,20);    -- Spell interruption rate down 20%
+INSERT INTO `item_mods` VALUES (14092,1363,500);  -- Cascade TP Bonus +500
 INSERT INTO `item_mods` VALUES (14093,1,13);
 INSERT INTO `item_mods` VALUES (14093,5,11);
 INSERT INTO `item_mods` VALUES (14093,11,3);
@@ -18051,7 +18052,7 @@ INSERT INTO `item_mods` VALUES (15564,1,27);
 INSERT INTO `item_mods` VALUES (15564,5,19);
 INSERT INTO `item_mods` VALUES (15564,27,-2);
 INSERT INTO `item_mods` VALUES (15564,71,1);
-INSERT INTO `item_mods` VALUES (15564,116,15);
+INSERT INTO `item_mods` VALUES (15564,116,17);
 INSERT INTO `item_mods` VALUES (15565,1,33);
 INSERT INTO `item_mods` VALUES (15565,5,18);
 INSERT INTO `item_mods` VALUES (15565,13,5);

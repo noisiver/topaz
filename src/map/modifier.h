@@ -381,6 +381,7 @@ enum class Mod
     // Black Mage
     CLEAR_MIND                = 295, // Used in conjunction with HEALMP to increase amount between tics
     CONSERVE_MP               = 296, // Percent chance
+    CASCADE_TP_BONUS          = 1362,// Cascade TP Bonus
 
     // Red Mage
     BLINK                     = 299, // Tracks blink shadows
@@ -1044,7 +1045,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1362 NEXT
+    // 1363 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
