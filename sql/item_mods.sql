@@ -4623,7 +4623,7 @@ INSERT INTO `item_mods` VALUES (11389,12,3);
 INSERT INTO `item_mods` VALUES (11389,13,3);
 INSERT INTO `item_mods` VALUES (11389,23,5);
 INSERT INTO `item_mods` VALUES (11390,1,15);      -- Llwyd's Clogs
-INSERT INTO `item_mods` VALUES (11390,838,12);    -- Enhances Regen +1
+INSERT INTO `item_mods` VALUES (11390,838,10);    -- Enhances Regen +10%
 INSERT INTO `item_mods` VALUES (11391,1,18);      -- Emissary Boots
 INSERT INTO `item_mods` VALUES (11391,108,10);
 INSERT INTO `item_mods` VALUES (11391,110,25);
@@ -8423,7 +8423,7 @@ INSERT INTO `item_mods` VALUES (12484,8,1);
 INSERT INTO `item_mods` VALUES (12485,1,6);       -- Fungus Hat
 INSERT INTO `item_mods` VALUES (12485,59,5);
 INSERT INTO `item_mods` VALUES (12485,61,5);
-INSERT INTO `item_mods` VALUES (12485,838,12);  -- Enhances Regen +1
+INSERT INTO `item_mods` VALUES (12485,838,10);  -- Enhances Regen +10%
 INSERT INTO `item_mods` VALUES (12486,2,-15);
 INSERT INTO `item_mods` VALUES (12486,9,3);
 INSERT INTO `item_mods` VALUES (12486,11,3);
@@ -9150,12 +9150,13 @@ INSERT INTO `item_mods` VALUES (12748,1,16);
 INSERT INTO `item_mods` VALUES (12748,298,3);
 INSERT INTO `item_mods` VALUES (12749,1,4);
 INSERT INTO `item_mods` VALUES (12749,68,5);
-INSERT INTO `item_mods` VALUES (12750,1,8);
+INSERT INTO `item_mods` VALUES (12750,1,8);         -- New Moon Armlets
 INSERT INTO `item_mods` VALUES (12750,5,8);
-INSERT INTO `item_mods` VALUES (12751,1,12);    -- Scorpion Gauntlets
+INSERT INTO `item_mods` VALUES (12750,838,10);      -- Enhances Regen Potency +10%
+INSERT INTO `item_mods` VALUES (12751,1,12);        -- Scorpion Gauntlets
 INSERT INTO `item_mods` VALUES (12751,54,5);
 INSERT INTO `item_mods` VALUES (12751,244,2);
-INSERT INTO `item_mods` VALUES (12751,516,2);  -- Converts 2% of damage taken to MP
+INSERT INTO `item_mods` VALUES (12751,516,2);       -- Converts 2% of damage taken to MP
 INSERT INTO `item_mods` VALUES (12752,1,3);
 INSERT INTO `item_mods` VALUES (12752,23,3);
 INSERT INTO `item_mods` VALUES (12753,1,3);
@@ -20224,7 +20225,7 @@ INSERT INTO `item_mods` VALUES (16318,28,2);
 INSERT INTO `item_mods` VALUES (16318,296,2);
 INSERT INTO `item_mods` VALUES (16319,1,35);    -- Sangoma Lappa
 INSERT INTO `item_mods` VALUES (16319,5,30);    -- MP +30
-INSERT INTO `item_mods` VALUES (16319,838,12);  -- Enhances Regen +1
+INSERT INTO `item_mods` VALUES (16319,838,10);  -- Enhances Regen +10%
 INSERT INTO `item_mods` VALUES (16320,1,29);    -- Kensei Sitabaki
 INSERT INTO `item_mods` VALUES (16320,10,15);     -- VIT +15
 INSERT INTO `item_mods` VALUES (16320,23,10);    -- Attack +10
