@@ -64,6 +64,15 @@ local path7 = {
     606, 0, 401,
 }
 
+local path8 = { -- TODO: Needs path
+    501, 0, 501,
+    423, 0, 431,
+    438, 0, 326,
+    500, 0, 340,
+    579, 0, 337,
+    606, 0, 401,
+}
+
 function onPath(mob)
     local mobID = mob:getID()
     if mobID == 16912484 then
@@ -80,6 +89,8 @@ function onPath(mob)
         tpz.path.patrolsimple(mob, path6, tpz.path.flag.RUN)
     elseif mobID == 16912792 then
         tpz.path.patrolsimple(mob, path7, tpz.path.flag.RUN)
+    elseif mobID == 16912545 then -- TODO: Needs path
+        tpz.path.patrolsimple(mob, path8, tpz.path.flag.RUN)
     end
 end
 
