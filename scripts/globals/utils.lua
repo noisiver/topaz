@@ -953,18 +953,22 @@ function utils.getWeaponStyle(player)
     local mainEquip = player:getStorageItem(0, 0, tpz.slot.MAIN)
     local subEquip = player:getStorageItem(0, 0, tpz.slot.SUB)
 
-    if mainEquip:isHandToHand() then
-        return 'H2H'
+    if (mainEquip ~= nil) then
+        if mainEquip:isHandToHand() then
+            return 'H2H'
+        end
+
+        if mainEquip:isTwoHanded() then
+            return '2H'
+        end
     end
 
-    if mainEquip:isTwoHanded() then
-        return '2H'
-    end
-
-    if subEquip == nil or subEquip:getSkillType() == tpz.skill.NONE or subEquip:isShield() then
-        return 'SHIELD'
-    else
-        return 'DW'
+    if (subEquip ~= nil) then
+        if subEquip == nil or subEquip:getSkillType() == tpz.skill.NONE or subEquip:isShield() then
+            return 'SHIELD'
+        else
+            return 'DW'
+        end
     end
 
 
