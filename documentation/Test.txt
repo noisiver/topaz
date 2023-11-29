@@ -22,6 +22,11 @@ Mob dying mid wyvernn breath from DRG wyvern crashing simple log
 https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33f60 - Checked some BLU spells, gates of hades, choke , frost
 BLM AM2's - Magic burst bonus and MACC bonus
 <= 255 mob tp moves msg
+Self targetting nukes/enfeebles for mobs
+Double Weather for WKR on engage, removed when procced, readded once not procced
+Utsusemi working correctly still
+DRK Relic Armor Absorb spells and set bonus
+BCNM Cracked orb message https://gitlab.com/ffxiwings/wings/-/commit/5ac7a62748db3757cac2649f6f11798bcfc90d05
 
 Retail:
 Stealth job trait
