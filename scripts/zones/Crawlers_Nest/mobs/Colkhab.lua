@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Ordelle's Caves
 --  Mob: Colkhab
+-- WKR NM
 -----------------------------------
 local ID = require("scripts/zones/Crawlers_Nest/IDs")
 require("scripts/globals/mobs")
@@ -17,6 +18,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
+     mob:setWeather(tpz.weather.GALES)
      mob:setLocalVar("msgTimer", os.time() + 45)
 end
 
@@ -44,7 +46,10 @@ function onMobFight(mob, target)
     end)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
+        mob:setWeather(tpz.weather.GALES)
         PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to ice damage...", 0xD, none, 30)
+    else
+        mob:setWeather(tpz.weather.NONE)
     end
 end
 

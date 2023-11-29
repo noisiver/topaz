@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Dangruf Wadi
 --  Mob: Hurkan
+-- WKR NM
 -----------------------------------
 local ID = require("scripts/zones/Dangruf_Wadi/IDs")
 require("scripts/globals/mobs")
@@ -17,7 +18,8 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-     mob:setLocalVar("msgTimer", os.time() + 45)
+    mob:setWeather(tpz.weather.THUNDERSTORMS)
+    mob:setLocalVar("msgTimer", os.time() + 45)
 end
 
 function onMobFight(mob, target)
@@ -45,6 +47,9 @@ function onMobFight(mob, target)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
         PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to earth damage...", 0xD, none, 30)
+        mob:setWeather(tpz.weather.THUNDERSTORMS)
+    else
+        mob:setWeather(tpz.weather.NONE)
     end
 end
 
