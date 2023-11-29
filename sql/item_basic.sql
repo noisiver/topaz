@@ -6225,6 +6225,7 @@ INSERT INTO `item_basic` VALUES (6602,0,'omelette_sandwich_+1','om._sand._+1',12
 INSERT INTO `item_basic` VALUES (6603,0,'bottle_of_rolanberry_854','rolanberry_854',12,1548,0,1,0);
 INSERT INTO `item_basic` VALUES (6604,0,'white_rolanberry','wh._rolanberry',12,1548,0,1,0);
 INSERT INTO `item_basic` VALUES (6605,0,'ripe_white_rolanberry','ri._wh._rolan.',12,1548,0,1,0);
+INSERT INTO `item_basic` VALUES (6606,893,'scroll_of_full_cure','full_cure',1,30408,0,1,0);
 INSERT INTO `item_basic` VALUES (8193,0,'harlequin_head','harlequin_head',1,0,0,1,0);
 INSERT INTO `item_basic` VALUES (8194,0,'valoredge_x-900_head','valoredge_head',1,0,0,1,0);
 INSERT INTO `item_basic` VALUES (8195,0,'sharpshot_z-500_head','sharpshot_head',1,0,0,1,0);

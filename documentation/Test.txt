@@ -21,6 +21,7 @@ Mob dying mid wyvernn breath from DRG wyvern crashing simple log
 
 https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33f60 - Checked some BLU spells, gates of hades, choke , frost
 BLM AM2's - Magic burst bonus and MACC bonus
+<= 255 mob tp moves msg
 
 Retail:
 Stealth job trait
