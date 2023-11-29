@@ -1833,14 +1833,15 @@ INSERT INTO `item_mods` VALUES (10676,1,72);
 INSERT INTO `item_mods` VALUES (10676,2,42);
 INSERT INTO `item_mods` VALUES (10676,27,7);
 INSERT INTO `item_mods` VALUES (10676,160,-4);
-INSERT INTO `item_mods` VALUES (10676,965,30);    -- Valor Surcoat +2 - Converts 30% Covered Physical Damage to MP
-INSERT INTO `item_mods` VALUES (10677,1,64);
+INSERT INTO `item_mods` VALUES (10676,965,30);     -- Valor Surcoat +2 - Converts 30% Covered Physical Damage to MP
+INSERT INTO `item_mods` VALUES (10677,1,64);        -- Abyss Cuirass +2
 INSERT INTO `item_mods` VALUES (10677,2,38);
 INSERT INTO `item_mods` VALUES (10677,8,6);
 INSERT INTO `item_mods` VALUES (10677,13,6);
 INSERT INTO `item_mods` VALUES (10677,23,15);
 INSERT INTO `item_mods` VALUES (10677,25,15);
 INSERT INTO `item_mods` VALUES (10677,28,12);
+INSERT INTO `item_mods` VALUES (10677,487,125);     -- Magic Burst Bonus +125
 INSERT INTO `item_mods` VALUES (10678,1,64);
 INSERT INTO `item_mods` VALUES (10678,2,29);
 INSERT INTO `item_mods` VALUES (10678,8,8);
@@ -1951,13 +1952,14 @@ INSERT INTO `item_mods` VALUES (10696,10,8);
 INSERT INTO `item_mods` VALUES (10696,13,8);
 INSERT INTO `item_mods` VALUES (10696,27,6);
 INSERT INTO `item_mods` VALUES (10696,385,12);
-INSERT INTO `item_mods` VALUES (10697,1,26);
+INSERT INTO `item_mods` VALUES (10697,1,26);        -- Abyss Gauntlets +2
 INSERT INTO `item_mods` VALUES (10697,8,6);
 INSERT INTO `item_mods` VALUES (10697,9,6);
 INSERT INTO `item_mods` VALUES (10697,12,10);
 INSERT INTO `item_mods` VALUES (10697,13,10);
 INSERT INTO `item_mods` VALUES (10697,23,6);
 INSERT INTO `item_mods` VALUES (10697,116,9);
+INSERT INTO `item_mods` VALUES (10697,315,15);       -- Drain / Aspir +15
 INSERT INTO `item_mods` VALUES (10698,1,20);
 INSERT INTO `item_mods` VALUES (10698,2,28);
 INSERT INTO `item_mods` VALUES (10698,9,7);
@@ -2069,8 +2071,8 @@ INSERT INTO `item_mods` VALUES (10716,8,7);       -- STR +7
 INSERT INTO `item_mods` VALUES (10716,10,7);      -- VIT +7
 INSERT INTO `item_mods` VALUES (10716,27,6);      -- Enmity +6
 INSERT INTO `item_mods` VALUES (10716,161,-4);    -- Physical damage taken -4%
-INSERT INTO `item_mods` VALUES (10717,1,49);
-INSERT INTO `item_mods` VALUES (10717,2,25);
+INSERT INTO `item_mods` VALUES (10717,1,49);        -- Abyss Flanchard +2
+INSERT INTO `item_mods` VALUES (10717,2,150);       -- HP +150
 INSERT INTO `item_mods` VALUES (10717,5,25);
 INSERT INTO `item_mods` VALUES (10717,8,7);
 INSERT INTO `item_mods` VALUES (10717,13,7);
@@ -2182,9 +2184,10 @@ INSERT INTO `item_mods` VALUES (10736,2,25);
 INSERT INTO `item_mods` VALUES (10736,27,4);
 INSERT INTO `item_mods` VALUES (10736,163,-4);
 INSERT INTO `item_mods` VALUES (10736,837,10);
-INSERT INTO `item_mods` VALUES (10737,1,22);
+INSERT INTO `item_mods` VALUES (10737,1,22);        -- Abyss Sollerets +2
 INSERT INTO `item_mods` VALUES (10737,8,6);
 INSERT INTO `item_mods` VALUES (10737,23,6);
+INSERT INTO `item_mods` VALUES (10737,1347,60);     -- Enfeebling magic duration +60%
 INSERT INTO `item_mods` VALUES (10738,1,18);
 INSERT INTO `item_mods` VALUES (10738,2,18);
 INSERT INTO `item_mods` VALUES (10738,8,7);
@@ -14492,12 +14495,13 @@ INSERT INTO `item_mods` VALUES (14506,1,56);
 INSERT INTO `item_mods` VALUES (14506,2,30);
 INSERT INTO `item_mods` VALUES (14506,9,3);
 INSERT INTO `item_mods` VALUES (14506,27,5);
-INSERT INTO `item_mods` VALUES (14506,965,20);    -- Valor Surcoat +1 - Converts 20% Covered Physical Damage to MP
-INSERT INTO `item_mods` VALUES (14507,1,50);
+INSERT INTO `item_mods` VALUES (14506,965,20);      -- Valor Surcoat +1 - Converts 20% Covered Physical Damage to MP
+INSERT INTO `item_mods` VALUES (14507,1,50);        -- Abyss Cuirass +1
 INSERT INTO `item_mods` VALUES (14507,2,27);
 INSERT INTO `item_mods` VALUES (14507,13,4);
 INSERT INTO `item_mods` VALUES (14507,25,12);
 INSERT INTO `item_mods` VALUES (14507,28,10);
+INSERT INTO `item_mods` VALUES (14507,487,110);     -- Magic Burst Bonus +110
 INSERT INTO `item_mods` VALUES (14508,1,50);
 INSERT INTO `item_mods` VALUES (14508,2,21);
 INSERT INTO `item_mods` VALUES (14508,12,7);
@@ -15780,11 +15784,12 @@ INSERT INTO `item_mods` VALUES (14915,2,16);
 INSERT INTO `item_mods` VALUES (14915,10,6);
 INSERT INTO `item_mods` VALUES (14915,27,4);
 INSERT INTO `item_mods` VALUES (14915,385,10);
-INSERT INTO `item_mods` VALUES (14916,1,21);
+INSERT INTO `item_mods` VALUES (14916,1,21);        -- Abyss Gauntlets +1
 INSERT INTO `item_mods` VALUES (14916,5,20);
 INSERT INTO `item_mods` VALUES (14916,9,5);
 INSERT INTO `item_mods` VALUES (14916,12,9);
 INSERT INTO `item_mods` VALUES (14916,116,7);
+INSERT INTO `item_mods` VALUES (14916,315,12);      -- Drain / Aspir +12
 INSERT INTO `item_mods` VALUES (14917,1,16);
 INSERT INTO `item_mods` VALUES (14917,2,20);
 INSERT INTO `item_mods` VALUES (14917,11,5);
@@ -16418,7 +16423,7 @@ INSERT INTO `item_mods` VALUES (15078,2,18);
 INSERT INTO `item_mods` VALUES (15078,27,3);
 INSERT INTO `item_mods` VALUES (15078,92,15);
 INSERT INTO `item_mods` VALUES (15078,112,10);
-INSERT INTO `item_mods` VALUES (15079,1,27);
+INSERT INTO `item_mods` VALUES (15079,1,27);        -- Abyss Burgeonet
 INSERT INTO `item_mods` VALUES (15079,2,30);
 INSERT INTO `item_mods` VALUES (15079,10,7);
 INSERT INTO `item_mods` VALUES (15079,23,10);
@@ -16489,12 +16494,13 @@ INSERT INTO `item_mods` VALUES (15093,1,55);
 INSERT INTO `item_mods` VALUES (15093,2,23);
 INSERT INTO `item_mods` VALUES (15093,9,3);
 INSERT INTO `item_mods` VALUES (15093,27,4);
-INSERT INTO `item_mods` VALUES (15093,965,20);    -- Valor Surcoat - Converts 20% Covered Physical Damage to MP
-INSERT INTO `item_mods` VALUES (15094,1,49);
+INSERT INTO `item_mods` VALUES (15093,965,20);       -- Valor Surcoat - Converts 20% Covered Physical Damage to MP
+INSERT INTO `item_mods` VALUES (15094,1,49);         -- Abyss Cuirass
 INSERT INTO `item_mods` VALUES (15094,2,20);
 INSERT INTO `item_mods` VALUES (15094,13,4);
 INSERT INTO `item_mods` VALUES (15094,25,10);
 INSERT INTO `item_mods` VALUES (15094,28,10);
+INSERT INTO `item_mods` VALUES (15094,487,100);      -- Magic Burst Bonus +100
 INSERT INTO `item_mods` VALUES (15095,1,49);
 INSERT INTO `item_mods` VALUES (15095,2,21);
 INSERT INTO `item_mods` VALUES (15095,12,6);
@@ -16562,11 +16568,12 @@ INSERT INTO `item_mods` VALUES (15108,2,16);
 INSERT INTO `item_mods` VALUES (15108,10,5);
 INSERT INTO `item_mods` VALUES (15108,27,3);
 INSERT INTO `item_mods` VALUES (15108,385,10);
-INSERT INTO `item_mods` VALUES (15109,1,20);
+INSERT INTO `item_mods` VALUES (15109,1,20);        -- Abyss Gauntlets
 INSERT INTO `item_mods` VALUES (15109,5,20);
 INSERT INTO `item_mods` VALUES (15109,9,5);
 INSERT INTO `item_mods` VALUES (15109,12,8);
 INSERT INTO `item_mods` VALUES (15109,116,5);
+INSERT INTO `item_mods` VALUES (15109,315,10);      -- Drain / Aspir +10
 INSERT INTO `item_mods` VALUES (15110,1,15);
 INSERT INTO `item_mods` VALUES (15110,2,14);
 INSERT INTO `item_mods` VALUES (15110,11,4);
@@ -16630,7 +16637,8 @@ INSERT INTO `item_mods` VALUES (15123,2,20);      -- HP +20
 INSERT INTO `item_mods` VALUES (15123,8,5);       -- STR +5
 INSERT INTO `item_mods` VALUES (15123,27,3);      -- Enmity +3
 INSERT INTO `item_mods` VALUES (15123,168,10);    -- Spell interruption rate down 10%
-INSERT INTO `item_mods` VALUES (15124,1,38);
+INSERT INTO `item_mods` VALUES (15124,1,38);        -- Abyss Flanchard
+INSERT INTO `item_mods` VALUES (15124,2,100);       -- HP +100
 INSERT INTO `item_mods` VALUES (15124,5,18);
 INSERT INTO `item_mods` VALUES (15124,13,5);
 INSERT INTO `item_mods` VALUES (15124,29,5);
@@ -16699,9 +16707,10 @@ INSERT INTO `item_mods` VALUES (15138,2,18);
 INSERT INTO `item_mods` VALUES (15138,13,3);
 INSERT INTO `item_mods` VALUES (15138,27,1);
 INSERT INTO `item_mods` VALUES (15138,837,10);
-INSERT INTO `item_mods` VALUES (15139,1,17);
+INSERT INTO `item_mods` VALUES (15139,1,17);        -- Abyss Sollerets
 INSERT INTO `item_mods` VALUES (15139,5,12);
 INSERT INTO `item_mods` VALUES (15139,114,5);
+INSERT INTO `item_mods` VALUES (15139,1347,50);     -- Enfeebling magic duration +50%
 INSERT INTO `item_mods` VALUES (15140,1,14);
 INSERT INTO `item_mods` VALUES (15140,2,13);
 INSERT INTO `item_mods` VALUES (15140,10,4);
@@ -18173,8 +18182,8 @@ INSERT INTO `item_mods` VALUES (15586,2,20);      -- HP +20
 INSERT INTO `item_mods` VALUES (15586,8,6);       -- STR +6
 INSERT INTO `item_mods` VALUES (15586,27,4);      -- Enmity +4
 INSERT INTO `item_mods` VALUES (15586,168,10);    -- Spell interruption rate down 10%
-INSERT INTO `item_mods` VALUES (15587,1,39);
-INSERT INTO `item_mods` VALUES (15587,2,18);
+INSERT INTO `item_mods` VALUES (15587,1,39);        -- Abyss Flanchard +1
+INSERT INTO `item_mods` VALUES (15587,2,120);       -- HP +120
 INSERT INTO `item_mods` VALUES (15587,5,18);
 INSERT INTO `item_mods` VALUES (15587,13,5);
 INSERT INTO `item_mods` VALUES (15587,29,5);
@@ -18527,10 +18536,11 @@ INSERT INTO `item_mods` VALUES (15671,2,18);
 INSERT INTO `item_mods` VALUES (15671,13,4);
 INSERT INTO `item_mods` VALUES (15671,27,2);
 INSERT INTO `item_mods` VALUES (15671,837,10);
-INSERT INTO `item_mods` VALUES (15672,1,18);
+INSERT INTO `item_mods` VALUES (15672,1,18);        -- Abyss Sollerets +1
 INSERT INTO `item_mods` VALUES (15672,5,12);
 INSERT INTO `item_mods` VALUES (15672,25,2);
 INSERT INTO `item_mods` VALUES (15672,114,5);
+INSERT INTO `item_mods` VALUES (15672,1347,55);     -- Enfeebling magic duration +55%
 INSERT INTO `item_mods` VALUES (15673,1,15);
 INSERT INTO `item_mods` VALUES (15673,2,13);
 INSERT INTO `item_mods` VALUES (15673,10,5);

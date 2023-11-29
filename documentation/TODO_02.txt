@@ -14,10 +14,6 @@ Set weather to double of their element on engage and periodiocally on fighting. 
 Torando Kick icon on skillchain.lua
 Shining / Seraph blade icons for tcrossbar
 Give BLM Aspir II at 75
-Give WHM Full Cure, doesn't consume any MP and only usable in Afflatus Solace  edit description DAT
-Ryumon doesn't work properly due to how utsu adds status effects and you don't get the proper status effect ID for shadows initially
-Change nukes validtaget to same as cure so they can be cast on self for damage for mobs?
-Fomor / player WS for mobs say "radies xxx move" in onmobskillcheck. maybe can just be <= 256 IDs or something?
 !addbuffs gm command that gives basic buffs for testing Haste2 / Temper / Refresh 2 / Protect4 / Shell 4
 !adddebuffs gm command for basic debuffs at a good potency para2 slow2 addle blind etc
 
@@ -31,15 +27,11 @@ Relic +1 for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
 
 Audit hi pot / hi ether / antidote / echo drop prices to be same as shop.lua
 Add effect magian trial weapons require 255+ of venom etc potions relating to their add effect
-Cracked orb from wings
-https://gitlab.com/ffxiwings/wings/-/commit/5ac7a62748db3757cac2649f6f11798bcfc90d05
 
-Enhances "Cascade" effect gear (+TP always to cascade)
 Custom Tres Duendes mob with changing stance
 Add Enlight / Endark to DRK and PLD
 Add !givetemps command
 Arcana Breaker coded?
-JSE necks rare/ex and make sure I didnt accidentally make them all jobs
 Peiste mantle coded
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
@@ -77,14 +69,13 @@ Add way to display obtaning KI / items from chests and coffers player:messageSpe
 Also try to find a way to chars name as a param
 Line 1473
 Aern ressing brought it's Wyvern to it's position, make so pets don't setpos for mobs and only players on teleport/CS/etc
-
+getPetAnimationID() in mobskill.cpp to add new level 75+ BP animations
 
 Change all healing items to item:getPower() for power in their scripts
 Legendary rare drops rare and not rare/ex(so tradable)
 Dullahan TP moves - Atramentous Libations gives mob intimidate
 Yasha Gear mods
 The end of pet list might be where it causes final two IDs to break and its assumes the final two IDs after that is used for something?
-mob:messageBasic(tpz.msg.basic.READIES_WS, 0, skill:getID()) on fomor tp moves also needs to only work on mbos CURRENT TARGET
 Windurst Salad / Taco
 https://ffxiclopedia.fandom.com/wiki/Tuning_In Better rewards by a lot! a godly BIS item for something
 pickNewPosition 3rd arg as "false" for chests/coffers in treasures.lua
@@ -143,7 +134,7 @@ https://ffxiclopedia.fandom.com/wiki/Bataquiche buff
 Ixion
 https://github.com/LandSandBoat/server/commit/97f7529461bd66e58beee287b67cd25387832ad0
 
-Get Sped Stuff:
+Get Speed Stuff:
 https://github.com/LandSandBoat/server/pull/4756
 
 New WS IDs
@@ -170,14 +161,10 @@ Buff Noble's/ Aristocrat's Crown / Mitts / Slacks  / Pumps
 Birdman cape diff stats
 Divine shield HP
 Divine + Holy shield rare/ex
-JSE necks rare/ex
 Beastly Earring pet stats
 ToAU ring buffs
 Aketon change to damage taken not phalanx check others with same type of text
 Oneiros / Mujin items(neo dynamis) lvls
-JSE necks rare/ex (already did in sql)
-Master's Shield rare/ex
-Ninja Nodowa missing a \n before Magic Accuracy
 
 LAC:
 

@@ -584,8 +584,16 @@ bool CMobController::MobSkill(int wsList)
         {
             if (currentDistance <= PMobSkill->getDistance())
             {
+                // Set var for use in monstertpmoves.lua TP scaling
                 int16 tp = PMob->health.tp;
                 PMob->SetLocalVar("tp", tp);
+
+                // Set message for "Player" and Fomor TP moves
+                if (PMobSkill->getID() <= 255)
+                {
+                    PMob->loc.zone->PushPacket(PMob, CHAR_INRANGE, new CMessageBasicPacket(PMob, PTarget, 0, PMobSkill->getID(), MSGBASIC_READIES_WS));
+                }
+
                 return MobSkill(PActionTarget->targid, PMobSkill->getID());
             }
         }

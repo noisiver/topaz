@@ -25,7 +25,7 @@ function onSpellCast(caster, target, spell)
 
     -- Delete old shadows before applying new
     target:delStatusEffectSilent(tpz.effect.COPY_IMAGE)
-    target:addStatusEffectEx(tpz.effect.COPY_IMAGE, icon, 1, 0, 900, 0, numShadows)
+    target:addStatusEffectEx(icon, icon, 1, 0, 900, 0, numShadows)
     spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
 
     return tpz.effect.COPY_IMAGE

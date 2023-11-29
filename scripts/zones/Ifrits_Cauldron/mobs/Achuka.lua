@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Ordelle's Caves
 --  Mob: Colkhab
+-- WKR NM
 -----------------------------------
 local ID = require("scripts/zones/Ifrits_Cauldron/IDs")
 require("scripts/globals/mobs")
@@ -17,7 +18,8 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-     mob:setLocalVar("msgTimer", os.time() + 45)
+    mob:setWeather(tpz.weather.HEAT_WAVE)
+    mob:setLocalVar("msgTimer", os.time() + 45)
 end
 
 function onMobFight(mob, target)
@@ -44,7 +46,10 @@ function onMobFight(mob, target)
     end)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
+        mob:setWeather(tpz.weather.HEAT_WAVE)
         PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to ice damage...", 0xD, none, 30)
+    else
+        mob:setWeather(tpz.weather.NONE)
     end
 end
 

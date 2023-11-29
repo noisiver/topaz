@@ -98,7 +98,8 @@ enum MSGBASIC_ID : uint16
     MSGBASIC_SELF_HEAL              = 238, // Healing mob TP move. 
     MSGBASIC_SKILL_ENFEEB_IS        = 242, // Enfeebling mob TP move. 
     MSGBASIC_SKILL_MISS             = 188, // Mob TP move miss / resist message. 
-	// Weaponskills 
+	// Weaponskills
+    MSGBASIC_READIES_WS             = 43,  // ${actor} readies ${weapon_skill}.
     MSGBASIC_UNABLE_TO_USE_WS       = 89,  // Unable to use weaponskill. 
 	MSGBASIC_CANNOT_USE_WS			= 190, // The <player> cannot use that weapon ability. 
     MSGBASIC_CANNOT_USE_ANY_WS      = 191, // The <player> is unable to use weapon skills. 

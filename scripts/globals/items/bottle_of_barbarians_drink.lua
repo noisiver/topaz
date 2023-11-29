@@ -15,7 +15,7 @@ function onItemUse(target)
     local power = 50
     local duration = 60
 
-    if (target:addStatusEffect(effect, power, 0, duration)) then
+    if (target:addStatusEffect(effect, power, 0, duration, 0 power, 0)) then
         target:messagePublic(tpz.msg.basic.GAINS_EFFECT_OF_ITEM, target, effect, effect)
     else
         target:messagePublic(tpz.msg.basic.NO_EFFECT, target, effect)

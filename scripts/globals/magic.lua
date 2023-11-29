@@ -1314,8 +1314,11 @@ function calculateMagicBurst(caster, spell, target, params)
     modburst = modburst + (caster:getJobPointLevel(tpz.jp.MAGIC_BURST_DMG_BONUS) / 100)
 
     -- Cap bonuses from first multiplier at 40% or 1.4
-    if (modburst > 1.4) then
-        modburst = 1.4
+    -- No cap for DRK main
+    if (caster:getMainJob() ~= tpz.job.DRK) then
+        if (modburst > 1.4) then
+            modburst = 1.4
+        end
     end
 
     -- Innin adds +30 Magic Burst bonus that bypasses the 40 cap
@@ -3071,6 +3074,20 @@ function calculateDurationForLvl(duration, spellLvl, targetLvl)
     end
 
     return duration
+end
+
+function HandleDrkRelicHelm(caster)
+	local helm = caster:getEquipID(tpz.slot.HEAD)
+    local recover = 0
+	if (helm == tpz.items.ABYSS_BURGEONET) then
+        recover = 250
+	elseif (helm == tpz.items.ABYSS_BURGEONET_HQ) then
+        recover = 260
+	elseif (helm == tpz.items.ABYSS_BURGEONET_HQ2) then
+        recover = 260
+	end
+
+    caster:addHP(recover)
 end
 
 function calculateDuration(duration, magicSkill, spellGroup, caster, target, useComposure)

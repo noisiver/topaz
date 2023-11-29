@@ -30,6 +30,7 @@ function onSpellCast(caster, target, spell)
 
     if (resist >= 0.5) then
         spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_MND)
+        HandleDrkRelicHelm(caster)
         caster:delStatusEffectSilent(tpz.effect.MND_BOOST)
         target:delStatusEffectSilent(tpz.effect.MND_DOWN)
 	    caster:addStatusEffect(tpz.effect.MND_BOOST, power, tick, duration) -- caster gains ACC
