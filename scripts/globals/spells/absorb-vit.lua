@@ -30,6 +30,7 @@ function onSpellCast(caster, target, spell)
 
     if (resist >= 0.5) then
         spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_VIT)
+        HandleDrkRelicHelm(caster)
         caster:delStatusEffectSilent(tpz.effect.VIT_BOOST)
         target:delStatusEffectSilent(tpz.effect.VIT_DOWN)
 	    caster:addStatusEffect(tpz.effect.VIT_BOOST, power, tick, duration) -- caster gains ACC
