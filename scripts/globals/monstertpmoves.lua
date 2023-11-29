@@ -1406,6 +1406,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		else
+            mob:resetEnmity(target)
         	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
 			mob:charm(target)
 			target:costume(costume)
