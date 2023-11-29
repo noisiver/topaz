@@ -76,11 +76,6 @@ CItemState::CItemState(CCharEntity* PEntity, uint16 targid, uint8 loc, uint8 slo
         throw CStateInitException(std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_ITEM_UNABLE_TO_USE_2));
     }
 
-    if (PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_MUDDLE))
-    {
-        throw CStateInitException(std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_ITEM_CANNOT_USE));
-    }
-
     auto PTarget = m_PEntity->IsValidTarget(targid, m_PItem->getValidTarget(), m_errorMsg);
 
     if (!PTarget || m_errorMsg)

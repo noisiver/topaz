@@ -236,6 +236,11 @@ bool CPlayerController::UseItem(uint16 targid, uint8 loc, uint8 slotid)
     auto PChar = static_cast<CCharEntity*>(POwner);
     if (PChar->PAI->CanChangeState())
     {
+        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_MUDDLE))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_ITEM_CANNOT_USE));
+            return false;
+        }
         return PChar->PAI->Internal_UseItem(targid, loc, slotid);
     }
     return false;
