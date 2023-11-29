@@ -612,14 +612,14 @@ function applyResistance(caster, target, spell, params)
             local eleres = target:getMod(element+53)
             if eleres < params.bonus and res < 0.5 then
                 res = 0.5
-            elseif eleres > (params.bonus + 1) and res < 0.25 then
+            elseif eleres > params.bonus and res < 0.25 then
                 res = utils.clamp(res, 0.125, 1)
             else
                 res = utils.clamp(res, 0.25, 1)
             end
         end
     end
-    -- print(string.format("res was %f",res))
+    -- print(string.format("res after was %f",res))
     
     return res
 end
@@ -774,7 +774,7 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
             local eleres = target:getMod(element+53)
             if eleres < bonus and res < 0.5 then
                 res = 0.5
-            elseif eleres > (bonus + 1) and res < 0.25 then
+            elseif eleres > bonus and res < 0.25 then
                 res = utils.clamp(res, 0.125, 1)
             else
                 res = utils.clamp(res, 0.25, 1)

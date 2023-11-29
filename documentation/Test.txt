@@ -12,22 +12,14 @@ Endispel message(mobs)
 UpdateForCure() or w/e for mob tp move healing work properly? correct target args?
 Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
 !setmod PHANTOM_ROLL 1 2 and 3 working properly
-Manawall remove negative effects
 Auspice do light damage now?
 Fomor level up and touchdown still crash simple log?
 https://github.com/mootowncow/topaz/commit/c366f18473631e2c205684f5d79f0ffe6ad3b74f
 !addtreasure
 DNC 76+ Flourishes (mainly animation)
 Mob dying mid wyvernn breath from DRG wyvern crashing simple log
-Convert left over exp if going over exp cap to merit points.
-If merits are capped in merit(Limit) mode, gain experience instead
-Resist mods properly work with nukes (Divine magic too)
-Test MobAutoAttackMoveMsg
-16912545 needs path (Xzomit mom #8)
-Temps with attack %(Bararians, stalwarts) and berserk blu attp only at 26%+ to BLU only
-https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33f60
-Despoil / Steal working and picking random item if multiple in a single db entry
-Block messages player and mob auto-attacks (With and without simplelog)
+
+https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33f60 - Checked some BLU spells, gates of hades, choke , frost
 BLM AM2's - Magic burst bonus and MACC bonus
 
 Retail:

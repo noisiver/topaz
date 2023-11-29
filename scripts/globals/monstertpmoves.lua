@@ -1621,8 +1621,12 @@ function MobAllStatDownMovePhysical(mob, target, skill, power, duration)
 end
 
 function MobAutoAttackMoveMsg(skill)
-    if skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB then
-        skill:setMsg(tpz.msg.basic.HIT_DMG)
+    if skill:getMsg() == tpz.msg.basic.SHADOW_ABSORB then
+        return
+    elseif skill:hasMissMsg() then
+        return skill:setMsg(tpz.msg.basic.EVADES)
+    else
+        return skill:setMsg(tpz.msg.basic.HIT_DMG)
     end
 end
 

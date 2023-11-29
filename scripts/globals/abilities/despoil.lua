@@ -36,8 +36,8 @@ end
 function onUseAbility(player, target, ability, action)
     local level = player:getMainLvl() -- Can only reach THF77 as main job
     local despoilMod = player:getMod(tpz.mod.DESPOIL)
-    -- 20% base chance
-    local despoilChance = 20 + despoilMod + level - target:getMainLvl() -- Same math as Steal
+    -- 50% base chance
+    local despoilChance = 50 + despoilMod + level - target:getMainLvl() -- Same math as Steal
 
     despoilChance = utils.clamp(despoilChance, 5, 50) -- Cap at 45% chance
 

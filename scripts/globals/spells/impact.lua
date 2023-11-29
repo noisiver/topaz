@@ -20,7 +20,7 @@ function onSpellCast(caster, target, spell)
     params.effect = nil
     params.hasMultipleTargetReduction = false
     params.multiplier = 2.335
-    params.resistBonus = 1.0
+    params.resistBonus = 0
     params.skillType = 37
     params.skillType = tpz.skill.ELEMENTAL_MAGIC
 

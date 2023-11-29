@@ -51,8 +51,8 @@ function onUseAbility(player, target, ability, action)
 
     local stealMod = player:getMod(tpz.mod.STEAL) * 10
 
-    -- 20% Base chance
-    local stealChance = 200 + stealMod + thfLevel - target:getMainLvl()
+    -- 50% Base chance
+    local stealChance = 500 + stealMod + thfLevel - target:getMainLvl()
 	
 	stealChance = utils.clamp(stealChance, 50, 450) -- Cap at 45% chance
 

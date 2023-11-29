@@ -16,7 +16,7 @@ function onSpellCast(caster, target, spell)
     params.dmg = 198
     params.multiplier = 1.5
     params.hasMultipleTargetReduction = false
-    params.resistBonus = 1.0
+    params.resistBonus = 0
     dmg = doDivineBanishNuke(caster, target, spell, params)
     return dmg
 end
@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
     params.dmg = 198
     params.multiplier = 1.5
     params.hasMultipleTargetReduction = false
-    params.resistBonus = 1.0
+    params.resistBonus = 0
     dmg = doDivineBanishNuke(caster, target, spell, params)
     local resist = applyResistance(caster, target, spell, params)
     local spdefdown = 95

@@ -22,6 +22,7 @@ function onPath(mob)
     local MotherSix = GetMobByID(16912449)
     local MotherSeven = GetMobByID(16912455)
     local MotherEight = GetMobByID(16912468)
+    local MotherNine = GetMobByID(16912545)
 	local mobId = mob:getID()
 	switch (mobId): caseof {
 		[16912395] = function() mob:pathTo(MotherOne:getXPos(), MotherOne:getYPos(), MotherOne:getZPos()) end,
@@ -47,6 +48,9 @@ function onPath(mob)
 		
 		[16912469] = function() mob:pathTo(MotherEight:getXPos(), MotherEight:getYPos(), MotherEight:getZPos()) end,
 		[16912470] = function() mob:pathTo(MotherEight:getXPos(), MotherEight:getYPos(), MotherEight:getZPos()) end,
+
+		[16912546] = function() mob:pathTo(MotherSeven:getXPos(), MotherSeven:getYPos(), MotherSeven:getZPos()) end,
+		[16912547] = function() mob:pathTo(MotherSeven:getXPos(), MotherSeven:getYPos(), MotherSeven:getZPos()) end,
 	}
 end
 

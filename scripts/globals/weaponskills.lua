@@ -1526,7 +1526,7 @@ function handleWSGorgetBelt(attacker)
                 then
                     accBonus = accBonus + 10
                     ftpBonus = ftpBonus + 0.1
-                    attacker:PrintToPlayer("Your elemental gorget was active for this weapon skill!")
+                    -- attacker:PrintToPlayer("Your elemental gorget was active for this weapon skill!")
                 end
 
                 break

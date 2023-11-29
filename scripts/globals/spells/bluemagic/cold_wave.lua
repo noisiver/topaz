@@ -14,7 +14,7 @@
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
-require("scripts/globals/magic")
+require("scripts/globals/bluemagic")
 require("scripts/globals/msg")
 -----------------------------------------
 
@@ -34,12 +34,13 @@ function onSpellCast(caster, target, spell)
     params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 0)
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if not target:getStatusEffect(tpz.effect.BURN) then
+    if target:getStatusEffect(tpz.effect.BURN) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     elseif (resist >= 0.5) then
         target:delStatusEffectSilent(tpz.effect.CHOKE)
         local DOT = (caster:getMainLvl()  / 5) +3
-        local statDown = math.floor(player:getMainLvl() / 2)
+        local statDown = math.floor(caster:getMainLvl() / 2)
+        statDown = utils.clamp(statDown, 1, 49)
         local effect = target:getStatusEffect(typeEffect)
         local noeffect = false
         if (effect ~= nil) then

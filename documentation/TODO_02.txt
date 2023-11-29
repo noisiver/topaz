@@ -1,4 +1,10 @@
-
+Charm should reset hate on that target
+Yovra pools immune to para
+Use subpower to track BLU_ATTP on attack_boost effect
+Mana Wall should be usable while hasPreventActionEffect / stun / terror / sleep
+Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
+Xzomit babies onvert all to pets tbh
+Add decay to frost choke etc if tick is > 0
 WKR:
 Add WKR NM to comments of NM file
 Set weather to double of their element on engage and periodiocally on fighting. Delete when procced
@@ -22,7 +28,6 @@ Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl
 
 Relic +1 for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
 
-+5 MACC per AM2 merit so +25 at 5/5(is it coded in magic.lua?)
 Audit hi pot / hi ether / antidote / echo drop prices to be same as shop.lua
 Add effect magian trial weapons require 255+ of venom etc potions relating to their add effect
 Cracked orb from wings
