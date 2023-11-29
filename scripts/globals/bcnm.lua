@@ -4,6 +4,7 @@ require("scripts/globals/missions")
 require("scripts/globals/quests")
 require("scripts/globals/status")
 require("scripts/globals/zone")
+require("scripts/globals/msg")
 
 -----------------------------------------------
 -- battlefields by zone
@@ -946,6 +947,21 @@ function getItemById(player, bfid)
 end
 
 -----------------------------------------------
+-- get offset for orb related messages
+-----------------------------------------------
+
+function GetCrackedMessage(player, option)
+    local zoneId = player:getZoneID()
+    local text = zones[zoneId].text
+    local base = text.ORB_MESSAGE_OFFSET
+    if base == nil then
+        return nil
+    end
+    return base + option
+end
+
+
+-----------------------------------------------
 -- onTrade Action
 -----------------------------------------------
 
@@ -963,7 +979,13 @@ function TradeBCNM(player, npc, trade, onUpdate)
         if itemId == nil or itemId < 1 or itemId > 65535 or trade:getItemCount() ~= 1 or trade:getSlotQty(0) ~= 1 then
             return false
         elseif player:hasWornItem(itemId) then
-            player:messageBasic(56, 0, 0) -- Unable to use item.
+            local wornmessage = GetCrackedMessage(player, 0)
+            if wornmessage ~= nil then
+                player:messageSpecial(wornmessage, 0, 0, 0, itemId)
+            else
+                player:messageBasic(tpz.msg.basic.ITEM_UNABLE_TO_USE_2, 0, 0)
+            end
+
             return false
         end
     end
@@ -1106,6 +1128,10 @@ function EventUpdateBCNM(player, csid, option, extras)
                     -- set other traded item to worn
                     elseif player:hasItem(item) and player:getName() == initiatorName then
                         player:createWornItem(item)
+                        local wornmessage = GetCrackedMessage(player, 1)
+                        if wornmessage ~= nil then
+                            player:messageSpecial(wornmessage, 0, 0, 0, item)
+                        end
                     end
                 end
 
