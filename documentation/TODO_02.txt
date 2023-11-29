@@ -6,6 +6,7 @@ Mana Wall should be usable while hasPreventActionEffect / stun / terror / sleep
 Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
 Xzomit babies onvert all to pets tbh
 Add decay to frost choke etc if tick is > 0
+Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
 WKR:
 Add WKR NM to comments of NM file
 Set weather to double of their element on engage and periodiocally on fighting. Delete when procced
@@ -25,7 +26,6 @@ Missing dynamis set bonuses and stats(DRK AF mostly for stats)
 Code KS99 with custom drops
 All hydras/khims/cerbs should have no turn like wyrms (Cerbs do but Hydra's and Khims do not)
 Ele WS MACC gear(does the mod exist? add it too if not but it should def exist 99% sure)
-Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
 
 Relic +1 for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
 
