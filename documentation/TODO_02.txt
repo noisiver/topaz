@@ -1,6 +1,7 @@
 Charm should reset hate on that target
 Yovra pools immune to para
 Use subpower to track BLU_ATTP on attack_boost effect
+Buff Sea torques / capes skill increases
 Mana Wall should be usable while hasPreventActionEffect / stun / terror / sleep
 Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
 Xzomit babies onvert all to pets tbh
