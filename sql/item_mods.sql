@@ -17830,18 +17830,18 @@ INSERT INTO `item_mods` VALUES (15469,23,6);
 INSERT INTO `item_mods` VALUES (15470,1,2);
 INSERT INTO `item_mods` VALUES (15470,29,2);
 INSERT INTO `item_mods` VALUES (15470,30,1);
-INSERT INTO `item_mods` VALUES (15471,5,25);
-INSERT INTO `item_mods` VALUES (15471,113,5);
-INSERT INTO `item_mods` VALUES (15471,115,5);
-INSERT INTO `item_mods` VALUES (15471,116,5);
-INSERT INTO `item_mods` VALUES (15472,5,25);
-INSERT INTO `item_mods` VALUES (15472,111,5);
-INSERT INTO `item_mods` VALUES (15472,112,5);
-INSERT INTO `item_mods` VALUES (15472,114,5);
-INSERT INTO `item_mods` VALUES (15473,5,25);
-INSERT INTO `item_mods` VALUES (15473,117,5);
-INSERT INTO `item_mods` VALUES (15473,118,5);
-INSERT INTO `item_mods` VALUES (15473,119,5);
+INSERT INTO `item_mods` VALUES (15471,5,25);        -- Merciful Cape
+INSERT INTO `item_mods` VALUES (15471,113,10);
+INSERT INTO `item_mods` VALUES (15471,115,10);
+INSERT INTO `item_mods` VALUES (15471,116,10);
+INSERT INTO `item_mods` VALUES (15472,5,25);        -- Altruistic Cape
+INSERT INTO `item_mods` VALUES (15472,111,10);
+INSERT INTO `item_mods` VALUES (15472,112,10);
+INSERT INTO `item_mods` VALUES (15472,114,10);
+INSERT INTO `item_mods` VALUES (15473,5,25);        -- Astute Cape
+INSERT INTO `item_mods` VALUES (15473,117,10);
+INSERT INTO `item_mods` VALUES (15473,118,10);
+INSERT INTO `item_mods` VALUES (15473,119,10);
 INSERT INTO `item_mods` VALUES (15474,1,6);
 INSERT INTO `item_mods` VALUES (15474,60,10);
 INSERT INTO `item_mods` VALUES (15474,833,3);
@@ -17922,27 +17922,27 @@ INSERT INTO `item_mods` VALUES (15504,2,20);
 INSERT INTO `item_mods` VALUES (15505,68,3);
 INSERT INTO `item_mods` VALUES (15506,1,5);
 INSERT INTO `item_mods` VALUES (15506,5,10);
-INSERT INTO `item_mods` VALUES (15508,8,5);
-INSERT INTO `item_mods` VALUES (15508,86,7);
-INSERT INTO `item_mods` VALUES (15508,89,7);
+INSERT INTO `item_mods` VALUES (15508,8,5);     -- Justice Torque
+INSERT INTO `item_mods` VALUES (15508,86,12);
+INSERT INTO `item_mods` VALUES (15508,89,12);
 INSERT INTO `item_mods` VALUES (15509,11,5);
 INSERT INTO `item_mods` VALUES (15509,88,7);
 INSERT INTO `item_mods` VALUES (15509,104,7);
-INSERT INTO `item_mods` VALUES (15510,12,5);
-INSERT INTO `item_mods` VALUES (15510,83,7);
-INSERT INTO `item_mods` VALUES (15510,90,7);
-INSERT INTO `item_mods` VALUES (15511,10,5);
-INSERT INTO `item_mods` VALUES (15511,82,7);
-INSERT INTO `item_mods` VALUES (15511,85,7);
-INSERT INTO `item_mods` VALUES (15512,13,5);
-INSERT INTO `item_mods` VALUES (15512,80,7);
-INSERT INTO `item_mods` VALUES (15512,105,7);
-INSERT INTO `item_mods` VALUES (15513,14,5);        -- Temperance Torque: CHR+5
-INSERT INTO `item_mods` VALUES (15513,84,7);        -- Axe Skill +7
-INSERT INTO `item_mods` VALUES (15513,109,7);       -- Shield Skill +7
-INSERT INTO `item_mods` VALUES (15514,9,5);
-INSERT INTO `item_mods` VALUES (15514,81,7);
-INSERT INTO `item_mods` VALUES (15514,87,7);
+INSERT INTO `item_mods` VALUES (15510,12,5);        -- Prudence Torque
+INSERT INTO `item_mods` VALUES (15510,83,12);
+INSERT INTO `item_mods` VALUES (15510,90,12);
+INSERT INTO `item_mods` VALUES (15511,10,5);        -- Fortitude Torque
+INSERT INTO `item_mods` VALUES (15511,82,12);
+INSERT INTO `item_mods` VALUES (15511,85,12);
+INSERT INTO `item_mods` VALUES (15512,13,5);        -- Faith Torque
+INSERT INTO `item_mods` VALUES (15512,80,12);
+INSERT INTO `item_mods` VALUES (15512,105,12);
+INSERT INTO `item_mods` VALUES (15513,14,5);         -- Temperance Torque: CHR+5
+INSERT INTO `item_mods` VALUES (15513,84,12);        -- Axe Skill +12
+INSERT INTO `item_mods` VALUES (15513,109,12);       -- Shield Skill +12
+INSERT INTO `item_mods` VALUES (15514,9,5);         -- Love Torque
+INSERT INTO `item_mods` VALUES (15514,81,12);
+INSERT INTO `item_mods` VALUES (15514,87,12);
 INSERT INTO `item_mods` VALUES (15515,25,10);
 INSERT INTO `item_mods` VALUES (15515,26,10);
 INSERT INTO `item_mods` VALUES (15515,61,-10);
