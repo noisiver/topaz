@@ -4321,43 +4321,21 @@ namespace charutils
             exp = expRemaining;
         }
 
-        //printf("Experience before level penalty %i\n", exp);
-        // Check for level restriction(COP level capped zones)
-        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_RESTRICTION))
-        {
-            // Reduce experience if the players job is higher level than the level cap restriction
-            if (PChar->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_RESTRICTION)->GetPower() < PChar->jobs.job[PChar->GetMJob()])
-            {
-                exp = (int32)(exp * 0.10f);
-                //printf("Experience after level penalty %i\n", exp);
-            }
-        }
-
-        // Add experience or limit points
-        if (onLimitMode)
-        {
-            // add limit points
-            if (PChar->PMeritPoints->AddLimitPoints(exp))
-            {
-                PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PMob, PChar->PMeritPoints->GetMeritPoints(), 0, 50));
-            }
-            else // If merits are capped, add experience instead
-            {
-                // limit mode is false, add normal exp
-                onLimitMode = false;
-                PChar->jobs.exp[PChar->GetMJob()] += exp;
-            }
-        }
-        else
-        {
-            // add normal exp
-            PChar->jobs.exp[PChar->GetMJob()] += exp;
-        }
 
         // exp added from raise shouldn't display a message. Don't need a message for zero exp either
         if (!expFromRaise && exp > 0)
         {
-
+            //printf("Experience before level penalty %i\n", exp);
+            // Check for level restriction(COP level capped zones)
+            if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_RESTRICTION))
+            {
+                // Reduce experience if the players job is higher level than the level cap restriction
+                if (PChar->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_RESTRICTION)->GetPower() < PChar->jobs.job[PChar->GetMJob()])
+                {
+                    exp = (int32)(exp * 0.10f);
+                    //printf("Experience after level penalty %i\n", exp);
+                }
+            }
             if (mobCheck >= EMobDifficulty::EvenMatch && isexpchain)
             {
                 if (PChar->expChain.chainNumber != 0)
@@ -4387,6 +4365,25 @@ namespace charutils
                 else
                     PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, exp, 0, 8));
             }
+        }
+
+        if (onLimitMode)
+        {
+            //add limit points
+            if (PChar->PMeritPoints->AddLimitPoints(exp))
+            {
+                PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PMob, PChar->PMeritPoints->GetMeritPoints(), 0, 50));
+            }
+            else // If merits are capped, add experience instead
+            {
+                // add normal exp
+                PChar->jobs.exp[PChar->GetMJob()] += exp;
+            }
+        }
+        else
+        {
+            //add normal exp
+            PChar->jobs.exp[PChar->GetMJob()] += exp;
         }
 
         if (!expFromRaise)
