@@ -95,6 +95,9 @@ ECO_NONE = 0 -- beastmen or other ecosystems that have no strength/weaknesses
 --      .agi_wsc - Same as above.
 --      .guaranteedCrit - 100% crit rate
 function BluePhysicalSpell(caster, target, spell, params, tp)
+    -- Reset message incase the spell is AOE and misses one of it's targets
+    spell:setMsg(tpz.msg.basic.MAGIC_DMG)
+
     -- store related values
     local magicskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -- skill + merits + equip bonuses
     local isRanged = params.attackType == tpz.attackType.RANGED
