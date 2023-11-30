@@ -996,7 +996,7 @@ namespace petutils
             case PETID_THUNDERSPIRIT:
                 break;
             case PETID_WATERSPIRIT:
-                PPet->m_Element = 0; // Water ie 0 ElementID for some reason
+                PPet->m_Element = 0; // Water is 0 ElementID for some reason
                 break;
             case PETID_LIGHTSPIRIT:
                 PPet->SetMJob(JOB_WHM);
@@ -1032,7 +1032,7 @@ namespace petutils
             case PETID_LEVIATHAN:
                 PPet->addModifier(Mod::ENMITY, 30);
                 PPet->addModifier(Mod::UDMGMAGIC, -50);
-                PPet->m_Element = 0; // Water ie 0 ElementID for some reason
+                PPet->m_Element = 0; // Water is 0 ElementID for some reason
                 break;
             case PETID_GARUDA:
                 PPet->addModifier(Mod::EVA, 50);

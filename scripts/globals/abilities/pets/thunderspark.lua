@@ -5,7 +5,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/summon")
 require("scripts/globals/magic")
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 
 ---------------------------------------------------
 

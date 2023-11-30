@@ -2,7 +2,7 @@
 -- Hastega
 -- Grants 30% haste and 25% quickening effect to allies in range.
 ---------------------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")

@@ -3,7 +3,7 @@
 -- Grants allies in range Aquaveil(4 charges) and 3/tick Refresh
 -- Aquaveil duration 15 minutes, Refresh 3 minutes.
 ---------------------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")

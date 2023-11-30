@@ -1,7 +1,7 @@
 -----------------------------------------
 -- Sleepga
 -----------------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")

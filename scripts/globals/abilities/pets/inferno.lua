@@ -3,9 +3,8 @@
 ---------------------------------------------------
 require("/scripts/globals/settings")
 require("/scripts/globals/status")
-require("/scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("/scripts/globals/magic")
-
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)

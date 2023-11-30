@@ -2,7 +2,7 @@
 -- Crimson Howl
 -- Attack Boost = floor( (Summoner Level ÷ 4) + 4.75 ) ÷ 256
 ---------------------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")
