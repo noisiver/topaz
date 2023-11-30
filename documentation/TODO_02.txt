@@ -1,15 +1,19 @@
-Charm should reset hate on that target
-Yovra pools immune to para
-Use subpower to track BLU_ATTP on attack_boost effect
 Buff Sea torques / capes skill increases
-Mana Wall should be usable while hasPreventActionEffect / stun / terror / sleep
 Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
 Xzomit babies onvert all to pets tbh
-Add decay to frost choke etc if tick is > 0
 Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
-WKR:
-Add WKR NM to comments of NM file
-Set weather to double of their element on engage and periodiocally on fighting. Delete when procced
+The items to upgrade inventory 60-80 that come from login campaign only(?) drop from tiamat jorm vtra? or vagary NMs
+Make LoadInventory() or w/e in charutils (on zoning) not move inventory around
+Negative resist check needs to be < bonus in 3 places
+Simplelog shouldn't say "No Effect" for "Failed to take effect" BLU spells. msgID 114
+Reduce pirates spawn chance
+Boat docking soon custom msgparty() functions or w/e. is ok, add a ton and say which line for each one and prints in each one
+
+SetSelfTargetSpell() or w/e will work if add spell:settarget to 1 or w/e for all nukes in magic.lua at start of trying
+to do a nuke
+
+BLU AOE spells say "no effect" on every target if main target is missed. add a spell:getPrimaryTargetID() check for MAGIC_FAIL then
+MAGIC_DMG for other targets
 
 Torando Kick icon on skillchain.lua
 Shining / Seraph blade icons for tcrossbar
