@@ -4312,16 +4312,6 @@ namespace charutils
         if (PChar->jobs.job[PChar->GetMJob()] > 74 && PChar->jobs.job[PChar->GetMJob()] >= PChar->jobs.genkai && PChar->jobs.exp[PChar->GetMJob()] == GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]) - 1)
             onLimitMode = true;
 
-        // Split large chunk of xp gain to catch edge conditions like capping xp and moving to limit point mode
-        uint32 expLeftover = 0;
-        uint32 expRemaining = GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]) - PChar->jobs.exp[PChar->GetMJob()] - 1;
-        if (!onLimitMode && PChar->jobs.job[PChar->GetMJob()] == 75 && exp > expRemaining)
-        {
-            expLeftover = exp - expRemaining;
-            exp = expRemaining;
-        }
-
-
         // exp added from raise shouldn't display a message. Don't need a message for zero exp either
         if (!expFromRaise && exp > 0)
         {
@@ -4373,11 +4363,6 @@ namespace charutils
             if (PChar->PMeritPoints->AddLimitPoints(exp))
             {
                 PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PMob, PChar->PMeritPoints->GetMeritPoints(), 0, 50));
-            }
-            else // If merits are capped, add experience instead
-            {
-                // add normal exp
-                PChar->jobs.exp[PChar->GetMJob()] += exp;
             }
         }
         else
