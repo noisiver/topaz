@@ -1389,6 +1389,12 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         {
             action.recast = PAbility->getRecastTime() - meritRecastReduction;
         }
+        // If Third Eye is paralyzed while seigan is active, use the modified seigan cooldown for thirdeye(30s instead of 1m)
+        if (PAbility->getID() == ABILITY_THIRD_EYE && this->StatusEffectContainer->HasStatusEffect(EFFECT_SEIGAN))
+        {
+            action.recast /= 2;
+        }
+        // Sneak Attack merits also reduce the recast of BUlly
         if (PAbility->getID() == ABILITY_BULLY)
         {
             action.recast = PAbility->getRecastTime() - PMeritPoints->GetMeritValue((MERIT_TYPE)MERIT_SNEAK_ATTACK_RECAST, this);
