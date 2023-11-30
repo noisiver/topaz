@@ -16154,6 +16154,7 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
     if (lua_isnumber(L, 1))
     {
         auto skillid {(uint16)lua_tointeger(L, 1)};
+        CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
         CBattleEntity* PTarget {nullptr};
         auto PMobSkill {battleutils::GetMobSkill(skillid)};
 
@@ -16168,7 +16169,7 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
             PTarget = (CBattleEntity*)PLuaBaseEntity->m_PBaseEntity;
         }
 
-        m_PBaseEntity->PAI->QueueAction(queueAction_t(0ms, true, [PTarget, skillid, PMobSkill](auto PEntity) {
+        m_PBaseEntity->PAI->QueueAction(queueAction_t(0ms, true, [PTarget, PMob, skillid, PMobSkill](auto PEntity) {
             if (PTarget)
                 PEntity->PAI->MobSkill(PTarget->targid, skillid);
             else if (dynamic_cast<CMobEntity*>(PEntity))
@@ -16176,12 +16177,25 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
                 if (luautils::OnMobSkillCheck(PTarget, PEntity, PMobSkill) == 0) // A script says that the move in question is valid
                 {
                     if (PMobSkill->getValidTargets() & TARGET_ENEMY)
+                    {
                         PEntity->PAI->MobSkill(static_cast<CMobEntity*>(PEntity)->GetBattleTargetID(), skillid);
+
+                        // Set message for "Player" and Fomor TP moves
+                        if (PMobSkill->getID() <= 255)
+                        {
+                            PMob->loc.zone->PushPacket(PMob, CHAR_INRANGE, new CMessageBasicPacket(PMob, PMob, 0, PMobSkill->getID(), MSGBASIC_READIES_WS));
+                        }
+                    }
                     else if (PMobSkill->getValidTargets() & TARGET_SELF)
+                    {
                         PEntity->PAI->MobSkill(PEntity->targid, skillid);
+                    }
 
                 }
             }
+            // Set var for use in monstertpmoves.lua TP scaling
+            int16 tp = PMob->health.tp;
+            PMob->SetLocalVar("tp", tp);
         }));
     }
     else
