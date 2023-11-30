@@ -1,42 +1,32 @@
-Buff Sea torques / capes skill increases
 Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
 Xzomit babies onvert all to pets tbh
 Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
 The items to upgrade inventory 60-80 that come from login campaign only(?) drop from tiamat jorm vtra? or vagary NMs
 Make LoadInventory() or w/e in charutils (on zoning) not move inventory around
-Negative resist check needs to be < bonus in 3 places
 Simplelog shouldn't say "No Effect" for "Failed to take effect" BLU spells. msgID 114
-Reduce pirates spawn chance
 Boat docking soon custom msgparty() functions or w/e. is ok, add a ton and say which line for each one and prints in each one
 
 SetSelfTargetSpell() or w/e will work if add spell:settarget to 1 or w/e for all nukes in magic.lua at start of trying
 to do a nuke
 
-BLU AOE spells say "no effect" on every target if main target is missed. add a spell:getPrimaryTargetID() check for MAGIC_FAIL then
-MAGIC_DMG for other targets
-
 Torando Kick icon on skillchain.lua
 Shining / Seraph blade icons for tcrossbar
 Give BLM Aspir II at 75
-!addbuffs gm command that gives basic buffs for testing Haste2 / Temper / Refresh 2 / Protect4 / Shell 4
-!adddebuffs gm command for basic debuffs at a good potency para2 slow2 addle blind etc
 
 AH to WotG towns
-Missing dynamis set bonuses and stats(DRK AF mostly for stats)
+
+Missing dynamis set bonuses and stats
+Relic +1 for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
+
 Code KS99 with custom drops
 All hydras/khims/cerbs should have no turn like wyrms (Cerbs do but Hydra's and Khims do not)
 Ele WS MACC gear(does the mod exist? add it too if not but it should def exist 99% sure)
 
-Relic +1 for spellcasters +1 to iconic spells(i.e. refresh) and other stuff
 
 Audit hi pot / hi ether / antidote / echo drop prices to be same as shop.lua
 Add effect magian trial weapons require 255+ of venom etc potions relating to their add effect
 
 Custom Tres Duendes mob with changing stance
-Add Enlight / Endark to DRK and PLD
-Add !givetemps command
-Arcana Breaker coded?
-Peiste mantle coded
 Finish JP. Also need to add gifts function from lsb to actually get gifts
 Missing jobpointutils::RefreshGiftMods(PChar); and prob other stuff
 !usews crashes server via OnMobSkillCheck() if positional(is facing)
@@ -47,22 +37,14 @@ abilID 256 WZ_RECOVER_ALL is used by chests in Limbus
 Korolokka onmobdisengage setpos back to spawn
 Revert displayhelm changes i did to charpacket or charloadpacket or zone_in packet
 Claustrom equal to full HQ ele staves
-Cap mug heal at targets HP like sanguine etc
 T3 automaton attachments desynth alchemy(100) into some type of augment mat or something
 Emps / Relics / Mythics long term goal weapons that slowly get better and are usable early on like ambu weapons
 Sky / Sea / ZNM / VWNM / etc (all gear) augmentable by doing the content slowly upgrades over time 
-autotarget stuff
-https://github.com/search?q=repo%3ALandSandBoat%2Fserver%20autotarget&type=code 
 Fomors in Sacrarium are aggroing with 0 fomor hate, either missing mobmod or something else. Didn't aggro GM with 0 fomor but aggrod with 8. Agrod main char with 0 hate..
 Enchantsments on gear make them good and give job abilities / spells from other jobs so you always want one and crafted only
-Pixies curing players
-https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
+
 Retune ENM's for duo
-Nation zoning stuff
-https://github.com/AirSkyBoat/AirSkyBoat/commit/ac79b8d3db6ef317effe5044a7e5e40c68908e9a +
-Latent Stuff
-https://github.com/LandSandBoat/server/commit/9868b8ac177283b9b885fdbd229ca7218460cf40
-https://github.com/LandSandBoat/server/commit/99a326d83f0591b671628e97fe12edcb10373996
+
 Look at enmity_container.cpp and understand it
 player_charm_controller.cpp to fix charm aggro/linking/assisting
 Ulbrecht and Qultada custom msgs cant use msgids

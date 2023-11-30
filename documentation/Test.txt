@@ -26,9 +26,20 @@ Double Weather for WKR on engage, removed when procced, readded once not procced
 Utsusemi working correctly still
 DRK Relic Armor Absorb spells and set bonus
 Charm enmity reset
-
+Pixies working properly https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
+SMN BPs still work properly? 
+Cait sith SDT/physical resistances
+Diablos animations (BP and mob) cacodemonia / nether blast
+Arcana Breaker weaken defense add effect vs arcana ONLY
+Enlight / Endark scroll learning and effect
+!givetemps
+!adddebuffs
+!adddebuffs
+Limbus restore chests animation, maybe just make npc(mute and afflictor too) to use an mobskill on player instead?
+useMobAbility() !PMobSkill->isTwoHour() wont set tp db entry is set as a 2hr
 
 Retail:
+Diabolos BP animations
 Stealth job trait
 Tres Duendes + Grand Train
 Goblin Call Beast
