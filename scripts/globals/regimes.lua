@@ -1171,7 +1171,7 @@ tpz.regime.bookOnEventFinish = function(player, option, regimeType)
             player:addStatusEffect(tpz.effect.INVISIBLE, 0, 10, 900 * SNEAK_INVIS_DURATION_MULTIPLIER)
 
         elseif act == "HOMING_INSTINCT" then
-            player:addStatusEffectEx(tpz.effect.TELEPORT, 0, tpz.teleport.id.WARP, 0, 1)
+            player:addStatusEffectEx(tpz.effect.TELEPORT, 0, tpz.teleport.id.WARP, 0, 3)
 
         elseif act == "RERAISE" then
             player:delStatusEffectSilent(tpz.effect.RERAISE)

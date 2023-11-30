@@ -20,6 +20,5 @@ function onMobWeaponSkill(target, mob, skill)
     local pos = Behind(target)
     mob:teleport(pos, battletarget)
     skill:setMsg(tpz.msg.basic.NONE)
-    mob:setTP(3000)
     return 0
 end
