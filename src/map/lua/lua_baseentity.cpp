@@ -16224,9 +16224,12 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
 
                 }
             }
-            // Set var for use in monstertpmoves.lua TP scaling
-            int16 tp = PMob->health.tp;
-            PMob->SetLocalVar("tp", tp);
+            if (!PMobSkill->isTwoHour())
+                {
+                    // Set var for use in monstertpmoves.lua TP scaling
+                    int16 tp = PMob->health.tp;
+                    PMob->SetLocalVar("tp", tp);
+                }
         }));
     }
     else
