@@ -636,11 +636,8 @@ INSERT INTO `mob_family_mods` VALUES (510,63,25,0);	-- Kindreds Wyvern +25% DEF
 INSERT INTO `mob_family_mods` VALUES (510,29,20,0);	-- Kindreds Wyvern +20 MDB 
 INSERT INTO `mob_family_mods` VALUES (510,28,-100,1); -- Kindreds Wyvern -100% exp
 
-
-
--- NMs
-INSERT INTO `mob_family_mods` VALUES (506,244,75,0);	 -- Purpleflash Brukdok Silence Resist
-INSERT INTO `mob_family_mods` VALUES (506,240,75,0);	 -- Purpleflash Brukdok Sleep Resist
+-- Misc
+INSERT INTO `mob_family_mods` VALUES(195, 107, 1, 1); -- Pixie (Friendly cures and raises)
 
 -- Roaming mods
 SET @roam_distance = 31, @roam_cool = 36, @roam_turns = 51, @roam_rate = 52;

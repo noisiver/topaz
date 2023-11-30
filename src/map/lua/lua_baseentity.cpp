@@ -1764,6 +1764,7 @@ inline int32 CLuaBaseEntity::getFomorHate(lua_State* L)
     lua_pushinteger(L, ((CCharEntity*)m_PBaseEntity)->m_fomorHate);
     return 1;
 }
+
 /************************************************************************
  *  Function: setFomorHate()
  *  Purpose : Updates PC's fomor hate (both DB and local)
@@ -1779,6 +1780,36 @@ inline int32 CLuaBaseEntity::setFomorHate(lua_State* L)
     lua_pushnil(L);
     return 1;
 }
+
+/************************************************************************
+ *  Function: getPixieHate()
+ *  Purpose : Returns the current pixie hate of the player
+ *  Example : local status = player:getFomorHate()
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getPixieHate(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    lua_pushinteger(L, ((CCharEntity*)m_PBaseEntity)->m_pixieHate);
+    return 1;
+}
+/************************************************************************
+ *  Function: setPixieHate()
+ *  Purpose : Updates PC's pixie hate (both DB and local)
+ *  Example : player:setPixieHate(4)
+ ************************************************************************/
+inline int32 CLuaBaseEntity::setPixieHate(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    int32 value = (int32)lua_tointeger(L, -1);
+    ((CCharEntity*)m_PBaseEntity)->SetPixieHate(value);
+    lua_pushnil(L);
+    return 1;
+}
+
 
 
 /************************************************************************
@@ -10689,7 +10720,7 @@ inline int32 CLuaBaseEntity::sendRaise(lua_State *L)
 
     uint8 RaiseLevel = (uint8)lua_tonumber(L, 1);
 
-    if (RaiseLevel == 0 || RaiseLevel > 3)
+    if (RaiseLevel == 0 || RaiseLevel > 5)
     {
         ShowDebug(CL_CYAN"lua::sendRaise raise value is not valide!\n" CL_RESET);
     }
@@ -16645,8 +16676,10 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getStatus),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setStatus),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getCurrentAction),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, getFomorHate),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, setFomorHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getFomorHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setFomorHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getPixieHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setPixieHate),
 
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,lookAt),

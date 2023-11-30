@@ -382,8 +382,9 @@ public:
     uint32            m_moghouseID;
     uint16            m_moghancementID;
 
-    uint8              m_hitCounter; // auto-attack it counter for Tredecim Scythe
-    uint32               m_fomorHate;
+    uint8             m_hitCounter; // auto-attack it counter for Tredecim Scythe
+    uint32            m_fomorHate;
+    uint32            m_pixieHate;
 
     int8			  getShieldSize();
 
@@ -462,6 +463,7 @@ public:
     bool hasMoghancement(uint16 moghancementID);
     void UpdateMoghancement();
     void SetFomorHate(uint32 fomorHate);
+    void SetPixieHate(uint32 pixieHate);
 
     /* State callbacks */
     virtual bool CanAttack(CBattleEntity* PTarget, std::unique_ptr<CBasicPacket>& errMsg) override;

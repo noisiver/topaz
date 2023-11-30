@@ -249,6 +249,17 @@ void CCharEntity::SetFomorHate(uint32 fomorHate)
     charutils::SetCharVar(this, "FOMOR_HATE", fomorHate);
 }
 
+void CCharEntity::SetPixieHate(uint32 pixieHate)
+{
+    if (pixieHate > 60)
+    {
+        pixieHate = 60;
+    }
+    m_pixieHate = pixieHate;
+    charutils::SetCharVar(this, "PIXIE_HATE", pixieHate);
+}
+
+
 
 CCharEntity::~CCharEntity()
 {
@@ -2085,6 +2096,20 @@ void CCharEntity::OnRaise()
             actionTarget.animation = 496;
             hpReturned = (uint16)(GetMaxHP() * 0.5);
             ratioReturned = ((GetMLevel() <= 50) ? 0.50f : 0.90f) * (1 - map_config.exp_retain);
+        }
+        else if (m_hasRaise == 4) // arise
+        {
+            actionTarget.animation = 496;
+            hpReturned = GetMaxHP();
+            ratioReturned = ((GetMLevel() <= 50) ? 0.50f : 0.90f) * (1.0f - (map_config.exp_retain));
+            CStatusEffect* PEffect = new CStatusEffect(EFFECT_RERAISE, EFFECT_RERAISE, 3, 3, 3600, 0, 0, 0);
+            this->StatusEffectContainer->AddStatusEffect(PEffect, true);
+        }
+        else if (m_hasRaise == 5) // pixie raise
+        {
+            actionTarget.animation = 496;
+            hpReturned = GetMaxHP();
+            ratioReturned = 1.0f - (map_config.exp_retain);
         }
         addHP(((hpReturned < 1) ? 1 : hpReturned));
         updatemask |= UPDATE_HP;

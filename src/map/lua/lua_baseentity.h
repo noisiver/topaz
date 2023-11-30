@@ -460,6 +460,9 @@ public:
     int32 getAllianceSize(lua_State* L);            // Get the size of an entity's alliance
     int32 getFomorHate(lua_State* L);
     int32 setFomorHate(lua_State* L);
+    int32 getPixieHate(lua_State* L);
+    int32 setPixieHate(lua_State* L);
+
 
 
     int32 reloadParty(lua_State* L);

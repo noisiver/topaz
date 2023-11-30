@@ -32,7 +32,7 @@ CRespawnState::CRespawnState(CBaseEntity* _PEntity, duration spawnTime) :
 
 bool CRespawnState::Update(time_point tick)
 {
-    //make sure that the respawn time is up to date
+    // make sure that the respawn time is up to date
     auto PMob = dynamic_cast<CMobEntity*>(m_PEntity);
     if (PMob)
     {
@@ -53,11 +53,17 @@ bool CRespawnState::Update(time_point tick)
     }
     if (m_spawnTime > 0s && tick > GetEntryTime() + m_spawnTime)
     {
+        if (PMob->m_SpawnType == SPAWNTYPE_PIXIE && !PMob->PixieShouldSpawn())
+        {
+            ResetEntryTime();
+            return false;
+        }
         m_PEntity->Spawn();
         return true;
     }
     return false;
 }
+
 
 void CRespawnState::Cleanup(time_point tick)
 {
