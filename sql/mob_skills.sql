@@ -1857,8 +1857,8 @@ INSERT INTO `mob_skills` VALUES (1905,916,'noctoshield',1,10.0,2000,1500,1,0,0,0
 INSERT INTO `mob_skills` VALUES (1906,917,'ultimate_terror',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1907,1127,'dream_shroud',1,10.0,2000,3000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1908,918,'nightmare',1,10.0,2000,2500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1909,1653,'cacodemonia',1,10.0,2000,1500,4,0,0,0,0,0,0); 
-INSERT INTO `mob_skills` VALUES (1910,1126,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (1909,1128,'cacodemonia',1,10.0,2000,1500,4,0,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (1910,1129,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0); 
 
 -- Don't use!
 -- INSERT INTO `mob_skills` VALUES (544,915,'camisado',0,7.0,2000,1500,4,0,0,4,0,0,0);
@@ -1875,8 +1875,8 @@ INSERT INTO `mob_skills` VALUES (1913,1657,'stunbolt',1,10.0,2000,1500,4,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES (1914,1658,'great_wheel',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1915,1659,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1916,1660,'blessed_radiance',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1917,1661,'sweeping_somnolence',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1918,1662,'nether_tempest',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (1917,1280,'sweeping_somnolence',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (1918,1282,'nether_tempest',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1919,1663,'daydream',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1920,1264,'rushing_drub',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1921,1265,'forceful_blow',0,7.0,2000,1000,4,0,0,0,0,0,0);
