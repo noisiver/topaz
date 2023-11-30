@@ -1097,6 +1097,11 @@ INSERT INTO `item_latents` VALUES(14056, 23, 8, 1, 75);     -- Attack+8 when HP 
 INSERT INTO `item_latents` VALUES(14062, 346, 0, 9, 8);
 
 -- -------------------------------------------------------
+-- Arcana Breaker
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17416, 431, 1, 59, 3); -- Additional effect vs. arcana: Weakens defense
+
+-- -------------------------------------------------------
 -- Garden Bangles / Feronia's Bangles
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(14065, 370, 1, 26, 0);    -- Daytime: Regen +1HP/tick
