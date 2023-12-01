@@ -85,8 +85,8 @@ CMagicState::CMagicState(CBattleEntity* PEntity, uint16 targid, SpellID spellid,
     actionTarget.animation = 0;
     actionTarget.param = static_cast<uint16>(m_PSpell->getID());
     actionTarget.messageID = 327;
-    // Mobs shouldn't display casting spells in chat when out of combat
-    if (m_PEntity->objtype == TYPE_MOB && m_PEntity->PAI->IsRoaming())
+    // Mobs shouldn't display casting spells in chat when out of combat unless target is a player
+    if (PTarget->objtype == TYPE_MOB && m_PEntity->PAI->IsRoaming())
     {
         actionTarget.messageID = 0;
     }

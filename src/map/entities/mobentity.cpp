@@ -1861,6 +1861,11 @@ void CMobEntity::PixieTryHealPlayer(CCharEntity* PChar)
         // Must be able to detect the player to cast
         return;
     }
+    if (PChar->m_hasRaise > 0)
+    {
+        // Player is dead with has raise active
+        return;
+    }
     if (PChar->isDead())
     {
         spell = SpellID::Raise_III;
