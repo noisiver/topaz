@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Raise
+-- Spell: Arise
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -11,11 +11,7 @@ end
 
 function onSpellCast(caster, target, spell)
     if (target:isPC()) then
-        if (caster:getObjType() == tpz.objType.MOB) and (caster:getMobMod(tpz.mobMod.PIXIE) > 0) then
-            target:sendRaise(6)
-        else
-            target:sendRaise(3)
-        end
+        target:sendRaise(5)
     else
         if (target:getName() == "Prishe") then
             -- CoP 8-4 Prishe
@@ -27,5 +23,5 @@ function onSpellCast(caster, target, spell)
     end
     spell:setMsg(tpz.msg.basic.MAGIC_CASTS_ON)
 
-    return 3
+    return 1
 end

@@ -1880,8 +1880,9 @@ tpz.mod =
     LAST_RESORT_DURATION    = 1360, -- Increases Last Resort duration (in seconds)
     HASSO_HASTE             = 1361, -- Increases the JA haste bonus of Hasso. 10000 base, 375 = 3.75%
     CASCADE_TP_BONUS        = 1362, -- Cascade TP Bonus
+    RERAISE_IV              = 1363, -- Reraise IV.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1363 NEXT
+    -- 1364 NEXT
 }
 
 tpz.latent =

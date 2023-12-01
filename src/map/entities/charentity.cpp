@@ -2056,11 +2056,20 @@ void CCharEntity::OnRaise()
             weaknessLvl = 2;
         }
 
-        //add weakness effect (75% reduction in HP/MP)
+        // Add weakness effect (75% reduction in HP/MP) if not Mijin or GM command raise
         if (GetLocalVar("MijinGakure") == 0 && GetLocalVar("GMRaise") == 0)
         {
-            CStatusEffect* PWeaknessEffect = new CStatusEffect(EFFECT_WEAKNESS, EFFECT_WEAKNESS, weaknessLvl, 0, 300);
-            StatusEffectContainer->AddStatusEffect(PWeaknessEffect);
+            // Reraise IV and Arise weakness duration is only 3 minutes
+            if (m_hasRaise == 4 || m_hasRaise == 5)
+            {
+                CStatusEffect* PWeaknessEffect = new CStatusEffect(EFFECT_WEAKNESS, EFFECT_WEAKNESS, weaknessLvl, 0, 180);
+                StatusEffectContainer->AddStatusEffect(PWeaknessEffect);
+            }
+            else
+            {
+                CStatusEffect* PWeaknessEffect = new CStatusEffect(EFFECT_WEAKNESS, EFFECT_WEAKNESS, weaknessLvl, 0, 300);
+                StatusEffectContainer->AddStatusEffect(PWeaknessEffect);
+            }
         }
 
         double ratioReturned = 0.0f;
@@ -2103,7 +2112,13 @@ void CCharEntity::OnRaise()
             hpReturned = (uint16)(GetMaxHP() * 0.5);
             ratioReturned = ((GetMLevel() <= 50) ? 0.50f : 0.90f) * (1 - map_config.exp_retain);
         }
-        else if (m_hasRaise == 4) // arise
+        else if (m_hasRaise == 4) // reraise IV
+        {
+            actionTarget.animation = 496;
+            hpReturned = GetMaxHP();
+            ratioReturned = ((GetMLevel() <= 50) ? 0.50f : 0.90f) * (1.0f - (map_config.exp_retain));
+        }
+        else if (m_hasRaise == 5) // arise
         {
             actionTarget.animation = 496;
             hpReturned = GetMaxHP();
@@ -2111,7 +2126,7 @@ void CCharEntity::OnRaise()
             CStatusEffect* PEffect = new CStatusEffect(EFFECT_RERAISE, EFFECT_RERAISE, 3, 3, 3600, 0, 0, 0);
             this->StatusEffectContainer->AddStatusEffect(PEffect, true);
         }
-        else if (m_hasRaise == 5) // pixie raise
+        else if (m_hasRaise == 6) // pixie raise
         {
             actionTarget.animation = 496;
             hpReturned = GetMaxHP();
@@ -2400,6 +2415,10 @@ void CCharEntity::Die(duration _duration)
 
     if (this->getMod(Mod::RERAISE_III) > 0)
         m_hasRaise = 3;
+
+    if (this->getMod(Mod::RERAISE_IV) > 0)
+        m_hasRaise = 4;
+
     // MIJIN_RERAISE checks
     if (m_hasRaise == 0 && this->getMod(Mod::MIJIN_RERAISE) > 0)
         m_hasRaise = 1;

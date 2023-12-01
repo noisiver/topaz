@@ -764,6 +764,7 @@ enum class Mod
     RERAISE_I                 = 456, // Reraise.
     RERAISE_II                = 457, // Reraise II.
     RERAISE_III               = 458, // Reraise III.
+    RERAISE_IV                = 1363,// Reraise IV.
 
     // Elemental Absorb Chance
     FIRE_ABSORB               = 459, // Occasionally absorbs fire elemental damage, in percents
@@ -1045,7 +1046,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1363 NEXT
+    // 1364 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
