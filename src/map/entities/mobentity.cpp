@@ -1955,6 +1955,5 @@ bool CMobEntity::PixieShouldSpawn()
         return false;
     }
     int32 chance = amity + 150;
-    // return (tpzrand::GetRandomNumber(100) < chance);
-    return true;
+    return (tpzrand::GetRandomNumber(100) < chance);
 }

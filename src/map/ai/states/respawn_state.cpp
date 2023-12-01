@@ -53,11 +53,12 @@ bool CRespawnState::Update(time_point tick)
     }
     if (m_spawnTime > 0s && tick > GetEntryTime() + m_spawnTime)
     {
-        if (PMob->m_SpawnType == SPAWNTYPE_PIXIE && !PMob->PixieShouldSpawn())
-        {
-            ResetEntryTime();
-            return false;
-        }
+        // TODO: Pixie server spawn rates
+        //if (PMob->m_SpawnType == SPAWNTYPE_PIXIE && !PMob->PixieShouldSpawn())
+        //{
+        //    ResetEntryTime();
+        //    return false;
+        //}
         m_PEntity->Spawn();
         return true;
     }
