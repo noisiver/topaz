@@ -1,3 +1,26 @@
+Pixie:
+Pixies are not spawning, rng? make 100% and they despawn?
+Uncomment sprites and pixies, also need to be 300,256 in group
+Need to add "not status_reraise_Menu active" to if (PChar->isDead()) line 1864 mobentity.cpp
+Maybe have to add a status effect enum and set it for void CCharEntity::OnRaise() in charentity.cpp
+enum STATUSTYPE battleentity.h and tpz.status status.lua 
+Cait Sith doesn't properly load blood pacts into player skill list
+!setjob should unsummon pet, changejob prob should in C++
+send myself skillchain state file and simplelog
+Compare fishingutils and fishing files from eden
+
+
+fishing 34
+
+Full Cure scroll DAT is wrong, it's ex and not rare and has wrong description(Says stone)
+and requires level 99 WHM still. Maybe make giftsrequired just [] or just copy all of cure (spellid1)
+Enlight and Endark acc/attk decay
+maybe in else if (enspell >= ENSPELL_I_LIGHT && enspell <= ENSPELL_I_DARK || enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK) L1732 battleutils.cpp
+Make it so wardrobe 5-8 can have armor/weapons
+
+Add reraise IV to void CCharEntity::Die(duration _duration) charentity.cpp
+
+
 Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
 Xzomit babies onvert all to pets tbh
 Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
