@@ -1,10 +1,3 @@
-Pixie:
-Pixies are not spawning, rng? make 100% and they despawn?
-Uncomment sprites and pixies, also need to be 300,256 in group
-Need to add "not status_reraise_Menu active" to if (PChar->isDead()) line 1864 mobentity.cpp
-Maybe have to add a status effect enum and set it for void CCharEntity::OnRaise() in charentity.cpp
-enum STATUSTYPE battleentity.h and tpz.status status.lua 
-Cait Sith doesn't properly load blood pacts into player skill list
 !setjob should unsummon pet, changejob prob should in C++
 send myself skillchain state file and simplelog
 Compare fishingutils and fishing files from eden
@@ -12,13 +5,10 @@ Compare fishingutils and fishing files from eden
 
 fishing 34
 
-Full Cure scroll DAT is wrong, it's ex and not rare and has wrong description(Says stone)
-and requires level 99 WHM still. Maybe make giftsrequired just [] or just copy all of cure (spellid1)
 Enlight and Endark acc/attk decay
 maybe in else if (enspell >= ENSPELL_I_LIGHT && enspell <= ENSPELL_I_DARK || enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK) L1732 battleutils.cpp
-Make it so wardrobe 5-8 can have armor/weapons
+Make it so wardrobe 5-8 can have only armor/weapons
 
-Add reraise IV to void CCharEntity::Die(duration _duration) charentity.cpp
 
 
 Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
@@ -26,7 +16,6 @@ Xzomit babies onvert all to pets tbh
 Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
 The items to upgrade inventory 60-80 that come from login campaign only(?) drop from tiamat jorm vtra? or vagary NMs
 Make LoadInventory() or w/e in charutils (on zoning) not move inventory around
-Simplelog shouldn't say "No Effect" for "Failed to take effect" BLU spells. msgID 114
 Boat docking soon custom msgparty() functions or w/e. is ok, add a ton and say which line for each one and prints in each one
 
 SetSelfTargetSpell() or w/e will work if add spell:settarget to 1 or w/e for all nukes in magic.lua at start of trying
@@ -108,6 +97,10 @@ ID 175767304 shouldn't have tooltip/name when targetted copy other doors with no
 No longer attack people after a poroggo charmed? or were they too far when I was charmed so I didn't aggro them? 
 Sunflower Seeds rarely used item
 Content with a lot of chigoes / ja proc mobs for dnc to be useful
+Missing augments
+https://github.com/LandSandBoat/server/commit/f053b35dbc40042e3f16a1a4d22f2d3071392e7d
+Smite
+https://github.com/LandSandBoat/server/commit/1377c5e38a0ecb1e172880f45dbe556c96a01a84
 
 Requiume of sin:
 Pets aren't summoned at start
