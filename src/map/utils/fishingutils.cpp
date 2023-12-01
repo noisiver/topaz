@@ -841,6 +841,10 @@ namespace fishingutils
         int maxSkillAmount = 1;
         CItemWeapon* Rod = (CItemWeapon*)PChar->getEquip(SLOT_RANGED);
 
+        // If fish level is lower level than fishing skill, cannot gain skill ups
+        if (catchLevel < charSkillLevel)
+        return;
+
         if (catchLevel > charSkillLevel)
         {
         levelDifference = catchLevel - charSkillLevel;

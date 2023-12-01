@@ -20,9 +20,9 @@ local MaxFishLevelDifferenceToHook = 100
 local FishTablePoolWeight = 60
 
 local FishDefaultPoolWeight = 110
-local ItemDefaultPoolWeight = 20
-local MobDefaultPoolWeight = 15
-local NoCatchDefaultPoolWeight = 30
+local ItemDefaultPoolWeight = 10
+local MobDefaultPoolWeight = 5
+local NoCatchDefaultPoolWeight = 60
 
 local MaxDiscernmentChance = 70
 
