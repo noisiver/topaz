@@ -3,6 +3,7 @@
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/magic")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)

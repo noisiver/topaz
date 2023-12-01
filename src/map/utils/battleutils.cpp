@@ -1729,7 +1729,7 @@ int getSDTTier(int SDT)
                 ((CBattleEntity*)PDefender)->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_NINJUTSU_ELE_DEBUFF, 0, 30, 0, 10, 0, resistDownEle, 0, false));
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
-            else if (enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK)
+            else if (enspell >= ENSPELL_I_LIGHT && enspell <= ENSPELL_I_DARK || enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK)
             {
                 Action->additionalEffect = enspell_subeffects[enspell -1];
                 Action->addEffectMessage = 163;
