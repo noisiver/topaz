@@ -2429,7 +2429,6 @@ int getSDTTier(int SDT)
                 return false;
             }
             //Otherwise interrupt the spell cast.
-            PDefender->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", PAttacker, PDefender, PSpell);
             return true;
         }
 
@@ -4829,10 +4828,6 @@ int getSDTTier(int SDT)
                     {
                         charutils::UpdateItem(PChar, LOC_INVENTORY, SlotID, -1);
                         PChar->pushPacket(new CInventoryFinishPacket());
-                    }
-                    else
-                    {
-                        PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Your expertise saved you a ninja tool!"));
                     }
                 }
             }
