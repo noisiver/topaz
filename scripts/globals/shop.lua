@@ -287,8 +287,8 @@ tpz.shop =
                 5335,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acid Bolt Quiver
                 5337,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Bolt Quiver
                 5339,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bloody Bolt Quiver
-                5338,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
-                5336,    2500,      tpz.ki.RHAPSODY_IN_UMBER,  -- Holy Bolt Quiver
+                5338,    1666,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
+                5336,    2500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Holy Bolt Quiver
                 4228,    2500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mythril Bolt Quiver
                 4229,    4166,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Darksteel Bolt Quiver
                 -- 5820,    9460,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darkling Bolt Quiver
