@@ -51,7 +51,7 @@ function onSpellCast(caster, target, spell)
 		resist = 0
 	end
     -- Resist trait proc
-    if (resist == 0.0625) then
+    if (resist == 0.5) then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
         return tpz.effect.CHARM_I
     end

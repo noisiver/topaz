@@ -198,6 +198,7 @@ void CMagicState::Cleanup(time_point tick)
     if (!IsCompleted())
     {
         action_t action;
+        m_PEntity->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", m_PEntity, m_PSpell.get());
         m_PEntity->OnCastInterrupted(*this, action, MSGBASIC_IS_INTERRUPTED);
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
     }
