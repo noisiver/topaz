@@ -17,7 +17,7 @@ function onUseAbility(player, target, ability)
     if not player:hasStatusEffect(tpz.effect.WEIGHT) then
         player:addStatusEffect(tpz.effect.WEIGHT, 95, 0, 30)
     end
-    if not player:hasStatusEffect(tpz.effect.SILENCE) and player:hasStatusEffect(tpz.effect.MUTE) then
+    if not player:hasStatusEffect(tpz.effect.SILENCE) and not player:hasStatusEffect(tpz.effect.MUTE) then
         player:addStatusEffect(tpz.effect.MUTE, 1, 0, 30)
     end
     if not player:hasStatusEffect(tpz.effect.AMNESIA) then
