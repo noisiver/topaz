@@ -85,11 +85,14 @@ CMagicState::CMagicState(CBattleEntity* PEntity, uint16 targid, SpellID spellid,
     actionTarget.animation = 0;
     actionTarget.param = static_cast<uint16>(m_PSpell->getID());
     actionTarget.messageID = 327;
+
     // Mobs shouldn't display casting spells in chat when out of combat unless target is a player
-    if (PTarget->objtype == TYPE_MOB && m_PEntity->PAI->IsRoaming())
+    // Display mobs being casted on by players
+    if (PTarget->objtype == TYPE_MOB && PTarget->PAI->IsRoaming() && m_PEntity->objtype != TYPE_PC)
     {
         actionTarget.messageID = 0;
     }
+
     // starts casting
     m_PEntity->PAI->EventHandler.triggerListener("MAGIC_START", m_PEntity, m_PSpell.get(), &action); //TODO: weaponskill lua object
 
