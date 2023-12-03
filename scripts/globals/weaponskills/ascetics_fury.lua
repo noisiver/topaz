@@ -1,4 +1,4 @@
-s-----------------------------------
+-----------------------------------
 -- Ascetics Fury
 -- Hand-to-Hand weapon skill
 -- Skill Level: N/A
