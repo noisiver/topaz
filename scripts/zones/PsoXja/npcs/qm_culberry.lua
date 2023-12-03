@@ -10,15 +10,17 @@ require("scripts/globals/npc_util")
 
 function onTrade(player, npc, trade)
     local pendantChance = 0
-    if npcUtil.tradeHas(trade, 18014) then -- odorous knife
-        pendantChance = 500
-    elseif npcUtil.tradeHas(trade, 18016) then -- odorous knife +1
+    if nnpcUtil.tradeHasExactly(trade, { tpz.items.CHUNK_OF_WHITE_STEEL, tpz.items.PIECE_OF_MAGNOLIA_LUMBER } ) then
+        pendantChance = 1000
+     elseif nnpcUtil.tradeHasExactly(trade, tpz.items.ODOROUS_KNIFE) then
+        pendantChance = 1000
+     elseif nnpcUtil.tradeHasExactly(trade, tpz.items.ODOROUS_KNIFE_HQ) then
         pendantChance = 1000
     end
 
     if pendantChance > 0 and npcUtil.popFromQM(player, npc, ID.mob.GOLDEN_TONGUED_CULBERRY) then
         player:confirmTrade()
-        SetDropRate(1512, 13145, pendantChance)
+        SetDropRate(1512, tpz.items.UGGALEPIH_PENDANT, pendantChance)
     end
 end
 
