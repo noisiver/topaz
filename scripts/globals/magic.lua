@@ -2827,7 +2827,8 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     -- printf("Final Duration before diminishing returns %d", finalDuration)
 
     -- Reduce duration by diminishing returns
-    local dimishingReturnPercent = math.floor(1 + (100 - target:getLocalVar("enfeebleDR" .. effect)))
+    local dimishingReturnPercent = math.floor((100 - target:getLocalVar("enfeebleDR" .. effect)))
+    -- printf("dimishingReturnPercent %f", dimishingReturnPercent)
     dimishingReturnPercent = (dimishingReturnPercent / 100)
     local dimreturnvar = target:getLocalVar("enfeebleDR" .. effect)
     finalDuration = finalDuration * dimishingReturnPercent
@@ -2876,16 +2877,26 @@ end
 function AddDimishingReturns(caster, target, spell, effect)
     -- Only build dimishing returns on NMs
     -- Bind / Grav / Sleep / Lullaby / Petrification only
-    if not target:isPC() and target:isNM() then
-        if (effect == tpz.effect.BIND)
-        or (effect == tpz.effect.WEIGHT)
-        or (effect == tpz.effect.SLEEP_I)
-        or (effect == tpz.effect.SLEEP_II)
-        or (effect == tpz.effect.LULLABY)
-        or (effect == tpz.effect.STUN)
-        or (effect == tpz.effect.PETRIFICATION) then
-            if target:getLocalVar("enfeebleDR" .. effect) < 100 then
-                target:setLocalVar("enfeebleDR" .. effect, target:getLocalVar("enfeebleDR" .. effect) + 10)
+    local effectTable =
+    {
+        tpz.effect.BIND,
+        tpz.effect.WEIGHT,
+        tpz.effect.SLEEP_I,
+        tpz.effect.SLEEP_II,
+        tpz.effect.LULLABY,
+        tpz.effect.STUN,
+        tpz.effect.PETRIFICATION
+    }
+
+    if not target:isPC() then
+        if target:isNM() then
+            for _, currentEffect in pairs(effectTable) do
+                if (effect == currentEffect) then
+                    if target:getLocalVar("enfeebleDR" .. effect) < 100 then
+                        target:setLocalVar("enfeebleDR" .. effect, target:getLocalVar("enfeebleDR" .. effect) + 10)
+                        break
+                    end
+                end
             end
         end
     end
