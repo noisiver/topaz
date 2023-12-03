@@ -2882,6 +2882,7 @@ function AddDimishingReturns(caster, target, spell, effect)
         or (effect == tpz.effect.SLEEP_I)
         or (effect == tpz.effect.SLEEP_II)
         or (effect == tpz.effect.LULLABY)
+        or (effect == tpz.effect.STUN)
         or (effect == tpz.effect.PETRIFICATION) then
             if target:getLocalVar("enfeebleDR" .. effect) < 100 then
                 target:setLocalVar("enfeebleDR" .. effect, target:getLocalVar("enfeebleDR" .. effect) + 10)
