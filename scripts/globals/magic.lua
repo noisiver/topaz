@@ -2824,7 +2824,14 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Reduce duration by resist state
     finalDuration = finalDuration * resist
-    -- printf("Final Duration %d", finalDuration)
+    -- printf("Final Duration before diminishing returns %d", finalDuration)
+
+    -- Reduce duration by diminishing returns
+    local dimishingReturnPercent = math.floor(1 + (100 - target:getLocalVar("enfeebleDR" .. effect)))
+    dimishingReturnPercent = (dimishingReturnPercent / 100)
+    local dimreturnvar = target:getLocalVar("enfeebleDR" .. effect)
+    finalDuration = finalDuration * dimishingReturnPercent
+    -- printf("Final Duration after diminishing returns %d", finalDuration)
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
@@ -2844,6 +2851,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
                 return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             end
             caster:delStatusEffectSilent(tpz.effect.STYMIE)
+            AddDimishingReturns(caster, target, spell, effect)
             return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
@@ -2862,6 +2870,23 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
         -- Normal resist if no Immunobreak proc
         return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+end
+
+function AddDimishingReturns(caster, target, spell, effect)
+    -- Only build dimishing returns on NMs
+    -- Bind / Grav / Sleep / Lullaby / Petrification only
+    if not target:isPC() and target:isNM() then
+        if (effect == tpz.effect.BIND)
+        or (effect == tpz.effect.WEIGHT)
+        or (effect == tpz.effect.SLEEP_I)
+        or (effect == tpz.effect.SLEEP_II)
+        or (effect == tpz.effect.LULLABY)
+        or (effect == tpz.effect.PETRIFICATION) then
+            if target:getLocalVar("enfeebleDR" .. effect) < 100 then
+                target:setLocalVar("enfeebleDR" .. effect, target:getLocalVar("enfeebleDR" .. effect) + 10)
+            end
+        end
     end
 end
 
