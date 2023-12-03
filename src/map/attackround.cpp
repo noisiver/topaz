@@ -464,7 +464,7 @@ void CAttackRound::CreateKickAttacks()
 ************************************************************************/
 void CAttackRound::CreateDakenAttack()
 {
-    if (m_attacker->objtype == TYPE_PC)
+    if (m_attacker->objtype == TYPE_PC && m_attacker->GetMJob() == JOB_NIN)
     {
         auto PAmmo = dynamic_cast<CItemWeapon*>(m_attacker->m_Weapons[SLOT_AMMO]);
         if (PAmmo != nullptr)
