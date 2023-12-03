@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Pso'xja
---   Mob: Treasure Chest
+--   Mob: Archaic Chest
 -- It's a Mimic!
 -----------------------------------
 local ID = require("scripts/zones/PsoXja/IDs")
