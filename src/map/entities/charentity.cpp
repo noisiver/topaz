@@ -2268,6 +2268,18 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
         actionTarget.messageID = PItem->getMsg();
         actionTarget.param = PItem->getParam();
 
+        // Percentage HP for Healing Salve I and II
+        if (PItem->getID() == 5835 || PItem->getID() == 5836)
+        {
+            if (PTarget->PPet != nullptr)
+            {
+                int hp = floor(PPet->GetMaxHP() * actionTarget.param);
+                int hpp = floor(hp / 100);
+
+                actionTarget.param = hpp;
+            }
+        }
+
         // Percentage HP / MP restored msg, Healing/Mana Powder
         if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
         {

@@ -1640,8 +1640,8 @@ INSERT INTO `item_usable` VALUES (5831,'lucid_elixir_ii',1,1,34,0,0,0,0,0,26,75)
 INSERT INTO `item_usable` VALUES (5832,'flask_of_healing_mist',1,1,30,0,0,0,0,1,24,600);
 INSERT INTO `item_usable` VALUES (5833,'flask_of_mana_mist',1,1,89,0,0,0,0,1,25,300);
 INSERT INTO `item_usable` VALUES (5834,'pair_of_lucid_wings_i',1,1,34,0,0,0,0,1,0,0);
-INSERT INTO `item_usable` VALUES (5835,'tube_of_healing_salve_i',1,1,30,0,0,0,0,0,26,50);
-INSERT INTO `item_usable` VALUES (5836,'tube_of_healing_salve_ii',1,1,31,0,0,0,0,0,26,100);
+INSERT INTO `item_usable` VALUES (5835,'tube_of_healing_salve_i',1,1,30,0,0,0,0,0,24,50);
+INSERT INTO `item_usable` VALUES (5836,'tube_of_healing_salve_ii',1,1,31,0,0,0,0,0,24,100);
 INSERT INTO `item_usable` VALUES (5837,'tube_of_clear_salve_i',1,1,34,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5838,'tube_of_clear_salve_ii',1,1,34,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5839,'bottle_of_stalwarts_tonic',1,1,28,0,0,0,0,0,0,0);
