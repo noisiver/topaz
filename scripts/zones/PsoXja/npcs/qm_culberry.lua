@@ -10,11 +10,11 @@ require("scripts/globals/npc_util")
 
 function onTrade(player, npc, trade)
     local pendantChance = 0
-    if nnpcUtil.tradeHasExactly(trade, { tpz.items.CHUNK_OF_WHITE_STEEL, tpz.items.PIECE_OF_MAGNOLIA_LUMBER } ) then
+    if npcUtil.tradeHasExactly(trade, { tpz.items.CHUNK_OF_WHITE_STEEL, tpz.items.PIECE_OF_MAGNOLIA_LUMBER } ) then
         pendantChance = 1000
-     elseif nnpcUtil.tradeHasExactly(trade, tpz.items.ODOROUS_KNIFE) then
+     elseif npcUtil.tradeHasExactly(trade, tpz.items.ODOROUS_KNIFE) then
         pendantChance = 1000
-     elseif nnpcUtil.tradeHasExactly(trade, tpz.items.ODOROUS_KNIFE_HQ) then
+     elseif npcUtil.tradeHasExactly(trade, tpz.items.ODOROUS_KNIFE_HQ) then
         pendantChance = 1000
     end
 

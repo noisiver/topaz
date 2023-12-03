@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:hideName(true)
+    mob:untargetable(true)
 end
 
 function onMobFight(mob, target)
@@ -25,9 +26,15 @@ end
 function onMobEngaged(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     mob:hideName(false)
+    mob:untargetable(false)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+end
+
+function onMobDisengage(mob)
+    mob:hideName(true)
+    mob:untargetable(true)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
