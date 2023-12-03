@@ -20,7 +20,7 @@ function onTrade(player, npc, trade)
 
     if pendantChance > 0 and npcUtil.popFromQM(player, npc, ID.mob.GOLDEN_TONGUED_CULBERRY) then
         player:confirmTrade()
-        SetDropRate(1512, tpz.items.UGGALEPIH_PENDANT, pendantChance)
+        SetDropRate(1190, tpz.items.UGGALEPIH_PENDANT, pendantChance)
     end
 end
 
