@@ -2830,7 +2830,12 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     local dimishingReturnPercent = math.floor((100 - target:getLocalVar("enfeebleDR" .. effect)))
     -- printf("dimishingReturnPercent %f", dimishingReturnPercent)
     dimishingReturnPercent = (dimishingReturnPercent / 100)
-    local dimreturnvar = target:getLocalVar("enfeebleDR" .. effect)
+
+    -- Fully DRed spells never land
+    if (dimishingReturnPercent <= 0) then
+        return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+
     finalDuration = finalDuration * dimishingReturnPercent
     -- printf("Final Duration after diminishing returns %d", finalDuration)
 
@@ -2843,6 +2848,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
             end
         end
         if target:addStatusEffect(effect, power, tick, finalDuration, 0, subpower, tier) then
+            caster:delStatusEffectSilent(tpz.effect.STYMIE)
             -- Check for magic burst
             if GetEnfeebleMagicBurstMessage(caster, spell, target) then
                 return spell:setMsg(spell:getMagicBurstMessage()) 
@@ -2851,7 +2857,6 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
             if spell:getSkillType() == tpz.skill.SINGING then
                 return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             end
-            caster:delStatusEffectSilent(tpz.effect.STYMIE)
             AddDimishingReturns(caster, target, spell, effect)
             return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
