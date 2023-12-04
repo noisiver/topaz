@@ -1881,8 +1881,10 @@ tpz.mod =
     HASSO_HASTE             = 1361, -- Increases the JA haste bonus of Hasso. 10000 base, 375 = 3.75%
     CASCADE_TP_BONUS        = 1362, -- Cascade TP Bonus
     RERAISE_IV              = 1363, -- Reraise IV.
+    TH_MAX                  = 1364, --  Max TH level the entity can play. THF job gift.
+    TH_PROC_CHANCE          = 1365, -- Bonus proc chance to Treasure Hunter procs. THF job gifts.
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1364 NEXT
+    -- 1366 NEXT
 }
 
 tpz.latent =

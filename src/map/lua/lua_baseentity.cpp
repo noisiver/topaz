@@ -16597,6 +16597,30 @@ inline int32 CLuaBaseEntity::getTHlevel(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: TryProcTH(target)
+ *  Purpose : Attempts to proc Treasure Hunter on the target
+ *  Example : player:TryProcTH(mob)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::TryProcTH(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isuserdata(L, 1));
+
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+    if (m_PBaseEntity->objtype == TYPE_MOB)
+    {
+        CMobEntity* PMob = static_cast<CMobEntity*>(m_PBaseEntity);
+        charutils::TryProcTH((CCharEntity*)m_PBaseEntity, PMob, false);
+    }
+
+    return 0;
+}
+
+/************************************************************************
  *  Function: setSuperJump(1)
  *  Purpose : sets super jump flag to evade spells and abilities
  *  Example : setSuperJump(1), setSuperJump(0)
@@ -17353,6 +17377,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDespoilDebuff),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,itemStolen),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getTHlevel),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,TryProcTH),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getPlayerRegionInZone),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,updateToEntireZone),
 

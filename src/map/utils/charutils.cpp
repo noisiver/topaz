@@ -6189,7 +6189,7 @@ namespace charutils
         return 0;
     }
 
-        bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity)
+    bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity)
     {
         SpawnIDList_t* spawnlist = nullptr;
 
@@ -6224,6 +6224,56 @@ namespace charutils
         }
 
         return spawnlist->find(entity->id) != spawnlist->end();
+    }
+
+    void TryProcTH(CCharEntity* PChar, CMobEntity* PTarget, bool highProcRate)
+    {
+        if (PTarget == nullptr || PChar == nullptr)
+        {
+            return;
+        }
+
+        if (PTarget->objtype != TYPE_MOB)
+        {
+            return;
+        }
+
+        if (PChar->GetMJob() != JOB_THF)
+        {
+            return;
+        }
+
+        // https://www.bg-wiki.com/ffxi/Treasure_Hunter
+        uint16 maxTH = 12 + PChar->getMod(Mod::TH_MAX);
+        uint16 playerTHMod = PChar->getMod(Mod::TREASURE_HUNTER);
+        uint16 targetTH = PTarget->m_THLvl;
+        int16 treasureDiff = std::min(playerTHMod - targetTH, 0);
+        uint16 procChance = std::max((treasureDiff + 6), 0);
+        uint16 procChanceMod = 1 + PChar->getMod(Mod::TH_PROC_CHANCE);
+        printf("procChance base %u\n", procChance);
+        if (highProcRate)
+        {
+            procChance *= 5;
+        }
+        printf("procChance after high proc rate%u\n", procChance);
+        procChance *= procChanceMod;
+        printf("procChance after proc chance mod%u\n", procChance);
+        // Apply Feint bonus
+        if (PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
+        {
+            uint16 feintBonus = (1 + PChar->PMeritPoints->GetMeritValue(MERIT_FEINT, PChar)) * 25;
+            procChance *= feintBonus;
+        }
+        printf("procChance after high feint bonus%u\n", procChance);
+
+        if (tpzrand::GetRandomNumber(1000) < procChance)
+        {
+            if (PTarget->m_THLvl < maxTH)
+            {
+                PTarget->m_THLvl += 1;
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, PTarget->GetBattleTargetID(), PTarget->m_THLvl, MSGBASIC_TREASURE_HUNTER_UP));
+            }
+        }
     }
 
     }; // namespace charutils

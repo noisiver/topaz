@@ -764,6 +764,7 @@ public:
     int32 getDespoilDebuff(lua_State*);     // gets the status effect id to apply to the mob on successful despoil
     int32 itemStolen(lua_State*);           // sets mob's ItemStolen var = true
     int32 getTHlevel(lua_State*);           // Returns the Monster's current Treasure Hunter Tier
+    int32 TryProcTH(lua_State*);            // Attempts to proc Treasure Hunter on the target
 
     int32 getGuardRate(lua_State* L);
     int32 getParryRate(lua_State* L);

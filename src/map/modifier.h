@@ -411,6 +411,8 @@ enum class Mod
     HIDE_DURATION             = 885, // Hide duration increase (percentage based)
     GILFINDER                 = 897, // Gilfinder, duh
     TP_GAIN_ON_EVADE          = 1305,// Gain TP upon a successful evade
+    TH_MAX                    = 1364,// Max TH level the entity can play. THF job gifts.
+    TH_PROC_CHANCE            = 1365,// Bonus proc chance to Treasure Hunter procs. THF job gifts.
 
     // Paladin
     HOLY_CIRCLE_DURATION      = 857, // Holy Circle extended duration in seconds
@@ -1046,7 +1048,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1364 NEXT
+    // 1366 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

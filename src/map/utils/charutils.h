@@ -230,6 +230,7 @@ namespace charutils
     uint8 getMainhandItemLevel(CCharEntity* PChar);
     uint8 getRangedItemLevel(CCharEntity* PChar);
     bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity);
+    void TryProcTH(CCharEntity* PChar, CMobEntity* PTarget, bool highProcRate = false);
     };
 
 #endif // _CHARUTILS_H
