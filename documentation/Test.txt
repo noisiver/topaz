@@ -24,24 +24,25 @@ https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33
 BLM AM2's - Magic burst bonus and MACC bonus
 Self targetting nukes/enfeebles for mobs
 Double Weather for WKR on engage, removed when procced, readded once not procced
-Utsusemi working correctly still
 DRK Relic Armor Absorb spells and set bonus
-Charm enmity reset
-Pixies working properly https://gitlab.com/ffxiwings/wings/-/commit/6fd7cfbe378f842aa859ec1ce59a5ee612950b28
-SMN BPs still work properly? 
 Cait sith SDT/physical resistances and blood pacts
 Diablos animations (BP and mob) cacodemonia / nether blast
-Arcana Breaker weaken defense add effect vs arcana ONLY
 Enlight / Endark scroll learning and effect
-!givetemps
-!adddebuffs
-!adddebuffs
 Limbus restore chests animation, maybe just make npc(mute and afflictor too) to use an mobskill on player instead?
-useMobAbility() !PMobSkill->isTwoHour() wont set tp db entry is set as a 2hr
-Raise / Reraise still work properly
+Remedy ointment working properly
+Status removal temps(clerics catho etc) removing petrify and other effects
+Ascetic's Fury does 0 damage or does with formless strikes?
+
+https://ffxiclopedia.fandom.com/wiki/A_Reputation_in_Ruins doors should shut once gargoyles spawn
+Doors around that area are supposed to open when players are nearby and close when aren't I think
+
+Shikigami and Zipacna bugged, prob other mobs that patrol with pathThrough, fix function or fix them
 
 Retail:
-Diabolos BP animations
+Psoxja by rangemount pass doors logic
+colibri reflect para slow nlind with -res
+Cait Sith BP animations (astral flow too)
+Diabolos BP animations (astral flow too)
 Stealth job trait
 Tres Duendes + Grand Train
 Goblin Call Beast
