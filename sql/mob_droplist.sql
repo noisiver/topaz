@@ -16211,8 +16211,6 @@ INSERT INTO `mob_droplist` VALUES (3086,0,0,1000,11533,240); -- (Rogue Receptacl
 INSERT INTO `mob_droplist` VALUES (3087,0,0,1000,15944,240); -- (Frogamander) Selemnus Belt
 INSERT INTO `mob_droplist` VALUES (3088,0,0,1000,17969,100); -- (Killer Jonny) Fendoir
 INSERT INTO `mob_droplist` VALUES (3089,0,0,1000,2831,240); -- (Marquis Naberius) Yellow Brass Chain
-INSERT INTO `mob_droplist` VALUES (3089,0,0,1000,13922,950);  -- Demon Helm
-INSERT INTO `mob_droplist` VALUES (3089,0,0,1000,13923,50);   -- Demon Helm +1
 INSERT INTO `mob_droplist` VALUES (3089,1,1,1000,942,500);   -- Philosopher's Stone
 INSERT INTO `mob_droplist` VALUES (3089,1,1,1000,1446,500);   -- Lacquer Tree Log 
 INSERT INTO `mob_droplist` VALUES (3089,1,2,240,823,333); -- Gold Thread
@@ -16228,6 +16226,8 @@ INSERT INTO `mob_droplist` VALUES (3089,1,5,150,4175,500); -- Vile Elixir +1
 INSERT INTO `mob_droplist` VALUES (3089,1,5,150,4174,500); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (3089,1,6,150,4173,500); -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (3089,1,6,150,4172,500); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (3089,7,7,1000,13922,950);  -- Demon Helm
+INSERT INTO `mob_droplist` VALUES (3089,7,7,1000,13923,50);   -- Demon Helm +1
 INSERT INTO `mob_droplist` VALUES (3090,0,0,1000,2818,150); -- (Sabotender Corrido) Aptant: Ishis
 INSERT INTO `mob_droplist` VALUES (3090,0,0,1000,2816,150); -- (Sabotender Corrido) Aptant: Tachus
 INSERT INTO `mob_droplist` VALUES (3091,0,0,1000,19125,240); -- (Euryale) Lyft Jambiya
