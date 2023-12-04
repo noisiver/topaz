@@ -1063,6 +1063,9 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
         local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
 
+        -- Negative / Positive element resist on players
+        resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, 0)
+
         -- Terror cannot be resisted by players outside of the trait
         if (target:isPC() and typeEffect == tpz.effect.TERROR) then
             if math.random() > getEffectResistanceTraitChance(mob, target, tpz.effect.TERROR) then
@@ -1123,6 +1126,9 @@ function MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, 
         local bonus = math.floor(mob:getMainLvl() / 2)
 
         local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
+
+        -- Negative / Positive element resist on players
+        resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, 0)
 
         -- Terror cannot be resisted
         if (target:isPC() and typeEffect == tpz.effect.TERROR) then
@@ -1333,13 +1339,17 @@ end
 function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local effect = tpz.effect.ENCUMBRANCE_II
     local element = tpz.magic.ele.WATER
-    local bonus = 50
+    local bonus = math.floor(mob:getMainLvl() / 2)
 
-    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.ENCUMBRANCE_II, dStat, bonus, element)
+    local resist = ApplyPlayerGearResistModCheck(mob, target, effect, dStat, bonus, element)
+
+    -- Negative / Positive element resist on players
+    resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, 0)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) or not target:isPC() then
-	    resist = 0.25
+	    resist = 1/16
     end
 
     local encumberSlots = {};
@@ -1390,7 +1400,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
     local statmod = tpz.mod.CHR
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
     local element = tpz.magic.ele.LIGHT
-    local bonus = 50
+    local bonus = math.floor(mob:getMainLvl() / 2)
 
     local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.ENCUMBRANCE_II, dStat, bonus, element)
 
@@ -1420,15 +1430,20 @@ end
 function MobDeathMove(mob, target, skill)
     local statmod = tpz.mod.INT
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local effect = tpz.effect.KO
     local element = tpz.magic.ele.DARK
-    local bonus = 50
+    local bonus = 256
 
-    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.KO, dStat, bonus, element)
+    local resist = ApplyPlayerGearResistModCheck(mob, target, effect, dStat, bonus, element)
 
-	 --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
-	if (not target:isPC()) then
-		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
-	end
+    -- Negative / Positive element resist on players
+    resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, bonus)
+	--GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+
+    -- This should work on pets?
+	-- if (not target:isPC()) then
+		-- return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	-- end
 	
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
@@ -1456,9 +1471,13 @@ end
 function MobDispelMove(mob, target, skill, element, param1, param2)
     local statmod = tpz.mod.INT
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local effect = tpz.effect.NONE
     local bonus = 175
 
-    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
+    local resist = ApplyPlayerGearResistModCheck(mob, target, effect, dStat, bonus, element)
+
+    -- Negative / Positive element resist on players
+    resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, bonus)
 
     target:addEnmity(mob, 1, 320)
 
@@ -1485,10 +1504,14 @@ end
 function MobFullDispelMove(mob, target, skill, param1, param2)
     local statmod = tpz.mod.INT
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local effect = tpz.effect.NONE
     local element = tpz.magic.ele.DARK
     local bonus = 175
 
-    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
+    local resist = ApplyPlayerGearResistModCheck(mob, target, effect, dStat, bonus, element)
+
+    -- Negative / Positive element resist on players
+    resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, bonus)
 
     target:addEnmity(mob, 1, 320)
 
@@ -1515,21 +1538,25 @@ end
 function MobCorruptMove(mob, target, skill, amount)
     local statmod = tpz.mod.INT
     local dStat = mob:getStat(statmod)-target:getStat(statmod)
+    local effect = tpz.effect.NONE
     local element = tpz.magic.ele.DARK
-    local bonus = 50
+    local bonus = 175
 
-    local resist = ApplyPlayerGearResistModCheck(mob, target, tpz.effect.NONE, dStat, bonus, element)
+    local resist = ApplyPlayerGearResistModCheck(mob, target, effect, dStat, bonus, element)
+
+    -- Negative / Positive element resist on players
+    resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, bonus)
 
     target:addEnmity(mob, 1, 320)
 
 	if (resist >= 0.5) then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return 0
+		    return tpz.msg.basic.SKILL_MISS
 		else
             CorruptBuffs(mob, target, amount)
         end
 	else
-	    return 0
+	    return tpz.msg.basic.SKILL_MISS
 	end
 end
 

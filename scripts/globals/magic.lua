@@ -705,6 +705,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = 1
     end
 
+    -- Negative / Positive element resist on players
+    res = CheckPlayerStatusElementResist(caster, target, element, effect, res, params.bonus)
+
     -- print(string.format("enfeeble res was %f", res))
     return res
 end
@@ -2244,6 +2247,40 @@ function JobPointsMacc(caster, target, spell)
     return jpMaccBonus
 end
 
+function CheckPlayerStatusElementResist(caster, target, element, effect, res, bonus)
+    -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+    -- Players are guaranteed to always take half damage if negative resistance
+    -- Players cannot 1/8 resist magic without positive resistance
+    local effectTable =
+    {
+        tpz.effect.AMNESIA, tpz.effect.VIRUS, tpz.effect.SILENCE, tpz.effect.WEIGHT,
+        tpz.effect.STUN, tpz.effect.LULLABY, tpz.effect.CHARM_I, tpz.effect.CHARM_II,
+        tpz.effect.PARALYSIS, tpz.effect.BIND, tpz.effect.SLOW, tpz.effect.PETRIFICATION,
+        tpz.effect.TERROR, tpz.effect.POISON, tpz.effect.SLEEP_I, tpz.effect.SLEEP_II, 
+        tpz.effect.BLINDNESS,
+    }
+
+    if target:isPC() then
+        -- Only applies to status effects without an EEM mod
+        for _, currentEffect in pairs(effectTable) do
+            if (currentEffect == effect) then
+                return res
+            end
+            if element ~= nil and element > 0 and element < 9 then
+                local eleres = target:getMod(element+53)
+                if eleres < bonus and res < 0.5 then
+                    res = 0.5
+                elseif eleres > bonus and res < 0.25 then
+                    res = utils.clamp(res, 0.125, 1)
+                else
+                    res = utils.clamp(res, 0.25, 1)
+                end
+            end
+        end
+    end
+    return res
+end
+
 function GetCharmHitRate(player, target)
     -- Immune to charm
     if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
@@ -2689,9 +2726,9 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
         { tpz.effect.WEIGHT, tpz.subEffect.WEIGHT },
         { tpz.effect.SLOW, tpz.subEffect.SLOW },
         { tpz.effect.CHARM_I, tpz.subEffect.CHARM },
+        { tpz.effect.CHARM_II, tpz.subEffect.CHARM },
         { tpz.effect.DOOM, tpz.subEffect.DOOM },
         { tpz.effect.AMNESIA, tpz.subEffect.AMNESIA },
-        { tpz.effect.CHARM_II, tpz.subEffect.CHARM },
         { tpz.effect.GRADUAL_PETRIFICATION, tpz.subEffect.PETRIFICATION },
         { tpz.effect.SLEEP_II, tpz.subEffect.SLEEP },
         { tpz.effect.CURSE_II, tpz.subEffect.CURSE },
