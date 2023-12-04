@@ -35,7 +35,7 @@ function onItemUse(target)
         if (target:hasStatusEffect(v)) then
             local effect = target:getStatusEffect(v)
             local effectFlags = effect:getFlag()
-            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (v == tpz.effect.PETRIFICATION) then
                 target:delStatusEffectSilent(v)
             end
         end

@@ -1,10 +1,51 @@
 !setjob should unsummon pet, changejob prob should in C++
-send myself skillchain state file and simplelog
+
 Compare fishingutils and fishing files from eden
+!addbuffs and !addedebuffs don't properly get a target, copy some other file
+Utsusemi tracks by COPY_IMAGE effect ID and not COPY_IMAGE_1234. need to edit all functions relating to COPY_IMAGE 
+and shadow absorb
+Add incutscene to brachyura earring check (get from reraise addon)
+Empress Band cast time too long doesnt match DAT?
+Full cure scroll from a ENM or KSNM or BCNM
+Full Cure scrolld description
+Tick #(decay) on mob stat down moves match the duration of it or instantly removes all the stat down?
+Can't see players casting spells on mobs "starts casting", magic_State.cpp
+Should it be "no longer muddled?"
+special player res works on effects without an eem dispel included. check magic and monstertpmoves
+Dark Spore HP% wrong? just monsterstats spreadsheet
+Funguar shrooms supposed to grow back over time (Check JP wiki for how it works). might need a mixin for all funguars
+Remove "your expertise saved you a ninja tool!" msg
+Healing Salve I and II should just say HP like a potion, need exception in onitemuse and need to change its msgid to same as potion in sql
+Mob ranged attacks (like goblin robbers / aerns) shouldn't have +100 acc bonus
+Scorp family have poison res trait? Remove it
+Changing subjob randomly bugs out and makes you unable to change main job afterwards
+Level restriction message isn't shown twice when zoning into bcnms but is for level capped areas?
+Daken should only proc on main job nin, and trait should be main job only too! add MJ only traits flag? Should also only proc on SHURIKENS it procced on ungur boomerang
+Kuftal spawns, kuftal diggers mouriche or w/e etc
+Trade in quests for SMN 50 JSE
+Esuna / Sacrifice / Benediction need undispellable check (waltzable like clerics drink)
+Goblin Tamer drops in Kuftal(maybe all zones?)
+Custom NM at bottom of kuftal, maybe multiple, its a huge area with nothing
+Clamp all aggro ranges to 5 in CanDetectTarget mob_controller.cpp
+Catholicon(+1) doesn't properly remove status effects or petrification specifically? All items are bugged, clear salve(I and II), clerics drink, etc, for petrification
+It's because petrification(and prob some other status effects) are not waltz flag. Check its flags and edit all the if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) files
+Why do bat earrings work but flaggelents rope doesnt? Try putting eva mod on being parad on flagg rope see if it bugs too?
+
+Fomor RA that uses charutil ranged attack or w/e instead of mob skill somehow
+
+Add treasure hunter on auto procs and msg for THF main only (cap at TH12 + mod from JP[add mod])
+Add the proc message as well
+6% chance when close to current TH mod on self vs mobs TH level gpa is low, 
+scaling down to 2% proc chance later on the higher the gap between TH on mob and gear mod on self
+Treasure Hunter can proc on the first hit of weaponskills, but will not display any message when it does.
+
+RES BUILDING for enfeebles especially bind/break/sleep/grav
+https://gitlab.com/search?search=calculateResistanceBuildPercent&nav_source=navbar&project_id=23700061&search_code=true&repository_ref=master
+See if PathThrough is fixable (lua binding and core part)
+Something messed up with changing main/sub/ammo/range. Main / Sub if grip and 2h and ammo/range idk
 
 
-fishing 34
-
+Revamp NIN merits
 Enlight and Endark acc/attk decay
 maybe in else if (enspell >= ENSPELL_I_LIGHT && enspell <= ENSPELL_I_DARK || enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK) L1732 battleutils.cpp
 Make it so wardrobe 5-8 can have only armor/weapons
