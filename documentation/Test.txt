@@ -18,6 +18,13 @@ https://github.com/mootowncow/topaz/commit/c366f18473631e2c205684f5d79f0ffe6ad3b
 !addtreasure
 DNC 76+ Flourishes (mainly animation)
 Mob dying mid wyvernn breath from DRG wyvern crashing simple log
+!changejob and !changesjob unsummoning pet
+Esuna / Sacrifice / Benediction working normally and not working on undispellable debuffs
+
+
+Positive / negative resist checks on:
+applyResistanceEffect (monstertpmoves and magic)
+TryProcTH, autoattack, SA, tA, and WS. msg too
 
 
 https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33f60 - Checked some BLU spells, gates of hades, choke , frost

@@ -1,5 +1,5 @@
 !setjob should unsummon pet, changejob prob should in C++
-
+MobtransferEnfeeblesMove needs to use new #enmitylist logic
 Compare fishingutils and fishing files from eden
 !addbuffs and !addedebuffs don't properly get a target, copy some other file
 Utsusemi tracks by COPY_IMAGE effect ID and not COPY_IMAGE_1234. need to edit all functions relating to COPY_IMAGE 
@@ -7,22 +7,16 @@ and shadow absorb
 Add incutscene to brachyura earring check (get from reraise addon)
 Empress Band cast time too long doesnt match DAT?
 Full cure scroll from a ENM or KSNM or BCNM
-Full Cure scrolld description
 Tick #(decay) on mob stat down moves match the duration of it or instantly removes all the stat down?
 Can't see players casting spells on mobs "starts casting", magic_State.cpp
 Should it be "no longer muddled?"
-special player res works on effects without an eem dispel included. check magic and monstertpmoves
 Funguar shrooms supposed to grow back over time (Check JP wiki for how it works). might need a mixin for all funguars
 Mob ranged attacks (like goblin robbers / aerns) shouldn't have +100 acc bonus
-Scorp family have poison res trait? Remove it
 Changing subjob randomly bugs out and makes you unable to change main job afterwards
 Level restriction message isn't shown twice when zoning into bcnms but is for level capped areas?
 Daken should only proc on main job nin, and trait should be main job only too! add MJ only traits flag? Should also only proc on SHURIKENS it procced on ungur boomerang
 Trade in quests for SMN 50 JSE
-Esuna / Sacrifice / Benediction need undispellable check (waltzable like clerics drink)
-Goblin Tamer drops in Kuftal(maybe all zones?)
 Custom NM at bottom of kuftal, maybe multiple, its a huge area with nothing
-Clamp all aggro ranges to 5 in CanDetectTarget mob_controller.cpp
 Why do bat earrings work but flaggelents rope doesnt? Try putting eva mod on being parad on flagg rope see if it bugs too?
 
 Fomor RA that uses charutil ranged attack or w/e instead of mob skill somehow
