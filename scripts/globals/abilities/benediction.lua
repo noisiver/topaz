@@ -29,7 +29,11 @@ function onUseAbility(player, target, ability)
 
     for i, effect in ipairs(removables) do
         if (target:hasStatusEffect(effect)) then
-            target:delStatusEffect(effect)
+            local effect = target:getStatusEffect(effect)
+            local effectFlags = effect:getFlag()
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (effect == tpz.effect.PETRIFICATION) then
+                target:delStatusEffectSilent(effect)
+            end
         end
     end
 

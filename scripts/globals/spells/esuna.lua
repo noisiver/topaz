@@ -27,8 +27,12 @@ function onSpellCast(caster, target, spell)
         -- collect a list of what caster currently has
         for i, effect in ipairs(removables) do
             if (caster:hasStatusEffect(effect)) then
-                statusNum = statusNum + 1
-                has[statusNum] = removables[i]
+                local effect = target:getStatusEffect(effect)
+                local effectFlags = effect:getFlag()
+                if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (effect == tpz.effect.PETRIFICATION) then
+                    statusNumMis = statusNumMis + 1
+                    has[statusNumMis] = removables[i]
+                end
             end
         end
 
@@ -48,8 +52,12 @@ function onSpellCast(caster, target, spell)
             has = {}
             for i, effect in ipairs(removables) do
                 if (caster:hasStatusEffect(effect)) then
-                    statusNumMis = statusNumMis + 1
-                    has[statusNumMis] = removables[i]
+                    local effect = target:getStatusEffect(effect)
+                    local effectFlags = effect:getFlag()
+                    if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (effect == tpz.effect.PETRIFICATION) then
+                        statusNumMis = statusNumMis + 1
+                        has[statusNumMis] = removables[i]
+                    end
                 end
             end
 
