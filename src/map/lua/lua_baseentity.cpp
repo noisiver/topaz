@@ -5878,6 +5878,11 @@ inline int32 CLuaBaseEntity::changeJob(lua_State *L)
     PChar->jobs.unlocked |= (1 << (uint8)lua_tointeger(L, 1));
     PChar->SetMJob((uint8)lua_tointeger(L, 1));
 
+    if (PChar->PPet != nullptr)
+    {
+        petutils::DespawnPet(PChar);
+    }
+
     if (lua_tointeger(L, 1) == JOB_BLU)
     {
         if (prevjob != JOB_BLU)
@@ -5958,6 +5963,11 @@ inline int32 CLuaBaseEntity::changesJob(lua_State *L)
     PChar->jobs.unlocked |= (1 << (uint8)lua_tointeger(L, 1));
     PChar->SetSJob((uint8)lua_tointeger(L, 1));
     charutils::UpdateSubJob(PChar);
+
+    if (PChar->PPet != nullptr)
+    {
+        petutils::DespawnPet(PChar);
+    }
 
     if (lua_tointeger(L, 1) == JOB_BLU)
     {
