@@ -2875,6 +2875,10 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 end
 
 function AddDimishingReturns(caster, target, spell, effect)
+    -- No DR building if NO_DR mobmod is on the target
+    if (target:getMobMod(tpz.mobMod.NO_DR) > 0) then
+        return
+    end
     -- Only build dimishing returns on NMs
     -- Bind / Weight / Sleep / Lullaby / Petrification only
     local effectTable =

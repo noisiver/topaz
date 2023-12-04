@@ -122,6 +122,7 @@ enum MOBMODIFIER : int
     MOBMOD_VERTICAL_AGGRO      = 105, // Always aggro regardless of verrtical distance
     MOBMOD_CAN_PARRY           = 106, // Check if a mob is allowed to have parry rank(Rank Value 1 - 5)
     MOBMOD_PIXIE               = 107, // Pixies: Cure and raise players
+    MOBMOD_NO_DR               = 108, // No dimishing returns on any CC
 };
 
 #endif
