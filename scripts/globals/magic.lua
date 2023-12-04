@@ -2876,7 +2876,7 @@ end
 
 function AddDimishingReturns(caster, target, spell, effect)
     -- Only build dimishing returns on NMs
-    -- Bind / Grav / Sleep / Lullaby / Petrification only
+    -- Bind / Weight / Sleep / Lullaby / Petrification only
     local effectTable =
     {
         tpz.effect.BIND,
