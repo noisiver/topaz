@@ -2569,7 +2569,7 @@ INSERT INTO `mob_groups` VALUES (48,716,52,'Chigoes_Nit',0,128,0,0,0,75,76,0);
 INSERT INTO `mob_groups` VALUES (49,916,52,'Dark_Rider',0,128,0,0,0,95,95,0);
 INSERT INTO `mob_groups` VALUES (50,910,52,'Dark_Bugler',0,128,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (51,914,52,'Dark_Esquire',0,128,569,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (52,1802,52,'Greater_Colibri',330,0,1225,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (52,1802,52,'Greater_Colibri',330,0,1225,0,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (53,4355,52,'Wivre',330,0,2952,0,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (54,2423,52,'Lividroot_Amooshah',0,128,0,7500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (55,930,52,'Dea',0,128,577,40000,0,88,88,0);

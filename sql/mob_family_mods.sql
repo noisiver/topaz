@@ -219,7 +219,7 @@ INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Raci
 INSERT INTO `mob_family_mods` VALUES (27,68,25,0);		-- Apkallu +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (199,68,25,0);		-- Qiqirn +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (198,68,25,0);		-- Puk +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (72,68,25,0);		-- Colibri +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (72,68,25,0);		-- Colibri +20 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (176,68,25,0);		-- Mamool ja +25 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
 INSERT INTO `mob_family_mods` VALUES (165,68,25,0);		-- Imp +25 Evasion Racial

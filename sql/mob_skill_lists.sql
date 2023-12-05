@@ -325,7 +325,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Coeurl',71,653);
 INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1699);
 INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1700);
 INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1701);
-INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1158); -- Turbulence
 INSERT INTO `mob_skill_lists` VALUES ('Myradrosh',73,1699);
 INSERT INTO `mob_skill_lists` VALUES ('Myradrosh',73,1701);
 INSERT INTO `mob_skill_lists` VALUES ('Corse',74,530);
