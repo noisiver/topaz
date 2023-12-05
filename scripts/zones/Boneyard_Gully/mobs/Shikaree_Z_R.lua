@@ -3,6 +3,7 @@
 -- Name: Shikaree Z
 -- ENM: Requiem of Sin  
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
@@ -37,9 +38,7 @@ function onMobFight(mob, target)
     -- Handle Healing Breath
     mob:addListener("MAGIC_STATE_EXIT", "SHIKAREE_Z_REQ", function(mob, spell)
         local wyvern = GetMobByID(mob:getID() +3)
-        if mob:getHPP() <= 50 then
-            wyvern:useMobAbility(896) -- Healing Breath III
-        end
+        wyvern:useMobAbility(896) -- Healing Breath III
     end)
 end
 

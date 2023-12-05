@@ -3,6 +3,7 @@
 -- Name: Shikaree Y
 -- ENM: Requiem of Sin  
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/status")
 require("scripts/globals/mobs")

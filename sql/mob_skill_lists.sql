@@ -2763,6 +2763,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 753);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 754);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 755);
 
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,896);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,900);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,901);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,902);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,903);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,904);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,905);
+
 -- Qultada (Breaking the Bonds of Fate)
 INSERT INTO `mob_skill_lists` VALUES ('QultadaSword',1195,39); -- Spirits Within
 INSERT INTO `mob_skill_lists` VALUES ('QultadaSword',1195,42); -- Savage Blade
@@ -4805,6 +4813,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,169); -- black_hal
 INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,250); -- carnal_nightmare
 INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,252); -- dancing_chains
 
--- Next available ID: 1198
+-- Next available ID: 1199
 -- Next custom ID: 6153
 

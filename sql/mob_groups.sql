@@ -355,7 +355,7 @@ INSERT INTO `mob_groups` VALUES (18,1250,8,'Erdgeist',0,128,0,0,750,77,77,0);
 INSERT INTO `mob_groups` VALUES (19,3601,8,'Shikaree_Z_Requiem',0,128,0,4000,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (20,3600,8,'Shikaree_Y_Requiem',0,128,0,4000,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (21,3598,8,'Shikaree_X_Requiem',0,128,0,4000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (22,3602,8,'Shikaree_Zs_Wyvern_Requiem',0,128,0,4500,0,78,78,0);
+INSERT INTO `mob_groups` VALUES (22,4736,8,'Shikaree_Zs_Wyvern_Requiem',0,128,0,4500,0,78,78,0);
 INSERT INTO `mob_groups` VALUES (23,3599,8,'Shikaree_Xs_Rabbit_Requiem',0,128,0,4500,0,78,78,0);
 
 -- ------------------------------------------------------------
