@@ -12,7 +12,7 @@ function onEffectGain(target, effect)
     target:delMod(tpz.mod.EVA, power)
 end
 
--- only Feint uses tick, which restores 10 evasion per tick
+-- restores 10 evasion per tick
 function onEffectTick(target, effect)
     local subpower = effect:getSubPower()
     local power = effect:getPower()

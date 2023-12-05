@@ -6264,13 +6264,10 @@ namespace charutils
             procChance *= procChanceMod;
             procChance /= 100;
         }
-        printf("procChance before feint %u\n", procChance);
         // Apply Feint bonus
-        if (PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_FEINT))
         {
-            uint16 feintBonus = 100 + (PChar->PMeritPoints->GetMeritValue(MERIT_FEINT, PChar) * 25);
-            feintBonus -= 25; // Only merits after the first increase chance
-            printf("feintBonus %u\n", feintBonus);
+            uint16 feintBonus = 100 + PChar->PMeritPoints->GetMeritValue(MERIT_FEINT, PChar);
             if (feintBonus > 100)
             {
                 procChance *= feintBonus;

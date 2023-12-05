@@ -1924,13 +1924,15 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 }
 
                 // Apply Feint
-                if (CStatusEffect* PFeintEffect = StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
+                if (this->objtype == TYPE_PC)
                 {
-                    uint16 power = (PTarget->EVA() / 20) * 10; // ensures power is a multiple of 10 to evenly die out over the 10 ticks
-                    if (power > 0)
-                        PTarget->StatusEffectContainer->AddStatusEffect(
-                            new CStatusEffect(EFFECT_EVASION_DOWN, EFFECT_EVASION_DOWN, power, 3, 30, 0, power / 10));
-                    StatusEffectContainer->DelStatusEffectSilent(EFFECT_FEINT);
+                    if (CStatusEffect* PFeintEffect = StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
+                    {
+                        uint16 power = (PTarget->EVA() / 20) * 10; // ensures power is a multiple of 10 to evenly die out over the 10 ticks
+                        if (power > 0)
+                        PTarget->StatusEffectContainer->AddStatusEffect( new CStatusEffect(EFFECT_FEINT, EFFECT_FEINT, power, 3, 30, 0, power / 10));
+                        StatusEffectContainer->DelStatusEffectSilent(EFFECT_FEINT);
+                    }
                 }
 
 
