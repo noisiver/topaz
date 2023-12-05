@@ -23,7 +23,16 @@ Esuna / Sacrifice / Benediction working normally and not working on undispellabl
 Positive / negative resist checks on:
 applyResistanceEffect (monstertpmoves and magic)
 TryProcTH with feint
+Stealth and Alertness
+Shadows of the Mind despawn(all should despawn at same time)
 
+ENMs:
+Totentanz(summoning) 
+When Hell Freezes Over (Aggroing in vision range and not aggroing immediately on spawning of next wave)
+Tango with a Tracker + Req of Sin questing at Despachiaire and doing bcs !pos 108 -40 -83 26 
+Dawn completed check might bug and need a diff way to get it, check other things with COP progress requirements
+Req of sin wyvern healing when shikaree Z uses a spell and on its own when it gains TP, healing any of its friends
+and clearing enms + KI's being deleted + conquest tally timer
 
 https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33f60 - Checked some BLU spells, gates of hades, choke , frost
 BLM AM2's - Magic burst bonus and MACC bonus
@@ -62,5 +71,3 @@ X's knife BCNM
 Normal roc TP moves
 Hoof Volley animation ID
 Standback HP % for casters and ranged. Seemed to be 65% for soulflayers?
-https://ffxiclopedia.fandom.com/wiki/Go!_Go!_Gobmuffin! capture
-Tango with a tracker capture

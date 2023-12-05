@@ -1,15 +1,11 @@
-Reduce Stealth / rangers sight bonus to 1
-
 Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl and all synth recips converted to real crafts? 
 or ones we can use like consumables
 
-Tune ENMs, especially Totentanz and fix the spawn timer on adds
-Do the puks in Shadows of the Mind despawn? Tune that as well
+LVl 30-60 cap ENM's with better rewards
 
 Guards display no text on simple log
 Add dmg after block it should be the param (Dmg) Blocked by - > Miyu
 Hpemde mixin make sure mobility start mid etc make sure an action isnt happening when changing form
-TH level rolled over from proccing
 MobtransferEnfeeblesMove needs to use new #enmitylist logic
 Compare fishingutils and fishing files from eden
 !addbuffs and !addedebuffs don't properly get a target, copy some other file
@@ -132,15 +128,6 @@ Missing augments
 https://github.com/LandSandBoat/server/commit/f053b35dbc40042e3f16a1a4d22f2d3071392e7d
 Smite
 https://github.com/LandSandBoat/server/commit/1377c5e38a0ecb1e172880f45dbe556c96a01a84
-
-Requiume of sin:
-Pets aren't summoned at start
-Have regain
-use 2 hours(familiar / blood weapon)
-Wyvern uses healing breath on everyone when Shikaree Z casts a spell
-Wyvern uses normal offensive breaths and defensive whenever it gains TP
-Pets aren't despawned on masters dying and need to be killed for the chest to spawn
-Spawns a chest with loot. Chest can have no loot.
 
 Mythic:
 Qultada custom msgs cant use msgids
