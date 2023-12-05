@@ -260,7 +260,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight, bo
     }
 
     auto detects = PMob->m_Detects;
-    auto currentDistance = distance(PTarget->loc.p, PMob->loc.p) + PTarget->getMod(Mod::STEALTH);
+    auto currentDistance = distance(PTarget->loc.p, PMob->loc.p);
 
     bool detectSight = (detects & DETECT_SIGHT) || forceSight || PMob->getMobMod(MOBMOD_AGGRO_SIGHT) > 0;
     bool detectSound = detects & DETECT_HEARING || PMob->getMobMod(MOBMOD_AGGRO_SOUND) > 0;
@@ -293,7 +293,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight, bo
 
     }
     // ShowDebug("Sight Range before %u \n", PMob->getMobMod(MOBMOD_SIGHT_RANGE));
-    uint32 sightRange = PMob->getMobMod(MOBMOD_SIGHT_RANGE) * GetSightDetectionModifiers() / 100;
+    uint32 sightRange = (PMob->getMobMod(MOBMOD_SIGHT_RANGE) - PTarget->getMod(Mod::ALERTNESS)) * GetSightDetectionModifiers() / 100;
     // ShowDebug("Sight Range after %u \n", sightRange);
     if (detectSight && !hasInvisible && currentDistance < sightRange && facing(PMob->loc.p, PTarget->loc.p, 64))
     {
@@ -305,7 +305,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight, bo
         return true;
     }
 
-    uint32 soundRange = PMob->getMobMod(MOBMOD_SOUND_RANGE);
+    uint32 soundRange = PMob->getMobMod(MOBMOD_SOUND_RANGE) - PTarget->getMod(Mod::STEALTH);
     uint32 soundMod = GetSoundDetectionModifiers();
     // ShowDebug("Sound Range before %u \n", PMob->getMobMod(MOBMOD_SOUND_RANGE));
     // ShowDebug("Sound Mod %u \n", soundMod);

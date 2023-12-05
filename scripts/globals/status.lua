@@ -1363,7 +1363,7 @@ tpz.mod =
     ADDS_WEAPONSKILL                = 355,
     ADDS_WEAPONSKILL_DYN            = 356,
     BP_DELAY                        = 357,
-    STEALTH                         = 358,
+    STEALTH                         = 358, -- Reduced Sound detection range
     RAPID_SHOT                      = 359,
     CHARM_TIME                      = 360,
     JUMP_TP_BONUS                   = 361,
@@ -1883,8 +1883,9 @@ tpz.mod =
     RERAISE_IV              = 1363, -- Reraise IV.
     TH_MAX                  = 1364, --  Max TH level the entity can play. THF job gift.
     TH_PROC_CHANCE          = 1365, -- Bonus proc chance to Treasure Hunter procs. THF job gifts.
+    ALERTNESS               = 1366, -- Reduced Sight detection range
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1366 NEXT
+    -- 1367 NEXT
 }
 
 tpz.latent =

@@ -719,8 +719,9 @@ enum class Mod
     ADDS_WEAPONSKILL          = 355, // Needs to be tpz.ws_unlock ID for unlockables, otherwise the WSID itself
     ADDS_WEAPONSKILL_DYN      = 356, // In Dynamis
 
-    STEALTH                   = 358, //
+    STEALTH                   = 358, // Reduced Sound detection range
     SNEAK_DURATION            = 946, // Additional duration in seconds
+    ALERTNESS                 = 1366,// Reduced Sight detection range
     INVISIBLE_DURATION        = 947, // Additional duration in seconds
 
     MAIN_DMG_RATING           = 366, // adds damage rating to main hand weapon (maneater/blau dolch etc hidden effects)
@@ -1048,7 +1049,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1366 NEXT
+    // 1367 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
