@@ -15,7 +15,7 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-    local battleTime = mob:getbattleTime()
+    local battleTime = mob:getBattleTime()
     local despawnTimer = mob:getLocalVar("boreasDespawnTimer")
     -- Despawn after 15-20s
     if (battleTime >= despawnTimer) then

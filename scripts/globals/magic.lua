@@ -2283,8 +2283,10 @@ end
 
 function GetCharmHitRate(player, target)
     -- Immune to charm
-    if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
-        return 0
+    if not target:isPC() then
+        if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
+            return 0
+        end
     end
 
     -- formula is 50% - family reduct - dLvl (3/lvl until 50, 5/lvl 51+, 10/lvl at some level)) * charm multiplier + dCHR + Light Staff bonus (10/15)
@@ -2918,9 +2920,12 @@ end
 
 function AddDimishingReturns(caster, target, spell, effect)
     -- No DR building if NO_DR mobmod is on the target
-    if (target:getMobMod(tpz.mobMod.NO_DR) > 0) then
-        return
+    if not target:isPC() then
+        if (target:getMobMod(tpz.mobMod.NO_DR) > 0) then
+            return
+        end
     end
+
     -- Only build dimishing returns on NMs
     -- Bind / Weight / Sleep / Lullaby / Petrification only
     local effectTable =
