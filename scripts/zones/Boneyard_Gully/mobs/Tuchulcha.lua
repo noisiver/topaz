@@ -6,13 +6,12 @@
 mixins = {require("scripts/mixins/families/antlion_ambush")}
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(120)
-    mob:setMod(tpz.mod.ATTP, 25)
-    mob:setMod(tpz.mod.DEFP, 25)
-    mob:addMod(tpz.mod.EVA, 10)
-    mob:setMod(tpz.mod.REFRESH, 300)
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:addImmunity(tpz.immunity.SLEEP)
     mob:addImmunity(tpz.immunity.GRAVITY)

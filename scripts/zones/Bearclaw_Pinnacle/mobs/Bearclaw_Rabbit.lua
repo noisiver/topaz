@@ -10,12 +10,9 @@ local ID = require("scripts/zones/Bearclaw_Pinnacle/IDs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setDamage(90)
-    mob:setMod(tpz.mod.ATTP, 0)
-    mob:setMod(tpz.mod.DEFP, 0)
-    mob:addMod(tpz.mod.EVA, 25)
-    mob:setMod(tpz.mod.REFRESH, 300)
-    mob:setMod(tpz.mod.SDT_DARK, 50)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 20)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
@@ -49,9 +46,9 @@ function onMobFight(mob, target)
 
     -- Attack and defense are increased after using Mighty Strikes
     if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
-        mob:setDamage(125)
+        mob:setDamage(110)
         mob:setMod(tpz.mod.ATTP, 50)
-        mob:setMod(tpz.mod.DEFP, 100)
+        mob:setMod(tpz.mod.DEFP, 50)
     end
 end
 

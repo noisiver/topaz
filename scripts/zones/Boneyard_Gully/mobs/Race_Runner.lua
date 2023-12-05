@@ -5,6 +5,7 @@
 -----------------------------------
 require("scripts/globals/pathfind")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 require("scripts/globals/titles")
 -----------------------------------
 
@@ -20,6 +21,15 @@ local path =
 }
 
 function onMobSpawn(mob)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.MDEF, 70)
+    mob:setMod(tpz.mod.UDMGMAGIC, -25)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:addImmunity(tpz.immunity.SILENCE)
+    mob:addImmunity(tpz.immunity.GRAVITY)
+    mob:addImmunity(tpz.immunity.BIND)
+    mob:addImmunity(tpz.immunity.LIGHTSLEEP)
+    mob:addImmunity(tpz.immunity.ELEGY)
     onMobRoam(mob)
 end
 
