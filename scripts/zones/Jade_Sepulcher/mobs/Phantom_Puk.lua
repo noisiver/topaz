@@ -3,14 +3,14 @@
 -- MOB: Phantom Puk
 -- ISNM3000: Shadows of the Mind
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
 local ID = require("scripts/zones/Jade_Sepulcher/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(125)
-	mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
