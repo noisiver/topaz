@@ -1,4 +1,15 @@
-!setjob should unsummon pet, changejob prob should in C++
+Reduce Stealth / rangers sight bonus to 1
+
+Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl and all synth recips converted to real crafts? 
+or ones we can use like consumables
+
+Tune ENMs, especially Totentanz and fix the spawn timer on adds
+Do the puks in Shadows of the Mind despawn? Tune that as well
+
+Guards display no text on simple log
+Add dmg after block it should be the param (Dmg) Blocked by - > Miyu
+Hpemde mixin make sure mobility start mid etc make sure an action isnt happening when changing form
+TH level rolled over from proccing
 MobtransferEnfeeblesMove needs to use new #enmitylist logic
 Compare fishingutils and fishing files from eden
 !addbuffs and !addedebuffs don't properly get a target, copy some other file
@@ -21,12 +32,6 @@ Why do bat earrings work but flaggelents rope doesnt? Try putting eva mod on bei
 
 Fomor RA that uses charutil ranged attack or w/e instead of mob skill somehow
 
-Add treasure hunter on auto procs and msg for THF main only (cap at TH12 + mod from JP[add mod])
-Add the proc message as well
-6% chance when close to current TH mod on self vs mobs TH level gpa is low, 
-scaling down to 2% proc chance later on the higher the gap between TH on mob and gear mod on self
-Treasure Hunter can proc on the first hit of weaponskills, but will not display any message when it does.
-
 See if PathThrough is fixable (lua binding and core part)
 Something messed up with changing main/sub/ammo/range. Main / Sub if grip and 2h and ammo/range idk
 
@@ -39,8 +44,7 @@ Make it so wardrobe 5-8 can have only armor/weapons
 
 
 Giving EXP overflowing merits works properly until at 10 merits then stops working, doesn't keep going until 9999/9999 merit exp
-Xzomit babies onvert all to pets tbh
-Make arrows/bolts/bullets lvl 75 https://www.bg-wiki.com/ffxi/Nokkhi_Jinjahl 
+Xzomit babies convert all to pets tbh
 The items to upgrade inventory 60-80 that come from login campaign only(?) drop from tiamat jorm vtra? or vagary NMs
 Make LoadInventory() or w/e in charutils (on zoning) not move inventory around
 Boat docking soon custom msgparty() functions or w/e. is ok, add a ton and say which line for each one and prints in each one
