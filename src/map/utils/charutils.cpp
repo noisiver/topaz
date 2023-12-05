@@ -6226,7 +6226,7 @@ namespace charutils
         return spawnlist->find(entity->id) != spawnlist->end();
     }
 
-    void TryProcTH(CCharEntity* PChar, CMobEntity* PTarget, bool highProcRate)
+    void TryProcTH(CCharEntity* PChar, CMobEntity* PTarget, actionTarget_t* Action, bool highProcRate)
     {
         if (PTarget == nullptr || PChar == nullptr)
         {
@@ -6249,29 +6249,42 @@ namespace charutils
         uint16 targetTH = PTarget->m_THLvl;
         int16 treasureDiff = std::min(playerTHMod - targetTH, 0);
         uint16 procChance = std::max((treasureDiff + 6), 0);
-        uint16 procChanceMod = 1 + PChar->getMod(Mod::TH_PROC_CHANCE);
-        printf("procChance base %u\n", procChance);
+        uint16 procChanceMod = 100 + PChar->getMod(Mod::TH_PROC_CHANCE);
+        procChance *= 10;
+
+        // Apply high proc rate bonus (Sneak Attack or Trick Attack active)
         if (highProcRate)
         {
-            procChance *= 5;
+            procChance *= 50;
         }
-        printf("procChance after high proc rate%u\n", procChance);
-        procChance *= procChanceMod;
-        printf("procChance after proc chance mod%u\n", procChance);
+
+        // Add proc rate mod(mostly from gifts)
+        if (procChanceMod > 100)
+        {
+            procChance *= procChanceMod;
+            procChance /= 100;
+        }
+
         // Apply Feint bonus
         if (PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
         {
-            uint16 feintBonus = (1 + PChar->PMeritPoints->GetMeritValue(MERIT_FEINT, PChar)) * 25;
-            procChance *= feintBonus;
+            uint16 feintBonus = 25 - (PChar->PMeritPoints->GetMeritValue(MERIT_FEINT, PChar) * 25);
+            if (feintBonus > 0)
+            {
+                procChance *= feintBonus;
+            }
         }
-        printf("procChance after high feint bonus%u\n", procChance);
 
         if (tpzrand::GetRandomNumber(1000) < procChance)
         {
             if (PTarget->m_THLvl < maxTH)
             {
                 PTarget->m_THLvl += 1;
-                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, PTarget->GetBattleTargetID(), PTarget->m_THLvl, MSGBASIC_TREASURE_HUNTER_UP));
+                uint32 thlvl = PTarget->m_THLvl;
+
+                Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
+                Action->addEffectMessage = MSGBASIC_TREASURE_HUNTER_UP;
+                Action->addEffectParam = thlvl;
             }
         }
     }

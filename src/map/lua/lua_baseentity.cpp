@@ -16606,14 +16606,13 @@ inline int32 CLuaBaseEntity::getTHlevel(lua_State* L)
 inline int32 CLuaBaseEntity::TryProcTH(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isuserdata(L, 1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1));
 
     CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+    CMobEntity* PMob = (CMobEntity*)PLuaBaseEntity->GetBaseEntity();
 
-    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
-    if (m_PBaseEntity->objtype == TYPE_MOB)
+    if (PMob->objtype == TYPE_MOB)
     {
-        CMobEntity* PMob = static_cast<CMobEntity*>(m_PBaseEntity);
         charutils::TryProcTH((CCharEntity*)m_PBaseEntity, PMob, false);
     }
 

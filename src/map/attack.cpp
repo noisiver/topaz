@@ -708,16 +708,12 @@ void CAttack::ProcessDamage()
         {
             puppetutils::TrySkillUP((CAutomatonEntity*)m_attacker, SKILL_AUTOMATON_MELEE, m_victim->GetMLevel());
         }
-
-        // Sneak Attack and Trick attack increase TH proc chance 
-        bool highProcRate = false;
+    }
+    if (m_attacker->objtype == TYPE_PC)
+    {
         if (m_trickAttackDamage > 0)
         {
-            highProcRate = true;
-        }
-        if (m_isFirstSwing)
-        {
-            charutils::TryProcTH((CCharEntity*)m_attacker, (CMobEntity*)m_victim, highProcRate);
+            static_cast<CCharEntity*>(m_attacker)->m_sneakTrickActive = true;
         }
     }
     m_isBlocked = attackutils::IsBlocked(m_attacker, m_victim);

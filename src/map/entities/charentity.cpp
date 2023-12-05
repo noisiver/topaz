@@ -237,6 +237,7 @@ CCharEntity::CCharEntity()
     nextFishTime = 0;
     fishingToken = 0;
     m_fomorHate = 0;
+    m_sneakTrickActive = false;
 }
 
 void CCharEntity::SetFomorHate(uint32 fomorHate)

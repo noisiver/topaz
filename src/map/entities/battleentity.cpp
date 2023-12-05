@@ -1937,20 +1937,6 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 // Process damage.
                 attack.ProcessDamage();
 
-                // TODO: TH procs + message
-                //// Display Treasure Hunter Message
-                //if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
-                //{
-                //    CMobEntity* PMob = (CMobEntity*)PTarget;
-                //    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                //    uint16 mobTHLvL = PMob->m_THLvl;
-
-                //    if (playerTHLvl > mobTHLvL)
-                //    {
-                //        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                //    }
-                //}
-
                 // Try shield block
                 if (attack.IsBlocked())
                 {
@@ -2027,8 +2013,26 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
             uint8 enspell = (uint8)this->getMod(Mod::ENSPELL);
 
+             // Try to proc TH
+            if (attack.IsFirstSwing() && this->objtype == TYPE_PC)
+            {
+                bool highProcRate = false;
+                CCharEntity* PChar = (CCharEntity*)this;
+                if (PChar->m_sneakTrickActive)
+                {
+                    highProcRate = true;
+                }
+
+                charutils::TryProcTH(PChar, (CMobEntity*)PTarget, &actionTarget, highProcRate);
+            }
+
             // Add listener
-            PTarget->PAI->EventHandler.triggerListener("EN_SPIKES_HIT", this, PTarget, enspell);
+            if (enspell)
+{
+                {
+                    PTarget->PAI->EventHandler.triggerListener("EN_SPIKES_HIT", this, PTarget, enspell);
+                }
+}
         }
 
         if (actionTarget.speceffect == SPECEFFECT_HIT && actionTarget.param > 0)
@@ -2089,6 +2093,14 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             PChar->pushPacket(new CReleasePacket(PChar, releaseType));
             PChar->pushPacket(new CReleasePacket(PChar, RELEASE_EVENT));
         }
+    }
+
+    //Remove Sneak / Trick attack tracker
+    if (this->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)this;
+
+        PChar->m_sneakTrickActive = false;
     }
 
     this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK | EFFECTFLAG_DETECTABLE);
