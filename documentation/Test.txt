@@ -55,6 +55,7 @@ Doors around that area are supposed to open when players are nearby and close wh
 Shikigami and Zipacna bugged, prob other mobs that patrol with pathThrough, fix function or fix them
 
 Retail:
+Shadows of the mind leaving cutscene at door
 Psoxja by rangemount pass doors logic
 colibri reflect para slow nlind with -res
 Cait Sith BP animations (astral flow too)
