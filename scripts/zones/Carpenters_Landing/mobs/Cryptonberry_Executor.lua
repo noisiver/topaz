@@ -15,7 +15,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
-    mob:setMod(tpz.mod.EEM_SILENCE, 15)
+    mob:setMod(tpz.mod.EEM_SILENCE, 30)
     tpz.mix.jobSpecial.config(mob, {
         delay = 180,
         specials =
