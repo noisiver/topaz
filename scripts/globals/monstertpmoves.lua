@@ -1591,18 +1591,25 @@ function MobTransferEnfeeblesMove(mob, target, skill, range, isAOE)
     }
 
     local enmityList = mob:getEnmityList()
+    local entityId = nil
+    local currentEntity = nil
 
     if isAOE then
         for i, effect in ipairs(effects) do
-            if enmityList and #enmityList > 0 then
-                if mob:hasStatusEffect(effect) then
-                    for v = 1, #enmityList do
-                        local currentEffect = mob:getStatusEffect(effect)
-                        printf("range %s", range)
-                        printf("v loop %s", v)
-                        printf("distance %s", GetPlayerByID(v):checkDistance(mob))
-                        if GetPlayerByID(v):checkDistance(mob) <= range then
-                            MobStatusEffectMove(mob, GetPlayerByID(v), effect, currentEffect:getPower(), currentEffect:getTick(), currentEffect:getTimeRemaining() / 1000)
+            for _, enmity in ipairs(enmityList) do
+                if enmityList and #enmityList > 0 then
+                    if mob:hasStatusEffect(effect) then
+                        for v = 1, #enmityList do
+                            entityId = v.entity:getID()
+                            if (entityId > 10000) then -- ID is a mob(pet) then
+                                currentEntity = GetMobByID(entityId)
+                            else
+                                currentEntity = GetPlayerByID(entityId)
+                            end
+                            local currentEffect = mob:getStatusEffect(effect)
+                            if currentEntity:checkDistance(mob) <= range then
+                                MobStatusEffectMove(mob, currentEntity, effect, currentEffect:getPower(), currentEffect:getTick(), currentEffect:getTimeRemaining() / 1000)
+                            end
                         end
                     end
                 end

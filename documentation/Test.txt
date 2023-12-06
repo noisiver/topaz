@@ -25,6 +25,7 @@ applyResistanceEffect (monstertpmoves and magic)
 Zipacna and MG pathing
 MG Slave Globes aggro(should only assist her)
 Ullikumi / Reaving Wind knockback
+MobTransferEnfeeblesMove()
 
 
 ENMs:

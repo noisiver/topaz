@@ -5,7 +5,6 @@ LVl 30-60 cap ENM's with better rewards
 
 Guards display no text on simple log
 Add dmg after block it should be the param (Dmg) Blocked by - > Miyu
-MobtransferEnfeeblesMove needs to use new #enmitylist logic
 Compare fishingutils and fishing files from eden
 !addbuffs and !addedebuffs don't properly get a target, copy some other file
 Utsusemi tracks by COPY_IMAGE effect ID and not COPY_IMAGE_1234. need to edit all functions relating to COPY_IMAGE 
