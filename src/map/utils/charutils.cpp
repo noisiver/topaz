@@ -6255,7 +6255,7 @@ namespace charutils
         // Apply high proc rate bonus (Sneak Attack or Trick Attack active)
         if (highProcRate)
         {
-            procChance *= 50;
+            procChance *= 5;
         }
 
         // Add proc rate mod(mostly from gifts)
