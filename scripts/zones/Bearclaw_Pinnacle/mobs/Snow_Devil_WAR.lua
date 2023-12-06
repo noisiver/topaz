@@ -29,9 +29,6 @@ function onMobFight(mob, target)
 end
 
 function onMobEngaged(mob, target)
-    for v = 16801818, 16801837 do
-        v:updateEnmity(player)
-    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
