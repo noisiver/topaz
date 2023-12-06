@@ -22,9 +22,10 @@ Mob dying mid wyvernn breath from DRG wyvern crashing simple log
 Esuna / Sacrifice / Benediction working normally and not working on undispellable debuffs
 Positive / negative resist checks on:
 applyResistanceEffect (monstertpmoves and magic)
-TryProcTH with feint
-Stealth and Alertness
-Shadows of the Mind despawn(all should despawn at same time)
+Zipacna and MG pathing
+MG Slave Globes aggro(should only assist her)
+Ullikumi / Reaving Wind knockback
+
 
 ENMs:
 Totentanz(summoning) 
