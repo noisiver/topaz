@@ -103,6 +103,12 @@ bool CMobSkill::isSpecial() const
     return m_Flag & SKILLFLAG_SPECIAL;
 }
 
+bool CMobSkill::alwaysKnockback() const
+{
+    // This skill will knock back even on misses / shadow absorb
+    return m_Flag & SKILLFLAG_ALWAYS_KNOCK_BACK;
+}
+
 void CMobSkill::setID(uint16 id)
 {
     m_ID = id;

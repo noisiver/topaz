@@ -917,6 +917,13 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         target.animation = PSkill->getAnimationID();
         target.messageID = PSkill->getMsg();
 
+        // Always knock back regardless of hit or shadow absorb.
+        // For Reaving Wind aura knockback, Ullikumis Heavy Strike, etc
+        if (PSkill->getFlag() & SKILLFLAG_ALWAYS_KNOCK_BACK)
+        {
+            target.knockback = PSkill->getKnockback();
+        }
+
         // Set player avatar 2 hours to 15 yard radius
         // TODO: Are these the correct IDs? What are 839 - 919 for?
         if (objtype == TYPE_PET && PMaster->objtype == TYPE_PC)
