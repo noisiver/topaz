@@ -2266,18 +2266,19 @@ function CheckPlayerStatusElementResist(caster, target, element, effect, res, bo
             if (currentEffect == effect) then
                 return res
             end
-            if element ~= nil and element > 0 and element < 9 then
-                local eleres = target:getMod(element+53)
-                if eleres < bonus and res < 0.5 then
-                    res = 0.5
-                elseif eleres > bonus and res < 0.25 then
-                    res = utils.clamp(res, 0.125, 1)
-                else
-                    res = utils.clamp(res, 0.25, 1)
-                end
+        end
+        if element ~= nil and element > 0 and element < 9 then
+            local eleres = target:getMod(element+53)
+            if eleres < bonus and res < 0.5 then
+                res = 0.5
+            elseif eleres > bonus and res < 0.25 then
+                res = utils.clamp(res, 0.125, 1)
+            else
+                res = utils.clamp(res, 0.25, 1)
             end
         end
     end
+
     return res
 end
 
