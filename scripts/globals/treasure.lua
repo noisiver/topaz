@@ -1398,15 +1398,15 @@ tpz.treasure.onTrade = function(player, npc, trade, chestType)
         if mJob ~= tpz.job.THF or mLvl < (info.treasureLvl - 10) then
             success = 0
         elseif keyTraded == keyType.SKELETON_KEY then
-            success = (mLvl / info.treasureLvl) - 0.50 + 0.2
+            success = 40
         elseif keyTraded == keyType.LIVING_KEY then
-            success = (mLvl / info.treasureLvl) - 0.50 + 0.15
+            success = 45
         elseif keyTraded == keyType.THIEF_TOOLS then
-            success = (mLvl / info.treasureLvl) - 0.50 + 0.1
+            success = 35
         end
-
+        print(success)
         -- failed lockpick
-        if math.random() > success then
+        if math.random(100) > success then
             -- take key
             player:confirmTrade()
 
@@ -1485,7 +1485,7 @@ tpz.treasure.onTrade = function(player, npc, trade, chestType)
         moveChest(npc, zoneId, chestType)
         return
     end
-
+    illusionCooldown = 0
     -- illusion: do not consume tool, and relocate chest after short delay
     if os.time() < illusionCooldown then
         player:messageSpecial(msgBase + 6)
