@@ -25,12 +25,11 @@ g_mixins.families.gargouille = function(mob)
             AddEvasionBonus(mob)
         end
 
-        if swapTime > 0 and os.time() > swapTime then
+        if swapTime > 0 and os.time() > swapTime and not IsMobBusy then
 
             if animationSub == 0 or animationSub == 4 then
                 mob:AnimationSub(1)
                 mob:setLocalVar("swapTime", os.time() + math.random(45, 60))
-
             elseif animationSub == 1 then
                 mob:AnimationSub(0)
                 mob:setLocalVar("swapTime", os.time() + math.random(45, 60))

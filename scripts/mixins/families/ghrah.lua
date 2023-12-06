@@ -84,22 +84,24 @@ g_mixins.families.ghrah = function(mob)
     mob:addListener("COMBAT_TICK", "GHRAH_CTICK", function(mob)
         local changeTime = mob:getLocalVar("changeTime")
 
-        if (mob:AnimationSub() == 0 and mob:getBattleTime() >= changeTime) then
-            mob:AnimationSub(mob:getLocalVar("form2"))
-            mob:setAggressive(1)
-            SetJob(mob)
-            SetSDT(mob)
-            SetCasting(mob)
-            SetClusterDrops(mob)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
-        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and mob:getBattleTime() >= changeTime) then
-            mob:AnimationSub(0)
-            mob:setAggressive(0)
-            SetJob(mob)
-            SetSDT(mob)
-            SetCasting(mob)
-            SetClusterDrops(mob)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
+        if not IsMobBusy then
+            if (mob:AnimationSub() == 0 and mob:getBattleTime() >= changeTime) then
+                mob:AnimationSub(mob:getLocalVar("form2"))
+                mob:setAggressive(1)
+                SetJob(mob)
+                SetSDT(mob)
+                SetCasting(mob)
+                SetClusterDrops(mob)
+                mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
+            elseif (mob:AnimationSub() == mob:getLocalVar("form2") and mob:getBattleTime() >= changeTime) then
+                mob:AnimationSub(0)
+                mob:setAggressive(0)
+                SetJob(mob)
+                SetSDT(mob)
+                SetCasting(mob)
+                SetClusterDrops(mob)
+                mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
+            end
         end
     end)
 end

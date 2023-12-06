@@ -665,6 +665,17 @@ function MakeMobInactive(mob)
     mob:setUnkillable(true)
 end
 
+function IsMobBusy()
+    local act = mob:getCurrentAction()
+
+    return  act == tpz.act.MOBABILITY_START or
+            act == tpz.act.MOBABILITY_USING or
+            act == tpz.act.MOBABILITY_FINISH or
+            act == tpz.act.MAGIC_START or
+            act == tpz.act.MAGIC_CASTING or
+            act == tpz.act.MAGIC_FINISH
+end
+
 function AffectWeatherMob(mobId, weather, nqWeather, nqChance, hqWeather, hqChance)
     local shouldSpawnMob = false
     if (weather == nqWeather and math.random(100) <= nqChance) or

@@ -31,31 +31,35 @@ g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
 
 local function enterShell(mob)
-    mob:AnimationSub(1)
-    mob:SetAutoAttackEnabled(false)
-    mob:useMobAbility(1572) -- Always immediately uses Venom Shell 
-    mob:addMod(tpz.mod.DEFP, 100)
-    mob:addMod(tpz.mod.UDMGMAGIC, -75)
-    mob:addMod(tpz.mod.UDMGBREATH, -75)
-    mob:addMod(tpz.mod.REGEN, mob:getMaxHP() * 0.02)
-    mob:setMod(tpz.mod.REGAIN, 250) -- Gains TP fast inside hell
-    mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]inShellSkillList"))
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
-    mob:setLocalVar("damageTaken", 0)
-    mob:setLocalVar("[uragnite]timeInShell", os.time() + 27)
+    if not IsMobBusy then
+        mob:AnimationSub(1)
+        mob:SetAutoAttackEnabled(false)
+        mob:useMobAbility(1572) -- Always immediately uses Venom Shell 
+        mob:addMod(tpz.mod.DEFP, 100)
+        mob:addMod(tpz.mod.UDMGMAGIC, -75)
+        mob:addMod(tpz.mod.UDMGBREATH, -75)
+        mob:addMod(tpz.mod.REGEN, mob:getMaxHP() * 0.02)
+        mob:setMod(tpz.mod.REGAIN, 250) -- Gains TP fast inside hell
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]inShellSkillList"))
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+        mob:setLocalVar("damageTaken", 0)
+        mob:setLocalVar("[uragnite]timeInShell", os.time() + 27)
+    end
 end
 
 local function exitShell(mob)
-    mob:AnimationSub(0)
-    mob:SetAutoAttackEnabled(true)
-    mob:delMod(tpz.mod.DEFP, 100)
-    mob:delMod(tpz.mod.UDMGMAGIC, -75)
-    mob:delMod(tpz.mod.UDMGBREATH, -75)
-    mob:delMod(tpz.mod.REGEN, mob:getMaxHP() * 0.02)
-    mob:setMod(tpz.mod.REGAIN, 0)
-    mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]noShellSkillList"))
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
-    mob:setLocalVar("damageTaken", 0)
+    if not IsMobBusy then
+        mob:AnimationSub(0)
+        mob:SetAutoAttackEnabled(true)
+        mob:delMod(tpz.mod.DEFP, 100)
+        mob:delMod(tpz.mod.UDMGMAGIC, -75)
+        mob:delMod(tpz.mod.UDMGBREATH, -75)
+        mob:delMod(tpz.mod.REGEN, mob:getMaxHP() * 0.02)
+        mob:setMod(tpz.mod.REGAIN, 0)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]noShellSkillList"))
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+        mob:setLocalVar("damageTaken", 0)
+    end
 end
 
 tpz.mix.uragnite.config = function(mob, params)

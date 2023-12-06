@@ -27,26 +27,30 @@ local function surface(mob)
 end
 
 local function openMouth(mob)
-    mob:setDamage(math.floor(mob:getWeaponDmg() * 2)) -- Weapon damage * 2
-    mob:addMod(tpz.mod.UDMGPHYS, 100)
-    mob:addMod(tpz.mod.UDMGBREATH, 100)
-    mob:addMod(tpz.mod.UDMGMAGIC, 100)
-    mob:addMod(tpz.mod.UDMGRANGE, 100)
-    mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
-    mob:AnimationSub(3)
-    mob:wait(2000)
+    if not IsMobBusy then
+        mob:setDamage(math.floor(mob:getWeaponDmg() * 2)) -- Weapon damage * 2
+        mob:addMod(tpz.mod.UDMGPHYS, 100)
+        mob:addMod(tpz.mod.UDMGBREATH, 100)
+        mob:addMod(tpz.mod.UDMGMAGIC, 100)
+        mob:addMod(tpz.mod.UDMGRANGE, 100)
+        mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
+        mob:AnimationSub(3)
+        mob:wait(2000)
+    end
 end
 
 local function closeMouth(mob)
-    mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
-    mob:delMod(tpz.mod.UDMGPHYS, 100)
-    mob:delMod(tpz.mod.UDMGBREATH, 100)
-    mob:delMod(tpz.mod.UDMGMAGIC, 100)
-    mob:delMod(tpz.mod.UDMGRANGE, 100)
-    mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
-    mob:setLocalVar("damageTaken", 0)
-    mob:AnimationSub(6)
-    mob:wait(2000)
+    if not IsMobBusy then
+        mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
+        mob:delMod(tpz.mod.UDMGPHYS, 100)
+        mob:delMod(tpz.mod.UDMGBREATH, 100)
+        mob:delMod(tpz.mod.UDMGMAGIC, 100)
+        mob:delMod(tpz.mod.UDMGRANGE, 100)
+        mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
+        mob:setLocalVar("damageTaken", 0)
+        mob:AnimationSub(6)
+        mob:wait(2000)
+    end
 end
 
 g_mixins.families.hpemde = function(mob)

@@ -27,13 +27,15 @@ g_mixins.families.zdei = function(mob)
         local now = os.time()
 
         -- Change to a new mode if time has expired and not currently charging optic induration
-        if now >= changeTime and mob:getCurrentAction() == tpz.act.ATTACK and mob:getLocalVar("charge_count") == 0 then
-            if mob:AnimationSub() <= 1 then
-                mob:AnimationSub(math.random(2, 3))
-                mob:setLocalVar("changeTime", now + 60)
-            else
-                mob:AnimationSub(1)
-                mob:setLocalVar("changeTime", now + 60)
+        if not IsMobBusy then
+            if now >= changeTime and mob:getCurrentAction() == tpz.act.ATTACK and mob:getLocalVar("charge_count") == 0 then
+                if mob:AnimationSub() <= 1 then
+                    mob:AnimationSub(math.random(2, 3))
+                    mob:setLocalVar("changeTime", now + 60)
+                else
+                    mob:AnimationSub(1)
+                    mob:setLocalVar("changeTime", now + 60)
+                end
             end
         end
     end)
