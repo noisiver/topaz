@@ -142,7 +142,6 @@ function onMobRoam(mob)
     end
 
     local Pos = mob:getPos()
-    local path = mob:getLocalVar("path")
     local pathingTable =
     {
         { x =  860, y = -100, z = -539  },
@@ -151,26 +150,11 @@ function onMobRoam(mob)
         { x =  822, y = -100, z = -573  },
     }
 
-    if not mob:isFollowingPath() then
-        local path = mob:getLocalVar("path")
-        local step = mob:getLocalVar("pathstep");
-        path = path + step;
-        if (path > #pathingTable) then
-            path = #pathingTable - 1;
-            mob:setLocalVar("pathstep", -1);
-        elseif (path < 1) then
-            path = 2;
-            mob:setLocalVar("pathstep", 1);
-        end
-        
-        mob:setLocalVar("path", path);
-        local currentPath = pathingTable[path];
-        mob:pathTo(currentPath.X, currentPath.Y, currentPath.Z, tpz.path.flag.RUN);
-    end
+    tpz.path.loop(mob, pathingTable, tpz.path.flag.RUN)
 end
 
 
-function onMobFight(mob, target)
+function onMobFight(mob, target) 
     local now = os.time()
     local slaves = mob:getLocalVar("SlavesSpawned")
     local slaveRecast = mob:getLocalVar("SlaveRecast")

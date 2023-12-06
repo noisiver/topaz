@@ -25,13 +25,13 @@ end
 function onMobRoam(mob)
     local blueDoorPathing =
     {
-        { x = -163, y = 0, z = 380   },
-        { x = -133, y = 0, z = 381   },
-        { x = -108, y = 0, z = 458   },
+        { x = -171, y = 0, z = 360   },
+        { x = -83,  y = 0, z = 459   },
     }
 
     local greenDoorPathing =
     {
+        { x = -108, y = 0, z = 458   },
         { x = -62,  y = 0, z = 457   },
         { x = -59,  y = 0, z = 422   },
         { x =  58,  y = 0, z = 420   },
@@ -42,26 +42,11 @@ function onMobRoam(mob)
     local blueGate = GetNPCByID(ID.npc.H3_BLUE_GATE)
     local pathingTable = greenDoorPathing
 
-    if blueGate:getAnimation() == tpz.anim.OPEN_DOOR then
-        pathingTable = blueDoorPathing
+    if blueGate:getAnimation() == tpz.anim.CLOSE_DOOR then
+        --pathingTable = blueDoorPathing
     end
 
-    if not mob:isFollowingPath() then
-        local path = mob:getLocalVar("path")
-        local step = mob:getLocalVar("pathstep");
-        path = path + step;
-        if (path > #pathingTable) then
-            path = #pathingTable - 1;
-            mob:setLocalVar("pathstep", -1);
-        elseif (path < 1) then
-            path = 2;
-            mob:setLocalVar("pathstep", 1);
-        end
-        
-        mob:setLocalVar("path", path);
-        local currentPath = pathingTable[path];
-        mob:pathTo(currentPath.X, currentPath.Y, currentPath.Z, tpz.path.flag.RUN);
-    end
+    tpz.path.loop(mob, pathingTable, tpz.path.flag.RUN)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
