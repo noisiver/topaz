@@ -6274,7 +6274,7 @@ namespace charutils
                 procChance /= 100;
             }
         }
-        printf("procChance after feint %u\n", procChance);
+
         if (tpzrand::GetRandomNumber(1000) < procChance)
         {
             if (PTarget->m_THLvl < maxTH)
@@ -6282,9 +6282,12 @@ namespace charutils
                 PTarget->m_THLvl += 1;
                 uint32 thlvl = PTarget->m_THLvl;
 
-                Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
-                Action->addEffectMessage = MSGBASIC_TREASURE_HUNTER_UP;
-                Action->addEffectParam = thlvl;
+                if (Action)
+                {
+                    Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
+                    Action->addEffectMessage = MSGBASIC_TREASURE_HUNTER_UP;
+                    Action->addEffectParam = thlvl;
+                }
             }
         }
     }
