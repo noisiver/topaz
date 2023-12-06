@@ -13,7 +13,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setHP(600)
+	mob:setHP(150)
     mob:addMod(tpz.mod.MOVE, 45)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     onPath(mob)
@@ -51,7 +51,6 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-	mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17506396)
 end
 
 function onMobDeath(mob)

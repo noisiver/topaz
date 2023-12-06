@@ -4,7 +4,8 @@
 -----------------------------------
 require("scripts/globals/pathfind")
 require("scripts/globals/status")
-
+require("scripts/globals/mobs")
+-----------------------------------
 
 
 function onMobSpawn(mob)
