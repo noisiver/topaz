@@ -1485,7 +1485,7 @@ tpz.treasure.onTrade = function(player, npc, trade, chestType)
         moveChest(npc, zoneId, chestType)
         return
     end
-    illusionCooldown = 0
+
     -- illusion: do not consume tool, and relocate chest after short delay
     if os.time() < illusionCooldown then
         player:messageSpecial(msgBase + 6)
