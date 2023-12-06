@@ -10,7 +10,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 70)
     mob:setMod(tpz.mod.DMGMAGIC, -50)
     mob:setMod(tpz.mod.EEM_SILENCE, 15)
-    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 30)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

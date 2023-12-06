@@ -12,7 +12,7 @@ require("scripts/globals/mobs")
 function onMobInitialize(mob)
     SetGenericNMStats(mob)
     mob:addMod(tpz.mod.DEFP, 50)
-    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 30)
     mob:setMobMod(tpz.mobMod.DUAL_WIELD, 1)
 end
 
