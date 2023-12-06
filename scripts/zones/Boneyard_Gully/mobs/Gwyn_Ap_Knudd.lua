@@ -18,7 +18,6 @@ function onMobSpawn(mob)
     mob:addImmunity(tpz.immunity.GRAVITY)
     mob:addImmunity(tpz.immunity.BIND)
     mob:addImmunity(tpz.immunity.LIGHTSLEEP)
-    mob:setLocalVar("SummonTime", BattleTime + math.random(10, 25))
 end
 
 function onMobFight(mob, target)
