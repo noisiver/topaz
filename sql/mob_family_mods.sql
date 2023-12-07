@@ -178,6 +178,8 @@ INSERT INTO `mob_family_mods` VALUES (944,62,25,0);		-- WotG Orc +25% Attack
 INSERT INTO `mob_family_mods` VALUES (945,62,25,0);		-- WotG Orc War Machine +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (461,62,25,0);     -- Gabbrath(Achuka) +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (626,62,25,0);	    -- Gabbrath +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (183,62,25,0);	    -- Mimic +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (135,62,25,0);	    -- Golem +20% Attack 
 
 -- Flat Attack Penalty
 INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
@@ -188,8 +190,8 @@ INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense 
 INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		-- Adamantoise +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (275,63,20,0);		-- Mini-Adamantoise +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (253,63,25,0);	    -- Wamoura +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (254,63,25,0);	    -- Wamouracampa +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (253,63,12,0);	    -- Wamoura +12% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (307,63,12,0);	    -- Wamoura(Achamoth) +12% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (252,63,25,0);	    -- Vampyr +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (191,63,25,0);	    -- Orobon +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (27,63,25,0);		-- Apkallu +25% Defense Bonus
@@ -204,9 +206,11 @@ INSERT INTO `mob_family_mods` VALUES (628,63,25,0);		-- Yggreant +25% Defense Bo
 
 -- Defense Penalty
 INSERT INTO `mob_family_mods` VALUES (1,63,-25,0);		-- Acrolith -25% Defense Penalty
+INSERT INTO `mob_family_mods` VALUES (1,302,-25,0);		-- Acrolith(Wulgaru) -25% Defense Penalty
 
 -- Flat Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (171,1,25,0);		-- Lamiae +25 Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (310,1,25,0);		-- Lamiae(Experimental Lamiae) +25 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (182,1,25,0);		-- Merrow +25 Defense Bonus
 
 -- Evasion Bonus
@@ -215,17 +219,18 @@ INSERT INTO `mob_family_mods` VALUES (196,68,10,0);		-- Poroggo +10 Evasion Raci
 INSERT INTO `mob_family_mods` VALUES (203,68,12,0);		-- Qutrub(Normal) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (204,68,12,0);		-- Qutrub(Unused) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (205,68,12,0);		-- Qutrub(Qutrub_Wastrel) +12 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (303,68,12,0);		-- Qutrub(ZareehklTheJu) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (27,68,25,0);		-- Apkallu +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (199,68,25,0);		-- Qiqirn +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (198,68,25,0);		-- Puk +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (286,68,25,0);		-- Puk(Vulpangue) +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (72,68,25,0);		-- Colibri +20 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (176,68,25,0);		-- Mamool ja +25 evasion
+INSERT INTO `mob_family_mods` VALUES (287,68,25,0);		-- Colibri(Chamrosh) +20 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (176,68,10,0);		-- Mamool ja +10 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
-INSERT INTO `mob_family_mods` VALUES (165,68,25,0);		-- Imp +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (119,68,25,0);		-- Gear +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (120,68,25,0);		-- Gears +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (166,68,25,0);		-- Jakko(Imp) +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (90,68,25,0);		-- Dvergr +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (316,68,25,0);		-- Dvergr +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (131,68,25,0);		-- Gnat +25 Evasion Racial
@@ -248,8 +253,8 @@ INSERT INTO `mob_family_mods` VALUES (524,68,25,0);		-- Waktza +25 Evasion Racia
 -- Evasion Penalty
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	    -- Bugbear -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (180,68,-20,0);	-- Marid -20 Evasion
+INSERT INTO `mob_family_mods` VALUES (295,68,-20,0);	-- Marid(Iriz Ima) -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (371,68,-20,0);	-- Marid -20 Evasion
-INSERT INTO `mob_family_mods` VALUES (246,68,-20,0);	-- Troll -20 Evasion
 
 -- PDT
 INSERT INTO `mob_family_mods` VALUES (203,387,200,0);	-- Qutrub +200%(Bonus)
@@ -394,15 +399,13 @@ INSERT INTO `mob_family_mods` VALUES (941,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (943,31,30,0);		-- WotG Yagudo +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (165,31,30,0); 	-- Imp +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (166,31,30,0); 	-- Imp +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (301,31,30,0); 	-- Imp(Verdelet) +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (456,31,25,0);		-- Bztavian(Colkhab) +25 MEVA
 INSERT INTO `mob_family_mods` VALUES (625,31,25,0);		-- Bztavian +25 MEVA
 
 
 -- Move Speed
 INSERT INTO `mob_family_mods` VALUES (1,169,-15,0); 	-- Acrolith -15%
-
---Crit Chance
-INSERT INTO `mob_family_mods` VALUES (176,165,10,0);    -- Mamool ja +10% Crit
 
 --Crit Reduction
 INSERT INTO `mob_family_mods` VALUES (457,908,25,0);    -- Cehuetzi(Kumhau) -25% critical hit damage taken
