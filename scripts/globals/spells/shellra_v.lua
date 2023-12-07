@@ -12,7 +12,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local meritBonus = caster:getMerit(tpz.merit.SHELLRA_V)
-    local power = 24 + meritBonus -- Currently 70/70 5/5
+    local power = 23 + meritBonus
 	-- 24 at 0 merits
 	--62/256 = 24.218% ～ 70/256 = 27.343% *
 	-- 2/256 per merit
