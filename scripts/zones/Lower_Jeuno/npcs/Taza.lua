@@ -294,10 +294,62 @@ function onTrade(player, npc, trade)
         DistributeAugment(player, augment);
         return
     end
+
+    -----------------------------------
+    local forgottenItemNamesTable =
+    {
+        [tpz.items.FORGOTTEN_THOUGHT]     = 'Thought',
+        [tpz.items.FORGOTTEN_HOPE]        = 'Hope',
+        [tpz.items.FORGOTTEN_TOUCH]       = 'Touch',
+        [tpz.items.FORGOTTEN_JOURNEY]     = 'Journey',
+        [tpz.items.FORGOTTEN_STEP]        = 'Step',
+    }
+
+    local gilTable =
+    {
+        tpz.items.FORGOTTEN_THOUGHT,
+        tpz.items.FORGOTTEN_HOPE,
+        tpz.items.FORGOTTEN_TOUCH,
+        tpz.items.FORGOTTEN_JOURNEY,
+        tpz.items.FORGOTTEN_STEP,
+    }
+    -----------------------------------
+
+    -- Trade any amount of Forgotten items to store them
+    for v = tpz.items.FORGOTTEN_THOUGHT, tpz.items.FORGOTTEN_STEP do
+        if npcUtil.tradeHas(trade, v) then
+            local forgottenNameBase = GetItem(forgottenItemNamesTable[v])
+            local forgottenName = string.gsub(forgottenNameBase:getName(), '_', ' ');
+            local currentAmount = player:getCharVar("forgottenStorage" .. forgottenName)
+            local tradeAmount = trade:getItemQty(v)
+            local newAmount = currentAmount + tradeAmount
+            player:setCharVar("forgottenStorage" .. forgottenName, newAmount)
+            player:PrintToPlayer("I was holding " .. currentAmount .. " " .. forgottenName .. " for you." ,0,"Taza")
+            player:PrintToPlayer("I am now holding " .. newAmount .. " " .. forgottenName .. " for you." ,0,"Taza")
+            return
+        end
+    end
+
+    -- Trade Specificed gil amount to get the forgotten items back
+    for _, gil in pairs(gilTable) do
+        if (gil == trade:getGil()) then
+            local forgottenNameBase = GetItem(forgottenItemNamesTable[gil])
+            local forgottenName = string.gsub(forgottenNameBase:getName(), '_', ' ');
+            local amount = player:getCharVar("forgottenStorage" .. forgottenName)
+            player:addItem(gil, amount)
+            player:setCharVar("forgottenStorage" .. forgottenName, 0)
+            player:tradeComplete()
+            return
+        end
+    end
     player:PrintToPlayer("I can't do anything with those items.",0,"Taza");
 end
 
 function onTrigger(player, npc)
 	player:PrintToPlayer("I can unlock the magical properties of the following items:",0,"Taza")
     player:PrintToPlayer("Dark Cuirass Set, Shade Harness Set, Tiger Jerkin Set, Silk Robe Set",0xF,"Taza")
+    player:timer(5000, function(player)
+        player:PrintToPlayer("Alternatively, I can hold onto your forgotten items.",0,"Taza")
+        player:PrintToPlayer("To have them returned, trade me 1 gil for Thought, 2 gil for Hope, 3 gil for Touch, 4 gil for Journey and 5 gil for Step.",0,"Taza")
+    end)
 end
