@@ -1062,9 +1062,8 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         local bonus = math.floor(mob:getMainLvl() / 2)
 
         local resist = applyPlayerResistance(mob, typeEffect, target, dStat, bonus, element)
-
         -- Negative / Positive element resist on players
-        resist = CheckPlayerStatusElementResist(mob, target, element, effect, resist, 0)
+        resist = CheckPlayerStatusElementResist(mob, target, element, typeEffect, resist, 0)
 
         -- Terror cannot be resisted by players outside of the trait
         if (target:isPC() and typeEffect == tpz.effect.TERROR) then
@@ -1081,7 +1080,6 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
                 return tpz.msg.basic.SKILL_MISS
             end
         end
-
         if (resist >= 0.50) then
 
             -- Reduce duration by resist percentage
