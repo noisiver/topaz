@@ -34,8 +34,8 @@ g_mixins.families.amphiptere = function(mob)
 		    if os.time() > KnockBackTick then
                 local nearbyPlayers = mob:getPlayersInRange(8)
                 if nearbyPlayers == nil then return end
-				mob:useMobAbility(2434) -- Knockback
-				mob:setLocalVar("KnockBackTick", os.time() + 6)
+				mob:useMobAbility(2773) -- Knockback
+				mob:setLocalVar("KnockBackTick", os.time() + 1)
 		    end
         else
             mob:setMod(tpz.mod.REGEN, 0)
