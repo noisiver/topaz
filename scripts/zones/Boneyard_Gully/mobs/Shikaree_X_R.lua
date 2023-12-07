@@ -27,7 +27,7 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    local rabbit = GetMobByID(mob:getID() +2)
+    local wyvern = GetMobByID(mob:getID() +2)
     if wyvern:isDead() then
         SpawnMob(mob:getID() + 2)
         mob:useMobAbility(1017) -- Call Beast

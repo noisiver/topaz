@@ -30,8 +30,8 @@ function onSpellCast(caster, target, spell)
                 local effect = target:getStatusEffect(effect)
                 local effectFlags = effect:getFlag()
                 if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (effect == tpz.effect.PETRIFICATION) then
-                    statusNumMis = statusNumMis + 1
-                    has[statusNumMis] = removables[i]
+                    statusNum = statusNum + 1
+                    has[statusNum] = removables[i]
                 end
             end
         end
@@ -70,6 +70,8 @@ function onSpellCast(caster, target, spell)
 
     local statusDel = caster:getLocalVar("esunaDelEff")
     local statusDelMis = caster:getLocalVar("esunaDelEffMis")
+
+    spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
 
     if (statusDel == 0) then -- this gets set to 0 if there's no status to delete.
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect

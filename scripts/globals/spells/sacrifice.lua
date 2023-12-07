@@ -32,9 +32,9 @@ function onSpellCast(caster, target, spell)
     for i, effect in ipairs(removables) do
 
         if (target:hasStatusEffect(effect)) then
-            local effect = target:getStatusEffect(effect)
-            local effectFlags = effect:getFlag()
-            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (effect == tpz.effect.PETRIFICATION) then
+            local currentEffect = target:getStatusEffect(effect)
+            local effectFlags = currentEffect:getFlag()
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (currentEffect == tpz.effect.PETRIFICATION) then
                 spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_AILMENT)
 
                 local statusEffect = target:getStatusEffect(effect)

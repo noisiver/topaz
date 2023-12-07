@@ -26,11 +26,9 @@ Zipacna and MG pathing
 MG Slave Globes aggro(should only assist her)
 Ullikumi / Reaving Wind knockback
 MobTransferEnfeeblesMove()
-
+Carnal Nightmare on pet and players
 
 ENMs:
-Totentanz(summoning) 
-When Hell Freezes Over (Aggroing in vision range and not aggroing immediately on spawning of next wave)
 Tango with a Tracker + Req of Sin questing at Despachiaire and doing bcs !pos 108 -40 -83 26 
 Dawn completed check might bug and need a diff way to get it, check other things with COP progress requirements
 Req of sin wyvern healing when shikaree Z uses a spell and on its own when it gains TP, healing any of its friends

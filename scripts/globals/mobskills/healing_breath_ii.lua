@@ -12,11 +12,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local mobs = {
-        GetMobByID(mob:GetId() - 3),
-        GetMobByID(mob:GetId() - 2),
-        GetMobByID(mob:GetId() - 1)
+        GetMobByID(mob:getID() - 3),
+        GetMobByID(mob:getID() - 2),
+        GetMobByID(mob:getID() - 1)
     };
-    table.sort(mobs, function(a,b)
+    table.sort(mobs, function(a,b))
         return (a:getHPP() < b:getHPP());
     end
 

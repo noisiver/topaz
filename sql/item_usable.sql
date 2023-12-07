@@ -1196,8 +1196,8 @@ INSERT INTO `item_usable` VALUES (5353,'iron_bullet_pouch',1,1,55,0,0,0,0,0,0,0)
 INSERT INTO `item_usable` VALUES (5354,'flask_of_walahra_water',1,1,0,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5355,'elixir_vitae',1,1,4,0,0,0,0,0,26,25);
 INSERT INTO `item_usable` VALUES (5356,'jar_of_remedy_ointment',1,1,7,0,0,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5357,'bottle_of_ether_drops',1,4,32,0,0,0,0,0,25,0);
-INSERT INTO `item_usable` VALUES (5358,'bottle_of_hi-ether_drops',1,4,33,0,0,0,0,0,25,0);
+INSERT INTO `item_usable` VALUES (5357,'bottle_of_ether_drops',1,4,32,0,0,0,0,0,25,50);
+INSERT INTO `item_usable` VALUES (5358,'bottle_of_hi-ether_drops',1,4,33,0,0,0,0,0,25,100);
 INSERT INTO `item_usable` VALUES (5359,'bronze_bullet_pouch',1,1,55,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5360,'muteppo',1,10,102,0,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5361,'datechochin',1,1,101,0,0,0,0,0,0,0);
