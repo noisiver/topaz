@@ -16613,7 +16613,12 @@ inline int32 CLuaBaseEntity::TryProcTH(lua_State* L)
 
     if (PMob->objtype == TYPE_MOB)
     {
-        charutils::TryProcTH((CCharEntity*)m_PBaseEntity, PMob, false);
+        bool highProcRate = false;
+        if (!lua_isnil(L, 2) && lua_isboolean(L, 2))
+        {
+            highProcRate = lua_toboolean(L, 2);
+        }
+        charutils::TryProcTH((CCharEntity*)m_PBaseEntity, PMob, 0, highProcRate);
     }
 
     return 0;

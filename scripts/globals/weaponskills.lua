@@ -355,7 +355,11 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     -- Attempt to proc Treasure Hunter
     if (finaldmg > 0) then
-        attacker:TryProcTH(target)
+        local highProChance = false
+        if (calcParams.sneakApplicable) or (calcParams.trickApplicable) then
+            highProChance = true
+        end
+        attacker:TryProcTH(target, highProChance)
     end
 
     -- Return our raw damage to then be modified by enemy reductions based off of melee/ranged
