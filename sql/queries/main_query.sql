@@ -1,6 +1,7 @@
 UPDATE tpzdb . mob_pools SET sJob = 1 WHERE familyid = 200;
 UPDATE tpzdb . mob_pools SET sJob = 1 WHERE familyid = 201;
 UPDATE tpzdb . mob_pools SET sJob = 1 WHERE familyid = 202;
+UPDATE tpzdb . mob_pools SET sJob = 1 WHERE familyid = 270;
 UPDATE tpzdb . mob_pools SET skill_list_id = 1163 WHERE familyid = 942;
 UPDATE tpzdb . mob_pools SET skill_list_id = 1164  WHERE familyid = 943;
 UPDATE tpzdb . mob_pools SET skill_list_id = 1165 WHERE familyid = 944;
