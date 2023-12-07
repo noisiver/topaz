@@ -19,14 +19,16 @@ https://github.com/mootowncow/topaz/commit/c366f18473631e2c205684f5d79f0ffe6ad3b
 DNC 76+ Flourishes (mainly animation)
 Mob dying mid wyvernn breath from DRG wyvern crashing simple log
 !changejob and !changesjob unsummoning pet
-Esuna / Sacrifice / Benediction working normally and not working on undispellable debuffs
-Positive / negative resist checks on:
-applyResistanceEffect (monstertpmoves and magic)
-Zipacna and MG pathing
+Esuna / Sacrifice / Benediction not working on undispellable debuffs
+Randomized gates in The Shrine of RuAvitau / VeLugannon Palace
+Zipacna pathing
 MG Slave Globes aggro(should only assist her)
 Ullikumi / Reaving Wind knockback
 MobTransferEnfeeblesMove()
 Carnal Nightmare on pet and players
+TryProcWS on WS work with SA/TA for high proc chance?
+ToAU family stats(import mobdb custom)
+Taza forgotten item storage
 
 ENMs:
 Tango with a Tracker + Req of Sin questing at Despachiaire and doing bcs !pos 108 -40 -83 26 
