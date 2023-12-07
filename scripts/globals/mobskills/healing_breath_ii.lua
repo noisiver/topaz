@@ -16,9 +16,9 @@ function onMobWeaponSkill(target, mob, skill)
         GetMobByID(mob:getID() - 2),
         GetMobByID(mob:getID() - 1)
     };
-    table.sort(mobs, function(a,b))
+    table.sort(mobs, function(a,b)
         return (a:getHPP() < b:getHPP());
-    end
+    end)
 
     local lowestShikaree = mobs[1];
 
