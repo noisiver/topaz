@@ -162,9 +162,9 @@ tpz.path =
         
             npc:setLocalVar("path", path);
             local currentPath = points[path];
-            print(currentPath.x)
-            print(currentPath.y)
-            print(currentPath.z)
+            -- print(currentPath.x)
+            -- print(currentPath.y)
+            -- print(currentPath.z)
             npc:pathTo(currentPath.x, currentPath.y, currentPath.z, flags);
         end
     end,
