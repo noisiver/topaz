@@ -3487,7 +3487,7 @@ INSERT INTO `nm_spawn_points` VALUES (17301538,46,-5.326,0.571,-14.812);
 INSERT INTO `nm_spawn_points` VALUES (17301538,47,-30.577,0.141,8.469);
 INSERT INTO `nm_spawn_points` VALUES (17301538,48,-21.907,-0.202,-18.879);
 INSERT INTO `nm_spawn_points` VALUES (17301538,49,0.627,0.175,-7.521);
-INSERT INTO `nm_spawn_points` VALUES(17305666, 0, 431.779, 0.243, 112.373); -- Serket Sandworm
+INSERT INTO `nm_spawn_points` VALUES (17305666, 0, 431.779, 0.243, 112.373); -- Serket Sandworm
 INSERT INTO `nm_spawn_points` VALUES (17309954,0,-0.100,-42.000,-291.000); -- Despot
 INSERT INTO `nm_spawn_points` VALUES (17326106,0,159.983,0.441,-178.390); -- GuNha_Wallstormer
 INSERT INTO `nm_spawn_points` VALUES (17326114,0,183.227,0.338,-197.513); -- NaHya_Floodmaker
@@ -6855,6 +6855,9 @@ INSERT INTO `nm_spawn_points` VALUES (16879737,2,490.6467, -24.1248, 314.5225); 
 INSERT INTO `nm_spawn_points` VALUES (17334356,0,105.307,-20.258,-131.396); -- Becut
 INSERT INTO `nm_spawn_points` VALUES (17707025,0,-6.387,-11.662,-13.986); -- Blackbeard (Ship Bound for Selbina Pirates)
 INSERT INTO `nm_spawn_points` VALUES (17711121,0,-0.700,-7.160,23.512); -- Silverhook (Ship Bound for Mhaura Pirates )
+
+INSERT INTO `nm_spawn_points` VALUES (17502570,0,-173, 0, 360); -- Zipacna (Behind Blue Gate)
+INSERT INTO `nm_spawn_points` VALUES (17502570,1,-110, 0, 458); -- Zipacna (Behind Yellow Gate)
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;
