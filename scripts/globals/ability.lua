@@ -757,7 +757,11 @@ end
 function phantombuffMultiple(caster) -- Check for tpz.mod.PHANTOM_ROLL Value and apply non-stack logic.
     local phantomValue = caster:getMod(tpz.mod.PHANTOM_ROLL)
     local phantombuffValue = 0
-    if (phantomValue == 3) then
+    if (phantomValue == 1) then
+        phantombuffMultiplier = 1.5
+    elseif (phantomValue == 2) then
+        phantombuffMultiplier = 2
+    elseif (phantomValue == 3) then
         phantombuffMultiplier = 3
     elseif ((phantomValue == 5) or (phantomValue == 8)) then
         phantombuffMultiplier = 5

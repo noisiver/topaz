@@ -16,6 +16,7 @@ end
 function onUseAbility(player, target, ability)
     local power = 0
     power = math.floor(player:getTP() * 0.10) -- https://www.bg-wiki.com/ffxi/Cascade
+    power = power + player:getMod(tpz.mod.CASCADE_TP_BONUS)
 
     player:setTP(0)
     player:addStatusEffect(tpz.effect.CASCADE, power, 0, 60)

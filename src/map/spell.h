@@ -237,6 +237,7 @@ enum SPELLFLAG
 
 enum class SpellID : uint16
 {
+    NULLSPELL               = 0,
     Cure                    = 1,
     Cure_II                 = 2,
     Cure_III                = 3,

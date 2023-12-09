@@ -16,7 +16,7 @@ function onSpellCast(caster, target, spell)
     params.dmg = 14
     params.multiplier = 1
     params.hasMultipleTargetReduction = false
-    params.resistBonus = 1.0
+    params.resistBonus = 0
     dmg = doDivineBanishNuke(caster, target, spell, params)
 
     if target:isUndead() and target:getFamily() ~= 142 and target:getFamily() ~= 143 then -- non-hound undead
@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
     params.dmg = 14
     params.multiplier = 1
     params.hasMultipleTargetReduction = false
-    params.resistBonus = 1.0
+    params.resistBonus = 0
     dmg = doDivineBanishNuke(caster, target, spell, params)
     local resist = applyResistance(caster, target, spell, params)
     local spdefdown = 43

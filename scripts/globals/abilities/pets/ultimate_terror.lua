@@ -2,7 +2,7 @@
 -- Ultimate Terror
 -- Causes nearby enemies to cower in terror and drains their attributes. Reduced terror effect against NM's.
 ---------------------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")

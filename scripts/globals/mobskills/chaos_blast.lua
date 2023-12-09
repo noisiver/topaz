@@ -8,7 +8,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if not target:isInfront(mob, 128) then
+    if not target:isInfront(mob, 90) then
         return 1
     end
     return 0

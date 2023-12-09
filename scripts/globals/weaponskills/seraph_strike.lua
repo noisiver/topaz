@@ -20,7 +20,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.ftp100 = 2.0 params.ftp200 = 2.5 params.ftp300 = 3
-    params.str_wsc = 0.3 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 1.0 params.chr_wsc = 0.0
+    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 1.0 params.chr_wsc = 0.0
     params.ele = tpz.magic.ele.LIGHT
     params.skill = tpz.skill.CLUB
     params.includemab = true
@@ -42,13 +42,12 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     if party ~= nil then
         for _,member in ipairs(party) do
-            if ((member:getMaxHP() - member:getHP()) < healAmount) then
-                healAmount = (member:getMaxHP() - member:getHP())
-            end
-            member:addHP(healAmount)
-            player:updateEnmityFromCure(member, healAmount)
-            if not member:hasStatusEffect(tpz.effect.REGEN) then
-                member:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 30)
+            if member:isAlive() and player:checkDistance(member) <= 10 then
+                member:addHP(healAmount)
+                player:updateEnmityFromCure(member, healAmount)
+                if not member:hasStatusEffect(tpz.effect.REGEN) then
+                    member:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 30)
+                end
             end
         end
     end

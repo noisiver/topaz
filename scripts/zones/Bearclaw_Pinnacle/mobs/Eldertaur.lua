@@ -6,16 +6,15 @@
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
+end
 
 function onMobSpawn(mob)
-    mob:setDamage(65)
-    mob:setMod(tpz.mod.ATT, 400)
-    mob:setMod(tpz.mod.DEF, 350)
-    mob:addMod(tpz.mod.EVA, 20)
-    mob:setMod(tpz.mod.UDMGMAGIC, 0)
-    mob:setMod(tpz.mod.REFRESH, 300)
-    mob:setMod(tpz.mod.SDT_LIGHT, 50)
-    mob:setMod(tpz.mod.SDT_DARK, 50)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.UDMGMAGIC, -25)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 30)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 30)
     mob:addImmunity(tpz.immunity.SILENCE)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 25)
     mob:setMobMod(tpz.mobMod.HP_HEAL_CHANCE, 50)

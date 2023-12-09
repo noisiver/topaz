@@ -6,6 +6,7 @@
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onBattlefieldTick(battlefield, tick)
@@ -16,9 +17,6 @@ function onBattlefieldRegister(player, battlefield)
 end
 
 function onBattlefieldEnter(player, battlefield)
-    if player:hasKeyItem(tpz.ki.LETTER_FROM_SHIKAREE_X) then
-        player:delKeyItem(tpz.ki.LETTER_FROM_SHIKAREE_X)
-    end
 end
 
 function onBattlefieldLeave(player, battlefield, leavecode)
@@ -35,6 +33,10 @@ end
 
 function onEventFinish(player, csid, option)
     if csid == 32001 then
+        npcUtil.deleteKeyItem(player, tpz.ki.LETTER_FROM_SHIKAREE_X)
         player:addExp(2000)
+        npcUtil.completeQuest(player, OTHER_AREAS_LOG, tpz.quest.id.otherAreas.TANGO_WITH_A_TRACKER, {
+            var = "tangoWithTracker",
+        })
     end
 end

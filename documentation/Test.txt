@@ -1,5 +1,3 @@
-
-SMN / PUP / Jug / Mob / BLU pdif caps for ranged and phys
 Quu Bokye pathing
 Reaving Wind and Reaving Wind Knock Back(both should knock back)
 Mount Z HP
@@ -7,18 +5,72 @@ Osschaart (Copycat)
 Macan Gadangan (Wild Wild Whiskers)
 Platoon Scorpions(Operaiton Desert Storm)
 Catastrophe, Blood Drain, Digest and drain1-3 hraling if target will die to the dmg
+Hypnic Lamp working properly nightmare sleep and all
+Pet parry trait works properly (Chapuli Jug)
+King Behemoth Ecliptic Meteor + meteor death mechanic
+Endispel message(mobs)
+UpdateForCure() or w/e for mob tp move healing work properly? correct target args?
+Achuka, Colkhab, Yumcax. Roof of the problem and Timbeer especially
+!setmod PHANTOM_ROLL 1 2 and 3 working properly
+Auspice do light damage now?
+Fomor level up and touchdown still crash simple log?
+https://github.com/mootowncow/topaz/commit/c366f18473631e2c205684f5d79f0ffe6ad3b74f
+!addtreasure
+DNC 76+ Flourishes (mainly animation)
+Mob dying mid wyvernn breath from DRG wyvern crashing simple log
+!changejob and !changesjob unsummoning pet
+Esuna / Sacrifice / Benediction not working on undispellable debuffs
+Randomized gates in The Shrine of RuAvitau / VeLugannon Palace
+Zipacna pathing
+MG Slave Globes aggro(should only assist her)
+Ullikumi / Reaving Wind knockback
+MobTransferEnfeeblesMove()
+Carnal Nightmare on pet and players
+TryProcWS on WS work with SA/TA for high proc chance?
+ToAU family stats(import mobdb custom)
+Taza forgotten item storage
 
+ENMs:
+Tango with a Tracker + Req of Sin questing at Despachiaire and doing bcs !pos 108 -40 -83 26 
+Dawn completed check might bug and need a diff way to get it, check other things with COP progress requirements
+Req of sin wyvern healing when shikaree Z uses a spell and on its own when it gains TP, healing any of its friends
+and clearing enms + KI's being deleted + conquest tally timer
+
+https://github.com/mootowncow/topaz/commit/ad288f0dd06a3922f2bf2aaf96f3de38afd33f60 - Checked some BLU spells, gates of hades, choke , frost
+BLM AM2's - Magic burst bonus and MACC bonus
+Self targetting nukes/enfeebles for mobs
+Double Weather for WKR on engage, removed when procced, readded once not procced
+DRK Relic Armor Absorb spells and set bonus
+Cait sith SDT/physical resistances and blood pacts
+Diablos animations (BP and mob) cacodemonia / nether blast
+Enlight / Endark scroll learning and effect
+Limbus restore chests animation, maybe just make npc(mute and afflictor too) to use an mobskill on player instead?
+Remedy ointment working properly
+Status removal temps(clerics catho etc) removing petrify and other effects
+Ascetic's Fury does 0 damage or does with formless strikes?
+
+https://ffxiclopedia.fandom.com/wiki/A_Reputation_in_Ruins doors should shut once gargoyles spawn
+Doors around that area are supposed to open when players are nearby and close when aren't I think
+
+Shikigami and Zipacna bugged, prob other mobs that patrol with pathThrough, fix function or fix them
 
 Retail:
+Shadows of the mind leaving cutscene at door
+Psoxja by rangemount pass doors logic
+colibri reflect para slow nlind with -res
+Cait Sith BP animations (astral flow too)
+Diabolos BP animations (astral flow too)
+Stealth job trait
+Tres Duendes + Grand Train
+Goblin Call Beast
+Double down / shuffle (cardian NM tp moves) animations
+FOV/GOV elite training
 Dancing Chains wipe shadows?
-Simplylog show buff mob gets from buff moves?
+Simplelog show buff mob gets from buff moves?
 Aldazal locus gears (nashmau hp > run east)
 Parrying packet
 Mob move missing, buff, dispel, etc packet
 X's knife BCNM
-Acroliths animationsubs and mechanics and maybe mobskill animations?
 Normal roc TP moves
 Hoof Volley animation ID
 Standback HP % for casters and ranged. Seemed to be 65% for soulflayers?
-https://ffxiclopedia.fandom.com/wiki/Go!_Go!_Gobmuffin! capture
-Tango with a tracker capture

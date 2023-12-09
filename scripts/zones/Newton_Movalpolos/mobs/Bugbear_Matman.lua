@@ -1,4 +1,4 @@
-------------------------------
+ ------------------------------
 -- Area: Newton Movalpolos
 --   NM: Bugbear Matman
 ------------------------------
@@ -7,8 +7,7 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 ------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.STORETP, 100)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 5000)
 end

@@ -40,7 +40,7 @@ function onSpellCast(caster, target, spell)
         return 0
     end
 
-    if (resist >= 0.0625) then -- Do it!
+    if (resist >= 0.5) then -- Do it!
         target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else

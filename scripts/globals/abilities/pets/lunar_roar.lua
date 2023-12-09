@@ -3,7 +3,7 @@
 -- Dispels two effects from target in AOE.
 -- Additional effect: MAB and MACC down.
 ---------------------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -21,8 +21,17 @@ function onPetAbility(target, pet, skill)
     local duration = 180
     local bonus = 0
     local effect2 = tpz.effect.MAGIC_ACC_DOWN
-    local dis1 = target:dispelStatusEffect()
-    local dis2 = target:dispelStatusEffect()
+    local dis1 = tpz.effect.NONE
+    local dis2 = tpz.effect.NONE
+
+    -- Check for dispel resistance trait
+    if math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
+        dis1 = target:dispelStatusEffect()
+    end
+
+    if math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
+        dis2 = target:dispelStatusEffect()
+    end
 
 
     if (dis1 ~= tpz.effect.NONE and dis2 ~= tpz.effect.NONE) then

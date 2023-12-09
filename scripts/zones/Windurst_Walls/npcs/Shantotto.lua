@@ -92,7 +92,8 @@ function onTrigger(player, npc)
     local wsQuestEvent = tpz.wsquest.getTriggerEvent(wsQuest, player)
     local foiledAgain = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_1)
     local CFA2 = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_2)
-    local gameDay = VanadielDayOfTheYear()
+    local gameDay = 0
+    local CFAtimer = 0
     local FoiledAGolem = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_A_GOLEM)
     local golemdelivery = player:getCharVar("foiledagolemdeliverycomplete")
     local WildcatWindurst = player:getCharVar("WildcatWindurst")
@@ -118,16 +119,9 @@ function onTrigger(player, npc)
         player:startEvent(171, 0, 0, 0, 0, 0, 0, 928, 880)
     elseif (foiledAgain == QUEST_ACCEPTED) then
         player:startEvent(172, 0, 0, 0, 0, 0, 0, 928, 880)
-    elseif (foiledAgain == QUEST_COMPLETED and CFA2 == QUEST_AVAILABLE and CFAtimer == 0) then
-        if player:getCharVar("DayWait[CFA1]") == gameDay then
-            player:startEvent(174)
-         else
-            player:startEvent(179)
-        end
-
         -- Curses, Foiled...Again!?
     elseif (foiledAgain == QUEST_COMPLETED and CFA2 == QUEST_AVAILABLE and player:getFameLevel(WINDURST) >= 2 and
-        player:getMainLvl() >= 5 and CFAtimer == 1) then
+        player:getMainLvl() >= 5 and CFAtimer == 0) then
         player:startEvent(180, 0, 0, 0, 0, 928, 880, 17316, 940) -- Quest Start
     elseif (CFA2 == QUEST_ACCEPTED) then
         player:startEvent(181, 0, 0, 0, 0, 0, 0, 17316, 940) -- Reminder dialog

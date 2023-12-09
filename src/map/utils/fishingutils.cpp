@@ -824,7 +824,7 @@ namespace fishingutils
     // Generate a non-cumulative normal distribution value
     static double NormalDist(double x, double mean, double standard_dev)
     {
-        return exp(-0.5 * log(2 * std::_Pi) - log(standard_dev) - pow(x - mean, 2) / (2 * standard_dev * standard_dev));
+        return exp(-0.5 * log(2 * M_PI) - log(standard_dev) - pow(x - mean, 2) / (2 * standard_dev * standard_dev));
     }
 
     void FishingSkillup(CCharEntity* PChar, uint8 catchLevel, uint8 successType)
@@ -839,6 +839,10 @@ namespace fishingutils
         uint8 levelDifference = 0;
         int maxSkillAmount = 1;
         CItemWeapon* Rod = (CItemWeapon*)PChar->getEquip(SLOT_RANGED);
+
+        // If fish level is lower level than fishing skill, cannot gain skill ups
+        if (catchLevel < charSkillLevel)
+        return;
 
         if (catchLevel > charSkillLevel)
         {

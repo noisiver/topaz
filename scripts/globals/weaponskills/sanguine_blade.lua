@@ -33,7 +33,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.ftp100 = 2.75 params.ftp200 = 2.75 params.ftp300 = 2.75
-    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.5 params.mnd_wsc = 0.5 params.chr_wsc = 0.0
+    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.4 params.mnd_wsc = 0.4 params.chr_wsc = 0.0
     params.ele = tpz.magic.ele.DARK
     params.skill = tpz.skill.SWORD
     params.includemab = true
@@ -52,14 +52,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
 
-    local healing = damage
-    -- Cap healing amount at the targets current HP
-    if (targetHP < damage) then
-        healing = targetHP
-    end
-
     if not target:isUndead() then
-        player:addHP(math.floor((healing/100) * drain))
+        player:addHP(math.floor((damage/100) * drain))
     end
 
     return tpHits, extraHits, criticalHit, damage

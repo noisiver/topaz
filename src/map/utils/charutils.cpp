@@ -847,6 +847,7 @@ namespace charutils
 
         PChar->StatusEffectContainer->LoadStatusEffects();
         PChar->m_fomorHate = GetCharVar(PChar, "FOMOR_HATE");
+        PChar->m_pixieHate = GetCharVar(PChar, "PIXIE_HATE");
 
         charutils::LoadEquip(PChar);
         charutils::EmptyRecycleBin(PChar);
@@ -2386,7 +2387,7 @@ namespace charutils
         }
     }
 
-        void SaveJobChangeGear(CCharEntity* PChar)
+    void SaveJobChangeGear(CCharEntity* PChar)
     {
         if (PChar == nullptr)
         {
@@ -2831,7 +2832,7 @@ namespace charutils
                     }
                     else if (PetID == PETID_CAIT_SITH)
                     {
-                        if (PAbility->getID() > ABILITY_SOOTHING_RUBY && PAbility->getID() <= ABILITY_MOONLIT_CHARGE)
+                        if (PAbility->getID() > ABILITY_SOOTHING_RUBY && PAbility->getID() < ABILITY_MOONLIT_CHARGE)
                         {
                             addPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY);
                         }
@@ -5690,7 +5691,7 @@ namespace charutils
             {
                 PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, PSyncTarget->GetMLevel(), 540));
                 PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_LEVEL_SYNC, EFFECT_LEVEL_SYNC, PSyncTarget->GetMLevel(), 0, 0), true);
-                PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE);
+                PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE, true);
             }
 
             if (allianceid != 0)
@@ -5757,14 +5758,15 @@ namespace charutils
 
         // Attempt to disband party if the last trust was just released
         // NOTE: Trusts are not counted as party members, so the current member count will be 1
-        if (PChar->PParty && PChar->PParty->HasOnlyOneMember() && PChar->PTrusts.empty())
-        {
-            // Looks good so far, check OTHER processes to see if we should disband
-            if (PChar->PParty->GetMemberCountAcrossAllProcesses() == 1)
-            {
-                PChar->PParty->DisbandParty();
-            }
-        }
+        // TODO: Needs to check that removed party member was a trust as well or else it forces disband if someone leaves PT and you're left solo
+        //if (PChar->PParty && PChar->PParty->HasOnlyOneMember() && PChar->PTrusts.empty())
+        //{
+        //    // Looks good so far, check OTHER processes to see if we should disband
+        //    if (PChar->PParty->GetMemberCountAcrossAllProcesses() == 1)
+        //    {
+        //        PChar->PParty->DisbandParty();
+        //    }
+        //}
     }
 
     bool IsAidBlocked(CCharEntity* PInitiator, CCharEntity* PTarget) {
@@ -6187,7 +6189,7 @@ namespace charutils
         return 0;
     }
 
-        bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity)
+    bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity)
     {
         SpawnIDList_t* spawnlist = nullptr;
 
@@ -6222,6 +6224,72 @@ namespace charutils
         }
 
         return spawnlist->find(entity->id) != spawnlist->end();
+    }
+
+    void TryProcTH(CCharEntity* PChar, CMobEntity* PTarget, actionTarget_t* Action, bool highProcRate)
+    {
+        if (PTarget == nullptr || PChar == nullptr)
+        {
+            return;
+        }
+
+        if (PTarget->objtype != TYPE_MOB)
+        {
+            return;
+        }
+
+        if (PChar->GetMJob() != JOB_THF)
+        {
+            return;
+        }
+
+        // https://www.bg-wiki.com/ffxi/Treasure_Hunter
+        uint16 maxTH = 12 + PChar->getMod(Mod::TH_MAX);
+        uint16 playerTHMod = PChar->getMod(Mod::TREASURE_HUNTER);
+        uint16 targetTH = PTarget->m_THLvl;
+        int16 treasureDiff = std::min(playerTHMod - targetTH, 0);
+        uint16 procChance = std::max((treasureDiff + 6), 0);
+        uint16 procChanceMod = 100 + PChar->getMod(Mod::TH_PROC_CHANCE);
+        procChance *= 10;
+
+        // Apply high proc rate bonus (Sneak Attack or Trick Attack active)
+        if (highProcRate)
+        {
+            procChance *= 5;
+        }
+
+        // Add proc rate mod(mostly from gifts)
+        if (procChanceMod > 100)
+        {
+            procChance *= procChanceMod;
+            procChance /= 100;
+        }
+        // Apply Feint bonus
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_FEINT))
+        {
+            uint16 feintBonus = 100 + PChar->PMeritPoints->GetMeritValue(MERIT_FEINT, PChar);
+            if (feintBonus > 100)
+            {
+                procChance *= feintBonus;
+                procChance /= 100;
+            }
+        }
+
+        if (tpzrand::GetRandomNumber(1000) < procChance)
+        {
+            if (PTarget->m_THLvl < maxTH)
+            {
+                PTarget->m_THLvl += 1;
+                uint32 thlvl = PTarget->m_THLvl;
+
+                if (Action)
+                {
+                    Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
+                    Action->addEffectMessage = MSGBASIC_TREASURE_HUNTER_UP;
+                    Action->addEffectParam = thlvl;
+                }
+            }
+        }
     }
 
     }; // namespace charutils

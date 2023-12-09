@@ -32,17 +32,21 @@ function onSpellCast(caster, target, spell)
     for i, effect in ipairs(removables) do
 
         if (target:hasStatusEffect(effect)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_AILMENT)
+            local currentEffect = target:getStatusEffect(effect)
+            local effectFlags = currentEffect:getFlag()
+            if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) or (currentEffect == tpz.effect.PETRIFICATION) then
+                spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_AILMENT)
 
-            local statusEffect = target:getStatusEffect(effect)
+                local statusEffect = target:getStatusEffect(effect)
 
-            -- only add it to me if I don't have it
-            if (caster:hasStatusEffect(effect) == false) then
-                caster:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
+                -- only add it to me if I don't have it
+                if (caster:hasStatusEffect(effect) == false) then
+                    caster:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
+                end
+
+                target:delStatusEffectSilent(effect)
+                return 1
             end
-
-            target:delStatusEffectSilent(effect)
-            return 1
         end
     end
 

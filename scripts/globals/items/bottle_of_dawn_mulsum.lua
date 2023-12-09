@@ -14,7 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    local percent = math.random(20, 35) * ITEM_POWER
+    local percent = 50 * ITEM_POWER
     local pet = target:getPet()
     local totalHP = (pet:getMaxHP()/100)*percent
     pet:addHP(totalHP)

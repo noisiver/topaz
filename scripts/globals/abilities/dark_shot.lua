@@ -73,7 +73,13 @@ function onUseAbility(player, target, ability)
     end
 
     ability:setMsg(tpz.msg.basic.JA_REMOVE_EFFECT_2)
-    local dispelledEffect = target:dispelStatusEffect()
+    local dispelledEffect = tpz.effect.NONE
+
+    -- Check for dispel resistance trait
+	if math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
+        dispelledEffect = target:dispelStatusEffect()
+    end
+
     if dispelledEffect == tpz.effect.NONE then
         -- no effect
         ability:setMsg(tpz.msg.basic.JA_NO_EFFECT_2)

@@ -35,27 +35,33 @@ function onMobFight(mob, target)
     local enmityList = mob:getEnmityList()
     local prisonTarget = nil
 
-    if enmityList and #enmityList > 0 then
-        if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
-            mob:actionQueueEmpty() and (tp < 1000) then 
-            if (hpp <= 69) and (prisonUses == 0) then
-                prisonTarget = math.random(#enmityList)
-                mob:setLocalVar("prisonUses", 1)
-                ForceDrawIn(mob, prisonTarget)
-                GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
-                mob:useMobAbility(486, GetPlayerByID(prisonTarget)) -- Whip Tongue
-            elseif (hpp <= 39) and (prisonUses == 1) then
-                prisonTarget = math.random(#enmityList)
-                mob:setLocalVar("prisonUses", 2)
-                ForceDrawIn(mob, prisonTarget)
-                GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
-                mob:useMobAbility(486, GetPlayerByID(prisonTarget)) -- Whip Tongue
-            elseif (hpp <= 19) and (prisonUses == 2) then
-                prisonTarget = math.random(#enmityList)
-                mob:setLocalVar("prisonUses", 3)
-                ForceDrawIn(mob, prisonTarget)
-                GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
-                mob:useMobAbility(486, GetPlayerByID(prisonTarget)) -- Whip Tongue
+    for _, enmity in ipairs(enmityList) do
+        if enmityList and #enmityList > 0 then
+            local randomTarget = enmityList[math.random(1,#enmityList)];
+            entityId = randomTarget.entity:getID();
+            if (entityId > 10000) then -- ID is a mob(pet) then
+                prisonTarget = GetMobByID(entityId)
+            else
+                prisonTarget = GetPlayerByID(entityId)
+            end
+            if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
+                mob:actionQueueEmpty() and (tp < 1000) then
+                if (hpp <= 69) and (prisonUses == 0) then
+                    mob:setLocalVar("prisonUses", 1)
+                    ForceDrawIn(mob, prisonTarget)
+                    prisonTarget:addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+                    mob:useMobAbility(486, prisonTarget) -- Whip Tongue
+                elseif (hpp <= 39) and (prisonUses == 1) then
+                    mob:setLocalVar("prisonUses", 2)
+                    ForceDrawIn(mob, prisonTarget)
+                    prisonTarget:addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+                    mob:useMobAbility(486, prisonTarget) -- Whip Tongue
+                elseif (hpp <= 19) and (prisonUses == 2) then
+                    mob:setLocalVar("prisonUses", 3)
+                    ForceDrawIn(mob, prisonTarget)
+                    prisonTarget:addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+                    mob:useMobAbility(486, prisonTarget) -- Whip Tongue
+                end
             end
         end
     end

@@ -325,7 +325,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Coeurl',71,653);
 INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1699);
 INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1700);
 INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1701);
-INSERT INTO `mob_skill_lists` VALUES ('Colibri',72,1158); -- Turbulence
 INSERT INTO `mob_skill_lists` VALUES ('Myradrosh',73,1699);
 INSERT INTO `mob_skill_lists` VALUES ('Myradrosh',73,1701);
 INSERT INTO `mob_skill_lists` VALUES ('Corse',74,530);
@@ -422,13 +421,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,484);
 INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,485);
 INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,1665); -- Marrow Drain
 INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,1795); -- Malediction
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2113);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2114);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2115);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2116);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2117);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2118);
-INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2119);
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2113); -- hellsnap
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2114); -- hellclap
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2115); -- cackle
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2116); -- necrobane
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2117); -- necropurge
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2118); -- bilgestorm
+INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2119); -- thundris_shriek
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,594);
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,596);
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,1171);
@@ -2763,6 +2762,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 753);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 754);
 INSERT INTO `mob_skill_lists` VALUES ('Jug_Adamantoise', 1197, 755);
 
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,896);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,900);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,901);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,902);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,903);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,904);
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeWyvernReqOfSin',1198,905);
+
 -- Qultada (Breaking the Bonds of Fate)
 INSERT INTO `mob_skill_lists` VALUES ('QultadaSword',1195,39); -- Spirits Within
 INSERT INTO `mob_skill_lists` VALUES ('QultadaSword',1195,42); -- Savage Blade
@@ -3948,7 +3955,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Valoredge',1174,1941);
 INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Sharpshot',1175,1942);
 
 INSERT INTO `mob_skill_lists` VALUES ('Blighting_Brand',1176,1560); -- Whispers of Ire only
-INSERT INTO `mob_skill_lists` VALUES ('Eldritch_Edge',1177,1559); -- Flurry of Rage only
+INSERT INTO `mob_skill_lists` VALUES ('Eldritch_Edge',1177,397); -- Flurry of Rage only
 
 INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 16);
 INSERT INTO `mob_skill_lists` VALUES('Ulbrecht', 1178, 17);
@@ -4714,14 +4721,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,71); -- Mistral Axe
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,72); -- Decimation
 INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,74); -- Primal Rend
 
--- Nakuals
+------------------------------- Nakuals -------------------------------
 
 -- Harkun
--- Autos
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3069); -- waktza_auto_one
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3070); -- waktza_auto_two
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan_Autos',6138,3071); -- waktza_auto_three
--- TP Moves
+
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3072); -- crashing_thunder
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3073); -- reverberating_cry
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3074); -- brownout
@@ -4730,17 +4736,82 @@ INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3076); -- sparkstorm
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',6139,3077); -- static_prison
 
 -- Kumhau
--- Autos
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau_Autos',6140,3134); -- cehuetzi_auto_one
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau_Autos',6140,3135); -- cehuetzi_auto_two
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau_Autos',6140,3136); -- cehuetzi_auto_three
--- TP Moves
+
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3137); -- polar_roar
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3138); -- brain_freeze
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3139); -- biting_abrogation
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3140); -- permafrost_requiem
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3141); -- glacial_tomb
 INSERT INTO `mob_skill_lists` VALUES ('Kumhau',6141,3142); -- glassy_nova
--- Next available ID: 1198
--- Next custom ID: 6142
+
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,628);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,629);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,630);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,631);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,632);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,633);
+INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',6142,2586); -- Ecliptic Meteor
+
+-- Colkhab
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,2999); -- bztavian_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,3000); -- bztavian_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab_Autos',6143,3001); -- bztavian_auto_three
+
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3002); -- mandibular_lashing
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3003); -- vespine_hurricane
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3004); -- stinger_volley
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3005); -- droning_whirlwind
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3006); -- incisive_denouement
+INSERT INTO `mob_skill_lists` VALUES ('Colkhab',6144,3007); -- incisive_apotheosis
+
+INSERT INTO `mob_skill_lists` VALUES ('Empyreal_Arrow_Only',6145,199); -- Empyreal Arrow Only
+
+-- Achuka
+INSERT INTO `mob_skill_lists` VALUES ('Achuka_Autos',6146,3017); -- gabbrath_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Achuka_Autos',6146,3018); -- gabbrath_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Achuka_Autos',6146,3019); -- gabbrath_auto_three
+
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3020); -- blistering_roar
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3021); -- searing_serration
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3022); -- volcanic_stasis
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3023); -- tyrannical_blow
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3024); -- batholithic_shell
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3025); -- pyroclastic_surge
+INSERT INTO `mob_skill_lists` VALUES ('Achuka',6147,3026); -- incinerating_lahar
+
+-- Yumcax
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax_Autos',6148,3054); -- yggdreant_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax_Autos',6148,3055); -- yggdreant_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax_Autos',6148,3056); -- yggdreant_auto_three
+
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3057); -- root_of_the_problem
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3058); -- potted_plant
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3059); -- uproot
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3060); -- canopierce
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3061); -- firefly_fandango
+INSERT INTO `mob_skill_lists` VALUES ('Yumcax',6149,3062); -- tiiimbeeer
+
+-- Tchakka
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka_Autos',6150,3008); -- rockfin_auto_one
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka_Autos',6150,3009); -- rockfin_auto_two
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka_Autos',6150,3010); -- rockfin_auto_three
+
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3011); -- protolithic_puncture
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3012); -- aquatic_lance
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3013); -- pelagic_cleaver
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3014); -- carcharian_verve
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3015); -- tidal_guillotine
+INSERT INTO `mob_skill_lists` VALUES ('Tchakka',6151,3016); -- marine_mayhem
+
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,167); -- judgment
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,168); -- hexa_strike
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,169); -- black_halo
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Cherukiki-Mythic',6152,252); -- dancing_chains
+
+-- Next available ID: 1199
+-- Next custom ID: 6153
 

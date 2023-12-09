@@ -19,8 +19,11 @@ function onMobWeaponSkill(target, mob, skill)
     local clonehp = 500
     local hpp = mob:getHPP() / 100.0
     local maxhp = clonehp / hpp
+    local despawnTimer = math.random(15, 20)
+    -- Clones despawn after 15-20s
     for cloneid = mobid + 1, mobid + 4 do
         clone = SpawnMob(cloneid)
+        clone:setLocalVar("boreasDespawnTimer", despawnTimer)
         clone:setHP(clonehp)
         clone:updateEnmity(player)
         clone:setPos(mob:getXPos(), mob:getYPos(), mob:getZPos())

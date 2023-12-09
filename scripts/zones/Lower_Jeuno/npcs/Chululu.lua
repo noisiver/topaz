@@ -36,14 +36,8 @@ function onTrigger(player, npc)
         player:startEvent(28) -- Start quest "Collect Tarut Cards" with option
     elseif CollectTarutCards == QUEST_ACCEPTED then
         player:startEvent(27) -- During quest "Collect Tarut Cards"
-    elseif CollectTarutCards == QUEST_COMPLETED and RubbishDay == QUEST_AVAILABLE and
-        player:getCharVar("RubbishDay_day") ~= VanadielDayOfTheYear() then
-        --      prog = player:getCharVar("RubbishDay_prog")
-        --      if (prog <= 2) then
-        --          player:startEvent(199) -- Required to get compatibility 3x on 3 diff game days before quest is kicked off
-        --      elseif (prog == 3) then
+    elseif CollectTarutCards == QUEST_COMPLETED and RubbishDay == QUEST_AVAILABLE then
         player:startEvent(198) -- Start quest "Rubbish Day" with option
-        --      end
     elseif CollectTarutCards == QUEST_COMPLETED and RubbishDay == QUEST_AVAILABLE then
         player:startEvent(57) -- Standard dialog between 2 quests
     elseif RubbishDay == QUEST_ACCEPTED and player:getCharVar("RubbishDayVar") == 0 then
@@ -105,13 +99,13 @@ function onEventFinish(player, csid, option)
         player:completeQuest(JEUNO, tpz.quest.id.jeuno.COLLECT_TARUT_CARDS)
     elseif (csid == 199 and option == 0) then
         player:addCharVar("RubbishDay_prog", 1)
-        player:setCharVar("RubbishDay_day", VanadielDayOfTheYear()) -- new vanadiel day
+        player:setCharVar("RubbishDay_day", 0)
     elseif (csid == 198 and option == 0) then
         player:addQuest(JEUNO, tpz.quest.id.jeuno.RUBBISH_DAY)
         player:addKeyItem(tpz.ki.MAGIC_TRASH)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MAGIC_TRASH)
         player:setCharVar("RubbishDay_prog", 0)
-        player:setCharVar("RubbishDay_day", VanadielDayOfTheYear())
+        player:setCharVar("RubbishDay_day", 0)
     elseif (csid == 10110 or csid == 10112 or csid == 10113) and option == 0 then -- ALL_IN_THE_CARDS started, repeated, or additional cards given
         local rand = math.random(1, 4)
         local card = 0
@@ -126,7 +120,7 @@ function onEventFinish(player, csid, option)
             card = 558 -- Tarut: Fool
         end
 
-        if npcUtil.giveItem(player, {{card, 5}}) then
+        if npcUtil.giveItem(player, { tpz.items.TARUT_CARD_THE_FOOL, tpz.items.TARUT_CARD_DEATH, tpz.items.TARUT_CARD_THE_KING, tpz.items.TARUT_CARD_THE_HERMIT }) then
             player:addQuest(JEUNO, tpz.quest.id.jeuno.ALL_IN_THE_CARDS)
             player:setCharVar("AllInTheCards_date", getMidnight())
             player:setLocalVar("Cardstemp", 1)

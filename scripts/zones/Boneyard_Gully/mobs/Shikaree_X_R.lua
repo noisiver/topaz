@@ -3,6 +3,7 @@
 -- Name: Shikaree X
 -- ENM: Requiem of Sin  
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
@@ -11,7 +12,7 @@ require("scripts/globals/mobs")
 function onMobInitialize(mob)
     SetGenericNMStats(mob)
     mob:addMod(tpz.mod.DEFP, 50)
-    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 15)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 30)
     mob:setMobMod(tpz.mobMod.DUAL_WIELD, 1)
 end
 
@@ -26,7 +27,7 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    local rabbit = GetMobByID(mob:getID() +2)
+    local wyvern = GetMobByID(mob:getID() +2)
     if wyvern:isDead() then
         SpawnMob(mob:getID() + 2)
         mob:useMobAbility(1017) -- Call Beast

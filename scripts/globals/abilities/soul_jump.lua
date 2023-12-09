@@ -58,6 +58,7 @@ function onUseAbility(player, target, ability, action)
         if player:getMainJob() ~= tpz.job.DRG then
             enmityShed = 30
         end
+        target:lowerEnmity(player, enmityShed)
     end
 
     local taChar = player:getTrickAttackChar(target)

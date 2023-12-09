@@ -8,6 +8,11 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    -- Normal Dvegr for learning  Bilgestorm
+    if (mob:getPool() == 9124) then
+        return 0
+    end
+
   if(mob:getFamily() == 316) then
     local mobSkin = mob:getModelId()
 

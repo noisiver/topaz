@@ -388,6 +388,11 @@ function doEnspell(caster, target, spell, effect)
         duration = 3600
     end
 
+    -- Afflatus Misery doubles the potency of enspells
+    if caster:hasStatusEffect(tpz.effect.AFFLATUS_MISERY) then
+        potency = potency * 2
+    end
+
     if target:addStatusEffect(effect, potency, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
@@ -587,23 +592,34 @@ function applyResistance(caster, target, spell, params)
         res = utils.clamp(res, 0.5, 1.0)
     end
 	
+    -- Subtle Sorcery bypasses this forced resist
+    if not caster:hasStatusEffect(tpz.effect.SUBTLE_SORCERY) then
+        if SDT <= 50 then -- .5 or below SDT drops a resist tier
+            res = res / 2
+        end
 
-    if SDT <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
+        if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+            res = 1/8
+        end
     end
 
-    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
-        res = 1/8
-    end
 
-
-    if target:isPC() and element ~= nil and element > 0 and element < 9 then
-        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
-        local eleres = target:getMod(element+53)
-        if     eleres < params.bonus  and res < 0.5  then res = 0.5
-        elseif eleres < (params.bonus + 1) and res < 0.25 then res = 0.25 end
+    -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+    -- Players are guaranteed to always take half damage if negative resistance
+    -- Players cannot 1/8 resist magic without positive resistance
+    if target:isPC() then
+        if element ~= nil and element > 0 and element < 9 then
+            local eleres = target:getMod(element+53)
+            if eleres < params.bonus and res < 0.5 then
+                res = 0.5
+            elseif eleres > params.bonus and res < 0.25 then
+                res = utils.clamp(res, 0.125, 1)
+            else
+                res = utils.clamp(res, 0.25, 1)
+            end
+        end
     end
-    -- print(string.format("res was %f",res))
+    -- print(string.format("res after was %f",res))
     
     return res
 end
@@ -689,15 +705,10 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = 1
     end
 
-    if target:isPC() and element ~= nil and element > 0 and element < 9 then
-        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
-        local eleres = target:getMod(element+53)
-        if     eleres < params.bonus  and res < 0.5  then res = 0.5
-        elseif eleres < (params.bonus + 1) and res < 0.25 then res = 0.25 end
-    end
+    -- Negative / Positive element resist on players
+    res = CheckPlayerStatusElementResist(caster, target, element, effect, res, params.bonus)
 
     -- print(string.format("enfeeble res was %f", res))
-    
     return res
 end
 
@@ -758,11 +769,20 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
         res = 1/8
     end
 
-    if target:isPC() and element ~= nil and element > 0 and element < 9 then
-        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
-        local eleres = target:getMod(element+53)
-        if     eleres < bonus  and res < 0.5  then res = 0.5
-        elseif eleres < (bonus + 1) and res < 0.25 then res = 0.25 end
+    -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+    -- Players are guaranteed to always take half damage if negative resistance
+    -- Players cannot 1/8 resist magic without positive resistance
+    if target:isPC() and (effect == nil) then
+        if element ~= nil and element > 0 and element < 9 then
+            local eleres = target:getMod(element+53)
+            if eleres < bonus and res < 0.5 then
+                res = 0.5
+            elseif eleres > bonus and res < 0.25 then
+                res = utils.clamp(res, 0.125, 1)
+            else
+                res = utils.clamp(res, 0.25, 1)
+            end
+        end
     end
     -- printf("res was %f", res)
     return res
@@ -977,8 +997,8 @@ function getEffectResistanceTraitChance(caster, target, effect)
         -- https://www.bg-wiki.com/ffxi/Resist#Status_Effect_Resistance_via_Bard_Songs_and_Barpell_Resist
         ret = utils.clamp(ret, 0, 90)
 
-        -- Halved vs NM's
-        if (caster:isPC() and target:isNM()) then
+        -- Player resistance traits are halved vs NM's
+        if (target:isPC() and caster:isNM()) then
             ret = math.floor(ret/2)
         end
 
@@ -1199,7 +1219,7 @@ function finalMagicAdjustments(caster, target, spell, dmg)
     dmg = target:magicDmgTaken(dmg, element)
 
     if (dmg > 0) then
-        if not (spell:getID() == 247) and not (spell:getID() == 248) then -- Aspir isn't reduced by Phalanx
+        if not (spell:getSpellFamily() == tpz.magic.spellFamily.ASPIR) then
             dmg = dmg - target:getMod(tpz.mod.PHALANX)
         end
         dmg = utils.clamp(dmg, 0, 99999)
@@ -1217,15 +1237,17 @@ function finalMagicAdjustments(caster, target, spell, dmg)
         dmg = target:addHP(-dmg)
         spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
     else
-        target:takeSpellDamage(caster, spell, dmg, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL + spell:getElement())
-        target:handleAfflatusMiseryDamage(dmg)
-        target:updateEnmityFromDamage(caster, dmg)
-        -- Only add TP if the target is a mob
-        if (dmg > 0) then
-            if (target:getObjType() ~= tpz.objType.PC) then
-                local tpGiven = utils.CalculateSpellTPGiven(caster, target)
-                -- printf("TP given: %d", tpGiven)
-                target:addTP(tpGiven)
+        if not (spell:getSpellFamily() == tpz.magic.spellFamily.ASPIR) then
+            target:takeSpellDamage(caster, spell, dmg, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL + spell:getElement())
+            target:handleAfflatusMiseryDamage(dmg)
+            target:updateEnmityFromDamage(caster, dmg)
+            -- Only add TP if the target is a mob
+            if (dmg > 0) then
+                if (target:getObjType() ~= tpz.objType.PC) then
+                    local tpGiven = utils.CalculateSpellTPGiven(caster, target)
+                    -- printf("TP given: %d", tpGiven)
+                    target:addTP(tpGiven)
+                end
             end
         end
     end
@@ -1286,14 +1308,20 @@ function calculateMagicBurst(caster, spell, target, params)
     end
 
     -- Obtain first multiplier from gear, atma and job traits
-    modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100) + params.AMIIburstBonus
+    modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100)
+
+    -- BLM AM2 magic burst bonus merits
+    modburst = modburst + (params.AMIIburstBonus / 100)
 
     -- BLM Job Point: Magic Burst Damage
     modburst = modburst + (caster:getJobPointLevel(tpz.jp.MAGIC_BURST_DMG_BONUS) / 100)
 
     -- Cap bonuses from first multiplier at 40% or 1.4
-    if (modburst > 1.4) then
-        modburst = 1.4
+    -- No cap for DRK main
+    if (caster:getMainJob() ~= tpz.job.DRK) then
+        if (modburst > 1.4) then
+            modburst = 1.4
+        end
     end
 
     -- Innin adds +30 Magic Burst bonus that bypasses the 40 cap
@@ -1611,6 +1639,9 @@ function addBonusesAbility(caster, ele, target, dmg, params)
 end
 
 -- get elemental damage reduction
+-- FIREDEF - DARKDEF
+-- Percentage damage reduction to specific Elements
+-- 128 = 128 / 256 = 50% reduction
 function getElementalDamageReduction(target, element)
     local defense = 1
     if (element > 0) then
@@ -1645,9 +1676,6 @@ end
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
     stat_down = dot + 10
-    if dot > 30 then
-        stat_down = 39 -- BLU"s cold wave is -39 stat down
-    end
     return stat_down
 end
 
@@ -2219,10 +2247,47 @@ function JobPointsMacc(caster, target, spell)
     return jpMaccBonus
 end
 
+function CheckPlayerStatusElementResist(caster, target, element, effect, res, bonus)
+    -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+    -- Players are guaranteed to always take half damage if negative resistance
+    -- Players cannot 1/8 resist magic without positive resistance
+    local effectTable =
+    {
+        tpz.effect.AMNESIA, tpz.effect.VIRUS, tpz.effect.SILENCE, tpz.effect.WEIGHT,
+        tpz.effect.STUN, tpz.effect.LULLABY, tpz.effect.CHARM_I, tpz.effect.CHARM_II,
+        tpz.effect.PARALYSIS, tpz.effect.BIND, tpz.effect.SLOW, tpz.effect.PETRIFICATION,
+        tpz.effect.TERROR, tpz.effect.POISON, tpz.effect.SLEEP_I, tpz.effect.SLEEP_II, 
+        tpz.effect.BLINDNESS,
+    }
+
+    if target:isPC() then
+        -- Only applies to status effects without an EEM mod
+        for _, currentEffect in pairs(effectTable) do
+            if (currentEffect == effect) then
+                return res
+            end
+        end
+        if element ~= nil and element > 0 and element < 9 then
+            local eleres = target:getMod(element+53)
+            if eleres < bonus and res < 0.5 then
+                res = 0.5
+            elseif eleres > bonus and res < 0.25 then
+                res = utils.clamp(res, 0.125, 1)
+            else
+                res = utils.clamp(res, 0.25, 1)
+            end
+        end
+    end
+
+    return res
+end
+
 function GetCharmHitRate(player, target)
     -- Immune to charm
-    if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
-        return 0
+    if not target:isPC() then
+        if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
+            return 0
+        end
     end
 
     -- formula is 50% - family reduct - dLvl (3/lvl until 50, 5/lvl 51+, 10/lvl at some level)) * charm multiplier + dCHR + Light Staff bonus (10/15)
@@ -2664,9 +2729,9 @@ function TryApplyAdditionalEffect(player, target, effect, element, power, tick, 
         { tpz.effect.WEIGHT, tpz.subEffect.WEIGHT },
         { tpz.effect.SLOW, tpz.subEffect.SLOW },
         { tpz.effect.CHARM_I, tpz.subEffect.CHARM },
+        { tpz.effect.CHARM_II, tpz.subEffect.CHARM },
         { tpz.effect.DOOM, tpz.subEffect.DOOM },
         { tpz.effect.AMNESIA, tpz.subEffect.AMNESIA },
-        { tpz.effect.CHARM_II, tpz.subEffect.CHARM },
         { tpz.effect.GRADUAL_PETRIFICATION, tpz.subEffect.PETRIFICATION },
         { tpz.effect.SLEEP_II, tpz.subEffect.SLEEP },
         { tpz.effect.CURSE_II, tpz.subEffect.CURSE },
@@ -2799,31 +2864,184 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Reduce duration by resist state
     finalDuration = finalDuration * resist
-    -- printf("Final Duration %d", finalDuration)
+    -- printf("Final Duration before diminishing returns %d", finalDuration)
+
+    -- Reduce duration by diminishing returns
+    local dimishingReturnPercent = math.floor((100 - target:getLocalVar("enfeebleDR" .. effect)))
+    -- printf("dimishingReturnPercent %f", dimishingReturnPercent)
+    dimishingReturnPercent = (dimishingReturnPercent / 100)
+
+    -- Fully DRed spells never land
+    if (dimishingReturnPercent <= 0) then
+        return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+
+    finalDuration = finalDuration * dimishingReturnPercent
+    -- printf("Final Duration after diminishing returns %d", finalDuration)
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
+        -- Overwrite weaker effects of the same type
         if target:getStatusEffect(effect) then
             if (target:getStatusEffect(effect):getPower() < power) then
                 target:delStatusEffectSilent(effect)
             end
         end
         if target:addStatusEffect(effect, power, tick, finalDuration, 0, subpower, tier) then
+            caster:delStatusEffectSilent(tpz.effect.STYMIE)
             -- Check for magic burst
             if GetEnfeebleMagicBurstMessage(caster, spell, target) then
                 return spell:setMsg(spell:getMagicBurstMessage()) 
             end
-            -- Check for songs enfeebles
+            -- Check for songs enfeebles (Different enfeeble message)
             if spell:getSkillType() == tpz.skill.SINGING then
                 return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             end
-            caster:delStatusEffectSilent(tpz.effect.STYMIE)
+            AddDimishingReturns(caster, target, spell, effect)
             return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     else
+        -- Try to Immunobreak
+        local element = target:getStatusEffectElement(effect)
+        local SDT = getEnfeeblelSDT(effect, element, target)
+        -- 10% chance to Immunobreak
+        if caster:isPC() then
+            -- Immunobreak caps at 50 SDT and +4 tiers increase max
+            if (SDT > 15 and SDT < 50) then
+                return TryImmunobreak(caster, target, spell, effect, SDT)
+            end
+        end
+
+        -- Normal resist if no Immunobreak proc
         return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+end
+
+function AddDimishingReturns(caster, target, spell, effect)
+    -- No DR building if NO_DR mobmod is on the target
+    if not target:isPC() then
+        if (target:getMobMod(tpz.mobMod.NO_DR) > 0) then
+            return
+        end
+    end
+
+    -- Only build dimishing returns on NMs
+    -- Bind / Weight / Sleep / Lullaby / Petrification only
+    local effectTable =
+    {
+        tpz.effect.BIND,
+        tpz.effect.WEIGHT,
+        tpz.effect.SLEEP_I,
+        tpz.effect.SLEEP_II,
+        tpz.effect.LULLABY,
+        tpz.effect.STUN,
+        tpz.effect.PETRIFICATION
+    }
+
+    if not target:isPC() then
+        if target:isNM() then
+            for _, currentEffect in pairs(effectTable) do
+                if (effect == currentEffect) then
+                    if target:getLocalVar("enfeebleDR" .. effect) < 100 then
+                        target:setLocalVar("enfeebleDR" .. effect, target:getLocalVar("enfeebleDR" .. effect) + 10)
+                        break
+                    end
+                end
+            end
+        end
+    end
+end
+
+function TryImmunobreak(caster, target, spell, effect, SDT)
+    local immunobreakTable =
+    {
+        tpz.effect.SLEEP_I,
+        tpz.effect.SLEEP_II,
+        tpz.effect.POISON,
+        tpz.effect.PARALYSIS,
+        tpz.effect.BLINDNESS,
+        tpz.effect.SILENCE,
+        tpz.effect.PETRIFICATION,
+        tpz.effect.STUN,
+        tpz.effect.BIND ,
+        tpz.effect.WEIGHT,
+        tpz.effect.SLOW,
+        tpz.effect.LULLABY,
+    }
+
+    -- If Immunobreak procs, increase the SDT tier by 1
+    -- 10% base chance
+    local ImmunobreakChance = 10 + target:getLocalVar("immunobreak" .. effect)
+    if math.random(100) <= ImmunobreakChance then
+        for _, effectSDT in pairs(immunobreakTable) do
+            if (effect == effectSDT) then
+                IncreaseSDTTier(caster, target, spell, effect, SDT)
+            end
+        end
+        -- Reset Immunobreak chance on a successful proc
+        target:setLocalVar("immunobreak" .. effect, 0)
+        if target:getID() == spell:getPrimaryTargetID() then
+            return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNOBREAK)
+        else
+            return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNOBREAK_2)
+        end
+    end
+
+    -- Increase Immunobreak proc rate by 10 on a failed proc
+    target:setLocalVar("immunobreak" .. effect, target:getLocalVar("immunobreak" .. effect) +10)
+    return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+end
+
+function IncreaseSDTTier(caster, target, spell, effect, SDT)
+    local tierTable =
+    {
+        { Tier = 40, Increase = 10 },
+        { Tier = 30, Increase = 10 },
+        { Tier = 25, Increase = 5  },
+        { Tier = 20, Increase = 5  },
+    }
+    local SDTTable =
+    {
+        { Effect = tpz.effect.SLEEP_I,          Mod = tpz.mod.EEM_DARK_SLEEP    },
+        { Effect = tpz.effect.SLEEP_II,         Mod = tpz.mod.EEM_DARK_SLEEP    },
+        { Effect = tpz.effect.POISON,           Mod = tpz.mod.EEM_POISON        },
+        { Effect = tpz.effect.PARALYSIS,        Mod = tpz.mod.EEM_PARALYZE      },
+        { Effect = tpz.effect.BLINDNESS,        Mod = tpz.mod.EEM_BLIND         },
+        { Effect = tpz.effect.SILENCE,          Mod = tpz.mod.EEM_SILENCE       },
+        { Effect = tpz.effect.PETRIFICATION,    Mod = tpz.mod.EEM_PETRIFY       },
+        { Effect = tpz.effect.STUN,             Mod = tpz.mod.EEM_STUN          },
+        { Effect = tpz.effect.BIND ,            Mod = tpz.mod.EEM_BIND          },
+        { Effect = tpz.effect.WEIGHT,           Mod = tpz.mod.EEM_GRAVITY       },
+        { Effect = tpz.effect.SLOW,             Mod = tpz.mod.EEM_SLOW          },
+        { Effect = tpz.effect.LULLABY,          Mod = tpz.mod.EEM_LIGHT_SLEEP   },
+    }
+    -- Incriment SDT by 1 tier
+    for _, entry in pairs(tierTable) do
+        if (SDT == entry.Tier) then
+            local newSDT = entry.Tier + entry.Increase
+            for _, statusId in pairs (SDTTable) do
+                if (effect == statusId.Effect) then
+                local currentMod = statusId.Mod
+                    target:setMod(currentMod, newSDT)
+                end
+            end
+        end
+    end
+
+    -- Check if the caster has +Immunobreak mod
+    -- Incriment SDT by 1 tier
+    for _, entry in pairs(tierTable) do
+        if (SDT == entry.Tier) then
+            local newSDT = entry.Tier + entry.Increase
+            for _, statusId in pairs (SDTTable) do
+                if (effect == statusId.Effect) then
+                local currentMod = statusId.Mod
+                    target:setMod(currentMod, newSDT)
+                end
+            end
+        end
     end
 end
 
@@ -2945,6 +3163,20 @@ function calculateDurationForLvl(duration, spellLvl, targetLvl)
     end
 
     return duration
+end
+
+function HandleDrkRelicHelm(caster)
+	local helm = caster:getEquipID(tpz.slot.HEAD)
+    local recover = 0
+	if (helm == tpz.items.ABYSS_BURGEONET) then
+        recover = 250
+	elseif (helm == tpz.items.ABYSS_BURGEONET_HQ) then
+        recover = 260
+	elseif (helm == tpz.items.ABYSS_BURGEONET_HQ2) then
+        recover = 260
+	end
+
+    caster:addHP(recover)
 end
 
 function calculateDuration(duration, magicSkill, spellGroup, caster, target, useComposure)

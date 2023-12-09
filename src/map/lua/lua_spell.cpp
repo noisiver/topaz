@@ -283,6 +283,13 @@ inline int32 CLuaSpell::getSpellGroup(lua_State *L)
     return 1;
 }
 
+inline int32 CLuaSpell::getSpellFamily(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
+    lua_pushinteger(L, m_PLuaSpell->getSpellFamily());
+    return 1;
+}
+
 inline int32 CLuaSpell::getFlag(lua_State *L)
 {
     TPZ_DEBUG_BREAK_IF(m_PLuaSpell == nullptr);
@@ -347,6 +354,7 @@ Lunar<CLuaSpell>::Register_t CLuaSpell::methods[] =
     LUNAR_DECLARE_METHOD(CLuaSpell,getMsg),
     LUNAR_DECLARE_METHOD(CLuaSpell,getMPCost),
     LUNAR_DECLARE_METHOD(CLuaSpell,getSpellGroup),
+    LUNAR_DECLARE_METHOD(CLuaSpell,getSpellFamily),
     LUNAR_DECLARE_METHOD(CLuaSpell,getFlag),
     LUNAR_DECLARE_METHOD(CLuaSpell,getRequirements),
     LUNAR_DECLARE_METHOD(CLuaSpell,setRequirements),

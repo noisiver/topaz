@@ -1,10 +1,12 @@
 -----------------------------------
 -- Area: Ordelle's Caves
 --  Mob: Kumhau
+-- WKR NM
 -----------------------------------
 local ID = require("scripts/zones/Ordelles_Caves/IDs")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/titles")
 -----------------------------------
 function onMobInitialize(mob)
 end
@@ -16,7 +18,8 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-     mob:setLocalVar("msgTimer", os.time() + 45)
+    mob:setWeather(tpz.weather.BLIZZARDS)
+    mob:setLocalVar("msgTimer", os.time() + 45)
 end
 
 function onMobFight(mob, target)
@@ -43,7 +46,10 @@ function onMobFight(mob, target)
     end)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
+        mob:setWeather(tpz.weather.BLIZZARDS)
         PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to fire damage...", 0xD, none, 30)
+    else
+        mob:setWeather(tpz.weather.NONE)
     end
 end
 
@@ -54,6 +60,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
+    player:addTitle(tpz.title.KUMHAU_ROASTER)
 end
 
 function onMobDespawn(mob)

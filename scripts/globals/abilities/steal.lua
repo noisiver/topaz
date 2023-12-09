@@ -51,9 +51,10 @@ function onUseAbility(player, target, ability, action)
 
     local stealMod = player:getMod(tpz.mod.STEAL) * 10
 
-    local stealChance = 500 + stealMod * 2 + thfLevel - target:getMainLvl()
+    -- 50% Base chance
+    local stealChance = 500 + stealMod + thfLevel - target:getMainLvl()
 	
-	stealChance = utils.clamp(stealChance, 50, 750) -- Cap at 75% chance
+	stealChance = utils.clamp(stealChance, 50, 450) -- Cap at 45% chance
 
     -- THF JSE quest
     -- Sentient Carafe and Greater Cockatrice
@@ -85,7 +86,7 @@ function onUseAbility(player, target, ability, action)
     if (stolen == 0 and player:hasTrait(75)) then
         local resist = applyResistanceAbility(player, target, tpz.magic.ele.WIND, skill, bonus)
         local effectStealSuccess = false
-        if (resist >= 0.50) then
+        if (resist >= 0.50) and math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
             local auraStealChance = math.min(player:getMerit(tpz.merit.AURA_STEAL), 95)
             if (math.random(100) < auraStealChance) then
                 effect = player:stealStatusEffect(target)
@@ -112,6 +113,13 @@ function onUseAbility(player, target, ability, action)
                 end
             end
         end
+
+        -- No valid effects on target to steal
+        if (effect == tpz.effect.NONE or effect == tpz.effect.KO) then
+            ability:setMsg(tpz.msg.basic.STEAL_FAIL) -- Failed to steal
+            action:animation(target:getID(), 182)
+        end
+
         return effect
     end
 

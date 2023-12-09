@@ -9,7 +9,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if target:isBehind(mob, 128) then
+    if target:isBehind(mob, 90) then
         return 1
     end
     return 0

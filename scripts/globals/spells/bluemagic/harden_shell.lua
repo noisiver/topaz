@@ -42,5 +42,5 @@ function onSpellCast(caster, target, spell)
     target:addStatusEffect(tpz.effect.PROTECT, 60, 0, duration)
     target:addStatusEffect(tpz.effect.SHELL, 24, 0, duration)
 
-    return typeEffect
+    return tpz.effect.PROTECT
 end

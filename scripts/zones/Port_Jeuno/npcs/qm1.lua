@@ -48,6 +48,9 @@ function onEventFinish(player, csid, option)
             player:setCharVar("BorghertzAlreadyActiveWithJob", 0)
             player:addFame(JEUNO, 30)
             player:completeQuest(JEUNO, NumQuest)
+            if (hasDoneBefore == 0) then
+                player:setCharVar("BorghertzGlovesCompleted", 1)
+            end
         end
     end
 end

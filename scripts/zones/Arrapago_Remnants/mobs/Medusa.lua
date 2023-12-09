@@ -54,11 +54,19 @@ function onMobFight(mob, target)
 
     -- Uses EES on a random target at 89,79,69,59,49,39,29,19,9% HP
     if (hp < 99) then
-        if enmityList and #enmityList > 0 then
-            if CheckForEES(mob) then
-                mob:setLocalVar("eesUses", eesUses +1)
-                eesTarget = math.random(#enmityList)
-                mob:useMobAbility(1932, GetPlayerByID(eesTarget)) -- Eagle Eye Shot
+        for _, enmity in ipairs(enmityList) do
+            if enmityList and #enmityList > 0 then
+                if CheckForEES(mob) then
+                    local randomTarget = enmityList[math.random(1,#enmityList)];
+                    entityId = randomTarget.entity:getID();
+                    if (entityId > 10000) then -- ID is a mob(pet) then
+                        eesTarget = GetMobByID(entityId)
+                    else
+                        eesTarget = GetPlayerByID(entityId)
+                    end
+                    mob:setLocalVar("eesUses", eesUses +1)
+                    mob:useMobAbility(1932, GetPlayerByID(eesTarget)) -- Eagle Eye Shot
+                end
             end
         end
     end

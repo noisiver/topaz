@@ -1854,17 +1854,31 @@ namespace luautils
             PChar->pushPacket(new CRaiseTractorMenuPacket(PChar, TYPE_HOMEPOINT));
             PChar->updatemask |= UPDATE_HP;
         }
-        // Set player pets position to the player for cutscenes that teleport the player (i.e promyvion teleports)
-        if (PChar->objtype == TYPE_PC)
+
+    // Treasure chests are 1001, 1004, 1007, 1010, 1011, 1013, 1016 for taking items (only ones recorded so far)
+        // for opening(and dropping?) 10512, 10518, 10520, 10522, 10524, 10528, 10532
+        // TODO: FoV Books
+        bool isInterruptableCS = false;
+
+        if (eventID >= 1001 && eventID <= 1016 || eventID >= 10512 && eventID <= 10532 || eventID == 17 || eventID == 8500 || eventID == 8700)
         {
-            CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
-            if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+            isInterruptableCS = true;
+        }
+
+        // Set player pets position to the player for cutscenes that teleport the player (i.e promyvion teleports)
+        if (!isInterruptableCS)
+        {
+            if (PChar->objtype == TYPE_PC)
             {
-                PPet->loc.p.x = PChar->loc.p.x;
-                PPet->loc.p.y = PChar->loc.p.y;
-                PPet->loc.p.z = PChar->loc.p.z;
-                PPet->loc.p.rotation = PChar->loc.p.rotation;
-                petutils::RetreatToMaster(PChar);
+                CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+                if (PPet != nullptr && PPet->status != STATUS_DISAPPEAR)
+                {
+                    PPet->loc.p.x = PChar->loc.p.x;
+                    PPet->loc.p.y = PChar->loc.p.y;
+                    PPet->loc.p.z = PChar->loc.p.z;
+                    PPet->loc.p.rotation = PChar->loc.p.rotation;
+                    petutils::RetreatToMaster(PChar);
+                }
             }
         }
         return 0;

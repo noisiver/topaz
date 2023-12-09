@@ -1,9 +1,9 @@
 ---------------------------------------------
 -- Firefly Fandango
 --
--- Description: AoE fire damage, Paralysis, Flash, and Max MP Down
--- Type: Enhancing
--- Element: Fire
+-- Description: AoE magical damage Additional effect: Paralysis, Flash, and Max MP Down
+-- Type: Magical
+-- Element: Light
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -15,25 +15,15 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 2
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg , mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
-
     local typeEffect = tpz.effect.FLASH
     local typeEffectTwo = tpz.effect.PARALYSIS
     local typeEffectThree = tpz.effect.MAX_MP_DOWN
-
-    MobStatusEffectMove(mob, target, typeEffect, 300, 3, 12)
+    local dmgmod = 7.0
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg , mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
+    MobStatusEffectMove(mob, target, typeEffect, 300, 3, 30)
     MobStatusEffectMove(mob, target, typeEffectTwo, 33, 0, 30)
     MobStatusEffectMove(mob, target, typeEffectThree, 25, 0, 30)
-
-
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     return dmg
 end
-
-
-
-
-
-

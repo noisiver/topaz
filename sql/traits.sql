@@ -244,8 +244,8 @@ INSERT INTO `traits` VALUES (18,'dual wield',19,60,3,259,25,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (18,'dual wield',19,70,4,259,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (19,'treasure hunter',6,15,1,303,1,NULL,0);
 INSERT INTO `traits` VALUES (20,'gilfinder',6,5,1,897,50,NULL,0);
-INSERT INTO `traits` VALUES (21,'alertness',11,5,1,0,0,NULL,0);
-INSERT INTO `traits` VALUES (22,'stealth',13,5,1,358,3,NULL,0);
+INSERT INTO `traits` VALUES (21,'alertness',11,5,1,1366,1,NULL,0);
+INSERT INTO `traits` VALUES (22,'stealth',13,5,1,358,1,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,1,1,173,80,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,16,2,173,100,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,31,3,173,120,NULL,0);
@@ -635,8 +635,9 @@ INSERT INTO `traits` VALUES (108,'conserve tp',14,97,5,944,26,'ABYSSEA',0); -- C
 INSERT INTO `traits` VALUES (108,'conserve tp',19,30,1,944,15,'ABYSSEA',0); -- Conserve TP I, DNC77, 15%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,45,2,944,18,'ABYSSEA',0); -- Conserve TP II, DNC87, 18%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,60,3,944,21,'ABYSSEA',0); -- Conserve TP III, DNC97, 21%
-INSERT INTO `traits` VALUES (109,'occult acumen',4,85,1,902,25,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (109,'occult acumen',4,95,2,902,50,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (109,'occult acumen',4,25,1,902,25,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (109,'occult acumen',4,50,2,902,50,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (109,'occult acumen',4,75,3,902,75,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (109,'occult acumen',8,10,1,902,25,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (109,'occult acumen',8,25,2,902,50,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (109,'occult acumen',8,35,3,902,75,'ABYSSEA',0);

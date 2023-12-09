@@ -12,6 +12,11 @@ function onAdditionalEffect(player, target, damage)
     local chance = CalculateAdditionalEffectChance(player, 10)
     local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.NONE, tpz.magic.ele.DARK, 175)
 
+    -- Check for dispel resistance trait
+	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
+        return 0, 0, 0
+    end
+
     if (math.random(0, 95) >= chance or resist < 0.5) then 
         return 0, 0, 0
     else

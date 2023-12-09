@@ -353,6 +353,15 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     finaldmg = finaldmg * ((100 + bonusdmg)/100) -- Apply our "all hits" WS dmg bonuses
     finaldmg = finaldmg + firstHitBonus -- Finally add in our "first hit" WS dmg bonus from before
 
+    -- Attempt to proc Treasure Hunter
+    if (finaldmg > 0) then
+        local highProChance = false
+        if (calcParams.sneakApplicable) or (calcParams.trickApplicable) then
+            highProChance = true
+        end
+        attacker:TryProcTH(target, highProChance)
+    end
+
     -- Return our raw damage to then be modified by enemy reductions based off of melee/ranged
     calcParams.finalDmg = finaldmg
     return calcParams
@@ -523,10 +532,15 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
         end
     end
 
-    -- Handle Footwork damage reduction
-	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
-	    finaldmg = math.floor(finaldmg * 0.5)
-	end
+    -- Handle Footwork 
+	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) then
+        -- +30% Damage to Kick WS, removed in core after executing a WS
+        if (wsID == tpz.weaponskill.DRAGON_KICK) or (wsID == tpz.weaponskill.TORNADO_KICK) then
+            finaldmg = math.floor(finaldmg * 1.3)
+        else -- Non-kick WS deal half damage while Footwork is active
+	        finaldmg = math.floor(finaldmg * 0.5)
+	    end
+    end
 
     -- Handle Scarlet Delirium
     finaldmg = utils.ScarletDeliriumBonus(attacker, finaldmg)
@@ -1521,7 +1535,7 @@ function handleWSGorgetBelt(attacker)
                 then
                     accBonus = accBonus + 10
                     ftpBonus = ftpBonus + 0.1
-                    attacker:PrintToPlayer("Your elemental gorget was active for this weapon skill!")
+                    -- attacker:PrintToPlayer("Your elemental gorget was active for this weapon skill!")
                 end
 
                 break

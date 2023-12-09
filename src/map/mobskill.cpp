@@ -21,6 +21,7 @@
 
 #include <string.h>
 #include "mobskill.h"
+#include "packets/message_basic.h"
 
 CMobSkill::CMobSkill(uint16 id)
 {
@@ -45,7 +46,8 @@ CMobSkill::CMobSkill(uint16 id)
 
 bool CMobSkill::hasMissMsg() const
 {
-    return m_Message == 158 || m_Message == 188 || m_Message == 31 || m_Message == 30 || m_Message == 354;
+    return m_Message == MSGBASIC_MISS || m_Message == MSGBASIC_JA_MISS || m_Message == MSGBASIC_SKILL_MISS || m_Message == MSGBASIC_SHADOW_ABSORB ||
+           m_Message == MSGBASIC_ANTICIPATE || m_Message == MSGBASIC_RANGED_MISS;
 }
 
 // 1 = AOE around monster
@@ -99,6 +101,12 @@ bool CMobSkill::isSpecial() const
 {
     // means it is a ranged attack or call beast, etc..
     return m_Flag & SKILLFLAG_SPECIAL;
+}
+
+bool CMobSkill::alwaysKnockback() const
+{
+    // This skill will knock back even on misses / shadow absorb
+    return m_Flag & SKILLFLAG_ALWAYS_KNOCK_BACK;
 }
 
 void CMobSkill::setID(uint16 id)

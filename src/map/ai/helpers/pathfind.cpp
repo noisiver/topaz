@@ -389,11 +389,13 @@ bool CPathFind::FindPath(const position_t& start, const position_t& end)
         CMobEntity* PMob = (CMobEntity*)m_PTarget;
         if (PMob)
         {
-            PMob->loc.p.x = PMob->m_SpawnPoint.x;
-            PMob->loc.p.y = PMob->m_SpawnPoint.y;
-            PMob->loc.p.z = PMob->m_SpawnPoint.z;
-            PMob->loc.p.rotation = PMob->m_SpawnPoint.rotation;
-            PMob->PAI->Disengage();
+            if (!PMob->isCharmed && !PMob->PAI->IsEngaged())
+            {
+                PMob->loc.p.x = PMob->m_SpawnPoint.x;
+                PMob->loc.p.y = PMob->m_SpawnPoint.y;
+                PMob->loc.p.z = PMob->m_SpawnPoint.z;
+                PMob->loc.p.rotation = PMob->m_SpawnPoint.rotation;
+            }
         }
 
         return false;

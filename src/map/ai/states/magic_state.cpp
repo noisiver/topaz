@@ -85,11 +85,14 @@ CMagicState::CMagicState(CBattleEntity* PEntity, uint16 targid, SpellID spellid,
     actionTarget.animation = 0;
     actionTarget.param = static_cast<uint16>(m_PSpell->getID());
     actionTarget.messageID = 327;
-    // Mobs shouldn't display casting spells in chat when out of combat
-    if (m_PEntity->objtype == TYPE_MOB && m_PEntity->PAI->IsRoaming())
+
+    // Mobs shouldn't display casting spells in chat when out of combat unless target is a player
+    // Display mobs being casted on by players
+    if (PTarget->objtype == TYPE_MOB && PTarget->PAI->IsRoaming() && m_PEntity->objtype != TYPE_PC)
     {
         actionTarget.messageID = 0;
     }
+
     // starts casting
     m_PEntity->PAI->EventHandler.triggerListener("MAGIC_START", m_PEntity, m_PSpell.get(), &action); //TODO: weaponskill lua object
 
@@ -122,9 +125,9 @@ bool CMagicState::Update(time_point tick)
 
         if (PTarget != nullptr)
         {
-            if (PTarget->objtype == TYPE_PC)
+            if (m_PEntity->objtype == TYPE_MOB && PTarget->objtype == TYPE_PC)
             {
-                // Ibterrupt when player is in a CS
+                // In oterrupt when player is in a CS
                 if (PTarget->status == STATUS_CUTSCENE_ONLY)
                 {
                     m_interrupted = true;
@@ -136,10 +139,7 @@ bool CMagicState::Update(time_point tick)
                 }
                 if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))
                 {
-                    if (m_PEntity->objtype == TYPE_MOB)
-                    {
-                        m_interrupted = true;
-                    }
+                    m_interrupted = true;
                 }
             }
         }
@@ -162,14 +162,20 @@ bool CMagicState::Update(time_point tick)
     }
     else if (IsCompleted())
     {
-        // No aftercast on Enhancing, Enfeebling or Elemental magic
+        // No aftercast on Enhancing, Enfeebling or Elemental magic unless interrupted
         auto castTime = m_castTime;
-        if (m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENHANCING_MAGIC && m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENFEEBLING_MAGIC  &&
+        if (m_interrupted || m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENHANCING_MAGIC && m_PSpell->getSkillType() != SKILLTYPE::SKILL_ENFEEBLING_MAGIC &&
             m_PSpell->getSkillType() != SKILLTYPE::SKILL_ELEMENTAL_MAGIC)
+        {
             castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
+        }
+
         // Spells still have aftercast during Manafont and Chainspell for balance reasons
         if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_MANAFONT, EFFECT_CHAINSPELL }))
+        {
             castTime += std::chrono::milliseconds(m_PSpell->getAnimationTime());
+        }
+
         if (tick > GetEntryTime() + castTime)
         {
             // Add TP from Occult Acumen to non-damaging spells
@@ -178,14 +184,6 @@ bool CMagicState::Update(time_point tick)
             {
                 int16 tp = static_cast<int16>(m_PSpell->getMPCost() * m_PEntity->getMod(Mod::OCCULT_ACUMEN) / 100.f * (1 + (m_PEntity->getMod(Mod::STORETP) / 100.f)));
                 m_PEntity->addTP(tp);
-            }
-
-            if (m_PSpell->getRequirements() & SPELLREQ_UNBRIDLED_LEARNING)
-            {
-                if (m_PEntity->StatusEffectContainer->HasStatusEffect({ EFFECT_UNBRIDLED_LEARNING, EFFECT_UNBRIDLED_WISDOM }))
-                {
-                    m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_UNBRIDLED_LEARNING);
-                }
             }
 
             m_PEntity->PAI->EventHandler.triggerListener("MAGIC_STATE_EXIT", m_PEntity, m_PSpell.get());
@@ -200,6 +198,7 @@ void CMagicState::Cleanup(time_point tick)
     if (!IsCompleted())
     {
         action_t action;
+        m_PEntity->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", m_PEntity, m_PSpell.get());
         m_PEntity->OnCastInterrupted(*this, action, MSGBASIC_IS_INTERRUPTED);
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
     }

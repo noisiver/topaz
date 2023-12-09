@@ -56,6 +56,10 @@
 #include "../utils/zoneutils.h"
 #include "../packets/chat_message.h"
 
+int32 g_pixieAmity = 0;
+time_t g_pixieLastAmityRefresh = 0;
+
+
 CMobEntity::CMobEntity()
 {
     objtype = TYPE_MOB;
@@ -124,6 +128,8 @@ CMobEntity::CMobEntity()
     m_SpellListContainer = nullptr;
     PEnmityContainer = new CEnmityContainer(this);
     SpellContainer = new CMobSpellContainer(this);
+
+    m_pixieLastCast = 0;
 
     // For Dyna Stats
     m_StatPoppedMobs = false;
@@ -586,7 +592,9 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         ((CCharEntity*)PMembermember)->m_autoTargetOverride = (CBattleEntity*)PWinner;
-                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    // Player pet should auto-target too(if the pet is not currently healing)
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr &&
+                                        !((CCharEntity*)PMembermember)->PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
                                     {
                                         petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
                                     }
@@ -660,7 +668,9 @@ void CMobEntity::DoAutoTarget()
                                     if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
                                         PMembermember->animation == ANIMATION_ATTACK)
                                         PMembermember->m_autoTargetOverride = (CBattleEntity*)PWinner;
-                                    if (((CCharEntity*)PMembermember)->PPet != nullptr)
+                                    // Player pet should auto-target too(if the pet is not currently healing)
+                                    if (((CCharEntity*)PMembermember)->PPet != nullptr &&
+                                        !((CCharEntity*)PMembermember)->PPet->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
                                     {
                                         petutils::AttackTarget((CBattleEntity*)((CCharEntity*)PMembermember), (CBattleEntity*)PWinner);
                                     }
@@ -907,6 +917,13 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         target.animation = PSkill->getAnimationID();
         target.messageID = PSkill->getMsg();
 
+        // Always knock back regardless of hit or shadow absorb.
+        // For Reaving Wind aura knockback, Ullikumis Heavy Strike, etc
+        if (PSkill->getFlag() & SKILLFLAG_ALWAYS_KNOCK_BACK)
+        {
+            target.knockback = PSkill->getKnockback();
+        }
+
         // Set player avatar 2 hours to 15 yard radius
         // TODO: Are these the correct IDs? What are 839 - 919 for?
         if (objtype == TYPE_PET && PMaster->objtype == TYPE_PC)
@@ -969,7 +986,7 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         {
             target.reaction = REACTION_HIT;
             // Don't add TP if the TP move is a two hour, buff, heal, or enfeeble.
-            if (msg != 101 && msg != 186 && msg != 238 && msg != 242)
+            if (msg != MSGBASIC_USES && msg != MSGBASIC_SKILL_GAIN_EFFECT && msg != MSGBASIC_SELF_HEAL && msg != MSGBASIC_SKILL_ENFEEB_IS)
             {
                 int16 delay = this->GetWeaponDelay(true);
                 float ratio = 1.0f;
@@ -1816,4 +1833,134 @@ bool CMobEntity::OnAttack(CAttackState& state, action_t& action)
     {
         return CBattleEntity::OnAttack(state, action);
     }
+}
+
+void CMobEntity::PixieTryHealPlayer(CCharEntity* PChar)
+{
+    time_t now = time(NULL);
+    SpellID spell = SpellID::NULLSPELL;
+    if (!PAI)
+    {
+        return;
+    }
+    CMobController* controller = static_cast<CMobController*>(PAI->GetController());
+    if (!controller)
+    {
+        return;
+    }
+    if (getMobMod(MOBMOD_PIXIE) <= 0)
+    {
+        return;
+    }
+    if (m_pixieLastCast + 30 >= now)
+    {
+        // Must rest between casts (TODO: Check real value)
+        return;
+    }
+    if (PChar->m_pixieHate >= 20)
+    {
+        // TODO: Find real values
+        // You killed my relatives so I don't care if you die
+        return;
+    }
+    if (!controller->CanDetectTarget(PChar, false, true))
+    {
+        // Must be able to detect the player to cast
+        return;
+    }
+    if (PChar->m_hasRaise > 0)
+    {
+        // Player is dead with has raise active
+        return;
+    }
+    if (PChar->isDead())
+    {
+        spell = SpellID::Raise_III;
+    }
+    else if (PChar->GetHPP() <= 90)
+    {
+        // TODO: Check what's the cure threshold on retail
+        int32 max_hp = PChar->GetMaxHP();
+        int32 current_hp = PChar->health.hp;
+        int32 to_cure = max_hp - current_hp;
+        if (to_cure < 0)
+        {
+            to_cure = 0;
+        }
+        if (to_cure > 0)
+        {
+            // Set according to the soft cap of each cure
+            if (to_cure <= 30)
+            {
+                spell = SpellID::Cure;
+            }
+            else if (to_cure <= 90)
+            {
+                spell = SpellID::Cure_II;
+            }
+            else if (to_cure <= 190)
+            {
+                spell = SpellID::Cure_III;
+            }
+            else if (to_cure <= 380)
+            {
+                spell = SpellID::Cure_IV;
+            }
+            else
+            {
+                spell = SpellID::Cure_V;
+            }
+        }
+    }
+    if (spell != SpellID::NULLSPELL)
+    {
+        if (controller->Cast(PChar->targid, spell))
+        {
+            m_pixieLastCast = now;
+        }
+    }
+}
+
+bool CMobEntity::PixieShouldSpawn()
+{
+    int32 amity = 0;
+    // Prevent spamming the DB with calls
+    time_t now = time(NULL);
+    if (g_pixieLastAmityRefresh + 60 < now)
+    {
+        int32 ret = Sql_Query(SqlHandle, "SELECT value FROM server_variables WHERE name = 'PixieAmity';");
+        if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+        {
+            amity = Sql_GetIntData(SqlHandle, 0);
+        }
+        g_pixieAmity = amity;
+        g_pixieLastAmityRefresh = now;
+    }
+    else
+    {
+        amity = g_pixieAmity;
+    }
+    if (amity < -255)
+    {
+        amity = -255;
+    }
+    if (amity > 255)
+    {
+        amity = 255;
+    }
+    if (loc.zone->GetRegionID() < 33 || loc.zone->GetRegionID() > 40)
+    {
+        // Pixies in the present require higher amity
+        amity -= 300;
+    }
+    if (amity >= -50)
+    {
+        return true;
+    }
+    if (amity <= -150)
+    {
+        return false;
+    }
+    int32 chance = amity + 150;
+    return (tpzrand::GetRandomNumber(100) < chance);
 }

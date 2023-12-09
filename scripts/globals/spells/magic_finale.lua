@@ -24,6 +24,12 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local effect = tpz.effect.NONE
 
+    -- Check for dispel resistance trait
+	if  math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+        return effect
+    end
+
     if (resist >= 0.50) then
         spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
         --TODOCheckForMagicBurst(caster, spell, target)

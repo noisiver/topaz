@@ -108,8 +108,8 @@ namespace battleutils
     *                                                                       *
     ************************************************************************/
 
-    const float worldAngleMinDistance = 0.5f;
-    const uint8 worldAngleMaxDeviance = 4;
+    const float worldAngleMinDistance = 0.0f;
+    const uint8 worldAngleMaxDeviance = 10;
 
     void LoadSkillTable()
     {
@@ -1729,7 +1729,7 @@ int getSDTTier(int SDT)
                 ((CBattleEntity*)PDefender)->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_NINJUTSU_ELE_DEBUFF, 0, 30, 0, 10, 0, resistDownEle, 0, false));
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
-            else if (enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK)
+            else if (enspell >= ENSPELL_I_LIGHT && enspell <= ENSPELL_I_DARK || enspell >= ENSPELL_II_LIGHT && enspell <= ENSPELL_II_DARK)
             {
                 Action->additionalEffect = enspell_subeffects[enspell -1];
                 Action->addEffectMessage = 163;
@@ -1763,12 +1763,12 @@ int getSDTTier(int SDT)
                     PChar->updatemask |= UPDATE_HP;
                 }
             }
-            else if (enspell == ENSPELL_AUSPICE && isFirstSwing)
+            else if (enspell == ENSPELL_AUSPICE)
             {
                 Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
-                    CalculateEnspellDamage(PAttacker, PDefender, 2, 7);
+                    CalculateEnspellDamage(PAttacker, PDefender, 1, ELEMENT_LIGHT -1);
 
                 if (Action->addEffectParam < 0)
                 {
@@ -1887,32 +1887,20 @@ int getSDTTier(int SDT)
                     }
                 }
 
-                if (daze == EFFECT_DRAIN_DAZE)
+                if (daze == EFFECT_DRAIN_DAZE && power > 0)
                 {
-                    uint16 multiplier = (uint16)(3 + (5.5f * (power - 1)));
+                    uint16 multiplier = (uint16)(3 + 5.5f * (power - 1));
                     int8 Samba = tpzrand::GetRandomNumber(1, (delay * multiplier) / 100 + 1);
-
-                    // vary damage based on lvl diff
-                    int8 lvlDiff = (PDefender->GetMLevel() - PAttacker->GetMLevel()) / 2;
-
-                    if (lvlDiff < -5)
-                    {
-                        lvlDiff = -5;
-                    }
-
-                    Samba -= lvlDiff;
-
-                    if (Samba > (finaldamage / 2))
-                    {
-                        Samba = finaldamage / 2;
-                    }
 
                     if (finaldamage <= 2)
                     {
                         Samba = 0;
                     }
-
-                    if (Samba < 0)
+                    else if (Samba > (finaldamage / 2))
+                    {
+                        Samba = finaldamage / 2;
+                    }
+                    else if (Samba < 0)
                     {
                         Samba = 0;
                     }
@@ -1921,28 +1909,27 @@ int getSDTTier(int SDT)
                     Action->addEffectMessage = 161;
                     Action->addEffectParam = Samba;
 
-                    PAttacker->addHP(Samba); // does not do any additional drain to targets HP, only a portion of it
+                    PAttacker->addHP(Samba); // does not do any additional damage to targets HP, only heals the attacker
+
                     if (PChar != nullptr)
                     {
                         PChar->updatemask |= UPDATE_HP;
                     }
                 }
-                else if (daze == EFFECT_ASPIR_DAZE)
+                else if (daze == EFFECT_ASPIR_DAZE && power > 0 && PDefender->GetMaxMP() > 0)
                 {
-                    uint16 multiplier = 1 + (2 * power - 1);
+                    uint16 multiplier = 1 + 2 * (power - 1);
                     int8 Samba = tpzrand::GetRandomNumber(1, (delay * multiplier) / 100 + 1);
-
-                    if (Samba >= finaldamage / 4)
-                    {
-                        Samba = finaldamage / 4;
-                    }
 
                     if (finaldamage <= 2)
                     {
                         Samba = 0;
                     }
-
-                    if (Samba < 0)
+                    else if (Samba >= finaldamage / 4)
+                    {
+                        Samba = finaldamage / 4;
+                    }
+                    else if (Samba < 0)
                     {
                         Samba = 0;
                     }
@@ -2442,7 +2429,6 @@ int getSDTTier(int SDT)
                 return false;
             }
             //Otherwise interrupt the spell cast.
-            PDefender->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", PAttacker, PDefender, PSpell);
             return true;
         }
 
@@ -2885,7 +2871,7 @@ int getSDTTier(int SDT)
 
         if (damage > 0)
         {
-            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
+            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE, true);
 
             // Check for bind breaking
             BindBreakCheck(PAttacker, PDefender);
@@ -3010,7 +2996,7 @@ int getSDTTier(int SDT)
             ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, 0);
 
         if (PAttacker->objtype == TYPE_PC && !isRanged)
-            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
+            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK, true);
 
         return damage;
 
@@ -3050,7 +3036,7 @@ int getSDTTier(int SDT)
 
         if (damage > 0)
         {
-            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
+            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE, true);
 
             // Check for bind breaking
             BindBreakCheck(PAttacker, PDefender);
@@ -3134,7 +3120,7 @@ int getSDTTier(int SDT)
 
         if (!isRanged && attackType == ATTACK_PHYSICAL)
         {
-            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
+            PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK, true);
         }
 
         // Apply TP
@@ -3175,7 +3161,7 @@ int getSDTTier(int SDT)
         // Remove effects from damage
         if (PSpell->canTargetEnemy() && damage > 0 && PSpell->dealsDamage())
         {
-            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
+            PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE, true);
             // Check for bind breaking
             BindBreakCheck(PAttacker, PDefender);
 
@@ -4842,10 +4828,6 @@ int getSDTTier(int SDT)
                     {
                         charutils::UpdateItem(PChar, LOC_INVENTORY, SlotID, -1);
                         PChar->pushPacket(new CInventoryFinishPacket());
-                    }
-                    else
-                    {
-                        PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Your expertise saved you a ninja tool!"));
                     }
                 }
             }

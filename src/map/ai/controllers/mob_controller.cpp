@@ -241,10 +241,10 @@ void CMobController::TryLink()
 * Checks if the mob can detect the target using it's detection (sight, sound, etc)
 * This is used to aggro and deaggro (Mobs start to deaggro after failing to detect target).
 **/
-bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
+bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight, bool detectDead)
 {
     TracyZoneScoped;
-    if (PTarget->isDead() || PTarget->isMounted())
+    if ((!detectDead) && (PTarget->isDead() || PTarget->isMounted()))
     {
         return false;
     }
@@ -260,7 +260,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     }
 
     auto detects = PMob->m_Detects;
-    auto currentDistance = distance(PTarget->loc.p, PMob->loc.p) + PTarget->getMod(Mod::STEALTH);
+    auto currentDistance = distance(PTarget->loc.p, PMob->loc.p);
 
     bool detectSight = (detects & DETECT_SIGHT) || forceSight || PMob->getMobMod(MOBMOD_AGGRO_SIGHT) > 0;
     bool detectSound = detects & DETECT_HEARING || PMob->getMobMod(MOBMOD_AGGRO_SOUND) > 0;
@@ -293,7 +293,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 
     }
     // ShowDebug("Sight Range before %u \n", PMob->getMobMod(MOBMOD_SIGHT_RANGE));
-    uint32 sightRange = PMob->getMobMod(MOBMOD_SIGHT_RANGE) * GetSightDetectionModifiers() / 100;
+    uint32 sightRange = (PMob->getMobMod(MOBMOD_SIGHT_RANGE) - PTarget->getMod(Mod::ALERTNESS)) * GetSightDetectionModifiers() / 100;
     // ShowDebug("Sight Range after %u \n", sightRange);
     if (detectSight && !hasInvisible && currentDistance < sightRange && facing(PMob->loc.p, PTarget->loc.p, 64))
     {
@@ -305,7 +305,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
         return true;
     }
 
-    uint32 soundRange = PMob->getMobMod(MOBMOD_SOUND_RANGE);
+    uint32 soundRange = PMob->getMobMod(MOBMOD_SOUND_RANGE) - PTarget->getMod(Mod::STEALTH);
     uint32 soundMod = GetSoundDetectionModifiers();
     // ShowDebug("Sound Range before %u \n", PMob->getMobMod(MOBMOD_SOUND_RANGE));
     // ShowDebug("Sound Mod %u \n", soundMod);
@@ -584,8 +584,16 @@ bool CMobController::MobSkill(int wsList)
         {
             if (currentDistance <= PMobSkill->getDistance())
             {
+                // Set var for use in monstertpmoves.lua TP scaling
                 int16 tp = PMob->health.tp;
                 PMob->SetLocalVar("tp", tp);
+
+                // Set message for "Player" and Fomor TP moves
+                if (PMobSkill->getID() <= 255)
+                {
+                    PMob->loc.zone->PushPacket(PMob, CHAR_INRANGE, new CMessageBasicPacket(PMob, PTarget, 0, PMobSkill->getID(), MSGBASIC_READIES_WS));
+                }
+
                 return MobSkill(PActionTarget->targid, PMobSkill->getID());
             }
         }
@@ -1430,6 +1438,18 @@ int32 CMobController::GetFomorHate(CBattleEntity* PTarget)
     });
     return hate;
 }
+
+int32 CMobController::GetPixieHate(CBattleEntity* PTarget)
+{
+    if (!PTarget || PTarget->objtype != TYPE_PC)
+    {
+        return -1;
+    }
+    CCharEntity* PChar = (CCharEntity*)PTarget;
+    int32 hate = (int32)PChar->m_pixieHate;
+    return hate;
+}
+
 
 
 bool CMobController::CanAggroTarget(CBattleEntity* PTarget)

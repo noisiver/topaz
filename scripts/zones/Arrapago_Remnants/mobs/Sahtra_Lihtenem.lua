@@ -69,10 +69,18 @@ function onMobFight(mob, target)
     if (phase < 4) then
         if (hpp > 70) then 
             mob:setLocalVar("phase", 1)
-            if enmityList and #enmityList > 0 and os.time() >= bioTimer then
-                mob:setLocalVar("bioTimer", os.time() + 5)
-                bioTarget = math.random(#enmityList)
-                mob:castSpell(233, GetPlayerByID(bioTarget)) -- Bio IV
+            for _, enmity in ipairs(enmityList) do
+                if enmityList and #enmityList > 0 and os.time() >= bioTimer then
+                    local randomTarget = enmityList[math.random(1,#enmityList)];
+                    entityId = randomTarget.entity:getID();
+                    if (entityId > 10000) then -- ID is a mob(pet) then
+                        bioTarget = GetMobByID(entityId)
+                    else
+                        bioTarget = GetPlayerByID(entityId)
+                    end
+                    mob:setLocalVar("bioTimer", os.time() + 5)
+                    mob:castSpell(233, GetPlayerByID(bioTarget)) -- Bio IV
+                end
             end
             ChangeJobTHF(mob)
         elseif (hpp > 30) and (hpp < 70) then 

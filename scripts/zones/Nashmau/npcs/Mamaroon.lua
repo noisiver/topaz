@@ -22,8 +22,8 @@ function onTrigger(player, npc)
         4859,   9000,    -- Scroll of Shock Spikes
         2502,  29950,    -- White Puppet Turban
         2501,  29950,    -- Black Puppet Turban
-        4706, 100800,    -- Scroll of Enlight
-        4707, 100800,    -- Scroll of Endark
+        4706,  37950,    -- Scroll of Enlight
+        4707,  37950,    -- Scroll of Endark
     }
 
     player:showText(npc, ID.text.MAMAROON_SHOP_DIALOG)

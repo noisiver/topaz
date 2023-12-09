@@ -50,7 +50,7 @@ function onSpellCast(caster, target, spell)
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
-    params.effect = tpz.effect.tpz.effect.INHIBIT_TP
+    params.effect = tpz.effect.INHIBIT_TP
     local power = 20
     if BlueTryEnfeeble(caster, target, spell, 1, power, 0, duration, params) then
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)

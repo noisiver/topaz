@@ -131,12 +131,14 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, recastSeconds, 0, MSGBASIC_TIME_LEFT));
             return false;
         }
-        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
+
+        // Cannot use JA's while under the effect of Amnesia unless Mana Wall
+        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA) && abilityid != ABILITY_MANA_WALL)
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
             return false;
         }
-        if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) ||
+        if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) && abilityid != ABILITY_MANA_WALL ||
             (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
             (PAbility->isPetAbility() && !charutils::hasPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY)))
         {
@@ -198,7 +200,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
         if (battleutils::IsParalyzed(PChar))
         {
             // 2 hours can be paraylzed but it won't reset their timers
-            if (PAbility->getRecastId() != ABILITYRECAST_TWO_HOUR)
+            if (PAbility->getRecastId() != ABILITYRECAST_TWO_HOUR && PAbility->getRecastId() != ABILITYRECAST_TWO_HOUR_TWO)
             {
                 PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
             }
@@ -234,6 +236,11 @@ bool CPlayerController::UseItem(uint16 targid, uint8 loc, uint8 slotid)
     auto PChar = static_cast<CCharEntity*>(POwner);
     if (PChar->PAI->CanChangeState())
     {
+        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_MUDDLE))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_ITEM_CANNOT_USE));
+            return false;
+        }
         return PChar->PAI->Internal_UseItem(targid, loc, slotid);
     }
     return false;

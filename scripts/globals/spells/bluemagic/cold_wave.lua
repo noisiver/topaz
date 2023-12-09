@@ -14,7 +14,7 @@
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
-require("scripts/globals/magic")
+require("scripts/globals/bluemagic")
 require("scripts/globals/msg")
 -----------------------------------------
 
@@ -34,15 +34,13 @@ function onSpellCast(caster, target, spell)
     params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 0)
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if (target:getStatusEffect(tpz.effect.BURN) ~= nil) then
+    if target:getStatusEffect(tpz.effect.BURN) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     elseif (resist >= 0.5) then
-        if (target:getStatusEffect(tpz.effect.CHOKE) ~= nil) then
-            target:delStatusEffectSilent(tpz.effect.CHOKE)
-        end
-        local sINT = caster:getStat(tpz.mod.INT)
-        local DOT = 39 -- 39 agi dowm
-		local DMG = (caster:getMainLvl()  / 5) +3
+        target:delStatusEffectSilent(tpz.effect.CHOKE)
+        local DOT = (caster:getMainLvl()  / 5) +3
+        local statDown = math.floor(caster:getMainLvl() / 2)
+        statDown = utils.clamp(statDown, 1, 49)
         local effect = target:getStatusEffect(typeEffect)
         local noeffect = false
         if (effect ~= nil) then
@@ -56,8 +54,8 @@ function onSpellCast(caster, target, spell)
             if (effect ~= nil) then
                 target:delStatusEffectSilent(typeEffect)
             end
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-            target:addStatusEffect(typeEffect, DOT, 3, getBlueEffectDuration(caster, resist, typeEffect, true))
+            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+            target:addStatusEffect(typeEffect, DOT, 3, getBlueEffectDuration(caster, resist, typeEffect, true), 0, statDown, 0)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)

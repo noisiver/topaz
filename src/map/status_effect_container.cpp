@@ -572,7 +572,16 @@ void CStatusEffectContainer::RemoveStatusEffect(CStatusEffect* PStatusEffect, bo
             {
                 if (!silent && (PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0 && !m_POwner->isDead())
                 {
-                    m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, 206));
+                    if (PStatusEffect->GetStatusID() >= EFFECT_WEAKNESS && PStatusEffect->GetStatusID() <= EFFECT_PLAGUE)
+                    {
+                        m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE_SELF,
+                                                       new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, MSGBASIC_STATUS_NO_LONGER));
+                    }
+                    else
+                    {
+                        m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE_SELF,
+                                                       new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, MSGBASIC_STATUS_WEARS_OFF));
+                    }
                 }
             }
         }
@@ -580,7 +589,16 @@ void CStatusEffectContainer::RemoveStatusEffect(CStatusEffect* PStatusEffect, bo
         {
             if (!silent && PStatusEffect->GetIcon() != 0 && ((PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0) && !m_POwner->isDead())
             {
-                m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE, new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, 206));
+                if (PStatusEffect->GetStatusID() >= EFFECT_WEAKNESS && PStatusEffect->GetStatusID() <= EFFECT_PLAGUE)
+                {
+                    m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE_SELF,
+                                                   new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, MSGBASIC_STATUS_NO_LONGER));
+                }
+                else
+                {
+                    m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE_SELF,
+                                                   new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, MSGBASIC_STATUS_WEARS_OFF));
+                }
             }
         }
     }

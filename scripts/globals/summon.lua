@@ -5,6 +5,7 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/pets")
 require("scripts/globals/weaponskills")
+require("scripts/globals/monstertpmoves")
 ------------------------------------
 -- Thanks to JP testing for all fTP values and damage formulas!
 -- https://w.atwiki.jp/bartlett3/pages/329.html 

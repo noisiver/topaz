@@ -27,7 +27,7 @@ function onSpellCast(caster, target, spell)
     local typeEffectOne = tpz.effect.ICE_SPIKES
     local duration = 300
     local typeEffectTwo = tpz.effect.AQUAVEIL
-    local powerTwo = 3
+    local powerTwo = 3 + caster:getMod(tpz.mod.AQUAVEIL_COUNT)
     local durationTwo = 900
     local returnEffect = typeEffectOne
 
@@ -48,6 +48,8 @@ function onSpellCast(caster, target, spell)
 
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
+
+    target:delStatusEffectSilent(tpz.effect.AQUAVEIL)
 
     if (target:addStatusEffect(typeEffectOne, powerOne, 0, duration) == false and target:addStatusEffect(typeEffectTwo, powerTwo, 0, duration) == false) then -- both statuses fail to apply
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

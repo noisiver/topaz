@@ -257,6 +257,24 @@ INSERT INTO `weapon_skills` VALUES (238,'uriel_blade',0x000000000000000000000000
 INSERT INTO `weapon_skills` VALUES (239,'glory_slash',0x00000000000000000000000000000000000000000000,3,240,0,242,2000,6,2,13,11,0,0,80);
 INSERT INTO `weapon_skills` VALUES (240,'tartarus_torpor',0x00000000000000000000000000000000000000000000,12,240,0,149,2000,10,2,0,0,0,0,81);
 
+-- 246 (Shackled Fists)
+-- 247 (Foxfire)
+-- 248 (Grim Halo)
+-- 249 (Netherspikes)
+-- 250 (Carnal Nightmare)
+-- 251 (Aegis Schism)
+-- 252 (Dancing Chains)
+-- 253 (Barbed Cresecent)
+-- 256 (Gun)
+-- 257 (Dagger)
+-- 258 (H2h)
+-- 259 (Archery)
+-- 260 (Sword?)
+-- 261 (Katana)
+
+-- 273 Explosion(??)
+-- 274 Orb explosion
+
 --Final Unlock ID for merit WS at 63(Resolution)
 --Final Unlock ID for ~290-300 skill WS at 77(Numbing Shot)
 

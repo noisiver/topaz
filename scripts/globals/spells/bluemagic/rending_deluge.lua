@@ -48,7 +48,7 @@ function onSpellCast(caster, target, spell)
 
     params.bonus = BlueHandleCorrelationMACC(caster, target, spell, params, 175)
     local resist = applyResistanceEffect(caster, target, spell, params)
-    if (resist >= 0.5) then
+    if (resist >= 0.5) and math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
         target:dispelStatusEffect()
     end
 

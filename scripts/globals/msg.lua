@@ -57,7 +57,7 @@ tpz.msg.area =
 
 tpz.msg.textColor =
 {
-    WHITE     =   0, -- Name shown
+    WHITE       =   0, -- Name shown
     GOLD        =   0x1F,
     GREEN       =   0x1C,
     BLUE        =   0xF,
@@ -72,6 +72,7 @@ tpz.msg.basic =
 {
     NONE                    = 0, -- Display nothing
     HIT_DMG                 = 1, -- <actor> hits <target> for <amount> points of damage.
+    MISS                    = 15,--The <entity> misses <target>.
 
     -- Magic
     MAGIC_DMG              = 2,   -- <caster> casts <spell>. <target> takes <amount> damage.
@@ -81,8 +82,10 @@ tpz.msg.basic =
     MAGIC_CANNOT_CAST      = 47,  -- <caster> cannot cast <spell>.
     MAGIC_CANNOT_BE_CAST   = 48,  -- <spell> cannot be cast on <target>. (example: tractor)
     MAGIC_NO_EFFECT        = 75,  -- <caster>'s <spell> has no effect on <target>.
-    MAGIC_IMMUNE           = 655,  -- {actor} casts {lb}${target} completely resists the spell.
-    MAGIC_IMMUNE_2         = 656,  -- target} completely resists the spell
+    MAGIC_IMMUNOBREAK      = 653, -- <caster> casts <spell>. -><target> resists the spell. ->Immunobreak!
+    MAGIC_IMMUNOBREAK_2    = 654, -- -><target> resists the spell. ->Immunobreak!
+    MAGIC_IMMUNE           = 655, -- {actor} casts {lb}${target} completely resists the spell.
+    MAGIC_IMMUNE_2         = 656, -- target} completely resists the spell
     MAGIC_REMOVE_EFFECT    = 83,  -- <caster> casts <spell>. <caster> successfully removes <target>'s <status>.
     MAGIC_RESIST           = 85,  -- <caster> casts <spell>. <target> resists the spell.
     MAGIC_TELEPORT         = 93,  -- <caster> casts <spell>. <target> vanishes.
@@ -247,15 +250,17 @@ tpz.msg.basic =
     ITEM_OBTAINS_A          = 376,  -- ${actor} uses a ${item}.${lb}${target} obtains a ${item2}.
     ITEM_OBTAINS            = 377,  -- ${actor} uses a ${item}.${lb}${target} obtains ${item2}.
     ITEM_EFFECT_DISAPPEARS  = 378,  -- ${actor} uses a ${item}.${lb}${target}'s ${status} effect disappears!
+    ITEM_CANNOT_USE         = 445,   -- Unable to use item.
     PLAYER_REGAIN_TP        = 452,  -- The <player> uses .. <target> regains .. TP.
 
     -- Ranged
     NO_RANGED_WEAPON       = 216, -- You do not have an appropriate ranged weapon equipped.
     CANNOT_SEE             = 217, -- You cannot see <target>.
     MOVE_AND_INTERRUPT     = 218, -- You move and interrupt your aim.
+    RANGED_MISS            = 354, -- The <player>'s ranged attack misses.
 
     -- Additional effects and spike effects
-    SPIKES_EFFECT_DMG      = 44 , -- <Defender>'s spikes deal <number> points of damage to the <Attacker>.
+    SPIKES_EFFECT_DMG      = 44, -- <Defender>'s spikes deal <number> points of damage to the <Attacker>.
     SPIKES_EFFECT_HP_DRAIN = 132, -- <Defender>'s spikes drain <number> HP from the <Attacker>.
     ADD_EFFECT_MP_HEAL     = 152, -- Additional effect: The <player> recovers <number> MP.
     ADD_EFFECT_STATUS      = 160, -- Additional effect: <Status Effect>.

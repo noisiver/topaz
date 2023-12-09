@@ -23,6 +23,8 @@ function onTrigger(player, npc)
     local copCurrentMission = player:getCurrentMission(COP)
     local copMissionStatus = player:getCharVar("PromathiaStatus")
     local copMissions = tpz.mission.id.cop
+    local tangoWithTracker = player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.TANGO_WITH_A_TRACKER)
+    local RequiemOfSinCD = player:getCharVar("[ENM]RequiemOfSin")
 
     -- COP 2-2 "The Lost City"
     if copCurrentMission == copMissions.THE_LOST_CITY and copMissionStatus == 0 then
@@ -45,6 +47,12 @@ function onTrigger(player, npc)
         else
             player:startEvent(134)
         end
+    -- Tango with a Tracker. Dawn completed check might bug and need a diff way to get it
+    elseif (copCurrentMission >= copMissions.DAWN) and (tangoWithTracker == QUEST_AVAILABLE) then
+        player:startEvent(576)
+    -- Requiem of Sin
+    elseif (tangoWithTracker == QUEST_COMPLETED) and (RequiemOfSinCD > os.time()) and not player:hasKeyItem(tpz.ki.LETTER_FROM_SHIKAREE_Y) then
+        player:startEvent(578)
     -- COP Default dialogue change
     elseif player:getCurrentMission(COP) > copMissions.DARKNESS_NAMED then
         player:startEvent(315) -- "Jeuno offered its help"; TODO: might trigger as early as 5-2?
@@ -65,8 +73,13 @@ function onEventFinish(player, csid, option)
         player:setCharVar("COP_optional_CS_Despachaire", 1)
     elseif csid == 118 then
         player:setCharVar("COP_Louverance_s_Path", 1)
+    elseif csid == 576 then
+        npcUtil.giveKeyItem(player, tpz.ki.LETTER_FROM_SHIKAREE_X)
+        player:setCharVar("tangoWithTracker", 1)
+    elseif csid == 578 then
+        npcUtil.giveKeyItem(player, tpz.ki.LETTER_FROM_SHIKAREE_Y)
+        player:setCharVar("[ENM]RequiemOfSin", getConquestTally())
     end
-
 end
 
 -- TODO: cutscenes including Despachiaire for reference

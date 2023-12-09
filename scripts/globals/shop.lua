@@ -7,6 +7,7 @@ require("scripts/globals/conquest")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/keyitems")
+require("scripts/globals/items")
 -----------------------------------
 
 -----------------------------------
@@ -286,8 +287,8 @@ tpz.shop =
                 5335,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acid Bolt Quiver
                 5337,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Bolt Quiver
                 5339,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bloody Bolt Quiver
-                5338,    3333,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
-                5336,    2500,      tpz.ki.RHAPSODY_IN_UMBER,  -- Holy Bolt Quiver
+                5338,    1666,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
+                5336,    2500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Holy Bolt Quiver
                 4228,    2500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mythril Bolt Quiver
                 4229,    4166,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Darksteel Bolt Quiver
                 -- 5820,    9460,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darkling Bolt Quiver
@@ -345,15 +346,15 @@ tpz.shop =
                 4376,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Jerky
                 4578,     140,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sausage
                 4371,     184,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grilled Hare
-                4381,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Meat Mithkabob
+                4381,     583,      tpz.ki.RHAPSODY_IN_UMBER,   -- Meat Mithkabob
                 4456,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Boiled Crab
-                4398,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Mithkabob
+                4398,     833,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Mithkabob
                 5166,    1500,      tpz.ki.RHAPSODY_IN_EMERALD, -- Coeurl Sub
                 4538,     900,      tpz.ki.RHAPSODY_IN_UMBER,   -- Roast Pipira
                 6217,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Anchovy Slice
                 6215,     400,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pepperoni Slice
-                5752,    3500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pot-auf-feu
-                4488,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Jack-o'-Lantern
+                5752,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pot-au-feu
+                4488,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Jack-o'-Lantern
                 5721,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Crab Sushi
                 5148,    1250,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Squid Sushi
                 5176,    1000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Bream Sushi
@@ -361,8 +362,8 @@ tpz.shop =
                 5775,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocolate Crepe
                 5766,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Butter Crepe
                 4413,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Apple Pie
-                4421,     800,      tpz.ki.RHAPSODY_IN_AZURE,   -- Melon Pie
-                4446,    1200,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pumpkin Pie
+                4421,     416,      tpz.ki.RHAPSODY_IN_AZURE,   -- Melon Pie
+                4446,     250,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pumpkin Pie
                 4410,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Roast Mushroom
                 4510,      24,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acorn Cookie
                 4394,      12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ginger Cookie

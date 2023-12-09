@@ -60,7 +60,7 @@ function onSpellCast(caster, target, spell)
         return tpz.effect.STUN
     end
 
-    if (resist >= 0.0625) then
+    if (resist >= 0.5) then
 		if (target:hasStatusEffect(tpz.effect.STUN)) then
 			-- no effect
 			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

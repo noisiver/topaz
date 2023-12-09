@@ -1,0 +1,11 @@
+890  - 902 Geo -Ra spels
+903  - Foil?
+904  - Level up
+905  - Light bulb
+918  - New Challenge (RoE)
+1013 - Light Explosion
+1014 - Dark explosion
+1016 - Mastery level up
+1017 - Mastery level down
+1018 - Huge light flash in sky
+1019 - Sparkly Lights

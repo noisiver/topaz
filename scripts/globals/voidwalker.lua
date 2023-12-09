@@ -697,7 +697,7 @@ local mixinByMobName =
 
     ['Yilbegan'] = function(mob)
         -- -50% MDT when wings up, -50% PDT when wings down, (75 total if also not casting or tping)
-        local battleTime = mob:getbattleTime()
+        local battleTime = mob:getBattleTime()
         local wingsTimer = mob:getLocalVar("wingsTimer")
         local wingsUp = mob:getLocalVar("wingsUp")
 

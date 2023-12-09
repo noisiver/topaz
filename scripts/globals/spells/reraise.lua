@@ -10,7 +10,7 @@ end
 
 function onSpellCast(caster, target, spell)
     --duration = 1800
-    target:addStatusEffect(tpz.effect.RERAISE, 1, 0, 3600) --reraise 1, 30min duration
+    target:addStatusEffect(tpz.effect.RERAISE, 1, 0, 3600) --reraise 1, 60min duration
 
     return tpz.effect.RERAISE
 end

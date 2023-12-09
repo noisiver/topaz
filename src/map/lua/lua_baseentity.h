@@ -460,6 +460,9 @@ public:
     int32 getAllianceSize(lua_State* L);            // Get the size of an entity's alliance
     int32 getFomorHate(lua_State* L);
     int32 setFomorHate(lua_State* L);
+    int32 getPixieHate(lua_State* L);
+    int32 setPixieHate(lua_State* L);
+
 
 
     int32 reloadParty(lua_State* L);
@@ -761,6 +764,7 @@ public:
     int32 getDespoilDebuff(lua_State*);     // gets the status effect id to apply to the mob on successful despoil
     int32 itemStolen(lua_State*);           // sets mob's ItemStolen var = true
     int32 getTHlevel(lua_State*);           // Returns the Monster's current Treasure Hunter Tier
+    int32 TryProcTH(lua_State*);            // Attempts to proc Treasure Hunter on the target
 
     int32 getGuardRate(lua_State* L);
     int32 getParryRate(lua_State* L);

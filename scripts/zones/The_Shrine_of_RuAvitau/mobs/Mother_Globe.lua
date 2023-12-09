@@ -9,29 +9,6 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 require("scripts/globals/pathfind")
 -----------------------------------
-
-local path =
-{
-    859, -99, -539,
-    874, -99, -551,
-    888, -99, -569,
-    887, -99, -594,
-    872, -99, -611,
-    860, -99, -620,
-    844, -99, -609,
-    832, -99, -591,
-    831, -99, -567,
-    847, -99, -550,
-    860, -99, -554,
-    860, -99, -568,
-    859, -99, -596,
-    882, -99, -599,
-    877, -99, -580,
-    839, -99, -580,
-    839, -99, -558,
-    859, -99, -539,
-}
-
 function spawnPetInBattle(mob, pet)
     mob:entityAnimationPacket("casm")
     mob:SetAutoAttackEnabled(false)
@@ -77,7 +54,6 @@ function onMobSpawn(mob)
     mob:addStatusEffectEx(tpz.effect.SHOCK_SPIKES, 0, 60, 0, 0) -- ~60 damage
     mob:setLocalVar("Initial_SlaveTimer", now)
     mob:setLocalVar("SlaveRecast", now)
-    onMobRoam(mob)
 
     mob:addListener("ENGAGE", "MOTHER_GLOBE_ENGAGE", function(mob, target)
         for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
@@ -87,6 +63,10 @@ function onMobSpawn(mob)
             end
         end
     end)
+
+    mob:setLocalVar("path", 0)
+    mob:setLocalVar("pathstep", 0)
+    onMobRoam(mob)
 end
 
 
@@ -105,15 +85,12 @@ function onMonsterMagicPrepare(mob, target)
     return 0 -- Still need a return, so use 0 when not casting
 end
 
-function onPath(mob)
-    tpz.path.patrol(mob, path)
-end
-
 
 function onMobRoam(mob)
-	if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
+	if not mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) then
 		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
 	end
+
     local now = os.time()
     local slaves = mob:getLocalVar("SlavesSpawned")
     local slaveRecast = mob:getLocalVar("SlaveRecast")
@@ -164,19 +141,31 @@ function onMobRoam(mob)
         end
     end
 
-    if (mob:isFollowingPath() == false) then
-        mob:pathThrough(tpz.path.first(path))
-    end
+    local Pos = mob:getPos()
+    local pathingTable =
+    {
+        { x =  860, y = -100, z = -539  },
+        { x =  893, y = -100, z = -575  },
+        { x =  858, y = -100, z = -618  },
+        { x =  822, y = -100, z = -573  },
+    }
+
+    tpz.path.loop(mob, pathingTable, tpz.path.flag.RUN)
 end
 
 
-function onMobFight(mob, target)
+function onMobFight(mob, target) 
     local now = os.time()
     local slaves = mob:getLocalVar("SlavesSpawned")
     local slaveRecast = mob:getLocalVar("SlaveRecast")
-	if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
+	if not mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) then
 		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
 	end
+
+    -- Slave Globes attack the same target as Mother Globe
+    for v = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
+        v:setMobMod(tpz.mobMod.SHARE_TARGET, mob:getTargID())
+    end
 
     if slaves > 6 then
         mob:setLocalVar("SlavesSpawned", 0)

@@ -695,7 +695,7 @@ void CAttack::ProcessDamage()
         m_damage = m_damage * (float)dmgBonus;
     }
 
-    // Try skill up.
+    // Try skill up and Proc Treasure Hunter
     if (m_damage > 0)
     {
         if (auto weapon = dynamic_cast<CItemWeapon*>(m_attacker->m_Weapons[slot]))
@@ -707,6 +707,13 @@ void CAttack::ProcessDamage()
             static_cast<CPetEntity*>(m_attacker)->getPetType() == PETTYPE_AUTOMATON)
         {
             puppetutils::TrySkillUP((CAutomatonEntity*)m_attacker, SKILL_AUTOMATON_MELEE, m_victim->GetMLevel());
+        }
+    }
+    if (m_attacker->objtype == TYPE_PC)
+    {
+        if (m_trickAttackDamage > 0)
+        {
+            static_cast<CCharEntity*>(m_attacker)->m_sneakTrickActive = true;
         }
     }
     m_isBlocked = attackutils::IsBlocked(m_attacker, m_victim);

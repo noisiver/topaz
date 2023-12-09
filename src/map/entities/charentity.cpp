@@ -237,6 +237,7 @@ CCharEntity::CCharEntity()
     nextFishTime = 0;
     fishingToken = 0;
     m_fomorHate = 0;
+    m_sneakTrickActive = false;
 }
 
 void CCharEntity::SetFomorHate(uint32 fomorHate)
@@ -248,6 +249,17 @@ void CCharEntity::SetFomorHate(uint32 fomorHate)
     m_fomorHate = fomorHate;
     charutils::SetCharVar(this, "FOMOR_HATE", fomorHate);
 }
+
+void CCharEntity::SetPixieHate(uint32 pixieHate)
+{
+    if (pixieHate > 60)
+    {
+        pixieHate = 60;
+    }
+    m_pixieHate = pixieHate;
+    charutils::SetCharVar(this, "PIXIE_HATE", pixieHate);
+}
+
 
 
 CCharEntity::~CCharEntity()
@@ -1095,7 +1107,7 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     }
     if (PSpell->tookEffect())
     {
-        if (PSpell->dealsDamage())
+        if (PSpell->dealsDamage() || PSpell->getSpellFamily() == SPELLFAMILY_DRAIN || PSpell->getSpellFamily() == SPELLFAMILY_ASPIR)
         {
             charutils::TrySkillUP(this, (SKILLTYPE)PSpell->getSkillType(), PTarget->GetMLevel(), true);
         }
@@ -1316,8 +1328,9 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                 }
             }
         }
-        // Remove Sengikori Effect if present
+        // Remove effects consumed if present
         StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_FOOTWORK);
         battleutils::ClaimMob(PBattleTarget, this);
 
         // Safety check to not get locked in cutscene status
@@ -1377,6 +1390,12 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         {
             action.recast = PAbility->getRecastTime() - meritRecastReduction;
         }
+        // If Third Eye is paralyzed while seigan is active, use the modified seigan cooldown for thirdeye(30s instead of 1m)
+        if (PAbility->getID() == ABILITY_THIRD_EYE && this->StatusEffectContainer->HasStatusEffect(EFFECT_SEIGAN))
+        {
+            action.recast /= 2;
+        }
+        // Sneak Attack merits also reduce the recast of BUlly
         if (PAbility->getID() == ABILITY_BULLY)
         {
             action.recast = PAbility->getRecastTime() - PMeritPoints->GetMeritValue((MERIT_TYPE)MERIT_SNEAK_ATTACK_RECAST, this);
@@ -1433,6 +1452,12 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         if (PAbility->getRecastId() == ABILITYRECAST_TWO_HOUR)
         {
             action.recast -= getMod(Mod::ONE_HOUR_RECAST);
+        }
+
+        // For testing
+        if (charutils::GetCharVar(this, "GodMode") > 0 || charutils::GetCharVar(this, "SoftGodMode") > 0)
+        {
+            action.recast = 0;
         }
 
         action.id = this->id;
@@ -2032,11 +2057,20 @@ void CCharEntity::OnRaise()
             weaknessLvl = 2;
         }
 
-        //add weakness effect (75% reduction in HP/MP)
+        // Add weakness effect (75% reduction in HP/MP) if not Mijin or GM command raise
         if (GetLocalVar("MijinGakure") == 0 && GetLocalVar("GMRaise") == 0)
         {
-            CStatusEffect* PWeaknessEffect = new CStatusEffect(EFFECT_WEAKNESS, EFFECT_WEAKNESS, weaknessLvl, 0, 300);
-            StatusEffectContainer->AddStatusEffect(PWeaknessEffect);
+            // Reraise IV and Arise weakness duration is only 3 minutes
+            if (m_hasRaise == 4 || m_hasRaise == 5)
+            {
+                CStatusEffect* PWeaknessEffect = new CStatusEffect(EFFECT_WEAKNESS, EFFECT_WEAKNESS, weaknessLvl, 0, 180);
+                StatusEffectContainer->AddStatusEffect(PWeaknessEffect);
+            }
+            else
+            {
+                CStatusEffect* PWeaknessEffect = new CStatusEffect(EFFECT_WEAKNESS, EFFECT_WEAKNESS, weaknessLvl, 0, 300);
+                StatusEffectContainer->AddStatusEffect(PWeaknessEffect);
+            }
         }
 
         double ratioReturned = 0.0f;
@@ -2079,6 +2113,26 @@ void CCharEntity::OnRaise()
             hpReturned = (uint16)(GetMaxHP() * 0.5);
             ratioReturned = ((GetMLevel() <= 50) ? 0.50f : 0.90f) * (1 - map_config.exp_retain);
         }
+        else if (m_hasRaise == 4) // reraise IV
+        {
+            actionTarget.animation = 496;
+            hpReturned = GetMaxHP();
+            ratioReturned = ((GetMLevel() <= 50) ? 0.50f : 0.90f) * (1.0f - (map_config.exp_retain));
+        }
+        else if (m_hasRaise == 5) // arise
+        {
+            actionTarget.animation = 496;
+            hpReturned = GetMaxHP();
+            ratioReturned = ((GetMLevel() <= 50) ? 0.50f : 0.90f) * (1.0f - (map_config.exp_retain));
+            CStatusEffect* PEffect = new CStatusEffect(EFFECT_RERAISE, EFFECT_RERAISE, 3, 3, 3600, 0, 0, 0);
+            this->StatusEffectContainer->AddStatusEffect(PEffect, true);
+        }
+        else if (m_hasRaise == 6) // pixie raise
+        {
+            actionTarget.animation = 496;
+            hpReturned = GetMaxHP();
+            ratioReturned = 1.0f - (map_config.exp_retain);
+        }
         addHP(((hpReturned < 1) ? 1 : hpReturned));
         updatemask |= UPDATE_HP;
         actionTarget.speceffect = SPECEFFECT_RAISE;
@@ -2116,7 +2170,7 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
     auto PItem = static_cast<CItemUsable*>(state.GetItem());
 
-    //#TODO: I'm sure this is supposed to be in the action packet... (animation, message)
+    PAI->TargetFind->reset();
     if (PItem->getAoE())
     {
         PTarget->ForParty([PItem, PTarget](CBattleEntity* PMember)
@@ -2133,55 +2187,57 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             }
         });
         float radius = 10.0f;
-        PAI->TargetFind->findWithinArea(PTarget, AOERADIUS_ATTACKER, radius, FINDFLAGS_NONE);
+        PAI->TargetFind->findWithinArea(PTarget, AOERADIUS_ATTACKER, radius);
 
         uint16 targets = (uint16)PAI->TargetFind->m_targets.size();
 
         for (auto&& PActionTarget : PAI->TargetFind->m_targets)
         {
-            action.id = this->id;
-            action.actiontype = ACTION_ITEM_FINISH;
-            action.actionid = PItem->getID();
-
-            actionList_t& actionList = action.getNewActionList();
-            actionList.ActionTargetID = PActionTarget->id;
-
-            actionTarget_t& actionTarget = actionList.getNewActionTarget();
-            actionTarget.animation = PItem->getAnimationID();
-            actionTarget.reaction = REACTION_HIT;
-            actionTarget.messageID = PItem->getMsg();
-            actionTarget.param = PItem->getParam();
-
-            // Percentage HP / MP restored msg, Healing/Mana Powder
-            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
+            if (this->allegiance == PActionTarget->allegiance)
             {
-                int hp = floor(PActionTarget->GetMaxHP() * actionTarget.param);
-                int mp = floor(PActionTarget->GetMaxMP() * actionTarget.param);
-                int hpp = floor(hp / 100);
-                int mpp = floor(mp / 100);
+                action.id = this->id;
+                action.actiontype = ACTION_ITEM_FINISH;
+                action.actionid = PItem->getID();
 
-                actionTarget.param = hpp;
+                actionList_t& actionList = action.getNewActionList();
+                actionList.ActionTargetID = PActionTarget->id;
 
-                // Mana Powder
-                if (PItem->getID() == 4255)
+                actionTarget_t& actionTarget = actionList.getNewActionTarget();
+                actionTarget.animation = PItem->getAnimationID();
+                actionTarget.reaction = REACTION_HIT;
+                actionTarget.messageID = PItem->getMsg();
+                actionTarget.param = PItem->getParam();
+
+                // Percentage HP / MP restored msg, Healing/Mana Powder
+                if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
                 {
-                    actionTarget.param = mpp;
+                    int hp = floor(PActionTarget->GetMaxHP() * actionTarget.param);
+                    int mp = floor(PActionTarget->GetMaxMP() * actionTarget.param);
+                    int hpp = floor(hp / 100);
+                    int mpp = floor(mp / 100);
+
+                    actionTarget.param = hpp;
+
+                    // Mana Powder
+                    if (PItem->getID() == 4255)
+                    {
+                        actionTarget.param = mpp;
+                    }
                 }
-            }
 
-            // HP restored msg
-            if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
-            {
-                if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+                // HP restored msg
+                if (actionTarget.messageID == MSGBASIC_RECOVERS_HP || actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP)
                 {
-                    actionTarget.param = 0;
+                    if (this->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+                    {
+                        actionTarget.param = 0;
+                    }
                 }
             }
         }
 
 
     }
-    // Maybe can use PAI->TargetFind->findSingleTarget(PActionTarget, flags); instead of findWithinArea and not need else?
     else
     {
         luautils::OnItemUse(PTarget, PItem);
@@ -2198,11 +2254,32 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
         actionList_t& actionList = action.getNewActionList();
         actionList.ActionTargetID = PTarget->id;
 
+        // Healing / Clear Salve / Dawn Mulsum (Pet items)
+        if (PItem->getID() >= 5835 && PItem->getID() <= 5838 || PItem->getID() == 5411)
+        {
+            if (PTarget->PPet != nullptr)
+            {
+                actionList.ActionTargetID = PTarget->PPet->id;
+            }
+        }
+
         actionTarget_t& actionTarget = actionList.getNewActionTarget();
         actionTarget.animation = PItem->getAnimationID();
         actionTarget.reaction = REACTION_HIT;
         actionTarget.messageID = PItem->getMsg();
         actionTarget.param = PItem->getParam();
+
+        // Percentage HP for Healing Salve I and II
+        if (PItem->getID() == 5835 || PItem->getID() == 5836)
+        {
+            if (PTarget->PPet != nullptr)
+            {
+                int hp = floor(PPet->GetMaxHP() * actionTarget.param);
+                int hpp = floor(hp / 100);
+
+                actionTarget.param = hpp;
+            }
+        }
 
         // Percentage HP / MP restored msg, Healing/Mana Powder
         if (actionTarget.messageID == MSGBASIC_RECOVERS_HP_MP || PItem->getID() == 5322 || PItem->getID() == 4255)
@@ -2351,6 +2428,10 @@ void CCharEntity::Die(duration _duration)
 
     if (this->getMod(Mod::RERAISE_III) > 0)
         m_hasRaise = 3;
+
+    if (this->getMod(Mod::RERAISE_IV) > 0)
+        m_hasRaise = 4;
+
     // MIJIN_RERAISE checks
     if (m_hasRaise == 0 && this->getMod(Mod::MIJIN_RERAISE) > 0)
         m_hasRaise = 1;

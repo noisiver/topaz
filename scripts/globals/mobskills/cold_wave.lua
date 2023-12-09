@@ -17,7 +17,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.FROST
     local power = 15
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 3, 60))
+    skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, power, 3, 15, 0, 33, 0)
 
     return typeEffect
 end

@@ -336,6 +336,7 @@ enum class Mod
     LULLABYRESTRAIT           = 1254,
     DEATHRESTRAIT             = 1255,
     TERRORRESTRAIT            = 1355,
+    DISPELRESTRAIT            = 1358, // Resistance to dispel effects
     STATUSRESTRAIT            = 2000, // All res trait (Does not work on Death / Terror)
 
 
@@ -380,6 +381,7 @@ enum class Mod
     // Black Mage
     CLEAR_MIND                = 295, // Used in conjunction with HEALMP to increase amount between tics
     CONSERVE_MP               = 296, // Percent chance
+    CASCADE_TP_BONUS          = 1362,// Cascade TP Bonus
 
     // Red Mage
     BLINK                     = 299, // Tracks blink shadows
@@ -393,6 +395,7 @@ enum class Mod
     ENFEEB_MAGIC_DURATION     = 1347,// Enfeebling Magic Duration increase % 
     ENH_MAGIC_DURATION        = 890, // Enhancing Magic Duration increase %
     ENHANCES_SABOTEUR         = 297, // Increases Saboteur Potency %
+    ENHANCES_IMMUNOBREAK      = 1359,// Causes Immunobreak to increase by 2 Tiers
 
     // Thief
     FLEE_DURATION             = 93,  // Flee duration in seconds
@@ -408,6 +411,8 @@ enum class Mod
     HIDE_DURATION             = 885, // Hide duration increase (percentage based)
     GILFINDER                 = 897, // Gilfinder, duh
     TP_GAIN_ON_EVADE          = 1305,// Gain TP upon a successful evade
+    TH_MAX                    = 1364,// Max TH level the entity can play. THF job gifts.
+    TH_PROC_CHANCE            = 1365,// Bonus proc chance to Treasure Hunter procs. THF job gifts.
 
     // Paladin
     HOLY_CIRCLE_DURATION      = 857, // Holy Circle extended duration in seconds
@@ -426,6 +431,7 @@ enum class Mod
     ARCANE_CIRCLE_DURATION    = 858, // Arcane Circle extended duration in seconds
     SOULEATER_EFFECT          = 96,  // Souleater power in percents
     DESPERATE_BLOWS           = 906, // Adds ability haste to Last Resort
+    LAST_RESORT_DURATION      = 1360,// Increases Last Resort duration (in seconds)
     STALWART_SOUL             = 907, // Reduces damage taken from Souleater
     DREAD_SPIKES_EFFECT       = 1328,// Percent increase to total HP drain for Dread Spikes
     ENHANCES_BLOOD_WEAPON     = 1329,// Enhances "Blood Weapon" effect (increases Blood Weapon's duration in seconds)
@@ -489,6 +495,7 @@ enum class Mod
     ZANSHIN                   = 306, // Zanshin percent chance
     THIRD_EYE_COUNTER_RATE    = 508, // Adds counter to 3rd eye anticipates & if using Seigan counter rate is increased by 15%
     THIRD_EYE_ANTICIPATE_RATE = 839, // Adds anticipate rate in percents
+    HASSO_HASTE               = 1361,// Increases the JA haste bonus of Hasso. 10000 base, 375 = 3.75%
 
     // Ninja
     UTSUSEMI                  = 307, // Everyone's favorite --tracks shadows.
@@ -496,7 +503,7 @@ enum class Mod
     NINJA_TOOL                = 308, // Percent chance to not use a tool.
     NIN_NUKE_BONUS            = 522, // magic attack bonus for NIN nukes
     DAKEN                     = 911, // chance to throw a shuriken without consuming it
-    NINJUTSU_DURATION         = 1323, //  Increases the effect duration of ninjutsu (in percents)
+    NINJUTSU_DURATION         = 1323,// Increases the effect duration of ninjutsu (in percents)
 
     // Dragoon
     ANCIENT_CIRCLE_DURATION   = 859, // Ancient Circle extended duration in seconds
@@ -712,8 +719,9 @@ enum class Mod
     ADDS_WEAPONSKILL          = 355, // Needs to be tpz.ws_unlock ID for unlockables, otherwise the WSID itself
     ADDS_WEAPONSKILL_DYN      = 356, // In Dynamis
 
-    STEALTH                   = 358, //
+    STEALTH                   = 358, // Reduced Sound detection range
     SNEAK_DURATION            = 946, // Additional duration in seconds
+    ALERTNESS                 = 1366,// Reduced Sight detection range
     INVISIBLE_DURATION        = 947, // Additional duration in seconds
 
     MAIN_DMG_RATING           = 366, // adds damage rating to main hand weapon (maneater/blau dolch etc hidden effects)
@@ -759,6 +767,7 @@ enum class Mod
     RERAISE_I                 = 456, // Reraise.
     RERAISE_II                = 457, // Reraise II.
     RERAISE_III               = 458, // Reraise III.
+    RERAISE_IV                = 1363,// Reraise IV.
 
     // Elemental Absorb Chance
     FIRE_ABSORB               = 459, // Occasionally absorbs fire elemental damage, in percents
@@ -1040,7 +1049,7 @@ enum class Mod
 
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // 1358 NEXT
+    // 1367 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

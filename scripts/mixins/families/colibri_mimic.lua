@@ -21,6 +21,7 @@ g_mixins.families.colibri_mimic = function(mob)
 
     mob:addListener("MAGIC_TAKE", "COLIBRI_MIMIC_MAGIC_TAKE", function(target, caster, spell)
         if
+            not IsMobBusy(target) and
             target:AnimationSub() == 0 and
             spell:tookEffect() and
             (caster:isPC() or caster:isPet()) and
@@ -43,18 +44,20 @@ g_mixins.families.colibri_mimic = function(mob)
         local skill = utils.getSkillLvl(1, mob:getMainLvl())
         mob:setMod(tpz.mod.MACC, skill)
 
-        if mob:AnimationSub() == 1 then
-            if spellToMimic > 0 and osTime > castTime and castWindow > osTime and not mob:hasStatusEffect(tpz.effect.SILENCE) then
-                mob:castSpell(spellToMimic)
-                mob:setLocalVar("[colibri]spellToMimic", 0)
-                mob:setLocalVar("[colibri]castWindow", 0)
-                mob:setLocalVar("[colibri]castTime", 0)
-                mob:AnimationSub(0)
-            elseif spellToMimic == 0 or osTime > castWindow then
-                mob:setLocalVar("[colibri]spellToMimic", 0)
-                mob:setLocalVar("[colibri]castWindow", 0)
-                mob:setLocalVar("[colibri]castTime", 0)
-                mob:AnimationSub(0)
+        if not IsMobBusy(mob) then
+            if mob:AnimationSub() == 1 then
+                if spellToMimic > 0 and osTime > castTime and castWindow > osTime and not mob:hasStatusEffect(tpz.effect.SILENCE) then
+                    mob:castSpell(spellToMimic)
+                    mob:setLocalVar("[colibri]spellToMimic", 0)
+                    mob:setLocalVar("[colibri]castWindow", 0)
+                    mob:setLocalVar("[colibri]castTime", 0)
+                    mob:AnimationSub(0)
+                elseif spellToMimic == 0 or osTime > castWindow then
+                    mob:setLocalVar("[colibri]spellToMimic", 0)
+                    mob:setLocalVar("[colibri]castWindow", 0)
+                    mob:setLocalVar("[colibri]castTime", 0)
+                    mob:AnimationSub(0)
+                end
             end
         end
     end)

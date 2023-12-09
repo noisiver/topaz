@@ -240,6 +240,8 @@ function tpz.battlefield.HealPlayers(battlefield, players)
     for _, player in pairs(players) do
         local recoverHP = player:getMaxHP() - player:getHP()
         local recoverMP = player:getMaxMP() - player:getMP()
+        local animationId = 772
+        player:injectActionPacket(tpz.action.MOBABILITY_FINISH, animationId, tpz.specEffect.NONE, tpz.reaction.HIT, tpz.msg.basic.NONE)
         player:addHP(recoverHP)
         player:addMP(recoverMP)
         player:resetRecasts()

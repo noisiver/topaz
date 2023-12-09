@@ -10,20 +10,12 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 ------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(110)
-    mob:setMod(tpz.mod.ATT, 400)
-    mob:setMod(tpz.mod.DEF, 350)
-    mob:addMod(tpz.mod.EVA, 20)
-    mob:setMod(tpz.mod.REFRESH, 300)
-    mob:setMod(tpz.mod.SDT_FIRE, 50)
-    mob:setMod(tpz.mod.SDT_ICE, 115)
-    mob:setMod(tpz.mod.SDT_WIND, 50)
-    mob:setMod(tpz.mod.SDT_EARTH, 50)
-    mob:setMod(tpz.mod.SDT_THUNDER, 50)
-    mob:setMod(tpz.mod.SDT_WATER, 50)
-    mob:setMod(tpz.mod.SDT_LIGHT, 50)
-    mob:setMod(tpz.mod.SDT_DARK, 50)
-	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 20)
+    SetGenericNMStats(mob)
+    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 30)
+    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 30)
+    mob:setMobMod(tpz.mobMod.AGGRO_SOUND, 1)
+	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 40)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 40)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:addImmunity(tpz.immunity.SILENCE)
     if mob:getID() == 16801826 then -- Don't let the mob holding the chest closed move or try to attack
@@ -34,6 +26,9 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+end
+
+function onMobEngaged(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

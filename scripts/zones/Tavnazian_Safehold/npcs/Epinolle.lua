@@ -34,7 +34,7 @@ function onEventFinish(player, csid, option)
     if csid == 232 then
         player:addQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.GO_GO_GOBMUFFIN)
         player:setCharVar("riverneMapQuest", 1)
-    elseif csid == 232 then
+    elseif csid == 234 then
         npcUtil.completeQuest(player, OTHER_AREAS_LOG, tpz.quest.id.otherAreas.GO_GO_GOBMUFFIN, {
             ki = tpz.ki.MAP_OF_CAPE_RIVERNE,
             gil = 2000,

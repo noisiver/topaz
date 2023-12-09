@@ -1233,13 +1233,13 @@ INSERT INTO `bcnm_battlefield` VALUES (676,3,16810082,0);
 INSERT INTO `bcnm_battlefield` VALUES (677,1,16810084,3); -- Tango With a Tracker
 INSERT INTO `bcnm_battlefield` VALUES (677,1,16810085,3); -- Tango With a Tracker
 INSERT INTO `bcnm_battlefield` VALUES (677,1,16810086,3); -- Tango With a Tracker
-INSERT INTO `bcnm_battlefield` VALUES (677,1,16810087,3); -- Tango With a Tracker
-INSERT INTO `bcnm_battlefield` VALUES (677,1,16810088,3); -- Tango With a Tracker
+INSERT INTO `bcnm_battlefield` VALUES (677,1,16810087,2); -- Tango With a Tracker
+INSERT INTO `bcnm_battlefield` VALUES (677,1,16810088,2); -- Tango With a Tracker
 INSERT INTO `bcnm_battlefield` VALUES (678,1,16810084,3); -- Requiem of Sin
 INSERT INTO `bcnm_battlefield` VALUES (678,1,16810085,3); -- Requiem of Sin
 INSERT INTO `bcnm_battlefield` VALUES (678,1,16810086,3); -- Requiem of Sin
-INSERT INTO `bcnm_battlefield` VALUES (678,1,16810087,3); -- Requiem of Sin
-INSERT INTO `bcnm_battlefield` VALUES (678,1,16810088,3); -- Requiem of Sin
+INSERT INTO `bcnm_battlefield` VALUES (678,1,16810087,2); -- Requiem of Sin
+INSERT INTO `bcnm_battlefield` VALUES (678,1,16810088,2); -- Requiem of Sin
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818177,3); -- darkness_named
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818178,1);
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818179,1);

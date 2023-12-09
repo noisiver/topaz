@@ -11,10 +11,11 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local duration = calculateDuration(1800, spell:getSkillType(), spell:getSpellGroup(), caster, target, false)
+    local duration = 1800
     duration = calculateDurationForLvl(duration, 75, target:getMainLvl())
     local meritBonus = caster:getMerit(tpz.merit.PROTECTRA_V)
-    local power = 60 + meritBonus -- changed to 75 era was 220
+    -- 60 base with only 1 merit in
+    local power = 58 + meritBonus -- changed to 75 era was 220
 
     local typeEffect = tpz.effect.PROTECT
     if ApplyProtectShell(caster, target, typeEffect, power, duration) then

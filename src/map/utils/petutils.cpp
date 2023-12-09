@@ -57,6 +57,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../packets/pet_sync.h"
 #include "mobutils.h"
 #include "../job_points.h"
+#include "../mob_modifier.h"
 
 struct Pet_t
 {
@@ -340,55 +341,67 @@ namespace petutils
         }
     }
 
-    uint16 GetJugWeaponDamage(CPetEntity* PPet)
+    uint16 GetJugWeaponDamage(CPetEntity* PPet, uint16 slot)
     {
-        float MainLevel = PPet->GetMLevel();
-        return (uint16)(MainLevel * (MainLevel < 40 ? 1.4 - MainLevel / 100 : 1));
+        uint16 lvl = PPet->GetMLevel();
+        int8 bonus = 2;
+        uint16 damage = 0;
+
+        if (slot == SLOT_RANGED)
+        {
+            bonus = 5;
+        }
+
+        if (lvl == 1)
+        {
+            bonus = 0;
+        }
+
+        damage = lvl + bonus;
+
+        // Some pets can have H2H skill but not be a MNK
+        if (PPet->GetMJob() == JOB_MNK || PPet->GetMJob() == JOB_PUP || ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+        {
+            uint16 h2hskill = battleutils::GetMaxSkill(SKILL_HAND_TO_HAND, JOB_MNK, PPet->GetMLevel());
+            // https://ffxiclopedia.fandom.com/wiki/Category:Hand-to-Hand
+            damage = 0.11f * h2hskill + 3 +
+                     18 * PPet->GetMLevel() / 75; // basic h2h weapon dmg + scaling "weapon" for mnk mobs based on h2h skill (destroyers 18 dmg at 75)
+        }
+
+        // DW pets use 1h weapon damage instead of 2h
+        if (PPet->getMobMod(MOBMOD_DUAL_WIELD) > 0)
+        {
+            damage = (lvl / 2) + bonus;
+        }
+
+        damage = (uint16)(damage * PPet->m_dmgMult / 100.0f);
+
+        if (PPet->getMobMod(MOBMOD_WEAPON_BONUS) != 0)
+        {
+            damage += (uint16)(PPet->getMobMod(MOBMOD_WEAPON_BONUS));
+        }
+
+        return damage;
     }
     uint16 GetJugBase(CPetEntity * PMob, uint8 rank)
     {
+        int8 mlvl = PMob->GetMLevel();
 
-        uint8 lvl = PMob->GetMLevel();
-        if (lvl > 50)
-        {
-            switch (rank)
+        switch (rank)
         {
             case 1:
-                return (uint16)(153 + (lvl - 50) * 5.0f);
+                return battleutils::GetMaxSkill(SKILL_GREAT_AXE, JOB_WAR, mlvl); // A+ Skill (1)
             case 2:
-                return (uint16)(147 + (lvl - 50) * 4.9f);
+                return battleutils::GetMaxSkill(SKILL_PARRY, JOB_DNC, mlvl); // B Skill (2)
             case 3:
-                return (uint16)(136 + (lvl - 50) * 4.8f);
+                return battleutils::GetMaxSkill(SKILL_SINGING, JOB_BRD, mlvl); // C Skill (3)
             case 4:
-                return (uint16)(126 + (lvl - 50) * 4.7f);
+                return battleutils::GetMaxSkill(SKILL_ARCHERY, JOB_WAR, mlvl); // D Skill (4)
             case 5:
-                return (uint16)(116 + (lvl - 50) * 4.5f);
-            case 6:
-                return (uint16)(106 + (lvl - 50) * 4.4f);
-            case 7:
-                return (uint16)(96 + (lvl - 50) * 4.3f);
-            }
+                return battleutils::GetMaxSkill(SKILL_THROWING, JOB_MNK, mlvl); // E Skill (5)
         }
-        else
-        {
-            switch (rank)
-        {
-            case 1:
-                return (uint16)(6 + (lvl - 1) * 3.0f);
-            case 2:
-                return (uint16)(5 + (lvl - 1) * 2.9f);
-            case 3:
-                return (uint16)(5 + (lvl - 1) * 2.8f);
-            case 4:
-                return (uint16)(4 + (lvl - 1) * 2.7f);
-            case 5:
-                return (uint16)(4 + (lvl - 1) * 2.5f);
-            case 6:
-                return (uint16)(3 + (lvl - 1) * 2.4f);
-            case 7:
-                return (uint16)(3 + (lvl - 1) * 2.3f);
-            }
-        }
+
+        ShowError("Petutils::GetBase rank (%d) is out of bounds for pet (%u) ", rank, PMob->id);
         return 0;
     }
     uint16 GetBaseToRank(uint8 rank, uint16 lvl)
@@ -492,7 +505,7 @@ namespace petutils
             }
         }
 
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetJugWeaponDamage(PMob));
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetJugWeaponDamage(PMob, SLOT_MAIN));
 
         //reduce weapon delay of MNK
         if (PMob->GetMJob() == JOB_MNK)
@@ -983,7 +996,7 @@ namespace petutils
             case PETID_THUNDERSPIRIT:
                 break;
             case PETID_WATERSPIRIT:
-                PPet->m_Element = 0; // Water ie 0 ElementID for some reason
+                PPet->m_Element = 0; // Water is 0 ElementID for some reason
                 break;
             case PETID_LIGHTSPIRIT:
                 PPet->SetMJob(JOB_WHM);
@@ -1019,7 +1032,7 @@ namespace petutils
             case PETID_LEVIATHAN:
                 PPet->addModifier(Mod::ENMITY, 30);
                 PPet->addModifier(Mod::UDMGMAGIC, -50);
-                PPet->m_Element = 0; // Water ie 0 ElementID for some reason
+                PPet->m_Element = 0; // Water is 0 ElementID for some reason
                 break;
             case PETID_GARUDA:
                 PPet->addModifier(Mod::EVA, 50);
@@ -1527,6 +1540,11 @@ namespace petutils
             // add traits for sub and main if a jug pet
             if (PPet->getPetType() != PETTYPE_AUTOMATON)
             {
+
+                if (PPet->getMobMod(MOBMOD_CAN_PARRY) > 0)
+                {
+                    PPet->addModifier(Mod::PARRY, GetJugBase(PPet, PPet->getMobMod(MOBMOD_CAN_PARRY)));
+                }
                 battleutils::AddTraits(PPet, traits::GetTraits(PPetData->mJob), PPet->GetMLevel());
                 if (PPetData->mJob != PPetData->sJob)
                 {
@@ -1542,6 +1560,12 @@ namespace petutils
                 {
                     PPet->setModifier(Mod::INQUARTATA, 0);
                 }
+
+                // Max [HP/MP] Boost traits
+                PPet->UpdateHealth();
+                PPet->health.tp = 0;
+                PPet->health.hp = PPet->GetMaxHP();
+                PPet->health.mp = PPet->GetMaxMP();
             }
 
             PPet->allegiance = PMaster->allegiance;
@@ -2180,7 +2204,7 @@ namespace petutils
     void FinalizePetStatistics(CBattleEntity* PMaster, CPetEntity* PPet)
     {
         //set C magic evasion
-        PPet->setModifier(Mod::MEVA, battleutils::GetMaxSkill(SKILL_ELEMENTAL_MAGIC, JOB_RDM, PPet->GetMLevel()));
+        PPet->setModifier(Mod::MEVA, battleutils::GetMaxSkill(SKILL_SINGING, JOB_BRD, PPet->GetMLevel()));
         PPet->health.tp = 0;
         PMaster->applyPetModifiers(PPet);
         PPet->UpdateHealth();

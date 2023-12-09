@@ -15,13 +15,13 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local tpReduced = 0
-    target:setTP(tpReduced)
+    local targetTP = target:getTP()
+    target:setTP(0)
 
     MobGazeMove(mob, target, tpz.effect.BIND, 1, 0, 30)
     MobGazeMove(mob, target, tpz.effect.BLINDNESS, 100, 0, 300)
 
     skill:setMsg(tpz.msg.basic.TP_REDUCED)
 
-    return tpReduced
+    return targetTP
 end

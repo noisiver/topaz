@@ -1599,6 +1599,14 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         }
     }
 
+    if (PSpell->getRequirements() & SPELLREQ_UNBRIDLED_LEARNING)
+    {
+        if (this->StatusEffectContainer->HasStatusEffect({ EFFECT_UNBRIDLED_LEARNING, EFFECT_UNBRIDLED_WISDOM }))
+        {
+            this->StatusEffectContainer->DelStatusEffect(EFFECT_UNBRIDLED_LEARNING);
+        }
+    }
+
     // TODO: Pixies will probably break here, once they're added.
     if (this->allegiance != PActionTarget->allegiance)
     {
@@ -1607,7 +1615,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
         PActionTarget->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
     }
 
-    this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_MAGIC_END);
+    this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_MAGIC_END, true);
 }
 
 void CBattleEntity::OnCastInterrupted(CMagicState& state, action_t& action, MSGBASIC_ID msg)
@@ -1754,7 +1762,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
         if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE, 0) || PTarget->isSuperJumped)
         {
-            actionTarget.messageID = 32;
+            actionTarget.messageID = MSGBASIC_DODGE;
             actionTarget.reaction = REACTION_EVADE;
             actionTarget.speceffect = SPECEFFECT_NONE;
 
@@ -1770,7 +1778,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             // Check parry.
             if (attack.IsParried())
             {
-                actionTarget.messageID = 70;
+                actionTarget.messageID = MSGBASIC_PARRY;
                 actionTarget.reaction = REACTION_PARRY;
                 actionTarget.speceffect = SPECEFFECT_NONE;
                 battleutils::HandleTacticalParry(PTarget);
@@ -1789,7 +1797,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             {
                 if (attack.IsAnticipated())
                 {
-                    actionTarget.messageID = 30;
+                    actionTarget.messageID = MSGBASIC_ANTICIPATE;
                     actionTarget.reaction = REACTION_EVADE;
                     actionTarget.speceffect = SPECEFFECT_NONE;
                 }
@@ -1842,10 +1850,10 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                                              DamageRatio);
                         }
 
-                        // Reduce counter damage if footwork is active to 25% for balancing reasons
+                        // Reduce counter damage if footwork is active to 50% for balancing reasons
                         if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
                         {
-                            damage *= 0.25;
+                            damage *= 0.50;
                         }
 
                         actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1, nullptr, true, false, true);
@@ -1916,37 +1924,26 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 }
 
                 // Apply Feint
-                if (CStatusEffect* PFeintEffect = StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
+                if (this->objtype == TYPE_PC)
                 {
-                    uint16 power = (PTarget->EVA() / 20) * 10; // ensures power is a multiple of 10 to evenly die out over the 10 ticks
-                    if (power > 0)
-                        PTarget->StatusEffectContainer->AddStatusEffect(
-                            new CStatusEffect(EFFECT_EVASION_DOWN, EFFECT_EVASION_DOWN, power, 3, 30, 0, power / 10));
-                    StatusEffectContainer->DelStatusEffectSilent(EFFECT_FEINT);
+                    if (CStatusEffect* PFeintEffect = StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
+                    {
+                        uint16 power = (PTarget->EVA() / 20) * 10; // ensures power is a multiple of 10 to evenly die out over the 10 ticks
+                        if (power > 0)
+                        PTarget->StatusEffectContainer->AddStatusEffect( new CStatusEffect(EFFECT_FEINT, EFFECT_FEINT, power, 3, 30, 0, power / 10));
+                        StatusEffectContainer->DelStatusEffectSilent(EFFECT_FEINT);
+                    }
                 }
 
 
                 // Process damage.
                 attack.ProcessDamage();
 
-                // TODO: TH procs + message
-                //// Display Treasure Hunter Message
-                //if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
-                //{
-                //    CMobEntity* PMob = (CMobEntity*)PTarget;
-                //    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                //    uint16 mobTHLvL = PMob->m_THLvl;
-
-                //    if (playerTHLvl > mobTHLvL)
-                //    {
-                //        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                //    }
-                //}
-
                 // Try shield block
                 if (attack.IsBlocked())
                 {
                     actionTarget.reaction = REACTION_BLOCK;
+                    actionTarget.messageID = MSGBASIC_SHIELD_BLOCK;
                 }
 
                 // Check damage if the attack actually hit and wasn't absorbed by shadows, countered, parried, etc
@@ -1998,7 +1995,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             // misses the target
             actionTarget.reaction = REACTION_EVADE;
             actionTarget.speceffect = SPECEFFECT_NONE;
-            actionTarget.messageID = 15;
+            actionTarget.messageID = MSGBASIC_MISS;
             attack.SetEvaded(true);
 
             // Check for TP gain on evade mod
@@ -2018,8 +2015,26 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
             uint8 enspell = (uint8)this->getMod(Mod::ENSPELL);
 
+             // Try to proc TH
+            if (attack.IsFirstSwing() && this->objtype == TYPE_PC)
+            {
+                bool highProcRate = false;
+                CCharEntity* PChar = (CCharEntity*)this;
+                if (PChar->m_sneakTrickActive)
+                {
+                    highProcRate = true;
+                }
+
+                charutils::TryProcTH(PChar, (CMobEntity*)PTarget, &actionTarget, highProcRate);
+            }
+
             // Add listener
-            PTarget->PAI->EventHandler.triggerListener("EN_SPIKES_HIT", this, PTarget, enspell);
+            if (enspell)
+{
+                {
+                    PTarget->PAI->EventHandler.triggerListener("EN_SPIKES_HIT", this, PTarget, enspell);
+                }
+}
         }
 
         if (actionTarget.speceffect == SPECEFFECT_HIT && actionTarget.param > 0)
@@ -2080,6 +2095,14 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             PChar->pushPacket(new CReleasePacket(PChar, releaseType));
             PChar->pushPacket(new CReleasePacket(PChar, RELEASE_EVENT));
         }
+    }
+
+    //Remove Sneak / Trick attack tracker
+    if (this->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = (CCharEntity*)this;
+
+        PChar->m_sneakTrickActive = false;
     }
 
     this->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK | EFFECTFLAG_DETECTABLE);

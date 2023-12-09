@@ -8,6 +8,11 @@ require("scripts/globals/status")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    -- Normal Dvegr for learning  Bilgestorm
+    if (mob:getPool() == 9124) then
+        return 0
+    end
+
   if(mob:getFamily() == 91) then
     local mobSkin = mob:getModelId()
 

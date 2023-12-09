@@ -143,6 +143,30 @@ tpz.path =
 
         npc:pathThrough(tpz.path.get(points, i), flags)
         npc:setLocalVar("nextPatrolIndex", i)
-    end
+    end,
+
+    -- Loops back and forth from point 1 > 2 > 3 > 4 > 3 > 2 > 1 etc.
+    loop = function(npc, points, flags)
+        if not npc:isFollowingPath() then
+            local path = npc:getLocalVar("path")
+            local reverse = npc:getLocalVar("pathreverse");
+            local step = (reverse == true) and -1 or 1;
+            path = path + step;
+            if (path > #points) then
+                path = #points - 1;
+                npc:setLocalVar("pathreverse", true);
+            elseif (path < 1) then
+                path = 2;
+                npc:setLocalVar("pathreverse", false);
+            end
+        
+            npc:setLocalVar("path", path);
+            local currentPath = points[path];
+            -- print(currentPath.x)
+            -- print(currentPath.y)
+            -- print(currentPath.z)
+            npc:pathTo(currentPath.x, currentPath.y, currentPath.z, flags);
+        end
+    end,
 
 }

@@ -6,7 +6,7 @@
 cmdprops =
 {
     permission = 1,
-    parameters = "isi"
+    parameters = "ssi"
 }
 
 function error(player, msg)
@@ -14,16 +14,15 @@ function error(player, msg)
     player:PrintToPlayer("!addtreasure <itemID> {player} {npcID}")
 end
 
-function onTrigger(player, itemId, target, dropper)
+function onTrigger(player, name, target, dropper)
     -- validate itemId
-    if (itemId ~= nil) then
-        itemId = tonumber(itemId)
-    end
-    if (itemId == nil or itemId == 0) then
-        error(player, "Invalid itemID.")
+    if (name == nil or tostring(name) == nil) then
+        error(player, "Invalid name.")
         return
     end
-
+    
+    local itemId = GetItemIDByName(name)
+    
     -- validate target
     local targ
     if (target == nil) then

@@ -98,6 +98,49 @@ tpz.magic.element =
 }
 tpz.magic.ele = tpz.magic.element
 
+tpz.magic.enspell =
+{
+    NONE = 0,
+    I_FIRE = 1,
+    I_ICE = 2,
+    I_WIND = 3,
+    I_EARTH = 4,
+    I_THUNDER = 5,
+    I_WATER = 6,
+    I_LIGHT = 7,
+    I_DARK = 8,
+    II_FIRE = 9,
+    II_ICE = 10,
+    II_WIND = 11,
+    II_EARTH = 12,
+    II_THUNDER = 13,
+    II_WATER = 14,
+    II_LIGHT = 15,
+    II_DARK = 16,
+    BLOOD_WEAPON = 17,
+    ROLLING_THUNDER = 18,
+    AUSPICE = 19,
+    DRAIN_SAMBA = 20,
+    ASPIR_SAMBA = 21,
+    HASTE_SAMBA = 22
+}
+
+tpz.magic.spikes =
+{
+    NONE            = 0,
+    BLAZE           = 1,
+    ICE             = 2,
+    DREAD           = 3,
+    CURSE           = 4,
+    SHOCK           = 5,
+    REPRISAL        = 6,
+    GALE            = 7,
+    CLOD            = 8,
+    DELUGE          = 9,
+    GLINT           = 10,
+    RETALIATION     = 63
+}
+
 ------------------------------------
 -- Day to Element Mapping
 ------------------------------------

@@ -228,6 +228,14 @@ void CEnmityContainer::UpdateEnmityFromCure(CBattleEntity* PEntity, uint8 level,
     if (!IsWithinEnmityRange(PEntity))
         return;
 
+    if ((PEntity->objtype == TYPE_MOB) && (PEntity->m_OwnerID.id == 0))
+    {
+        // Don't get hate when mobs cast cures on players
+        // e.g. pixies, colibri mimics
+        return;
+    }
+
+
     int32 CE = 0;
     int32 VE = 0;
     float bonus = CalculateEnmityBonus(PEntity);
@@ -356,6 +364,12 @@ void CEnmityContainer::UpdateEnmityFromDamage(CBattleEntity* PEntity, int32 Dama
 
     int32 CE = (int32)(80.f / damageMod * Damage);
     int32 VE = (int32)(240.f / damageMod * Damage);
+
+    // Subtle Sorcery causes you to generate 0 CE on damaging attacks
+    if (PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_SUBTLE_SORCERY))
+    {
+        CE = 0;
+    }
 
     UpdateEnmity(PEntity, CE, VE);
 

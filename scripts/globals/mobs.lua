@@ -10,6 +10,7 @@ require("scripts/globals/zone")
 require("scripts/globals/msg")
 require("scripts/globals/npc_util")
 require("scripts/globals/roe")
+require("scripts/globals/world")
 -----------------------------------
 
 tpz = tpz or {}
@@ -427,6 +428,7 @@ local additionalEffects =
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.DISPEL,
         mod = tpz.mod.INT,
+        negMsg = tpz.msg.basic.ADD_EFFECT_DISPEL,
         bonusAbilityParams = {bonusmab = 0, includemab = false},
         code = function(mob, target, power) target:dispelStatusEffect() end,
     },
@@ -661,6 +663,17 @@ function MakeMobInactive(mob)
     mob:hideName(true)
     mob:untargetable(true)
     mob:setUnkillable(true)
+end
+
+function IsMobBusy(mob)
+    local act = mob:getCurrentAction()
+
+    return  act == tpz.act.MOBABILITY_START or
+            act == tpz.act.MOBABILITY_USING or
+            act == tpz.act.MOBABILITY_FINISH or
+            act == tpz.act.MAGIC_START or
+            act == tpz.act.MAGIC_CASTING or
+            act == tpz.act.MAGIC_FINISH
 end
 
 function AffectWeatherMob(mobId, weather, nqWeather, nqChance, hqWeather, hqChance)

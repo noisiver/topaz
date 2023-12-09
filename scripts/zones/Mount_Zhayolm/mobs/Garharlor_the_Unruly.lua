@@ -5,19 +5,21 @@
 local ID = require("scripts/zones/Mount_Zhayolm/IDs")
 mixins = {
 require("scripts/mixins/weapon_break"),
+require("scripts/mixins/job_special")
 }
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-     mob:setMod(tpz.mod.REFRESH, 400)
-	mob:setLocalVar("TwoHourUsed", 0)
+    SetGenericNMStats(mob)
+end
+
+function onMobEngaged(mob, target)
+    for v = 17027467, 17027469 do
+        GetMobByID(v):updateEnmity(target)
+    end
 end
 
 function onMobFight(mob, target)
-	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
-	if mob:getHPP() <= math.random(25, 50) and TwoHourUsed == 0 then
-		mob:useMobAbility(2252) -- Eagle eye Shot
-		mob:setLocalVar("TwoHourUsed", 1)
-	end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

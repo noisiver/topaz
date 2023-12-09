@@ -4,7 +4,7 @@
 -- The TP lowering seems to be a total reset of TP on the mob, and even if the sleep misses,
 -- the TP reset cannot miss.
 -----------------------------------------
-require("scripts/globals/monstertpmoves")
+require("scripts/globals/summon")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")

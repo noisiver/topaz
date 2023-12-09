@@ -17,14 +17,15 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.BLACK_MAGIC_COST, 20)
     target:addMod(tpz.mod.BLACK_MAGIC_CAST, 20)
     target:addMod(tpz.mod.BLACK_MAGIC_RECAST, 20)
-    target:addMod(tpz.mod.LIGHT_ARTS_REGEN, regen)
-    target:addMod(tpz.mod.REGEN_DURATION, 120)
 
 
-    -- Accuracy bonus to SCH main only
+    -- Regen and Accuracy bonus to SCH main only
     if (target:getMainJob() == tpz.job.SCH) then
+        target:addMod(tpz.mod.LIGHT_ARTS_REGEN, regen)
+        target:addMod(tpz.mod.REGEN_DURATION, 120)
         target:addMod(tpz.mod.ACC, 50)
     end
+
     if target:isPC() then
         target:recalculateSkillsTable()
     end
@@ -46,13 +47,14 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.BLACK_MAGIC_COST, 20)
     target:delMod(tpz.mod.BLACK_MAGIC_CAST, 20)
     target:delMod(tpz.mod.BLACK_MAGIC_RECAST, 20)
-    target:delMod(tpz.mod.LIGHT_ARTS_REGEN, regen)
-    target:delMod(tpz.mod.REGEN_DURATION, 120)
 
-    -- Accuracy bonus to SCH main only
+    -- Regen and Accuracy bonus to SCH main only
     if (target:getMainJob() == tpz.job.SCH) then
+        target:delMod(tpz.mod.LIGHT_ARTS_REGEN, regen)
+        target:delMod(tpz.mod.REGEN_DURATION, 120)
         target:delMod(tpz.mod.ACC, 50)
     end
+
     if target:isPC() then
         target:recalculateSkillsTable()
     end

@@ -9,6 +9,23 @@ require("scripts/globals/world")
 tpz = tpz or {}
 
 ------------------------------------
+-- Mob skill flags
+------------------------------------
+
+tpz.mobSkillFlag =
+{
+    NONE              = 0x000,
+    JOB_ABILITY       = 0x001, -- 1
+    TWO_HOUR          = 0x002, -- 2
+    -- Special skill (ranged attack / call beast)
+    SPECIAL           = 0x004, -- 4
+    HIT_ALL           = 0x008, -- 8
+    REPLACE_ATTACK    = 0x010, -- 16 To turn off "Readies .." or "Readies skill#650360 message" Use skill:setMsg(tpz.msg.basic.HIT_DMG) in the skills lua file
+    DRAW_IN           = 0x020, -- 32
+    ALWAYS_KNOCK_BACK = 0x040  -- 64
+}
+
+------------------------------------
 -- Zone Misc Flags
 ------------------------------------
 
@@ -1363,7 +1380,7 @@ tpz.mod =
     ADDS_WEAPONSKILL                = 355,
     ADDS_WEAPONSKILL_DYN            = 356,
     BP_DELAY                        = 357,
-    STEALTH                         = 358,
+    STEALTH                         = 358, -- Reduced Sound detection range
     RAPID_SHOT                      = 359,
     CHARM_TIME                      = 360,
     JUMP_TP_BONUS                   = 361,
@@ -1875,8 +1892,17 @@ tpz.mod =
     TERRORRESTRAIT          = 1355, -- Resist trait for terror (In percents)
     BLU_ATT                 = 1356, -- Modifier to BLU phys attack
     BLU_ATTP                = 1357, -- Modifier to BLU phys attack (in percents)
+    DISPELRESTRAIT          = 1358, -- Resistance to dispel effects
+    ENHANCES_IMMUNOBREAK    = 1359, -- Causes Immunobreak to increase by 2 Tiers
+    LAST_RESORT_DURATION    = 1360, -- Increases Last Resort duration (in seconds)
+    HASSO_HASTE             = 1361, -- Increases the JA haste bonus of Hasso. 10000 base, 375 = 3.75%
+    CASCADE_TP_BONUS        = 1362, -- Cascade TP Bonus
+    RERAISE_IV              = 1363, -- Reraise IV.
+    TH_MAX                  = 1364, --  Max TH level the entity can play. THF job gift.
+    TH_PROC_CHANCE          = 1365, -- Bonus proc chance to Treasure Hunter procs. THF job gifts.
+    ALERTNESS               = 1366, -- Reduced Sight detection range
     -- 570 - 825 used by WS DMG mods these are not spares.
-    -- 1358 NEXT
+    -- 1367 NEXT
 }
 
 tpz.latent =
@@ -2948,7 +2974,8 @@ tpz.mobMod =
     ALLI_HATE           = 68, -- Range around target to add alliance member to enmity list.
     NO_LINK             = 69, -- If set, mob cannot link until unset.
     NO_REST             = 70, -- Mob cannot regain hp (e.g. re-burrowing antlions during ENM).
-    FAMILYLINK          = 74,  -- Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
+    FAMILYLINK          = 74, -- Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
+    FOMOR_HATE          = 85, -- Mob aggros according to fomor hate
     AGGRO_SIGHT         = 86, -- aggros sight 0 = false 1 = true
     AGGRO_SOUND         = 87, -- aggros sound 0 = false 1 = true
     AGGRO_MAGIC         = 88, -- aggros magic 0 = false 1 = true
@@ -2969,7 +2996,8 @@ tpz.mobMod =
     ECOSYSTEMLINK       = 104, -- Mob will link to the same echo system(i.e. Demon or Bird)
     VERTICAL_AGGRO      = 105, -- Always aggro regardless of verrtical distance
     CAN_PARRY           = 106, -- Check if a mob is allowed to have parry rank(Rank Value 1 - 5)
-
+    PIXIE               = 107, -- Pixies: Cure and raise players
+    NO_DR               = 108, -- No dimishing returns on any CC
 }
 
 ------------------------------------

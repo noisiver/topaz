@@ -1,10 +1,13 @@
+---------------------------------------------------
+-- Only used by Fomors use fists.
+---------------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
-
 function onMobSkillCheck(target, mob, skill)
-    if (mob:getMainJob() == tpz.job.MNK) then
+    -- Only used by mobs with H2H weapons
+    if (mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND) then
         return 0
     end
     return 1

@@ -13,16 +13,22 @@ end
 function onItemUse(target)
     local effectsDispelled = 0
 
-    if (target:dispelStatusEffect() ~= tpz.effect.NONE) then
-        effectsDispelled = effectsDispelled + 1
+    if math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
+        if (target:dispelStatusEffect() ~= tpz.effect.NONE) then
+            effectsDispelled = effectsDispelled + 1
+        end
     end
 
-    if (target:dispelStatusEffect() ~= tpz.effect.NONE) then
-        effectsDispelled = effectsDispelled + 1
+    if math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
+        if (target:dispelStatusEffect() ~= tpz.effect.NONE) then
+            effectsDispelled = effectsDispelled + 1
+        end
     end
 
-    if (target:dispelStatusEffect() ~= tpz.effect.NONE) then
-        effectsDispelled = effectsDispelled + 1
+    if math.random(100) > target:getMod(tpz.mod.DISPELRESTRAIT) then
+        if (target:dispelStatusEffect() ~= tpz.effect.NONE) then
+            effectsDispelled = effectsDispelled + 1
+        end
     end
 
     target:messagePublic(tpz.msg.basic.EFFECTS_DISAPPEAR, target, effectsDispelled, effectsDispelled)

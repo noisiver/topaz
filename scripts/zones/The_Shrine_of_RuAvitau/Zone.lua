@@ -38,6 +38,17 @@ function onInitialize(zone)
     zone:registerRegion(2, 777, -103, -503, 783, -99, -497) --> E (G-6)
     zone:registerRegion(1, 816, -103, -503, 822, -99, -497) --> F (I-6)
 
+    local monolithTable =
+    {
+        17506741, 17506743, 17506745, 17506747, 17506749,
+        17506751, 17506753, 17506755, 17506757, 17506759,
+        17506761, 17506763, 17506765, 17506767, 17506769,
+        17506771, 17506773, 17506775, 17506777, 17506779
+    }
+    -- Randomize gates
+    for _, monolith in pairs(monolithTable) do
+        GetNPCByID(monolith):setAnimation(math.random(tpz.anim.OPEN_DOOR, tpz.anim.CLOSE_DOOR))
+    end
 end
 
 function onZoneIn(player, prevZone)

@@ -46,6 +46,7 @@ public:
     void TapDeaggroTime();
     void TapDeclaimTime();
     virtual bool Cast(uint16 targid, SpellID spellid) override;
+    bool CanDetectTarget(CBattleEntity* PTarget, bool forceSight = false, bool detectDead = false);
 
     bool DeaggroEntity(CBattleEntity* PEntity);
     bool DeaggroAll();
@@ -55,13 +56,13 @@ protected:
 
 
     virtual void TryLink();
-    bool CanDetectTarget(CBattleEntity* PTarget, bool forceSight = false);
     uint32 GetSightDetectionModifiers();
     bool IsDaySight();
     uint32 GetSoundDetectionModifiers();
     uint32 GetBloodDetectionModifiers();
     bool IsUndead();
     int32 GetFomorHate(CBattleEntity* PTarget);
+    int32 GetPixieHate(CBattleEntity* PTarget);
     bool CanPursueTarget(CBattleEntity* PTarget);
     bool CheckHide(CBattleEntity* PTarget);
     bool CheckDetection(CBattleEntity* PTarget);

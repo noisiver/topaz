@@ -10,7 +10,7 @@ require("scripts/globals/msg")
 function onAdditionalEffect(player, target, damage)
     local chance = CalculateAdditionalEffectChance(player, 100)
     local power = 1
-    local duration = 30
+    local duration = 120
     local subpower = 0
     local tier = 1
     local bonus = 0

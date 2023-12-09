@@ -1764,6 +1764,7 @@ inline int32 CLuaBaseEntity::getFomorHate(lua_State* L)
     lua_pushinteger(L, ((CCharEntity*)m_PBaseEntity)->m_fomorHate);
     return 1;
 }
+
 /************************************************************************
  *  Function: setFomorHate()
  *  Purpose : Updates PC's fomor hate (both DB and local)
@@ -1779,6 +1780,36 @@ inline int32 CLuaBaseEntity::setFomorHate(lua_State* L)
     lua_pushnil(L);
     return 1;
 }
+
+/************************************************************************
+ *  Function: getPixieHate()
+ *  Purpose : Returns the current pixie hate of the player
+ *  Example : local status = player:getFomorHate()
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getPixieHate(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    lua_pushinteger(L, ((CCharEntity*)m_PBaseEntity)->m_pixieHate);
+    return 1;
+}
+/************************************************************************
+ *  Function: setPixieHate()
+ *  Purpose : Updates PC's pixie hate (both DB and local)
+ *  Example : player:setPixieHate(4)
+ ************************************************************************/
+inline int32 CLuaBaseEntity::setPixieHate(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    int32 value = (int32)lua_tointeger(L, -1);
+    ((CCharEntity*)m_PBaseEntity)->SetPixieHate(value);
+    lua_pushnil(L);
+    return 1;
+}
+
 
 
 /************************************************************************
@@ -5847,6 +5878,11 @@ inline int32 CLuaBaseEntity::changeJob(lua_State *L)
     PChar->jobs.unlocked |= (1 << (uint8)lua_tointeger(L, 1));
     PChar->SetMJob((uint8)lua_tointeger(L, 1));
 
+    if (PChar->PPet != nullptr)
+    {
+        petutils::DespawnPet(PChar);
+    }
+
     if (lua_tointeger(L, 1) == JOB_BLU)
     {
         if (prevjob != JOB_BLU)
@@ -5927,6 +5963,11 @@ inline int32 CLuaBaseEntity::changesJob(lua_State *L)
     PChar->jobs.unlocked |= (1 << (uint8)lua_tointeger(L, 1));
     PChar->SetSJob((uint8)lua_tointeger(L, 1));
     charutils::UpdateSubJob(PChar);
+
+    if (PChar->PPet != nullptr)
+    {
+        petutils::DespawnPet(PChar);
+    }
 
     if (lua_tointeger(L, 1) == JOB_BLU)
     {
@@ -10689,7 +10730,7 @@ inline int32 CLuaBaseEntity::sendRaise(lua_State *L)
 
     uint8 RaiseLevel = (uint8)lua_tonumber(L, 1);
 
-    if (RaiseLevel == 0 || RaiseLevel > 3)
+    if (RaiseLevel == 0 || RaiseLevel > 6)
     {
         ShowDebug(CL_CYAN"lua::sendRaise raise value is not valide!\n" CL_RESET);
     }
@@ -16154,6 +16195,7 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
     if (lua_isnumber(L, 1))
     {
         auto skillid {(uint16)lua_tointeger(L, 1)};
+        CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
         CBattleEntity* PTarget {nullptr};
         auto PMobSkill {battleutils::GetMobSkill(skillid)};
 
@@ -16168,7 +16210,7 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
             PTarget = (CBattleEntity*)PLuaBaseEntity->m_PBaseEntity;
         }
 
-        m_PBaseEntity->PAI->QueueAction(queueAction_t(0ms, true, [PTarget, skillid, PMobSkill](auto PEntity) {
+        m_PBaseEntity->PAI->QueueAction(queueAction_t(0ms, true, [PTarget, PMob, skillid, PMobSkill](auto PEntity) {
             if (PTarget)
                 PEntity->PAI->MobSkill(PTarget->targid, skillid);
             else if (dynamic_cast<CMobEntity*>(PEntity))
@@ -16176,12 +16218,28 @@ inline int32 CLuaBaseEntity::useMobAbility(lua_State* L)
                 if (luautils::OnMobSkillCheck(PTarget, PEntity, PMobSkill) == 0) // A script says that the move in question is valid
                 {
                     if (PMobSkill->getValidTargets() & TARGET_ENEMY)
+                    {
                         PEntity->PAI->MobSkill(static_cast<CMobEntity*>(PEntity)->GetBattleTargetID(), skillid);
+
+                        // Set message for "Player" and Fomor TP moves
+                        if (PMobSkill->getID() <= 255)
+                        {
+                            PMob->loc.zone->PushPacket(PMob, CHAR_INRANGE, new CMessageBasicPacket(PMob, PMob, 0, PMobSkill->getID(), MSGBASIC_READIES_WS));
+                        }
+                    }
                     else if (PMobSkill->getValidTargets() & TARGET_SELF)
+                    {
                         PEntity->PAI->MobSkill(PEntity->targid, skillid);
+                    }
 
                 }
             }
+            if (!PMobSkill->isTwoHour())
+                {
+                    // Set var for use in monstertpmoves.lua TP scaling
+                    int16 tp = PMob->health.tp;
+                    PMob->SetLocalVar("tp", tp);
+                }
         }));
     }
     else
@@ -16396,7 +16454,7 @@ inline int32 CLuaBaseEntity::addTreasure(lua_State *L)
 *  Function: getStealItem()
 *  Purpose : Used to return the Item ID of a mob's item which can be stolen
 *  Example : steamItem = target:getStealItem()
-*  Notes   : Used only in Thief quest and Maat
+*  Notes   : If multiple steal items exist in the db, an item is picked at random
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::getStealItem(lua_State *L)
@@ -16411,13 +16469,21 @@ inline int32 CLuaBaseEntity::getStealItem(lua_State *L)
 
         if (PDropList && !PMob->m_ItemStolen)
         {
+            // Steal item randomly selected from steal drop table
+            std::vector<uint16> items;
+
             for (const DropItem_t& drop : PDropList->Items)
             {
                 if (drop.DropType == DROP_STEAL)
                 {
-                    lua_pushinteger(L, drop.ItemID);
-                    return 1;
+                    items.emplace_back(drop.ItemID);
                 }
+            }
+
+            if (!items.empty())
+            {
+                lua_pushinteger(L,tpzrand::GetRandomElement(items));
+                return 1;
             }
         }
     }
@@ -16430,7 +16496,7 @@ inline int32 CLuaBaseEntity::getStealItem(lua_State *L)
 *  Function: getDespoilItem()
 *  Purpose : Used to return the Item ID of a mob's item which can be despoiled
 *  Example : despoilItem = target:getDespoilItem()
-*  Notes   : Defaults to getStealItem() if no despoil item exists
+*  Notes   : If multiple steal items exist in the db, an item is picked at random 
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::getDespoilItem(lua_State *L)
@@ -16444,18 +16510,27 @@ inline int32 CLuaBaseEntity::getDespoilItem(lua_State *L)
         DropList_t* PDropList = itemutils::GetDropList(PMob->m_DropID);
         if (PDropList && !PMob->m_ItemStolen)
         {
+            // Steal item randomly selected from steal drop table
+            std::vector<uint16> items;
+
             for (const DropItem_t& drop : PDropList->Items)
             {
                 if (drop.DropType == DROP_DESPOIL)
                 {
-                    lua_pushinteger(L, drop.ItemID);
-                    return 1;
+                    items.emplace_back(drop.ItemID);
                 }
+            }
+
+            if (!items.empty())
+            {
+                lua_pushinteger(L, tpzrand::GetRandomElement(items));
+                return 1;
             }
         }
     }
 
-    return getStealItem(L);
+    lua_pushinteger(L, 0);
+    return 1;
 }
 
 /************************************************************************
@@ -16519,6 +16594,34 @@ inline int32 CLuaBaseEntity::getTHlevel(lua_State* L)
     }
     
     return 1;
+}
+
+/************************************************************************
+ *  Function: TryProcTH(target)
+ *  Purpose : Attempts to proc Treasure Hunter on the target
+ *  Example : player:TryProcTH(mob)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::TryProcTH(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1));
+
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+    CMobEntity* PMob = (CMobEntity*)PLuaBaseEntity->GetBaseEntity();
+
+    if (PMob->objtype == TYPE_MOB)
+    {
+        bool highProcRate = false;
+        if (!lua_isnil(L, 2) && lua_isboolean(L, 2))
+        {
+            highProcRate = lua_toboolean(L, 2);
+        }
+        charutils::TryProcTH((CCharEntity*)m_PBaseEntity, PMob, 0, highProcRate);
+    }
+
+    return 0;
 }
 
 /************************************************************************
@@ -16614,8 +16717,10 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getStatus),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setStatus),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getCurrentAction),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, getFomorHate),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity, setFomorHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getFomorHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setFomorHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getPixieHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,setPixieHate),
 
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,lookAt),
@@ -17276,6 +17381,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDespoilDebuff),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,itemStolen),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getTHlevel),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,TryProcTH),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getPlayerRegionInZone),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,updateToEntireZone),
 

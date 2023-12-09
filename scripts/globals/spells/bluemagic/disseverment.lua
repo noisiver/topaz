@@ -49,7 +49,6 @@ function onSpellCast(caster, target, spell)
     params.eco = ECO_LUMINIAN
     params.AccTPModifier = true
 	params.attkbonus = 0.9
-    params.shadowbehav = BLUPARAM_5_SHADOW
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     

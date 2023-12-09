@@ -19,6 +19,13 @@ function onPetAbility(target, automaton, skill, master, action)
     local bonus = 175
     local resist = applyResistanceAbility(automaton, target, element, skillType, bonus)
     local effect = 0
+
+    -- Check for dispel resistance trait
+	if math.random(100) < target:getMod(tpz.mod.DISPELRESTRAIT) then
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return effect
+    end
+
     if resist >= 0.5 then
         effect = target:dispelStatusEffect()
         skill:setMsg(tpz.msg.basic.SKILL_ERASE)

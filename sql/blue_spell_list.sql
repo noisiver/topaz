@@ -208,6 +208,7 @@ INSERT INTO `blue_spell_list` VALUES ('714','2073','6','31','2','9','5'); -- Sin
 -- Unbridled Learning
 INSERT INTO `blue_spell_list` VALUES ('736','629','0','0','0','0','0'); -- Thunderbolt
 INSERT INTO `blue_spell_list` VALUES ('737','807','0','0','0','0','0'); -- Harden Shell
+INSERT INTO `blue_spell_list` VALUES ('737','1050','0','0','0','0','0'); -- Harden Shell
 INSERT INTO `blue_spell_list` VALUES ('738','957','0','0','0','0','0'); -- Absolute Terror
 INSERT INTO `blue_spell_list` VALUES ('738','1045','0','0','0','0','0'); -- Absolute Terror
 INSERT INTO `blue_spell_list` VALUES ('738','1285','0','0','0','0','0'); -- Absolute Terror
@@ -221,7 +222,7 @@ INSERT INTO `blue_spell_list` VALUES ('739','3521','0','0','0','0','0'); -- Gate
 INSERT INTO `blue_spell_list` VALUES ('740','2024','0','0','0','13','12'); -- Tourbillion
 INSERT INTO `blue_spell_list` VALUES ('741','1829','0','0','0','0','0'); -- Pyric Bulwark
 INSERT INTO `blue_spell_list` VALUES ('742','2118','0','0','0','14','9'); -- Bilgestorm
-INSERT INTO `blue_spell_list` VALUES ('743','2106','0','0','0','14','10'); -- Bloodrake
+INSERT INTO `blue_spell_list` VALUES ('743','2106','0','0','0','14','10'); -- Bloodraked
 INSERT INTO `blue_spell_list` VALUES ('744','3005','0','0','0','0','0'); -- Droning Whirlwind
 INSERT INTO `blue_spell_list` VALUES ('745','3014','0','0','0','0','0'); -- Carcharian Verve
 INSERT INTO `blue_spell_list` VALUES ('746','3020','0','0','0','0','0'); -- Blistering Roar

@@ -3,23 +3,18 @@
 --
 --  Description: Damage varies with TP. Additional effect: "Stun."
 --  Type: Physical (Blunt)
--- RDM, THF, PLD, BST, BRD, RNG, NIN, and COR fomors).
---
+-- Only used by Fomors that wield a one-handed weapon 
 ---------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    local job = mob:getMainJob()
-    -- Also used by DRK Fallen Volunteer Troopers because they are single wielding
-    if mob:getPool() == 1285 then
-        return 0
+    -- Only used by 1 handed fomors
+    if (mob:isWeaponTwoHanded() or mob:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.HAND_TO_HAND) then
+        return 1
     end
-    if (job == tpz.job.RDM or job == tpz.job.THF or job == tpz.job.PLD or job == tpz.job.BST or job == tpz.job.RNG or job == tpz.job.BRD or job == tpz.job.NIN or job == tpz.job.COR) then
-        return 0
-    end
-    return 1
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)

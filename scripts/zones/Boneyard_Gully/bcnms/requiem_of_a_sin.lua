@@ -20,9 +20,6 @@ function onBattlefieldRegister(player, battlefield)
 end
 
 function onBattlefieldEnter(player, battlefield)
-    if player:hasKeyItem(tpz.ki.LETTER_FROM_SHIKAREE_Y) then
-        player:delKeyItem(tpz.ki.LETTER_FROM_SHIKAREE_Y)
-    end
 end
 
 function onBattlefieldLeave(player, battlefield, leavecode)
@@ -39,6 +36,7 @@ end
 
 function onEventFinish(player, csid, option)
     if csid == 32001 then
+        npcUtil.deleteKeyItem(player, tpz.ki.LETTER_FROM_SHIKAREE_Y)
         player:addExp(2000)
     end
 end

@@ -94,16 +94,17 @@ function onSpellCast(caster, target, spell)
 
         --printf("BEFORE AFFLATUS MISERY BONUS: %d", basecure)
 
-        basecure = basecure + misery
-
-        if (basecure > 375) then
-            basecure = 375
-        end
+        basecure = basecure + (misery * 3)
 
         --printf("AFTER AFFLATUS MISERY BONUS: %d", basecure)
 
         --Afflatus Misery Mod Gets Used Up
         caster:setMod(tpz.mod.AFFLATUS_MISERY, 0)
+    end
+
+    -- Triple the healing if Sacrosanctity is active
+    if caster:hasStatusEffect(tpz.effect.SACROSANCTITY) then
+        basecure = basecure * 3
     end
 
     final = getCureFinal(caster, spell, basecure, minCure, false)
@@ -112,9 +113,11 @@ function onSpellCast(caster, target, spell)
     --Applying server mods....
     final = final * CURE_POWER
 
-    target:addHP(final)
-
-    target:wakeUp()
+    -- Check for curse
+    if not target:hasStatusEffect(tpz.effect.CURSE_II) then
+        target:addHP(final)
+        target:wakeUp()
+    end
 
     --Enmity for Cura is fixed, so its CE/VE is set in the SQL and not calculated with updateEnmityFromCure
 
